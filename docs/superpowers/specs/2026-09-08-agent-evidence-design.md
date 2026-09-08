@@ -6,9 +6,11 @@ Make Typelatch useful to a reader configuring Codex or Claude Code, before askin
 
 ## Direction
 
-A precision latch holds source evidence in place. The palette is ink `#10100f`, ivory `#f2efe5`, orange `#ff5a1f`, graphite `#22221f`, and muted ivory `#aaa99f`. Archivo variable carries the large display and reading text. IBM Plex Mono identifies commands and evidence. Original generated industrial artwork supplies one sculptural focal point. A custom bracket mark and source path visualization make the metaphor specific to Typelatch.
+A precision latch holds source evidence in place. The palette is ink `#10100f`, ivory `#f2efe5`, orange `#ff5a1f`, graphite `#22221f`, and muted ivory `#aaa99f`. Archivo variable carries the large display and reading text. IBM Plex Mono identifies commands and evidence. Original generated industrial artwork supplies one sculptural focal point. A plain Typelatch wordmark replaces the rejected corner symbol.
 
 The site is a continuous journey from a useful question to evidence, not a stack of feature cards. An expressive dark opening leads into an ivory task surface and an inspectable recorded workflow. Readers can move between API discovery and applying and checking the API. Setup is a concise workbench with Codex and Claude Code commands. Detailed methodology and limitations remain directly accessible through supporting links.
+
+The first screen leads with focused API context instead of a documentation hunt and includes a copyable published npm installation command. It does not promise measured speed or token savings. The task introduction exposes recorded compiler and assertion outcomes immediately. Each assertion can open its exact test source and captured output without requiring a reader to discover the second view first.
 
 Rejected alternatives are a generic terminal hero with feature cards, which does not explain the task, and a research report as the homepage, which foregrounds limitations instead of usefulness. There are no numbered section labels, simulated live statuses, invented chat messages, performance claims, or hidden essential content.
 
@@ -24,6 +26,6 @@ The capture client is a scripted MCP client operated during this development ses
 
 ## Accessibility and verification
 
-Essential content is visible without JavaScript. Native details controls expose full requests and responses. Interactive navigation uses buttons with state and keyboard support. Motion only explains the selected evidence path, lasts briefly, and is absent with reduced motion. No autoplay carousels, typing effects, or decorative continuous movement. Locally hosted fonts and optimized responsive artwork avoid third party runtime requests.
+Essential content is visible without JavaScript. Native details controls expose full requests and responses. Interactive navigation uses real anchors with state and keyboard support. Motion only explains the selected evidence path, lasts briefly, and is absent with reduced motion. No autoplay carousels, typing effects, or decorative continuous movement. Locally hosted fonts and optimized responsive artwork avoid third party runtime requests.
 
 Run site contract tests, browser checks at mobile and desktop, keyboard and no JavaScript checks, reduced motion checks, broken local link and asset checks, automated accessibility checks, and independent visual and claim review. Run project release checks and preserve their concrete results. Commit only scoped deliverables. A configured workflow is not a claim that the public site has been deployed.

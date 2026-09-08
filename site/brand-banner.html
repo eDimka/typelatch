@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <title>Typelatch brand artwork</title>
+  <style>
+    @font-face {
+      font-family: Archivo;
+      src: url('assets/fonts/archivo-latin.woff2');
+      font-weight: 100 900;
+      font-stretch: 62% 125%;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0;
+      overflow: hidden;
+      background: #10100f;
+      color: #f2efe5;
+      font-family: Archivo, Arial, sans-serif;
+      position: relative;
+    }
+    .art {
+      position: absolute;
+      width: 910px;
+      height: auto;
+      right: -5px;
+      top: 25px;
+      mask-image: linear-gradient(to right, transparent, #000 25%);
+    }
+    .content {
+      position: relative;
+      padding: 46px 54px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 29px;
+      letter-spacing: -1.5px;
+      font-weight: 650;
+    }
+    .brand img {
+      width: 34px;
+      height: 34px;
+    }
+    .brand b {
+      color: #ff5a1f;
+    }
+    .title {
+      font-size: 77px;
+      line-height: 0.99;
+      font-weight: 650;
+      letter-spacing: -5px;
+      font-stretch: 92%;
+      margin: 48px 0 24px;
+    }
+    .title span {
+      color: #ff5a1f;
+    }
+    .description {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #c3c0b6;
+      margin: 0;
+    }
+    .foot {
+      position: absolute;
+      left: 54px;
+      right: 54px;
+      bottom: 32px;
+      border-top: 1px solid #383832;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      color: #aaa99f;
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+    .foot strong {
+      color: #f2efe5;
+      font-weight: 450;
+    }
+  </style>
+  <img class="art" src="assets/latch-hero.webp" alt="" />
+  <div class="content">
+    <div class="brand">typelatch<b>.</b></div>
+    <h1 class="title">
+      The right API.<br /><span>Not a wall<br />of docs.</span>
+    </h1>
+    <p class="description">
+      Skip the documentation hunt.<br />Keep your agent’s context for the code.
+    </p>
+  </div>
+  <div class="foot">
+    <span>LOCAL API EVIDENCE FOR TYPESCRIPT AGENTS</span
+    ><strong>npm install --global typelatch</strong>
+  </div>
+</html>

@@ -18,6 +18,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json && node scripts/assets.mjs",
+    "site:build": "node scripts/site.mjs",
+    "site:check": "node --test scripts/site.test.mjs",
     "check": "tsc -p tsconfig.json --noEmit",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",

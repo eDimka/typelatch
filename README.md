@@ -1,10 +1,10 @@
 # Typelatch
 
-[![Typelatch. Find the API. Check it where the code runs.](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/readme-banner.png)](https://edimka.github.io/typelatch/)
+[![Typelatch. The right API. Not a wall of docs.](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/readme-banner.png)](https://edimka.github.io/typelatch/)
 
-Local API evidence for TypeScript coding agents.
+**Focused API context for Codex and Claude Code. Install from npm, connect your agent, and ask about your dependencies.**
 
-Give Codex or Claude Code the API from an exact npm version, then check the code against your installed compiler and explicit assertions. Typelatch searches a local SQLite knowledge store through six MCP tools. It also works from the terminal.
+Skip the documentation hunt. Typelatch retrieves API signatures and source references from an exact npm version instead of asking your agent to read whole package files. Keep its context window for the code, then check the result against your installed compiler and explicit assertions. Search runs against a local SQLite index through MCP or the terminal. Actual token use and time saved depend on the task and client. We do not yet claim measured savings.
 
 [See the walkthrough](https://edimka.github.io/typelatch/) · [Usage](docs/USAGE.md) · [Recorded evidence](docs/showcase/recording.json)
 

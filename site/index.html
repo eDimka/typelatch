@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10100f" />
+    <title>Typelatch | The right API. Not a wall of docs.</title>
+    <meta
+      name="description"
+      content="Exact npm APIs, local SQLite knowledge, and workspace evidence for Codex and Claude Code. Follow a real SQLite task from question to tested code."
+    />
+    <link rel="canonical" href="https://edimka.github.io/typelatch/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Typelatch. The right API. Not a wall of docs." />
+    <meta
+      property="og:description"
+      content="Local API evidence for coding agents. See the actual request, source, code, and execution results of a SQLite task."
+    />
+    <meta property="og:url" content="https://edimka.github.io/typelatch/" />
+    <meta
+      property="og:image"
+      content="https://edimka.github.io/typelatch/assets/readme-banner.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link
+      rel="preload"
+      href="assets/fonts/archivo-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="site.css" />
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead wrap">
+      <a class="brand" href="./" aria-label="Typelatch home"
+        >typelatch<span class="brand-stop">.</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a href="#the-run">The real run</a>
+        <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
+          >Docs <span aria-hidden="true">↗</span></a
+        >
+        <a class="nav-setup" href="#setup">Equip your agent <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="release-label">FOR CODEX AND CLAUDE CODE</p>
+          <h1 id="hero-title">
+            The right API.<br /><span>Not a wall<br />of docs.</span>
+          </h1>
+          <p class="hero-description">
+            Give your agent focused API context from a local index.
+            <strong>Skip the documentation hunt.</strong> Keep its context window for the code.
+          </p>
+          <div class="hero-install">
+            <p class="small-label">INSTALL ONCE. CONNECT YOUR AGENT.</p>
+            <div>
+              <pre><code id="hero-install-command">npm install --global typelatch@0.1.1</code></pre>
+              <button type="button" data-copy="hero-install-command" hidden>Copy</button>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="text-link" href="#setup"
+              >Connect Codex or Claude Code <span aria-hidden="true">↗</span></a
+            ><a class="text-link" href="#the-run"
+              >See a real task <span aria-hidden="true">↓</span></a
+            >
+          </div>
+        </div>
+        <figure class="hero-art">
+          <img
+            src="assets/latch-hero.webp"
+            srcset="assets/latch-hero-small.webp 840w, assets/latch-hero.webp 1536w"
+            sizes="(max-width: 700px) 100vw, 65vw"
+            width="1536"
+            height="1024"
+            alt="An orange precision latch holds a stack of ivory source sheets, with one sheet drawn out for inspection."
+            fetchpriority="high"
+          />
+        </figure>
+        <div class="hero-foot">
+          <span>LOCAL API EVIDENCE FOR TYPESCRIPT AGENTS</span
+          ><span>YOUR PACKAGES. YOUR WORKSPACE. YOUR MACHINE.</span>
+        </div>
+      </section>
+
+      <section class="run-section" id="the-run" aria-labelledby="run-title">
+        <div class="wrap">
+          <div class="run-intro">
+            <p class="eyebrow">LESS PITCH. MORE PROOF.</p>
+            <p class="record-label"><span aria-hidden="true">◷</span> RECORDED {{recordDate}}</p>
+          </div>
+          <div class="task-heading">
+            <h2 id="run-title">One failed row.<br /><span>No partial writes.</span></h2>
+            <p>
+              A real SQLite coding question. <br />Two things an agent needs: <br /><strong
+                >the right API, and a way to check its work.</strong
+              >
+            </p>
+          </div>
+          <div class="task-ticket">
+            <div class="ticket-label">
+              <span class="bracket-glyph" aria-hidden="true">[↳]</span> THE QUESTION
+            </div>
+            <blockquote>{{question}}</blockquote>
+            <p class="task-stack">
+              Kysely 0.28.8 <span aria-hidden="true">/</span> better-sqlite3 13.0.3
+              <span aria-hidden="true">/</span> TypeScript
+            </p>
+          </div>
+          {{recordedOutcomes}}
+          <p class="record-disclosure">
+            Real MCP requests and outputs, captured by Jcode using a scripted MCP client. This is a
+            recorded walkthrough, not a live agent session or a Codex or Claude Code transcript.
+            Commentary is authored separately from tool output.
+            <a href="evidence/recording.json"
+              >Open the full recording <span aria-hidden="true">↗</span></a
+            >
+          </p>
+
+          <div class="evidence-navigation" aria-label="Recorded workflow views">
+            <a href="#lookup" data-view="lookup"
+              ><span aria-hidden="true">⌕</span> Find the API
+              <span class="view-note">FROM THE LOCAL STORE</span></a
+            >
+            <a href="#use" data-view="use"
+              ><span aria-hidden="true">↳</span> Put it to work
+              <span class="view-note">IN THE SQLITE APP</span></a
+            >
+          </div>
+
+          <article id="lookup" class="evidence-view" aria-labelledby="lookup-title">
+            <div class="evidence-lead">
+              <div>
+                <p class="eyebrow">RETRIEVAL IS A STARTING POINT</p>
+                <h3 id="lookup-title">A question in.<br />A source you can inspect out.</h3>
+              </div>
+              <p>
+                Typelatch searches the locally indexed <strong>kysely@0.28.8</strong> artifact. It
+                returns API signatures and their source locations, not a generated answer.
+              </p>
+            </div>
+            <div class="lookup-layout">
+              <div class="request-column">
+                <p class="small-label">THE AGENT'S SEARCH</p>
+                <p>
+                  The first question found transaction and insertion APIs. The agent then narrowed
+                  the request to the callback API.
+                </p>
+                {{initialSearch}}
+                <div class="request-block">
+                  <div class="code-heading">
+                    <span>library_search</span><span>REFINED REQUEST</span>
+                  </div>
+                  {{refinedRequest}}
+                </div>
+                <p class="annotation">
+                  <span aria-hidden="true">↳</span> A useful refinement, not a claim of perfect
+                  first try retrieval.
+                </p>
+              </div>
+              <div class="source-sheet">
+                <div class="source-tab">RETURNED FROM LOCAL SQLITE</div>
+                <p class="source-package">kysely@0.28.8 <span aria-hidden="true">↗</span></p>
+                <h4>TransactionBuilder<span>&lt;DB&gt;</span></h4>
+                {{sourceSignature}}
+                <div class="source-reference">{{sourceReference}}</div>
+                <p class="source-explanation">
+                  The callback receives a transaction. The agent can put every insert inside it and
+                  let a rejection escape.
+                </p>
+                {{symbolRequest}}
+              </div>
+            </div>
+            <div class="trace" id="evidence-trace">
+              <div class="trace-top">
+                <p class="small-label">WHAT THE TOOL ACTUALLY QUERIED</p>
+                <button type="button" class="trace-button" data-trace hidden>
+                  Trace the lookup <span aria-hidden="true">↗</span>
+                </button>
+              </div>
+              <div
+                class="trace-track"
+                aria-label="The MCP request searches the local SQLite index and returns the package declaration"
+              >
+                <span class="trace-node">library_search</span
+                ><span class="trace-line" aria-hidden="true"></span
+                ><span class="trace-node trace-store"
+                  ><svg viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+                    <path
+                      d="m4 13 16-8 16 8-16 8-16-8Zm0 7 16 8 16-8M4 27l16 8 16-8"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    /></svg
+                  >brain.db</span
+                ><span class="trace-line" aria-hidden="true"></span
+                ><span class="trace-node">kysely.d.ts:623</span>
+              </div>
+              <p class="trace-caption">
+                Your agent calls an MCP tool. Typelatch queries its own SQLite knowledge store. That
+                store is separate from the SQLite database in the example application.
+              </p>
+              {{storeAudit}}
+            </div>
+            <div class="view-end">
+              <p>
+                <strong>Found is not verified.</strong> A returned declaration has not compiled or
+                executed the application.
+              </p>
+              <a class="text-link dark-link" href="#use" data-next-view="use"
+                >Now use it in the workspace <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+
+          <article id="use" class="evidence-view" aria-labelledby="use-title">
+            <div class="evidence-lead">
+              <div>
+                <p class="eyebrow">TURN THE API INTO WORKING CODE</p>
+                <h3 id="use-title">Keep the whole batch.<br />Or keep none of it.</h3>
+              </div>
+              <p>
+                The agent uses the transaction callback and binds values instead of interpolating
+                SQL. Then it asks Typelatch to compile the workspace and run the supplied
+                assertions.
+              </p>
+            </div>
+            <div class="implementation-layout">
+              <div class="implementation">
+                <div class="code-heading">
+                  <a href="https://github.com/eDimka/typelatch/blob/main/examples/sqlite/batch.ts"
+                    >batch.ts <span aria-hidden="true">↗</span></a
+                  ><span>EXECUTED FIXTURE EXCERPT</span>
+                </div>
+                {{implementation}}
+                <p class="code-caption">
+                  Authored implementation, informed by the retrieved declarations.
+                  <a href="https://github.com/eDimka/typelatch/tree/main/examples/sqlite"
+                    >Read the complete fixture <span aria-hidden="true">↗</span></a
+                  >
+                </p>
+              </div>
+              <div class="decision-note">
+                <span class="decision-arrow" aria-hidden="true">↳</span>
+                <p class="small-label">HOW THE AGENT USES IT</p>
+                <p>Every insert goes through <code>transaction</code>.</p>
+                <p>
+                  The promise rejects on a duplicate name. The error is not swallowed, so the
+                  transaction can roll back.
+                </p>
+                <p class="muted">
+                  That is the implementation decision. The assertions below are the execution
+                  evidence.
+                </p>
+              </div>
+            </div>
+            {{workspaceContext}}
+            <div class="validation-layout">
+              <div class="validation-request">
+                <div class="code-heading">
+                  <span>workspace_validate</span><span>ACTUAL REQUEST</span>
+                </div>
+                {{validationRequest}}
+                <p class="annotation">
+                  <code>$WORKSPACE</code> replaces the private absolute fixture path. Tests run only
+                  because <code>testCommand</code> was explicitly supplied.
+                </p>
+              </div>
+              <div class="validation-result">
+                <p class="small-label">RETURNED EVIDENCE</p>
+                {{evidenceStates}}
+                <p>For this fixture and these assertions. Not a general correctness guarantee.</p>
+              </div>
+            </div>
+            <div class="assertion-results">
+              <h4>What actually happened</h4>
+              {{assertionOutput}}
+              <details>
+                <summary>Inspect complete execution output</summary>
+                {{executionOutput}}
+              </details>
+            </div>
+            <div class="negative-control">
+              <span class="negative-symbol" aria-hidden="true">≠</span>
+              <div>
+                <p class="small-label">A CHECK THAT CAN CATCH THE MISTAKE</p>
+                <h4>Remove the transaction. The code still compiles.</h4>
+                <p>
+                  The same atomicity requirement fails. The earlier row is left in the database.
+                  That is why compilation and runtime assertions are separate evidence.
+                </p>
+              </div>
+              {{negativeResult}}
+            </div>
+            <div class="view-end">
+              <p>
+                <strong>Unknown stays unknown.</strong> Workspace artifact equivalence is not
+                established by this run.
+              </p>
+              <a
+                class="text-link dark-link"
+                href="https://github.com/eDimka/typelatch/blob/main/docs/showcase/README.md"
+                >Reproduce and inspect the run <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="setup-section wrap" id="setup" aria-labelledby="setup-title">
+        <div class="setup-intro">
+          <p class="eyebrow">MAKE IT PART OF THE WORKFLOW</p>
+          <h2 id="setup-title">Your agent.<br /><span>Better equipped.</span></h2>
+          <p>
+            Install the published package, index a dependency,<br class="desktop-break" />
+            and connect your agent. No repository clone.
+          </p>
+          <a class="npm-link" href="https://www.npmjs.com/package/typelatch"
+            >typelatch on npm <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="setup-workbench">
+          <div class="setup-command">
+            <div class="code-heading">
+              <h3>Install Typelatch</h3>
+              <button type="button" data-copy="install-command" hidden>Copy</button>
+            </div>
+            <pre><code id="install-command">npm install --global typelatch@0.1.1</code></pre>
+            <p>
+              Node.js 22.12 or newer. The native SQLite dependency may need a C++ toolchain if a
+              prebuilt binary is unavailable.
+            </p>
+          </div>
+          <div class="setup-command">
+            <div class="code-heading">
+              <h3>Give it an exact package</h3>
+              <button type="button" data-copy="index-command" hidden>Copy</button>
+            </div>
+            <pre><code id="index-command">typelatch add kysely@0.28.8</code></pre>
+            <p>
+              Use the version in your project. Inside an npm project,
+              <code>typelatch sync</code> indexes direct locked dependencies. Indexing needs npm
+              access. Indexed search works offline.
+            </p>
+          </div>
+          <div class="agent-install">
+            <div class="agent-heading">
+              <h3>Connect your agent</h3>
+              <span>LOCAL STDIO MCP</span>
+            </div>
+            <div class="client-command">
+              <div class="code-heading">
+                <h4>Codex</h4>
+                <button type="button" data-copy="codex-command" hidden>Copy</button>
+              </div>
+              <pre><code id="codex-command">codex mcp add typelatch -- typelatch-mcp</code></pre>
+            </div>
+            <div class="client-command">
+              <div class="code-heading">
+                <h4>Claude Code</h4>
+                <button type="button" data-copy="claude-command" hidden>Copy</button>
+              </div>
+              <pre><code id="claude-command">claude mcp add --transport stdio --scope user typelatch -- typelatch-mcp</code></pre>
+            </div>
+            <p>
+              Restart or reconnect your agent after configuration. Use the same
+              <code>TYPELATCH_HOME</code> for indexing and the MCP server.
+              <a
+                href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md#install-and-connect"
+                >Full setup and troubleshooting <span aria-hidden="true">↗</span></a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="prompt-to-go">
+          <div>
+            <p class="small-label">GIVE YOUR AGENT A USEFUL INSTRUCTION</p>
+            <h3>Make evidence <br />part of “done”.</h3>
+          </div>
+          <div>
+            <div class="code-heading">
+              <span>ADAPT TO YOUR TRUSTED PROJECT</span
+              ><button type="button" data-copy="agent-prompt" hidden>Copy prompt</button>
+            </div>
+            <p id="agent-prompt">
+              Use Typelatch to look up the exact dependency version before choosing an API. Cite the
+              returned declaration. Resolve it in my workspace with workspace_context. Ask me to
+              approve a specific test command before workspace_validate runs it. Report retrieval,
+              compilation and test results separately, including anything unknown or not run.
+            </p>
+            <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
+              >More workflows and all six tools <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <aside class="boundaries wrap" aria-labelledby="boundaries-title">
+        <h2 id="boundaries-title">Local by design.<br />Explicit about the limits.</h2>
+        <div>
+          <p>
+            Package indexing downloads npm artifacts and verifies registry integrity without running
+            their lifecycle scripts. Queries and history stay on your machine. Workspace checks use
+            your installed compiler. Explicit test commands execute local code with your
+            permissions.
+          </p>
+          <p>
+            Evidence covers the recorded inputs and assertions. It does not certify remote services,
+            excluded files, or general coding success.
+          </p>
+          <div class="boundary-links">
+            <a href="https://github.com/eDimka/typelatch/blob/main/SECURITY.md"
+              >Trust and local data <span aria-hidden="true">↗</span></a
+            ><a href="https://github.com/eDimka/typelatch/blob/main/docs/BENCHMARKS.md"
+              >Benchmarks and limitations <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="footer wrap">
+      <a class="brand" href="./">typelatch.</a>
+      <p>Built for agents.<br />Inspectable by people.</p>
+      <div>
+        <a href="https://github.com/eDimka/typelatch">GitHub <span aria-hidden="true">↗</span></a
+        ><a href="https://www.npmjs.com/package/typelatch">npm <span aria-hidden="true">↗</span></a
+        ><a href="https://github.com/eDimka/typelatch/blob/main/LICENSE"
+          >MIT license <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <a class="back-top" href="#main" aria-label="Back to top">↑</a>
+    </footer>
+    <p class="sr-only" id="action-status" role="status" aria-live="polite"></p>
+  </body>
+</html>

@@ -8,3 +8,6 @@ coverage/
 .env.*
 artifacts/
 .libbrain/
+_site/
+.jcode/generated-images/
+_site-qa/
