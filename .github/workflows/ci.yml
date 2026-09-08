@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - run: sudo apt-get update && sudo apt-get install --yes ripgrep
       - run: npm ci
       - run: npm run benchmark
       - run: npm run benchmark:workspace
