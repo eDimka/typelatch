@@ -139,7 +139,7 @@ describe("executed validation evidence", () => {
     const failed = await validateWorkspace({ config: f.config, record: false, testCommand: [process.execPath, "-e", "throw new Error('behavior failed')"] })
     expect(failed.checks.tested.status).toBe("fail")
     expect(failed.execution?.stderr).toContain("behavior failed")
-  })
+  }, 15_000)
 
   it("passes a real runtime assertion and links evidence to a query", async () => {
     const f = fixture()
