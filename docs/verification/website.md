@@ -6,7 +6,7 @@ Recorded on September 8, 2026 in the Typelatch checkout. This is delivery verifi
 
 | Check | Observed result |
 | :--- | :--- |
-| `npm run site:check` | All four static contract tests passed. They cover complete output, exact recording preservation, local and repository links, social image existence, refused incomplete recordings, changed fixture hashes, and static motion alternatives. |
+| `npm run site:check` | All five static contract tests passed. They cover the README's direct npm link and exact question and requests, complete output, exact recording preservation, local and repository links, social image existence, refused incomplete recordings, changed fixture hashes, and static motion alternatives. |
 | `node scripts/site-browsercheck.mjs` | Passed using Chromium 149.0.7827.55. Both evidence views and expanded disclosures fit at widths 320, 390, 768, 1024, and 1440 pixels. |
 | Automated accessibility | No axe violations for the selected WCAG A and AA rules at 390 and 1440 pixels in either view. This is not a complete accessibility audit. |
 | Interaction checks | Keyboard navigation, skip link, native disclosures, direct assertion links, clipboard success and denied access fallback passed. |
@@ -16,6 +16,8 @@ Recorded on September 8, 2026 in the Typelatch checkout. This is delivery verifi
 | Scope | No changes to application source, existing tests, or the application dependency lockfile relative to the task baseline. |
 
 The first coordinator release check timed out in the unchanged `passes a real runtime assertion and links evidence to a query` test at its default five second limit. The same test passed in isolation. A subsequent complete release check passed with no source, test, timeout, or dependency changes. The timeout remains recorded here rather than being omitted from the verification history. Its underlying environmental cause was not established.
+
+A final request audit found that the README had no direct npm link and paraphrased the question without showing the actual search request. A new contract failed before those omissions were corrected, then passed against the frozen recording. The package installation check was repeated successfully. Copy describes less searching and fewer irrelevant tokens as the design goal, with no claim of measured savings.
 
 ## Independent review
 

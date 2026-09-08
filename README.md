@@ -4,9 +4,9 @@
 
 **Focused API context for Codex and Claude Code. Install from npm, connect your agent, and ask about your dependencies.**
 
-Skip the documentation hunt. Typelatch retrieves API signatures and source references from an exact npm version instead of asking your agent to read whole package files. Keep its context window for the code, then check the result against your installed compiler and explicit assertions. Search runs against a local SQLite index through MCP or the terminal. Actual token use and time saved depend on the task and client. We do not yet claim measured savings.
+Built for less searching and fewer irrelevant tokens. Typelatch retrieves API signatures and source references from an exact npm version instead of asking your agent to read whole package files. Check the result against your installed compiler and explicit assertions. Search runs against a local SQLite index through MCP or the terminal. Actual token use and time saved depend on the task and client. We do not yet claim measured savings.
 
-[See the walkthrough](https://edimka.github.io/typelatch/) · [Usage](docs/USAGE.md) · [Recorded evidence](docs/showcase/recording.json)
+[npm package](https://www.npmjs.com/package/typelatch) · [See the walkthrough](https://edimka.github.io/typelatch/) · [Usage](docs/USAGE.md) · [Recorded evidence](docs/showcase/recording.json)
 
 ## Connect your agent
 
@@ -36,9 +36,25 @@ Start a new agent session in your TypeScript project. The agent can now search t
 
 ## A batch should succeed together or not at all
 
-Suppose you are importing contacts into SQLite. A duplicate name halfway through the import must roll back the whole batch, not leave the first contacts saved.
+The actual question in the recorded run:
 
-The [SQLite fixture](examples/sqlite) uses Kysely with `better-sqlite3`. The recorded question asks for an atomic import that also stores a name containing a quote safely. The first search returned constraint and insertion APIs. A refined search for `TransactionBuilder execute` found the callback API. The next MCP request was:
+> How can I import a batch of contacts into SQLite atomically, roll back every new row if a UNIQUE name constraint fails, and safely store a name containing a quote?
+
+The [SQLite fixture](examples/sqlite) uses Kysely with `better-sqlite3`. The first search returned transaction, insertion, and constraint APIs. Jcode narrowed the question to the callback API with this actual MCP request against Typelatch's local SQLite index:
+
+```json
+{
+  "name": "library_search",
+  "arguments": {
+    "package": "kysely",
+    "version": "0.28.8",
+    "question": "TransactionBuilder execute",
+    "limit": 5
+  }
+}
+```
+
+The results included `esm/kysely.TransactionBuilder`. The next request inspected that exact symbol:
 
 ```json
 {
@@ -100,7 +116,7 @@ An index records the package name, exact version, registry integrity, and source
 
 Indexes and query history live in `~/.typelatch`. Set `TYPELATCH_HOME` to choose another directory or `TYPELATCH_USAGE=off` to disable query and validation recording. The application does not upload query history. Workspace validation loads the trusted project compiler and can run an explicitly supplied command with your permissions. [Security and local data](SECURITY.md).
 
-The recorded development suites contain 73 discovery hits out of 73 questions, 70 strict retrieval passes, 24 workspace scenarios, and 48 negative controls. These are authored regression cases, not a measurement of general coding agent success. [Inspect the reports and methodology](docs/BENCHMARKS.md).
+The recorded development suites exercise retrieval, workspace scenarios, and negative controls. These are authored regression cases, not a measurement of general coding agent success. [Inspect the reports and methodology](docs/BENCHMARKS.md).
 
 ```sh
 npm run benchmark

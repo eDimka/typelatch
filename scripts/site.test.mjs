@@ -16,6 +16,20 @@ import { test } from 'node:test'
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
 
+test('README includes npm and the actual question, search and symbol requests', () => {
+  const readme = read('README.md')
+  const record = JSON.parse(read('docs/showcase/recording.json'))
+  assert.ok(readme.includes('https://www.npmjs.com/package/typelatch'), 'direct npm link')
+  assert.ok(readme.includes(record.authored.question), 'actual recorded question')
+  const requests = [...readme.matchAll(/```json\n([\s\S]*?)\n```/g)].map((match) =>
+    JSON.parse(match[1]),
+  )
+  for (const id of ['refined-search', 'transaction-symbol']) {
+    const expected = record.mcp.find((call) => call.id === id).request
+    assert.deepEqual(requests.find((request) => request.name === expected.name), expected)
+  }
+})
+
 test('builds an inspectable static experience from the recorded run', () => {
   assert.ok(
     existsSync(resolve(root, 'scripts/site.mjs')),
