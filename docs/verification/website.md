@@ -4,6 +4,8 @@ Recorded on September 8, 2026 in the Typelatch checkout. This is delivery verifi
 
 See the [requirement acceptance map](requirements.md) for direct client and GitHub interface checks, concrete interaction improvements, and the public deployment constraint. [Client output](client-onboarding.json) preserves actual npm, Typelatch, Codex and Claude Code commands. [GitHub results](github-rendering.json) preserve renderer checks and the public URL response.
 
+The [final acceptance replay](final-acceptance.json) reran the complete local result after the map was written. It preserves the tested commit and file hashes rather than treating earlier partial checks as final acceptance. The renewed public checks confirmed that publication is still unmet.
+
 ## Executed checks
 
 | Check | Observed result |

@@ -2,6 +2,10 @@
 
 This map records observable outcomes for the requested redesign. The local website was exercised in Chromium, the README was sent to GitHub's actual Markdown renderer, and onboarding was executed with the published npm package and the real installed client CLIs. These are separate from the authored SQLite fixture and from public deployment.
 
+After this map was complete, the full result at commit `2090833` was exercised again in one acceptance pass. [The final record](final-acceptance.json) contains input hashes, fresh published installation and client outputs, browser observations, exact SQLite source row comparison, and renewed GitHub checks. The project release checks, static contracts, full browser suite, documented client onboarding, fixture compilation and positive assertions passed. The separate transaction omission control failed as expected. No application or presentation files changed between that commit and the final pass.
+
+Publication did not pass. Fresh requests again returned 404 for the public page and banner, and repository metadata again reported Pages disabled. That requirement remains unmet. The local implementation and checks do not substitute for it.
+
 ## Direct acceptance results
 
 | Requirement or changed public output | Concrete check and observation | Evidence |
