@@ -1,0 +1,1374 @@
+{
+  "schemaVersion": 1,
+  "kind": "development-integration",
+  "generatedAt": "2026-09-08T09:51:37.921Z",
+  "manifestHash": "528a8db672113fbf8338fb6d2bf992a66759db07af733a7891e41939a43a2771",
+  "complete": true,
+  "passed": true,
+  "navigationPassed": true,
+  "totals": {
+    "packages": 12,
+    "packagesPassed": 12,
+    "tasks": 24,
+    "supportPassed": 24,
+    "navigationMatches": 24,
+    "retrievalHits": 24,
+    "retrievedCandidatesResolved": 24
+  },
+  "negativeControls": 48,
+  "limitations": [
+    "Authored executable integration fixtures, not held-out model-generated solutions",
+    "Direct TypeScript language service; no LSP wire protocol tested",
+    "Registry integrity pin does not prove installed artifact equivalence",
+    "Runtime assertions cover only the supplied scenarios"
+  ],
+  "rawEvidence": {
+    "file": "support.json.gz",
+    "sha256": "bfa6925b6540ecef82c096685e2880481431d05fa089dfe11063b70f859100fb",
+    "format": "gzip compressed JSON",
+    "localPath": "artifacts/support.json.gz"
+  },
+  "packages": [
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "filter-typescript",
+          "question": "How can I match a source path against a TypeScript glob?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved minimatch@10.2.6; expected 10.2.6"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.match",
+            "esm.match",
+            "commonjs.Minimatch"
+          ]
+        },
+        {
+          "id": "compiled-glob",
+          "question": "How do I reuse a glob matcher that includes dot directories and brace alternatives?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved minimatch@10.2.6; expected 10.2.6"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "commonjs.braceExpand",
+            "esm.braceExpand",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.Minimatch"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "ansi-styles",
+      "version": "7.0.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "terminal-warning",
+          "question": "How can I get opening and closing ANSI sequences for yellow text?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved ansi-styles@7.0.0; expected 7.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "ansi_styles.default",
+            "ansi_styles.Modifier",
+            "ansi_styles.ModifierName",
+            "ansi_styles.modifierNames",
+            "ansi_styles.ForegroundColorName"
+          ]
+        },
+        {
+          "id": "brand-rgb",
+          "question": "How do I convert an RGB hex string to three numeric color channels?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved ansi-styles@7.0.0; expected 7.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "ansi_styles.ConvertColor",
+            "ansi_styles.BackgroundColorName",
+            "ansi_styles.ForegroundColorName",
+            "ansi_styles.UnderlineColorName",
+            "ansi_styles.default"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "lru-cache",
+      "version": "11.5.2",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "bounded-cache",
+          "question": "How do I create a bounded cache that evicts the least recently used item?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved lru-cache@11.5.2; expected 11.5.2"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.StackLike",
+            "esm.StackLike",
+            "commonjs.Stack"
+          ]
+        },
+        {
+          "id": "fetch-cache",
+          "question": "How can a cache fetch missing values asynchronously and reuse them on later reads?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved lru-cache@11.5.2; expected 11.5.2"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.BackgroundFetch",
+            "esm.BackgroundFetch",
+            "commonjs.DisposeTask"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "plain-log",
+          "question": "How can I remove terminal color escapes from a log message?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved strip-ansi@7.2.0; expected 7.2.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "strip_ansi.stripAnsi"
+          ]
+        },
+        {
+          "id": "plain-link",
+          "question": "How do I strip terminal hyperlink control sequences while keeping their visible label?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved strip-ansi@7.2.0; expected 7.2.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "strip_ansi.stripAnsi"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "string-width",
+      "version": "8.2.2",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "colored-width",
+          "question": "How do I measure display columns for colored fullwidth text?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved string-width@8.2.2; expected 8.2.2"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "string_width.stringWidth"
+          ]
+        },
+        {
+          "id": "ambiguous-width",
+          "question": "How do I count ambiguous Unicode characters as wide rather than narrow?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved string-width@8.2.2; expected 8.2.2"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "string_width.stringWidth",
+            "string_width.Options"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "commander",
+      "version": "15.0.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "typed-option",
+          "question": "How do I parse a numeric command line option with a default?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved commander@15.0.0; expected 15.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "typings.Command",
+            "typings.ExecutableCommandOptions",
+            "typings.Option",
+            "typings.CommandOptions",
+            "typings.ParseOptions"
+          ]
+        },
+        {
+          "id": "subcommand",
+          "question": "How can I define a build subcommand with a required target argument and action?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved commander@15.0.0; expected 15.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "typings.Argument",
+            "typings.Command",
+            "typings.InvalidArgumentError",
+            "typings.createArgument",
+            "typings.Option"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "chalk",
+      "version": "6.0.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "forced-color",
+          "question": "How can I create an independent color formatter with basic ANSI colors enabled?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved chalk@6.0.0; expected 6.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "source.ColorSupportLevel",
+            "source.ColorSupport",
+            "source.ColorInfo",
+            "source.Chalk",
+            "source.ColorName"
+          ]
+        },
+        {
+          "id": "disable-color",
+          "question": "How do I disable all styling on a formatter without relying on terminal detection?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved chalk@6.0.0; expected 6.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "source.ChalkInstance",
+            "source.Chalk",
+            "source.supportsColor",
+            "source.default",
+            "source.Options"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "supports-color",
+      "version": "11.0.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "detect-no-flags",
+          "question": "How can I inspect color support without reading color command line flags?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved supports-color@11.0.0; expected 11.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "supports_color.createSupportsColor",
+            "supports_color.ColorSupportLevel",
+            "supports_color.ColorSupport",
+            "supports_color.ColorInfo",
+            "supports_color.default"
+          ]
+        },
+        {
+          "id": "stream-capabilities",
+          "question": "How do I read separate color capability information for stdout and stderr?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved supports-color@11.0.0; expected 11.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "supports_color.createSupportsColor",
+            "supports_color.ColorSupportLevel",
+            "supports_color.ColorInfo",
+            "supports_color.ColorSupport",
+            "supports_color.default"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "ansi-regex",
+      "version": "6.3.0",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "all-escapes",
+          "question": "How do I find every ANSI control sequence in a styled string?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved ansi-regex@6.3.0; expected 6.3.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "ansi_regex.ansiRegex",
+            "ansi_regex.Options"
+          ]
+        },
+        {
+          "id": "first-escape",
+          "question": "How can I match just the first ANSI escape in terminal output?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved ansi-regex@6.3.0; expected 6.3.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "ansi_regex.ansiRegex",
+            "ansi_regex.Options"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "10.0.1",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "word-wrap",
+          "question": "How do I wrap text into terminal columns while preserving whole words?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved wrap-ansi@10.0.1; expected 10.0.1"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ]
+        },
+        {
+          "id": "hard-wrap",
+          "question": "How do I split a long unbroken word at a fixed terminal column width?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved wrap-ansi@10.0.1; expected 10.0.1"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "effect",
+      "version": "3.22.1",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "effect-v3-retry",
+          "question": "How do I retry a failing effect with a bounded number of attempts?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved effect@3.22.1; expected 3.22.1"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "Effect.retry",
+            "Effect.retryOrElse",
+            "Queue.bounded",
+            "Micro.retry",
+            "TQueue.bounded"
+          ]
+        },
+        {
+          "id": "effect-v3-collect",
+          "question": "How do I run effects sequentially and collect all their results?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved effect@3.22.1; expected 3.22.1"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "Effect.all",
+            "Fiber.all",
+            "Sink.collectAllWhileWith",
+            "Effect.bindAll",
+            "Effect.mergeAll"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    },
+    {
+      "name": "effect",
+      "version": "4.0.0-rc.112",
+      "success": true,
+      "error": null,
+      "tasks": [
+        {
+          "id": "effect-v4-retry",
+          "question": "How do I retry a failing effect with a bounded number of attempts?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved effect@4.0.0-rc.112; expected 4.0.0-rc.112"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "Effect.retry",
+            "unstable/workflow/Activity.retry",
+            "Effect.retryOrElse",
+            "unstable/encoding/Sse.Retry",
+            "unstable/ai/AiError.ToolParameterValidationError"
+          ]
+        },
+        {
+          "id": "effect-v4-collect",
+          "question": "How do I run effects sequentially and collect all their results?",
+          "support": true,
+          "retrievalHit": true,
+          "retrievedCandidateResolved": true,
+          "navigationMatched": true,
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Exact-version discovery only; individual candidates have not been resolved in this file"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved effect@4.0.0-rc.112; expected 4.0.0-rc.112"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "results": [
+            "FiberMap.run",
+            "Effect.all",
+            "unstable/cli/Prompt.all",
+            "Effect.raceAll",
+            "Effect.replicateEffect"
+          ]
+        }
+      ],
+      "validation": {
+        "success": true,
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        }
+      },
+      "controls": {
+        "wrongVersionRejected": true,
+        "missingApiRejected": true,
+        "invalidTypeRejected": true,
+        "failingAssertionRejected": true
+      }
+    }
+  ]
+}

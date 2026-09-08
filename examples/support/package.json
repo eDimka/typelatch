@@ -1,0 +1,28 @@
+{
+  "name": "apirova-ten-package-support",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx run.ts"
+  },
+  "dependencies": {
+    "ansi-regex": "6.3.0",
+    "ansi-styles": "7.0.0",
+    "chalk": "6.0.0",
+    "commander": "15.0.0",
+    "effect-v3": "npm:effect@3.22.1",
+    "effect-v4": "npm:effect@4.0.0-rc.112",
+    "lru-cache": "11.5.2",
+    "minimatch": "10.2.6",
+    "string-width": "8.2.2",
+    "strip-ansi": "7.2.0",
+    "supports-color": "11.0.0",
+    "wrap-ansi": "10.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "tsx": "4.23.13",
+    "typescript": "6.0.3"
+  }
+}

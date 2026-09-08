@@ -1,0 +1,54 @@
+{
+  "package": "lru-cache",
+  "notes": "Authored 2026-09-04 against the built brain for lru-cache@11.5.2 (102 public symbols, compact format, schemaVersion 2). Brain module naming: there is no 'lru_cache' root module; the package's dual entry points are indexed as root modules 'esm' (import) and 'commonjs' (require), with per-platform variants (esm/node, esm/browser, commonjs/node, commonjs/browser) plus perf and diagnostics_channel submodules. Expected symbols are therefore given as the two root-entry variants, which both truly answer each question; method-level APIs (set/get/peek/dump/load/delete/clear/size/...) are folded into the LRUCache class symbol's signature/docs rather than indexed as separate symbols, so task-level how-tos canonically resolve to the class. 2026-09-04 audit: replaced the three name-echo cases ('Where is the 'LRUCache' symbol defined?', 'Where is the declaration of BackgroundFetch?', 'Where is the 'defaultPerf' symbol defined?') with README-grounded tasks: delete/clear entries, ttlAutopurge (stale entries otherwise linger until the next get), and reading cache.size/cache.max. Note: with methods folded into the class, 10 of 12 cases now expect the same class symbol pair: that is a brain granularity limitation, not question redundancy; defaultPerf and the diagnostics_channel re-exports are not README-documented user-facing surface and were not used as answers.",
+  "cases": [
+    {
+      "question": "How do I create a cache that evicts the least recently used item once it holds more than 100 entries?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I set a TTL so cached entries expire after some time?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I attach a size to each entry so the cache enforces a total maximum size?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I make the cache load missing values asynchronously with a fetchMethod when get misses?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I run a callback when an entry is evicted or deleted from the cache?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How can I read entries that have gone stale without deleting them on access?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I iterate over all keys and values in the cache?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I export the cache state to JSON and load it back into a new cache instance?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "What does fetch return while another fetch for the same key is already in flight?",
+      "expected": ["esm.BackgroundFetch", "commonjs.BackgroundFetch"]
+    },
+    {
+      "question": "How do I delete a single entry from the cache, or empty the whole cache at once?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "Expired entries linger in the cache until the next time their key is requested. How do I make them get purged immediately instead?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    },
+    {
+      "question": "How do I read how many entries the cache currently holds and how close it is to its configured limit?",
+      "expected": ["esm.LRUCache", "commonjs.LRUCache"]
+    }
+  ]
+}

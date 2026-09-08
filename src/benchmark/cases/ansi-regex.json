@@ -1,0 +1,18 @@
+{
+  "package": "ansi-regex",
+  "notes": "Micro-package: two exported symbols (ansiRegex + Options). 2026-09-04 audit: replaced the name-echo case 'Where is `ansiRegex` defined?' (answer restated in the question) with the documented onlyFirst option task (index.d.ts: 'Match only the first ANSI escape').",
+  "cases": [
+    {
+      "question": "How do I get a regular expression that matches ANSI escape codes?",
+      "expected": ["ansi_regex.ansiRegex"]
+    },
+    {
+      "question": "find ANSI escape sequences in terminal output using a regex",
+      "expected": ["ansi_regex.ansiRegex"]
+    },
+    {
+      "question": "How do I match only the first ANSI escape sequence in a string instead of all of them?",
+      "expected": ["ansi_regex.Options", "ansi_regex.ansiRegex"]
+    }
+  ]
+}

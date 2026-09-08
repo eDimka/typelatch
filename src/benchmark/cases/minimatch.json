@@ -1,0 +1,54 @@
+{
+  "package": "minimatch",
+  "notes": "Authored 2026-09-04 against the built brain for minimatch@10.2.6 (50 public symbols, 24 edges, compact format, schemaVersion 2). Brain module naming: the package's dual entry points are indexed as root modules 'esm' (import) and 'commonjs' (require), so every public API exists twice; expected symbols follow the lru-cache precedent and list both root-entry variants, which both truly answer each question. escape/unescape are indexed as definitions in the escape/ and unescape/ submodules (esm/escape.escape, commonjs/escape.escape, which carry the JSDoc); the top-level re-exports esm.escape/commonjs.escape alias them but are not listed as expected. Only escape and unescape carry doc text; every other symbol is grounding by signature only. Cases target documented real work: the dot, matchBase, windowsPathsNoEscape and nocase options on MinimatchOptions, list filtering/matching (filter, match), RegExp compilation (makeRe), brace expansion (braceExpand), escaping magic characters (escape), preset options (defaults), the reusable Minimatch class, and Minimatch#hasMagic (README-documented method for detecting magic characters). Tuning judgment calls: the natural phrasing 'How do I make the pattern * match dotfiles...' retrieved match/makeRe instead of the options interface, while prefixing with 'Which minimatch option...' ranks MinimatchOptions first; 'How do I turn a glob pattern into a RegExp object so I can reuse it...' pulled ParseReturnFiltered/MMRegExp and missed makeRe, while the imperative 'Make a regular expression from a glob pattern' ranks makeRe first. The windowsPathsNoEscape case only places MinimatchOptions at rank 5 (escape/unescape dominate because that option is documented in their JSDoc) but is kept as a natural phrasing. Considered-but-dropped candidates that were genuine retrieval misses after rewording: nonull ('keep unmatched patterns in the result list' -> ParseClassResult), nonegate ('stop patterns starting with ! being treated as negations' -> AST), unescape, and Minimatch#hasMagic ('check whether a pattern contains magic characters' -> assertValidPattern/AST); these are left out rather than kept as recorded misses, so there are no kept-hard cases: 12/12 cases retrieve at least one expected symbol in top-5 after wording tuning. 2026-09-04 audit: replaced the name-echo case 'Where is the 'Minimatch' symbol defined?' with the Minimatch#hasMagic task that the original authoring had dropped as a retrieval miss: a real README-documented question is worth keeping even when the engine misses it. Verified with APIROVA_USAGE=off npx tsx src/cli.ts query minimatch '<question>' --json --limit 5.",
+  "cases": [
+    {
+      "question": "Which minimatch option makes patterns match dotfiles like .gitignore and .npmrc?",
+      "expected": ["esm.MinimatchOptions", "commonjs.MinimatchOptions"]
+    },
+    {
+      "question": "Which option makes *.js match src/lib/foo.js by testing only the basename of the path?",
+      "expected": ["esm.MinimatchOptions", "commonjs.MinimatchOptions"]
+    },
+    {
+      "question": "On Windows, minimatch treats backslashes in my paths as escape characters. Which option makes backslashes act as path separators instead?",
+      "expected": ["esm.MinimatchOptions", "commonjs.MinimatchOptions"]
+    },
+    {
+      "question": "Which option makes glob matching case-insensitive, so *.JPG matches photo.jpg?",
+      "expected": ["esm.MinimatchOptions", "commonjs.MinimatchOptions"]
+    },
+    {
+      "question": "How do I filter an array of file paths down to only the ones matching a glob pattern, for use with Array.prototype.filter?",
+      "expected": ["esm.filter", "commonjs.filter"]
+    },
+    {
+      "question": "How do I match a whole list of file paths against one glob pattern and get back just the ones that match?",
+      "expected": ["esm.match", "commonjs.match"]
+    },
+    {
+      "question": "Make a regular expression from a glob pattern",
+      "expected": ["esm.makeRe", "commonjs.makeRe"]
+    },
+    {
+      "question": "How do I expand a brace expression like src/{test,spec}/**/*.js into the full list of patterns?",
+      "expected": ["esm.braceExpand", "commonjs.braceExpand"]
+    },
+    {
+      "question": "How do I escape glob magic characters in a file name so it matches literally?",
+      "expected": ["esm/escape.escape", "commonjs/escape.escape"]
+    },
+    {
+      "question": "How do I create a pre-configured version of minimatch with defaults?",
+      "expected": ["esm.defaults", "commonjs.defaults"]
+    },
+    {
+      "question": "How do I create a Minimatch object for a pattern and reuse it to test many paths?",
+      "expected": ["esm.Minimatch", "commonjs.Minimatch"]
+    },
+    {
+      "question": "How can I tell whether a glob pattern contains special matching characters, or is just a literal path I could compare as a plain string?",
+      "expected": ["esm.Minimatch", "commonjs.Minimatch"]
+    }
+  ]
+}

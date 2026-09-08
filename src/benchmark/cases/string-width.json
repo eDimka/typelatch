@@ -1,0 +1,22 @@
+{
+  "package": "string-width",
+  "notes": "Micro-package: two exported symbols (stringWidth + Options). 4 cases. 2026-09-04 audit: replaced the name-echo case 'Where is `stringWidth` defined?' with the countAnsiEscapeCodes option task (documented in index.d.ts: escape codes are stripped by default and don't affect the width).",
+  "cases": [
+    {
+      "question": "How do I measure the display width of a string in terminal columns?",
+      "expected": ["string_width.stringWidth"]
+    },
+    {
+      "question": "how are ambiguous-width East Asian characters counted, and can I control that?",
+      "expected": ["string_width.Options"]
+    },
+    {
+      "question": "my string still contains ANSI color codes: are those counted toward the width, and can I include them if I want?",
+      "expected": ["string_width.Options"]
+    },
+    {
+      "question": "measure the visual width of a string containing emoji",
+      "expected": ["string_width.stringWidth"]
+    }
+  ]
+}

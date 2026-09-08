@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import { LRUCache } from 'lru-cache';
+const cache = new LRUCache<string, string>({ max: 2 });
+cache.set('a', 'alpha'); cache.set('b', 'beta');
+assert.equal(cache.get('a'), 'alpha');
+cache.set('c', 'gamma');
+assert.equal(cache.has('b'), false);
+assert.equal(cache.get('c'), 'gamma');
+let loads = 0;
+const remote = new LRUCache<string, string>({ max: 2, fetchMethod: async key => { loads++; return key.toUpperCase(); } });
+assert.equal(await remote.fetch('user'), 'USER');
+assert.equal(await remote.fetch('user'), 'USER');
+assert.equal(loads, 1);

@@ -1,0 +1,22 @@
+{
+  "package": "wrap-ansi",
+  "notes": "Micro-package: two exported symbols (wrapAnsi + Options). 4 cases. 2026-09-04 audit: replaced the name-echo case 'Where is `wrapAnsi` defined?' with the trim option task (documented in index.d.ts: 'Whitespace on all lines is removed by default. Set this option to false if you don't want to trim').",
+  "cases": [
+    {
+      "question": "How do I word-wrap a string to a fixed column width?",
+      "expected": ["wrap_ansi.wrapAnsi"]
+    },
+    {
+      "question": "wrap text while keeping ANSI styling codes working across the wrapped lines",
+      "expected": ["wrap_ansi.wrapAnsi"]
+    },
+    {
+      "question": "wrap without respecting word boundaries, breaking anywhere",
+      "expected": ["wrap_ansi.Options"]
+    },
+    {
+      "question": "preserve the leading and trailing whitespace of each line instead of having it trimmed during wrapping",
+      "expected": ["wrap_ansi.Options"]
+    }
+  ]
+}

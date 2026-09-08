@@ -1,0 +1,26 @@
+{
+  "package": "supports-color",
+  "notes": "Authored from the built brain's symbol inventory (module prefix supports_color.*). 5 cases. 2026-09-04 audit: replaced the name-echo case 'Where is `ColorSupport` defined?' with the sniffFlags option task (documented in index.d.ts: 'Whether process.argv should be sniffed for --color and --no-color flags').",
+  "cases": [
+    {
+      "question": "How do I detect whether the terminal supports color?",
+      "expected": ["supports_color.default"]
+    },
+    {
+      "question": "what do the color support levels 0 to 3 mean?",
+      "expected": ["supports_color.ColorSupportLevel"]
+    },
+    {
+      "question": "check color support for a specific output stream like stderr",
+      "expected": ["supports_color.createSupportsColor"]
+    },
+    {
+      "question": "what information does the color support detection result contain?",
+      "expected": ["supports_color.ColorInfo"]
+    },
+    {
+      "question": "does detection sniff command-line flags like --no-color, and how do I stop it from doing that?",
+      "expected": ["supports_color.Options", "supports_color.createSupportsColor"]
+    }
+  ]
+}

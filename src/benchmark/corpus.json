@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-09-04T19:35:44.362Z",
+  "source": "npm registry search API, popularity weight 1.0 (registry.npmjs.org/-/v1/search), cross-checked with api.npmjs.org weekly downloads; as of 2026-09-04 the endpoint ignores the popularity/quality/maintenance weights and pins score.detail.popularity to 1, and the bare not:unstable query returns no results, so the walked ranking merges broad-term search queries (size=250, same endpoint) with exact-name augmentations verified against the downloads API, ordered by the search API's own downloads.weekly values",
+  "packages": [
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
+      "popularityRank": 2,
+      "weeklyDownloads": 718778324,
+      "tsSurfaceBytes": 20624,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "ansi-styles",
+      "version": "7.0.0",
+      "integrity": "sha512-kKvt3m4uwzqL0wlkPd09CmljPJGOZZ4D0fP65sqFSvPkMRKhNi+74MgIJ5QxE6SxqB4t4KyUFGg8+n5zjo6hew==",
+      "popularityRank": 4,
+      "weeklyDownloads": 684594369,
+      "tsSurfaceBytes": 6828,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "lru-cache",
+      "version": "11.5.2",
+      "integrity": "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==",
+      "popularityRank": 5,
+      "weeklyDownloads": 562613144,
+      "tsSurfaceBytes": 360862,
+      "notes": ""
+    },
+    {
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
+      "popularityRank": 7,
+      "weeklyDownloads": 527076930,
+      "tsSurfaceBytes": 349,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "string-width",
+      "version": "8.2.2",
+      "integrity": "sha512-GaPUh5gfdrYzqeVNZvUfT23vYYxXzKYidUcnMtJg/3rxRV63EFZy3k6xfKlmfeJD0176lnUV/Usr3XcwSvFzpg==",
+      "popularityRank": 8,
+      "weeklyDownloads": 508567931,
+      "tsSurfaceBytes": 1345,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "commander",
+      "version": "15.0.0",
+      "integrity": "sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==",
+      "popularityRank": 9,
+      "weeklyDownloads": 508170198,
+      "tsSurfaceBytes": 34676,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "chalk",
+      "version": "6.0.0",
+      "integrity": "sha512-2uNTXIuTTxk7ciZgAU1BQcgnchcG0xXnrs6jzkQfj9SsRa9M2s5zE8WT96hS6KmG4MzWHSrvH43DF1m4XRkrFg==",
+      "popularityRank": 10,
+      "weeklyDownloads": 505482226,
+      "tsSurfaceBytes": 17861,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "supports-color",
+      "version": "11.0.0",
+      "integrity": "sha512-/zyImLdxhdygBIaVX0xTlQhKaCDLCrm665aqHk8xqK/Pa6k61fL6gwQGQq1k31yNyz6x55PppQgF2DMyPQa5xw==",
+      "popularityRank": 11,
+      "weeklyDownloads": 501448901,
+      "tsSurfaceBytes": 1046,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "ansi-regex",
+      "version": "6.3.0",
+      "integrity": "sha512-WpDfL7NO6j7tH88IDBNVdUJxDh9nmCteAVW9dsep846XdwF4naCBK+/tGLX3KJgcpgMRXCFlTM2hKGoK9FsdrQ==",
+      "popularityRank": 12,
+      "weeklyDownloads": 499053809,
+      "tsSurfaceBytes": 689,
+      "notes": "thin declaration surface"
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "10.0.1",
+      "integrity": "sha512-M0N4xzyzosiIok3svYlEo1sdLZts/8FPgYH/GPC3wvlmPoRvnoManGMrE54waYj3tISA8w6lsdesfVv67qSr8Q==",
+      "popularityRank": 14,
+      "weeklyDownloads": 438138852,
+      "tsSurfaceBytes": 1354,
+      "notes": "thin declaration surface"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "semver",
+      "popularityRank": 1,
+      "reason": "no bundled TypeScript sources or declaration files"
+    },
+    {
+      "name": "debug",
+      "popularityRank": 3,
+      "reason": "no bundled TypeScript sources or declaration files"
+    },
+    {
+      "name": "ms",
+      "popularityRank": 6,
+      "reason": "no bundled TypeScript sources or declaration files"
+    },
+    {
+      "name": "picomatch",
+      "popularityRank": 13,
+      "reason": "no bundled TypeScript sources or declaration files"
+    }
+  ]
+}

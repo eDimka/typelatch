@@ -1,0 +1,46 @@
+{
+  "package": "commander",
+  "notes": "Authored from the built brain's symbol inventory (module prefix typings.*; the brain indexes shipped typings: class methods live on the class symbols). 10 cases. 2026-09-04 audit: replaced the two name-echo cases 'Where is `Option` defined?' and 'Where is `createCommand` defined?' with the exitOverride/CommanderError task and the opts() return type task (both real, both distinct symbols).",
+  "cases": [
+    {
+      "question": "How do I define commands and parse command line arguments?",
+      "expected": ["typings.Command"]
+    },
+    {
+      "question": "declare a positional argument for a command",
+      "expected": ["typings.Argument"]
+    },
+    {
+      "question": "customize the generated help output of my CLI",
+      "expected": ["typings.Help"]
+    },
+    {
+      "question": "handle errors thrown for invalid command line arguments",
+      "expected": ["typings.InvalidArgumentError"]
+    },
+    {
+      "question": "What options can I pass when parsing arguments, such as a custom argv or from position?",
+      "expected": ["typings.ParseOptions"]
+    },
+    {
+      "question": "How do I stop commander from printing an error and exiting the process itself, so my program can handle the failure instead?",
+      "expected": ["typings.CommanderError"]
+    },
+    {
+      "question": "create an Option object programmatically instead of chaining .option()",
+      "expected": ["typings.createOption"]
+    },
+    {
+      "question": "the ready-to-use exported program instance",
+      "expected": ["typings.program"]
+    },
+    {
+      "question": "lifecycle hook events that run before actions or subcommands",
+      "expected": ["typings.HookEvent"]
+    },
+    {
+      "question": "In TypeScript, what type do the parsed option values returned by .opts() have?",
+      "expected": ["typings.OptionValues"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "package": "strip-ansi",
+  "notes": "Micro-package: one exported symbol. 2026-09-04 audit: replaced the name-echo case 'Where is `stripAnsi` defined?' with a third real phrasing (strip-then-measure-length, the canonical pattern for width/length math on colored output). With a single-symbol package every case necessarily resolves to stripAnsi; these cases are sanity checks, not difficulty probes.",
+  "cases": [
+    {
+      "question": "How do I strip ANSI escape codes from a string?",
+      "expected": ["strip_ansi.stripAnsi"]
+    },
+    {
+      "question": "clean terminal log output by removing ANSI color codes before writing it to a file",
+      "expected": ["strip_ansi.stripAnsi"]
+    },
+    {
+      "question": "get the character length of colored terminal output without the escape codes inflating the count",
+      "expected": ["strip_ansi.stripAnsi"]
+    }
+  ]
+}

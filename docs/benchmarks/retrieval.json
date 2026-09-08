@@ -1,0 +1,1523 @@
+{
+  "generatedAt": "2026-09-08T09:46:02.766Z",
+  "kind": "authored retrieval regression",
+  "environment": {
+    "node": "v22.23.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M1 Max"
+  },
+  "packages": 10,
+  "cases": 73,
+  "passedCases": 70,
+  "discoveryHits": 73,
+  "acceptance": {
+    "discovery": "Every question returns at least one expected symbol in the first five results",
+    "knownLimitations": [
+      {
+        "package": "minimatch",
+        "version": "10.2.6",
+        "question": "How do I match a whole list of file paths against one glob pattern and get back just the ones that match?",
+        "expected": [
+          "esm.match",
+          "commonjs.match"
+        ],
+        "missing": [
+          "esm.match"
+        ]
+      },
+      {
+        "package": "minimatch",
+        "version": "10.2.6",
+        "question": "How do I create a pre-configured version of minimatch with defaults?",
+        "expected": [
+          "esm.defaults",
+          "commonjs.defaults"
+        ],
+        "missing": [
+          "esm.defaults"
+        ]
+      },
+      {
+        "package": "chalk",
+        "version": "6.0.0",
+        "question": "Color auto-detection gets the level wrong in my CI. How do I create a separate chalk instance with its own color level, as recommended for reusable modules?",
+        "expected": [
+          "source.Chalk",
+          "source.Options"
+        ],
+        "missing": [
+          "source.Options"
+        ]
+      }
+    ]
+  },
+  "reports": [
+    {
+      "package": "minimatch",
+      "version": "10.2.6",
+      "cases": 12,
+      "passedCases": 10,
+      "taskPassRate": 0.8333333333333334,
+      "expectedSymbols": 24,
+      "foundSymbols": 22,
+      "recallAt5": 0.9166666666666666,
+      "meanReciprocalRank": 0.5965277777777778,
+      "averageLatencyMs": 1.8616666666666666,
+      "estimatedResultTokens": 1059,
+      "results": [
+        {
+          "question": "Which minimatch option makes patterns match dotfiles like .gitignore and .npmrc?",
+          "expected": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "returned": [
+            "commonjs.MinimatchOptions",
+            "esm.MinimatchOptions",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.Minimatch"
+          ],
+          "found": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "passed": true,
+          "latencyMs": 3.15
+        },
+        {
+          "question": "Which option makes *.js match src/lib/foo.js by testing only the basename of the path?",
+          "expected": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "returned": [
+            "commonjs.MinimatchOptions",
+            "commonjs.minimatch",
+            "esm.MinimatchOptions",
+            "esm.minimatch",
+            "commonjs.match"
+          ],
+          "found": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "passed": true,
+          "latencyMs": 2.13
+        },
+        {
+          "question": "On Windows, minimatch treats backslashes in my paths as escape characters. Which option makes backslashes act as path separators instead?",
+          "expected": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "returned": [
+            "commonjs.MinimatchOptions",
+            "esm.MinimatchOptions",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.Minimatch"
+          ],
+          "found": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "passed": true,
+          "latencyMs": 1.71
+        },
+        {
+          "question": "Which option makes glob matching case-insensitive, so *.JPG matches photo.jpg?",
+          "expected": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "returned": [
+            "commonjs.match",
+            "esm.match",
+            "commonjs.MinimatchOptions",
+            "esm.MinimatchOptions",
+            "commonjs.Minimatch"
+          ],
+          "found": [
+            "esm.MinimatchOptions",
+            "commonjs.MinimatchOptions"
+          ],
+          "passed": true,
+          "latencyMs": 1.96
+        },
+        {
+          "question": "How do I filter an array of file paths down to only the ones matching a glob pattern, for use with Array.prototype.filter?",
+          "expected": [
+            "esm.filter",
+            "commonjs.filter"
+          ],
+          "returned": [
+            "commonjs.filter",
+            "esm.filter",
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch"
+          ],
+          "found": [
+            "esm.filter",
+            "commonjs.filter"
+          ],
+          "passed": true,
+          "latencyMs": 1.91
+        },
+        {
+          "question": "How do I match a whole list of file paths against one glob pattern and get back just the ones that match?",
+          "expected": [
+            "esm.match",
+            "commonjs.match"
+          ],
+          "returned": [
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.match"
+          ],
+          "found": [
+            "commonjs.match"
+          ],
+          "passed": false,
+          "latencyMs": 1.7
+        },
+        {
+          "question": "Make a regular expression from a glob pattern",
+          "expected": [
+            "esm.makeRe",
+            "commonjs.makeRe"
+          ],
+          "returned": [
+            "commonjs.makeRe",
+            "esm.makeRe",
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch"
+          ],
+          "found": [
+            "esm.makeRe",
+            "commonjs.makeRe"
+          ],
+          "passed": true,
+          "latencyMs": 1.29
+        },
+        {
+          "question": "How do I expand a brace expression like src/{test,spec}/**/*.js into the full list of patterns?",
+          "expected": [
+            "esm.braceExpand",
+            "commonjs.braceExpand"
+          ],
+          "returned": [
+            "commonjs.braceExpand",
+            "esm.braceExpand",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.Minimatch"
+          ],
+          "found": [
+            "esm.braceExpand",
+            "commonjs.braceExpand"
+          ],
+          "passed": true,
+          "latencyMs": 1.93
+        },
+        {
+          "question": "How do I escape glob magic characters in a file name so it matches literally?",
+          "expected": [
+            "esm/escape.escape",
+            "commonjs/escape.escape"
+          ],
+          "returned": [
+            "commonjs/escape.escape",
+            "esm/escape.escape",
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch"
+          ],
+          "found": [
+            "esm/escape.escape",
+            "commonjs/escape.escape"
+          ],
+          "passed": true,
+          "latencyMs": 1.47
+        },
+        {
+          "question": "How do I create a pre-configured version of minimatch with defaults?",
+          "expected": [
+            "esm.defaults",
+            "commonjs.defaults"
+          ],
+          "returned": [
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.defaults"
+          ],
+          "found": [
+            "commonjs.defaults"
+          ],
+          "passed": false,
+          "latencyMs": 1.35
+        },
+        {
+          "question": "How do I create a Minimatch object for a pattern and reuse it to test many paths?",
+          "expected": [
+            "esm.Minimatch",
+            "commonjs.Minimatch"
+          ],
+          "returned": [
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs/ast.AST"
+          ],
+          "found": [
+            "esm.Minimatch",
+            "commonjs.Minimatch"
+          ],
+          "passed": true,
+          "latencyMs": 1.44
+        },
+        {
+          "question": "How can I tell whether a glob pattern contains special matching characters, or is just a literal path I could compare as a plain string?",
+          "expected": [
+            "esm.Minimatch",
+            "commonjs.Minimatch"
+          ],
+          "returned": [
+            "commonjs.Minimatch",
+            "esm.Minimatch",
+            "commonjs.minimatch",
+            "esm.minimatch",
+            "commonjs.match"
+          ],
+          "found": [
+            "esm.Minimatch",
+            "commonjs.Minimatch"
+          ],
+          "passed": true,
+          "latencyMs": 2.3
+        }
+      ]
+    },
+    {
+      "package": "ansi-styles",
+      "version": "7.0.0",
+      "cases": 8,
+      "passedCases": 8,
+      "taskPassRate": 1,
+      "expectedSymbols": 8,
+      "foundSymbols": 8,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.9375,
+      "averageLatencyMs": 0.84,
+      "estimatedResultTokens": 686,
+      "results": [
+        {
+          "question": "How do I get the ANSI escape sequences to style terminal text?",
+          "expected": [
+            "ansi_styles.default"
+          ],
+          "returned": [
+            "ansi_styles.default",
+            "ansi_styles.Modifier",
+            "ansi_styles.ModifierName",
+            "ansi_styles.modifierNames",
+            "ansi_styles.CSPair"
+          ],
+          "found": [
+            "ansi_styles.default"
+          ],
+          "passed": true,
+          "latencyMs": 1.1
+        },
+        {
+          "question": "list all valid foreground color names",
+          "expected": [
+            "ansi_styles.foregroundColorNames"
+          ],
+          "returned": [
+            "ansi_styles.foregroundColorNames",
+            "ansi_styles.ForegroundColorName",
+            "ansi_styles.colorNames",
+            "ansi_styles.backgroundColorNames",
+            "ansi_styles.underlineColorNames"
+          ],
+          "found": [
+            "ansi_styles.foregroundColorNames"
+          ],
+          "passed": true,
+          "latencyMs": 0.77
+        },
+        {
+          "question": "list all valid background color names",
+          "expected": [
+            "ansi_styles.backgroundColorNames"
+          ],
+          "returned": [
+            "ansi_styles.backgroundColorNames",
+            "ansi_styles.BackgroundColorName",
+            "ansi_styles.colorNames",
+            "ansi_styles.foregroundColorNames",
+            "ansi_styles.underlineColorNames"
+          ],
+          "found": [
+            "ansi_styles.backgroundColorNames"
+          ],
+          "passed": true,
+          "latencyMs": 0.7
+        },
+        {
+          "question": "list all valid text modifier names like bold and italic",
+          "expected": [
+            "ansi_styles.modifierNames"
+          ],
+          "returned": [
+            "ansi_styles.modifierNames",
+            "ansi_styles.ModifierName",
+            "ansi_styles.Modifier",
+            "ansi_styles.default",
+            "ansi_styles.colorNames"
+          ],
+          "found": [
+            "ansi_styles.modifierNames"
+          ],
+          "passed": true,
+          "latencyMs": 0.82
+        },
+        {
+          "question": "what does a style pair with open and close escape codes look like?",
+          "expected": [
+            "ansi_styles.CSPair"
+          ],
+          "returned": [
+            "ansi_styles.CSPair",
+            "ansi_styles.default",
+            "ansi_styles.BackgroundColor",
+            "ansi_styles.ForegroundColor",
+            "ansi_styles.UnderlineColor"
+          ],
+          "found": [
+            "ansi_styles.CSPair"
+          ],
+          "passed": true,
+          "latencyMs": 1.05
+        },
+        {
+          "question": "convert RGB color values into ANSI truecolor escape codes",
+          "expected": [
+            "ansi_styles.ConvertColor"
+          ],
+          "returned": [
+            "ansi_styles.ConvertColor",
+            "ansi_styles.ColorBase",
+            "ansi_styles.default",
+            "ansi_styles.BackgroundColorName",
+            "ansi_styles.ForegroundColorName"
+          ],
+          "found": [
+            "ansi_styles.ConvertColor"
+          ],
+          "passed": true,
+          "latencyMs": 0.88
+        },
+        {
+          "question": "list all valid underline color names",
+          "expected": [
+            "ansi_styles.underlineColorNames"
+          ],
+          "returned": [
+            "ansi_styles.underlineColorNames",
+            "ansi_styles.UnderlineColorName",
+            "ansi_styles.colorNames",
+            "ansi_styles.backgroundColorNames",
+            "ansi_styles.foregroundColorNames"
+          ],
+          "found": [
+            "ansi_styles.underlineColorNames"
+          ],
+          "passed": true,
+          "latencyMs": 0.68
+        },
+        {
+          "question": "I'm writing a helper that takes a color name such as 'cyan' as an argument. What type should that parameter be?",
+          "expected": [
+            "ansi_styles.ColorName"
+          ],
+          "returned": [
+            "ansi_styles.ForegroundColorName",
+            "ansi_styles.ColorName",
+            "ansi_styles.BackgroundColorName",
+            "ansi_styles.UnderlineColorName",
+            "ansi_styles.foregroundColorNames"
+          ],
+          "found": [
+            "ansi_styles.ColorName"
+          ],
+          "passed": true,
+          "latencyMs": 0.72
+        }
+      ]
+    },
+    {
+      "package": "lru-cache",
+      "version": "11.5.2",
+      "cases": 12,
+      "passedCases": 12,
+      "taskPassRate": 1,
+      "expectedSymbols": 24,
+      "foundSymbols": 24,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.7118055555555557,
+      "averageLatencyMs": 2.4216666666666673,
+      "estimatedResultTokens": 979,
+      "results": [
+        {
+          "question": "How do I create a cache that evicts the least recently used item once it holds more than 100 entries?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.StackLike",
+            "esm.StackLike",
+            "commonjs.Stack"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.67
+        },
+        {
+          "question": "How do I set a TTL so cached entries expire after some time?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs/perf.Perf",
+            "esm/perf.Perf",
+            "commonjs.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 3.11
+        },
+        {
+          "question": "How do I attach a size to each entry so the cache enforces a total maximum size?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs/perf.Perf",
+            "esm/perf.Perf",
+            "commonjs.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.25
+        },
+        {
+          "question": "How do I make the cache load missing values asynchronously with a fetchMethod when get misses?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.DisposeTask",
+            "esm.DisposeTask"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 1.75
+        },
+        {
+          "question": "How do I run a callback when an entry is evicted or deleted from the cache?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.Perf",
+            "esm.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 1.92
+        },
+        {
+          "question": "How can I read entries that have gone stale without deleting them on access?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.BackgroundFetch",
+            "esm.BackgroundFetch"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.31
+        },
+        {
+          "question": "How do I iterate over all keys and values in the cache?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "esm.LRUCache",
+            "commonjs.LRUCache",
+            "commonjs/perf.Perf",
+            "esm/perf.Perf",
+            "commonjs.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.02
+        },
+        {
+          "question": "How do I export the cache state to JSON and load it back into a new cache instance?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.BackgroundFetch",
+            "esm.BackgroundFetch",
+            "commonjs.StackLike"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.88
+        },
+        {
+          "question": "What does fetch return while another fetch for the same key is already in flight?",
+          "expected": [
+            "esm.BackgroundFetch",
+            "commonjs.BackgroundFetch"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.BackgroundFetch",
+            "esm.BackgroundFetch",
+            "commonjs.DisposeTask"
+          ],
+          "found": [
+            "esm.BackgroundFetch",
+            "commonjs.BackgroundFetch"
+          ],
+          "passed": true,
+          "latencyMs": 2.3
+        },
+        {
+          "question": "How do I delete a single entry from the cache, or empty the whole cache at once?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.Perf",
+            "esm.Perf",
+            "commonjs/perf.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.42
+        },
+        {
+          "question": "Expired entries linger in the cache until the next time their key is requested. How do I make them get purged immediately instead?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs.DisposeTask",
+            "esm.DisposeTask"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.99
+        },
+        {
+          "question": "How do I read how many entries the cache currently holds and how close it is to its configured limit?",
+          "expected": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "returned": [
+            "commonjs.LRUCache",
+            "esm.LRUCache",
+            "commonjs/perf.Perf",
+            "esm/perf.Perf",
+            "commonjs.Perf"
+          ],
+          "found": [
+            "esm.LRUCache",
+            "commonjs.LRUCache"
+          ],
+          "passed": true,
+          "latencyMs": 2.44
+        }
+      ]
+    },
+    {
+      "package": "strip-ansi",
+      "version": "7.2.0",
+      "cases": 3,
+      "passedCases": 3,
+      "taskPassRate": 1,
+      "expectedSymbols": 3,
+      "foundSymbols": 3,
+      "recallAt5": 1,
+      "meanReciprocalRank": 1,
+      "averageLatencyMs": 0.35333333333333333,
+      "estimatedResultTokens": 171,
+      "results": [
+        {
+          "question": "How do I strip ANSI escape codes from a string?",
+          "expected": [
+            "strip_ansi.stripAnsi"
+          ],
+          "returned": [
+            "strip_ansi.stripAnsi"
+          ],
+          "found": [
+            "strip_ansi.stripAnsi"
+          ],
+          "passed": true,
+          "latencyMs": 0.47
+        },
+        {
+          "question": "clean terminal log output by removing ANSI color codes before writing it to a file",
+          "expected": [
+            "strip_ansi.stripAnsi"
+          ],
+          "returned": [
+            "strip_ansi.stripAnsi"
+          ],
+          "found": [
+            "strip_ansi.stripAnsi"
+          ],
+          "passed": true,
+          "latencyMs": 0.31
+        },
+        {
+          "question": "get the character length of colored terminal output without the escape codes inflating the count",
+          "expected": [
+            "strip_ansi.stripAnsi"
+          ],
+          "returned": [
+            "strip_ansi.stripAnsi"
+          ],
+          "found": [
+            "strip_ansi.stripAnsi"
+          ],
+          "passed": true,
+          "latencyMs": 0.28
+        }
+      ]
+    },
+    {
+      "package": "string-width",
+      "version": "8.2.2",
+      "cases": 4,
+      "passedCases": 4,
+      "taskPassRate": 1,
+      "expectedSymbols": 4,
+      "foundSymbols": 4,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.75,
+      "averageLatencyMs": 0.535,
+      "estimatedResultTokens": 261,
+      "results": [
+        {
+          "question": "How do I measure the display width of a string in terminal columns?",
+          "expected": [
+            "string_width.stringWidth"
+          ],
+          "returned": [
+            "string_width.stringWidth",
+            "string_width.Options"
+          ],
+          "found": [
+            "string_width.stringWidth"
+          ],
+          "passed": true,
+          "latencyMs": 0.49
+        },
+        {
+          "question": "how are ambiguous-width East Asian characters counted, and can I control that?",
+          "expected": [
+            "string_width.Options"
+          ],
+          "returned": [
+            "string_width.stringWidth",
+            "string_width.Options"
+          ],
+          "found": [
+            "string_width.Options"
+          ],
+          "passed": true,
+          "latencyMs": 0.35
+        },
+        {
+          "question": "my string still contains ANSI color codes — are those counted toward the width, and can I include them if I want?",
+          "expected": [
+            "string_width.Options"
+          ],
+          "returned": [
+            "string_width.stringWidth",
+            "string_width.Options"
+          ],
+          "found": [
+            "string_width.Options"
+          ],
+          "passed": true,
+          "latencyMs": 0.74
+        },
+        {
+          "question": "measure the visual width of a string containing emoji",
+          "expected": [
+            "string_width.stringWidth"
+          ],
+          "returned": [
+            "string_width.stringWidth",
+            "string_width.Options"
+          ],
+          "found": [
+            "string_width.stringWidth"
+          ],
+          "passed": true,
+          "latencyMs": 0.56
+        }
+      ]
+    },
+    {
+      "package": "commander",
+      "version": "15.0.0",
+      "cases": 10,
+      "passedCases": 10,
+      "taskPassRate": 1,
+      "expectedSymbols": 10,
+      "foundSymbols": 10,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.6866666666666668,
+      "averageLatencyMs": 1.06,
+      "estimatedResultTokens": 758,
+      "results": [
+        {
+          "question": "How do I define commands and parse command line arguments?",
+          "expected": [
+            "typings.Command"
+          ],
+          "returned": [
+            "typings.Command",
+            "typings.createCommand",
+            "typings.Help",
+            "typings.CommanderError",
+            "typings.ExecutableCommandOptions"
+          ],
+          "found": [
+            "typings.Command"
+          ],
+          "passed": true,
+          "latencyMs": 1.13
+        },
+        {
+          "question": "declare a positional argument for a command",
+          "expected": [
+            "typings.Argument"
+          ],
+          "returned": [
+            "typings.Command",
+            "typings.Argument",
+            "typings.InvalidArgumentError",
+            "typings.createCommand",
+            "typings.CommanderError"
+          ],
+          "found": [
+            "typings.Argument"
+          ],
+          "passed": true,
+          "latencyMs": 0.88
+        },
+        {
+          "question": "customize the generated help output of my CLI",
+          "expected": [
+            "typings.Help"
+          ],
+          "returned": [
+            "typings.Help",
+            "typings.Command",
+            "typings.HelpConfiguration",
+            "typings.Option",
+            "typings.OutputConfiguration"
+          ],
+          "found": [
+            "typings.Help"
+          ],
+          "passed": true,
+          "latencyMs": 0.92
+        },
+        {
+          "question": "handle errors thrown for invalid command line arguments",
+          "expected": [
+            "typings.InvalidArgumentError"
+          ],
+          "returned": [
+            "typings.InvalidArgumentError",
+            "typings.Command",
+            "typings.InvalidOptionArgumentError",
+            "typings.CommanderError",
+            "typings.Argument"
+          ],
+          "found": [
+            "typings.InvalidArgumentError"
+          ],
+          "passed": true,
+          "latencyMs": 1.04
+        },
+        {
+          "question": "What options can I pass when parsing arguments, such as a custom argv or from position?",
+          "expected": [
+            "typings.ParseOptions"
+          ],
+          "returned": [
+            "typings.Command",
+            "typings.program",
+            "typings.ParseOptions",
+            "typings.Option",
+            "typings.ParseOptionsResult"
+          ],
+          "found": [
+            "typings.ParseOptions"
+          ],
+          "passed": true,
+          "latencyMs": 1.03
+        },
+        {
+          "question": "How do I stop commander from printing an error and exiting the process itself, so my program can handle the failure instead?",
+          "expected": [
+            "typings.CommanderError"
+          ],
+          "returned": [
+            "typings.CommanderError",
+            "typings.Command",
+            "typings.program",
+            "typings.InvalidArgumentError",
+            "typings.createCommand"
+          ],
+          "found": [
+            "typings.CommanderError"
+          ],
+          "passed": true,
+          "latencyMs": 1.23
+        },
+        {
+          "question": "create an Option object programmatically instead of chaining .option()",
+          "expected": [
+            "typings.createOption"
+          ],
+          "returned": [
+            "typings.Option",
+            "typings.Command",
+            "typings.Help",
+            "typings.Argument",
+            "typings.createOption"
+          ],
+          "found": [
+            "typings.createOption"
+          ],
+          "passed": true,
+          "latencyMs": 0.88
+        },
+        {
+          "question": "the ready-to-use exported program instance",
+          "expected": [
+            "typings.program"
+          ],
+          "returned": [
+            "typings.program",
+            "typings.createCommand",
+            "typings.Command",
+            "typings.Option",
+            "typings.InvalidArgumentError"
+          ],
+          "found": [
+            "typings.program"
+          ],
+          "passed": true,
+          "latencyMs": 0.98
+        },
+        {
+          "question": "lifecycle hook events that run before actions or subcommands",
+          "expected": [
+            "typings.HookEvent"
+          ],
+          "returned": [
+            "typings.Command",
+            "typings.HookEvent",
+            "typings.Help",
+            "typings.program",
+            "typings.createCommand"
+          ],
+          "found": [
+            "typings.HookEvent"
+          ],
+          "passed": true,
+          "latencyMs": 1.27
+        },
+        {
+          "question": "In TypeScript, what type do the parsed option values returned by .opts() have?",
+          "expected": [
+            "typings.OptionValues"
+          ],
+          "returned": [
+            "typings.Option",
+            "typings.OptionValueSource",
+            "typings.OptionValues",
+            "typings.ParseOptions",
+            "typings.ParseOptionsResult"
+          ],
+          "found": [
+            "typings.OptionValues"
+          ],
+          "passed": true,
+          "latencyMs": 1.24
+        }
+      ]
+    },
+    {
+      "package": "chalk",
+      "version": "6.0.0",
+      "cases": 12,
+      "passedCases": 11,
+      "taskPassRate": 0.9166666666666666,
+      "expectedSymbols": 13,
+      "foundSymbols": 12,
+      "recallAt5": 0.9230769230769231,
+      "meanReciprocalRank": 0.6435897435897436,
+      "averageLatencyMs": 1.6166666666666665,
+      "estimatedResultTokens": 1042,
+      "results": [
+        {
+          "question": "In chalk, how do I apply several styles at once, e.g. bold red text, and style different lines of a template literal in different colors?",
+          "expected": [
+            "source.default"
+          ],
+          "returned": [
+            "source.ChalkInstance",
+            "source.Chalk",
+            "source.chalkStderr",
+            "source.default",
+            "source.ColorSupportLevel"
+          ],
+          "found": [
+            "source.default"
+          ],
+          "passed": true,
+          "latencyMs": 2.53
+        },
+        {
+          "question": "How do I give text a background color, e.g. white text on a blue background?",
+          "expected": [
+            "source.ChalkInstance"
+          ],
+          "returned": [
+            "source.BackgroundColorName",
+            "source.backgroundColorNames",
+            "source.ChalkInstance",
+            "source/vendor/ansi_styles.backgroundColorNames",
+            "source/vendor/ansi_styles.BackgroundColorName"
+          ],
+          "found": [
+            "source.ChalkInstance"
+          ],
+          "passed": true,
+          "latencyMs": 1.33
+        },
+        {
+          "question": "How do I color text with one of the 256 extended ANSI colors instead of the basic 16?",
+          "expected": [
+            "source.ChalkInstance"
+          ],
+          "returned": [
+            "source.ColorSupportLevel",
+            "source.ColorSupport",
+            "source.ColorInfo",
+            "source.ChalkInstance",
+            "source/vendor/supports_color.ColorSupport"
+          ],
+          "found": [
+            "source.ChalkInstance"
+          ],
+          "passed": true,
+          "latencyMs": 1.61
+        },
+        {
+          "question": "How do I style text with an exact truecolor value, like a hex color or RGB triple?",
+          "expected": [
+            "source.ChalkInstance"
+          ],
+          "returned": [
+            "source.ChalkInstance",
+            "source.default",
+            "source.Chalk",
+            "source.ColorSupportLevel",
+            "source.ColorSupport"
+          ],
+          "found": [
+            "source.ChalkInstance"
+          ],
+          "passed": true,
+          "latencyMs": 1.64
+        },
+        {
+          "question": "Which chalk modifier makes output appear only when the terminal has color support, so purely cosmetic output disappears when colors are disabled?",
+          "expected": [
+            "source.ChalkInstance"
+          ],
+          "returned": [
+            "source.ChalkInstance",
+            "source.Chalk",
+            "source.ColorSupport",
+            "source.ColorSupportLevel",
+            "source.supportsColor"
+          ],
+          "found": [
+            "source.ChalkInstance"
+          ],
+          "passed": true,
+          "latencyMs": 1.92
+        },
+        {
+          "question": "Color auto-detection gets the level wrong in my CI. How do I create a separate chalk instance with its own color level, as recommended for reusable modules?",
+          "expected": [
+            "source.Chalk",
+            "source.Options"
+          ],
+          "returned": [
+            "source.Chalk",
+            "source.ChalkInstance",
+            "source.ColorSupportLevel",
+            "source.chalkStderr",
+            "source.default"
+          ],
+          "found": [
+            "source.Chalk"
+          ],
+          "passed": false,
+          "latencyMs": 2.1
+        },
+        {
+          "question": "What do chalk's color support levels 0, 1, 2, and 3 each enable?",
+          "expected": [
+            "source.ColorSupportLevel"
+          ],
+          "returned": [
+            "source.ColorSupportLevel",
+            "source.ChalkInstance",
+            "source.supportsColor",
+            "source/vendor/supports_color.ColorSupportLevel",
+            "source.Chalk"
+          ],
+          "found": [
+            "source.ColorSupportLevel"
+          ],
+          "passed": true,
+          "latencyMs": 1.51
+        },
+        {
+          "question": "How do I style text written to stderr instead of stdout with chalk?",
+          "expected": [
+            "source.chalkStderr"
+          ],
+          "returned": [
+            "source.chalkStderr",
+            "source.ChalkInstance",
+            "source.Chalk",
+            "source.supportsColorStderr",
+            "source.default"
+          ],
+          "found": [
+            "source.chalkStderr"
+          ],
+          "passed": true,
+          "latencyMs": 1.18
+        },
+        {
+          "question": "What does chalk.supportsColor report about 256-color and truecolor support on stdout?",
+          "expected": [
+            "source.supportsColor"
+          ],
+          "returned": [
+            "source.supportsColor",
+            "source.ChalkInstance",
+            "source.supportsColorStderr",
+            "source.ColorSupportLevel",
+            "source.ColorSupport"
+          ],
+          "found": [
+            "source.supportsColor"
+          ],
+          "passed": true,
+          "latencyMs": 1.4
+        },
+        {
+          "question": "Does chalk detect color support for stderr separately from stdout?",
+          "expected": [
+            "source.supportsColorStderr"
+          ],
+          "returned": [
+            "source.chalkStderr",
+            "source.ChalkInstance",
+            "source.supportsColorStderr",
+            "source.ColorSupport",
+            "source.supportsColor"
+          ],
+          "found": [
+            "source.supportsColorStderr"
+          ],
+          "passed": true,
+          "latencyMs": 1.3
+        },
+        {
+          "question": "I'm upgrading and see chalk's ForegroundColor type is deprecated. What should I use instead?",
+          "expected": [
+            "source.ForegroundColorName"
+          ],
+          "returned": [
+            "source.Chalk",
+            "source.chalkStderr",
+            "source.ChalkInstance",
+            "source.ForegroundColor",
+            "source.ForegroundColorName"
+          ],
+          "found": [
+            "source.ForegroundColorName"
+          ],
+          "passed": true,
+          "latencyMs": 1.24
+        },
+        {
+          "question": "I'm writing output to a file rather than a terminal. How do I turn chalk's colors off completely at runtime?",
+          "expected": [
+            "source.ChalkInstance"
+          ],
+          "returned": [
+            "source.ChalkInstance",
+            "source.Chalk",
+            "source.ColorSupport",
+            "source.chalkStderr",
+            "source.ColorSupportLevel"
+          ],
+          "found": [
+            "source.ChalkInstance"
+          ],
+          "passed": true,
+          "latencyMs": 1.64
+        }
+      ]
+    },
+    {
+      "package": "supports-color",
+      "version": "11.0.0",
+      "cases": 5,
+      "passedCases": 5,
+      "taskPassRate": 1,
+      "expectedSymbols": 6,
+      "foundSymbols": 6,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.6583333333333333,
+      "averageLatencyMs": 0.53,
+      "estimatedResultTokens": 469,
+      "results": [
+        {
+          "question": "How do I detect whether the terminal supports color?",
+          "expected": [
+            "supports_color.default"
+          ],
+          "returned": [
+            "supports_color.ColorSupport",
+            "supports_color.createSupportsColor",
+            "supports_color.ColorInfo",
+            "supports_color.ColorSupportLevel",
+            "supports_color.default"
+          ],
+          "found": [
+            "supports_color.default"
+          ],
+          "passed": true,
+          "latencyMs": 0.59
+        },
+        {
+          "question": "what do the color support levels 0 to 3 mean?",
+          "expected": [
+            "supports_color.ColorSupportLevel"
+          ],
+          "returned": [
+            "supports_color.ColorSupportLevel",
+            "supports_color.ColorSupport",
+            "supports_color.createSupportsColor",
+            "supports_color.ColorInfo",
+            "supports_color.default"
+          ],
+          "found": [
+            "supports_color.ColorSupportLevel"
+          ],
+          "passed": true,
+          "latencyMs": 0.49
+        },
+        {
+          "question": "check color support for a specific output stream like stderr",
+          "expected": [
+            "supports_color.createSupportsColor"
+          ],
+          "returned": [
+            "supports_color.createSupportsColor",
+            "supports_color.ColorSupportLevel",
+            "supports_color.ColorSupport",
+            "supports_color.ColorInfo",
+            "supports_color.default"
+          ],
+          "found": [
+            "supports_color.createSupportsColor"
+          ],
+          "passed": true,
+          "latencyMs": 0.4
+        },
+        {
+          "question": "what information does the color support detection result contain?",
+          "expected": [
+            "supports_color.ColorInfo"
+          ],
+          "returned": [
+            "supports_color.createSupportsColor",
+            "supports_color.ColorSupport",
+            "supports_color.ColorSupportLevel",
+            "supports_color.ColorInfo",
+            "supports_color.default"
+          ],
+          "found": [
+            "supports_color.ColorInfo"
+          ],
+          "passed": true,
+          "latencyMs": 0.76
+        },
+        {
+          "question": "does detection sniff command-line flags like --no-color, and how do I stop it from doing that?",
+          "expected": [
+            "supports_color.Options",
+            "supports_color.createSupportsColor"
+          ],
+          "returned": [
+            "supports_color.createSupportsColor",
+            "supports_color.Options",
+            "supports_color.ColorSupport",
+            "supports_color.ColorInfo",
+            "supports_color.ColorSupportLevel"
+          ],
+          "found": [
+            "supports_color.Options",
+            "supports_color.createSupportsColor"
+          ],
+          "passed": true,
+          "latencyMs": 0.41
+        }
+      ]
+    },
+    {
+      "package": "ansi-regex",
+      "version": "6.3.0",
+      "cases": 3,
+      "passedCases": 3,
+      "taskPassRate": 1,
+      "expectedSymbols": 4,
+      "foundSymbols": 4,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.875,
+      "averageLatencyMs": 0.3766666666666667,
+      "estimatedResultTokens": 193,
+      "results": [
+        {
+          "question": "How do I get a regular expression that matches ANSI escape codes?",
+          "expected": [
+            "ansi_regex.ansiRegex"
+          ],
+          "returned": [
+            "ansi_regex.ansiRegex",
+            "ansi_regex.Options"
+          ],
+          "found": [
+            "ansi_regex.ansiRegex"
+          ],
+          "passed": true,
+          "latencyMs": 0.49
+        },
+        {
+          "question": "find ANSI escape sequences in terminal output using a regex",
+          "expected": [
+            "ansi_regex.ansiRegex"
+          ],
+          "returned": [
+            "ansi_regex.ansiRegex",
+            "ansi_regex.Options"
+          ],
+          "found": [
+            "ansi_regex.ansiRegex"
+          ],
+          "passed": true,
+          "latencyMs": 0.33
+        },
+        {
+          "question": "How do I match only the first ANSI escape sequence in a string instead of all of them?",
+          "expected": [
+            "ansi_regex.Options",
+            "ansi_regex.ansiRegex"
+          ],
+          "returned": [
+            "ansi_regex.ansiRegex",
+            "ansi_regex.Options"
+          ],
+          "found": [
+            "ansi_regex.Options",
+            "ansi_regex.ansiRegex"
+          ],
+          "passed": true,
+          "latencyMs": 0.31
+        }
+      ]
+    },
+    {
+      "package": "wrap-ansi",
+      "version": "10.0.1",
+      "cases": 4,
+      "passedCases": 4,
+      "taskPassRate": 1,
+      "expectedSymbols": 4,
+      "foundSymbols": 4,
+      "recallAt5": 1,
+      "meanReciprocalRank": 0.75,
+      "averageLatencyMs": 0.36500000000000005,
+      "estimatedResultTokens": 237,
+      "results": [
+        {
+          "question": "How do I word-wrap a string to a fixed column width?",
+          "expected": [
+            "wrap_ansi.wrapAnsi"
+          ],
+          "returned": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ],
+          "found": [
+            "wrap_ansi.wrapAnsi"
+          ],
+          "passed": true,
+          "latencyMs": 0.46
+        },
+        {
+          "question": "wrap text while keeping ANSI styling codes working across the wrapped lines",
+          "expected": [
+            "wrap_ansi.wrapAnsi"
+          ],
+          "returned": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ],
+          "found": [
+            "wrap_ansi.wrapAnsi"
+          ],
+          "passed": true,
+          "latencyMs": 0.36
+        },
+        {
+          "question": "wrap without respecting word boundaries, breaking anywhere",
+          "expected": [
+            "wrap_ansi.Options"
+          ],
+          "returned": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ],
+          "found": [
+            "wrap_ansi.Options"
+          ],
+          "passed": true,
+          "latencyMs": 0.32
+        },
+        {
+          "question": "preserve the leading and trailing whitespace of each line instead of having it trimmed during wrapping",
+          "expected": [
+            "wrap_ansi.Options"
+          ],
+          "returned": [
+            "wrap_ansi.wrapAnsi",
+            "wrap_ansi.Options"
+          ],
+          "found": [
+            "wrap_ansi.Options"
+          ],
+          "passed": true,
+          "latencyMs": 0.32
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "package": "minimatch",
+    "version": "10.2.6",
+    "question": "How do I match a whole list of file paths against one glob pattern and get back just the ones that match?",
+    "expected": [
+      "esm.match",
+      "commonjs.match"
+    ],
+    "missing": [
+      "esm.match"
+    ]
+  },
+  {
+    "package": "minimatch",
+    "version": "10.2.6",
+    "question": "How do I create a pre-configured version of minimatch with defaults?",
+    "expected": [
+      "esm.defaults",
+      "commonjs.defaults"
+    ],
+    "missing": [
+      "esm.defaults"
+    ]
+  },
+  {
+    "package": "chalk",
+    "version": "6.0.0",
+    "question": "Color auto-detection gets the level wrong in my CI. How do I create a separate chalk instance with its own color level, as recommended for reusable modules?",
+    "expected": [
+      "source.Chalk",
+      "source.Options"
+    ],
+    "missing": [
+      "source.Options"
+    ]
+  }
+]

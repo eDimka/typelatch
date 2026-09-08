@@ -1,0 +1,79 @@
+{
+  "package": "chalk",
+  "notes": "Grounding: brain signatures (source/index.d.ts) plus the chalk@6.0.0 readme for behavior semantics: 'visible' prints text only when color level is above zero; levels 0-3 (0 disabled, 1 basic 16, 2 ANSI 256, 3 truecolor/16m); readme recommends new Chalk({level: n}) to override detection in a reusable module; chalkStderr/supportsColorStderr are the stderr counterparts of chalk/supportsColor; bg*, ansi256, hex, rgb and underline color methods exist only on the ChalkInstance interface, so property-level how-tos canonically resolve to source.ChalkInstance. Judgment calls: (1) chalk 6 core has no tagged template literal support (moved to the chalk-template package), so the template-literal topic is authored as interpolating chained styles into a template literal, matching the readme's ES2015 example; the callable instance signature lives on source.ChalkInstance. (2) Expected values were fixed from the real API surface before engine verification; genuine misses were kept rather than reworded away. retrievalMiss: cases 2-5 (background color, 256-color, truecolor hex/rgb, visible modifier) do not surface source.ChalkInstance in top-5 - the interface has empty docs in the brain, so vendor ansi-styles name tables dominate; case 6 finds source.Chalk (rank 3) but not source.Options (empty docs, generic name); case 11 returns the deprecated source.ForegroundColor and vendor ansi_styles.ForegroundColorName twins instead of the chalk re-export source.ForegroundColorName. Engine quirks observed while testing: the word 'constructor' in a question crashed the CLI at authoring time ('(expansions[token] ?? []) is not iterable'); as of the 2026-09-04 audit that crash no longer reproduces (regression test exists in test/query.test.ts) and questions using the word are admissible. 2026-09-04 audit: replaced the name-echo case 'Where is `ColorInfo` defined?' with the runtime color-disable task (chalk.level = 0 lives on the ChalkInstance interface); that adds a fifth case expecting source.ChalkInstance.",
+  "cases": [
+    {
+      "question": "In chalk, how do I apply several styles at once, e.g. bold red text, and style different lines of a template literal in different colors?",
+      "expected": [
+        "source.default"
+      ]
+    },
+    {
+      "question": "How do I give text a background color, e.g. white text on a blue background?",
+      "expected": [
+        "source.ChalkInstance"
+      ]
+    },
+    {
+      "question": "How do I color text with one of the 256 extended ANSI colors instead of the basic 16?",
+      "expected": [
+        "source.ChalkInstance"
+      ]
+    },
+    {
+      "question": "How do I style text with an exact truecolor value, like a hex color or RGB triple?",
+      "expected": [
+        "source.ChalkInstance"
+      ]
+    },
+    {
+      "question": "Which chalk modifier makes output appear only when the terminal has color support, so purely cosmetic output disappears when colors are disabled?",
+      "expected": [
+        "source.ChalkInstance"
+      ]
+    },
+    {
+      "question": "Color auto-detection gets the level wrong in my CI. How do I create a separate chalk instance with its own color level, as recommended for reusable modules?",
+      "expected": [
+        "source.Chalk",
+        "source.Options"
+      ]
+    },
+    {
+      "question": "What do chalk's color support levels 0, 1, 2, and 3 each enable?",
+      "expected": [
+        "source.ColorSupportLevel"
+      ]
+    },
+    {
+      "question": "How do I style text written to stderr instead of stdout with chalk?",
+      "expected": [
+        "source.chalkStderr"
+      ]
+    },
+    {
+      "question": "What does chalk.supportsColor report about 256-color and truecolor support on stdout?",
+      "expected": [
+        "source.supportsColor"
+      ]
+    },
+    {
+      "question": "Does chalk detect color support for stderr separately from stdout?",
+      "expected": [
+        "source.supportsColorStderr"
+      ]
+    },
+    {
+      "question": "I'm upgrading and see chalk's ForegroundColor type is deprecated. What should I use instead?",
+      "expected": [
+        "source.ForegroundColorName"
+      ]
+    },
+    {
+      "question": "I'm writing output to a file rather than a terminal. How do I turn chalk's colors off completely at runtime?",
+      "expected": [
+        "source.ChalkInstance"
+      ]
+    }
+  ]
+}

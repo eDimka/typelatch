@@ -1,0 +1,414 @@
+{
+  "schemaVersion": 1,
+  "config": "tsconfig.json",
+  "packages": [
+    {
+      "name": "minimatch",
+      "version": "10.2.6",
+      "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
+      "file": "tasks/minimatch.ts",
+      "importSpecifier": "minimatch",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/minimatch.ts"
+      ],
+      "tasks": [
+        {
+          "id": "filter-typescript",
+          "question": "How can I match a source path against a TypeScript glob?",
+          "symbol": "minimatch",
+          "cursorToken": "minimatch('src/main.ts'",
+          "expectedSymbols": [
+            "commonjs.minimatch",
+            "esm.minimatch"
+          ]
+        },
+        {
+          "id": "compiled-glob",
+          "question": "How do I reuse a glob matcher that includes dot directories and brace alternatives?",
+          "symbol": "Minimatch",
+          "cursorToken": "Minimatch('**/*.{ts,tsx}'",
+          "expectedSymbols": [
+            "commonjs.Minimatch",
+            "esm.Minimatch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ansi-styles",
+      "version": "7.0.0",
+      "integrity": "sha512-kKvt3m4uwzqL0wlkPd09CmljPJGOZZ4D0fP65sqFSvPkMRKhNi+74MgIJ5QxE6SxqB4t4KyUFGg8+n5zjo6hew==",
+      "file": "tasks/ansi-styles.ts",
+      "importSpecifier": "ansi-styles",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/ansi-styles.ts"
+      ],
+      "tasks": [
+        {
+          "id": "terminal-warning",
+          "question": "How can I get opening and closing ANSI sequences for yellow text?",
+          "symbol": "default",
+          "cursorToken": "ansiStyles.yellow.open",
+          "expectedSymbols": [
+            "ansi_styles.default"
+          ]
+        },
+        {
+          "id": "brand-rgb",
+          "question": "How do I convert an RGB hex string to three numeric color channels?",
+          "symbol": "default",
+          "cursorToken": "ansiStyles.hexToRgb('#FF8800')",
+          "expectedSymbols": [
+            "ansi_styles.default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lru-cache",
+      "version": "11.5.2",
+      "integrity": "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==",
+      "file": "tasks/lru-cache.ts",
+      "importSpecifier": "lru-cache",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/lru-cache.ts"
+      ],
+      "tasks": [
+        {
+          "id": "bounded-cache",
+          "question": "How do I create a bounded cache that evicts the least recently used item?",
+          "symbol": "LRUCache",
+          "cursorToken": "LRUCache<string, string>({ max: 2 })",
+          "expectedSymbols": [
+            "commonjs.LRUCache",
+            "commonjs/browser.LRUCache",
+            "commonjs/node.LRUCache",
+            "esm.LRUCache",
+            "esm/browser.LRUCache",
+            "esm/node.LRUCache"
+          ]
+        },
+        {
+          "id": "fetch-cache",
+          "question": "How can a cache fetch missing values asynchronously and reuse them on later reads?",
+          "symbol": "LRUCache",
+          "cursorToken": "LRUCache<string, string>({ max: 2, fetchMethod",
+          "expectedSymbols": [
+            "commonjs.LRUCache",
+            "commonjs/browser.LRUCache",
+            "commonjs/node.LRUCache",
+            "esm.LRUCache",
+            "esm/browser.LRUCache",
+            "esm/node.LRUCache"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "strip-ansi",
+      "version": "7.2.0",
+      "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
+      "file": "tasks/strip-ansi.ts",
+      "importSpecifier": "strip-ansi",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/strip-ansi.ts"
+      ],
+      "tasks": [
+        {
+          "id": "plain-log",
+          "question": "How can I remove terminal color escapes from a log message?",
+          "symbol": "default",
+          "cursorToken": "stripAnsi('\\u001b[31m",
+          "expectedSymbols": [
+            "strip_ansi.stripAnsi"
+          ]
+        },
+        {
+          "id": "plain-link",
+          "question": "How do I strip terminal hyperlink control sequences while keeping their visible label?",
+          "symbol": "default",
+          "cursorToken": "stripAnsi('\\u001b]8;;",
+          "expectedSymbols": [
+            "strip_ansi.stripAnsi"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "string-width",
+      "version": "8.2.2",
+      "integrity": "sha512-GaPUh5gfdrYzqeVNZvUfT23vYYxXzKYidUcnMtJg/3rxRV63EFZy3k6xfKlmfeJD0176lnUV/Usr3XcwSvFzpg==",
+      "file": "tasks/string-width.ts",
+      "importSpecifier": "string-width",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/string-width.ts"
+      ],
+      "tasks": [
+        {
+          "id": "colored-width",
+          "question": "How do I measure display columns for colored fullwidth text?",
+          "symbol": "default",
+          "cursorToken": "stringWidth('\\u001b[32m",
+          "expectedSymbols": [
+            "string_width.stringWidth"
+          ]
+        },
+        {
+          "id": "ambiguous-width",
+          "question": "How do I count ambiguous Unicode characters as wide rather than narrow?",
+          "symbol": "default",
+          "cursorToken": "stringWidth('\u00b7',",
+          "expectedSymbols": [
+            "string_width.stringWidth"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "commander",
+      "version": "15.0.0",
+      "integrity": "sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==",
+      "file": "tasks/commander.ts",
+      "importSpecifier": "commander",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/commander.ts"
+      ],
+      "tasks": [
+        {
+          "id": "typed-option",
+          "question": "How do I parse a numeric command line option with a default?",
+          "symbol": "Command",
+          "cursorToken": "Command().exitOverride().option",
+          "expectedSymbols": [
+            "typings.Command"
+          ]
+        },
+        {
+          "id": "subcommand",
+          "question": "How can I define a build subcommand with a required target argument and action?",
+          "symbol": "Command",
+          "cursorToken": "Command().exitOverride();",
+          "expectedSymbols": [
+            "typings.Command"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chalk",
+      "version": "6.0.0",
+      "integrity": "sha512-2uNTXIuTTxk7ciZgAU1BQcgnchcG0xXnrs6jzkQfj9SsRa9M2s5zE8WT96hS6KmG4MzWHSrvH43DF1m4XRkrFg==",
+      "file": "tasks/chalk.ts",
+      "importSpecifier": "chalk",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/chalk.ts"
+      ],
+      "tasks": [
+        {
+          "id": "forced-color",
+          "question": "How can I create an independent color formatter with basic ANSI colors enabled?",
+          "symbol": "Chalk",
+          "cursorToken": "Chalk({ level: 1 })",
+          "expectedSymbols": [
+            "source.Chalk"
+          ]
+        },
+        {
+          "id": "disable-color",
+          "question": "How do I disable all styling on a formatter without relying on terminal detection?",
+          "symbol": "Chalk",
+          "cursorToken": "Chalk({ level: 0 })",
+          "expectedSymbols": [
+            "source.Chalk"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "supports-color",
+      "version": "11.0.0",
+      "integrity": "sha512-/zyImLdxhdygBIaVX0xTlQhKaCDLCrm665aqHk8xqK/Pa6k61fL6gwQGQq1k31yNyz6x55PppQgF2DMyPQa5xw==",
+      "file": "tasks/supports-color.ts",
+      "importSpecifier": "supports-color",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/supports-color.ts"
+      ],
+      "tasks": [
+        {
+          "id": "detect-no-flags",
+          "question": "How can I inspect color support without reading color command line flags?",
+          "symbol": "createSupportsColor",
+          "cursorToken": "createSupportsColor(undefined",
+          "expectedSymbols": [
+            "supports_color.createSupportsColor"
+          ]
+        },
+        {
+          "id": "stream-capabilities",
+          "question": "How do I read separate color capability information for stdout and stderr?",
+          "symbol": "default",
+          "cursorToken": "supportsColor.stdout",
+          "expectedSymbols": [
+            "supports_color.default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ansi-regex",
+      "version": "6.3.0",
+      "integrity": "sha512-WpDfL7NO6j7tH88IDBNVdUJxDh9nmCteAVW9dsep846XdwF4naCBK+/tGLX3KJgcpgMRXCFlTM2hKGoK9FsdrQ==",
+      "file": "tasks/ansi-regex.ts",
+      "importSpecifier": "ansi-regex",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/ansi-regex.ts"
+      ],
+      "tasks": [
+        {
+          "id": "all-escapes",
+          "question": "How do I find every ANSI control sequence in a styled string?",
+          "symbol": "default",
+          "cursorToken": "ansiRegex()",
+          "expectedSymbols": [
+            "ansi_regex.ansiRegex"
+          ]
+        },
+        {
+          "id": "first-escape",
+          "question": "How can I match just the first ANSI escape in terminal output?",
+          "symbol": "default",
+          "cursorToken": "ansiRegex({ onlyFirst: true })",
+          "expectedSymbols": [
+            "ansi_regex.ansiRegex"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "10.0.1",
+      "integrity": "sha512-M0N4xzyzosiIok3svYlEo1sdLZts/8FPgYH/GPC3wvlmPoRvnoManGMrE54waYj3tISA8w6lsdesfVv67qSr8Q==",
+      "file": "tasks/wrap-ansi.ts",
+      "importSpecifier": "wrap-ansi",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/wrap-ansi.ts"
+      ],
+      "tasks": [
+        {
+          "id": "word-wrap",
+          "question": "How do I wrap text into terminal columns while preserving whole words?",
+          "symbol": "default",
+          "cursorToken": "wrapAnsi('one two three'",
+          "expectedSymbols": [
+            "wrap_ansi.wrapAnsi"
+          ]
+        },
+        {
+          "id": "hard-wrap",
+          "question": "How do I split a long unbroken word at a fixed terminal column width?",
+          "symbol": "default",
+          "cursorToken": "wrapAnsi('abcdefgh'",
+          "expectedSymbols": [
+            "wrap_ansi.wrapAnsi"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "version": "3.22.1",
+      "integrity": "sha512-TNoXushmPOBAjJlthF5d2QwnX2xBPEtcNJr5XKNKbRLbDvBcOYkXlYDfvGfSA0zriwLFuCll5MDtNMAdZL17PQ==",
+      "file": "tasks/effect-v3.ts",
+      "importSpecifier": "effect-v3/Effect",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/effect-v3.ts"
+      ],
+      "tasks": [
+        {
+          "id": "effect-v3-retry",
+          "question": "How do I retry a failing effect with a bounded number of attempts?",
+          "symbol": "retry",
+          "cursorToken": "retry(flaky",
+          "expectedSymbols": [
+            "Effect.retry"
+          ]
+        },
+        {
+          "id": "effect-v3-collect",
+          "question": "How do I run effects sequentially and collect all their results?",
+          "symbol": "all",
+          "cursorToken": "all(jobs",
+          "expectedSymbols": [
+            "Effect.all"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "effect",
+      "version": "4.0.0-rc.112",
+      "integrity": "sha512-wXxwuh1Ywnv4cPRM3Wfa0vDwuOHnZ1TsTgHJkG9XgzND6inhBH9n1vBxhg3iIXOia/OrpmvVmd3lrD4vq6bF3A==",
+      "file": "tasks/effect-v4.ts",
+      "importSpecifier": "effect-v4/Effect",
+      "testCommand": [
+        "node",
+        "--import",
+        "tsx",
+        "tasks/effect-v4.ts"
+      ],
+      "tasks": [
+        {
+          "id": "effect-v4-retry",
+          "question": "How do I retry a failing effect with a bounded number of attempts?",
+          "symbol": "retry",
+          "cursorToken": "retry(flaky",
+          "expectedSymbols": [
+            "Effect.retry"
+          ]
+        },
+        {
+          "id": "effect-v4-collect",
+          "question": "How do I run effects sequentially and collect all their results?",
+          "symbol": "all",
+          "cursorToken": "all(jobs",
+          "expectedSymbols": [
+            "Effect.all"
+          ]
+        }
+      ]
+    }
+  ]
+}

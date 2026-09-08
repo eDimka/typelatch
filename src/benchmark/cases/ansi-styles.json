@@ -1,0 +1,38 @@
+{
+  "package": "ansi-styles",
+  "notes": "Authored from the built brain's symbol inventory (module prefix ansi_styles.*). 8 cases. 2026-09-04 audit: replaced the name-echo case 'Where is `default` defined?' with the ColorName type task (real need when typing a helper that accepts a color-name string). Note: 3 of the remaining 7 cases are the same 'list valid X names' pattern (foreground/background/modifier); the underline-colors variant was kept as the fourth instance because it exercises a real exported name table, but the pattern is over-represented for this package.",
+  "cases": [
+    {
+      "question": "How do I get the ANSI escape sequences to style terminal text?",
+      "expected": ["ansi_styles.default"]
+    },
+    {
+      "question": "list all valid foreground color names",
+      "expected": ["ansi_styles.foregroundColorNames"]
+    },
+    {
+      "question": "list all valid background color names",
+      "expected": ["ansi_styles.backgroundColorNames"]
+    },
+    {
+      "question": "list all valid text modifier names like bold and italic",
+      "expected": ["ansi_styles.modifierNames"]
+    },
+    {
+      "question": "what does a style pair with open and close escape codes look like?",
+      "expected": ["ansi_styles.CSPair"]
+    },
+    {
+      "question": "convert RGB color values into ANSI truecolor escape codes",
+      "expected": ["ansi_styles.ConvertColor"]
+    },
+    {
+      "question": "list all valid underline color names",
+      "expected": ["ansi_styles.underlineColorNames"]
+    },
+    {
+      "question": "I'm writing a helper that takes a color name such as 'cyan' as an argument. What type should that parameter be?",
+      "expected": ["ansi_styles.ColorName"]
+    }
+  ]
+}

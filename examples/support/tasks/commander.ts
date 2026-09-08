@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { Command } from 'commander';
+const cli = new Command().exitOverride().option('-p, --port <number>', 'listen port', Number, 8080);
+cli.parse(['--port', '9000'], { from: 'user' });
+assert.equal(cli.opts<{ port: number }>().port, 9000);
+let selected = '';
+const program = new Command().exitOverride();
+program.command('build').argument('<target>').action((target: string) => { selected = target; });
+program.parse(['build', 'production'], { from: 'user' });
+assert.equal(selected, 'production');
