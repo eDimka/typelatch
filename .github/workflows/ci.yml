@@ -34,7 +34,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run benchmark
+      - run: npm run benchmark:workspace
       - run: npm run prove:support
+      - run: npm run showcase:agent
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         if: always()
         with:
@@ -42,3 +44,5 @@ jobs:
           path: |
             docs/benchmarks/*.json
             artifacts/support.json.gz
+            docs/showcase/agent-workflow.json
+            artifacts/agent-workflow.json.gz

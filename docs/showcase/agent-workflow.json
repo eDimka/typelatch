@@ -1,0 +1,1636 @@
+{
+  "provenance": {
+    "capturedAt": "2026-09-08T15:49:39.248Z",
+    "version": "0.2.0",
+    "kind": "Curated MCP workflow replay with actual tool responses; not an independent agent session or benchmark",
+    "author": "Codex",
+    "client": "@modelcontextprotocol/sdk Client over stdio",
+    "harnessSha256": "1e825146d77710d03bc8383220b30fcdf74d224291a0ab08db502baef412a108",
+    "fixture": "Isolated copy of examples/sqlite with the transaction deliberately removed from batch.ts",
+    "question": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding.",
+    "packageSource": "$REPOSITORY/artifacts/releases/v0.2.0/typelatch-0.2.0.tgz",
+    "normalization": "Private absolute path prefixes are replaced; responses, code, IDs, hashes, timings and execution output are otherwise retained",
+    "node": "v22.23.1",
+    "platform": "darwin",
+    "tarballSha256": "3e06cf3ef826ec8b1df5e2b90a9f4e60f7f9f87e85a66e96d70c5d5c0eeac061",
+    "installedPackage": {
+      "version": "0.2.0",
+      "resolved": "file:../../../releases/v0.2.0/typelatch-0.2.0.tgz",
+      "integrity": "sha512-KHamz5oUrfZ8gLRVctw3Xy+1IkLb7D3nLwlsUY+rMyJHLENSUnE9v7rUkyG3PFVnwZ2f4vbCTEGAmGpxfbsvPg==",
+      "license": "MIT",
+      "dependencies": {
+        "@modelcontextprotocol/sdk": "1.30.0",
+        "better-sqlite3": "13.0.3",
+        "tar": "7.5.22",
+        "typescript": "6.0.3",
+        "zod": "4.5.4"
+      },
+      "bin": {
+        "typelatch": "dist/cli.js",
+        "typelatch-mcp": "dist/mcp.js"
+      },
+      "engines": {
+        "node": ">=22.12.0"
+      }
+    },
+    "server": {
+      "name": "typelatch",
+      "version": "0.2.0"
+    }
+  },
+  "checks": {
+    "passed": true,
+    "initialSearchNamedPackage": false,
+    "baselineCompilation": "pass",
+    "baselineTests": "fail",
+    "finalCompilation": "pass",
+    "finalTests": "pass",
+    "finalStability": "pass",
+    "finalArtifactMatch": "unknown",
+    "testsUnchanged": true,
+    "refreshedFiles": 1,
+    "cliEquivalent": true
+  },
+  "summary": {
+    "initialCoverage": {
+      "complete": false,
+      "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+      "files": 5,
+      "projects": [
+        "$WORKSPACE"
+      ],
+      "configs": [
+        "$WORKSPACE/tsconfig.json"
+      ],
+      "projectsOmitted": 0,
+      "configsOmitted": 0,
+      "excluded": [
+        {
+          "path": "package-lock.json",
+          "reason": "dependency lockfile; identity inventory only"
+        }
+      ],
+      "excludedCount": 1,
+      "dependencies": [
+        {
+          "package": "@types/better-sqlite3",
+          "version": "9.6.0",
+          "roots": [
+            "$WORKSPACE/node_modules/@types/better-sqlite3"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-ZEEwBSgMu7GYJOynoagg5X9JbxfL6dTJDsgViJIqh67jV44kyOr9RXfmFjLK5rzC4MWssP06t9hu/JwGDnUbCg==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add @types/better-sqlite3@9.6.0",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "@types/node",
+          "version": "22.20.1",
+          "roots": [
+            "$WORKSPACE/node_modules/@types/node"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add @types/node@22.20.1",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "better-sqlite3",
+          "version": "13.0.3",
+          "roots": [
+            "$WORKSPACE/node_modules/better-sqlite3"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-RbOBxmLBG8uvFUc15X9+9SFemKcQ0WBuISBVkpuiaUB2qblC8UWlHEjdWVoZ8AdhSwmoEgsiXKfopX0CQxaACQ==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add better-sqlite3@13.0.3",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "kysely",
+          "version": "0.28.8",
+          "roots": [
+            "$WORKSPACE/node_modules/kysely"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add kysely@0.28.8",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "node-addon-api",
+          "version": "8.9.2",
+          "roots": [
+            "$WORKSPACE/node_modules/node-addon-api"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add node-addon-api@8.9.2",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "typescript",
+          "version": "6.0.3",
+          "roots": [
+            "$WORKSPACE/node_modules/typescript"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add typescript@6.0.3",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "undici-types",
+          "version": "6.21.0",
+          "roots": [
+            "$WORKSPACE/node_modules/undici-types"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add undici-types@6.21.0",
+          "rootsOmitted": 0
+        }
+      ],
+      "dependencyCount": 7,
+      "searchedDependencies": 0,
+      "missingIndexes": 7,
+      "dependencyErrors": 0,
+      "dependenciesOmitted": 0,
+      "issues": [],
+      "issuesOmitted": 0,
+      "retrieval": {
+        "workspaceCandidateLimit": 400,
+        "workspaceCandidateLimitReached": false,
+        "perDependencyLimit": 20,
+        "exhaustive": false
+      }
+    },
+    "dependencyCoverage": {
+      "complete": false,
+      "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+      "files": 5,
+      "projects": [
+        "$WORKSPACE"
+      ],
+      "configs": [
+        "$WORKSPACE/tsconfig.json"
+      ],
+      "projectsOmitted": 0,
+      "configsOmitted": 0,
+      "excluded": [
+        {
+          "path": "package-lock.json",
+          "reason": "dependency lockfile; identity inventory only"
+        }
+      ],
+      "excludedCount": 1,
+      "dependencies": [
+        {
+          "package": "@types/better-sqlite3",
+          "version": "9.6.0",
+          "roots": [
+            "$WORKSPACE/node_modules/@types/better-sqlite3"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-ZEEwBSgMu7GYJOynoagg5X9JbxfL6dTJDsgViJIqh67jV44kyOr9RXfmFjLK5rzC4MWssP06t9hu/JwGDnUbCg==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add @types/better-sqlite3@9.6.0",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "@types/node",
+          "version": "22.20.1",
+          "roots": [
+            "$WORKSPACE/node_modules/@types/node"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add @types/node@22.20.1",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "better-sqlite3",
+          "version": "13.0.3",
+          "roots": [
+            "$WORKSPACE/node_modules/better-sqlite3"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-RbOBxmLBG8uvFUc15X9+9SFemKcQ0WBuISBVkpuiaUB2qblC8UWlHEjdWVoZ8AdhSwmoEgsiXKfopX0CQxaACQ==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add better-sqlite3@13.0.3",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "node-addon-api",
+          "version": "8.9.2",
+          "roots": [
+            "$WORKSPACE/node_modules/node-addon-api"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add node-addon-api@8.9.2",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "typescript",
+          "version": "6.0.3",
+          "roots": [
+            "$WORKSPACE/node_modules/typescript"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add typescript@6.0.3",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "undici-types",
+          "version": "6.21.0",
+          "roots": [
+            "$WORKSPACE/node_modules/undici-types"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
+          "status": "missing-index",
+          "reason": "Prepare with typelatch add undici-types@6.21.0",
+          "rootsOmitted": 0
+        },
+        {
+          "package": "kysely",
+          "version": "0.28.8",
+          "roots": [
+            "$WORKSPACE/node_modules/kysely"
+          ],
+          "identity": "installed",
+          "installed": true,
+          "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+          "status": "searched",
+          "rootsOmitted": 0
+        }
+      ],
+      "dependencyCount": 7,
+      "searchedDependencies": 1,
+      "missingIndexes": 6,
+      "dependencyErrors": 0,
+      "dependenciesOmitted": 0,
+      "issues": [],
+      "issuesOmitted": 0,
+      "retrieval": {
+        "workspaceCandidateLimit": 400,
+        "workspaceCandidateLimitReached": false,
+        "perDependencyLimit": 20,
+        "exhaustive": false
+      }
+    },
+    "located": {
+      "source": "$WORKSPACE/batch.ts",
+      "line": 24,
+      "endLine": 29,
+      "symbol": "importContacts",
+      "position": 560,
+      "snippet": "export async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n",
+      "score": 1174,
+      "matchedTerms": [
+        "import",
+        "contact"
+      ],
+      "origin": "workspace",
+      "package": null,
+      "version": null,
+      "integrity": null,
+      "projectRoot": "$WORKSPACE",
+      "dependencyRoots": [],
+      "kind": "declaration",
+      "signature": null
+    },
+    "selectedApi": {
+      "source": "dist/esm/kysely.d.ts",
+      "line": 623,
+      "endLine": 623,
+      "symbol": "esm/kysely.TransactionBuilder",
+      "position": null,
+      "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+      "score": 124,
+      "matchedTerms": [
+        "transact",
+        "builder",
+        "execut"
+      ],
+      "origin": "dependency",
+      "package": "kysely",
+      "version": "0.28.8",
+      "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+      "projectRoot": null,
+      "dependencyRoots": [
+        "$WORKSPACE/node_modules/kysely"
+      ],
+      "kind": "class",
+      "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}"
+    },
+    "beforeOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 244.520917\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.993084\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 628.934083\n",
+    "afterOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.782125\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.30275\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 282.2785\n"
+  },
+  "fileActions": [
+    {
+      "tool": "ordinary file read",
+      "reason": "Inspect the rollback assertion and identify the function under test.",
+      "path": "$WORKSPACE/batch.test.ts",
+      "sha256": "bf2c55f63339cc4837532c067614adb81998741a3376ce9e8d62d43bf4db4f57",
+      "text": "import assert from 'node:assert/strict'\nimport { test } from 'node:test'\nimport { createDatabase, importContacts } from './batch.ts'\n\ntest('commits the whole valid batch and binds a quote as data', async () => {\n  const db = await createDatabase()\n  try {\n    const contacts = [{ id: 1, name: \"O'Reilly\" }, { id: 2, name: \"Robert'); DROP TABLE contact;--\" }]\n    const compiled = db.insertInto('contact').values(contacts[0]!).compile()\n    assert.equal(compiled.sql, 'insert into \"contact\" (\"id\", \"name\") values (?, ?)')\n    assert.deepEqual(compiled.parameters, [1, \"O'Reilly\"])\n    await importContacts(db, contacts)\n    assert.deepEqual(await db.selectFrom('contact').selectAll().orderBy('id').execute(), contacts)\n    console.log(JSON.stringify({ assertion: 'parameter binding and exact round trip', sql: compiled.sql, parameters: compiled.parameters, rows: contacts }))\n  } finally {\n    await db.destroy()\n  }\n})\n\ntest('UNIQUE failure rolls back an earlier insert in the same batch', async () => {\n  const db = await createDatabase()\n  try {\n    await importContacts(db, [{ id: 1, name: 'existing' }])\n    await assert.rejects(importContacts(db, [{ id: 2, name: 'must roll back' }, { id: 3, name: 'existing' }]), { code: 'SQLITE_CONSTRAINT_UNIQUE' })\n    const rows = await db.selectFrom('contact').selectAll().execute()\n    assert.deepEqual(rows, [{ id: 1, name: 'existing' }])\n    console.log(JSON.stringify({ assertion: 'whole batch rollback', rejectedCode: 'SQLITE_CONSTRAINT_UNIQUE', rows }))\n  } finally {\n    await db.destroy()\n  }\n})\n"
+    },
+    {
+      "tool": "ordinary file read",
+      "reason": "The loop inserts directly through db, so earlier inserts can survive a later failure.",
+      "path": "$WORKSPACE/batch.ts",
+      "sha256": "295bbb1c8503fd5f09d70e747d190133deb7916c380a0aea850861b8de73b4bb",
+      "text": "import Database from 'better-sqlite3'\nimport { Kysely, SqliteDialect } from 'kysely'\n\nexport interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })\n  })\n  await db.schema.createTable('contact')\n    .addColumn('id', 'integer', column => column.primaryKey())\n    .addColumn('name', 'text', column => column.notNull().unique())\n    .execute()\n  return db\n}\n\nexport async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n"
+    },
+    {
+      "tool": "ordinary file edit",
+      "path": "$WORKSPACE/batch.ts",
+      "reason": "Wrap all parameterized inserts in one transaction callback and let failures escape.",
+      "before": "import Database from 'better-sqlite3'\nimport { Kysely, SqliteDialect } from 'kysely'\n\nexport interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })\n  })\n  await db.schema.createTable('contact')\n    .addColumn('id', 'integer', column => column.primaryKey())\n    .addColumn('name', 'text', column => column.notNull().unique())\n    .execute()\n  return db\n}\n\nexport async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n",
+      "after": "import Database from 'better-sqlite3'\nimport { Kysely, SqliteDialect } from 'kysely'\n\nexport interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })\n  })\n  await db.schema.createTable('contact')\n    .addColumn('id', 'integer', column => column.primaryKey())\n    .addColumn('name', 'text', column => column.notNull().unique())\n    .execute()\n  return db\n}\n\nexport async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  // Let rejection escape the callback so Kysely rolls back the whole batch.\n  await db.transaction().execute(async transaction => {\n    for (const contact of contacts) {\n      await transaction.insertInto('contact').values(contact).execute()\n    }\n  })\n}\n",
+      "beforeSha256": "295bbb1c8503fd5f09d70e747d190133deb7916c380a0aea850861b8de73b4bb",
+      "afterSha256": "8bfb1ac28ce119657e830a7ff40a3ec2416febfde06641deebbccab2cb2d7ec6"
+    }
+  ],
+  "calls": [
+    {
+      "id": "discover",
+      "decision": "Start from the user task without choosing a package or file.",
+      "request": {
+        "name": "workspace_search",
+        "arguments": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding.",
+          "limit": 8
+        }
+      },
+      "resultProjection": {
+        "results": [
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 1,
+            "endLine": 16,
+            "symbol": null,
+            "position": null,
+            "snippet": "import assert from 'node:assert/strict'\nimport { test } from 'node:test'\nimport { createDatabase, importContacts } from './batch.ts'\n\ntest('commits the whole valid batch and binds a quote as data', async () => {\n  const db = await createDatabase()\n  try {\n    const contacts = [{ id: 1, name: \"O'Reilly\" }, { id: 2, name: \"Robert'); DROP TABLE contact;--\" }]\n    const compiled = db.insertInto('contact').values(contacts[0]!).compile()\n    assert.equal(compiled.sql, 'insert into \"contact\" (\"id\", \"name\") values (?, ?)')\n    assert.deepEqual(compiled.parameters, [1, \"O'Reilly\"])\n    await importContacts(db, contacts)\n    assert.deepEqual(await db.selectFrom('contact').selectAll().orderBy('id').execute(), contacts)\n    console.log(JSON.stringify({ assertion: 'parameter binding and exact round trip', sql: compiled.sql, parameters: compiled.parameters, rows: contacts }))\n  } finally {\n    await db.destroy()",
+            "score": 56,
+            "matchedTerms": [
+              "contact",
+              "import",
+              "data",
+              "name",
+              "whol",
+              "batch",
+              "parameter"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "text",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.ts",
+            "line": 24,
+            "endLine": 29,
+            "symbol": "importContacts",
+            "position": 560,
+            "snippet": "export async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n",
+            "score": 55,
+            "matchedTerms": [
+              "contact",
+              "import",
+              "batch"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 21,
+            "endLine": 32,
+            "symbol": "db",
+            "position": 1012,
+            "snippet": "  const db = await createDatabase()\n  try {\n    await importContacts(db, [{ id: 1, name: 'existing' }])\n    await assert.rejects(importContacts(db, [{ id: 2, name: 'must roll back' }, { id: 3, name: 'existing' }]), { code: 'SQLITE_CONSTRAINT_UNIQUE' })\n    const rows = await db.selectFrom('contact').selectAll().execute()\n    assert.deepEqual(rows, [{ id: 1, name: 'existing' }])\n    console.log(JSON.stringify({ assertion: 'whole batch rollback', rejectedCode: 'SQLITE_CONSTRAINT_UNIQUE', rows }))\n  } finally {\n    await db.destroy()\n  }\n})\n",
+            "score": 50,
+            "matchedTerms": [
+              "contact",
+              "import",
+              "name",
+              "whol",
+              "batch",
+              "rollback"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.ts",
+            "line": 4,
+            "endLine": 15,
+            "symbol": "Contact",
+            "position": 103,
+            "snippet": "export interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })",
+            "score": 43,
+            "matchedTerms": [
+              "contact",
+              "name",
+              "batch"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/package.json",
+            "line": 1,
+            "endLine": 16,
+            "symbol": null,
+            "position": null,
+            "snippet": "{\n  \"name\": \"typelatch-sqlite-showcase\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"check\": \"tsc --noEmit\",\n    \"test\": \"node --experimental-strip-types --test --test-reporter=tap batch.test.ts\",\n    \"test:negative\": \"node --experimental-strip-types --test --test-reporter=tap negative.test.ts\"\n  },\n  \"dependencies\": {\n    \"better-sqlite3\": \"13.0.3\",\n    \"kysely\": \"0.28.8\"\n  },\n  \"devDependencies\": {\n    \"@types/better-sqlite3\": \"9.6.0\",\n    \"@types/node\": \"22.20.1\",",
+            "score": 13,
+            "matchedTerms": [
+              "name",
+              "batch"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "text",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/tsconfig.json",
+            "line": 1,
+            "endLine": 13,
+            "symbol": null,
+            "position": null,
+            "snippet": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"NodeNext\",\n    \"moduleResolution\": \"NodeNext\",\n    \"strict\": true,\n    \"noEmit\": true,\n    \"allowImportingTsExtensions\": true,\n    \"types\": [\"node\"]\n  },\n  \"include\": [\"*.ts\"]\n}\n",
+            "score": 6,
+            "matchedTerms": [
+              "import"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "text",
+            "signature": null
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+          "files": 5,
+          "projects": [
+            "$WORKSPACE"
+          ],
+          "configs": [
+            "$WORKSPACE/tsconfig.json"
+          ],
+          "projectsOmitted": 0,
+          "configsOmitted": 0,
+          "excluded": [
+            {
+              "path": "package-lock.json",
+              "reason": "dependency lockfile; identity inventory only"
+            }
+          ],
+          "excludedCount": 1,
+          "dependencies": [
+            {
+              "package": "@types/better-sqlite3",
+              "version": "9.6.0",
+              "roots": [
+                "$WORKSPACE/node_modules/@types/better-sqlite3"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-ZEEwBSgMu7GYJOynoagg5X9JbxfL6dTJDsgViJIqh67jV44kyOr9RXfmFjLK5rzC4MWssP06t9hu/JwGDnUbCg==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add @types/better-sqlite3@9.6.0",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "@types/node",
+              "version": "22.20.1",
+              "roots": [
+                "$WORKSPACE/node_modules/@types/node"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add @types/node@22.20.1",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "better-sqlite3",
+              "version": "13.0.3",
+              "roots": [
+                "$WORKSPACE/node_modules/better-sqlite3"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-RbOBxmLBG8uvFUc15X9+9SFemKcQ0WBuISBVkpuiaUB2qblC8UWlHEjdWVoZ8AdhSwmoEgsiXKfopX0CQxaACQ==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add better-sqlite3@13.0.3",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "kysely",
+              "version": "0.28.8",
+              "roots": [
+                "$WORKSPACE/node_modules/kysely"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add kysely@0.28.8",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "node-addon-api",
+              "version": "8.9.2",
+              "roots": [
+                "$WORKSPACE/node_modules/node-addon-api"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add node-addon-api@8.9.2",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "typescript",
+              "version": "6.0.3",
+              "roots": [
+                "$WORKSPACE/node_modules/typescript"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add typescript@6.0.3",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "undici-types",
+              "version": "6.21.0",
+              "roots": [
+                "$WORKSPACE/node_modules/undici-types"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add undici-types@6.21.0",
+              "rootsOmitted": 0
+            }
+          ],
+          "dependencyCount": 7,
+          "searchedDependencies": 0,
+          "missingIndexes": 7,
+          "dependencyErrors": 0,
+          "dependenciesOmitted": 0,
+          "issues": [],
+          "issuesOmitted": 0,
+          "retrieval": {
+            "workspaceCandidateLimit": 400,
+            "workspaceCandidateLimitReached": false,
+            "perDependencyLimit": 20,
+            "exhaustive": false
+          }
+        },
+        "checks": {
+          "retrieved": {
+            "status": "pass",
+            "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+          },
+          "resolved": {
+            "status": "not-run",
+            "reason": "Use workspace_context for compiler resolution"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace_validate for compilation"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No assertion command executed"
+          },
+          "stable": {
+            "status": "unknown",
+            "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed dependency contents were not compared with registry artifacts"
+          }
+        },
+        "index": {
+          "path": "$TYPELATCH_HOME/workspaces/e1329ddf0922ba4505f36bfc5df63fdfac009650d5ef0714c71d40cfb7961911/search.db",
+          "updatedFiles": 5,
+          "removedFiles": 0,
+          "files": 5,
+          "snapshot": "0ba57dc7de3c17a621222c0b2807342419af5b8d9c52db60a99b598cd0915f4b"
+        },
+        "status": "partial"
+      }
+    },
+    {
+      "id": "find-implementation",
+      "decision": "The tests call importContacts. Locate its declaration.",
+      "request": {
+        "name": "workspace_search",
+        "arguments": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "importContacts",
+          "scope": "workspace",
+          "limit": 5
+        }
+      },
+      "resultProjection": {
+        "results": [
+          {
+            "source": "$WORKSPACE/batch.ts",
+            "line": 24,
+            "endLine": 29,
+            "symbol": "importContacts",
+            "position": 560,
+            "snippet": "export async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n",
+            "score": 1174,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 8,
+            "endLine": 19,
+            "symbol": "contacts",
+            "position": 266,
+            "snippet": "    const contacts = [{ id: 1, name: \"O'Reilly\" }, { id: 2, name: \"Robert'); DROP TABLE contact;--\" }]\n    const compiled = db.insertInto('contact').values(contacts[0]!).compile()\n    assert.equal(compiled.sql, 'insert into \"contact\" (\"id\", \"name\") values (?, ?)')\n    assert.deepEqual(compiled.parameters, [1, \"O'Reilly\"])\n    await importContacts(db, contacts)\n    assert.deepEqual(await db.selectFrom('contact').selectAll().orderBy('id').execute(), contacts)\n    console.log(JSON.stringify({ assertion: 'parameter binding and exact round trip', sql: compiled.sql, parameters: compiled.parameters, rows: contacts }))\n  } finally {\n    await db.destroy()\n  }\n})\n",
+            "score": 112,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 21,
+            "endLine": 32,
+            "symbol": "db",
+            "position": 1012,
+            "snippet": "  const db = await createDatabase()\n  try {\n    await importContacts(db, [{ id: 1, name: 'existing' }])\n    await assert.rejects(importContacts(db, [{ id: 2, name: 'must roll back' }, { id: 3, name: 'existing' }]), { code: 'SQLITE_CONSTRAINT_UNIQUE' })\n    const rows = await db.selectFrom('contact').selectAll().execute()\n    assert.deepEqual(rows, [{ id: 1, name: 'existing' }])\n    console.log(JSON.stringify({ assertion: 'whole batch rollback', rejectedCode: 'SQLITE_CONSTRAINT_UNIQUE', rows }))\n  } finally {\n    await db.destroy()\n  }\n})\n",
+            "score": 100,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          }
+        ],
+        "coverage": {
+          "complete": true,
+          "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+          "files": 5,
+          "projects": [
+            "$WORKSPACE"
+          ],
+          "configs": [
+            "$WORKSPACE/tsconfig.json"
+          ],
+          "projectsOmitted": 0,
+          "configsOmitted": 0,
+          "excluded": [
+            {
+              "path": "package-lock.json",
+              "reason": "dependency lockfile; identity inventory only"
+            }
+          ],
+          "excludedCount": 1,
+          "dependencies": [],
+          "dependencyCount": 0,
+          "searchedDependencies": 0,
+          "missingIndexes": 0,
+          "dependencyErrors": 0,
+          "dependenciesOmitted": 0,
+          "issues": [],
+          "issuesOmitted": 0,
+          "retrieval": {
+            "workspaceCandidateLimit": 400,
+            "workspaceCandidateLimitReached": false,
+            "perDependencyLimit": 20,
+            "exhaustive": false
+          }
+        },
+        "checks": {
+          "retrieved": {
+            "status": "pass",
+            "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+          },
+          "resolved": {
+            "status": "not-run",
+            "reason": "Use workspace_context for compiler resolution"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace_validate for compilation"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No assertion command executed"
+          },
+          "stable": {
+            "status": "unknown",
+            "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed dependency contents were not compared with registry artifacts"
+          }
+        },
+        "index": {
+          "path": "$TYPELATCH_HOME/workspaces/e1329ddf0922ba4505f36bfc5df63fdfac009650d5ef0714c71d40cfb7961911/search.db",
+          "updatedFiles": 0,
+          "removedFiles": 0,
+          "files": 5,
+          "snapshot": "0ba57dc7de3c17a621222c0b2807342419af5b8d9c52db60a99b598cd0915f4b"
+        },
+        "status": "ok"
+      }
+    },
+    {
+      "id": "before-edit",
+      "decision": "Run the authorized assertions before changing code. Compilation alone cannot establish rollback.",
+      "request": {
+        "name": "workspace_validate",
+        "arguments": {
+          "config": "$WORKSPACE/tsconfig.json",
+          "workspaceRoot": "$WORKSPACE",
+          "testCommand": [
+            "npm",
+            "test"
+          ],
+          "timeoutMs": 60000,
+          "record": false
+        }
+      },
+      "resultProjection": {
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "fail",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        },
+        "execution": {
+          "command": [
+            "npm",
+            "test"
+          ],
+          "cwd": "$WORKSPACE",
+          "exitCode": 1,
+          "signal": null,
+          "status": "fail",
+          "timedOut": false,
+          "cancelled": false,
+          "outputLimitExceeded": false,
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 244.520917\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.993084\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 628.934083\n",
+          "stderr": "",
+          "durationMs": 949.5635419999999
+        }
+      }
+    },
+    {
+      "id": "resolve-dependency",
+      "decision": "Resolve the actual import with the installed compiler before choosing an index version.",
+      "request": {
+        "name": "workspace_context",
+        "arguments": {
+          "config": "$WORKSPACE/tsconfig.json",
+          "file": "$WORKSPACE/batch.ts",
+          "importSpecifier": "kysely",
+          "symbol": "Kysely"
+        }
+      },
+      "resultProjection": {
+        "checks": {
+          "retrieved": {
+            "status": "not-run",
+            "reason": "No discovery question supplied"
+          },
+          "resolved": {
+            "status": "pass",
+            "reason": "Import resolved by the project compiler"
+          },
+          "versionMatch": {
+            "status": "not-run",
+            "reason": "No expected version supplied"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed package contents have not been compared with the registry artifact"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace validation for project diagnostics"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No test command executed"
+          }
+        },
+        "dependency": {
+          "name": "kysely",
+          "version": "0.28.8",
+          "root": "$WORKSPACE/node_modules/kysely",
+          "manifest": "$WORKSPACE/node_modules/kysely/package.json",
+          "manifestHash": "771e12d0d5f1a92eb77de13c1ff9ecbe4f22ccdb9223b820d69c94955a6f365b"
+        },
+        "hover": null
+      }
+    },
+    {
+      "id": "discover-transaction",
+      "decision": "Search the workspace dependency indexes for the transaction callback. The request still has no package argument.",
+      "request": {
+        "name": "workspace_search",
+        "arguments": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "TransactionBuilder execute",
+          "scope": "dependencies",
+          "limit": 8
+        }
+      },
+      "resultProjection": {
+        "results": [
+          {
+            "source": "dist/cjs/kysely.d.ts",
+            "line": 623,
+            "endLine": 623,
+            "symbol": "cjs/kysely.TransactionBuilder",
+            "position": null,
+            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]",
+            "score": 124,
+            "matchedTerms": [
+              "transact",
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}"
+          },
+          {
+            "source": "dist/cjs/kysely.d.ts",
+            "line": 634,
+            "endLine": 634,
+            "symbol": "cjs/kysely.ControlledTransactionBuilder",
+            "position": null,
+            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]",
+            "score": 124,
+            "matchedTerms": [
+              "transact",
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}"
+          },
+          {
+            "source": "dist/esm/kysely.d.ts",
+            "line": 623,
+            "endLine": 623,
+            "symbol": "esm/kysely.TransactionBuilder",
+            "position": null,
+            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "score": 124,
+            "matchedTerms": [
+              "transact",
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}"
+          },
+          {
+            "source": "dist/esm/kysely.d.ts",
+            "line": 634,
+            "endLine": 634,
+            "symbol": "esm/kysely.ControlledTransactionBuilder",
+            "position": null,
+            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "score": 124,
+            "matchedTerms": [
+              "transact",
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}"
+          },
+          {
+            "source": "dist/cjs/query-builder/insert-query-builder.d.ts",
+            "line": 25,
+            "endLine": 25,
+            "symbol": "cjs/query_builder/insert_query_builder.InsertQueryBuilder",
+            "position": null,
+            "snippet": "export declare class InsertQueryBuilder<DB, TB extends keyof DB, O> implements ReturningInterface<DB, TB, O>, OutputInterface<DB, TB, O, 'inserted'>, OperationNodeSource, Compilable<O>, Explainable, Streamable<O> {\n    #private;\n    constructor(props: InsertQueryBuilderProps);\n    \n    values(insert: InsertExpression<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    columns(columns: ReadonlyArray<keyof DB[TB] & string>): InsertQueryBuilder<DB, TB, O>;\n    \n    expression(expression: ExpressionOrFactory<DB, TB, any>): InsertQueryBuilder<DB, TB, O>;\n    \n    defaultValues(): InsertQueryBuilder<DB, TB, O>;\n    \n    modifyEnd(modifier: Expression<any>): InsertQueryBuilder<DB, TB, O>;\n    \n    ignore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orIgnore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orAbort(): InsertQueryBuilder<DB, TB, O>;\n    \n    orFail(): InsertQueryBuilder<DB, TB, O>;\n    \n    orReplace(): InsertQueryBuilder<DB, TB, O>;\n    \n    orRollback(): InsertQueryBuilder<DB, TB, O>;\n    \n    top(expression: number | bigint, modifiers?: 'percent'): InsertQueryBuilder<DB, TB, O>;\n    \n    onConflict(callback: (builder: OnConflictBuilder<DB, TB>) => OnConflictUpdateBuilder<OnConflictDatabase<DB, TB>, OnConflictTables<TB>> | OnConflictDoNothingBuilder<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    onDuplicateKeyUpdate(update: UpdateObjectExpression<DB, TB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    returning<SE extends SelectExpression<DB, TB>>(selections: ReadonlyArray<SE>): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    returning<CB extends SelectCallback<DB, TB>>(callback: CB): InsertQueryBuilder<DB, TB, ReturningCallbackRow<DB, TB, O, CB>>;\n    returning<SE extends SelectExpression<DB, TB>>(selection: SE): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    \n    returningAll(): InsertQueryBuilder<DB, TB, Selectable<DB[TB]>>;\n    \n    output<OE extends OutputExpression<DB, TB, 'inserted'>>(selections: readonly OE[]): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputExpression<OE>>>;\n    output<CB extends OutputCallback<DB, TB, 'inserted'>>(callback: CB): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputCallback<CB>>>;\n    output<OE extends OutputExpression<DB, TB, 'inserted'>>(selection: OE): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputExpres",
+            "score": 79,
+            "matchedTerms": [
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class InsertQueryBuilder<DB, TB extends keyof DB, O> implements ReturningInterface<DB, TB, O>, OutputInterface<DB, TB, O, 'inserted'>, OperationNodeSource, Compilable<O>, Explainable, Streamable<O> {\n    #private;\n    constructor(props: InsertQueryBuilderProps);\n    \n    values(insert: InsertExpression<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    columns(columns: ReadonlyArray<keyof DB[TB] & string>): InsertQueryBuilder<DB, TB, O>;\n    \n    expression(expression: ExpressionOrFactory<DB, TB, any>): InsertQueryBuilder<DB, TB, O>;\n    \n    defaultValues(): InsertQueryBuilder<DB, TB, O>;\n    \n    modifyEnd(modifier: Expression<any>): InsertQueryBuilder<DB, TB, O>;\n    \n    ignore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orIgnore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orAbort(): InsertQueryBuilder<DB, TB, O>;\n    \n    orFail(): InsertQueryBuilder<DB, TB, O>;\n    \n    orReplace(): InsertQueryBuilder<DB, TB, O>;\n    \n    orRollback(): InsertQueryBuilder<DB, TB, O>;\n    \n    top(expression: number | bigint, modifiers?: 'percent'): InsertQueryBuilder<DB, TB, O>;\n    \n    onConflict(callback: (builder: OnConflictBuilder<DB, TB>) => OnConflictUpdateBuilder<OnConflictDatabase<DB, TB>, OnConflictTables<TB>> | OnConflictDoNothingBuilder<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    onDuplicateKeyUpdate(update: UpdateObjectExpression<DB, TB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    returning<SE extends SelectExpression<DB, TB>>(selections: ReadonlyArray<SE>): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    returning<CB extends SelectCallback"
+          },
+          {
+            "source": "dist/cjs/schema/alter-table-add-index-builder.d.ts",
+            "line": 10,
+            "endLine": 10,
+            "symbol": "cjs/schema/alter_table_add_index_builder.AlterTableAddIndexBuilder",
+            "position": null,
+            "snippet": "export declare class AlterTableAddIndexBuilder implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: AlterTableAddIndexBuilderProps);\n    \n    unique(): AlterTableAddIndexBuilder;\n    \n    column<CL extends string>(column: OrderedColumnName<CL>): AlterTableAddIndexBuilder;\n    \n    columns<CL extends string>(columns: OrderedColumnName<CL>[]): AlterTableAddIndexBuilder;\n    \n    expression(expression: Expression<any>): AlterTableAddIndexBuilder;\n    \n    using(indexType: IndexType): AlterTableAddIndexBuilder;\n    using(indexType: string): AlterTableAddIndexBuilder;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): AlterTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}\n[Member unique; dist/cjs/schema/alter-table-add-index-builder.d.ts:33] Makes the index unique.",
+            "score": 79,
+            "matchedTerms": [
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class AlterTableAddIndexBuilder implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: AlterTableAddIndexBuilderProps);\n    \n    unique(): AlterTableAddIndexBuilder;\n    \n    column<CL extends string>(column: OrderedColumnName<CL>): AlterTableAddIndexBuilder;\n    \n    columns<CL extends string>(columns: OrderedColumnName<CL>[]): AlterTableAddIndexBuilder;\n    \n    expression(expression: Expression<any>): AlterTableAddIndexBuilder;\n    \n    using(indexType: IndexType): AlterTableAddIndexBuilder;\n    using(indexType: string): AlterTableAddIndexBuilder;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): AlterTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}"
+          },
+          {
+            "source": "dist/cjs/schema/create-table-builder.d.ts",
+            "line": 17,
+            "endLine": 17,
+            "symbol": "cjs/schema/create_table_builder.CreateTableBuilder",
+            "position": null,
+            "snippet": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<string, never>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}\nThis builder can be used to create a `create table` query.",
+            "score": 79,
+            "matchedTerms": [
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<string, never>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}"
+          },
+          {
+            "source": "dist/esm/query-builder/insert-query-builder.d.ts",
+            "line": 25,
+            "endLine": 25,
+            "symbol": "esm/query_builder/insert_query_builder.InsertQueryBuilder",
+            "position": null,
+            "snippet": "export declare class InsertQueryBuilder<DB, TB extends keyof DB, O> implements ReturningInterface<DB, TB, O>, OutputInterface<DB, TB, O, 'inserted'>, OperationNodeSource, Compilable<O>, Explainable, Streamable<O> {\n    #private;\n    constructor(props: InsertQueryBuilderProps);\n    \n    values(insert: InsertExpression<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    columns(columns: ReadonlyArray<keyof DB[TB] & string>): InsertQueryBuilder<DB, TB, O>;\n    \n    expression(expression: ExpressionOrFactory<DB, TB, any>): InsertQueryBuilder<DB, TB, O>;\n    \n    defaultValues(): InsertQueryBuilder<DB, TB, O>;\n    \n    modifyEnd(modifier: Expression<any>): InsertQueryBuilder<DB, TB, O>;\n    \n    ignore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orIgnore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orAbort(): InsertQueryBuilder<DB, TB, O>;\n    \n    orFail(): InsertQueryBuilder<DB, TB, O>;\n    \n    orReplace(): InsertQueryBuilder<DB, TB, O>;\n    \n    orRollback(): InsertQueryBuilder<DB, TB, O>;\n    \n    top(expression: number | bigint, modifiers?: 'percent'): InsertQueryBuilder<DB, TB, O>;\n    \n    onConflict(callback: (builder: OnConflictBuilder<DB, TB>) => OnConflictUpdateBuilder<OnConflictDatabase<DB, TB>, OnConflictTables<TB>> | OnConflictDoNothingBuilder<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    onDuplicateKeyUpdate(update: UpdateObjectExpression<DB, TB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    returning<SE extends SelectExpression<DB, TB>>(selections: ReadonlyArray<SE>): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    returning<CB extends SelectCallback<DB, TB>>(callback: CB): InsertQueryBuilder<DB, TB, ReturningCallbackRow<DB, TB, O, CB>>;\n    returning<SE extends SelectExpression<DB, TB>>(selection: SE): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    \n    returningAll(): InsertQueryBuilder<DB, TB, Selectable<DB[TB]>>;\n    \n    output<OE extends OutputExpression<DB, TB, 'inserted'>>(selections: readonly OE[]): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputExpression<OE>>>;\n    output<CB extends OutputCallback<DB, TB, 'inserted'>>(callback: CB): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputCallback<CB>>>;\n    output<OE extends OutputExpression<DB, TB, 'inserted'>>(selection: OE): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SelectExpressionFromOutputExpres",
+            "score": 79,
+            "matchedTerms": [
+              "builder",
+              "execut"
+            ],
+            "origin": "dependency",
+            "package": "kysely",
+            "version": "0.28.8",
+            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "projectRoot": null,
+            "dependencyRoots": [
+              "$WORKSPACE/node_modules/kysely"
+            ],
+            "kind": "class",
+            "signature": "export declare class InsertQueryBuilder<DB, TB extends keyof DB, O> implements ReturningInterface<DB, TB, O>, OutputInterface<DB, TB, O, 'inserted'>, OperationNodeSource, Compilable<O>, Explainable, Streamable<O> {\n    #private;\n    constructor(props: InsertQueryBuilderProps);\n    \n    values(insert: InsertExpression<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    columns(columns: ReadonlyArray<keyof DB[TB] & string>): InsertQueryBuilder<DB, TB, O>;\n    \n    expression(expression: ExpressionOrFactory<DB, TB, any>): InsertQueryBuilder<DB, TB, O>;\n    \n    defaultValues(): InsertQueryBuilder<DB, TB, O>;\n    \n    modifyEnd(modifier: Expression<any>): InsertQueryBuilder<DB, TB, O>;\n    \n    ignore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orIgnore(): InsertQueryBuilder<DB, TB, O>;\n    \n    orAbort(): InsertQueryBuilder<DB, TB, O>;\n    \n    orFail(): InsertQueryBuilder<DB, TB, O>;\n    \n    orReplace(): InsertQueryBuilder<DB, TB, O>;\n    \n    orRollback(): InsertQueryBuilder<DB, TB, O>;\n    \n    top(expression: number | bigint, modifiers?: 'percent'): InsertQueryBuilder<DB, TB, O>;\n    \n    onConflict(callback: (builder: OnConflictBuilder<DB, TB>) => OnConflictUpdateBuilder<OnConflictDatabase<DB, TB>, OnConflictTables<TB>> | OnConflictDoNothingBuilder<DB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    onDuplicateKeyUpdate(update: UpdateObjectExpression<DB, TB, TB>): InsertQueryBuilder<DB, TB, O>;\n    \n    returning<SE extends SelectExpression<DB, TB>>(selections: ReadonlyArray<SE>): InsertQueryBuilder<DB, TB, ReturningRow<DB, TB, O, SE>>;\n    returning<CB extends SelectCallback"
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+          "files": 5,
+          "projects": [
+            "$WORKSPACE"
+          ],
+          "configs": [
+            "$WORKSPACE/tsconfig.json"
+          ],
+          "projectsOmitted": 0,
+          "configsOmitted": 0,
+          "excluded": [
+            {
+              "path": "package-lock.json",
+              "reason": "dependency lockfile; identity inventory only"
+            }
+          ],
+          "excludedCount": 1,
+          "dependencies": [
+            {
+              "package": "@types/better-sqlite3",
+              "version": "9.6.0",
+              "roots": [
+                "$WORKSPACE/node_modules/@types/better-sqlite3"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-ZEEwBSgMu7GYJOynoagg5X9JbxfL6dTJDsgViJIqh67jV44kyOr9RXfmFjLK5rzC4MWssP06t9hu/JwGDnUbCg==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add @types/better-sqlite3@9.6.0",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "@types/node",
+              "version": "22.20.1",
+              "roots": [
+                "$WORKSPACE/node_modules/@types/node"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-EANqOCF9QFyra+4pfxUcX9STKJpCLjMbObVzljIJomAWSnuSIEAvyzEU53GaajbXJEgdh0iEcPL+DGvpUd4k1Q==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add @types/node@22.20.1",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "better-sqlite3",
+              "version": "13.0.3",
+              "roots": [
+                "$WORKSPACE/node_modules/better-sqlite3"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-RbOBxmLBG8uvFUc15X9+9SFemKcQ0WBuISBVkpuiaUB2qblC8UWlHEjdWVoZ8AdhSwmoEgsiXKfopX0CQxaACQ==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add better-sqlite3@13.0.3",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "node-addon-api",
+              "version": "8.9.2",
+              "roots": [
+                "$WORKSPACE/node_modules/node-addon-api"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add node-addon-api@8.9.2",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "typescript",
+              "version": "6.0.3",
+              "roots": [
+                "$WORKSPACE/node_modules/typescript"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add typescript@6.0.3",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "undici-types",
+              "version": "6.21.0",
+              "roots": [
+                "$WORKSPACE/node_modules/undici-types"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==",
+              "status": "missing-index",
+              "reason": "Prepare with typelatch add undici-types@6.21.0",
+              "rootsOmitted": 0
+            },
+            {
+              "package": "kysely",
+              "version": "0.28.8",
+              "roots": [
+                "$WORKSPACE/node_modules/kysely"
+              ],
+              "identity": "installed",
+              "installed": true,
+              "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+              "status": "searched",
+              "rootsOmitted": 0
+            }
+          ],
+          "dependencyCount": 7,
+          "searchedDependencies": 1,
+          "missingIndexes": 6,
+          "dependencyErrors": 0,
+          "dependenciesOmitted": 0,
+          "issues": [],
+          "issuesOmitted": 0,
+          "retrieval": {
+            "workspaceCandidateLimit": 400,
+            "workspaceCandidateLimitReached": false,
+            "perDependencyLimit": 20,
+            "exhaustive": false
+          }
+        },
+        "checks": {
+          "retrieved": {
+            "status": "pass",
+            "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+          },
+          "resolved": {
+            "status": "not-run",
+            "reason": "Use workspace_context for compiler resolution"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace_validate for compilation"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No assertion command executed"
+          },
+          "stable": {
+            "status": "unknown",
+            "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed dependency contents were not compared with registry artifacts"
+          }
+        },
+        "index": null,
+        "status": "partial"
+      }
+    },
+    {
+      "id": "inspect-api",
+      "decision": "Inspect the exact returned symbol and signature before editing.",
+      "request": {
+        "name": "library_symbol",
+        "arguments": {
+          "package": "kysely",
+          "version": "0.28.8",
+          "symbol": "esm/kysely.TransactionBuilder"
+        }
+      },
+      "resultProjection": {
+        "results": [
+          {
+            "symbol": "esm/kysely.TransactionBuilder",
+            "kind": "class",
+            "module": "esm/kysely",
+            "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}",
+            "summary": "[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "source": "dist/esm/kysely.d.ts",
+            "line": 623,
+            "score": 100,
+            "confidence": "high",
+            "signals": [
+              "public API",
+              "documented"
+            ],
+            "relationships": [
+              {
+                "type": "references",
+                "target": "esm/driver/driver.AccessMode"
+              },
+              {
+                "type": "references",
+                "target": "esm/driver/driver.IsolationLevel"
+              },
+              {
+                "type": "references",
+                "target": "esm/kysely.Transaction"
+              },
+              {
+                "type": "references",
+                "target": "esm/kysely.TransactionBuilderProps"
+              }
+            ]
+          },
+          {
+            "symbol": "cjs/kysely.TransactionBuilder",
+            "kind": "class",
+            "module": "cjs/kysely",
+            "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}",
+            "summary": "[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]",
+            "source": "dist/cjs/kysely.d.ts",
+            "line": 623,
+            "score": 92,
+            "confidence": "high",
+            "signals": [
+              "public API",
+              "documented"
+            ],
+            "relationships": [
+              {
+                "type": "references",
+                "target": "cjs/driver/driver.AccessMode"
+              },
+              {
+                "type": "references",
+                "target": "cjs/driver/driver.IsolationLevel"
+              },
+              {
+                "type": "references",
+                "target": "cjs/kysely.Transaction"
+              },
+              {
+                "type": "references",
+                "target": "cjs/kysely.TransactionBuilderProps"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "refresh-after-edit",
+      "decision": "Confirm discovery refreshes the changed file.",
+      "request": {
+        "name": "workspace_search",
+        "arguments": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "importContacts",
+          "scope": "workspace",
+          "limit": 5
+        }
+      },
+      "resultProjection": {
+        "results": [
+          {
+            "source": "$WORKSPACE/batch.ts",
+            "line": 24,
+            "endLine": 32,
+            "symbol": "importContacts",
+            "position": 560,
+            "snippet": "export async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  // Let rejection escape the callback so Kysely rolls back the whole batch.\n  await db.transaction().execute(async transaction => {\n    for (const contact of contacts) {\n      await transaction.insertInto('contact').values(contact).execute()\n    }\n  })\n}\n",
+            "score": 1174,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 8,
+            "endLine": 19,
+            "symbol": "contacts",
+            "position": 266,
+            "snippet": "    const contacts = [{ id: 1, name: \"O'Reilly\" }, { id: 2, name: \"Robert'); DROP TABLE contact;--\" }]\n    const compiled = db.insertInto('contact').values(contacts[0]!).compile()\n    assert.equal(compiled.sql, 'insert into \"contact\" (\"id\", \"name\") values (?, ?)')\n    assert.deepEqual(compiled.parameters, [1, \"O'Reilly\"])\n    await importContacts(db, contacts)\n    assert.deepEqual(await db.selectFrom('contact').selectAll().orderBy('id').execute(), contacts)\n    console.log(JSON.stringify({ assertion: 'parameter binding and exact round trip', sql: compiled.sql, parameters: compiled.parameters, rows: contacts }))\n  } finally {\n    await db.destroy()\n  }\n})\n",
+            "score": 112,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          },
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "line": 21,
+            "endLine": 32,
+            "symbol": "db",
+            "position": 1012,
+            "snippet": "  const db = await createDatabase()\n  try {\n    await importContacts(db, [{ id: 1, name: 'existing' }])\n    await assert.rejects(importContacts(db, [{ id: 2, name: 'must roll back' }, { id: 3, name: 'existing' }]), { code: 'SQLITE_CONSTRAINT_UNIQUE' })\n    const rows = await db.selectFrom('contact').selectAll().execute()\n    assert.deepEqual(rows, [{ id: 1, name: 'existing' }])\n    console.log(JSON.stringify({ assertion: 'whole batch rollback', rejectedCode: 'SQLITE_CONSTRAINT_UNIQUE', rows }))\n  } finally {\n    await db.destroy()\n  }\n})\n",
+            "score": 100,
+            "matchedTerms": [
+              "import",
+              "contact"
+            ],
+            "origin": "workspace",
+            "package": null,
+            "version": null,
+            "integrity": null,
+            "projectRoot": "$WORKSPACE",
+            "dependencyRoots": [],
+            "kind": "declaration",
+            "signature": null
+          }
+        ],
+        "coverage": {
+          "complete": true,
+          "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+          "files": 5,
+          "projects": [
+            "$WORKSPACE"
+          ],
+          "configs": [
+            "$WORKSPACE/tsconfig.json"
+          ],
+          "projectsOmitted": 0,
+          "configsOmitted": 0,
+          "excluded": [
+            {
+              "path": "package-lock.json",
+              "reason": "dependency lockfile; identity inventory only"
+            }
+          ],
+          "excludedCount": 1,
+          "dependencies": [],
+          "dependencyCount": 0,
+          "searchedDependencies": 0,
+          "missingIndexes": 0,
+          "dependencyErrors": 0,
+          "dependenciesOmitted": 0,
+          "issues": [],
+          "issuesOmitted": 0,
+          "retrieval": {
+            "workspaceCandidateLimit": 400,
+            "workspaceCandidateLimitReached": false,
+            "perDependencyLimit": 20,
+            "exhaustive": false
+          }
+        },
+        "checks": {
+          "retrieved": {
+            "status": "pass",
+            "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+          },
+          "resolved": {
+            "status": "not-run",
+            "reason": "Use workspace_context for compiler resolution"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace_validate for compilation"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No assertion command executed"
+          },
+          "stable": {
+            "status": "unknown",
+            "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed dependency contents were not compared with registry artifacts"
+          }
+        },
+        "index": {
+          "path": "$TYPELATCH_HOME/workspaces/e1329ddf0922ba4505f36bfc5df63fdfac009650d5ef0714c71d40cfb7961911/search.db",
+          "updatedFiles": 1,
+          "removedFiles": 0,
+          "files": 5,
+          "snapshot": "0b342c2eb43df49f68cebc9a47fddfc2de95f7cea56dcb43f7a49dec542cf149"
+        },
+        "status": "ok"
+      }
+    },
+    {
+      "id": "resolve-edited-call",
+      "decision": "Inspect the transaction call in the edited source with the workspace compiler.",
+      "request": {
+        "name": "workspace_context",
+        "arguments": {
+          "config": "$WORKSPACE/tsconfig.json",
+          "file": "$WORKSPACE/batch.ts",
+          "importSpecifier": "kysely",
+          "expectedVersion": "0.28.8",
+          "position": 706
+        }
+      },
+      "resultProjection": {
+        "checks": {
+          "retrieved": {
+            "status": "not-run",
+            "reason": "No discovery question supplied"
+          },
+          "resolved": {
+            "status": "pass",
+            "reason": "Import resolved by the project compiler"
+          },
+          "versionMatch": {
+            "status": "pass",
+            "reason": "Resolved kysely@0.28.8; expected 0.28.8"
+          },
+          "artifactMatch": {
+            "status": "unknown",
+            "reason": "Installed package contents have not been compared with the registry artifact"
+          },
+          "typechecked": {
+            "status": "not-run",
+            "reason": "Use workspace validation for project diagnostics"
+          },
+          "tested": {
+            "status": "not-run",
+            "reason": "No test command executed"
+          }
+        },
+        "dependency": {
+          "name": "kysely",
+          "version": "0.28.8",
+          "root": "$WORKSPACE/node_modules/kysely",
+          "manifest": "$WORKSPACE/node_modules/kysely/package.json",
+          "manifestHash": "771e12d0d5f1a92eb77de13c1ff9ecbe4f22ccdb9223b820d69c94955a6f365b"
+        },
+        "hover": {
+          "text": "(method) Kysely<Tables>.transaction(): TransactionBuilder<Tables>",
+          "documentation": "Creates a {@link TransactionBuilder} that can be used to run queries inside a transaction.\n\nThe returned {@link TransactionBuilder} can be used to configure the transaction. The\n{@link TransactionBuilder.execute} method can then be called to run the transaction.\n{@link TransactionBuilder.execute} takes a function that is run inside the\ntransaction. If the function throws an exception,\n1. the exception is caught,\n2. the transaction is rolled back, and\n3. the exception is thrown again.\nOtherwise the transaction is committed.\n\nThe callback function passed to the {@link TransactionBuilder.executeexecute}\nmethod gets the transaction object as its only argument. The transaction is\nof type {@link Transaction} which inherits {@link Kysely}. Any query\nstarted through the transaction object is executed inside the transaction.\n\nTo run a controlled transaction, allowing you to commit and rollback manually,\nuse {@link startTransaction} instead.\n\n### Examples\n\n<!-- siteExample(\"transactions\", \"Simple transaction\", 10) -->\n\nThis example inserts two rows in a transaction. If an exception is thrown inside\nthe callback passed to the `execute` method,\n1. the exception is caught,\n2. the transaction is rolled back, and\n3. the exception is thrown again.\nOtherwise the transaction is committed.\n\n```ts\nconst catto = await db.transaction().execute(async (trx) => {\n  const jennifer = await trx.insertInto('person')\n    .values({\n      first_name: 'Jennifer',\n      last_name: 'Aniston',\n      age: 40,\n    })\n    .returning('id')\n    .executeTakeFirstOrThrow()\n\n  return await trx.insertInto('pet')\n    .values({\n      owner_id: jennifer.id,\n      name: 'Catto',\n      species: 'cat',\n      is_favorite: false,\n    })\n    .returningAll()\n    .executeTakeFirst()\n})\n```\n\nSetting the isolation level:\n\n```ts\nimport type { Kysely } from 'kysely'\n\nawait db\n  .transaction()\n  .setIsolationLevel('serializable')\n  .execute(async (trx) => {\n    await doStuff(trx)\n  })\n\nasync function doStuff(kysely: typeof db) {\n  // ...\n}\n```"
+        }
+      }
+    },
+    {
+      "id": "after-edit",
+      "decision": "Run the same assertions after the edit and preserve separate evidence states.",
+      "request": {
+        "name": "workspace_validate",
+        "arguments": {
+          "config": "$WORKSPACE/tsconfig.json",
+          "workspaceRoot": "$WORKSPACE",
+          "testCommand": [
+            "npm",
+            "test"
+          ],
+          "timeoutMs": 60000,
+          "record": false
+        }
+      },
+      "resultProjection": {
+        "checks": {
+          "typechecked": {
+            "status": "pass",
+            "reason": "Project compiler diagnostics, no emit; honors tsconfig including skipLibCheck",
+            "diagnostics": []
+          },
+          "tested": {
+            "status": "pass",
+            "reason": "Exit status of the explicitly supplied assertion command"
+          },
+          "stable": {
+            "status": "pass",
+            "reason": "Compared compiler inputs and, when tests were requested, the recorded runtime file scope before and after execution"
+          }
+        },
+        "execution": {
+          "command": [
+            "npm",
+            "test"
+          ],
+          "cwd": "$WORKSPACE",
+          "exitCode": 0,
+          "signal": null,
+          "status": "pass",
+          "timedOut": false,
+          "cancelled": false,
+          "outputLimitExceeded": false,
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.782125\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.30275\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 282.2785\n",
+          "stderr": "",
+          "durationMs": 597.5757919999996
+        }
+      }
+    }
+  ],
+  "rawEvidence": {
+    "file": "agent-workflow.json.gz",
+    "sha256": "f852b1287a95853973fcc563efc3afe8c2da278c7ddacd7157a111d69b202e9b",
+    "note": "Full MCP envelopes and command output. This JSON retains explicit projections of responses."
+  }
+}

@@ -156,6 +156,8 @@ For other packages, use the exact returned `symbol` with the same `package` and 
 
 ## Workspace search
 
+For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
+
 Workspace search is included in version 0.2.0. Install or upgrade with `npm install --global typelatch@0.2.0`, then restart the MCP client so it discovers the new tool.
 
 Use `workspace_search` when the relevant file or dependency is unknown:

@@ -7,6 +7,7 @@ npm ci
 npm run release:check
 npm run benchmark
 npm run prove:support
+npm run showcase:agent
 npm pack
 ```
 

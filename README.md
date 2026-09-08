@@ -57,6 +57,29 @@ The agent workflow is **search, inspect, resolve, edit, validate**. Use `library
 
 Eight authored repository questions returned the expected source file first in the [workspace discovery regression](docs/benchmarks/workspace-search.json). That is a regression result on known questions, not a measurement of general agent success. [Verification details](docs/verification/workspace-search.md).
 
+## Watch the agent workflow
+
+**The task:** contact imports leave partial data after a duplicate name. Find the implementation and make the whole batch roll back while preserving parameter binding.
+
+The [agent walkthrough](docs/showcase/agent-workflow.md) includes a prompt you can give Codex or Claude Code, an isolated exercise, exact MCP requests, the source edit, and captured assertion output. It starts with `workspace_search`, without a package or file argument.
+
+| Agent action | What the recorded replay establishes |
+| :--- | :--- |
+| Search the workspace and inspect the tests | Locate `importContacts` and the rollback assertion. Missing indexes stay visible. |
+| Validate before editing | Compilation passes, but the rollback assertion fails. |
+| Resolve the import and inspect the dependency API | The workspace uses `kysely@0.28.8`; inspect its returned transaction callback symbol. |
+| Edit with normal file tools | Put all parameterized inserts inside the transaction callback. |
+| Refresh, resolve and validate again | Discovery sees the edit. Compilation, both unchanged assertions and recorded input stability pass. |
+
+From a source checkout, prepare a broken exercise for your own agent or replay the captured workflow:
+
+```sh
+npm run showcase:agent:prepare
+npm run showcase:agent
+```
+
+The replay executes real MCP calls and a CLI search against an isolated SQLite fixture. Its decision sequence is curated, not a recording of independent agent decisions or a claim about general coding success. [Requests and results](docs/showcase/agent-workflow.json) · [Prompt, edit and reproduction](docs/showcase/agent-workflow.md).
+
 ## A batch should succeed together or not at all
 
 The actual question in the recorded run:

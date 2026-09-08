@@ -27,6 +27,8 @@
     "prove:support": "npm run build && npm ci --prefix examples/support --ignore-scripts && node scripts/support.mjs",
     "benchmark": "npm run build && node scripts/benchmark.mjs",
     "benchmark:workspace": "npm run build && node scripts/benchmark-workspace.mjs",
+    "showcase:agent": "npm run build && node scripts/showcase-agent.mjs",
+    "showcase:agent:prepare": "node scripts/showcase-agent.mjs --prepare-only",
     "release:check": "npm run verify && node scripts/packagecheck.mjs",
     "prepack": "npm run build",
     "pretest": "npm run build"

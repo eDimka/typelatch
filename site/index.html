@@ -391,14 +391,20 @@
               ><button type="button" data-copy="agent-prompt" hidden>Copy prompt</button>
             </div>
             <p id="agent-prompt">
-              Use Typelatch to look up the exact dependency version before choosing an API. Cite the
-              returned declaration. Resolve it in my workspace with workspace_context. Ask me to
-              approve a specific test command before workspace_validate runs it. Report retrieval,
-              compilation and test results separately, including anything unknown or not run.
+              Start with workspace_search and my repository root when the relevant file or package is
+              unknown. Inspect coverage gaps and returned source locations. Resolve the actual use
+              with workspace_context and inspect exact dependency APIs with library_symbol. After
+              editing, use workspace_validate with authorized assertions. Report retrieval,
+              resolution, compilation and tests separately, including anything unknown or not run.
             </p>
             <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
-              >More workflows and all six tools <span aria-hidden="true">↗</span></a
+              >More workflows and all seven tools <span aria-hidden="true">↗</span></a
             >
+            <p>
+              <a href="https://github.com/eDimka/typelatch/blob/main/docs/showcase/agent-workflow.md"
+                >Follow the agent workflow: discover, reproduce, edit and verify</a
+              >. Includes a runnable exercise, actual MCP requests and assertion output.
+            </p>
           </div>
         </div>
       </section>
