@@ -48,7 +48,7 @@ await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
 const origin = `http://127.0.0.1:${server.address().port}`
 const url = `${origin}/typelatch/`
 let browser
-const report = { checkedAt: new Date().toISOString(), browser: '', viewports: [], checks: [] }
+const report = { checkedAt: new Date().toISOString(), browser: '', viewports: [], onboarding: [], checks: [] }
 const errors = []
 try {
   browser = await chromium.launch({
@@ -97,7 +97,16 @@ try {
     'Correct Typelatch page, immediate npm command, wordmark without a corner icon, exact recorded signature',
   )
   for (const width of [320, 390, 768, 1024, 1440]) {
-    await page.setViewportSize({ width, height: 1000 })
+    await page.setViewportSize({ width, height: 844 })
+    const commandBottom = await page.locator('#hero-install-command').evaluate(
+      (node) => node.getBoundingClientRect().bottom + scrollY,
+    )
+    const declarationFontSize = await page
+      .locator('pre[aria-label="Exact returned TransactionBuilder declaration"] code')
+      .evaluate((node) => parseFloat(getComputedStyle(node).fontSize))
+    assert.ok(commandBottom <= 844, `Install command is in the first viewport at ${width}px`)
+    assert.ok(declarationFontSize >= 13, `Declaration stays readable at ${width}px`)
+    report.onboarding.push({ width, viewportHeight: 844, commandBottom, declarationFontSize })
     for (const view of ['lookup', 'use']) {
       await page.locator(`[data-view="${view}"]`).click()
       assert.equal(await page.locator(`#${view}`).isVisible(), true)

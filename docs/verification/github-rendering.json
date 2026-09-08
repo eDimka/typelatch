@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-09-08T13:46:20.333Z",
+  "renderer": {
+    "endpoint": "POST /markdown",
+    "context": "eDimka/typelatch",
+    "mode": "gfm",
+    "readmeSha256": "484561d7fbc50ad4483ce662f964c0bef12d4707194692d446842157b43f5288",
+    "exitCode": 0
+  },
+  "checks": [
+    {
+      "name": "npm link",
+      "result": "pass"
+    },
+    {
+      "name": "question quote",
+      "result": "pass"
+    },
+    {
+      "name": "JSON requests",
+      "result": "pass"
+    },
+    {
+      "name": "symbol lookup",
+      "result": "pass"
+    },
+    {
+      "name": "Codex onboarding",
+      "result": "pass"
+    },
+    {
+      "name": "Claude onboarding",
+      "result": "pass"
+    },
+    {
+      "name": "tool reference table",
+      "result": "pass"
+    },
+    {
+      "name": "banner image",
+      "result": "pass"
+    }
+  ],
+  "testCorrection": "Initial table assertion expected a bare table tag. GitHub emits table role=\"table\". Corrected assertion accepts attributes. No README change was required.",
+  "pages": {
+    "endpoint": "GET /repos/eDimka/typelatch/pages",
+    "exitCode": 1,
+    "stdout": "{\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/pages/pages#get-a-apiname-pages-site\",\"status\":\"404\"}",
+    "stderr": "gh: Not Found (HTTP 404)\n"
+  },
+  "publicUrl": {
+    "url": "https://edimka.github.io/typelatch/",
+    "status": 404
+  },
+  "repository": {
+    "full_name": "eDimka/typelatch",
+    "has_pages": false
+  },
+  "publicBanner": {
+    "url": "https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/readme-banner.png",
+    "status": 404
+  }
+}

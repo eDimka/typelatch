@@ -1,0 +1,130 @@
+{
+  "checkedAt": "2026-09-08T13:45:39.458Z",
+  "isolation": "Disposable HOME, CODEX_HOME, CLAUDE_CONFIG_DIR, npm prefix, workspace and TYPELATCH_HOME. User client configuration unchanged.",
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "install",
+        "--global",
+        "typelatch@0.1.1"
+      ],
+      "exitCode": 0,
+      "stdout": "\nadded 104 packages in 15s\n\n33 packages are looking for funding\n  run `npm fund` for details\n",
+      "stderr": "npm notice\nnpm notice New major version of npm available! 11.12.1 -> 12.0.2\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2\nnpm notice To update run: npm install -g npm@12.0.2\nnpm notice\n"
+    },
+    {
+      "command": [
+        "typelatch",
+        "--help"
+      ],
+      "exitCode": 0,
+      "stdout": "Typelatch: local API evidence for TypeScript agents\n\nUsage:\n  typelatch add <package[@version]>\n  typelatch sync [package ...] [--force]\n  typelatch query <package[@version]> <question> [--json] [--limit N]\n  typelatch symbol <package[@version]> <symbol> [--json]\n  typelatch workspace <request.json>\n  typelatch validate <request.json>\n  typelatch feedback <queryId> [--accepted yes|no] [--compile pass|fail] [--tests pass|fail] [--notes text]\n  typelatch stats [--json]\n  typelatch benchmark [package@version] [--json]\n  typelatch benchmark --all [--json]\n  typelatch support [manifest.json] [report.json] [--gate discovery|navigation]\n\nMCP server:\n  typelatch-mcp\n\nData stays local in ~/.typelatch. See docs/USAGE.md for configuration.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "typelatch",
+        "add",
+        "kysely@0.28.8"
+      ],
+      "exitCode": 0,
+      "stdout": "Installed kysely@0.28.8\nFormat: compact · schema v2\nBrain: $ACCEPTANCE/index/brains/kysely/0.28.8/brain.db\nSource: 3.1 MiB → brain: 4.3 MiB (139.3%)\n1,500 symbols (1,494 public), 6,040 relationships\n0 documentation examples, 8 deprecated APIs\nIntegrity: sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==\n",
+      "stderr": "→ Resolving kysely@0.28.8 from npm registry\n→ Downloading and verifying kysely@0.28.8\n→ Reading package exports and TypeScript sources\n→ Selected 563 declaration files\n→ Parsing sources (75/563)\n→ Parsing sources (150/563)\n→ Parsing sources (225/563)\n→ Parsing sources (300/563)\n→ Parsing sources (375/563)\n→ Parsing sources (450/563)\n→ Parsing sources (525/563)\n→ Writing 1,500 symbols and 6,408 relationships\n→ Brain ready\n"
+    },
+    {
+      "command": [
+        "typelatch",
+        "query",
+        "kysely@0.28.8",
+        "TransactionBuilder execute",
+        "--json",
+        "--limit",
+        "5"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"queryId\": \"645fa6ca-5119-4235-bb20-e6cb978a709d\",\n  \"package\": \"kysely\",\n  \"version\": \"0.28.8\",\n  \"question\": \"TransactionBuilder execute\",\n  \"strategy\": \"hybrid\",\n  \"latencyMs\": 6.01,\n  \"results\": [\n    {\n      \"symbol\": \"cjs/kysely.TransactionBuilder\",\n      \"kind\": \"class\",\n      \"module\": \"cjs/kysely\",\n      \"signature\": \"export declare class TransactionBuilder<DB> {\\n    #private;\\n    constructor(props: TransactionBuilderProps);\\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\\n}\",\n      \"summary\": \"[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]\",\n      \"source\": \"dist/cjs/kysely.d.ts\",\n      \"line\": 623,\n      \"score\": 100,\n      \"confidence\": \"high\",\n      \"signals\": [\n        \"public API\",\n        \"documented\"\n      ],\n      \"relationships\": [\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/driver/driver.AccessMode\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/driver/driver.IsolationLevel\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.Transaction\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.TransactionBuilderProps\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"esm/kysely.TransactionBuilder\",\n      \"kind\": \"class\",\n      \"module\": \"esm/kysely\",\n      \"signature\": \"export declare class TransactionBuilder<DB> {\\n    #private;\\n    constructor(props: TransactionBuilderProps);\\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\\n}\",\n      \"summary\": \"[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]\",\n      \"source\": \"dist/esm/kysely.d.ts\",\n      \"line\": 623,\n      \"score\": 92,\n      \"confidence\": \"high\",\n      \"signals\": [\n        \"public API\",\n        \"documented\"\n      ],\n      \"relationships\": [\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/driver/driver.AccessMode\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/driver/driver.IsolationLevel\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/kysely.Transaction\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/kysely.TransactionBuilderProps\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"cjs/kysely.ControlledTransactionBuilder\",\n      \"kind\": \"class\",\n      \"module\": \"cjs/kysely\",\n      \"signature\": \"export declare class ControlledTransactionBuilder<DB> {\\n    #private;\\n    constructor(props: TransactionBuilderProps);\\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\\n    execute(): Promise<ControlledTransaction<DB>>;\\n}\",\n      \"summary\": \"[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]\",\n      \"source\": \"dist/cjs/kysely.d.ts\",\n      \"line\": 634,\n      \"score\": 84,\n      \"confidence\": \"high\",\n      \"signals\": [\n        \"public API\",\n        \"documented\"\n      ],\n      \"relationships\": [\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/driver/driver.AccessMode\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/driver/driver.IsolationLevel\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.ControlledTransaction\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.TransactionBuilderProps\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"esm/kysely.ControlledTransactionBuilder\",\n      \"kind\": \"class\",\n      \"module\": \"esm/kysely\",\n      \"signature\": \"export declare class ControlledTransactionBuilder<DB> {\\n    #private;\\n    constructor(props: TransactionBuilderProps);\\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\\n    execute(): Promise<ControlledTransaction<DB>>;\\n}\",\n      \"summary\": \"[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]\",\n      \"source\": \"dist/esm/kysely.d.ts\",\n      \"line\": 634,\n      \"score\": 76,\n      \"confidence\": \"high\",\n      \"signals\": [\n        \"public API\",\n        \"documented\"\n      ],\n      \"relationships\": [\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/driver/driver.AccessMode\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/driver/driver.IsolationLevel\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/kysely.ControlledTransaction\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"esm/kysely.TransactionBuilderProps\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"cjs/kysely.Kysely\",\n      \"kind\": \"class\",\n      \"module\": \"cjs/kysely\",\n      \"signature\": \"export declare class Kysely<DB> extends QueryCreator<DB> implements QueryExecutorProvider, AsyncDisposable {\\n    #private;\\n    constructor(args: KyselyConfig);\\n    constructor(args: KyselyProps);\\n    \\n    get schema(): SchemaModule;\\n    \\n    get dynamic(): DynamicModule<DB>;\\n    \\n    get introspection(): DatabaseIntrospector;\\n    \\n    case(): CaseBuilder<DB, keyof DB>;\\n    case<V>(value: Expression<V>): CaseBuilder<DB, keyof DB, V>;\\n    \\n    get fn(): FunctionModule<DB, keyof DB>;\\n    \\n    transaction(): TransactionBuilder<DB>;\\n    \\n    startTransaction(): ControlledTransactionBuilder<DB>;\\n    \\n    connection(): ConnectionBuilder<DB>;\\n    \\n    withPlugin(plugin: KyselyPlugin): Kysely<DB>;\\n    \\n    withoutPlugins(): Kysely<DB>;\\n    \\n    withSchema(schema: string): Kysely<DB>;\\n    \\n    withTables<T extends Record<string, Record<string, any>>>(): Kysely<DrainOuterGeneric<DB & T>>;\\n    \\n    destroy(): Promise<void>;\\n    \\n    get isTransaction(): boolean;\\n    \\n    getExecutor(): QueryExecutor;\\n    \\n    executeQuery<R>(query: CompiledQuery<R> | Compilable<R>, queryId?: QueryId): Promise<QueryResult<R>>;\\n    [Symbol.asyncDispose](): Promise<void>;\\n}\",\n      \"summary\": \"The main Kysely class.\",\n      \"source\": \"dist/cjs/kysely.d.ts\",\n      \"line\": 61,\n      \"score\": 68,\n      \"confidence\": \"high\",\n      \"signals\": [\n        \"public API\",\n        \"documented\"\n      ],\n      \"relationships\": [\n        {\n          \"type\": \"references\",\n          \"target\": \"ControlledTransactionBuilder.execute\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"ExpressionBuilder.case\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"ExpressionBuilder.fn\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"TransactionBuilder.execute\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/dialect/database_introspector.DatabaseIntrospector\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/driver/database_connection.QueryResult\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/dynamic/dynamic.DynamicModule\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/expression/expression.Expression\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.ConnectionBuilder\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.ControlledTransaction\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.ControlledTransactionBuilder\"\n        },\n        {\n          \"type\": \"references\",\n          \"target\": \"cjs/kysely.KyselyConfig\"\n        }\n      ]\n    }\n  ],\n  \"fallback\": null\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "codex",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "codex-cli 0.153.4\n",
+      "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir \"$ORIGINAL_HOME/.jcode/scratch\" (codex_home: AbsolutePathBuf(\"$ACCEPTANCE/codex\"))\n"
+    },
+    {
+      "command": [
+        "codex",
+        "mcp",
+        "add",
+        "typelatch",
+        "--",
+        "typelatch-mcp"
+      ],
+      "exitCode": 0,
+      "stdout": "Added global MCP server 'typelatch'.\n",
+      "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir \"$ORIGINAL_HOME/.jcode/scratch\" (codex_home: AbsolutePathBuf(\"$ACCEPTANCE/codex\"))\n"
+    },
+    {
+      "command": [
+        "codex",
+        "mcp",
+        "get",
+        "typelatch",
+        "--json"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"name\": \"typelatch\",\n  \"enabled\": true,\n  \"disabled_reason\": null,\n  \"transport\": {\n    \"type\": \"stdio\",\n    \"command\": \"typelatch-mcp\",\n    \"args\": [],\n    \"env\": null,\n    \"env_vars\": [],\n    \"cwd\": null\n  },\n  \"enabled_tools\": null,\n  \"disabled_tools\": null,\n  \"startup_timeout_sec\": null,\n  \"tool_timeout_sec\": null\n}\n",
+      "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir \"$ORIGINAL_HOME/.jcode/scratch\" (codex_home: AbsolutePathBuf(\"$ACCEPTANCE/codex\"))\n"
+    },
+    {
+      "command": [
+        "claude",
+        "--version"
+      ],
+      "exitCode": 0,
+      "stdout": "2.1.220 (Claude Code)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "mcp",
+        "add",
+        "--transport",
+        "stdio",
+        "--scope",
+        "user",
+        "typelatch",
+        "--",
+        "typelatch-mcp"
+      ],
+      "exitCode": 0,
+      "stdout": "Added stdio MCP server typelatch with command: typelatch-mcp  to user config\nFile modified: $ACCEPTANCE/claude/.claude.json\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "claude",
+        "mcp",
+        "list"
+      ],
+      "exitCode": 0,
+      "stdout": "Checking MCP server health…\n\ntypelatch: typelatch-mcp  - ✔ Connected\n",
+      "stderr": ""
+    }
+  ],
+  "limits": "MCP registration and server health checks, not an autonomous coding session.",
+  "installedPackage": {
+    "name": "typelatch",
+    "version": "0.1.1",
+    "bin": {
+      "typelatch": "dist/cli.js",
+      "typelatch-mcp": "dist/mcp.js"
+    }
+  },
+  "finished": true
+}

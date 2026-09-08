@@ -34,6 +34,8 @@ Results and screenshots go to `_site-qa/`. Set `TYPELATCH_QA_DIR` to store them 
 
 The [recorded delivery verification](verification/website.md) includes the actual checks, independent findings, and release check history. Its [browser report](verification/website-browser.json) records the tested viewports and automated accessibility results.
 
+The [requirement acceptance map](verification/requirements.md) ties each deliverable to observed behavior. It includes actual npm installation, Codex registration, Claude Code server connection, GitHub Markdown rendering, and the unresolved public Pages deployment boundary.
+
 The checked in README banner is generated from `site/brand-banner.html`. To regenerate it intentionally, pass `--update-banner` to the browser check, inspect the resulting artwork, and rebuild the website. Normal checks write the comparison render only to the QA directory.
 
 ## GitHub Pages
