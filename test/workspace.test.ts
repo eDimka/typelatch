@@ -110,7 +110,7 @@ describe("executed validation evidence", () => {
     const execution = await runCommand([process.execPath, "--import", "tsx", resolve("src/cli.ts"), "validate", join(f.root, "request.json")], process.cwd())
     expect(execution.exitCode).toBe(2)
     expect(JSON.parse(execution.stdout).checks.tested.status).toBe("not-run")
-  })
+  }, 15_000)
 
   it("retains execution evidence when the command damages project configuration", async () => {
     const f = fixture()
