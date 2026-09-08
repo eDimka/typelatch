@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest"
 import { analyzeFile, enrichFromReadme, enrichReExports } from "../src/indexer.js"
 
 async function analyze(text: string) {
-  const root = await mkdtemp(join(tmpdir(), "apirova-docs-"))
+  const root = await mkdtemp(join(tmpdir(), "typelatch-docs-"))
   try {
     const file = join(root, "index.d.ts")
     await writeFile(file, text)
@@ -17,7 +17,7 @@ async function analyze(text: string) {
 
 describe("declaration documentation evidence", () => {
   it("resolves physical index-module imports and enriches only real re-export targets", async () => {
-    const root = await mkdtemp(join(tmpdir(), "apirova-reexports-"))
+    const root = await mkdtemp(join(tmpdir(), "typelatch-reexports-"))
     try {
       const source = join(root, "source")
       await mkdir(join(source, "vendor", "support"), { recursive: true })

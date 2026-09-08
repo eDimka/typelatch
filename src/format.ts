@@ -32,13 +32,13 @@ export function formatQuery(response: QueryResponse): string {
       lines.push(`   Related: ${result.relationships.slice(0, 6).map((edge) => `${edge.type} → ${edge.target}`).join("; ")}`)
     }
   }
-  lines.push("", `Record outcome: apirova feedback ${response.queryId} --accepted yes --compile pass --tests pass`)
+  lines.push("", `Record outcome: typelatch feedback ${response.queryId} --accepted yes --compile pass --tests pass`)
   return lines.join("\n")
 }
 
 export function formatStats(stats: UsageStats): string {
   const lines = [
-    "Local Apirova usage",
+    "Local Typelatch usage",
     `Queries: ${stats.queries} · hits: ${stats.hits} · misses: ${stats.misses} · hit rate: ${(stats.hitRate * 100).toFixed(1)}%`,
     `Average retrieval latency: ${stats.averageLatencyMs.toFixed(2)} ms`,
     `Strategies: ${stats.exactQueries} exact · ${stats.hybridQueries} hybrid`,
@@ -51,7 +51,7 @@ export function formatStats(stats: UsageStats): string {
       lines.push(`- ${query.package}@${query.version} · ${query.latencyMs} ms · ${query.resultCount} results · ${query.question}`)
     }
   }
-  lines.push("", "All statistics stay in ~/.apirova/usage.db; nothing is uploaded.")
+  lines.push("", "All statistics stay in ~/.typelatch/usage.db; nothing is uploaded.")
   return lines.join("\n")
 }
 

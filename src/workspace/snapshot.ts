@@ -3,7 +3,7 @@ import { lstatSync, readFileSync, readdirSync, readlinkSync, realpathSync } from
 import { isAbsolute, join, relative, resolve } from "node:path"
 import { sha256 } from "./project.js"
 
-export const defaultExclusions = [".git", "node_modules", ".apirova", ".mimosa", ".v2c", ".video_agent", "coverage"]
+export const defaultExclusions = [".git", "node_modules", ".typelatch", ".mimosa", ".v2c", ".video_agent", "coverage"]
 export function runtimeSnapshot(root: string, extraInputs: string[] = [], excluded: string[] = defaultExclusions) {
   const canonicalRoot = realpathSync(root)
   const entries: Array<{ file: string; sha256: string }> = []

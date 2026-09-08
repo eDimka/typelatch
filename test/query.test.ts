@@ -9,19 +9,19 @@ import { getSymbol, queryBrain } from "../src/query.js"
 import { readStats, recordOutcome } from "../src/usage.js"
 
 describe("local brain", () => {
-  const temporaryHome = mkdtempSync(join(tmpdir(), "apirova-test-"))
+  const temporaryHome = mkdtempSync(join(tmpdir(), "typelatch-test-"))
   const compactPath = join(temporaryHome, "compact.db")
-  const previousHome = process.env.APIROVA_HOME
+  const previousHome = process.env.TYPELATCH_HOME
 
   beforeAll(() => {
-    process.env.APIROVA_HOME = temporaryHome
+    process.env.TYPELATCH_HOME = temporaryHome
     seedBrain()
     seedCompactBrain()
   })
 
   afterAll(() => {
-    if (previousHome === undefined) delete process.env.APIROVA_HOME
-    else process.env.APIROVA_HOME = previousHome
+    if (previousHome === undefined) delete process.env.TYPELATCH_HOME
+    else process.env.TYPELATCH_HOME = previousHome
     rmSync(temporaryHome, { recursive: true, force: true })
   })
 
@@ -125,7 +125,7 @@ describe("local brain", () => {
 
 describe("npm lockfile detection", () => {
   it("uses the exact installed version instead of the package.json range", async () => {
-    const directory = mkdtempSync(join(tmpdir(), "apirova-project-"))
+    const directory = mkdtempSync(join(tmpdir(), "typelatch-project-"))
     try {
       writeFileSync(join(directory, "package.json"), JSON.stringify({ dependencies: { effect: "^3.20.0" } }))
       writeFileSync(join(directory, "package-lock.json"), JSON.stringify({

@@ -14,4 +14,6 @@ The package check exercises CLI help, package download and integrity verificatio
 
 Review package contents for private paths, credentials, generated caches, and unrelated research. Keep version metadata consistent. Commit the source, wait for CI, tag the verified commit, and attach the package and SHA256 checksum to the GitHub release.
 
+Publish the same verified tarball to npm, then install that exact registry version in a temporary project and check the CLI and MCP server. Confirm that the registry integrity matches the published tarball. Keep npm credentials outside the repository.
+
 The supported runtime begins at Node.js 22.12. CI exercises Linux and macOS on Node.js 22 and 24. Platform support is limited to successful CI runs. Windows is not claimed in this MVP.

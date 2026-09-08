@@ -26,7 +26,7 @@ const compressedFloorCache = new Map<BrainFormat, number | null>()
  */
 export function compressedEmptyFloor(format: BrainFormat): number | null {
   if (compressedFloorCache.has(format)) return compressedFloorCache.get(format) ?? null
-  const directory = mkdtempSync(join(tmpdir(), "apirova-cfloor-"))
+  const directory = mkdtempSync(join(tmpdir(), "typelatch-cfloor-"))
   const path = join(directory, "empty.db")
   try {
     const db = createBrainDatabase(path, format)
@@ -125,7 +125,7 @@ export async function compareFormats(
   const candidateFormat = options.candidate ?? "compact"
   const packageName = specName(spec)
   const cases = corpusCaseFile(packageName)
-  const directory = await mkdtemp(join(tmpdir(), "apirova-compare-"))
+  const directory = await mkdtemp(join(tmpdir(), "typelatch-compare-"))
   const referencePath = join(directory, `${referenceFormat}.db`)
   const candidatePath = join(directory, `${candidateFormat}.db`)
   try {
@@ -317,7 +317,7 @@ export async function measureShrink(
   }
 ): Promise<ShrinkMeasurement> {
   const candidateFormat = options.candidateFormat ?? "trimmed"
-  const directory = await mkdtemp(join(tmpdir(), "apirova-shrink-"))
+  const directory = await mkdtemp(join(tmpdir(), "typelatch-shrink-"))
   const candidatePath = join(directory, `${candidateFormat}.db`)
   try {
     await buildBrain(spec, {
@@ -375,7 +375,7 @@ export function formatComparison(report: FormatComparison): string {
     ? ` · ${percent(report.improvement.controllableSizeReduction)} of bytes above the ${formatBytes(report.gates.thresholds.sizeFloorBytes)} empty-schema floor`
     : ""
   const lines = [
-    `Apirova format comparison · ${report.package}@${report.version}${formats}`,
+    `Typelatch format comparison · ${report.package}@${report.version}${formats}`,
     `Result: ${report.gates.passed ? "PASS" : "FAIL"}`,
     "",
     `Installed size: ${formatBytes(report.baseline.bytes)} → ${formatBytes(report.compact.bytes)} (${percent(report.improvement.sizeReduction)} smaller)${floorNote}${compressed}`,

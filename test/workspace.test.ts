@@ -14,7 +14,7 @@ function write(root: string, file: string, text: string) {
   writeFileSync(join(root, file), text)
 }
 function fixture() {
-  const root = mkdtempSync(join(tmpdir(), "apirova-workspace-"))
+  const root = mkdtempSync(join(tmpdir(), "typelatch-workspace-"))
   roots.push(root)
   write(root, "package.json", JSON.stringify({ name: "fixture", version: "1.0.0", type: "module" }))
   write(root, "tsconfig.json", JSON.stringify({ compilerOptions: { target: "ES2022", module: "NodeNext", strict: true, types: [], skipLibCheck: true }, include: ["src/**/*.ts"] }))

@@ -2,11 +2,11 @@
 
 ## Trust boundary
 
-Apirova runs locally. Index creation contacts npm and verifies the downloaded registry artifact. Search uses local SQLite databases. The application does not upload query history.
+Typelatch runs locally. Index creation contacts npm and verifies the downloaded registry artifact. Search uses local SQLite databases. The application does not upload query history.
 
 Workspace resolution loads the installed TypeScript compiler. Validation can execute an explicitly supplied command with the current user’s permissions. Use those features only in projects whose compiler and commands you trust. Time and output limits bound work; they are not a security sandbox.
 
-Local history can contain questions, symbol names, and feedback notes. Set `APIROVA_USAGE=off` to disable query and validation recording. Explicit feedback still updates an existing query when requested. Package indexes retain third party API material under its original license.
+Local history can contain questions, symbol names, and feedback notes. Set `TYPELATCH_USAGE=off` to disable query and validation recording. Explicit feedback still updates an existing query when requested. Package indexes retain third party API material under its original license.
 
 ## Report a vulnerability
 

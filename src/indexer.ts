@@ -9,7 +9,7 @@ import { packPackage, resolvePackage } from "./npm.js"
 import { brainPath } from "./paths.js"
 import type { BrainFormat, BrainMetadata, EdgeRecord, PackageIdentity, SymbolRecord } from "./types.js"
 
-export const GENERATOR_VERSION = "apirova-indexer/0.2.1"
+export const GENERATOR_VERSION = "typelatch-indexer/0.2.1"
 const SCHEMA_VERSIONS: Record<BrainFormat, number> = { baseline: 1, compact: 2, trimmed: 3 }
 const EDGE_TYPE_IDS: Record<EdgeRecord["type"], number> = {
   accepts: 1,

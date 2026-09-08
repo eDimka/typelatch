@@ -105,8 +105,8 @@ export async function runSupport(manifestFile: string, reportFile: string, progr
       const validationRequest = { config, testCommand, timeoutMs: 60_000, record: false, runtimeInputs: ["node_modules"] }
       row.validation = await validateWorkspace(validationRequest)
       const wrongVersion = await workspaceContextAsync({ ...base, expectedVersion: `${Number(entry.version.split('.')[0]) + 1}.0.0`, question: entry.tasks[0]!.question })
-      const missingApi = await workspaceContextAsync({ ...base, symbol: "__apirova_nonexistent_export__" })
-      const invalidType = await validateWorkspace({ config, overlays: [{ file: entry.file, text: source+'\nconst __apirova_type_error__: never = 42;\n' }], timeoutMs: 30_000, record: false })
+      const missingApi = await workspaceContextAsync({ ...base, symbol: "__typelatch_nonexistent_export__" })
+      const invalidType = await validateWorkspace({ config, overlays: [{ file: entry.file, text: source+'\nconst __typelatch_type_error__: never = 42;\n' }], timeoutMs: 30_000, record: false })
       const failingAssertion = await validateWorkspace({ ...validationRequest, testCommand: [process.execPath, "--input-type=module", "-e", "import assert from 'node:assert/strict'; assert.equal(1, 2)"] })
       row.controls = {
         wrongVersionRejected: wrongVersion.checks.versionMatch.status === "fail" && wrongVersion.brain === null && wrongVersion.checks.retrieved.status === "not-run",

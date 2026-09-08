@@ -1,6 +1,6 @@
 # Project guide
 
-Apirova provides local package API discovery and TypeScript workspace evidence through a CLI and MCP server.
+Typelatch provides local package API discovery and TypeScript workspace evidence through a CLI and MCP server.
 
 ## Working rules
 

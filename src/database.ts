@@ -147,7 +147,7 @@ const emptyFloorCache = new Map<BrainFormat, number>()
 export function emptyBrainFloor(format: BrainFormat): number {
   const cached = emptyFloorCache.get(format)
   if (cached !== undefined) return cached
-  const directory = mkdtempSync(join(tmpdir(), "apirova-floor-"))
+  const directory = mkdtempSync(join(tmpdir(), "typelatch-floor-"))
   const path = join(directory, "empty.db")
   try {
     const db = createBrainDatabase(path, format)

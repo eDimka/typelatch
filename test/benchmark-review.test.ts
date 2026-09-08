@@ -27,13 +27,13 @@ function missingExpectedSymbols(db: Database.Database, cases: BenchmarkCase[]): 
 }
 
 describe("expected symbols must exist in the brain (fixture)", () => {
-  const temporaryHome = mkdtempSync(join(tmpdir(), "apirova-expected-"))
+  const temporaryHome = mkdtempSync(join(tmpdir(), "typelatch-expected-"))
   const packageName = "fixturepkg"
   const version = "1.0.0"
-  const previousHome = process.env.APIROVA_HOME
+  const previousHome = process.env.TYPELATCH_HOME
 
   beforeAll(() => {
-    process.env.APIROVA_HOME = temporaryHome
+    process.env.TYPELATCH_HOME = temporaryHome
     mkdirSync(dirname(brainPath(packageName, version)), { recursive: true })
     const db = createBrainDatabase(brainPath(packageName, version), "baseline")
     const insert = db.prepare(`
@@ -49,8 +49,8 @@ describe("expected symbols must exist in the brain (fixture)", () => {
   })
 
   afterAll(() => {
-    if (previousHome === undefined) delete process.env.APIROVA_HOME
-    else process.env.APIROVA_HOME = previousHome
+    if (previousHome === undefined) delete process.env.TYPELATCH_HOME
+    else process.env.TYPELATCH_HOME = previousHome
     rmSync(temporaryHome, { recursive: true, force: true })
   })
 

@@ -1,8 +1,8 @@
-# Apirova
+# Typelatch
 
 Local API evidence for TypeScript coding agents.
 
-Apirova finds library APIs at an exact npm version, resolves them in your workspace, and records compiler and test results. It runs on your machine through a CLI or an MCP server.
+Typelatch finds library APIs at an exact npm version, resolves them in your workspace, and records compiler and test results. It runs on your machine through a CLI or an MCP server.
 
 ## Philosophy
 
@@ -14,18 +14,18 @@ An API suggestion starts the work. Evidence completes it. Retrieval, resolution,
 
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. If a binary is unavailable for your platform, installation requires a working C++ build toolchain.
 
-Download the package from the [latest release](https://github.com/eDimka/apirova/releases/latest), then install it:
+Install from npm:
 
 ```sh
-npm install --global ./apirova-0.1.0.tgz
-apirova --help
+npm install --global typelatch
+typelatch --help
 ```
 
 To build from source:
 
 ```sh
-git clone https://github.com/eDimka/apirova.git
-cd apirova
+git clone https://github.com/eDimka/typelatch.git
+cd typelatch
 npm ci
 npm run release:check
 npm link
@@ -34,20 +34,20 @@ npm link
 ## Use it
 
 ```sh
-apirova add effect@3.22.1
-apirova query effect@3.22.1 "How do I retry with exponential delay?"
-apirova symbol effect@3.22.1 Effect.retry
+typelatch add effect@3.22.1
+typelatch query effect@3.22.1 "How do I retry with exponential delay?"
+typelatch symbol effect@3.22.1 Effect.retry
 ```
 
-Inside an npm project, `apirova add effect` uses the exact version from its lockfile when available. `apirova sync` indexes direct locked dependencies.
+Inside an npm project, `typelatch add effect` uses the exact version from its lockfile when available. `typelatch sync` indexes direct locked dependencies.
 
 Configure your agent to start the local MCP server:
 
 ```json
 {
   "mcpServers": {
-    "apirova": {
-      "command": "apirova-mcp"
+    "typelatch": {
+      "command": "typelatch-mcp"
     }
   }
 }
@@ -83,12 +83,12 @@ These are authored development regression suites. Their results describe the sup
 
 ## Local data
 
-Indexes and query history live in `~/.apirova`. Set `APIROVA_HOME` to change the directory. Set `APIROVA_USAGE=off` to disable query and validation recording. The application does not upload query history. Building an index requires access to npm.
+Indexes and query history live in `~/.typelatch`. Set `TYPELATCH_HOME` to change the directory. Set `TYPELATCH_USAGE=off` to disable query and validation recording. The application does not upload query history. Building an index requires access to npm.
 
 Workspace validation runs a test command only when it is supplied explicitly. That command executes local code with your permissions. See [security](SECURITY.md).
 
 ## Scope
 
-The MVP supports npm packages with TypeScript declarations or usable TypeScript sources, npm lockfiles, and local TypeScript projects. Workspace resolution uses the TypeScript language service directly. Test evidence covers the supplied assertions and recorded input scope. Hosted distribution, other languages, and coordinated changes across repositories are outside this release.
+The MVP supports npm packages with TypeScript declarations or usable TypeScript sources, npm lockfiles, and local TypeScript projects. Workspace resolution uses the TypeScript language service directly. Test evidence covers the supplied assertions and recorded input scope. Hosted indexes, other languages, and coordinated changes across repositories are outside this release.
 
 [Contributing](CONTRIBUTING.md) · [Release checks](docs/RELEASE.md) · [MIT license](LICENSE)

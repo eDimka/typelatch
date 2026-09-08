@@ -5,10 +5,10 @@
 `add` downloads and indexes an npm artifact. An explicit version makes the request reproducible. When a version is omitted, `add` first checks the current project lockfile and otherwise resolves through npm. Search defaults to the newest installed index when no version is supplied.
 
 ```sh
-apirova add effect@3.22.1
-apirova query effect@3.22.1 "How do I retry an operation?" --json --limit 5
-apirova symbol effect@3.22.1 Effect.retry --json
-apirova sync effect zod
+typelatch add effect@3.22.1
+typelatch query effect@3.22.1 "How do I retry an operation?" --json --limit 5
+typelatch symbol effect@3.22.1 Effect.retry --json
+typelatch sync effect zod
 ```
 
 Responses include package identity, source locations, signatures, documentation, relationships, and retrieval signals. A retrieved API still needs workspace validation.
@@ -29,7 +29,7 @@ Save a request as `context.json`. Use absolute paths for an agent launched outsi
 ```
 
 ```sh
-apirova workspace context.json
+typelatch workspace context.json
 ```
 
 Context returns definitions, types, dependency identity, and optional discovery results. `position` accepts a UTF16 offset starting at zero. `overlays` accepts unsaved `{ "file": "...", "text": "..." }` entries. Context resolution does not compile the project or run tests.
@@ -48,7 +48,7 @@ Save a request as `validation.json`:
 ```
 
 ```sh
-apirova validate validation.json
+typelatch validate validation.json
 ```
 
 The command runs from the directory containing the config. Compilation must pass before tests execute. Omitting `testCommand` requests compilation only. Unsaved overlays can be checked but cannot receive runtime test evidence.
@@ -83,4 +83,4 @@ Workspace MCP tools accept the same request fields as the corresponding CLI comm
 
 ## Storage
 
-`APIROVA_HOME` selects the data directory. `APIROVA_USAGE=off` disables query and validation recording. Query history can contain source related questions and feedback notes. Indexes contain package documentation and source locations. Remove the data directory to clear local data, then rebuild required indexes.
+`TYPELATCH_HOME` selects the data directory. `TYPELATCH_USAGE=off` disables query and validation recording. Query history can contain source related questions and feedback notes. Indexes contain package documentation and source locations. Remove the data directory to clear local data, then rebuild required indexes.

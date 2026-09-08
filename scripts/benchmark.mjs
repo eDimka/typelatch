@@ -5,8 +5,8 @@ import { loadCorpus, corpusCaseFile } from '../dist/benchmark/corpus.js'
 import { buildBrain } from '../dist/indexer.js'
 import { runBenchmark } from '../dist/benchmark.js'
 
-process.env.APIROVA_HOME ??= resolve('.apirova')
-process.env.APIROVA_USAGE = 'off'
+process.env.TYPELATCH_HOME ??= resolve('.typelatch')
+process.env.TYPELATCH_USAGE = 'off'
 const reports = []
 const limitations = JSON.parse(readFileSync('src/benchmark/limitations.json', 'utf8'))
 const accepted = (row, result) => {

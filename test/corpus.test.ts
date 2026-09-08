@@ -39,7 +39,7 @@ it("loads bundled benchmark data outside the repository working directory", () =
 })
 
 describe("corpus manifest loader", () => {
-  const directory = mkdtempSync(join(tmpdir(), "apirova-corpus-"))
+  const directory = mkdtempSync(join(tmpdir(), "typelatch-corpus-"))
   const valid = join(directory, "valid", "corpus.json")
   const options = { manifestPath: valid }
 
@@ -107,7 +107,7 @@ describe("corpus manifest loader", () => {
 })
 
 describe("corpus case files", () => {
-  const directory = mkdtempSync(join(tmpdir(), "apirova-cases-"))
+  const directory = mkdtempSync(join(tmpdir(), "typelatch-cases-"))
   const casesDirectory = join(directory, "cases")
   const options = { casesDirectory }
 
@@ -166,18 +166,18 @@ describe("corpus case files", () => {
 })
 
 describe("runBenchmark aggregate math", () => {
-  const temporaryHome = mkdtempSync(join(tmpdir(), "apirova-runbench-"))
-  const previousHome = process.env.APIROVA_HOME
+  const temporaryHome = mkdtempSync(join(tmpdir(), "typelatch-runbench-"))
+  const previousHome = process.env.TYPELATCH_HOME
   const packageName = "corpusbench"
 
   beforeAll(() => {
-    process.env.APIROVA_HOME = temporaryHome
+    process.env.TYPELATCH_HOME = temporaryHome
     seedBrain()
   })
 
   afterAll(() => {
-    if (previousHome === undefined) delete process.env.APIROVA_HOME
-    else process.env.APIROVA_HOME = previousHome
+    if (previousHome === undefined) delete process.env.TYPELATCH_HOME
+    else process.env.TYPELATCH_HOME = previousHome
     rmSync(temporaryHome, { recursive: true, force: true })
   })
 

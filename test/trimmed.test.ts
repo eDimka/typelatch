@@ -292,24 +292,24 @@ function seedFormat(path: string, format: BrainFormat): void {
 }
 
 describe("trimmed format", () => {
-  const temporaryHome = mkdtempSync(join(tmpdir(), "apirova-trimmed-"))
+  const temporaryHome = mkdtempSync(join(tmpdir(), "typelatch-trimmed-"))
   const baselinePath = join(temporaryHome, "baseline.db")
   const compactPath = join(temporaryHome, "compact.db")
   const trimmedPath = join(temporaryHome, "trimmed.db")
-  const previousHome = process.env.APIROVA_HOME
+  const previousHome = process.env.TYPELATCH_HOME
   const version = "1.0.0"
   const packageName = "trimfixture"
 
   beforeAll(() => {
-    process.env.APIROVA_HOME = temporaryHome
+    process.env.TYPELATCH_HOME = temporaryHome
     seedFormat(baselinePath, "baseline")
     seedFormat(compactPath, "compact")
     seedFormat(trimmedPath, "trimmed")
   })
 
   afterAll(() => {
-    if (previousHome === undefined) delete process.env.APIROVA_HOME
-    else process.env.APIROVA_HOME = previousHome
+    if (previousHome === undefined) delete process.env.TYPELATCH_HOME
+    else process.env.TYPELATCH_HOME = previousHome
     rmSync(temporaryHome, { recursive: true, force: true })
   })
 

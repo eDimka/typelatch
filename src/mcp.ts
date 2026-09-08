@@ -9,13 +9,13 @@ import { workspaceContextAsync } from "./workspace/runtime.js"
 import { validateWorkspace } from "./workspace/validate.js"
 import { contextSchema, validationSchema } from "./workspace/schema.js"
 
-const server = new McpServer({ name: "apirova", version: "0.1.0" })
+const server = new McpServer({ name: "typelatch", version: "0.1.1" })
 
 server.registerTool(
   "library_search",
   {
     title: "Search exact-version library knowledge",
-    description: "Search locally installed library symbols, documentation, relationships, and source evidence. The query is recorded only in the local Apirova usage database.",
+    description: "Search locally installed library symbols, documentation, relationships, and source evidence. The query is recorded only in the local Typelatch usage database.",
     inputSchema: {
       package: z.string().describe("npm package name"),
       version: z.string().optional().describe("Exact version; newest installed brain is used when omitted"),
@@ -58,7 +58,7 @@ server.registerTool(
 server.registerTool(
   "library_feedback",
   {
-    title: "Record a Apirova result outcome",
+    title: "Record a Typelatch result outcome",
     description: "Correlate a prior query with whether its recommendation was used and whether code compiled and tests passed.",
     inputSchema: {
       queryId: z.string().uuid(),
@@ -82,7 +82,7 @@ server.registerTool(
 server.registerTool(
   "library_stats",
   {
-    title: "Read local Apirova usage statistics",
+    title: "Read local Typelatch usage statistics",
     description: "Return local query, latency, hit-rate, context-size, and coding-outcome aggregates.",
     inputSchema: {}
   },
@@ -106,7 +106,7 @@ server.registerTool("workspace_context", {
 
 server.registerTool("workspace_validate", {
   title: "Validate a TypeScript project and record execution evidence",
-  description: "Type-check a leaf tsconfig with its installed compiler. Runs only the explicitly supplied testCommand argv, with a timeout, after checking passes. Test commands execute local code: supply one only when the user authorized that validation. Unsaved overlays cannot be runtime-tested. Stores evidence separately from agent-reported feedback unless record=false or APIROVA_USAGE=off.",
+  description: "Type-check a leaf tsconfig with its installed compiler. Runs only the explicitly supplied testCommand argv, with a timeout, after checking passes. Test commands execute local code: supply one only when the user authorized that validation. Unsaved overlays cannot be runtime-tested. Stores evidence separately from agent-reported feedback unless record=false or TYPELATCH_USAGE=off.",
   inputSchema: validationSchema.shape
 }, async (input, extra) => {
   const response = await validateWorkspace(validationSchema.parse(input), { signal: extra.signal })

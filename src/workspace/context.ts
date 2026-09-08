@@ -47,12 +47,12 @@ export class ContextSession {
   private configurations = new Set<string>()
 
   acquire(config: string, file: string, overlays: Overlay[]): WorkspaceProject {
-    if (!compilerRuntimeUnchanged()) throw new Error("APIROVA_RESTART_COMPILER")
+    if (!compilerRuntimeUnchanged()) throw new Error("TYPELATCH_RESTART_COMPILER")
     this.configurations.add(resolve(config))
-    if (this.configurations.size > 16) throw new Error("APIROVA_RESTART_COMPILER")
+    if (this.configurations.size > 16) throw new Error("TYPELATCH_RESTART_COMPILER")
     const key = JSON.stringify([resolve(config), overlays])
     if (this.retained?.key === key && this.retained.project.parsed.fileNames.includes(file)) {
-      if (!this.retained.project.reusable()) throw new Error("APIROVA_RESTART_COMPILER")
+      if (!this.retained.project.reusable()) throw new Error("TYPELATCH_RESTART_COMPILER")
       this.retained.project.beginRequest()
       return this.retained.project
     }
@@ -83,7 +83,7 @@ export function workspaceContext(request: ContextRequest, session?: ContextSessi
     const originalSourceHash = sha256(source.text)
     if (request.importSpecifier && !findImport(project.ts, source, request.importSpecifier)) {
       const file = source.fileName
-      const text = `${source.text}\nimport * as __apirova_probe from ${JSON.stringify(request.importSpecifier)};\n`
+      const text = `${source.text}\nimport * as __typelatch_probe from ${JSON.stringify(request.importSpecifier)};\n`
       const config = project.config
       if (session) session.discard(project)
       else project.dispose()

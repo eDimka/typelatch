@@ -48,7 +48,7 @@ export type PackedPackage = {
 export async function packPackage(identity: PackageIdentity): Promise<PackedPackage> {
   assertPackageName(identity.name)
   assertExactVersion(identity.version)
-  const directory = await mkdtemp(join(tmpdir(), "apirova-"))
+  const directory = await mkdtemp(join(tmpdir(), "typelatch-"))
   try {
     const { stdout } = await execFileAsync("npm", ["pack", `${identity.name}@${identity.version}`, "--pack-destination", directory, "--ignore-scripts", "--json"], {
       timeout: 90000,

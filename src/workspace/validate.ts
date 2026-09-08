@@ -70,7 +70,7 @@ export async function validateWorkspace(request: ValidationRequest, control: Req
     durationMs: performance.now() - started
   }
   let evidencePath: string | null = null
-  if (request.record !== false && process.env.APIROVA_USAGE !== "off") {
+  if (request.record !== false && process.env.TYPELATCH_USAGE !== "off") {
     const directory = join(brainHome(), "evidence")
     mkdirSync(directory, { recursive: true, mode: 0o700 })
     evidencePath = join(directory, `${id}.json`)

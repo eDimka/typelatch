@@ -10,7 +10,7 @@ function execute(input: string) {
     return JSON.stringify({ ok: true, result })
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error)
-    return JSON.stringify({ ok: false, error: message, restart: message === "APIROVA_RESTART_COMPILER" })
+    return JSON.stringify({ ok: false, error: message, restart: message === "TYPELATCH_RESTART_COMPILER" })
   }
 }
 let input = ""

@@ -11,7 +11,7 @@ npm run benchmark
 npm run prove:support
 ```
 
-The first command builds fresh package indexes and writes [retrieval evidence](https://github.com/eDimka/apirova/blob/main/docs/benchmarks/retrieval.json). The second installs pinned fixtures, validates the workspace scenarios, and writes a [support summary](https://github.com/eDimka/apirova/blob/main/docs/benchmarks/support.json). The retrieval command requires a discovery hit for every question and permits only the three recorded missing symbol exceptions in `src/benchmark/limitations.json`. The workspace command requires every scenario and negative control. Both return a failure status when a required gate fails.
+The first command builds fresh package indexes and writes [retrieval evidence](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/retrieval.json). The second installs pinned fixtures, validates the workspace scenarios, and writes a [support summary](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/support.json). The retrieval command requires a discovery hit for every question and permits only the three recorded missing symbol exceptions in `src/benchmark/limitations.json`. The workspace command requires every scenario and negative control. Both return a failure status when a required gate fails.
 
 Full workspace requests and results are preserved in `artifacts/support.json.gz` and attached to the GitHub release. The summary records the archive SHA256 checksum.
 
@@ -27,6 +27,6 @@ The initial retrieval run found an expected API for 73 of 73 questions. It retur
 
 Two minimatch cases return one module variant of the expected function and miss the other variant in the first five results. One chalk case returns the constructor and misses the expected options type. These limitations remain in the raw evidence. The gate binds each exception to its package, version, exact question, expected symbols, and allowed missing symbols. Every other case requires full coverage, and every question requires a discovery hit. A new failure cannot be offset by an improvement elsewhere.
 
-The CLI `apirova benchmark` reports strict coverage and exits with status 2 when any strict case fails. `npm run benchmark` runs the documented release regression gate and retains the same strict scores in its report.
+The CLI `typelatch benchmark` reports strict coverage and exits with status 2 when any strict case fails. `npm run benchmark` runs the documented release regression gate and retains the same strict scores in its report.
 
 The report timestamps and raw case results are the source of truth. The workspace suite passed all 24 scenarios across 12 package versions, including Effect 3.22.1 and 4.0.0 rc.112. All 48 negative controls rejected their intended invalid input or failing assertion.

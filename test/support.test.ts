@@ -28,17 +28,17 @@ it("keeps the pinned corpus while supporting two exact versions of Effect", () =
 })
 
 const roots: string[] = []
-const previousHome = process.env.APIROVA_HOME
+const previousHome = process.env.TYPELATCH_HOME
 afterEach(() => {
-  if (previousHome === undefined) delete process.env.APIROVA_HOME
-  else process.env.APIROVA_HOME = previousHome
+  if (previousHome === undefined) delete process.env.TYPELATCH_HOME
+  else process.env.TYPELATCH_HOME = previousHome
   for (const root of roots.splice(0)) rmSync(root, { recursive: true, force: true })
 })
 
 function fixture() {
-  const root = realpathSync(mkdtempSync(join(tmpdir(), "apirova-support-test-")))
+  const root = realpathSync(mkdtempSync(join(tmpdir(), "typelatch-support-test-")))
   roots.push(root)
-  process.env.APIROVA_HOME = join(root, "brains")
+  process.env.TYPELATCH_HOME = join(root, "brains")
   const write = (file: string, text: string) => {
     mkdirSync(dirname(join(root, file)), { recursive: true })
     writeFileSync(join(root, file), text)

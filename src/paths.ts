@@ -3,7 +3,7 @@ import { homedir } from "node:os"
 import { join } from "node:path"
 
 export const brainHome = (): string =>
-  process.env.APIROVA_HOME ?? join(homedir(), ".apirova")
+  process.env.TYPELATCH_HOME ?? join(homedir(), ".typelatch")
 
 export const installedPackageDirectory = (name: string): string => {
   assertPackageName(name)

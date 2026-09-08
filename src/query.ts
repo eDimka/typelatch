@@ -59,7 +59,7 @@ export function queryBrain(packageName: string, question: string, options: Query
         ? `No confident local result. Inspect the installed ${packageName}@${version} source.`
         : null
     }
-    if (options.recordUsage !== false && process.env.APIROVA_USAGE !== "off") recordQuery(response)
+    if (options.recordUsage !== false && process.env.TYPELATCH_USAGE !== "off") recordQuery(response)
     return response
   } finally {
     db.close()
@@ -84,7 +84,7 @@ export function getSymbol(packageName: string, symbol: string, options: QueryOpt
       results: rows.map((row, index) => resultFromRow(row, index, relationships.get(row.qualified_name) ?? [])),
       fallback: rows.length === 0 ? `Symbol ${symbol} was not found in ${packageName}@${version}.` : null
     }
-    if (options.recordUsage !== false && process.env.APIROVA_USAGE !== "off") recordQuery(response)
+    if (options.recordUsage !== false && process.env.TYPELATCH_USAGE !== "off") recordQuery(response)
     return response
   } finally {
     db.close()
@@ -297,10 +297,10 @@ function relationshipsForRows(
 
 function brainFormat(db: Database.Database): BrainFormat {
   const stored = db.prepare("SELECT value FROM metadata WHERE key = 'format'").get() as { value: string } | undefined
-  if (stored && !["baseline", "compact", "trimmed"].includes(stored.value)) throw new Error(`Unsupported brain format ${stored.value}; rebuild with this Apirova version`)
+  if (stored && !["baseline", "compact", "trimmed"].includes(stored.value)) throw new Error(`Unsupported brain format ${stored.value}; rebuild with this Typelatch version`)
   const schema = db.prepare("SELECT value FROM metadata WHERE key = 'schemaVersion'").get() as { value: string } | undefined
   const version = Number(schema?.value ?? 1)
-  if (![1, 2, 3].includes(version)) throw new Error(`Unsupported brain schema ${version}; rebuild with this Apirova version`)
+  if (![1, 2, 3].includes(version)) throw new Error(`Unsupported brain schema ${version}; rebuild with this Typelatch version`)
   if (stored?.value === "trimmed") return "trimmed"
   if (stored?.value === "compact") return "compact"
   if (version >= 3) return "trimmed"
@@ -349,13 +349,13 @@ function summarize(docs: string): string {
 
 export function latestInstalledVersion(packageName: string): string {
   const parent = installedPackageDirectory(packageName)
-  if (!existsSync(parent)) throw new Error(`No brain installed for ${packageName}. Run: apirova add ${packageName}`)
+  if (!existsSync(parent)) throw new Error(`No brain installed for ${packageName}. Run: typelatch add ${packageName}`)
   const versions = readdirSync(parent, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && existsSync(join(parent, entry.name, "brain.db")))
     .map((entry) => entry.name)
     .sort(compareVersions)
   const latest = versions.at(-1)
-  if (!latest) throw new Error(`No brain installed for ${packageName}. Run: apirova add ${packageName}`)
+  if (!latest) throw new Error(`No brain installed for ${packageName}. Run: typelatch add ${packageName}`)
   return latest
 }
 

@@ -10,7 +10,7 @@ const pkg = JSON.parse(readFileSync('package.json', 'utf8'))
 const directory = mkdtempSync(join(tmpdir(), `${pkg.name}-install-`))
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 const run = (command, args, options = {}) => execFileSync(command, args, { encoding: 'utf8', timeout: 180_000, ...options })
-const env = { ...process.env, APIROVA_HOME: join(directory, 'data'), APIROVA_USAGE: 'off' }
+const env = { ...process.env, TYPELATCH_HOME: join(directory, 'data'), TYPELATCH_USAGE: 'off' }
 let client
 try {
   const packed = JSON.parse(run(npm, ['pack', '--json', '--ignore-scripts', '--pack-destination', directory]))[0]

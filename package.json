@@ -1,11 +1,11 @@
 {
-  "name": "apirova",
-  "version": "0.1.0",
+  "name": "typelatch",
+  "version": "0.1.1",
   "description": "Local API evidence for TypeScript coding agents",
   "type": "module",
   "bin": {
-    "apirova": "dist/cli.js",
-    "apirova-mcp": "dist/mcp.js"
+    "typelatch": "dist/cli.js",
+    "typelatch-mcp": "dist/mcp.js"
   },
   "files": [
     "dist",
@@ -48,11 +48,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eDimka/apirova.git"
+    "url": "git+https://github.com/eDimka/typelatch.git"
   },
-  "homepage": "https://github.com/eDimka/apirova#readme",
+  "homepage": "https://github.com/eDimka/typelatch#readme",
   "bugs": {
-    "url": "https://github.com/eDimka/apirova/issues"
+    "url": "https://github.com/eDimka/typelatch/issues"
   },
   "keywords": [
     "typescript",

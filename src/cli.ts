@@ -27,12 +27,12 @@ try {
       break
     }
     case "workspace": {
-      if (!args[0]) throw new Error("Usage: apirova workspace <request.json>")
+      if (!args[0]) throw new Error("Usage: typelatch workspace <request.json>")
       console.log(JSON.stringify(await workspaceContextAsync(contextSchema.parse(JSON.parse(readFileSync(args[0], "utf8")))), null, 2))
       break
     }
     case "validate": {
-      if (!args[0]) throw new Error("Usage: apirova validate <request.json>")
+      if (!args[0]) throw new Error("Usage: typelatch validate <request.json>")
       const request = validationSchema.parse(JSON.parse(readFileSync(args[0], "utf8")))
       const result = await validateWorkspace(request)
       console.log(JSON.stringify(result, null, 2))
@@ -70,13 +70,13 @@ try {
       throw new Error(`Unknown command: ${command}`)
   }
 } catch (error) {
-  console.error(`apirova: ${error instanceof Error ? error.message : String(error)}`)
+  console.error(`typelatch: ${error instanceof Error ? error.message : String(error)}`)
   process.exitCode = 1
 }
 
 async function addCommand(args: string[]): Promise<void> {
   const requested = positional(args)[0]
-  if (!requested) throw new Error("Usage: apirova add <package[@version]>")
+  if (!requested) throw new Error("Usage: typelatch add <package[@version]>")
   let spec = requested
   if (!hasExplicitVersion(requested)) {
     const exact = await exactProjectVersion(process.cwd(), requested).catch(() => null)
@@ -110,7 +110,7 @@ function queryCommand(args: string[]): void {
   const values = positional(args)
   const packageSpec = values[0]
   const question = values.slice(1).join(" ")
-  if (!packageSpec || !question) throw new Error('Usage: apirova query <package[@version]> "<question>"')
+  if (!packageSpec || !question) throw new Error('Usage: typelatch query <package[@version]> "<question>"')
   const parsed = parseInstalledSpec(packageSpec)
   const response = queryBrain(parsed.name, question, {
     ...(parsed.version ? { version: parsed.version } : {}),
@@ -123,7 +123,7 @@ function symbolCommand(args: string[]): void {
   const values = positional(args)
   const packageSpec = values[0]
   const name = values[1]
-  if (!packageSpec || !name) throw new Error("Usage: apirova symbol <package[@version]> <symbol>")
+  if (!packageSpec || !name) throw new Error("Usage: typelatch symbol <package[@version]> <symbol>")
   const parsed = parseInstalledSpec(packageSpec)
   const response = getSymbol(parsed.name, name, {
     ...(parsed.version ? { version: parsed.version } : {}),
@@ -139,7 +139,7 @@ function statsCommand(args: string[]): void {
 
 function feedbackCommand(args: string[]): void {
   const queryId = positional(args)[0]
-  if (!queryId) throw new Error("Usage: apirova feedback <query-id> [--accepted yes|no] [--compile pass|fail] [--tests pass|fail]")
+  if (!queryId) throw new Error("Usage: typelatch feedback <query-id> [--accepted yes|no] [--compile pass|fail] [--tests pass|fail]")
   const notes = stringFlag(args, "--notes")
   recordOutcome(queryId, {
     ...booleanFlag(args, "--accepted", "yes", "no", "accepted"),
@@ -191,25 +191,25 @@ function benchmarkAllCommand(args: string[]): void {
 }
 
 function printHelp(): void {
-  console.log(`Apirova: local API evidence for TypeScript agents
+  console.log(`Typelatch: local API evidence for TypeScript agents
 
 Usage:
-  apirova add <package[@version]>
-  apirova sync [package ...] [--force]
-  apirova query <package[@version]> <question> [--json] [--limit N]
-  apirova symbol <package[@version]> <symbol> [--json]
-  apirova workspace <request.json>
-  apirova validate <request.json>
-  apirova feedback <queryId> [--accepted yes|no] [--compile pass|fail] [--tests pass|fail] [--notes text]
-  apirova stats [--json]
-  apirova benchmark [package@version] [--json]
-  apirova benchmark --all [--json]
-  apirova support [manifest.json] [report.json] [--gate discovery|navigation]
+  typelatch add <package[@version]>
+  typelatch sync [package ...] [--force]
+  typelatch query <package[@version]> <question> [--json] [--limit N]
+  typelatch symbol <package[@version]> <symbol> [--json]
+  typelatch workspace <request.json>
+  typelatch validate <request.json>
+  typelatch feedback <queryId> [--accepted yes|no] [--compile pass|fail] [--tests pass|fail] [--notes text]
+  typelatch stats [--json]
+  typelatch benchmark [package@version] [--json]
+  typelatch benchmark --all [--json]
+  typelatch support [manifest.json] [report.json] [--gate discovery|navigation]
 
 MCP server:
-  apirova-mcp
+  typelatch-mcp
 
-Data stays local in ~/.apirova. See docs/USAGE.md for configuration.`)
+Data stays local in ~/.typelatch. See docs/USAGE.md for configuration.`)
 }
 
 function positional(args: string[]): string[] {

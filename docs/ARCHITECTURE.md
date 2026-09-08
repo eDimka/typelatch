@@ -1,6 +1,6 @@
 # Architecture
 
-Apirova has two paths: package discovery and workspace evidence. The CLI and MCP server call the same core functions.
+Typelatch has two paths: package discovery and workspace evidence. The CLI and MCP server call the same core functions.
 
 ## Package discovery
 

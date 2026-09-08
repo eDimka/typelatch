@@ -12,7 +12,7 @@ function write(root: string, file: string, text: string) {
   writeFileSync(join(root, file), text)
 }
 function fixture(): ContextRequest & { root: string } {
-  const root = mkdtempSync(join(tmpdir(), "apirova-session-"))
+  const root = mkdtempSync(join(tmpdir(), "typelatch-session-"))
   roots.push(root)
   write(root, "package.json", '{"name":"session-fixture","version":"1.0.0","type":"module"}')
   write(root, "base.json", '{"compilerOptions":{"target":"ES2022","module":"NodeNext","strict":true,"types":[],"skipLibCheck":true}}')
