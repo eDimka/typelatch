@@ -1,6 +1,6 @@
 {
   "name": "typelatch",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Local API evidence for TypeScript coding agents",
   "type": "module",
   "bin": {
@@ -26,6 +26,7 @@
     "verify": "npm run check && npm test",
     "prove:support": "npm run build && npm ci --prefix examples/support --ignore-scripts && node scripts/support.mjs",
     "benchmark": "npm run build && node scripts/benchmark.mjs",
+    "benchmark:workspace": "npm run build && node scripts/benchmark-workspace.mjs",
     "release:check": "npm run verify && node scripts/packagecheck.mjs",
     "prepack": "npm run build",
     "pretest": "npm run build"

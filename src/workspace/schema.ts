@@ -1,4 +1,12 @@
 import { z } from "zod"
+export const searchSchema = z.object({
+  workspaceRoot: z.string().min(1),
+  question: z.string().trim().min(1).max(2000),
+  file: z.string().min(1).optional(),
+  scope: z.enum(["all", "workspace", "dependencies"]).optional(),
+  limit: z.number().int().min(1).max(20).optional(),
+  timeoutMs: z.number().int().min(1).max(600_000).optional()
+}).strict()
 const overlays = z.array(z.object({ file: z.string().min(1), text: z.string().max(1_000_000) }).strict()).max(50).optional()
 export const contextSchema = z.object({
   timeoutMs: z.number().int().min(1).max(600_000).optional(),

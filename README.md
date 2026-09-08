@@ -2,9 +2,9 @@
 
 [![Typelatch. The right API. Not a wall of docs.](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/readme-banner.png)](https://edimka.github.io/typelatch/)
 
-**Focused API context for Codex and Claude Code. Install from npm, connect your agent, and ask about your dependencies.**
+**Search your workspace and its dependencies. Give Codex and Claude Code relevant source and API context, then verify changes with your TypeScript project.**
 
-Built for less searching and fewer irrelevant tokens. Typelatch retrieves API signatures and source references from an exact npm version instead of asking your agent to read whole package files. Check the result against your installed compiler and explicit assertions. Search runs against a local SQLite index through MCP or the terminal. Actual token use and time saved depend on the task and client. We do not yet claim measured savings.
+Start with a question, without choosing a package or file first. Typelatch searches local source, internal functions, tests, docs, configuration, and available indexes for exact dependency versions. It returns a focused shortlist with source locations and visible coverage gaps. Use the workspace compiler and explicit assertions to check the changes that follow. Search runs locally through MCP or the terminal. Actual token use and time saved depend on the task and client; we do not claim measured agent savings.
 
 [npm package](https://www.npmjs.com/package/typelatch) · [See the walkthrough](https://edimka.github.io/typelatch/) · [Usage](docs/USAGE.md) · [Recorded evidence](docs/showcase/recording.json)
 
@@ -13,9 +13,8 @@ Built for less searching and fewer irrelevant tokens. Typelatch retrieves API si
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. A platform without a suitable binary needs a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.1.1
+npm install --global typelatch@0.2.0
 typelatch --help
-typelatch add kysely@0.28.8
 ```
 
 Choose your client:
@@ -32,7 +31,31 @@ codex mcp add typelatch -- typelatch-mcp
 claude mcp add --transport stdio --scope user typelatch -- typelatch-mcp
 ```
 
-Start a new agent session in your TypeScript project. The agent can now search the prepared index. Indexing does not install Kysely into your project. [Usage](docs/USAGE.md) covers workspace setup, configuration files, and running without a global installation.
+Start a new agent session in your TypeScript project, or restart it after upgrading so it discovers `workspace_search`. Workspace source is indexed on the first search and refreshed from file contents on later searches. To prepare direct dependency indexes, run `typelatch sync` inside an npm project with a lockfile. Search reports missing indexes and exact preparation commands; it does not download packages automatically. [Usage](docs/USAGE.md) covers workspace setup, configuration files, and running without a global installation.
+
+## Search the whole workspace
+
+When you do not know which file or package contains the answer, start with `workspace_search`:
+
+```json
+{
+  "workspaceRoot": "/absolute/path/to/your/repo",
+  "question": "Where do we validate incoming requests?",
+  "limit": 8
+}
+```
+
+It searches source, internal declarations, tests, docs, configuration, and available indexes for exact installed or npm locked dependencies. No package name or TypeScript config is required. Source results include file locations and, for recognized declarations, symbol positions. The local workspace index refreshes from file contents on every search.
+
+```sh
+typelatch search "Where do we validate incoming requests?" --json
+```
+
+Read the returned coverage: missing dependency indexes, exclusions, errors, and limits stay visible. Search does not download packages, resolve symbols with the project compiler, or run tests. [Workspace search and agent workflow](docs/USAGE.md#workspace-search) explains preparation and followup inspection.
+
+The agent workflow is **search, inspect, resolve, edit, validate**. Use `library_symbol` for an exact dependency hit, `workspace_context` for compiler resolution in a real file, and `workspace_validate` for compilation and authorized assertions.
+
+Eight authored repository questions returned the expected source file first in the [workspace discovery regression](docs/benchmarks/workspace-search.json). That is a regression result on known questions, not a measurement of general agent success. [Verification details](docs/verification/workspace-search.md).
 
 ## A batch should succeed together or not at all
 
@@ -97,10 +120,11 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 
 [Try the same task in your agent](docs/USAGE.md#try-the-sqlite-task), with an explicit assertion command and a report that keeps retrieval, resolution, compilation, and execution separate.
 
-## Six tools, one local server
+## Seven tools, one local server
 
 | Tool | What it does |
 | :--- | :--- |
+| `workspace_search` | Discover relevant workspace files and exact dependency APIs without choosing a package first |
 | `library_search` | Search an installed package index by question and exact version |
 | `library_symbol` | Look up an exact symbol and its relationships |
 | `workspace_context` | Resolve imports, definitions, and types with the workspace compiler |
@@ -120,6 +144,7 @@ The recorded development suites exercise retrieval, workspace scenarios, and neg
 
 ```sh
 npm run benchmark
+npm run benchmark:workspace
 npm run prove:support
 ```
 

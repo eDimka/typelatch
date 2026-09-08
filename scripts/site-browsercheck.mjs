@@ -68,7 +68,7 @@ try {
   await page.evaluate(() => document.fonts.ready)
   assert.equal(
     await page.locator('.hero #hero-install-command').innerText(),
-    'npm install --global typelatch@0.1.1',
+    'npm install --global typelatch@0.2.0',
   )
   assert.equal(await page.locator('.brand img').count(), 0)
   assert.equal(
@@ -166,7 +166,7 @@ try {
   await page.locator('[data-copy="hero-install-command"]').click()
   assert.equal(
     await page.evaluate(() => navigator.clipboard.readText()),
-    'npm install --global typelatch@0.1.1',
+    'npm install --global typelatch@0.2.0',
   )
   assert.equal(await page.locator('[data-copy="hero-install-command"]').innerText(), 'Copied')
   await page.evaluate(() => {

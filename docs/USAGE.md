@@ -1,13 +1,13 @@
 # Usage
 
-Typelatch has two paths: read APIs from an exact package index, then check their use in a local TypeScript workspace. The CLI and MCP server share the same implementation.
+Start with a workspace question, inspect the relevant source or exact dependency APIs, then check their use in a local TypeScript project. The CLI and MCP server share the same implementation.
 
 ## Install and connect
 
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. If your platform has no suitable binary, installation requires a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.1.1
+npm install --global typelatch@0.2.0
 typelatch --help
 typelatch add kysely@0.28.8
 ```
@@ -45,7 +45,7 @@ For a client that accepts an MCP JSON configuration:
 }
 ```
 
-Start a new client session after registration. The server exposes the [six tools](#mcp-tool-reference) over standard input and output. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
+Start a new client session after registration or upgrading. Version 0.2.0 exposes the [seven tools](#mcp-tool-reference) over standard input and output, including `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
 
 <details>
 <summary>Use npm without a global installation</summary>
@@ -53,14 +53,14 @@ Start a new client session after registration. The server exposes the [six tools
 Prepare the same local index:
 
 ```sh
-npx --yes --package=typelatch@0.1.1 typelatch add kysely@0.28.8
+npx --yes --package=typelatch@0.2.0 typelatch add kysely@0.28.8
 ```
 
 Register either client with npm as the launcher:
 
 ```sh
-codex mcp add typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
-claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
+codex mcp add typelatch -- npx --yes --package=typelatch@0.2.0 typelatch-mcp
+claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.2.0 typelatch-mcp
 ```
 
 The package name is `typelatch`. Its server executable is `typelatch-mcp`. Do not use `npx typelatch-mcp`, which asks npm for a different package. The npm launcher may need network access before it can start the server. Use the same `TYPELATCH_HOME` for index preparation and the server if you override the default.
@@ -154,6 +154,67 @@ typelatch symbol kysely@0.28.8 esm/kysely.TransactionBuilder --json
 
 For other packages, use the exact returned `symbol` with the same `package` and `version`. Responses retain package identity, source locations, signatures, documentation, relationships, and retrieval signals. Finding a candidate does not establish that it resolves or compiles in your project.
 
+## Workspace search
+
+Workspace search is included in version 0.2.0. Install or upgrade with `npm install --global typelatch@0.2.0`, then restart the MCP client so it discovers the new tool.
+
+Use `workspace_search` when the relevant file or dependency is unknown:
+
+```json
+{
+  "workspaceRoot": "/absolute/path/to/repo",
+  "question": "Where do we validate incoming requests?",
+  "limit": 8
+}
+```
+
+The CLI uses the current directory by default:
+
+```sh
+typelatch search "Where do we validate incoming requests?" --json
+typelatch search "retry failed requests" --root /absolute/path/to/repo --json
+typelatch search "validateRequest" --scope workspace --file src/server.ts --json
+typelatch search "retry with exponential delay" --scope dependencies --json
+```
+
+`scope` is `all` by default, or `workspace` or `dependencies`. `file` is an optional path within the root that favors nearby workspace results. It does not limit the search or establish compiler resolution. `limit` is 1 through 20 and defaults to 8. MCP accepts `timeoutMs`, defaulting to 60000. Cancellation fails the request rather than returning an apparently complete result.
+
+Source search includes internal declarations, implementation text, tests, documentation, and configuration. TypeScript and JavaScript declarations receive symbol names and UTF16 positions when the bundled parser recognizes them. Other UTF8 text is searched as text. No project compiler or application code executes during search.
+
+In Git workspaces, the inventory includes tracked and unignored files, including uncommitted edits. Generated and dependency directories, source symlinks, binary files, environment files, and common archive or media formats are excluded. Lockfiles supply dependency identities and are excluded from content retrieval. Outside Git, filesystem traversal remains available and reports that Git ignore rules were not applied. The response names the selection policy and samples exclusions. Linked source outside the root is outside the search scope.
+
+Search discovers nested package manifests, TypeScript configs, installed dependencies and nested transitive installations. It uses each installed manifest's name and exact version, including aliases and multiple versions, rather than the newest global index. npm lockfiles of version 2 or 3 also provide exact candidates when packages are not installed. These results are labeled `identity: "lockfile"` and `installed: false`. A lockfile candidate is not proof of workspace resolution. Other lockfile formats are not parsed; available installed manifests can still supply identities. Unidentified declared dependencies are reported.
+
+Search uses existing package indexes and does not download or build missing ones. Run `typelatch sync` in each relevant npm project to prepare direct locked dependencies. Missing entries in `coverage.dependencies` include exact `typelatch add name@version` commands, including for transitive packages. A JavaScript package without usable TypeScript declarations may still be unindexable. Do not substitute another version. Registry metadata and any available lockfile integrity must match; installed artifact equivalence remains unknown.
+
+Each source hit includes an absolute `source`, `line`, `endLine`, compact `snippet`, owning `projectRoot`, and optional `symbol` and `position`. A dependency hit instead identifies its package, exact version, registry integrity, artifact relative source path, and known dependency roots. Inspect it with `library_symbol` using that identity. `coverage.configs` lists discovered configs; the agent must select one that owns the relevant file before using `workspace_context`.
+
+The agent workflow is:
+
+1. Search with a concrete question. Check `coverage` before interpreting the results.
+2. Read relevant source locations. For dependency hits, inspect the exact returned symbol with `library_symbol`.
+3. Use `workspace_context` to resolve an actual use in the appropriate project.
+4. Make the change with normal file tools.
+5. Use `workspace_validate` for the affected leaf projects and explicitly authorized assertion commands. Keep retrieval, resolution, compilation, and execution evidence separate.
+
+Suggested agent instruction:
+
+```text
+Use workspace_search when the relevant file or package is unknown.
+Supply the repository's absolute root and a focused question. Inspect
+coverage gaps and returned source locations. Use library_symbol with
+the returned package and exact version for dependency detail, and
+workspace_context for compiler resolution of an actual workspace use.
+After editing, use workspace_validate for the affected projects and
+authorized assertions. Report missing evidence separately.
+```
+
+The result `status` is `ok` when candidates were found with complete declared inventory coverage, `empty` when no candidates were found with that coverage, and `partial` when inventories, indexes, or file indexing have gaps. `coverage.complete` refers to the declared inventory policy, not exhaustive retrieval, semantic understanding, or an atomic filesystem snapshot. The evidence checks explicitly leave resolution, compilation, and tests as `not-run`, and stability and installed artifact matching as `unknown`.
+
+Retrieval is lexical and uses a shared content score across source and dependency candidates, with a bounded shortlist and overlap suppression. It does not use embeddings. Current limits are 20000 inventoried paths, 1 MB per file, 64 MiB of workspace text, 2000 dependency installations, 500 chunks per file, 400 workspace candidates, 20 candidates per dependency, and 20 returned hits. Coverage reports inventory and indexing limits. Retrieval limits remain explicit even when inventory coverage is complete. Dependency coverage details prioritize gaps and show up to 40 entries with omitted counts; large project and config inventories are also summarized. An empty shortlist never proves that a symbol or behavior is absent.
+
+The SQLite cache lives under `~/.typelatch/workspaces`, or the selected `TYPELATCH_HOME`. It stores source excerpts. Every search reads file contents and checks hashes, so same size edits with preserved timestamps, additions, removals, and changed ignore rules refresh the index. Unchanged files reuse cached chunks. `TYPELATCH_USAGE=off` controls query history, not this cache. Workspace searches currently do not create `library_feedback` query IDs or contribute to `library_stats`.
+
 ## Workspace context
 
 Save this request as `context.json`, replacing the paths with your absolute fixture paths:
@@ -224,6 +285,7 @@ Validation records compiler inputs and, when execution is requested, the runtime
 
 | Tool | Request | Result |
 | :--- | :--- | :--- |
+| `workspace_search` | absolute `workspaceRoot`, `question`; optional `scope`, `file`, `limit` from 1 to 20, `timeoutMs` | Ranked local file and exact dependency candidates, cache refresh details, coverage and evidence limits |
 | `library_search` | `package`, `question`; optional `version`, `limit` from 1 to 20 | Search results from an installed index |
 | `library_symbol` | `package`, `symbol`; optional `version` | Exact symbol lookup and relationships |
 | `workspace_context` | `config`, `file`; optional `importSpecifier`, `symbol`, `position`, `question`, `expectedVersion`, `overlays`, `limit`, `timeoutMs` | Workspace definitions, types, identity, and optional discovery |

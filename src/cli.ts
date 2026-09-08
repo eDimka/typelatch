@@ -9,15 +9,33 @@ import { exactProjectVersion, projectDependencies } from "./project.js"
 import { getSymbol, queryBrain } from "./query.js"
 import { readStats, recordOutcome } from "./usage.js"
 
-import { workspaceContextAsync } from "./workspace/runtime.js"
+import { workspaceContextAsync, workspaceSearchAsync } from "./workspace/runtime.js"
 import { validateWorkspace } from "./workspace/validate.js"
 import { contextSchema, validationSchema } from "./workspace/schema.js"
 import { runSupport } from "./support.js"
+import { resolve } from "node:path"
 
 const [command = "help", ...args] = process.argv.slice(2)
 
 try {
   switch (command) {
+    case "search": {
+      const question = positional(args).join(" ")
+      if (!question) throw new Error('Usage: typelatch search "<question>" [--root path] [--scope all|workspace|dependencies] [--file path] [--json] [--limit N]')
+      const response = await workspaceSearchAsync({
+        workspaceRoot: resolve(stringFlag(args, "--root") ?? process.cwd()), question,
+        ...(stringFlag(args, "--scope") ? { scope: stringFlag(args, "--scope") as "all" | "workspace" | "dependencies" } : {}),
+        ...(stringFlag(args, "--file") ? { file: stringFlag(args, "--file")! } : {}),
+        limit: numberFlag(args, "--limit") ?? 8
+      })
+      console.log(flag(args, "--json") ? JSON.stringify(response, null, 2) : [
+        `${response.status}: ${response.results.length} results; ${response.coverage.files} workspace files; ${response.coverage.searchedDependencies}/${response.coverage.dependencyCount} dependency indexes searched`,
+        ...response.results.map(item => `\n${item.origin === "dependency" ? `${item.package}@${item.version} ` : ""}${item.source}:${item.line}${item.symbol ? ` ${item.symbol}` : ""}\n${item.snippet}`),
+        ...(response.coverage.complete ? [] : [`\nIncomplete coverage: ${response.coverage.missingIndexes} missing indexes, ${response.coverage.dependencyErrors} index errors. ${response.coverage.issues.join("; ")} Use --json for details.`]),
+        `\n${response.next}`
+      ].join("\n"))
+      break
+    }
     case "support": {
       const report = await runSupport(positional(args)[0] ?? "examples/support/manifest.json", positional(args)[1] ?? "docs/benchmarks/support.json", message => console.error(`→ ${message}`))
       console.log(JSON.stringify({ passed: report.passed, navigationPassed: report.navigationPassed, totals: report.totals }, null, 2))
@@ -196,6 +214,7 @@ function printHelp(): void {
 Usage:
   typelatch add <package[@version]>
   typelatch sync [package ...] [--force]
+  typelatch search <question> [--root path] [--scope all|workspace|dependencies] [--file path] [--json] [--limit N]
   typelatch query <package[@version]> <question> [--json] [--limit N]
   typelatch symbol <package[@version]> <symbol> [--json]
   typelatch workspace <request.json>

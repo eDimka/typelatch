@@ -18,6 +18,10 @@ Package identity is the name, exact version, and registry integrity. An index is
 
 ## Workspace evidence
 
+`workspace/search.ts` is the entry point for discovery without a known file or package. `workspace/inventory.ts` gathers Git selected workspace text, project manifests, configs, and exact installed or npm locked dependency identities. `workspace/search-index.ts` updates a separate SQLite text index by content hash and extracts local declaration positions with the bundled TypeScript parser. It does not load the project compiler. Package indexes retain their existing artifact identity and format.
+
+Workspace and dependency candidates receive a shared lexical score based on content, rather than comparing the existing package rank numbers. Results expose bounded retrieval, inventory gaps, exact locations, and separate evidence states. CLI and MCP discovery run in a separate `search-worker.ts` process through the existing bounded worker queue, so synchronous indexing cannot block the server from enforcing cancellation and deadlines. The existing workspace context and validation paths remain responsible for compiler and execution evidence. Workspace cache transactions keep index refresh and candidate selection together; the filesystem reads themselves are not an atomic snapshot.
+
 ```mermaid
 flowchart LR
     Request[Workspace request] --> Worker[Bounded compiler worker]
@@ -33,7 +37,7 @@ flowchart LR
 
 ## Interfaces
 
-`cli.ts` handles local commands. `mcp.ts` exposes six tools over standard input and output. `workspace/schema.ts` validates workspace requests. `usage.ts` stores optional local query history and feedback. Tool executed validation records remain separate from agent reported outcomes.
+`cli.ts` handles local commands. `mcp.ts` exposes seven tools over standard input and output. `workspace/schema.ts` validates workspace requests. `usage.ts` stores optional local library query history and feedback. Workspace discovery caches source excerpts separately and does not emit library feedback IDs. Tool executed validation records remain separate from agent reported outcomes.
 
 ## Boundaries
 

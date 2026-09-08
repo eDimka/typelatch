@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T10:34:41.818Z",
+  "generatedAt": "2026-09-08T15:15:36.573Z",
   "kind": "authored retrieval regression",
   "environment": {
     "node": "v22.23.1",
@@ -63,7 +63,7 @@
       "foundSymbols": 22,
       "recallAt5": 0.9166666666666666,
       "meanReciprocalRank": 0.5965277777777778,
-      "averageLatencyMs": 2.0558333333333336,
+      "averageLatencyMs": 1.9449999999999996,
       "estimatedResultTokens": 1059,
       "results": [
         {
@@ -84,7 +84,7 @@
             "commonjs.MinimatchOptions"
           ],
           "passed": true,
-          "latencyMs": 3.25
+          "latencyMs": 3.26
         },
         {
           "question": "Which option makes *.js match src/lib/foo.js by testing only the basename of the path?",
@@ -104,7 +104,7 @@
             "commonjs.MinimatchOptions"
           ],
           "passed": true,
-          "latencyMs": 2.15
+          "latencyMs": 2.05
         },
         {
           "question": "On Windows, minimatch treats backslashes in my paths as escape characters. Which option makes backslashes act as path separators instead?",
@@ -124,7 +124,7 @@
             "commonjs.MinimatchOptions"
           ],
           "passed": true,
-          "latencyMs": 1.94
+          "latencyMs": 1.65
         },
         {
           "question": "Which option makes glob matching case-insensitive, so *.JPG matches photo.jpg?",
@@ -144,7 +144,7 @@
             "commonjs.MinimatchOptions"
           ],
           "passed": true,
-          "latencyMs": 2.09
+          "latencyMs": 2.18
         },
         {
           "question": "How do I filter an array of file paths down to only the ones matching a glob pattern, for use with Array.prototype.filter?",
@@ -164,7 +164,7 @@
             "commonjs.filter"
           ],
           "passed": true,
-          "latencyMs": 1.9
+          "latencyMs": 2.03
         },
         {
           "question": "How do I match a whole list of file paths against one glob pattern and get back just the ones that match?",
@@ -183,7 +183,7 @@
             "commonjs.match"
           ],
           "passed": false,
-          "latencyMs": 1.87
+          "latencyMs": 1.73
         },
         {
           "question": "Make a regular expression from a glob pattern",
@@ -203,7 +203,7 @@
             "commonjs.makeRe"
           ],
           "passed": true,
-          "latencyMs": 1.66
+          "latencyMs": 1.32
         },
         {
           "question": "How do I expand a brace expression like src/{test,spec}/**/*.js into the full list of patterns?",
@@ -223,7 +223,7 @@
             "commonjs.braceExpand"
           ],
           "passed": true,
-          "latencyMs": 2.32
+          "latencyMs": 1.83
         },
         {
           "question": "How do I escape glob magic characters in a file name so it matches literally?",
@@ -243,7 +243,7 @@
             "commonjs/escape.escape"
           ],
           "passed": true,
-          "latencyMs": 1.67
+          "latencyMs": 1.63
         },
         {
           "question": "How do I create a pre-configured version of minimatch with defaults?",
@@ -262,7 +262,7 @@
             "commonjs.defaults"
           ],
           "passed": false,
-          "latencyMs": 1.69
+          "latencyMs": 1.59
         },
         {
           "question": "How do I create a Minimatch object for a pattern and reuse it to test many paths?",
@@ -282,7 +282,7 @@
             "commonjs.Minimatch"
           ],
           "passed": true,
-          "latencyMs": 1.64
+          "latencyMs": 1.99
         },
         {
           "question": "How can I tell whether a glob pattern contains special matching characters, or is just a literal path I could compare as a plain string?",
@@ -302,7 +302,7 @@
             "commonjs.Minimatch"
           ],
           "passed": true,
-          "latencyMs": 2.49
+          "latencyMs": 2.08
         }
       ]
     },
@@ -316,7 +316,7 @@
       "foundSymbols": 8,
       "recallAt5": 1,
       "meanReciprocalRank": 0.9375,
-      "averageLatencyMs": 0.98875,
+      "averageLatencyMs": 0.81375,
       "estimatedResultTokens": 686,
       "results": [
         {
@@ -335,7 +335,7 @@
             "ansi_styles.default"
           ],
           "passed": true,
-          "latencyMs": 1.22
+          "latencyMs": 1.03
         },
         {
           "question": "list all valid foreground color names",
@@ -353,7 +353,7 @@
             "ansi_styles.foregroundColorNames"
           ],
           "passed": true,
-          "latencyMs": 0.78
+          "latencyMs": 0.72
         },
         {
           "question": "list all valid background color names",
@@ -371,7 +371,7 @@
             "ansi_styles.backgroundColorNames"
           ],
           "passed": true,
-          "latencyMs": 0.69
+          "latencyMs": 0.7
         },
         {
           "question": "list all valid text modifier names like bold and italic",
@@ -389,7 +389,7 @@
             "ansi_styles.modifierNames"
           ],
           "passed": true,
-          "latencyMs": 1.21
+          "latencyMs": 0.81
         },
         {
           "question": "what does a style pair with open and close escape codes look like?",
@@ -407,7 +407,7 @@
             "ansi_styles.CSPair"
           ],
           "passed": true,
-          "latencyMs": 1.15
+          "latencyMs": 0.87
         },
         {
           "question": "convert RGB color values into ANSI truecolor escape codes",
@@ -425,7 +425,7 @@
             "ansi_styles.ConvertColor"
           ],
           "passed": true,
-          "latencyMs": 0.97
+          "latencyMs": 0.88
         },
         {
           "question": "list all valid underline color names",
@@ -443,7 +443,7 @@
             "ansi_styles.underlineColorNames"
           ],
           "passed": true,
-          "latencyMs": 0.79
+          "latencyMs": 0.71
         },
         {
           "question": "I'm writing a helper that takes a color name such as 'cyan' as an argument. What type should that parameter be?",
@@ -461,7 +461,7 @@
             "ansi_styles.ColorName"
           ],
           "passed": true,
-          "latencyMs": 1.1
+          "latencyMs": 0.79
         }
       ]
     },
@@ -475,8 +475,8 @@
       "foundSymbols": 24,
       "recallAt5": 1,
       "meanReciprocalRank": 0.7118055555555557,
-      "averageLatencyMs": 2.255833333333333,
-      "estimatedResultTokens": 978,
+      "averageLatencyMs": 2.2516666666666665,
+      "estimatedResultTokens": 979,
       "results": [
         {
           "question": "How do I create a cache that evicts the least recently used item once it holds more than 100 entries?",
@@ -496,7 +496,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 2.81
+          "latencyMs": 2.75
         },
         {
           "question": "How do I set a TTL so cached entries expire after some time?",
@@ -516,7 +516,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 3.02
+          "latencyMs": 2.11
         },
         {
           "question": "How do I attach a size to each entry so the cache enforces a total maximum size?",
@@ -536,7 +536,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 1.92
+          "latencyMs": 2.05
         },
         {
           "question": "How do I make the cache load missing values asynchronously with a fetchMethod when get misses?",
@@ -555,7 +555,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 1.64
+          "latencyMs": 1.79
         },
         {
           "question": "How do I run a callback when an entry is evicted or deleted from the cache?",
@@ -574,7 +574,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 1.65
+          "latencyMs": 2.78
         },
         {
           "question": "How can I read entries that have gone stale without deleting them on access?",
@@ -593,7 +593,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 1.87
+          "latencyMs": 2.26
         },
         {
           "question": "How do I iterate over all keys and values in the cache?",
@@ -613,7 +613,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 1.7
+          "latencyMs": 1.83
         },
         {
           "question": "How do I export the cache state to JSON and load it back into a new cache instance?",
@@ -633,7 +633,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 3
+          "latencyMs": 2.71
         },
         {
           "question": "What does fetch return while another fetch for the same key is already in flight?",
@@ -653,7 +653,7 @@
             "commonjs.BackgroundFetch"
           ],
           "passed": true,
-          "latencyMs": 2.09
+          "latencyMs": 1.93
         },
         {
           "question": "How do I delete a single entry from the cache, or empty the whole cache at once?",
@@ -673,7 +673,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 2.22
+          "latencyMs": 2.04
         },
         {
           "question": "Expired entries linger in the cache until the next time their key is requested. How do I make them get purged immediately instead?",
@@ -692,7 +692,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 2.68
+          "latencyMs": 2.75
         },
         {
           "question": "How do I read how many entries the cache currently holds and how close it is to its configured limit?",
@@ -712,7 +712,7 @@
             "commonjs.LRUCache"
           ],
           "passed": true,
-          "latencyMs": 2.47
+          "latencyMs": 2.02
         }
       ]
     },
@@ -726,7 +726,7 @@
       "foundSymbols": 3,
       "recallAt5": 1,
       "meanReciprocalRank": 1,
-      "averageLatencyMs": 0.4633333333333334,
+      "averageLatencyMs": 0.34,
       "estimatedResultTokens": 171,
       "results": [
         {
@@ -741,7 +741,7 @@
             "strip_ansi.stripAnsi"
           ],
           "passed": true,
-          "latencyMs": 0.62
+          "latencyMs": 0.44
         },
         {
           "question": "clean terminal log output by removing ANSI color codes before writing it to a file",
@@ -755,7 +755,7 @@
             "strip_ansi.stripAnsi"
           ],
           "passed": true,
-          "latencyMs": 0.46
+          "latencyMs": 0.31
         },
         {
           "question": "get the character length of colored terminal output without the escape codes inflating the count",
@@ -769,7 +769,7 @@
             "strip_ansi.stripAnsi"
           ],
           "passed": true,
-          "latencyMs": 0.31
+          "latencyMs": 0.27
         }
       ]
     },
@@ -783,7 +783,7 @@
       "foundSymbols": 4,
       "recallAt5": 1,
       "meanReciprocalRank": 0.75,
-      "averageLatencyMs": 0.435,
+      "averageLatencyMs": 0.41000000000000003,
       "estimatedResultTokens": 261,
       "results": [
         {
@@ -799,7 +799,7 @@
             "string_width.stringWidth"
           ],
           "passed": true,
-          "latencyMs": 0.58
+          "latencyMs": 0.54
         },
         {
           "question": "how are ambiguous-width East Asian characters counted, and can I control that?",
@@ -814,7 +814,7 @@
             "string_width.Options"
           ],
           "passed": true,
-          "latencyMs": 0.34
+          "latencyMs": 0.38
         },
         {
           "question": "my string still contains ANSI color codes: are those counted toward the width, and can I include them if I want?",
@@ -829,7 +829,7 @@
             "string_width.Options"
           ],
           "passed": true,
-          "latencyMs": 0.39
+          "latencyMs": 0.41
         },
         {
           "question": "measure the visual width of a string containing emoji",
@@ -844,7 +844,7 @@
             "string_width.stringWidth"
           ],
           "passed": true,
-          "latencyMs": 0.43
+          "latencyMs": 0.31
         }
       ]
     },
@@ -858,7 +858,7 @@
       "foundSymbols": 10,
       "recallAt5": 1,
       "meanReciprocalRank": 0.6866666666666668,
-      "averageLatencyMs": 1.0370000000000001,
+      "averageLatencyMs": 1.089,
       "estimatedResultTokens": 758,
       "results": [
         {
@@ -877,7 +877,7 @@
             "typings.Command"
           ],
           "passed": true,
-          "latencyMs": 1.21
+          "latencyMs": 1.16
         },
         {
           "question": "declare a positional argument for a command",
@@ -895,7 +895,7 @@
             "typings.Argument"
           ],
           "passed": true,
-          "latencyMs": 0.85
+          "latencyMs": 0.86
         },
         {
           "question": "customize the generated help output of my CLI",
@@ -913,7 +913,7 @@
             "typings.Help"
           ],
           "passed": true,
-          "latencyMs": 0.88
+          "latencyMs": 0.91
         },
         {
           "question": "handle errors thrown for invalid command line arguments",
@@ -931,7 +931,7 @@
             "typings.InvalidArgumentError"
           ],
           "passed": true,
-          "latencyMs": 1.01
+          "latencyMs": 1.09
         },
         {
           "question": "What options can I pass when parsing arguments, such as a custom argv or from position?",
@@ -949,7 +949,7 @@
             "typings.ParseOptions"
           ],
           "passed": true,
-          "latencyMs": 1.08
+          "latencyMs": 1.14
         },
         {
           "question": "How do I stop commander from printing an error and exiting the process itself, so my program can handle the failure instead?",
@@ -967,7 +967,7 @@
             "typings.CommanderError"
           ],
           "passed": true,
-          "latencyMs": 1.31
+          "latencyMs": 1.35
         },
         {
           "question": "create an Option object programmatically instead of chaining .option()",
@@ -985,7 +985,7 @@
             "typings.createOption"
           ],
           "passed": true,
-          "latencyMs": 0.92
+          "latencyMs": 0.97
         },
         {
           "question": "the ready-to-use exported program instance",
@@ -1003,7 +1003,7 @@
             "typings.program"
           ],
           "passed": true,
-          "latencyMs": 0.99
+          "latencyMs": 1.22
         },
         {
           "question": "lifecycle hook events that run before actions or subcommands",
@@ -1021,7 +1021,7 @@
             "typings.HookEvent"
           ],
           "passed": true,
-          "latencyMs": 0.99
+          "latencyMs": 1.09
         },
         {
           "question": "In TypeScript, what type do the parsed option values returned by .opts() have?",
@@ -1039,7 +1039,7 @@
             "typings.OptionValues"
           ],
           "passed": true,
-          "latencyMs": 1.13
+          "latencyMs": 1.1
         }
       ]
     },
@@ -1053,8 +1053,8 @@
       "foundSymbols": 12,
       "recallAt5": 0.9230769230769231,
       "meanReciprocalRank": 0.6435897435897436,
-      "averageLatencyMs": 1.611666666666667,
-      "estimatedResultTokens": 1043,
+      "averageLatencyMs": 1.5475,
+      "estimatedResultTokens": 1042,
       "results": [
         {
           "question": "In chalk, how do I apply several styles at once, e.g. bold red text, and style different lines of a template literal in different colors?",
@@ -1072,7 +1072,7 @@
             "source.default"
           ],
           "passed": true,
-          "latencyMs": 2.66
+          "latencyMs": 2.34
         },
         {
           "question": "How do I give text a background color, e.g. white text on a blue background?",
@@ -1090,7 +1090,7 @@
             "source.ChalkInstance"
           ],
           "passed": true,
-          "latencyMs": 1.23
+          "latencyMs": 1.26
         },
         {
           "question": "How do I color text with one of the 256 extended ANSI colors instead of the basic 16?",
@@ -1108,7 +1108,7 @@
             "source.ChalkInstance"
           ],
           "passed": true,
-          "latencyMs": 1.64
+          "latencyMs": 1.52
         },
         {
           "question": "How do I style text with an exact truecolor value, like a hex color or RGB triple?",
@@ -1126,7 +1126,7 @@
             "source.ChalkInstance"
           ],
           "passed": true,
-          "latencyMs": 1.87
+          "latencyMs": 1.62
         },
         {
           "question": "Which chalk modifier makes output appear only when the terminal has color support, so purely cosmetic output disappears when colors are disabled?",
@@ -1144,7 +1144,7 @@
             "source.ChalkInstance"
           ],
           "passed": true,
-          "latencyMs": 1.92
+          "latencyMs": 1.9
         },
         {
           "question": "Color auto-detection gets the level wrong in my CI. How do I create a separate chalk instance with its own color level, as recommended for reusable modules?",
@@ -1163,7 +1163,7 @@
             "source.Chalk"
           ],
           "passed": false,
-          "latencyMs": 1.74
+          "latencyMs": 1.93
         },
         {
           "question": "What do chalk's color support levels 0, 1, 2, and 3 each enable?",
@@ -1199,7 +1199,7 @@
             "source.chalkStderr"
           ],
           "passed": true,
-          "latencyMs": 1.14
+          "latencyMs": 1.15
         },
         {
           "question": "What does chalk.supportsColor report about 256-color and truecolor support on stdout?",
@@ -1217,7 +1217,7 @@
             "source.supportsColor"
           ],
           "passed": true,
-          "latencyMs": 1.44
+          "latencyMs": 1.38
         },
         {
           "question": "Does chalk detect color support for stderr separately from stdout?",
@@ -1235,7 +1235,7 @@
             "source.supportsColorStderr"
           ],
           "passed": true,
-          "latencyMs": 1.44
+          "latencyMs": 1.26
         },
         {
           "question": "I'm upgrading and see chalk's ForegroundColor type is deprecated. What should I use instead?",
@@ -1253,7 +1253,7 @@
             "source.ForegroundColorName"
           ],
           "passed": true,
-          "latencyMs": 1.19
+          "latencyMs": 1.15
         },
         {
           "question": "I'm writing output to a file rather than a terminal. How do I turn chalk's colors off completely at runtime?",
@@ -1271,7 +1271,7 @@
             "source.ChalkInstance"
           ],
           "passed": true,
-          "latencyMs": 1.58
+          "latencyMs": 1.57
         }
       ]
     },
@@ -1285,7 +1285,7 @@
       "foundSymbols": 6,
       "recallAt5": 1,
       "meanReciprocalRank": 0.6583333333333333,
-      "averageLatencyMs": 0.5519999999999999,
+      "averageLatencyMs": 0.514,
       "estimatedResultTokens": 469,
       "results": [
         {
@@ -1304,7 +1304,7 @@
             "supports_color.default"
           ],
           "passed": true,
-          "latencyMs": 0.59
+          "latencyMs": 0.57
         },
         {
           "question": "what do the color support levels 0 to 3 mean?",
@@ -1322,7 +1322,7 @@
             "supports_color.ColorSupportLevel"
           ],
           "passed": true,
-          "latencyMs": 0.85
+          "latencyMs": 0.41
         },
         {
           "question": "check color support for a specific output stream like stderr",
@@ -1340,7 +1340,7 @@
             "supports_color.createSupportsColor"
           ],
           "passed": true,
-          "latencyMs": 0.51
+          "latencyMs": 0.39
         },
         {
           "question": "what information does the color support detection result contain?",
@@ -1358,7 +1358,7 @@
             "supports_color.ColorInfo"
           ],
           "passed": true,
-          "latencyMs": 0.39
+          "latencyMs": 0.72
         },
         {
           "question": "does detection sniff command-line flags like --no-color, and how do I stop it from doing that?",
@@ -1378,7 +1378,7 @@
             "supports_color.createSupportsColor"
           ],
           "passed": true,
-          "latencyMs": 0.42
+          "latencyMs": 0.48
         }
       ]
     },
@@ -1392,7 +1392,7 @@
       "foundSymbols": 4,
       "recallAt5": 1,
       "meanReciprocalRank": 0.875,
-      "averageLatencyMs": 0.37000000000000005,
+      "averageLatencyMs": 0.44,
       "estimatedResultTokens": 193,
       "results": [
         {
@@ -1408,7 +1408,7 @@
             "ansi_regex.ansiRegex"
           ],
           "passed": true,
-          "latencyMs": 0.47
+          "latencyMs": 0.69
         },
         {
           "question": "find ANSI escape sequences in terminal output using a regex",
@@ -1440,7 +1440,7 @@
             "ansi_regex.ansiRegex"
           ],
           "passed": true,
-          "latencyMs": 0.32
+          "latencyMs": 0.31
         }
       ]
     },
@@ -1454,7 +1454,7 @@
       "foundSymbols": 4,
       "recallAt5": 1,
       "meanReciprocalRank": 0.75,
-      "averageLatencyMs": 0.375,
+      "averageLatencyMs": 0.37749999999999995,
       "estimatedResultTokens": 237,
       "results": [
         {
@@ -1470,7 +1470,7 @@
             "wrap_ansi.wrapAnsi"
           ],
           "passed": true,
-          "latencyMs": 0.49
+          "latencyMs": 0.47
         },
         {
           "question": "wrap text while keeping ANSI styling codes working across the wrapped lines",
@@ -1485,7 +1485,7 @@
             "wrap_ansi.wrapAnsi"
           ],
           "passed": true,
-          "latencyMs": 0.38
+          "latencyMs": 0.36
         },
         {
           "question": "wrap without respecting word boundaries, breaking anywhere",
@@ -1515,7 +1515,7 @@
             "wrap_ansi.Options"
           ],
           "passed": true,
-          "latencyMs": 0.32
+          "latencyMs": 0.37
         }
       ]
     }

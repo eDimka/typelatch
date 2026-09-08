@@ -5,11 +5,20 @@ import { z } from "zod"
 import { getSymbol, queryBrain } from "./query.js"
 import { readStats, recordOutcome } from "./usage.js"
 
-import { workspaceContextAsync } from "./workspace/runtime.js"
+import { workspaceContextAsync, workspaceSearchAsync } from "./workspace/runtime.js"
 import { validateWorkspace } from "./workspace/validate.js"
-import { contextSchema, validationSchema } from "./workspace/schema.js"
+import { contextSchema, searchSchema, validationSchema } from "./workspace/schema.js"
 
-const server = new McpServer({ name: "typelatch", version: "0.1.1" })
+const server = new McpServer({ name: "typelatch", version: "0.2.0" })
+
+server.registerTool("workspace_search", {
+  title: "Search a whole workspace and its exact dependencies",
+  description: "Start here when the relevant file or package is unknown. Search local source, internal declarations, tests, docs, configuration and exact installed or npm locked dependency indexes. Supply an absolute workspaceRoot; file is an optional ranking hint. Refreshes a local content index without downloads or executing project code. Inspect coverage gaps and limits. Results are lexical candidates, not compiler resolution or validation. Follow workspace hits with workspace_context, dependency hits with library_symbol using the returned exact version, and edits with workspace_validate.",
+  inputSchema: searchSchema.shape
+}, async (input, extra) => {
+  const response = await workspaceSearchAsync(input, { signal: extra.signal })
+  return { content: [{ type: "text" as const, text: JSON.stringify(response) }], structuredContent: response }
+})
 
 server.registerTool(
   "library_search",
