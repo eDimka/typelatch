@@ -1,0 +1,446 @@
+{
+  "generatedAt": "2026-10-06T14:44:23.670Z",
+  "kind": "Pinned package storage and observable evidence parity",
+  "environment": {
+    "node": "v22.23.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M1 Max"
+  },
+  "methodology": "Build compact and trimmed from the same registry integrity pins. Compare all stored API fields, all graph endpoints and types, every exact symbol result, and 12 interleaved repetitions of the 73 existing questions. Timings include synchronous database open and close. Build timing includes registry and download work and is not a speed claim.",
+  "limitations": "Index bytes only. Excludes install dependencies, npm cache, peak memory and workspace indexes. Trimmed intentionally omits raw implementation text and unused edge evidence. Public responses retain signatures, summaries, locations and relationships. Authored regression corpus, not an agent success benchmark. Small databases retain SQLite schema overhead. Timing has no pass threshold.",
+  "sourceHashes": {
+    "src/indexer.ts": "8f8234ba5d72a85d6601411501bd38fc6ee13f61f9a0791a83c60ac2fa8e3572",
+    "src/database.ts": "2670e2473470f2109b91752fb3a1c697cac53e87f9c79e1eb82eb61f69e54c29",
+    "src/query.ts": "abe6e49046c966a3f8e8a84f9d50a063d7cb1e13be05880ce2581d0a2b483f98",
+    "src/benchmark/corpus.json": "40495dcaf36bdf391f460f3e940a0970c3dc20c12c29aab8cf47968e5857fe83",
+    "scripts/benchmark-package-storage.mjs": "4540e0dabdf0c09524656e19c2844d056adf9442cf12c9fc8c63cd3feaba3836"
+  },
+  "totals": {
+    "compactBytes": 1404928,
+    "trimmedBytes": 1236992,
+    "compactGzipBytes": 215111,
+    "trimmedGzipBytes": 194108,
+    "symbols": 261,
+    "edges": 512,
+    "questions": 73
+  },
+  "reduction": 0.11953352769679304,
+  "passed": true,
+  "raw": {
+    "path": "artifacts/competitive/package-storage/2026-10-06T14-44-08.035Z/responses.json.gz",
+    "sha256": "84b25d43c370cfdfc4627e054479b02699edb14634d0e19825332fbafc7517eb"
+  },
+  "rows": [
+    {
+      "package": "minimatch",
+      "version": "10.2.6",
+      "integrity": "sha512-vpLQEs+VLCr1nU0BXS07maYoFwlDAH0gngQuuttxIwutDFEMHq2blX+8vpgxDdK3J1PwjCJiep77OitTZ4Ll1A==",
+      "symbols": 50,
+      "edges": 80,
+      "questions": 12,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 245760,
+          "gzipBytes": 45310,
+          "buildMs": 706.9201249999999,
+          "sha256": "4a134773c8804781f07670937b68fc153b9a2cfb4968a2493baa24209979f50a"
+        },
+        "trimmed": {
+          "bytes": 225280,
+          "gzipBytes": 43514,
+          "buildMs": 612.1663329999999,
+          "sha256": "21f94e1f46fc36d391666326a901d5255e608937b717cec0c3802139700b2b2b"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 144,
+          "medianMs": 1.6742079999999078,
+          "p95Ms": 2.4340409999999792
+        },
+        "trimmed": {
+          "samples": 144,
+          "medianMs": 1.6737499999999272,
+          "p95Ms": 2.4475420000001122
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.08333333333333337
+    },
+    {
+      "package": "ansi-styles",
+      "version": "7.0.0",
+      "integrity": "sha512-kKvt3m4uwzqL0wlkPd09CmljPJGOZZ4D0fP65sqFSvPkMRKhNi+74MgIJ5QxE6SxqB4t4KyUFGg8+n5zjo6hew==",
+      "symbols": 18,
+      "edges": 22,
+      "questions": 8,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 126976,
+          "gzipBytes": 17290,
+          "buildMs": 675.6904589999999,
+          "sha256": "e18b6c18448785254f8c947b0c54972a707a901e80dcb413f0109ef8500c2430"
+        },
+        "trimmed": {
+          "bytes": 114688,
+          "gzipBytes": 16496,
+          "buildMs": 678.3817919999997,
+          "sha256": "660a4eb265b0779336da131d871c824805207572bcf84b6a6d6ac5ca57825b24"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 96,
+          "medianMs": 0.8892499999997199,
+          "p95Ms": 1.162417000000005
+        },
+        "trimmed": {
+          "samples": 96,
+          "medianMs": 0.8664170000001832,
+          "p95Ms": 1.24350000000004
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.09677419354838712
+    },
+    {
+      "package": "lru-cache",
+      "version": "11.5.2",
+      "integrity": "sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==",
+      "symbols": 102,
+      "edges": 310,
+      "questions": 12,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 344064,
+          "gzipBytes": 63913,
+          "buildMs": 786.8507909999998,
+          "sha256": "56505fa37913922750eb7ea0a64b20775dee54d04da3223ba143c43f9369db4d"
+        },
+        "trimmed": {
+          "bytes": 294912,
+          "gzipBytes": 49181,
+          "buildMs": 746.6531249999998,
+          "sha256": "09ebb582f7d84b00f17bbe37285989b1d32abc1d19f3cb488b86c50345ee141d"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 144,
+          "medianMs": 2.2262909999999465,
+          "p95Ms": 3.0671669999992446
+        },
+        "trimmed": {
+          "samples": 144,
+          "medianMs": 2.2595000000001164,
+          "p95Ms": 3.0435410000000047
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1428571428571429
+    },
+    {
+      "package": "strip-ansi",
+      "version": "7.2.0",
+      "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
+      "symbols": 1,
+      "edges": 0,
+      "questions": 3,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 61440,
+          "gzipBytes": 2324,
+          "buildMs": 801.6117919999997,
+          "sha256": "cfca807697d169408842cbe9bc918ef0239bc214f2427d37c81928e1ac96f26e"
+        },
+        "trimmed": {
+          "bytes": 53248,
+          "gzipBytes": 2216,
+          "buildMs": 547.2352500000006,
+          "sha256": "7325d3bbd86ee0e061c51e72f28aa99ce8bd760b85be05538c7b0cb6c6af2eb6"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 36,
+          "medianMs": 0.3046669999994265,
+          "p95Ms": 0.4517500000001746
+        },
+        "trimmed": {
+          "samples": 36,
+          "medianMs": 0.3024169999998776,
+          "p95Ms": 0.379624999999578
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1333333333333333
+    },
+    {
+      "package": "string-width",
+      "version": "8.2.2",
+      "integrity": "sha512-GaPUh5gfdrYzqeVNZvUfT23vYYxXzKYidUcnMtJg/3rxRV63EFZy3k6xfKlmfeJD0176lnUV/Usr3XcwSvFzpg==",
+      "symbols": 2,
+      "edges": 1,
+      "questions": 4,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 61440,
+          "gzipBytes": 3976,
+          "buildMs": 726.6940830000003,
+          "sha256": "90486f74a00e98944e756d7346da9ada59d2939e24967164b29da9f0fe3eb79b"
+        },
+        "trimmed": {
+          "bytes": 53248,
+          "gzipBytes": 3829,
+          "buildMs": 518.9929580000007,
+          "sha256": "8006c8552eddfe4940caaddfa663d2dd6ce69d3e6dc7c8e80af06b9bf4b25b7e"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 48,
+          "medianMs": 0.38341700000091805,
+          "p95Ms": 0.517041999999492
+        },
+        "trimmed": {
+          "samples": 48,
+          "medianMs": 0.3844589999989694,
+          "p95Ms": 0.6466659999987314
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1333333333333333
+    },
+    {
+      "package": "commander",
+      "version": "15.0.0",
+      "integrity": "sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==",
+      "symbols": 24,
+      "edges": 31,
+      "questions": 10,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 167936,
+          "gzipBytes": 36015,
+          "buildMs": 972.7837920000002,
+          "sha256": "cfb6a321939bcab41bc33a48227bc494bce4f4f32c31a898cf41e7f5cf998f40"
+        },
+        "trimmed": {
+          "bytes": 151552,
+          "gzipBytes": 35433,
+          "buildMs": 563.1897079999999,
+          "sha256": "8946a37a1f91e13a2495847b222f1359b3c834b86b3d5dcadf99dd904b378a63"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 120,
+          "medianMs": 1.0019579999989219,
+          "p95Ms": 1.3577079999995476
+        },
+        "trimmed": {
+          "samples": 120,
+          "medianMs": 1.0007920000007289,
+          "p95Ms": 1.4506670000009763
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.09756097560975607
+    },
+    {
+      "package": "chalk",
+      "version": "6.0.0",
+      "integrity": "sha512-2uNTXIuTTxk7ciZgAU1BQcgnchcG0xXnrs6jzkQfj9SsRa9M2s5zE8WT96hS6KmG4MzWHSrvH43DF1m4XRkrFg==",
+      "symbols": 53,
+      "edges": 58,
+      "questions": 12,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 212992,
+          "gzipBytes": 34631,
+          "buildMs": 778.0553330000002,
+          "sha256": "cf5eae36416c8b08b89e123d6866ce47202d11319dc794446bbacab38a7b7c82"
+        },
+        "trimmed": {
+          "bytes": 184320,
+          "gzipBytes": 32337,
+          "buildMs": 558.4571250000008,
+          "sha256": "33bad8307cf13c8c302906c6c6f99b542f1093811c3f3b21ca68cd0af7e12d99"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 144,
+          "medianMs": 1.4790410000005068,
+          "p95Ms": 2.079208999999537
+        },
+        "trimmed": {
+          "samples": 144,
+          "medianMs": 1.456625000000713,
+          "p95Ms": 1.9642910000002303
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.13461538461538458
+    },
+    {
+      "package": "supports-color",
+      "version": "11.0.0",
+      "integrity": "sha512-/zyImLdxhdygBIaVX0xTlQhKaCDLCrm665aqHk8xqK/Pa6k61fL6gwQGQq1k31yNyz6x55PppQgF2DMyPQa5xw==",
+      "symbols": 7,
+      "edges": 8,
+      "questions": 5,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 61440,
+          "gzipBytes": 4520,
+          "buildMs": 721.199584,
+          "sha256": "72598ee892b77d51c0c7aed3f3c8428f89de8b80ef74b66cf39d82b0305744aa"
+        },
+        "trimmed": {
+          "bytes": 53248,
+          "gzipBytes": 4250,
+          "buildMs": 525.8820840000008,
+          "sha256": "50ef994577911dff0dbaefa7867d58cc14a4b7aedc7555e850c3b2724cf267d6"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 60,
+          "medianMs": 0.3701249999994616,
+          "p95Ms": 0.45766700000058336
+        },
+        "trimmed": {
+          "samples": 60,
+          "medianMs": 0.3647079999991547,
+          "p95Ms": 0.4390419999999722
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1333333333333333
+    },
+    {
+      "package": "ansi-regex",
+      "version": "6.3.0",
+      "integrity": "sha512-WpDfL7NO6j7tH88IDBNVdUJxDh9nmCteAVW9dsep846XdwF4naCBK+/tGLX3KJgcpgMRXCFlTM2hKGoK9FsdrQ==",
+      "symbols": 2,
+      "edges": 1,
+      "questions": 3,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 61440,
+          "gzipBytes": 2952,
+          "buildMs": 540.6047500000004,
+          "sha256": "ebf1c95836d7cc8d8b48cbd2a34266884aad0a23d19a32c5244ead0b6dbfd381"
+        },
+        "trimmed": {
+          "bytes": 53248,
+          "gzipBytes": 2815,
+          "buildMs": 523.6271660000002,
+          "sha256": "c2d8b481f7103bfd92f22fa3a8b526987bcdad5bceaaba6266adaadc85e26cbb"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 36,
+          "medianMs": 0.30366700000013225,
+          "p95Ms": 0.48366600000008475
+        },
+        "trimmed": {
+          "samples": 36,
+          "medianMs": 0.30454199999985576,
+          "p95Ms": 0.4516250000015134
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1333333333333333
+    },
+    {
+      "package": "wrap-ansi",
+      "version": "10.0.1",
+      "integrity": "sha512-M0N4xzyzosiIok3svYlEo1sdLZts/8FPgYH/GPC3wvlmPoRvnoManGMrE54waYj3tISA8w6lsdesfVv67qSr8Q==",
+      "symbols": 2,
+      "edges": 1,
+      "questions": 4,
+      "rounds": 12,
+      "builds": {
+        "compact": {
+          "bytes": 61440,
+          "gzipBytes": 4180,
+          "buildMs": 745.2057079999995,
+          "sha256": "0ce132fcc9c1b20291e46ba2a53512c782efb67da09ef979d26f1ddf3486cf7c"
+        },
+        "trimmed": {
+          "bytes": 53248,
+          "gzipBytes": 4037,
+          "buildMs": 520.689042,
+          "sha256": "f1d735912f4e394ca5d6cf78e4c174f6f0579df18fc5f9ca830f38184e07a6d5"
+        }
+      },
+      "latency": {
+        "compact": {
+          "samples": 48,
+          "medianMs": 0.3296669999999722,
+          "p95Ms": 0.4922499999993306
+        },
+        "trimmed": {
+          "samples": 48,
+          "medianMs": 0.32362499999908323,
+          "p95Ms": 0.4217499999995198
+        }
+      },
+      "parity": {
+        "storedApiEvidence": true,
+        "allExactSymbols": true,
+        "rankedResults": true
+      },
+      "reduction": 0.1333333333333333
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-10-06T14:49:00.137Z",
+  "node": "v22.23.1",
+  "gitHead": "0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125",
+  "baselineRef": "0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125",
+  "method": "Actual SDK client calls to two stdio MCP servers sharing identical local package indexes. Response bytes are UTF8 JSON serialization of each returned MCP CallToolResult including both content and structuredContent; they exclude transport framing. No model tokenizer or autonomous agent coding trial was run.",
+  "assertions": "Qualified lookup preserves all fields of the requested result; missing module and case remain not-found; bare names expose ambiguity. Each request still uses one tool call.",
+  "inventories": [
+    {
+      "package": "effect",
+      "version": "3.22.1",
+      "integrity": "sha512-TNoXushmPOBAjJlthF5d2QwnX2xBPEtcNJr5XKNKbRLbDvBcOYkXlYDfvGfSA0zriwLFuCll5MDtNMAdZL17PQ==",
+      "format": "trimmed",
+      "path": "/Users/dima/_DEV/typelatch/artifacts/competitive/usability/data/brains/effect/3.22.1/brain.db",
+      "sha256": "22d2035ac31c2538092a12388af87370f7c1b06b116455a87115f21410da7183"
+    },
+    {
+      "package": "kysely",
+      "version": "0.28.8",
+      "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+      "format": "compact",
+      "path": "/Users/dima/_DEV/typelatch/artifacts/competitive/usability/data/brains/kysely/0.28.8/brain.db",
+      "sha256": "6ec9d377e275c248a006b6c614160564d80fb78ef0d01166d10b68c0e5b3bc5b"
+    }
+  ],
+  "baselineQueryModuleSha256": "9c215f987a650c64d8b9392d0c67efc1e663272572fde81dfb6593f379aabc03",
+  "candidateQueryModuleSha256": "1c80d34212d9a656617ce4dd8d58087402b12d3d9a47ff9e5380f00bdad5a429",
+  "comparisons": [
+    {
+      "label": "effect:qualified",
+      "kind": "qualified",
+      "beforeResults": 10,
+      "afterResults": 1,
+      "beforeResponseJsonUtf8Bytes": 20599,
+      "afterResponseJsonUtf8Bytes": 4003,
+      "responseBytesReduction": 0.8056701781639886,
+      "lookup": {
+        "status": "exact",
+        "matchedBy": "qualified-name",
+        "totalMatches": 1,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "effect:bare",
+      "kind": "bare",
+      "beforeResults": 10,
+      "afterResults": 10,
+      "beforeResponseJsonUtf8Bytes": 20585,
+      "afterResponseJsonUtf8Bytes": 20808,
+      "responseBytesReduction": -0.010833130920573142,
+      "lookup": {
+        "status": "ambiguous",
+        "matchedBy": "bare-name",
+        "totalMatches": 11,
+        "omitted": 1
+      }
+    },
+    {
+      "label": "effect:missing-module",
+      "kind": "missing",
+      "beforeResults": 10,
+      "afterResults": 0,
+      "beforeResponseJsonUtf8Bytes": 20627,
+      "afterResponseJsonUtf8Bytes": 847,
+      "responseBytesReduction": 0.9589373151694381,
+      "lookup": {
+        "status": "not-found",
+        "matchedBy": null,
+        "totalMatches": 0,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "effect:wrong-case",
+      "kind": "missing",
+      "beforeResults": 10,
+      "afterResults": 0,
+      "beforeResponseJsonUtf8Bytes": 22469,
+      "afterResponseJsonUtf8Bytes": 791,
+      "responseBytesReduction": 0.9647959410743692,
+      "lookup": {
+        "status": "not-found",
+        "matchedBy": null,
+        "totalMatches": 0,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "kysely:qualified",
+      "kind": "qualified",
+      "beforeResults": 2,
+      "afterResults": 1,
+      "beforeResponseJsonUtf8Bytes": 4922,
+      "afterResponseJsonUtf8Bytes": 2946,
+      "responseBytesReduction": 0.4014628199918733,
+      "lookup": {
+        "status": "exact",
+        "matchedBy": "qualified-name",
+        "totalMatches": 1,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "kysely:bare",
+      "kind": "bare",
+      "beforeResults": 2,
+      "afterResults": 2,
+      "beforeResponseJsonUtf8Bytes": 4900,
+      "afterResponseJsonUtf8Bytes": 5121,
+      "responseBytesReduction": -0.045102040816326516,
+      "lookup": {
+        "status": "ambiguous",
+        "matchedBy": "bare-name",
+        "totalMatches": 2,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "kysely:missing-module",
+      "kind": "missing",
+      "beforeResults": 2,
+      "afterResults": 0,
+      "beforeResponseJsonUtf8Bytes": 4942,
+      "afterResponseJsonUtf8Bytes": 899,
+      "responseBytesReduction": 0.8180898421691623,
+      "lookup": {
+        "status": "not-found",
+        "matchedBy": null,
+        "totalMatches": 0,
+        "omitted": 0
+      }
+    },
+    {
+      "label": "kysely:wrong-case",
+      "kind": "missing",
+      "beforeResults": 2,
+      "afterResults": 0,
+      "beforeResponseJsonUtf8Bytes": 4922,
+      "afterResponseJsonUtf8Bytes": 859,
+      "responseBytesReduction": 0.8254774481917919,
+      "lookup": {
+        "status": "not-found",
+        "matchedBy": null,
+        "totalMatches": 0,
+        "omitted": 0
+      }
+    }
+  ],
+  "passed": true,
+  "rawArchive": {
+    "path": "artifacts/competitive/usability/evidence.json.gz",
+    "bytes": 8775,
+    "sha256": "ffe636342a74bab6c4f87c1915674a38ed9214f8f0831f800fb5eb0b99ba1f89"
+  }
+}

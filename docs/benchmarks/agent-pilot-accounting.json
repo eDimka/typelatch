@@ -1,0 +1,1488 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-06T14:59:17.491Z",
+  "kind": "Metadata supplement to the original three provider coding pilot",
+  "pilotRun": "artifacts/competitive/agent-eval/2026-10-06T14-34-05.468Z",
+  "extractor": {
+    "path": "scripts/agent-trial-accounting.mjs",
+    "sha256": "b6e427eae8ad26810c0986cd611e5d64962a373d43305cee35521d472f38c842"
+  },
+  "scope": "Initial completed coding turn per pilot agent only. Later review and root orchestration usage are excluded.",
+  "trials": [
+    {
+      "provider": "typelatch",
+      "dispatch": {
+        "rootRecordLine": 699,
+        "rootRecordSha256": "868f8399863a597617ebb1c100f88f416e365ddebb5a780a3561ad5c1e6c0706",
+        "forkTurns": "none",
+        "modelOverride": null,
+        "reasoningEffortOverride": null,
+        "taskPromptSha256": "5d258a9efaf766f5e063a103af4cde76cfd072927f8f4f65c4d83fd5a0067cc0",
+        "taskPromptUtf8Bytes": 3724,
+        "promptTextExported": false
+      },
+      "schemaVersion": 1,
+      "kind": "Allowlisted local Codex trial metadata",
+      "source": {
+        "filename": "rollout-2026-10-06T16-35-01-01a111a3-aa17-75e1-a51b-061ec57d4093.jsonl",
+        "sha256": "dbaf26a2a0f46599d02eb73c0f60c64792581d0949fe283aa340c11833f9086f",
+        "bytes": 278830,
+        "rootThreadId": "01a1118a-b58c-7620-b002-7ab4cbf808ff",
+        "agentPath": "/root/pilot_typelatch",
+        "threadId": "01a111a3-aa17-75e1-a51b-061ec57d4093",
+        "turnId": "01a111a3-aa6b-7b10-b5a9-7c056987a588"
+      },
+      "segment": {
+        "firstLine": 2,
+        "lastLine": 65,
+        "byteStart": 22926,
+        "byteEndExclusive": 278830,
+        "sha256": "deaeb72024c2caf2523d3410548c8daea7e623247e16ad528a70fd7cd18c1f7e",
+        "startedAt": "2026-10-06T14:35:01.124Z",
+        "completedAt": "2026-10-06T14:36:14.468Z",
+        "durationMs": 73360
+      },
+      "settings": {
+        "model": "gpt-6-astra",
+        "reasoningEffort": "ultra",
+        "alternateReasoningEffort": null,
+        "modelProvider": "openai",
+        "clientVersion": "0.160.0",
+        "originator": "Codex Desktop",
+        "modelSnapshot": null,
+        "seed": null,
+        "contexts": [
+          {
+            "line": 8,
+            "sha256": "ebcf2448d428095827078c9b2d2b85c53366239cfc112d2f032b6e15259350d2",
+            "model": "gpt-6-astra",
+            "effort": "ultra",
+            "reasoning_effort": null
+          }
+        ]
+      },
+      "accounting": {
+        "status": "recorded-and-reconciled",
+        "responseCount": 9,
+        "duplicateUsageRecordsExcluded": 0,
+        "cumulativeTokenCountEventsIgnored": 9,
+        "totals": {
+          "input_tokens": 382355,
+          "cached_input_tokens": 367488,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2038,
+          "reasoning_output_tokens": 222,
+          "total_tokens": 384393
+        },
+        "finalRecordedTotal": {
+          "input_tokens": 382355,
+          "cached_input_tokens": 367488,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2038,
+          "reasoning_output_tokens": 222,
+          "total_tokens": 384393
+        },
+        "cumulativeChecks": [
+          {
+            "line": 16,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 21,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 26,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 33,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 43,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 47,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 52,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 57,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 63,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          }
+        ],
+        "responses": [
+          {
+            "line": 16,
+            "sha256": "21c486c7f4d783f268e33e6f6b6eb827deb3f67619cc075405838f91f57bf44b",
+            "at": "2026-10-06T14:35:10.613Z",
+            "responseIdSha256": "ef97cac62bcca7470dcd1136ade6168b3d7e45e0fb979f532e44e60ba3f3dead",
+            "usage": {
+              "input_tokens": 35752,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 180,
+              "reasoning_output_tokens": 34,
+              "total_tokens": 35932
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 35752,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 180,
+              "reasoning_output_tokens": 34,
+              "total_tokens": 35932
+            }
+          },
+          {
+            "line": 21,
+            "sha256": "deda836b94af40402217c9eaf0cc59e13dd3dc32f3e07d276182b9fe5a829b20",
+            "at": "2026-10-06T14:35:14.858Z",
+            "responseIdSha256": "784b1ba53b0c19f967b6a42ea9058e18b4f100929236a7260beb2fa3522d185e",
+            "usage": {
+              "input_tokens": 39273,
+              "cached_input_tokens": 35584,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 89,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 39362
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 75025,
+              "cached_input_tokens": 68864,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 269,
+              "reasoning_output_tokens": 34,
+              "total_tokens": 75294
+            }
+          },
+          {
+            "line": 26,
+            "sha256": "9a8ad1bffba2ba96a46bec906737500e74470e30eb2a731921479fb778c1a95e",
+            "at": "2026-10-06T14:35:21.000Z",
+            "responseIdSha256": "d7068d2b42ee3a73fb762b983e7b871ba52cf6f265b0e78381614bf1e620260e",
+            "usage": {
+              "input_tokens": 39815,
+              "cached_input_tokens": 39040,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 90,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 39905
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 114840,
+              "cached_input_tokens": 107904,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 359,
+              "reasoning_output_tokens": 34,
+              "total_tokens": 115199
+            }
+          },
+          {
+            "line": 33,
+            "sha256": "33abb7cb0f225593d7ee2691ec8c6653eb01525b89338edd70756af4f354c564",
+            "at": "2026-10-06T14:35:26.343Z",
+            "responseIdSha256": "4390db459ddc30a03d3d264a816ff90762aa232a15271cc1d4e598d04a15c993",
+            "usage": {
+              "input_tokens": 40401,
+              "cached_input_tokens": 39680,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 136,
+              "reasoning_output_tokens": 49,
+              "total_tokens": 40537
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 155241,
+              "cached_input_tokens": 147584,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 495,
+              "reasoning_output_tokens": 83,
+              "total_tokens": 155736
+            }
+          },
+          {
+            "line": 43,
+            "sha256": "09cc946dcbab15b973341b7ea2e4991c357a9d02b774926931cf7a84d44c4343",
+            "at": "2026-10-06T14:35:56.408Z",
+            "responseIdSha256": "0bb74f48fc89307397b430f68edf49ec4e4ae598e9341167765262a7fc3e8b97",
+            "usage": {
+              "input_tokens": 44067,
+              "cached_input_tokens": 40192,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1144,
+              "reasoning_output_tokens": 139,
+              "total_tokens": 45211
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 199308,
+              "cached_input_tokens": 187776,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1639,
+              "reasoning_output_tokens": 222,
+              "total_tokens": 200947
+            }
+          },
+          {
+            "line": 47,
+            "sha256": "4f9218b578c612410358b0581c3d6b91f8bc90ca6f5be05ebd77dd533794d38c",
+            "at": "2026-10-06T14:36:00.298Z",
+            "responseIdSha256": "13df064f2c646f0e62d5fb1088cc5f71b283b07d8b296d10e45638d17dbcda0f",
+            "usage": {
+              "input_tokens": 45235,
+              "cached_input_tokens": 43904,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 100,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 45335
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 244543,
+              "cached_input_tokens": 231680,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1739,
+              "reasoning_output_tokens": 222,
+              "total_tokens": 246282
+            }
+          },
+          {
+            "line": 52,
+            "sha256": "2388fc595ee9244e1e4deef7bb4bbbda692347790dfc54832e26fe494552680b",
+            "at": "2026-10-06T14:36:04.146Z",
+            "responseIdSha256": "cec1ac1a03c54cf20bac6b3d88b7ca50e685e8d70f2146f8403b3037405df301",
+            "usage": {
+              "input_tokens": 45438,
+              "cached_input_tokens": 45056,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 102,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 45540
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 289981,
+              "cached_input_tokens": 276736,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1841,
+              "reasoning_output_tokens": 222,
+              "total_tokens": 291822
+            }
+          },
+          {
+            "line": 57,
+            "sha256": "9a5b8712c8d56942a1fa7e7146e2418f460b5be0634ef2f95800cb1b658738a0",
+            "at": "2026-10-06T14:36:08.441Z",
+            "responseIdSha256": "25c451799c67b51326b7408052c9937ebe06d7757c2cea583d018d141c7d19bd",
+            "usage": {
+              "input_tokens": 45646,
+              "cached_input_tokens": 45312,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 85,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 45731
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 335627,
+              "cached_input_tokens": 322048,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1926,
+              "reasoning_output_tokens": 222,
+              "total_tokens": 337553
+            }
+          },
+          {
+            "line": 63,
+            "sha256": "42ad43756fa73230b875ab4d3c76ee996942bca0b14fdaaf354a009aaa85fc19",
+            "at": "2026-10-06T14:36:14.463Z",
+            "responseIdSha256": "3c98871c2b3c53225b58851d7f3736750cba3a204e1bb0ad10dc046f9c1f8188",
+            "usage": {
+              "input_tokens": 46728,
+              "cached_input_tokens": 45440,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 112,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 46840
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 382355,
+              "cached_input_tokens": 367488,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2038,
+              "reasoning_output_tokens": 222,
+              "total_tokens": 384393
+            }
+          }
+        ],
+        "monetaryCost": null,
+        "billingReconciliation": "not-observed"
+      },
+      "toolEvents": [
+        {
+          "line": 15,
+          "sha256": "5012117786b5fd03265649ad4fca7983d5151b78272cd3f1092bbe4610f49210",
+          "at": "2026-10-06T14:35:10.496Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "27a70580e965aeb43ee9db8c055d55589d83afd04d84b97975666554b89d0a30"
+        },
+        {
+          "line": 18,
+          "sha256": "7879659db986f10b2790e984104b12c45a1c70ea459b84633ddeb41995716c62",
+          "at": "2026-10-06T14:35:10.961Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "27a70580e965aeb43ee9db8c055d55589d83afd04d84b97975666554b89d0a30"
+        },
+        {
+          "line": 20,
+          "sha256": "3c03f0ef3af6b3961a3352dd6fde8736e46f3f24c7a03298e1d681df7b9449d1",
+          "at": "2026-10-06T14:35:14.815Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "6f690bff31b8c70dadf1e06959ae7de0a7b09f8fd8fc26e7dfb0568392acefde"
+        },
+        {
+          "line": 23,
+          "sha256": "f32b30c8a8d3c12de3299e44ea8b2a5ad70336a1b0503c6deac2d7835930241f",
+          "at": "2026-10-06T14:35:14.946Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "6f690bff31b8c70dadf1e06959ae7de0a7b09f8fd8fc26e7dfb0568392acefde"
+        },
+        {
+          "line": 25,
+          "sha256": "579139a01180aae7bd34015fd3faf9f05a36eaabde999e0cb613058683c3a3d6",
+          "at": "2026-10-06T14:35:20.936Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "2ea9a732649def3e0eedc02056282af050a27035d9987630908c4e3e248e1824"
+        },
+        {
+          "line": 28,
+          "sha256": "40395a1d3230cc088717d70712674b7b838a9cb5b47240daea216286afd89c40",
+          "at": "2026-10-06T14:35:21.067Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "2ea9a732649def3e0eedc02056282af050a27035d9987630908c4e3e248e1824"
+        },
+        {
+          "line": 32,
+          "sha256": "d05eb22cdd6665a847707a6b68bf7d166a16efcf270b253b65d3b2bb7b14af10",
+          "at": "2026-10-06T14:35:26.266Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "eb3a7cb0ccc9127c4071212de09edd00c0bfd519f583ca3494c6ff043f1cda0c"
+        },
+        {
+          "line": 35,
+          "sha256": "38a003de0b126f0582900ffec9545901346567db76dec5be383453695804082e",
+          "at": "2026-10-06T14:35:26.907Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "eb3a7cb0ccc9127c4071212de09edd00c0bfd519f583ca3494c6ff043f1cda0c"
+        },
+        {
+          "line": 41,
+          "sha256": "2db498dfa7dd543587e9634eb052470e5dac230da4031772baaadb5084ba41cd",
+          "at": "2026-10-06T14:35:56.326Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "16298a3dddd2fa2b2688bfe4309b999d827f006653fee9fbc65edb0a819026c7"
+        },
+        {
+          "line": 44,
+          "sha256": "704c3e5dacfced7154732179225588fd12ec58d118859184ee82036ee2f31dea",
+          "at": "2026-10-06T14:35:56.409Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "16298a3dddd2fa2b2688bfe4309b999d827f006653fee9fbc65edb0a819026c7"
+        },
+        {
+          "line": 46,
+          "sha256": "4044b713c3e5c0d373fd439585a6aacb2e6031197edbefb84244aeea15222032",
+          "at": "2026-10-06T14:36:00.214Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "8066ccd02d8c81b27db98f7f337e64e07255e6f38b7ce939936c1969d9fd3a18"
+        },
+        {
+          "line": 49,
+          "sha256": "33e66863cf6a1e0ebcf4fad5fd603d4790fda104539c6bfaff80d90becaa83a2",
+          "at": "2026-10-06T14:36:00.343Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "8066ccd02d8c81b27db98f7f337e64e07255e6f38b7ce939936c1969d9fd3a18"
+        },
+        {
+          "line": 51,
+          "sha256": "7776221dd8b149843e414dea6bd40cded43e26d71a1e0054920ae745a34b3217",
+          "at": "2026-10-06T14:36:04.042Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "ae9b9c4983c8c8d4667763a19a8f3676999f2918c17c8ab1495e71895689b38d"
+        },
+        {
+          "line": 54,
+          "sha256": "6ba86c4b3b3d2575aa74e7a6d3af142e62ab4fc1aad53654af63627552364d64",
+          "at": "2026-10-06T14:36:04.172Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "ae9b9c4983c8c8d4667763a19a8f3676999f2918c17c8ab1495e71895689b38d"
+        },
+        {
+          "line": 56,
+          "sha256": "110cfb7851847aaab8186969ad4b7e11b5d9d511381fb5e1c57893445123a278",
+          "at": "2026-10-06T14:36:08.341Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "f668d47d30bd6ad639193c0a069021063b39516496b2fdbf2f4d89fa27ef546d"
+        },
+        {
+          "line": 59,
+          "sha256": "c38905046c37c0045b4ff35788454be6c116a8efbf17dee606fcc1751c2ff23a",
+          "at": "2026-10-06T14:36:08.909Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "f668d47d30bd6ad639193c0a069021063b39516496b2fdbf2f4d89fa27ef546d"
+        }
+      ],
+      "privacy": {
+        "reasoningContentExported": false,
+        "messageBodiesExported": false,
+        "internalPromptsExported": false,
+        "toolArgumentsExported": false,
+        "toolOutputsExported": false,
+        "sourceRolloutCopied": false
+      },
+      "limits": [
+        "Local client metadata records observed usage; it is not an independently signed provider bill.",
+        "Input totals count every model request, including repeated context and cached tokens. They are not unique prompt size.",
+        "Cached input and reasoning output are component fields and must not be added to input and output totals.",
+        "This extract has no complete public model prompt or authoritative server model snapshot, seed, or monetary charge.",
+        "Tool event hashes do not establish operating system isolation or exclude unlogged file access.",
+        "The source digest covers a current local rollout. The segment digest remains stable if later turns are appended."
+      ]
+    },
+    {
+      "provider": "codegraph",
+      "dispatch": {
+        "rootRecordLine": 705,
+        "rootRecordSha256": "5833a93b584dddcac3bae498bd6a7122ccb2097d19c32563ef9d1c5119da794d",
+        "forkTurns": "none",
+        "modelOverride": null,
+        "reasoningEffortOverride": null,
+        "taskPromptSha256": "7288ae4808df03a9a3cd829982fc4dc3dc5b98e792a349dcad771973951a558b",
+        "taskPromptUtf8Bytes": 3724,
+        "promptTextExported": false
+      },
+      "schemaVersion": 1,
+      "kind": "Allowlisted local Codex trial metadata",
+      "source": {
+        "filename": "rollout-2026-10-06T16-35-16-01a111a3-e670-77a2-a516-c8ba0da49364.jsonl",
+        "sha256": "d0419e5d76e0418d52ac34b64243bf58e14f550bf9f3a1f971170c8ca80385a8",
+        "bytes": 3391183,
+        "rootThreadId": "01a1118a-b58c-7620-b002-7ab4cbf808ff",
+        "agentPath": "/root/pilot_codegraph",
+        "threadId": "01a111a3-e670-77a2-a516-c8ba0da49364",
+        "turnId": "01a111a3-e6da-7422-af1f-d13bc06cb31e"
+      },
+      "segment": {
+        "firstLine": 2,
+        "lastLine": 53,
+        "byteStart": 22928,
+        "byteEndExclusive": 237613,
+        "sha256": "d081e526e79b736950546183a8fa10e3891b7e054e9dd40a484090e82ec7622a",
+        "startedAt": "2026-10-06T14:35:16.602Z",
+        "completedAt": "2026-10-06T14:36:29.906Z",
+        "durationMs": 73325
+      },
+      "settings": {
+        "model": "gpt-6-astra",
+        "reasoningEffort": "ultra",
+        "alternateReasoningEffort": null,
+        "modelProvider": "openai",
+        "clientVersion": "0.160.0",
+        "originator": "Codex Desktop",
+        "modelSnapshot": null,
+        "seed": null,
+        "contexts": [
+          {
+            "line": 8,
+            "sha256": "f05e68186c456e6e752916aaade767d1e84f7ac5e78afa3330c05a7d07e1dbb2",
+            "model": "gpt-6-astra",
+            "effort": "ultra",
+            "reasoning_effort": null
+          }
+        ]
+      },
+      "accounting": {
+        "status": "recorded-and-reconciled",
+        "responseCount": 7,
+        "duplicateUsageRecordsExcluded": 0,
+        "cumulativeTokenCountEventsIgnored": 7,
+        "totals": {
+          "input_tokens": 285379,
+          "cached_input_tokens": 273920,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1736,
+          "reasoning_output_tokens": 218,
+          "total_tokens": 287115
+        },
+        "finalRecordedTotal": {
+          "input_tokens": 285379,
+          "cached_input_tokens": 273920,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1736,
+          "reasoning_output_tokens": 218,
+          "total_tokens": 287115
+        },
+        "cumulativeChecks": [
+          {
+            "line": 16,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 23,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 31,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 35,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 40,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 45,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 51,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          }
+        ],
+        "responses": [
+          {
+            "line": 16,
+            "sha256": "bb24a14e19511d1cb8ddb5389e4b144ac2db0037d499003d7af1bc04a5b37058",
+            "at": "2026-10-06T14:35:28.200Z",
+            "responseIdSha256": "7e06107ca5329ba4ab907688e092036ba1dc09da503c1c5eefd76ce9316025f7",
+            "usage": {
+              "input_tokens": 35746,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 179,
+              "reasoning_output_tokens": 29,
+              "total_tokens": 35925
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 35746,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 179,
+              "reasoning_output_tokens": 29,
+              "total_tokens": 35925
+            }
+          },
+          {
+            "line": 23,
+            "sha256": "f56824da9549349e64cb616896aa9f6687de8807ff63c6e6497bf84fa52f74b1",
+            "at": "2026-10-06T14:35:36.295Z",
+            "responseIdSha256": "ef2756b694f8de821fd13add42d98cdec7ff5ae0bf24793a8316bde63ba77a86",
+            "usage": {
+              "input_tokens": 37480,
+              "cached_input_tokens": 35584,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 144,
+              "reasoning_output_tokens": 58,
+              "total_tokens": 37624
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 73226,
+              "cached_input_tokens": 68864,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 323,
+              "reasoning_output_tokens": 87,
+              "total_tokens": 73549
+            }
+          },
+          {
+            "line": 31,
+            "sha256": "4800ac9205e5b7d494826c81392dc4e13d138ade66e2734c7bb72503fed24516",
+            "at": "2026-10-06T14:36:10.436Z",
+            "responseIdSha256": "6e06c10d84ba0de7e25906ed234d675566c5534399153915f26f9202999a5a6b",
+            "usage": {
+              "input_tokens": 41152,
+              "cached_input_tokens": 37248,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1020,
+              "reasoning_output_tokens": 131,
+              "total_tokens": 42172
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 114378,
+              "cached_input_tokens": 106112,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1343,
+              "reasoning_output_tokens": 218,
+              "total_tokens": 115721
+            }
+          },
+          {
+            "line": 35,
+            "sha256": "344a2afbdd7c6634e7348857ffb6b82e809c194c05dc956404ba6054e469cc09",
+            "at": "2026-10-06T14:36:14.356Z",
+            "responseIdSha256": "225a088b021ef5d7d947e6ab08099a0d655c86dc5845441118f961db6f877372",
+            "usage": {
+              "input_tokens": 42230,
+              "cached_input_tokens": 40960,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 95,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 42325
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 156608,
+              "cached_input_tokens": 147072,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1438,
+              "reasoning_output_tokens": 218,
+              "total_tokens": 158046
+            }
+          },
+          {
+            "line": 40,
+            "sha256": "eb3bc26a264567ac5881fb81877a8b6c05f20c95d93fc1bab6c0d7e013f11cd4",
+            "at": "2026-10-06T14:36:19.276Z",
+            "responseIdSha256": "13b623b32c6afa7f8fa1ae07475dd30fe708d78729fb813b38be19e08c05da09",
+            "usage": {
+              "input_tokens": 42430,
+              "cached_input_tokens": 42112,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 97,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 42527
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 199038,
+              "cached_input_tokens": 189184,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1535,
+              "reasoning_output_tokens": 218,
+              "total_tokens": 200573
+            }
+          },
+          {
+            "line": 45,
+            "sha256": "3834de833938f183fd4a67c6ab22129f4b1658d20d2f7843179793d12be07d61",
+            "at": "2026-10-06T14:36:23.885Z",
+            "responseIdSha256": "9f80c65aa29bc332ad3f4e3270c22672175ef69bf2880e74320a9f2de85b44a4",
+            "usage": {
+              "input_tokens": 42631,
+              "cached_input_tokens": 42240,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 84,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 42715
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 241669,
+              "cached_input_tokens": 231424,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1619,
+              "reasoning_output_tokens": 218,
+              "total_tokens": 243288
+            }
+          },
+          {
+            "line": 51,
+            "sha256": "3107be6d87f9286c63bec8985a6cab7b12ad1d7427cbd2e6bc48be977090fb51",
+            "at": "2026-10-06T14:36:29.899Z",
+            "responseIdSha256": "6817c7e24c2b5ed086fde356fee7af8d5044c5d64d925df8ee4b64447014dc26",
+            "usage": {
+              "input_tokens": 43710,
+              "cached_input_tokens": 42496,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 117,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 43827
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 285379,
+              "cached_input_tokens": 273920,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1736,
+              "reasoning_output_tokens": 218,
+              "total_tokens": 287115
+            }
+          }
+        ],
+        "monetaryCost": null,
+        "billingReconciliation": "not-observed"
+      },
+      "toolEvents": [
+        {
+          "line": 15,
+          "sha256": "ef0674d15063318d899bf20669a8b8363e99ace16c270d5eef5b57766a7d485f",
+          "at": "2026-10-06T14:35:28.175Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "73e7d0f5704c17f95dd5c7cfbbbd75d4f74bb95e6869542e478508747ecfee6b"
+        },
+        {
+          "line": 18,
+          "sha256": "57e110ee92b2183b534391388e81cd9bdf8c0dec54bfc3ded413489931e030b3",
+          "at": "2026-10-06T14:35:28.416Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "73e7d0f5704c17f95dd5c7cfbbbd75d4f74bb95e6869542e478508747ecfee6b"
+        },
+        {
+          "line": 22,
+          "sha256": "f7a6c72c094dd4673af857fcf3b169fcac8bed66848fe106d22817ca27050e0b",
+          "at": "2026-10-06T14:35:36.202Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "fc9da27c98bf5753a73dc50b461890591162ee80db75a9f7862c7d1174022e34"
+        },
+        {
+          "line": 25,
+          "sha256": "859baee2a5408df0ff46dfaf7e5a69c46f32227ed88166e12d29759130d64102",
+          "at": "2026-10-06T14:35:36.823Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "fc9da27c98bf5753a73dc50b461890591162ee80db75a9f7862c7d1174022e34"
+        },
+        {
+          "line": 29,
+          "sha256": "02d91fd73a3788dbb33d7033b391c5394af0b65f24c172da1ffa7aa2a84b5528",
+          "at": "2026-10-06T14:36:10.309Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "4a54cc194e8aac44a10717c4c5eeaa87b9bcab85bc8f6f3df82b941b9baf5409"
+        },
+        {
+          "line": 32,
+          "sha256": "320a1cc86e048470fdea6d486414f5c8f12756358769beec24ea8eb5d9df9ef4",
+          "at": "2026-10-06T14:36:10.445Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "4a54cc194e8aac44a10717c4c5eeaa87b9bcab85bc8f6f3df82b941b9baf5409"
+        },
+        {
+          "line": 34,
+          "sha256": "9c0677f2db4658557f0d79c07dd72d3e11a5d2f6448aa58bdd26a8d299a4e74c",
+          "at": "2026-10-06T14:36:14.246Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "cb0b68f58f0df11e6497ec71a7f7218f46dcf91faf04c0f41999f64c93cf21a2"
+        },
+        {
+          "line": 37,
+          "sha256": "c7be54ca2d92a133bcd181286a3cd23b087866085fa7a6788c19e25a0c77f528",
+          "at": "2026-10-06T14:36:14.381Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "cb0b68f58f0df11e6497ec71a7f7218f46dcf91faf04c0f41999f64c93cf21a2"
+        },
+        {
+          "line": 39,
+          "sha256": "1eaa631d4d41394cb3fc3bcb464a5c0782f8a320ee2d4031d46b5f176f23fec4",
+          "at": "2026-10-06T14:36:19.165Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "53c9ebf9401a5b0d2f01807860c58b3f1048f1c9683d6373fe5de74eeb715588"
+        },
+        {
+          "line": 42,
+          "sha256": "339b98d20a2153ed8731b887179b9d8898ed2a31a838309355dfabd002841a3f",
+          "at": "2026-10-06T14:36:19.296Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "53c9ebf9401a5b0d2f01807860c58b3f1048f1c9683d6373fe5de74eeb715588"
+        },
+        {
+          "line": 44,
+          "sha256": "603cb4ee9e7a5bb4caa4b1e742db71847b85e248332e028291fb171f4bf1faa7",
+          "at": "2026-10-06T14:36:23.787Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "3b74ac4ad8a80a7add64930970672bedbe053d44933853eeed1c6896c369e722"
+        },
+        {
+          "line": 47,
+          "sha256": "d43728b2085913a36bc251dc5de8fbf70b0305cfcb3a5460de4a346c9b450bb8",
+          "at": "2026-10-06T14:36:24.334Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "3b74ac4ad8a80a7add64930970672bedbe053d44933853eeed1c6896c369e722"
+        }
+      ],
+      "privacy": {
+        "reasoningContentExported": false,
+        "messageBodiesExported": false,
+        "internalPromptsExported": false,
+        "toolArgumentsExported": false,
+        "toolOutputsExported": false,
+        "sourceRolloutCopied": false
+      },
+      "limits": [
+        "Local client metadata records observed usage; it is not an independently signed provider bill.",
+        "Input totals count every model request, including repeated context and cached tokens. They are not unique prompt size.",
+        "Cached input and reasoning output are component fields and must not be added to input and output totals.",
+        "This extract has no complete public model prompt or authoritative server model snapshot, seed, or monetary charge.",
+        "Tool event hashes do not establish operating system isolation or exclude unlogged file access.",
+        "The source digest covers a current local rollout. The segment digest remains stable if later turns are appended."
+      ]
+    },
+    {
+      "provider": "graphify",
+      "dispatch": {
+        "rootRecordLine": 732,
+        "rootRecordSha256": "38bcf50e43ebdf8a9df27eeee61a21cebd4c94b98de04a6d94c66747a3002b5b",
+        "forkTurns": "none",
+        "modelOverride": null,
+        "reasoningEffortOverride": null,
+        "taskPromptSha256": "43c1fa11d9b376e3d2c226e1ac998b5075f785e93fee111dec0dc53377058978",
+        "taskPromptUtf8Bytes": 3724,
+        "promptTextExported": false
+      },
+      "schemaVersion": 1,
+      "kind": "Allowlisted local Codex trial metadata",
+      "source": {
+        "filename": "rollout-2026-10-06T16-36-20-01a111a4-e13f-7050-9170-976e29fc7edf.jsonl",
+        "sha256": "87988fd5be031f17bde8936b81180d2619ba5f68d67cec212b0c30fe9a1d3c3b",
+        "bytes": 1388492,
+        "rootThreadId": "01a1118a-b58c-7620-b002-7ab4cbf808ff",
+        "agentPath": "/root/pilot_graphify",
+        "threadId": "01a111a4-e13f-7050-9170-976e29fc7edf",
+        "turnId": "01a111a4-e198-7700-9cd7-0be3fbdf71b0"
+      },
+      "segment": {
+        "firstLine": 2,
+        "lastLine": 63,
+        "byteStart": 22924,
+        "byteEndExclusive": 249915,
+        "sha256": "a90127c1412c44c0bddc7230c5ff7461a1c7a963ed5e63f0d25fda49884b6656",
+        "startedAt": "2026-10-06T14:36:20.785Z",
+        "completedAt": "2026-10-06T14:37:35.264Z",
+        "durationMs": 74495
+      },
+      "settings": {
+        "model": "gpt-6-astra",
+        "reasoningEffort": "ultra",
+        "alternateReasoningEffort": null,
+        "modelProvider": "openai",
+        "clientVersion": "0.160.0",
+        "originator": "Codex Desktop",
+        "modelSnapshot": null,
+        "seed": null,
+        "contexts": [
+          {
+            "line": 8,
+            "sha256": "b77f07c96e3a5d170717c696de4de7e0d531b9f247acb2fea4ca857fb3df4e2a",
+            "model": "gpt-6-astra",
+            "effort": "ultra",
+            "reasoning_effort": null
+          }
+        ]
+      },
+      "accounting": {
+        "status": "recorded-and-reconciled",
+        "responseCount": 9,
+        "duplicateUsageRecordsExcluded": 0,
+        "cumulativeTokenCountEventsIgnored": 9,
+        "totals": {
+          "input_tokens": 365597,
+          "cached_input_tokens": 352768,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2081,
+          "reasoning_output_tokens": 258,
+          "total_tokens": 367678
+        },
+        "finalRecordedTotal": {
+          "input_tokens": 365597,
+          "cached_input_tokens": 352768,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2081,
+          "reasoning_output_tokens": 258,
+          "total_tokens": 367678
+        },
+        "cumulativeChecks": [
+          {
+            "line": 16,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 21,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 26,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 31,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 41,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 45,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 50,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 55,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          },
+          {
+            "line": 61,
+            "matches": {
+              "input_tokens": true,
+              "cached_input_tokens": true,
+              "cache_write_input_tokens": true,
+              "output_tokens": true,
+              "reasoning_output_tokens": true,
+              "total_tokens": true
+            }
+          }
+        ],
+        "responses": [
+          {
+            "line": 16,
+            "sha256": "5ab3eccc2667bdba8432e0592d0231dcc79f1669b1291759f5902a487a56eae4",
+            "at": "2026-10-06T14:36:32.071Z",
+            "responseIdSha256": "69a32378a08fa176cb4abeef8f37ebcd4ec460fe375e14ccd6977f5e15e4ca0e",
+            "usage": {
+              "input_tokens": 35747,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 208,
+              "reasoning_output_tokens": 60,
+              "total_tokens": 35955
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 35747,
+              "cached_input_tokens": 33280,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 208,
+              "reasoning_output_tokens": 60,
+              "total_tokens": 35955
+            }
+          },
+          {
+            "line": 21,
+            "sha256": "e8559a4e8aab7eb2a39f7e8561f9447bc997daf0c1a709bb1221c0dc1ea280a6",
+            "at": "2026-10-06T14:36:36.280Z",
+            "responseIdSha256": "e3eddff6242b8f4f3de31b8447da7b22971cebc594c5c7246b096e528fb27e5c",
+            "usage": {
+              "input_tokens": 37184,
+              "cached_input_tokens": 35584,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 88,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 37272
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 72931,
+              "cached_input_tokens": 68864,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 296,
+              "reasoning_output_tokens": 60,
+              "total_tokens": 73227
+            }
+          },
+          {
+            "line": 26,
+            "sha256": "43090ff892be9dae102bd9e93822ef1dc9b4789ff6600f3eb3a81768b11ab13b",
+            "at": "2026-10-06T14:36:39.785Z",
+            "responseIdSha256": "4dab7c63291933b564d9b857d7aeb68a6998a5238dc1a5434045078fc0b238e2",
+            "usage": {
+              "input_tokens": 37723,
+              "cached_input_tokens": 36992,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 89,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 37812
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 110654,
+              "cached_input_tokens": 105856,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 385,
+              "reasoning_output_tokens": 60,
+              "total_tokens": 111039
+            }
+          },
+          {
+            "line": 31,
+            "sha256": "3722b357bd3f2a95e6960412359680a99b3f442d6b51cc5611515d8333e1dcb4",
+            "at": "2026-10-06T14:36:43.765Z",
+            "responseIdSha256": "65f454e6fb6786a5297e9d9bdae5bf786727adcc6ac36f59a3f40829fcbb6fd1",
+            "usage": {
+              "input_tokens": 38308,
+              "cached_input_tokens": 37504,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 84,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 38392
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 148962,
+              "cached_input_tokens": 143360,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 469,
+              "reasoning_output_tokens": 60,
+              "total_tokens": 149431
+            }
+          },
+          {
+            "line": 41,
+            "sha256": "97c2240c273aba7ce86109fa01149165139c30118cef4198dfb04352051b53d9",
+            "at": "2026-10-06T14:37:16.766Z",
+            "responseIdSha256": "2f1d552d915dcd5017e554b762e622905ab1a1515bde2d6db7af2c5af3b408da",
+            "usage": {
+              "input_tokens": 41922,
+              "cached_input_tokens": 38144,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1207,
+              "reasoning_output_tokens": 198,
+              "total_tokens": 43129
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 190884,
+              "cached_input_tokens": 181504,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1676,
+              "reasoning_output_tokens": 258,
+              "total_tokens": 192560
+            }
+          },
+          {
+            "line": 45,
+            "sha256": "ec3c3068986d5768181be47a241014ad2f1340eddae83a89e70be085e5aee4a2",
+            "at": "2026-10-06T14:37:20.697Z",
+            "responseIdSha256": "ec00c974a19908d6d32600b96325ce8ccaaf2be7bc39055b02b1cc43f8e23723",
+            "usage": {
+              "input_tokens": 43153,
+              "cached_input_tokens": 41728,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 98,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 43251
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 234037,
+              "cached_input_tokens": 223232,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1774,
+              "reasoning_output_tokens": 258,
+              "total_tokens": 235811
+            }
+          },
+          {
+            "line": 50,
+            "sha256": "3ee64ede529e62b71bded102d27d3d57d3db996e945c0f24a17a30e395013670",
+            "at": "2026-10-06T14:37:24.773Z",
+            "responseIdSha256": "e6315c183d1f74fee4554236ed189a322c8cc74f1e4eb1dc62e26c2f070d8891",
+            "usage": {
+              "input_tokens": 43356,
+              "cached_input_tokens": 43008,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 100,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 43456
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 277393,
+              "cached_input_tokens": 266240,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1874,
+              "reasoning_output_tokens": 258,
+              "total_tokens": 279267
+            }
+          },
+          {
+            "line": 55,
+            "sha256": "ff749642c881f801365ac2fc472f05340aa4612e29efb34eac038644a0f05d3f",
+            "at": "2026-10-06T14:37:29.413Z",
+            "responseIdSha256": "5e25cfd2153615fe7eda7bf48a55fbb4e1a36dea98e2dddbf5b3ef988dafefa4",
+            "usage": {
+              "input_tokens": 43562,
+              "cached_input_tokens": 43136,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 84,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 43646
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 320955,
+              "cached_input_tokens": 309376,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1958,
+              "reasoning_output_tokens": 258,
+              "total_tokens": 322913
+            }
+          },
+          {
+            "line": 61,
+            "sha256": "de137bfa0f49c9011407d1669b1172e010f16ce3452725d9e616897d3fad76eb",
+            "at": "2026-10-06T14:37:35.256Z",
+            "responseIdSha256": "ff9a445de38aa62e28baee18ddc0b1ed242090a06f91a57e4e448a70c9624534",
+            "usage": {
+              "input_tokens": 44642,
+              "cached_input_tokens": 43392,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 123,
+              "reasoning_output_tokens": 0,
+              "total_tokens": 44765
+            },
+            "reportedTurnTotal": {
+              "input_tokens": 365597,
+              "cached_input_tokens": 352768,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2081,
+              "reasoning_output_tokens": 258,
+              "total_tokens": 367678
+            }
+          }
+        ],
+        "monetaryCost": null,
+        "billingReconciliation": "not-observed"
+      },
+      "toolEvents": [
+        {
+          "line": 15,
+          "sha256": "2bbc4ea373df1b24d733b83ffa2e5f18a97c1fab99e8ead61ba0a67fe419e657",
+          "at": "2026-10-06T14:36:32.006Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "8d677a8023a34f2895185061967119e6e1d2d6aff876bd397ed4cb93b2802014"
+        },
+        {
+          "line": 18,
+          "sha256": "61d5f5b6c804d776e55765935742bb9c5208e881ed2e01251bc04ad707e15af3",
+          "at": "2026-10-06T14:36:32.157Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "8d677a8023a34f2895185061967119e6e1d2d6aff876bd397ed4cb93b2802014"
+        },
+        {
+          "line": 20,
+          "sha256": "6aeb5cde035200b4540b639a0e3716bdfa5f9793370de6d5e0e57299b8bc2885",
+          "at": "2026-10-06T14:36:36.171Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "fa6be076f833bca2ad0b975b490e23927b74d83fe8feb84bcc7c3b6512a62a99"
+        },
+        {
+          "line": 23,
+          "sha256": "7d2b1e6f84e914ce29e4811328928c15b51ade58288f34bca024100921217adb",
+          "at": "2026-10-06T14:36:36.299Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "fa6be076f833bca2ad0b975b490e23927b74d83fe8feb84bcc7c3b6512a62a99"
+        },
+        {
+          "line": 25,
+          "sha256": "e6bb25fbd1aa0279b52135ad4322d2e5df362069fae5a1245230a58c0230f049",
+          "at": "2026-10-06T14:36:39.708Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "ef0376a6847b453c3027f1d30fb5a551a58f1f720487b76005b5aa1ccba2a92d"
+        },
+        {
+          "line": 28,
+          "sha256": "cc728042f2d883f914f10e0482ed92a812976e5022cd01090c3e223a52ae689b",
+          "at": "2026-10-06T14:36:39.838Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "ef0376a6847b453c3027f1d30fb5a551a58f1f720487b76005b5aa1ccba2a92d"
+        },
+        {
+          "line": 30,
+          "sha256": "ecbfd0f5aa7ae4b1c41c0d8cc2ceb1ef164b923a0f7a020bb26c3a95ebc44aef",
+          "at": "2026-10-06T14:36:43.686Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "8818a44c56c71fcfdffa656869b16dcb730bcd46156bc214e0c26816c60f574d"
+        },
+        {
+          "line": 33,
+          "sha256": "0fa58f32c9d837e925e6e4c61bf6757cf2f50823a574e05e602236f166241fb9",
+          "at": "2026-10-06T14:36:44.256Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "8818a44c56c71fcfdffa656869b16dcb730bcd46156bc214e0c26816c60f574d"
+        },
+        {
+          "line": 39,
+          "sha256": "53a17ef4ab867d44d98ee421658fa57686cef93e8ed00eb041c4b924334cfa03",
+          "at": "2026-10-06T14:37:16.680Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "a6ce5636e3750f4121519f4175d31886b711f3edec51b8279b61e5f31113f67d"
+        },
+        {
+          "line": 42,
+          "sha256": "c56501082873f95b7f7858c3604563fbfe4aa4e46e1467359514b35cd0b4066a",
+          "at": "2026-10-06T14:37:16.767Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "a6ce5636e3750f4121519f4175d31886b711f3edec51b8279b61e5f31113f67d"
+        },
+        {
+          "line": 44,
+          "sha256": "6cf45d75e8d44320e5945957853adafd5ea62f9114f8e063638c45675d4c9880",
+          "at": "2026-10-06T14:37:20.617Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "d7545cfe4d04cf892c0d53822a6f240effa0c44f2cc1d124ddb907fa709b9f10"
+        },
+        {
+          "line": 47,
+          "sha256": "a3fa195d4302df7188afd8f2f37d6fb07aeab76afc0bd316f130cd2ffc27b801",
+          "at": "2026-10-06T14:37:20.768Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "d7545cfe4d04cf892c0d53822a6f240effa0c44f2cc1d124ddb907fa709b9f10"
+        },
+        {
+          "line": 49,
+          "sha256": "20b39b281670065c4c35ad06a6d49a5ec064a0e0bbf94aadca232975ece441b8",
+          "at": "2026-10-06T14:37:24.685Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "c689a9d48e457fce0ca266838d2ed7be23817129be105b27b5fccf53d46c991d"
+        },
+        {
+          "line": 52,
+          "sha256": "59fdd73d2a3969fdf9d000cf3a1c090019dc2dc14cf871a6d1c2a3dd16c8997e",
+          "at": "2026-10-06T14:37:24.814Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "c689a9d48e457fce0ca266838d2ed7be23817129be105b27b5fccf53d46c991d"
+        },
+        {
+          "line": 54,
+          "sha256": "0a0566429e8df543a05c372cf1a66ac51f48e0267c64687945269c34291dd738",
+          "at": "2026-10-06T14:37:29.335Z",
+          "type": "custom_tool_call",
+          "name": "exec",
+          "callIdSha256": "8fa61f21e584bfb649a30f6d11aa564c9b4ee10aa68e4de510ac8e2f1fced9f3"
+        },
+        {
+          "line": 57,
+          "sha256": "d63cf38b2a37e8cb73f13ea457298a0fcd524b16466b9451cdc666a211b4d29e",
+          "at": "2026-10-06T14:37:29.884Z",
+          "type": "custom_tool_call_output",
+          "name": null,
+          "callIdSha256": "8fa61f21e584bfb649a30f6d11aa564c9b4ee10aa68e4de510ac8e2f1fced9f3"
+        }
+      ],
+      "privacy": {
+        "reasoningContentExported": false,
+        "messageBodiesExported": false,
+        "internalPromptsExported": false,
+        "toolArgumentsExported": false,
+        "toolOutputsExported": false,
+        "sourceRolloutCopied": false
+      },
+      "limits": [
+        "Local client metadata records observed usage; it is not an independently signed provider bill.",
+        "Input totals count every model request, including repeated context and cached tokens. They are not unique prompt size.",
+        "Cached input and reasoning output are component fields and must not be added to input and output totals.",
+        "This extract has no complete public model prompt or authoritative server model snapshot, seed, or monetary charge.",
+        "Tool event hashes do not establish operating system isolation or exclude unlogged file access.",
+        "The source digest covers a current local rollout. The segment digest remains stable if later turns are appended."
+      ]
+    }
+  ],
+  "interpretation": "Usage and equal recorded model settings are now available as a supplement. These local client counters do not prove a general retrieval efficiency advantage, billing amounts, complete prompt equality, host isolation, or exact executed product build identity."
+}

@@ -72,7 +72,9 @@ export function getSymbol(packageName: string, symbol: string, options: QueryOpt
   const started = performance.now()
   try {
     const format = brainFormat(db)
-    const rows = exactRows(db, symbol, options.limit ?? 10, format)
+    const qualified = /[./]/.test(symbol)
+    const rows = symbolRows(db, symbol, options.limit ?? 10, format, qualified)
+    const totalMatches = rows[0]?.matches ?? 0
     const relationships = relationshipsForRows(db, rows, format)
     const response: QueryResponse = {
       queryId: randomUUID(),
@@ -82,13 +84,35 @@ export function getSymbol(packageName: string, symbol: string, options: QueryOpt
       strategy: "exact",
       latencyMs: round(performance.now() - started),
       results: rows.map((row, index) => resultFromRow(row, index, relationships.get(row.qualified_name) ?? [])),
-      fallback: rows.length === 0 ? `Symbol ${symbol} was not found in ${packageName}@${version}.` : null
+      fallback: rows.length === 0 ? `Symbol ${symbol} was not found in ${packageName}@${version}.` : null,
+      lookup: {
+        status: totalMatches === 0 ? "not-found" : totalMatches === 1 ? "exact" : "ambiguous",
+        matchedBy: totalMatches === 0 ? null : qualified ? "qualified-name" : "bare-name",
+        totalMatches,
+        omitted: Math.max(0, totalMatches - rows.length)
+      }
     }
     if (options.recordUsage !== false && process.env.TYPELATCH_USAGE !== "off") recordQuery(response)
     return response
   } finally {
     db.close()
   }
+}
+
+function symbolRows(db: Database.Database, symbol: string, limit: number, format: BrainFormat, qualified: boolean): Array<SymbolRow & { matches: number }> {
+  const name = format === "trimmed" ? "n.qualified_name" : "s.qualified_name"
+  const columns = format === "trimmed"
+    ? `s.id, n.qualified_name, s.name, s.kind, s.module, s.signature, s.docs,
+       s.source_path, s.line_start, '' AS source,
+       s.is_public, s.is_deprecated, s.is_internal, s.category, s.example_count`
+    : "s.*"
+  // Lookup identity is case sensitive. Discovery can suggest similar names;
+  // following a qualified hit must never substitute another declaration.
+  return db.prepare(`SELECT ${columns}, count(*) OVER () AS matches FROM symbols s
+    ${format === "trimmed" ? "JOIN nodes n ON n.id = s.id" : ""}
+    WHERE ${qualified ? name : "s.name"} = ? COLLATE BINARY
+    ORDER BY s.is_public DESC, s.is_deprecated ASC, length(${name}), ${name}
+    LIMIT ?`).all(symbol, limit) as Array<SymbolRow & { matches: number }>
 }
 
 function exactRows(db: Database.Database, candidate: string, limit: number, format: BrainFormat): SymbolRow[] {

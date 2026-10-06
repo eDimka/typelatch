@@ -5,6 +5,7 @@ Start with an issue that describes the observed behavior or desired result. Keep
 ```sh
 npm ci
 npm run verify
+npm run test:release
 npm run release:check
 ```
 
@@ -13,3 +14,5 @@ Read [architecture](docs/ARCHITECTURE.md) before changing module boundaries. Rea
 Use direct names and small functions. Comment only when the reason or constraint is not evident from the code. Keep public prose concise, with ordinary sentences and no dash punctuation. Code syntax, command flags, identifiers, links, and Mermaid arrows retain their required spelling.
 
 A contribution is ready when the behavior is tested, documentation matches the result, and the release checks pass. Describe the concrete change and the checks you ran. Keep source locations and evidence states intact.
+
+Release changes follow [the semantic version policy and tag workflow](docs/RELEASE.md). Review compatibility explicitly before choosing the version. GitHub Actions builds and publishes from annotated tags.

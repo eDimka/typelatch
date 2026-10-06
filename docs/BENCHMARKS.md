@@ -25,13 +25,26 @@ npm run benchmark:workspace
 
 The [workspace search report](benchmarks/workspace-search.json) records eight fixed questions against a copy of this repository's source, existing tests, README, usage and architecture docs. The evaluator and new workspace search test fixture are omitted to avoid indexing the expected answers. The gate requires the expected source file in the first eight results for every question and identical cold and warm result content. It also checks that an unchanged warm query rebuilds no files.
 
-Requests use the same bounded worker wrapper as the CLI and MCP. `firstQueryMs` and `warmQueryMs` include worker startup; `firstSearchMs` and `warmSearchMs` measure work inside that worker. Only the first request builds the complete cache. Subsequent requests reuse it.
+Requests use the same bounded worker wrapper as the CLI and MCP. `firstQueryMs` and `warmQueryMs` include the complete request lifecycle; `firstSearchMs` and `warmSearchMs` measure work inside the worker. The first request starts a worker and builds the complete cache. Subsequent requests reuse the worker and cache while checking current content hashes.
 
 For context, the report retains the raw output, byte size and timing of a fixed `rg` query using the question words as OR alternatives. That is a lexical reference with different output semantics, not an agent comparison or a claim of better correctness, lower token usage, or faster execution. The questions are authored repository regressions, not unseen tasks. The separate workspace search tests exercise freshness, removal, ignores, nested dependency versions, missing indexes, invalid artifact metadata, cancellation and incomplete coverage.
 
 These cases were authored during development and are known to the implementation. They measure regression behavior on this corpus. They do not measure general coding success or unseen task performance. Latency depends on the recorded machine and cache state.
 
 The manifest in `src/benchmark/corpus.json` records the original package selection and exact integrity pins. It is a fixed corpus, not a live popularity ranking. Expected alternatives remain visible in `src/benchmark/cases`. Controls must fail for their intended reason. Missing evidence never counts as a successful case.
+
+## Competitive evidence
+
+The [competitive scorecard](COMPETITIVE.md) compares the pinned public CodeGraph and Graphify products, records the improvements to Typelatch, and lists dimensions where it still loses or lacks evidence. It includes actual MCP captures and a bounded coding pilot. Retrieval hits, index bytes and response bytes remain separate from successful code changes and actual model tokens.
+
+```sh
+npm run benchmark:storage
+npm run benchmark:package-storage
+npm run prove:usability
+npm run prove:search-session
+```
+
+These commands reconstruct the previous Typelatch baseline where needed, execute the candidate, and preserve response evidence. The storage and worker proofs use commit `0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125`. See the [competitor setup](research/competitive-baseline.md#reproduction) for the external artifacts and isolation settings.
 
 ## Release results
 

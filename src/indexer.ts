@@ -23,15 +23,20 @@ export type BuildOptions = {
   output?: string
   format?: BrainFormat
   onProgress?: (phase: string) => void
+  expectedIdentity?: { name: string; version: string; integrity?: string }
 }
 
 export async function buildBrain(spec: string, options: BuildOptions = {}): Promise<{ path: string; metadata: BrainMetadata }> {
   options.onProgress?.(`Resolving ${spec} from npm registry`)
   const identity = await resolvePackage(spec)
+  const expected = options.expectedIdentity
+  if (expected && (identity.name !== expected.name || identity.version !== expected.version || (expected.integrity && identity.integrity !== expected.integrity))) {
+    throw new Error("Registry artifact does not match the planned lockfile identity")
+  }
   options.onProgress?.(`Downloading and verifying ${identity.name}@${identity.version}`)
   const packed = await packPackage(identity)
   const output = options.output ?? brainPath(identity.name, identity.version)
-  const format = options.format ?? "compact"
+  const format = options.format ?? "trimmed"
   const temporaryOutput = `${output}.building-${randomUUID()}`
   const generatedAt = new Date().toISOString()
 

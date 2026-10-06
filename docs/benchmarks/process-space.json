@@ -1,0 +1,3714 @@
+{
+  "schemaVersion": 1,
+  "kind": "Sampled macOS process tree RSS for three local MCP providers",
+  "smoke": false,
+  "complete": true,
+  "startedAt": "2026-10-06T15:00:27.460Z",
+  "runnerSha256": "425f37f1295994fec80d3b112ad4d45b84adf73dd4f20de2067d69e57c41af6d",
+  "directory": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE",
+  "environment": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "kernel": "27.0.0",
+    "node": "v22.23.1",
+    "totalMemoryBytes": 34359738368,
+    "backgroundActivity": "Host is not dedicated. Other desktop applications and short validation commands may run. No time advantage is claimed."
+  },
+  "protocol": {
+    "rounds": 3,
+    "providerOrderRotation": [
+      "typelatch,codegraph,graphify",
+      "codegraph,graphify,typelatch",
+      "graphify,typelatch,codegraph"
+    ],
+    "prepareIndexBeforeMeasuredServer": true,
+    "preQueryBaselineMs": 1000,
+    "retainedIdleStartMs": 250,
+    "retainedIdleEndMs": 2000,
+    "lateIdleWindowStartMs": 31000,
+    "lateIdleWindowEndMs": 32000,
+    "fastSamplingDelayMs": 25,
+    "idleSamplingDelayMs": 200,
+    "root": "MCP transport PID including npm launcher and every observed descendant",
+    "typelatchDetail": "compact",
+    "queryCountPerMeasuredServer": 1
+  },
+  "corpora": {
+    "small": {
+      "root": "/Users/dima/_DEV/typelatch/scripts/fixtures/competitive",
+      "files": 9,
+      "bytes": 2301,
+      "sha256": "3ddadb1c2674593b28b9cc9de3683b83db864478da9d89edde6c27d06f47360c",
+      "entries": [
+        {
+          "path": "docs/operations.md",
+          "bytes": 163,
+          "sha256": "17e6529d9dff84bb0b2f8bbf1acd4f69f7ae08223244db67ea41fefe8f248fc5"
+        },
+        {
+          "path": "package.json",
+          "bytes": 83,
+          "sha256": "71d35f72c56a99ec754a9d3f04dc56c1b4531da592bdce3ab1c9a560b0220163"
+        },
+        {
+          "path": "src/billing.ts",
+          "bytes": 478,
+          "sha256": "6c3c188f5263950dd228a1528c81133a0615617024616a133789cbd0ae9cc37a"
+        },
+        {
+          "path": "src/cache.ts",
+          "bytes": 190,
+          "sha256": "d400095efdf03c596141d4aa449520c28d5f20473ea70d87aaf16f964ba767ad"
+        },
+        {
+          "path": "src/orders.ts",
+          "bytes": 495,
+          "sha256": "43e61f7323f265288c2cbe0cccf20d0cba2d052ff25578fbf5f85a3699d33003"
+        },
+        {
+          "path": "src/retry.ts",
+          "bytes": 226,
+          "sha256": "690d295e4d9f0696d73767be1d9ecb7a62e38207825f40cf0c70a071678e5ea8"
+        },
+        {
+          "path": "src/session.ts",
+          "bytes": 253,
+          "sha256": "f5c0dfe0150b3d75cdc027f45d2fe6e072b094dce1735c3075b78c89d3de2bb5"
+        },
+        {
+          "path": "test/billing.test.ts",
+          "bytes": 254,
+          "sha256": "47830a6676620791206b65bb1cef77f6b2c0e227a78a11507ffdc313ef1fd019"
+        },
+        {
+          "path": "tsconfig.json",
+          "bytes": 159,
+          "sha256": "993c67abb0898ae1b0c255fd29ed10bcb54084437fd2091e16d5d93aff91bf9b"
+        }
+      ],
+      "question": "calculateInvoiceTotal",
+      "expected": "src/billing.ts",
+      "sourceCommit": null
+    },
+    "repository": {
+      "root": "/Users/dima/_DEV/typelatch/artifacts/competitive/repository-fixture",
+      "files": 45,
+      "bytes": 260480,
+      "sha256": "feea9066c75a7bb8ca6d5e10f3c1e1cdcd478de4a465b14b7073972e0102d3bb",
+      "entries": [
+        {
+          "path": "README.md",
+          "bytes": 10590,
+          "sha256": "49e88bbed493369bdc314141b02e4c62a368a389ca187351b3781063eaa53bfa"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "bytes": 3742,
+          "sha256": "e1e5ac40e4dbd66a7d5f879a9b18afd6ed9baa7b49fbb6e6ee6132fe8d5aa67e"
+        },
+        {
+          "path": "docs/USAGE.md",
+          "bytes": 19128,
+          "sha256": "304a7696d5b5260317b5708212f84bc24eea1eed72a7c99f67d953e0bed1a139"
+        },
+        {
+          "path": "src/archive.ts",
+          "bytes": 1680,
+          "sha256": "cadb2cc07b4337faa7636bc6bff13f5ce0f8ef23e23896f0ec1e4a330b0bbc5f"
+        },
+        {
+          "path": "src/benchmark.ts",
+          "bytes": 5702,
+          "sha256": "60c8622f4276e72c5cafe8807afda6ee41b71a4bff36878872a54f1b9d86d99a"
+        },
+        {
+          "path": "src/benchmark/cases/ansi-regex.json",
+          "bytes": 790,
+          "sha256": "0f249e0e72d8642766a32bc12642a7a63adbf7cfd9887411dbdf3e64c03d55df"
+        },
+        {
+          "path": "src/benchmark/cases/ansi-styles.json",
+          "bytes": 1723,
+          "sha256": "9fd82d384c3f57d0d1d9a76495ce5100f1886d4168bb14751727e68cec8c3fcc"
+        },
+        {
+          "path": "src/benchmark/cases/chalk.json",
+          "bytes": 4385,
+          "sha256": "86200625263dd16dae9af092749ee9e87b1470b8ceefd519625479ae794e593b"
+        },
+        {
+          "path": "src/benchmark/cases/commander.json",
+          "bytes": 1879,
+          "sha256": "e7b03e27c534afa8024920e68676f3d6c9c7f24b990e05fdc43e274a8cca29b3"
+        },
+        {
+          "path": "src/benchmark/cases/lru-cache.json",
+          "bytes": 3549,
+          "sha256": "d7729851974a3a20605b3184c7943620a4af6961f0be5d6166ec754c81a82f4d"
+        },
+        {
+          "path": "src/benchmark/cases/minimatch.json",
+          "bytes": 4983,
+          "sha256": "0e11813a77b9982dd4f0d2d95d054a71e709400b92afbab570eb54d6131c7032"
+        },
+        {
+          "path": "src/benchmark/cases/string-width.json",
+          "bytes": 978,
+          "sha256": "6d533099206d1c007879e2baeddf3dd93be295ce97448f99d97a63aeeb12bb9f"
+        },
+        {
+          "path": "src/benchmark/cases/strip-ansi.json",
+          "bytes": 882,
+          "sha256": "2db2df016f355f514fe67ff40e175fa612622c0c6e4d363ca9b66177a1b907c6"
+        },
+        {
+          "path": "src/benchmark/cases/supports-color.json",
+          "bytes": 1151,
+          "sha256": "60bde95d76c8619366d9bf9da178001b3ce16e6eec24fa67520fbe98c6caa5c5"
+        },
+        {
+          "path": "src/benchmark/cases/wrap-ansi.json",
+          "bytes": 948,
+          "sha256": "679fca11664042434ecf5fcab006d8a929589b93939d797fe7f14038db5746fa"
+        },
+        {
+          "path": "src/benchmark/corpus.json",
+          "bytes": 4327,
+          "sha256": "40495dcaf36bdf391f460f3e940a0970c3dc20c12c29aab8cf47968e5857fe83"
+        },
+        {
+          "path": "src/benchmark/corpus.ts",
+          "bytes": 5855,
+          "sha256": "97e5632ad67c47d91a24356626972a6d4bc60620c1cb930af1e2492e1a9b7312"
+        },
+        {
+          "path": "src/benchmark/limitations.json",
+          "bytes": 914,
+          "sha256": "85ef6448644407b3f487f773e24e82b7134ea8a1d6c94ffc59573ce020d2f867"
+        },
+        {
+          "path": "src/cli.ts",
+          "bytes": 12203,
+          "sha256": "2371a9e842659f49d40dc0a77cb31b13893ff0f92634e7bd8d094af890d2cb98"
+        },
+        {
+          "path": "src/database.ts",
+          "bytes": 5337,
+          "sha256": "2670e2473470f2109b91752fb3a1c697cac53e87f9c79e1eb82eb61f69e54c29"
+        },
+        {
+          "path": "src/format.ts",
+          "bytes": 3050,
+          "sha256": "a06e7e61edc48acf17ce5ccac2334606f6d140c2d2d90357d4c60c27a51d29ef"
+        },
+        {
+          "path": "src/identity.ts",
+          "bytes": 952,
+          "sha256": "55fc15b386eeac009ac99a2b2dcf825ebe20071f775a8fe195afacbdd36ac994"
+        },
+        {
+          "path": "src/indexer.ts",
+          "bytes": 40456,
+          "sha256": "c07a900820f521f082fdb755191459168ff2766464bdfedcfd50923f18788f6b"
+        },
+        {
+          "path": "src/mcp.ts",
+          "bytes": 5894,
+          "sha256": "7149376c032fe897a0b12eead770c99b9c58a1ac60a3f437e9074bfbbb0105f2"
+        },
+        {
+          "path": "src/npm.ts",
+          "bytes": 4020,
+          "sha256": "ea31b6845bcf81ce6d69d810fe2989520eda346bf1135dcfd2bb136333bda8d9"
+        },
+        {
+          "path": "src/paths.ts",
+          "bytes": 756,
+          "sha256": "855cfeed3bdc5c1bfce653be56423dde626579d9ce1e92381047014da527838b"
+        },
+        {
+          "path": "src/project.ts",
+          "bytes": 1471,
+          "sha256": "bd4539223a360c2b79da10b9f2f35bc5c9eaad639facde06f5f7e3015f01f598"
+        },
+        {
+          "path": "src/query.ts",
+          "bytes": 16029,
+          "sha256": "87dcc0c5c7cf6d2b5b6b18b61dd6e4d0686a049c39c1c6768af81be198d0f24f"
+        },
+        {
+          "path": "src/support.ts",
+          "bytes": 9592,
+          "sha256": "1bab1359cf5f4e2ee31780b67b9e1b9e2742a71d8f7c80a18f651ac429827155"
+        },
+        {
+          "path": "src/types.ts",
+          "bytes": 1553,
+          "sha256": "7295eabbbe30607be150fed556f95440588a4c0dae0d76c450072cba911e522c"
+        },
+        {
+          "path": "src/usage.ts",
+          "bytes": 5269,
+          "sha256": "26e85ac62655c6ccc946e7f77d25a8004c2a7c42c9163fe2056433851ea1b1fa"
+        },
+        {
+          "path": "src/workspace/check.ts",
+          "bytes": 825,
+          "sha256": "0be399bc5924bb1c86ae2d7f83437b8ade6acd02e1088ce71ed715e079f66641"
+        },
+        {
+          "path": "src/workspace/command.ts",
+          "bytes": 2795,
+          "sha256": "f84278339df4344b0a2aca2ce816a89c5f9187f9091d1331d17fb57995bd9a4e"
+        },
+        {
+          "path": "src/workspace/context.ts",
+          "bytes": 17434,
+          "sha256": "02f112e9661c742f66e8e167465877c8c0bacd9a689758358b84e27d6b6ed85a"
+        },
+        {
+          "path": "src/workspace/inventory.ts",
+          "bytes": 11171,
+          "sha256": "62b778771ae5904857a1c91054f0a5072643c5aa467261a49affdba9099aa273"
+        },
+        {
+          "path": "src/workspace/persistent.ts",
+          "bytes": 5361,
+          "sha256": "b649690a83a75f2b05f8a27b088d3c58b414890cd1d17ee7d29d23eb4bf80617"
+        },
+        {
+          "path": "src/workspace/project.ts",
+          "bytes": 11978,
+          "sha256": "6ed60f68e66d19c6c101acfcb94d168646bd4d7d6c3eb1ab8cd3fdc8f754600e"
+        },
+        {
+          "path": "src/workspace/runtime.ts",
+          "bytes": 4557,
+          "sha256": "d65c72996819c77d5a0d8a90fe54c17219afc24365b3862c605aa870ab6b4209"
+        },
+        {
+          "path": "src/workspace/schema.ts",
+          "bytes": 1435,
+          "sha256": "7402b294630aecec28232affca7d2d48cc4113731404c1453e8c4afc3bbcb383"
+        },
+        {
+          "path": "src/workspace/search-index.ts",
+          "bytes": 7512,
+          "sha256": "5c034562c5a8bd3d3470797bdbf937d616ad87077d822039d4489aed1494c923"
+        },
+        {
+          "path": "src/workspace/search-worker.ts",
+          "bytes": 647,
+          "sha256": "895760f20b03576b1386214d16a09f39933ad618408612cda4f9de7a0a37eb87"
+        },
+        {
+          "path": "src/workspace/search.ts",
+          "bytes": 8770,
+          "sha256": "520e0c3f3375f67ab3ba9c1996848f91d577bd458593742c77d1b1e09732b38b"
+        },
+        {
+          "path": "src/workspace/snapshot.ts",
+          "bytes": 2468,
+          "sha256": "f699e879e2e644935b2b8f8d129da418772ea9eb3e50c45d6206585ffa1a750a"
+        },
+        {
+          "path": "src/workspace/validate.ts",
+          "bytes": 4386,
+          "sha256": "8f0b1a9d3e4825bff882c2f4210e45660782da4299853e16392f16197b9c13b7"
+        },
+        {
+          "path": "src/workspace/worker.ts",
+          "bytes": 1353,
+          "sha256": "9997e0d0d66c50ab83b743d20f074cf9de38813b08ecc507320124dc6e3a376e"
+        }
+      ],
+      "question": "validateWorkspace",
+      "expected": "src/workspace/validate.ts",
+      "sourceCommit": "0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125"
+    }
+  },
+  "identities": {
+    "typelatch": {
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/typelatch-runtime",
+      "files": 9218,
+      "bytes": 161999755,
+      "sha256": "d6312776a6c2bcaea202adf0e2dcf9b3f48d1ded3d6c66c6fbe6bfa6a4e1bfb0",
+      "sourceCandidate": "/tmp/typelatch-competitive-candidate-20261006",
+      "source": {
+        "root": "/tmp/typelatch-competitive-candidate-20261006/src",
+        "files": 43,
+        "bytes": 246154,
+        "sha256": "80ff4d1583cda0cc1900044679e4bcd11d804fad25ff27e69063552e4a9dc22e",
+        "entries": [
+          {
+            "path": "archive.ts",
+            "bytes": 1680,
+            "sha256": "cadb2cc07b4337faa7636bc6bff13f5ce0f8ef23e23896f0ec1e4a330b0bbc5f"
+          },
+          {
+            "path": "benchmark.ts",
+            "bytes": 5702,
+            "sha256": "60c8622f4276e72c5cafe8807afda6ee41b71a4bff36878872a54f1b9d86d99a"
+          },
+          {
+            "path": "benchmark/cases/ansi-regex.json",
+            "bytes": 790,
+            "sha256": "0f249e0e72d8642766a32bc12642a7a63adbf7cfd9887411dbdf3e64c03d55df"
+          },
+          {
+            "path": "benchmark/cases/ansi-styles.json",
+            "bytes": 1723,
+            "sha256": "9fd82d384c3f57d0d1d9a76495ce5100f1886d4168bb14751727e68cec8c3fcc"
+          },
+          {
+            "path": "benchmark/cases/chalk.json",
+            "bytes": 4385,
+            "sha256": "86200625263dd16dae9af092749ee9e87b1470b8ceefd519625479ae794e593b"
+          },
+          {
+            "path": "benchmark/cases/commander.json",
+            "bytes": 1879,
+            "sha256": "e7b03e27c534afa8024920e68676f3d6c9c7f24b990e05fdc43e274a8cca29b3"
+          },
+          {
+            "path": "benchmark/cases/lru-cache.json",
+            "bytes": 3549,
+            "sha256": "d7729851974a3a20605b3184c7943620a4af6961f0be5d6166ec754c81a82f4d"
+          },
+          {
+            "path": "benchmark/cases/minimatch.json",
+            "bytes": 4983,
+            "sha256": "0e11813a77b9982dd4f0d2d95d054a71e709400b92afbab570eb54d6131c7032"
+          },
+          {
+            "path": "benchmark/cases/string-width.json",
+            "bytes": 978,
+            "sha256": "6d533099206d1c007879e2baeddf3dd93be295ce97448f99d97a63aeeb12bb9f"
+          },
+          {
+            "path": "benchmark/cases/strip-ansi.json",
+            "bytes": 882,
+            "sha256": "2db2df016f355f514fe67ff40e175fa612622c0c6e4d363ca9b66177a1b907c6"
+          },
+          {
+            "path": "benchmark/cases/supports-color.json",
+            "bytes": 1151,
+            "sha256": "60bde95d76c8619366d9bf9da178001b3ce16e6eec24fa67520fbe98c6caa5c5"
+          },
+          {
+            "path": "benchmark/cases/wrap-ansi.json",
+            "bytes": 948,
+            "sha256": "679fca11664042434ecf5fcab006d8a929589b93939d797fe7f14038db5746fa"
+          },
+          {
+            "path": "benchmark/corpus.json",
+            "bytes": 4327,
+            "sha256": "40495dcaf36bdf391f460f3e940a0970c3dc20c12c29aab8cf47968e5857fe83"
+          },
+          {
+            "path": "benchmark/corpus.ts",
+            "bytes": 5855,
+            "sha256": "97e5632ad67c47d91a24356626972a6d4bc60620c1cb930af1e2492e1a9b7312"
+          },
+          {
+            "path": "benchmark/limitations.json",
+            "bytes": 914,
+            "sha256": "85ef6448644407b3f487f773e24e82b7134ea8a1d6c94ffc59573ce020d2f867"
+          },
+          {
+            "path": "cli.ts",
+            "bytes": 12491,
+            "sha256": "001308aee061f4cc7434bc8d29aa744984fe2c623e5e71184e01fb50ba9cdbf2"
+          },
+          {
+            "path": "database.ts",
+            "bytes": 5337,
+            "sha256": "2670e2473470f2109b91752fb3a1c697cac53e87f9c79e1eb82eb61f69e54c29"
+          },
+          {
+            "path": "format.ts",
+            "bytes": 3050,
+            "sha256": "a06e7e61edc48acf17ce5ccac2334606f6d140c2d2d90357d4c60c27a51d29ef"
+          },
+          {
+            "path": "identity.ts",
+            "bytes": 952,
+            "sha256": "55fc15b386eeac009ac99a2b2dcf825ebe20071f775a8fe195afacbdd36ac994"
+          },
+          {
+            "path": "indexer.ts",
+            "bytes": 40456,
+            "sha256": "8f8234ba5d72a85d6601411501bd38fc6ee13f61f9a0791a83c60ac2fa8e3572"
+          },
+          {
+            "path": "lockfiles.ts",
+            "bytes": 9636,
+            "sha256": "1d6b60ee426955eed286d2af8932f2ba07b135f8eb687af89b0ef597017d3463"
+          },
+          {
+            "path": "mcp.ts",
+            "bytes": 6203,
+            "sha256": "68e39ef1b78574b51c9be5cb7e1406e4cf7a11abbf332c71d60d6a196811cc83"
+          },
+          {
+            "path": "npm.ts",
+            "bytes": 4020,
+            "sha256": "ea31b6845bcf81ce6d69d810fe2989520eda346bf1135dcfd2bb136333bda8d9"
+          },
+          {
+            "path": "paths.ts",
+            "bytes": 756,
+            "sha256": "855cfeed3bdc5c1bfce653be56423dde626579d9ce1e92381047014da527838b"
+          },
+          {
+            "path": "project.ts",
+            "bytes": 2373,
+            "sha256": "3bac7119bf1b3172ce4a8da8149c1c9b6e58ce1336c0076fe4d1bfc19f196bff"
+          },
+          {
+            "path": "query.ts",
+            "bytes": 17429,
+            "sha256": "abe6e49046c966a3f8e8a84f9d50a063d7cb1e13be05880ce2581d0a2b483f98"
+          },
+          {
+            "path": "support.ts",
+            "bytes": 9592,
+            "sha256": "1bab1359cf5f4e2ee31780b67b9e1b9e2742a71d8f7c80a18f651ac429827155"
+          },
+          {
+            "path": "types.ts",
+            "bytes": 1716,
+            "sha256": "6790fdb27e9a507f1d5cb2328196f7b75fb32e79541ff7e8336072aec39c5c54"
+          },
+          {
+            "path": "usage.ts",
+            "bytes": 5269,
+            "sha256": "26e85ac62655c6ccc946e7f77d25a8004c2a7c42c9163fe2056433851ea1b1fa"
+          },
+          {
+            "path": "workspace/check.ts",
+            "bytes": 825,
+            "sha256": "0be399bc5924bb1c86ae2d7f83437b8ade6acd02e1088ce71ed715e079f66641"
+          },
+          {
+            "path": "workspace/command.ts",
+            "bytes": 2795,
+            "sha256": "f84278339df4344b0a2aca2ce816a89c5f9187f9091d1331d17fb57995bd9a4e"
+          },
+          {
+            "path": "workspace/context.ts",
+            "bytes": 17434,
+            "sha256": "02f112e9661c742f66e8e167465877c8c0bacd9a689758358b84e27d6b6ed85a"
+          },
+          {
+            "path": "workspace/inventory.ts",
+            "bytes": 13071,
+            "sha256": "86cbe745c84a7031d79f0ed93f6b2da9c6f1149e14425949dd8e196fee5fc791"
+          },
+          {
+            "path": "workspace/persistent.ts",
+            "bytes": 5686,
+            "sha256": "99dd13d89ebb4721a947440daa4f8f3b2220ea0214d2283d73346f60f1e8f0e2"
+          },
+          {
+            "path": "workspace/project.ts",
+            "bytes": 11978,
+            "sha256": "6ed60f68e66d19c6c101acfcb94d168646bd4d7d6c3eb1ab8cd3fdc8f754600e"
+          },
+          {
+            "path": "workspace/runtime.ts",
+            "bytes": 4580,
+            "sha256": "d1f08550d048606eab1878cda0cb653db1628cb55f9e41079fecb262f1696366"
+          },
+          {
+            "path": "workspace/schema.ts",
+            "bytes": 1635,
+            "sha256": "d835cc47915f889a008bcd0a59dd84995393b0c7b5409c63f4aede176625f9b5"
+          },
+          {
+            "path": "workspace/search-index.ts",
+            "bytes": 9469,
+            "sha256": "74347c09a6ae370640f2514d28de6240230587f44ab28b93fa4a2bdc07b6297d"
+          },
+          {
+            "path": "workspace/search-worker.ts",
+            "bytes": 1310,
+            "sha256": "714ed13d5642bfa9f94750869869b20cc286fba5f47688bd87dda32926d3438a"
+          },
+          {
+            "path": "workspace/search.ts",
+            "bytes": 10138,
+            "sha256": "ebdfb71158965bf9485932caa080ed3a46dccc8bf47be67ac2fd594cc7b5e9df"
+          },
+          {
+            "path": "workspace/snapshot.ts",
+            "bytes": 2468,
+            "sha256": "f699e879e2e644935b2b8f8d129da418772ea9eb3e50c45d6206585ffa1a750a"
+          },
+          {
+            "path": "workspace/validate.ts",
+            "bytes": 4386,
+            "sha256": "8f0b1a9d3e4825bff882c2f4210e45660782da4299853e16392f16197b9c13b7"
+          },
+          {
+            "path": "workspace/worker.ts",
+            "bytes": 1353,
+            "sha256": "9997e0d0d66c50ab83b743d20f074cf9de38813b08ecc507320124dc6e3a376e"
+          }
+        ]
+      },
+      "node": {
+        "path": "/Users/dima/.hermes/node/bin/node",
+        "actualPath": "/Users/dima/.hermes/node/bin/node",
+        "bytes": 112928848,
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d"
+      },
+      "version": "0.2.0"
+    },
+    "codegraph": {
+      "root": "/private/tmp/typelatch-codegraph-install-20261006/node_modules",
+      "files": 1587,
+      "bytes": 294335553,
+      "sha256": "fff36ff37c0b4c8c22a31ec52cda879f7c8bebbbf415eef47ad3252af544c0c9",
+      "version": "1.6.2",
+      "launcher": {
+        "path": "/tmp/typelatch-codegraph-install-20261006/node_modules/.bin/codegraph",
+        "actualPath": "/private/tmp/typelatch-codegraph-install-20261006/node_modules/@colbymchenry/codegraph/npm-shim.js",
+        "bytes": 12747,
+        "sha256": "80419260f06862d7a422d13ef69e3b24c7a21dbef4309bce41db02ad642b1877"
+      },
+      "bundledNode": {
+        "path": "/private/tmp/typelatch-codegraph-install-20261006/node_modules/@colbymchenry/codegraph-darwin-arm64/node",
+        "actualPath": "/private/tmp/typelatch-codegraph-install-20261006/node_modules/@colbymchenry/codegraph-darwin-arm64/node",
+        "bytes": 120573328,
+        "sha256": "1ee75375e33b94fc34b3b19aede049e11dae90efb63b374dc96d6bdace70c4b8"
+      },
+      "installLock": {
+        "path": "/private/tmp/typelatch-codegraph-install-20261006/package-lock.json",
+        "actualPath": "/private/tmp/typelatch-codegraph-install-20261006/package-lock.json",
+        "bytes": 4118,
+        "sha256": "44d1d430e67e3ceaf1e3b45d5830966299a63a19f4fa68a53d451ccc5b109c20"
+      }
+    },
+    "graphify": {
+      "root": "/tmp/typelatch-graphify-env-20261006/lib/python3.12/site-packages",
+      "files": 3927,
+      "bytes": 149354908,
+      "sha256": "f3448c20d0616b91273ddaf5630b561481b684e79a49735fc1a58b297090505c",
+      "version": "0.9.77",
+      "python": {
+        "path": "/tmp/typelatch-graphify-env-20261006/bin/python",
+        "actualPath": "/Users/dima/.local/share/uv/python/cpython-3.12.7-macos-aarch64-none/bin/python3.12",
+        "bytes": 49968,
+        "sha256": "67c4154e5c297adaf69ddfa689cafabfb6a8f1588cd4c48b3727734408dbcfaf"
+      },
+      "installed": {
+        "version": "0.9.77",
+        "runtime": "3.12.7 (main, Oct 16 2024, 07:12:08) [Clang 18.1.8 ]",
+        "base": "/Users/dima/.local/share/uv/python/cpython-3.12.7-macos-aarch64-none",
+        "site": "/tmp/typelatch-graphify-env-20261006/lib/python3.12/site-packages",
+        "dependencies": [
+          [
+            "PyJWT",
+            "2.15.1"
+          ],
+          [
+            "RapidFuzz",
+            "3.14.6"
+          ],
+          [
+            "annotated-types",
+            "0.8.0"
+          ],
+          [
+            "anyio",
+            "4.15.1"
+          ],
+          [
+            "attrs",
+            "26.1.0"
+          ],
+          [
+            "cffi",
+            "2.1.1"
+          ],
+          [
+            "click",
+            "8.5.0"
+          ],
+          [
+            "cryptography",
+            "50.0.2"
+          ],
+          [
+            "graphifyy",
+            "0.9.77"
+          ],
+          [
+            "h11",
+            "0.16.0"
+          ],
+          [
+            "httpcore2",
+            "2.13.1"
+          ],
+          [
+            "httpx2",
+            "2.13.1"
+          ],
+          [
+            "idna",
+            "3.20"
+          ],
+          [
+            "jsonschema",
+            "4.26.0"
+          ],
+          [
+            "jsonschema-specifications",
+            "2025.9.1"
+          ],
+          [
+            "mcp",
+            "2.3.0"
+          ],
+          [
+            "mcp-types",
+            "2.3.0"
+          ],
+          [
+            "networkx",
+            "3.7"
+          ],
+          [
+            "numpy",
+            "2.5.3"
+          ],
+          [
+            "opentelemetry-api",
+            "1.45.0"
+          ],
+          [
+            "pycparser",
+            "3.0"
+          ],
+          [
+            "pydantic",
+            "2.13.5"
+          ],
+          [
+            "pydantic_core",
+            "2.46.5"
+          ],
+          [
+            "python-multipart",
+            "0.0.32"
+          ],
+          [
+            "referencing",
+            "0.37.0"
+          ],
+          [
+            "rpds-py",
+            "2026.9.1"
+          ],
+          [
+            "sse-starlette",
+            "3.5.0"
+          ],
+          [
+            "starlette",
+            "1.7.0"
+          ],
+          [
+            "tree-sitter",
+            "0.25.2"
+          ],
+          [
+            "tree-sitter-bash",
+            "0.25.1"
+          ],
+          [
+            "tree-sitter-c",
+            "0.24.2"
+          ],
+          [
+            "tree-sitter-c-sharp",
+            "0.23.5"
+          ],
+          [
+            "tree-sitter-cpp",
+            "0.23.4"
+          ],
+          [
+            "tree-sitter-elixir",
+            "0.3.5"
+          ],
+          [
+            "tree-sitter-fortran",
+            "0.6.0"
+          ],
+          [
+            "tree-sitter-go",
+            "0.25.0"
+          ],
+          [
+            "tree-sitter-groovy",
+            "0.1.2"
+          ],
+          [
+            "tree-sitter-java",
+            "0.23.5"
+          ],
+          [
+            "tree-sitter-javascript",
+            "0.25.0"
+          ],
+          [
+            "tree-sitter-json",
+            "0.24.8"
+          ],
+          [
+            "tree-sitter-julia",
+            "0.23.1"
+          ],
+          [
+            "tree-sitter-kotlin",
+            "1.1.0"
+          ],
+          [
+            "tree-sitter-lua",
+            "0.5.0"
+          ],
+          [
+            "tree-sitter-objc",
+            "3.0.2"
+          ],
+          [
+            "tree-sitter-php",
+            "0.24.1"
+          ],
+          [
+            "tree-sitter-powershell",
+            "0.26.4"
+          ],
+          [
+            "tree-sitter-python",
+            "0.25.0"
+          ],
+          [
+            "tree-sitter-ruby",
+            "0.23.1"
+          ],
+          [
+            "tree-sitter-rust",
+            "0.24.2"
+          ],
+          [
+            "tree-sitter-scala",
+            "0.26.2"
+          ],
+          [
+            "tree-sitter-swift",
+            "0.7.4"
+          ],
+          [
+            "tree-sitter-typescript",
+            "0.23.2"
+          ],
+          [
+            "tree-sitter-verilog",
+            "1.0.3"
+          ],
+          [
+            "tree-sitter-zig",
+            "1.1.2"
+          ],
+          [
+            "truststore",
+            "0.10.4"
+          ],
+          [
+            "typing-inspection",
+            "0.4.4"
+          ],
+          [
+            "typing_extensions",
+            "4.16.0"
+          ],
+          [
+            "uvicorn",
+            "0.54.0"
+          ]
+        ]
+      },
+      "pythonDistribution": {
+        "root": "/Users/dima/.local/share/uv/python/cpython-3.12.7-macos-aarch64-none",
+        "files": 2226,
+        "bytes": 52883657,
+        "sha256": "f3d6bfd50fc75fba7c1166d73c6bd8d5804701bd44d6b7dbb68ed1121747bad9"
+      }
+    }
+  },
+  "sessions": [
+    {
+      "corpus": "small",
+      "provider": "typelatch",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/typelatch/data",
+      "startedAt": "2026-10-06T15:00:31.061Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 569688064,
+        "loadAverage": [
+          2.3876953125,
+          3.1572265625,
+          4.3369140625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 888.1234170000002,
+        "memory": {
+          "sampledMaximumRssBytes": 271089664,
+          "sampleCount": 13,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 72.68241699999999,
+          "stages": {
+            "setup": {
+              "samples": 13,
+              "medianRssBytes": 226639872,
+              "sampledMaximumRssBytes": 271089664,
+              "minimumRssBytes": 245760,
+              "maximumProcessCount": 2,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "c4849d936c1b989501c0f5b2c64742e363a38ae5ca551233e5164f7edb3fec7b",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 45056
+      },
+      "rootPid": 86029,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 337.7795409999999,
+        "contentBytes": 4526,
+        "responseBytes": 9419,
+        "responseSha256": "7fc0d19064fa6896628e14e7e71e2bfa5160f7ac57e085694c732b3b8f1b6476",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 220184576,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 275.7815410000003,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 53256192,
+            "sampledMaximumRssBytes": 72695808,
+            "minimumRssBytes": 33816576,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78512128,
+            "sampledMaximumRssBytes": 78512128,
+            "minimumRssBytes": 78512128,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 8,
+            "medianRssBytes": 190054400,
+            "sampledMaximumRssBytes": 220184576,
+            "minimumRssBytes": 78512128,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 220184576,
+            "sampledMaximumRssBytes": 220184576,
+            "minimumRssBytes": 220184576,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 193429504,
+            "sampledMaximumRssBytes": 220184576,
+            "minimumRssBytes": 68468736,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68468736,
+            "sampledMaximumRssBytes": 68468736,
+            "minimumRssBytes": 68468736,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 45056,
+      "hostEnd": {
+        "freeMemoryBytes": 773718016,
+        "loadAverage": [
+          2.33349609375,
+          3.05859375,
+          4.251953125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:01:06.075Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "codegraph",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:01:06.093Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 772685824,
+        "loadAverage": [
+          2.33349609375,
+          3.05859375,
+          4.251953125
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 472.03058299999975,
+        "memory": {
+          "sampledMaximumRssBytes": 455901184,
+          "sampleCount": 7,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 78.72483299999294,
+          "stages": {
+            "setup": {
+              "samples": 7,
+              "medianRssBytes": 194248704,
+              "sampledMaximumRssBytes": 455901184,
+              "minimumRssBytes": 393216,
+              "maximumProcessCount": 4,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "c9211d36a1f638601dfad538df34ae168267712dbef31fa0f8f7bce93b189539",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 184549
+      },
+      "rootPid": 86380,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 76.02204100000381,
+        "contentBytes": 2222,
+        "responseBytes": 2328,
+        "responseSha256": "5135b089fe637b830b7d8f40225f04d61246c422124fcb16c95dc9279409df12",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 335314944,
+        "sampleCount": 138,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 272.6447080000071,
+        "stages": {
+          "startup": {
+            "samples": 5,
+            "medianRssBytes": 139149312,
+            "sampledMaximumRssBytes": 231784448,
+            "minimumRssBytes": 27197440,
+            "maximumProcessCount": 4,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 242974720,
+            "sampledMaximumRssBytes": 242991104,
+            "minimumRssBytes": 242974720,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 4,
+            "medianRssBytes": 289071104,
+            "sampledMaximumRssBytes": 334954496,
+            "minimumRssBytes": 242991104,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 334987264,
+            "sampledMaximumRssBytes": 334987264,
+            "minimumRssBytes": 334954496,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 335233024,
+            "sampledMaximumRssBytes": 335314944,
+            "minimumRssBytes": 334987264,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 335314944,
+            "sampledMaximumRssBytes": 335314944,
+            "minimumRssBytes": 335314944,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "03eb79e8b1bed63543ba2896950ac594cda01e35a540c7f0fb81144af9ff23fc",
+      "close": {
+        "observedProcesses": 4,
+        "residualProcesses": []
+      },
+      "indexBytes": 184549,
+      "hostEnd": {
+        "freeMemoryBytes": 747126784,
+        "loadAverage": [
+          2.83544921875,
+          3.12353515625,
+          4.2275390625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:01:40.626Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "graphify",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/1/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:01:40.642Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 745881600,
+        "loadAverage": [
+          2.83544921875,
+          3.12353515625,
+          4.2275390625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 250.82866600000125,
+        "memory": {
+          "sampledMaximumRssBytes": 51134464,
+          "sampleCount": 4,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 69.80191599999671,
+          "stages": {
+            "setup": {
+              "samples": 4,
+              "medianRssBytes": 28073984,
+              "sampledMaximumRssBytes": 51134464,
+              "minimumRssBytes": 262144,
+              "maximumProcessCount": 1,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "9a1598ba3d396cdca9e422c284d99619932227e7e97a64622ab93b26079c9149",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 23684
+      },
+      "rootPid": 86726,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 2.4778340000048047,
+        "contentBytes": 2581,
+        "responseBytes": 2668,
+        "responseSha256": "cf707d8aa8b564b05a410a48619aa24f53bc2aae3285c5d822bb6c3dd4a0ce96",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 85639168,
+        "sampleCount": 140,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 274.1391250000015,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 58245120,
+            "sampledMaximumRssBytes": 85557248,
+            "minimumRssBytes": 21200896,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 85557248,
+            "sampledMaximumRssBytes": 85557248,
+            "minimumRssBytes": 85557248,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 3,
+            "medianRssBytes": 85639168,
+            "sampledMaximumRssBytes": 85639168,
+            "minimumRssBytes": 85557248,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 85639168,
+            "sampledMaximumRssBytes": 85639168,
+            "minimumRssBytes": 85639168,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 85639168,
+            "sampledMaximumRssBytes": 85639168,
+            "minimumRssBytes": 85639168,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 6,
+            "medianRssBytes": 85639168,
+            "sampledMaximumRssBytes": 85639168,
+            "minimumRssBytes": 85639168,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 23684,
+      "hostEnd": {
+        "freeMemoryBytes": 664190976,
+        "loadAverage": [
+          2.146484375,
+          2.93115234375,
+          4.11279296875
+        ]
+      },
+      "finishedAt": "2026-10-06T15:02:15.077Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "codegraph",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:02:15.094Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 665223168,
+        "loadAverage": [
+          2.146484375,
+          2.93115234375,
+          4.11279296875
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 478.4139579999901,
+        "memory": {
+          "sampledMaximumRssBytes": 391430144,
+          "sampleCount": 7,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 86.99683300001197,
+          "stages": {
+            "setup": {
+              "samples": 7,
+              "medianRssBytes": 196624384,
+              "sampledMaximumRssBytes": 391430144,
+              "minimumRssBytes": 638976,
+              "maximumProcessCount": 4,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "ca2530ea6c517431d9a6fad0ad4a738cc6414feb9e0e63e3bef11a6dae561401",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 184549
+      },
+      "rootPid": 87572,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 73.8458329999994,
+        "contentBytes": 2222,
+        "responseBytes": 2328,
+        "responseSha256": "5135b089fe637b830b7d8f40225f04d61246c422124fcb16c95dc9279409df12",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 335282176,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 273.4587499999907,
+        "stages": {
+          "startup": {
+            "samples": 4,
+            "medianRssBytes": 123396096,
+            "sampledMaximumRssBytes": 199720960,
+            "minimumRssBytes": 41074688,
+            "maximumProcessCount": 4,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 243187712,
+            "sampledMaximumRssBytes": 243187712,
+            "minimumRssBytes": 235012096,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 5,
+            "medianRssBytes": 244252672,
+            "sampledMaximumRssBytes": 334888960,
+            "minimumRssBytes": 243204096,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 334954496,
+            "sampledMaximumRssBytes": 334954496,
+            "minimumRssBytes": 334888960,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 114,
+            "medianRssBytes": 335167488,
+            "sampledMaximumRssBytes": 335282176,
+            "minimumRssBytes": 334954496,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 335282176,
+            "sampledMaximumRssBytes": 335282176,
+            "minimumRssBytes": 335282176,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "8994303bfc77a5bee0b918425004245aa50a0f0ea0717b6d1b38746a9a26407e",
+      "close": {
+        "observedProcesses": 4,
+        "residualProcesses": []
+      },
+      "indexBytes": 184549,
+      "hostEnd": {
+        "freeMemoryBytes": 618938368,
+        "loadAverage": [
+          3.13232421875,
+          3.04345703125,
+          4.1025390625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:02:49.615Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "graphify",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:02:49.631Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 618299392,
+        "loadAverage": [
+          3.13232421875,
+          3.04345703125,
+          4.1025390625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 249.1628329999803,
+        "memory": {
+          "sampledMaximumRssBytes": 51003392,
+          "sampleCount": 4,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 69.17866700000013,
+          "stages": {
+            "setup": {
+              "samples": 4,
+              "medianRssBytes": 28196864,
+              "sampledMaximumRssBytes": 51003392,
+              "minimumRssBytes": 262144,
+              "maximumProcessCount": 1,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "f1c915e1b510fd5545b57a1302e06b79bb075a3b1c7fd6940e007772de0cb551",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 23683
+      },
+      "rootPid": 88164,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 2.63466700000572,
+        "contentBytes": 2581,
+        "responseBytes": 2668,
+        "responseSha256": "50adc67beca2f9e68a40cf9ef011686ccd68f1daa0d1938aa15e0f9ba12fa438",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 85966848,
+        "sampleCount": 140,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 275.99729100000695,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 58163200,
+            "sampledMaximumRssBytes": 84672512,
+            "minimumRssBytes": 21299200,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 85868544,
+            "sampledMaximumRssBytes": 85868544,
+            "minimumRssBytes": 85868544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 3,
+            "medianRssBytes": 85966848,
+            "sampledMaximumRssBytes": 85966848,
+            "minimumRssBytes": 85868544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 85966848,
+            "sampledMaximumRssBytes": 85966848,
+            "minimumRssBytes": 85966848,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 85966848,
+            "sampledMaximumRssBytes": 85966848,
+            "minimumRssBytes": 85966848,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 6,
+            "medianRssBytes": 85966848,
+            "sampledMaximumRssBytes": 85966848,
+            "minimumRssBytes": 85966848,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 23683,
+      "hostEnd": {
+        "freeMemoryBytes": 659472384,
+        "loadAverage": [
+          3.69091796875,
+          3.19384765625,
+          4.11328125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:03:24.064Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "typelatch",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/2/typelatch/data",
+      "startedAt": "2026-10-06T15:03:24.080Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 655261696,
+        "loadAverage": [
+          3.69091796875,
+          3.19384765625,
+          4.11328125
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 674.8445409999986,
+        "memory": {
+          "sampledMaximumRssBytes": 279642112,
+          "sampleCount": 10,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 71.4421250000014,
+          "stages": {
+            "setup": {
+              "samples": 10,
+              "medianRssBytes": 157908992,
+              "sampledMaximumRssBytes": 279642112,
+              "minimumRssBytes": 245760,
+              "maximumProcessCount": 3,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "32bf6decf9a8fcb3d11d16f43229da22045d8386c33ec5dc25844261c08837f7",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 45056
+      },
+      "rootPid": 90410,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 344.4415840000147,
+        "contentBytes": 4526,
+        "responseBytes": 9419,
+        "responseSha256": "a7809660cd43f424943109d840d92287e247b1922310f104cdf081be97bb2012",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 219021312,
+        "sampleCount": 138,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 275.0382080000127,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 54525952,
+            "sampledMaximumRssBytes": 72466432,
+            "minimumRssBytes": 36585472,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78086144,
+            "sampledMaximumRssBytes": 78086144,
+            "minimumRssBytes": 78086144,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 6,
+            "medianRssBytes": 196820992,
+            "sampledMaximumRssBytes": 219021312,
+            "minimumRssBytes": 78086144,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 8,
+            "medianRssBytes": 219021312,
+            "sampledMaximumRssBytes": 219021312,
+            "minimumRssBytes": 219021312,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 184991744,
+            "sampledMaximumRssBytes": 219021312,
+            "minimumRssBytes": 68517888,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68517888,
+            "sampledMaximumRssBytes": 68517888,
+            "minimumRssBytes": 68517888,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 45056,
+      "hostEnd": {
+        "freeMemoryBytes": 1278230528,
+        "loadAverage": [
+          2.69482421875,
+          3.009765625,
+          4.0087890625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:03:58.887Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "graphify",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:03:58.904Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 1278197760,
+        "loadAverage": [
+          2.69482421875,
+          3.009765625,
+          4.0087890625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 255.17258300000685,
+        "memory": {
+          "sampledMaximumRssBytes": 50905088,
+          "sampleCount": 4,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 69.87254200002644,
+          "stages": {
+            "setup": {
+              "samples": 4,
+              "medianRssBytes": 27983872,
+              "sampledMaximumRssBytes": 50905088,
+              "minimumRssBytes": 262144,
+              "maximumProcessCount": 1,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "50bf6b152e7f2f34de9e0fff4aa1b60d247fb36003d76a251ed69389a64f4491",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 23681
+      },
+      "rootPid": 90907,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 2.192624999996042,
+        "contentBytes": 2581,
+        "responseBytes": 2668,
+        "responseSha256": "309dd6300ee8f088075d56c59c6e3fd1f4f73327ab526fa8686320c247c2b69a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 85835776,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 277.3035000000091,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 58130432,
+            "sampledMaximumRssBytes": 84983808,
+            "minimumRssBytes": 21643264,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 85753856,
+            "sampledMaximumRssBytes": 85753856,
+            "minimumRssBytes": 85753856,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 3,
+            "medianRssBytes": 85835776,
+            "sampledMaximumRssBytes": 85835776,
+            "minimumRssBytes": 85753856,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 85835776,
+            "sampledMaximumRssBytes": 85835776,
+            "minimumRssBytes": 85835776,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 85835776,
+            "sampledMaximumRssBytes": 85835776,
+            "minimumRssBytes": 85835776,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 85835776,
+            "sampledMaximumRssBytes": 85835776,
+            "minimumRssBytes": 85835776,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 23681,
+      "hostEnd": {
+        "freeMemoryBytes": 954728448,
+        "loadAverage": [
+          2.1533203125,
+          2.83447265625,
+          3.9033203125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:04:33.373Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "typelatch",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/typelatch/data",
+      "startedAt": "2026-10-06T15:04:33.390Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 953597952,
+        "loadAverage": [
+          2.1533203125,
+          2.83447265625,
+          3.9033203125
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 677.5922089999949,
+        "memory": {
+          "sampledMaximumRssBytes": 270024704,
+          "sampleCount": 10,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 72.9232089999714,
+          "stages": {
+            "setup": {
+              "samples": 10,
+              "medianRssBytes": 159301632,
+              "sampledMaximumRssBytes": 270024704,
+              "minimumRssBytes": 229376,
+              "maximumProcessCount": 2,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "0d08de327bcf0fae67a714e06ee04f484a079580c59b14a6fe0dc775a39eedda",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 45056
+      },
+      "rootPid": 91221,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 342.57279100001324,
+        "contentBytes": 4526,
+        "responseBytes": 9419,
+        "responseSha256": "4961d5b9f8e16616240c97023695fa58c29dfa1f7e56461415f085ab44df9d02",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 219758592,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 274.7661670000234,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 56475648,
+            "sampledMaximumRssBytes": 72974336,
+            "minimumRssBytes": 39976960,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78135296,
+            "sampledMaximumRssBytes": 78135296,
+            "minimumRssBytes": 78135296,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 8,
+            "medianRssBytes": 188563456,
+            "sampledMaximumRssBytes": 219758592,
+            "minimumRssBytes": 78135296,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 219758592,
+            "sampledMaximumRssBytes": 219758592,
+            "minimumRssBytes": 219758592,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 193740800,
+            "sampledMaximumRssBytes": 219758592,
+            "minimumRssBytes": 68616192,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68616192,
+            "sampledMaximumRssBytes": 68616192,
+            "minimumRssBytes": 68616192,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 45056,
+      "hostEnd": {
+        "freeMemoryBytes": 1161134080,
+        "loadAverage": [
+          1.69140625,
+          2.658203125,
+          3.7958984375
+        ]
+      },
+      "finishedAt": "2026-10-06T15:05:08.209Z"
+    },
+    {
+      "corpus": "small",
+      "provider": "codegraph",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/small/3/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:05:08.224Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 1161084928,
+        "loadAverage": [
+          1.69140625,
+          2.658203125,
+          3.7958984375
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 472.3697079999838,
+        "memory": {
+          "sampledMaximumRssBytes": 459423744,
+          "sampleCount": 7,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 74.62862500001211,
+          "stages": {
+            "setup": {
+              "samples": 7,
+              "medianRssBytes": 193937408,
+              "sampledMaximumRssBytes": 459423744,
+              "minimumRssBytes": 638976,
+              "maximumProcessCount": 4,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "148a1d651262a46f5efc5fc8572919951b226d50cac155425817df2b2004404f",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 184549
+      },
+      "rootPid": 91543,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 73.46724999998696,
+        "contentBytes": 2222,
+        "responseBytes": 2328,
+        "responseSha256": "5135b089fe637b830b7d8f40225f04d61246c422124fcb16c95dc9279409df12",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 334512128,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 281.40583299996797,
+        "stages": {
+          "startup": {
+            "samples": 4,
+            "medianRssBytes": 121896960,
+            "sampledMaximumRssBytes": 198295552,
+            "minimumRssBytes": 38092800,
+            "maximumProcessCount": 4,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 5,
+            "medianRssBytes": 242745344,
+            "sampledMaximumRssBytes": 242761728,
+            "minimumRssBytes": 233308160,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 4,
+            "medianRssBytes": 288579584,
+            "sampledMaximumRssBytes": 334102528,
+            "minimumRssBytes": 242761728,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 334184448,
+            "sampledMaximumRssBytes": 334184448,
+            "minimumRssBytes": 334102528,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 114,
+            "medianRssBytes": 334413824,
+            "sampledMaximumRssBytes": 334512128,
+            "minimumRssBytes": 334184448,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 334512128,
+            "sampledMaximumRssBytes": 334512128,
+            "minimumRssBytes": 334512128,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "c9f64d835f3750829483b5b79831ca95e903e8f799fbafdb991cff97008521a4",
+      "close": {
+        "observedProcesses": 4,
+        "residualProcesses": []
+      },
+      "indexBytes": 184549,
+      "hostEnd": {
+        "freeMemoryBytes": 905756672,
+        "loadAverage": [
+          3.6923828125,
+          3.09423828125,
+          3.91015625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:05:42.731Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "typelatch",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/typelatch/data",
+      "startedAt": "2026-10-06T15:05:42.753Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 904724480,
+        "loadAverage": [
+          3.6923828125,
+          3.09423828125,
+          3.91015625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 814.3491659999709,
+        "memory": {
+          "sampledMaximumRssBytes": 300924928,
+          "sampleCount": 12,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 71.24029200000223,
+          "stages": {
+            "setup": {
+              "samples": 12,
+              "medianRssBytes": 208830464,
+              "sampledMaximumRssBytes": 300924928,
+              "minimumRssBytes": 229376,
+              "maximumProcessCount": 2,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "db32a29cdbecffbf1218513d497be4bd68db31e1a9abdb4a18bf06bf90a25eec",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 868352
+      },
+      "rootPid": 92511,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 356.1954169999808,
+        "contentBytes": 7825,
+        "responseBytes": 16252,
+        "responseSha256": "c04936d9b2ee28dbe2db93a245aa775437d1c218b328b17a2800851eedc9f5cb",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 219873280,
+        "sampleCount": 140,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 291.59841699997196,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 57147392,
+            "sampledMaximumRssBytes": 73334784,
+            "minimumRssBytes": 40960000,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78544896,
+            "sampledMaximumRssBytes": 78544896,
+            "minimumRssBytes": 78544896,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 8,
+            "medianRssBytes": 189489152,
+            "sampledMaximumRssBytes": 219873280,
+            "minimumRssBytes": 78544896,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 219873280,
+            "sampledMaximumRssBytes": 219873280,
+            "minimumRssBytes": 219873280,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 114,
+            "medianRssBytes": 193839104,
+            "sampledMaximumRssBytes": 219873280,
+            "minimumRssBytes": 68632576,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68632576,
+            "sampledMaximumRssBytes": 68632576,
+            "minimumRssBytes": 68632576,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 868352,
+      "hostEnd": {
+        "freeMemoryBytes": 860487680,
+        "loadAverage": [
+          3.92626953125,
+          3.19677734375,
+          3.91357421875
+        ]
+      },
+      "finishedAt": "2026-10-06T15:06:17.715Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "codegraph",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:06:17.738Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 859176960,
+        "loadAverage": [
+          3.92626953125,
+          3.19677734375,
+          3.91357421875
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 685.2223750000121,
+        "memory": {
+          "sampledMaximumRssBytes": 464322560,
+          "sampleCount": 10,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 85.39216599997599,
+          "stages": {
+            "setup": {
+              "samples": 10,
+              "medianRssBytes": 351363072,
+              "sampledMaximumRssBytes": 464322560,
+              "minimumRssBytes": 475136,
+              "maximumProcessCount": 4,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "d991c79bfea90911eb228fa12f93e999392c452eaff7544e6bcc8eedebc1eb0c",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 2179301
+      },
+      "rootPid": 92833,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 90.73062500002561,
+        "contentBytes": 17173,
+        "responseBytes": 17879,
+        "responseSha256": "2b25b87e2faec87637b87d09c3a018d2d2732f9c9c50b66c34ee30b5f86be57a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 343719936,
+        "sampleCount": 141,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 271.28429199999664,
+        "stages": {
+          "startup": {
+            "samples": 5,
+            "medianRssBytes": 137904128,
+            "sampledMaximumRssBytes": 219987968,
+            "minimumRssBytes": 35176448,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 243695616,
+            "sampledMaximumRssBytes": 243695616,
+            "minimumRssBytes": 243695616,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 4,
+            "medianRssBytes": 294281216,
+            "sampledMaximumRssBytes": 343392256,
+            "minimumRssBytes": 243695616,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 343425024,
+            "sampledMaximumRssBytes": 343425024,
+            "minimumRssBytes": 343392256,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 115,
+            "medianRssBytes": 343638016,
+            "sampledMaximumRssBytes": 343719936,
+            "minimumRssBytes": 343425024,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 6,
+            "medianRssBytes": 343719936,
+            "sampledMaximumRssBytes": 343719936,
+            "minimumRssBytes": 343719936,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "6c765ded176be263d9abbf267f437c7c6401b0d74381ea57c8f7f912345727dc",
+      "close": {
+        "observedProcesses": 3,
+        "residualProcesses": []
+      },
+      "indexBytes": 2179301,
+      "hostEnd": {
+        "freeMemoryBytes": 615612416,
+        "loadAverage": [
+          3.44482421875,
+          3.14404296875,
+          3.86376953125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:06:52.518Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "graphify",
+      "round": 1,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/1/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:06:52.540Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 611155968,
+        "loadAverage": [
+          3.44482421875,
+          3.14404296875,
+          3.86376953125
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 988.8127499999828,
+        "memory": {
+          "sampledMaximumRssBytes": 587956224,
+          "sampleCount": 12,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 102.37862500001211,
+          "stages": {
+            "setup": {
+              "samples": 12,
+              "medianRssBytes": 83927040,
+              "sampledMaximumRssBytes": 587956224,
+              "minimumRssBytes": 262144,
+              "maximumProcessCount": 12,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "bf46aad9eace042f358f404c188a0a18a8c9304ed3cd37e2533cf8fab9f00ede",
+        "errorSha256": "cff9b00d31fb9ee9eefd0e3c505c66b9a7b97329b291a26151f1198aa500b341",
+        "indexBytes": 320987
+      },
+      "rootPid": 93286,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 7.227041999984067,
+        "contentBytes": 6442,
+        "responseBytes": 6596,
+        "responseSha256": "4b01086a499f5e0d2c57f17029e34e090c257457b163911826d02cd0bac0b88a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 87916544,
+        "sampleCount": 142,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 285.92304200003855,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 57671680,
+            "sampledMaximumRssBytes": 84705280,
+            "minimumRssBytes": 21446656,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 87113728,
+            "sampledMaximumRssBytes": 87113728,
+            "minimumRssBytes": 87113728,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 3,
+            "medianRssBytes": 87113728,
+            "sampledMaximumRssBytes": 87916544,
+            "minimumRssBytes": 87113728,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "settling": {
+            "samples": 1,
+            "medianRssBytes": 87916544,
+            "sampledMaximumRssBytes": 87916544,
+            "minimumRssBytes": 87916544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 87916544,
+            "sampledMaximumRssBytes": 87916544,
+            "minimumRssBytes": 87916544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 115,
+            "medianRssBytes": 87916544,
+            "sampledMaximumRssBytes": 87916544,
+            "minimumRssBytes": 87916544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 87916544,
+            "sampledMaximumRssBytes": 87916544,
+            "minimumRssBytes": 87916544,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 320987,
+      "hostEnd": {
+        "freeMemoryBytes": 476725248,
+        "loadAverage": [
+          4.16015625,
+          3.41162109375,
+          3.9345703125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:07:27.722Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "codegraph",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:07:27.746Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 473628672,
+        "loadAverage": [
+          4.16015625,
+          3.41162109375,
+          3.9345703125
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 697.4749999999767,
+        "memory": {
+          "sampledMaximumRssBytes": 469958656,
+          "sampleCount": 10,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 84.97195799998008,
+          "stages": {
+            "setup": {
+              "samples": 10,
+              "medianRssBytes": 343621632,
+              "sampledMaximumRssBytes": 469958656,
+              "minimumRssBytes": 393216,
+              "maximumProcessCount": 4,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "faeff65904c5520393f3963be6416f8764d38ff7950914f65ee4c12ad6ee2fef",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 2179301
+      },
+      "rootPid": 94437,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 92.84812500001863,
+        "contentBytes": 17173,
+        "responseBytes": 17879,
+        "responseSha256": "2b25b87e2faec87637b87d09c3a018d2d2732f9c9c50b66c34ee30b5f86be57a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 342786048,
+        "sampleCount": 140,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 274.5828749999637,
+        "stages": {
+          "startup": {
+            "samples": 4,
+            "medianRssBytes": 123445248,
+            "sampledMaximumRssBytes": 199163904,
+            "minimumRssBytes": 37552128,
+            "maximumProcessCount": 4,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 5,
+            "medianRssBytes": 244924416,
+            "sampledMaximumRssBytes": 244924416,
+            "minimumRssBytes": 233832448,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 4,
+            "medianRssBytes": 293847040,
+            "sampledMaximumRssBytes": 342376448,
+            "minimumRssBytes": 244924416,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "settling": {
+            "samples": 1,
+            "medianRssBytes": 342376448,
+            "sampledMaximumRssBytes": 342376448,
+            "minimumRssBytes": 342376448,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 342409216,
+            "sampledMaximumRssBytes": 342409216,
+            "minimumRssBytes": 342376448,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 114,
+            "medianRssBytes": 342654976,
+            "sampledMaximumRssBytes": 342786048,
+            "minimumRssBytes": 342409216,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 342786048,
+            "sampledMaximumRssBytes": 342786048,
+            "minimumRssBytes": 342786048,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "4f2efe326828435197683c5bb0d7472a174bc75923ea3a42b69b8ae604b25a80",
+      "close": {
+        "observedProcesses": 4,
+        "residualProcesses": []
+      },
+      "indexBytes": 2179301,
+      "hostEnd": {
+        "freeMemoryBytes": 569425920,
+        "loadAverage": [
+          3.3515625,
+          3.28662109375,
+          3.8662109375
+        ]
+      },
+      "finishedAt": "2026-10-06T15:08:02.518Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "graphify",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:08:02.539Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 569753600,
+        "loadAverage": [
+          3.3515625,
+          3.28662109375,
+          3.8662109375
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 819.7074580000481,
+        "memory": {
+          "sampledMaximumRssBytes": 596639744,
+          "sampleCount": 11,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 99.83854199998314,
+          "stages": {
+            "setup": {
+              "samples": 11,
+              "medianRssBytes": 88375296,
+              "sampledMaximumRssBytes": 596639744,
+              "minimumRssBytes": 278528,
+              "maximumProcessCount": 12,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "5f00a129b7fa77a9b361669587f54ac907db783baed4644f69b9e0f731da1c44",
+        "errorSha256": "cff9b00d31fb9ee9eefd0e3c505c66b9a7b97329b291a26151f1198aa500b341",
+        "indexBytes": 320995
+      },
+      "rootPid": 94849,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 7.008083000022452,
+        "contentBytes": 6442,
+        "responseBytes": 6596,
+        "responseSha256": "4b01086a499f5e0d2c57f17029e34e090c257457b163911826d02cd0bac0b88a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 88326144,
+        "sampleCount": 140,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 338.015374999959,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 58474496,
+            "sampledMaximumRssBytes": 87556096,
+            "minimumRssBytes": 21790720,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 3,
+            "medianRssBytes": 87556096,
+            "sampledMaximumRssBytes": 87556096,
+            "minimumRssBytes": 87556096,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 4,
+            "medianRssBytes": 87941120,
+            "sampledMaximumRssBytes": 88326144,
+            "minimumRssBytes": 87556096,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 88326144,
+            "sampledMaximumRssBytes": 88326144,
+            "minimumRssBytes": 88326144,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 114,
+            "medianRssBytes": 88326144,
+            "sampledMaximumRssBytes": 88326144,
+            "minimumRssBytes": 88326144,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 88326144,
+            "sampledMaximumRssBytes": 88326144,
+            "minimumRssBytes": 88326144,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 320995,
+      "hostEnd": {
+        "freeMemoryBytes": 728432640,
+        "loadAverage": [
+          3.0830078125,
+          3.22265625,
+          3.81787109375
+        ]
+      },
+      "finishedAt": "2026-10-06T15:08:37.534Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "typelatch",
+      "round": 2,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/2/typelatch/data",
+      "startedAt": "2026-10-06T15:08:37.556Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 728432640,
+        "loadAverage": [
+          3.0830078125,
+          3.22265625,
+          3.81787109375
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 849.185708999983,
+        "memory": {
+          "sampledMaximumRssBytes": 298057728,
+          "sampleCount": 12,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 76.01174999994691,
+          "stages": {
+            "setup": {
+              "samples": 12,
+              "medianRssBytes": 201089024,
+              "sampledMaximumRssBytes": 298057728,
+              "minimumRssBytes": 229376,
+              "maximumProcessCount": 2,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "2d7cd1368c7ae4e33907ea754bcea26d24ea621889df10d45e4bceb750d8b405",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 868352
+      },
+      "rootPid": 95863,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 365.02449999999953,
+        "contentBytes": 7825,
+        "responseBytes": 16252,
+        "responseSha256": "221965099880c75bb5a1f9cbc18933296186dcad1c2caca82b9f7e3cfc51e888",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 219824128,
+        "sampleCount": 142,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 283.68358399998397,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 55599104,
+            "sampledMaximumRssBytes": 70090752,
+            "minimumRssBytes": 41107456,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78413824,
+            "sampledMaximumRssBytes": 78413824,
+            "minimumRssBytes": 78413824,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 9,
+            "medianRssBytes": 188219392,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 78413824,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 219824128,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 219824128,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 115,
+            "medianRssBytes": 209895424,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 68796416,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68796416,
+            "sampledMaximumRssBytes": 68796416,
+            "minimumRssBytes": 68796416,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 868352,
+      "hostEnd": {
+        "freeMemoryBytes": 1004552192,
+        "loadAverage": [
+          2.7060546875,
+          3.12841796875,
+          3.76025390625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:09:12.575Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "graphify",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/graphify/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/graphify/repo/graphify-out",
+      "startedAt": "2026-10-06T15:09:12.597Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 1004552192,
+        "loadAverage": [
+          2.7060546875,
+          3.12841796875,
+          3.76025390625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 943.0420419999864,
+        "memory": {
+          "sampledMaximumRssBytes": 587595776,
+          "sampleCount": 12,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 116.51754200004507,
+          "stages": {
+            "setup": {
+              "samples": 12,
+              "medianRssBytes": 90464256,
+              "sampledMaximumRssBytes": 587595776,
+              "minimumRssBytes": 278528,
+              "maximumProcessCount": 12,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "6bb36ace38f945b54ecef6e26a849c1352b540c81fe517c689362a5664e0b3d8",
+        "errorSha256": "cff9b00d31fb9ee9eefd0e3c505c66b9a7b97329b291a26151f1198aa500b341",
+        "indexBytes": 320993
+      },
+      "rootPid": 97990,
+      "server": {
+        "name": "graphify",
+        "version": "0.9.77"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 7.077583000063896,
+        "contentBytes": 6442,
+        "responseBytes": 6596,
+        "responseSha256": "4b01086a499f5e0d2c57f17029e34e090c257457b163911826d02cd0bac0b88a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 87900160,
+        "sampleCount": 139,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 275.58774999994785,
+        "stages": {
+          "startup": {
+            "samples": 7,
+            "medianRssBytes": 57655296,
+            "sampledMaximumRssBytes": 85164032,
+            "minimumRssBytes": 20529152,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 87179264,
+            "sampledMaximumRssBytes": 87179264,
+            "minimumRssBytes": 87179264,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 3,
+            "medianRssBytes": 87900160,
+            "sampledMaximumRssBytes": 87900160,
+            "minimumRssBytes": 87179264,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 87900160,
+            "sampledMaximumRssBytes": 87900160,
+            "minimumRssBytes": 87900160,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 113,
+            "medianRssBytes": 87900160,
+            "sampledMaximumRssBytes": 87900160,
+            "minimumRssBytes": 87900160,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 87900160,
+            "sampledMaximumRssBytes": 87900160,
+            "minimumRssBytes": 87900160,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 1,
+        "residualProcesses": []
+      },
+      "indexBytes": 320993,
+      "hostEnd": {
+        "freeMemoryBytes": 554811392,
+        "loadAverage": [
+          2.3115234375,
+          2.9599609375,
+          3.6708984375
+        ]
+      },
+      "finishedAt": "2026-10-06T15:09:47.768Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "typelatch",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/typelatch/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/typelatch/data",
+      "startedAt": "2026-10-06T15:09:47.791Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 546373632,
+        "loadAverage": [
+          2.3115234375,
+          2.9599609375,
+          3.6708984375
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 846.5676250000251,
+        "memory": {
+          "sampledMaximumRssBytes": 295272448,
+          "sampleCount": 11,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 85.18583299999591,
+          "stages": {
+            "setup": {
+              "samples": 11,
+              "medianRssBytes": 217186304,
+              "sampledMaximumRssBytes": 295272448,
+              "minimumRssBytes": 229376,
+              "maximumProcessCount": 2,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "9788903a1192edc9f054f8a43137d1d610fffa638fd4f4e22c211c3dec529231",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 868352
+      },
+      "rootPid": 99113,
+      "server": {
+        "name": "typelatch",
+        "version": "0.2.0"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 368.7739999999758,
+        "contentBytes": 7825,
+        "responseBytes": 16252,
+        "responseSha256": "a8465fc6bddb804186add5e31e5a93e3d55dfca8df309b673a836ecab6001437",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 219824128,
+        "sampleCount": 144,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 302.4795409999788,
+        "stages": {
+          "startup": {
+            "samples": 2,
+            "medianRssBytes": 56475648,
+            "sampledMaximumRssBytes": 73170944,
+            "minimumRssBytes": 39780352,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 78692352,
+            "sampledMaximumRssBytes": 78692352,
+            "minimumRssBytes": 78692352,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 8,
+            "medianRssBytes": 181985280,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 78692352,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "settling": {
+            "samples": 1,
+            "medianRssBytes": 219824128,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 219824128,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 219824128,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 219824128,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 117,
+            "medianRssBytes": 193282048,
+            "sampledMaximumRssBytes": 219824128,
+            "minimumRssBytes": 68681728,
+            "maximumProcessCount": 2,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 68681728,
+            "sampledMaximumRssBytes": 68681728,
+            "minimumRssBytes": 68681728,
+            "maximumProcessCount": 1,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "close": {
+        "observedProcesses": 2,
+        "residualProcesses": []
+      },
+      "indexBytes": 868352,
+      "hostEnd": {
+        "freeMemoryBytes": 2016755712,
+        "loadAverage": [
+          3.3544921875,
+          3.189453125,
+          3.7265625
+        ]
+      },
+      "finishedAt": "2026-10-06T15:10:22.833Z"
+    },
+    {
+      "corpus": "repository",
+      "provider": "codegraph",
+      "round": 3,
+      "root": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/codegraph/repo",
+      "index": "/private/var/folders/qg/rcngfvlx725ddmw0_4v7pxsw0000gn/T/typelatch-process-space-LEXupE/repository/3/codegraph/repo/.codegraph",
+      "startedAt": "2026-10-06T15:10:22.858Z",
+      "status": "ok",
+      "hostStart": {
+        "freeMemoryBytes": 2014543872,
+        "loadAverage": [
+          3.3544921875,
+          3.189453125,
+          3.7265625
+        ]
+      },
+      "setup": {
+        "status": "ok",
+        "elapsedMs": 784.2604170000413,
+        "memory": {
+          "sampledMaximumRssBytes": 468385792,
+          "sampleCount": 11,
+          "sampleErrorCount": 0,
+          "maximumSampleGapMs": 99.88429099996574,
+          "stages": {
+            "setup": {
+              "samples": 11,
+              "medianRssBytes": 273760256,
+              "sampledMaximumRssBytes": 468385792,
+              "minimumRssBytes": 573440,
+              "maximumProcessCount": 3,
+              "rootAbsentSamples": 0
+            }
+          }
+        },
+        "outputSha256": "06980f97bd33aa9addf59c26d87a760e05135e6f7ad15669cc6fdf7cfee4d57b",
+        "errorSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "indexBytes": 2179301
+      },
+      "rootPid": 4728,
+      "server": {
+        "name": "codegraph",
+        "version": "1.6.2"
+      },
+      "query": {
+        "status": "ok",
+        "elapsedMs": 103.17404100007843,
+        "contentBytes": 17173,
+        "responseBytes": 17879,
+        "responseSha256": "2b25b87e2faec87637b87d09c3a018d2d2732f9c9c50b66c34ee30b5f86be57a",
+        "expectedSourcePathMentioned": true
+      },
+      "memory": {
+        "sampledMaximumRssBytes": 344113152,
+        "sampleCount": 142,
+        "sampleErrorCount": 0,
+        "maximumSampleGapMs": 271.49183399998583,
+        "stages": {
+          "startup": {
+            "samples": 4,
+            "medianRssBytes": 131596288,
+            "sampledMaximumRssBytes": 201146368,
+            "minimumRssBytes": 37322752,
+            "maximumProcessCount": 4,
+            "rootAbsentSamples": 0
+          },
+          "baseline": {
+            "samples": 4,
+            "medianRssBytes": 242450432,
+            "sampledMaximumRssBytes": 242450432,
+            "minimumRssBytes": 235126784,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "query": {
+            "samples": 5,
+            "medianRssBytes": 250806272,
+            "sampledMaximumRssBytes": 343736320,
+            "minimumRssBytes": 242450432,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "retainedIdle": {
+            "samples": 7,
+            "medianRssBytes": 343785472,
+            "sampledMaximumRssBytes": 343785472,
+            "minimumRssBytes": 343736320,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "idleWaiting": {
+            "samples": 117,
+            "medianRssBytes": 344031232,
+            "sampledMaximumRssBytes": 344113152,
+            "minimumRssBytes": 343785472,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          },
+          "lateIdle": {
+            "samples": 5,
+            "medianRssBytes": 344113152,
+            "sampledMaximumRssBytes": 344113152,
+            "minimumRssBytes": 344113152,
+            "maximumProcessCount": 3,
+            "rootAbsentSamples": 0
+          }
+        }
+      },
+      "stderrSha256": "c37b49085c920dc856f528f9799be1f46e6b48fe81147bd47c9a8e205d48d7d5",
+      "close": {
+        "observedProcesses": 5,
+        "residualProcesses": []
+      },
+      "indexBytes": 2179301,
+      "hostEnd": {
+        "freeMemoryBytes": 1987018752,
+        "loadAverage": [
+          3.42822265625,
+          3.228515625,
+          3.71923828125
+        ]
+      },
+      "finishedAt": "2026-10-06T15:10:57.723Z"
+    }
+  ],
+  "summary": {
+    "small/typelatch": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        45056,
+        45056,
+        45056
+      ],
+      "setupSampledMaximumRssBytes": [
+        271089664,
+        279642112,
+        270024704
+      ],
+      "servingSampledMaximumRssBytes": [
+        220184576,
+        219021312,
+        219758592
+      ],
+      "medianServingSampledMaximumRssBytes": 219758592,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            78512128,
+            78086144,
+            78135296
+          ],
+          "medianAcrossRoundsRssBytes": 78135296,
+          "roundMaximumRssBytes": [
+            78512128,
+            78086144,
+            78135296
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            190054400,
+            196820992,
+            188563456
+          ],
+          "medianAcrossRoundsRssBytes": 190054400,
+          "roundMaximumRssBytes": [
+            220184576,
+            219021312,
+            219758592
+          ],
+          "maximumProcessCounts": [
+            2,
+            2,
+            2
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            220184576,
+            219021312,
+            219758592
+          ],
+          "medianAcrossRoundsRssBytes": 219758592,
+          "roundMaximumRssBytes": [
+            220184576,
+            219021312,
+            219758592
+          ],
+          "maximumProcessCounts": [
+            2,
+            2,
+            2
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            68468736,
+            68517888,
+            68616192
+          ],
+          "medianAcrossRoundsRssBytes": 68517888,
+          "roundMaximumRssBytes": [
+            68468736,
+            68517888,
+            68616192
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    "small/codegraph": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        184549,
+        184549,
+        184549
+      ],
+      "setupSampledMaximumRssBytes": [
+        455901184,
+        391430144,
+        459423744
+      ],
+      "servingSampledMaximumRssBytes": [
+        335314944,
+        335282176,
+        334512128
+      ],
+      "medianServingSampledMaximumRssBytes": 335282176,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            242974720,
+            243187712,
+            242745344
+          ],
+          "medianAcrossRoundsRssBytes": 242974720,
+          "roundMaximumRssBytes": [
+            242991104,
+            243187712,
+            242761728
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            289071104,
+            244252672,
+            288579584
+          ],
+          "medianAcrossRoundsRssBytes": 288579584,
+          "roundMaximumRssBytes": [
+            334954496,
+            334888960,
+            334102528
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            334987264,
+            334954496,
+            334184448
+          ],
+          "medianAcrossRoundsRssBytes": 334954496,
+          "roundMaximumRssBytes": [
+            334987264,
+            334954496,
+            334184448
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            335314944,
+            335282176,
+            334512128
+          ],
+          "medianAcrossRoundsRssBytes": 335282176,
+          "roundMaximumRssBytes": [
+            335314944,
+            335282176,
+            334512128
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "small/graphify": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        23684,
+        23683,
+        23681
+      ],
+      "setupSampledMaximumRssBytes": [
+        51134464,
+        51003392,
+        50905088
+      ],
+      "servingSampledMaximumRssBytes": [
+        85639168,
+        85966848,
+        85835776
+      ],
+      "medianServingSampledMaximumRssBytes": 85835776,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            85557248,
+            85868544,
+            85753856
+          ],
+          "medianAcrossRoundsRssBytes": 85753856,
+          "roundMaximumRssBytes": [
+            85557248,
+            85868544,
+            85753856
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "medianAcrossRoundsRssBytes": 85835776,
+          "roundMaximumRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "medianAcrossRoundsRssBytes": 85835776,
+          "roundMaximumRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "medianAcrossRoundsRssBytes": 85835776,
+          "roundMaximumRssBytes": [
+            85639168,
+            85966848,
+            85835776
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    "repository/typelatch": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        868352,
+        868352,
+        868352
+      ],
+      "setupSampledMaximumRssBytes": [
+        300924928,
+        298057728,
+        295272448
+      ],
+      "servingSampledMaximumRssBytes": [
+        219873280,
+        219824128,
+        219824128
+      ],
+      "medianServingSampledMaximumRssBytes": 219824128,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            78544896,
+            78413824,
+            78692352
+          ],
+          "medianAcrossRoundsRssBytes": 78544896,
+          "roundMaximumRssBytes": [
+            78544896,
+            78413824,
+            78692352
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            189489152,
+            188219392,
+            181985280
+          ],
+          "medianAcrossRoundsRssBytes": 188219392,
+          "roundMaximumRssBytes": [
+            219873280,
+            219824128,
+            219824128
+          ],
+          "maximumProcessCounts": [
+            2,
+            2,
+            2
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            219873280,
+            219824128,
+            219824128
+          ],
+          "medianAcrossRoundsRssBytes": 219824128,
+          "roundMaximumRssBytes": [
+            219873280,
+            219824128,
+            219824128
+          ],
+          "maximumProcessCounts": [
+            2,
+            2,
+            2
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            68632576,
+            68796416,
+            68681728
+          ],
+          "medianAcrossRoundsRssBytes": 68681728,
+          "roundMaximumRssBytes": [
+            68632576,
+            68796416,
+            68681728
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    },
+    "repository/codegraph": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        2179301,
+        2179301,
+        2179301
+      ],
+      "setupSampledMaximumRssBytes": [
+        464322560,
+        469958656,
+        468385792
+      ],
+      "servingSampledMaximumRssBytes": [
+        343719936,
+        342786048,
+        344113152
+      ],
+      "medianServingSampledMaximumRssBytes": 343719936,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            243695616,
+            244924416,
+            242450432
+          ],
+          "medianAcrossRoundsRssBytes": 243695616,
+          "roundMaximumRssBytes": [
+            243695616,
+            244924416,
+            242450432
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            294281216,
+            293847040,
+            250806272
+          ],
+          "medianAcrossRoundsRssBytes": 293847040,
+          "roundMaximumRssBytes": [
+            343392256,
+            342376448,
+            343736320
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            343425024,
+            342409216,
+            343785472
+          ],
+          "medianAcrossRoundsRssBytes": 343425024,
+          "roundMaximumRssBytes": [
+            343425024,
+            342409216,
+            343785472
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            343719936,
+            342786048,
+            344113152
+          ],
+          "medianAcrossRoundsRssBytes": 343719936,
+          "roundMaximumRssBytes": [
+            343719936,
+            342786048,
+            344113152
+          ],
+          "maximumProcessCounts": [
+            3,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    "repository/graphify": {
+      "attemptedRounds": 3,
+      "successfulRounds": 3,
+      "failedRounds": 0,
+      "allExpectedSourcePathsMentioned": true,
+      "indexBytes": [
+        320987,
+        320995,
+        320993
+      ],
+      "setupSampledMaximumRssBytes": [
+        587956224,
+        596639744,
+        587595776
+      ],
+      "servingSampledMaximumRssBytes": [
+        87916544,
+        88326144,
+        87900160
+      ],
+      "medianServingSampledMaximumRssBytes": 87916544,
+      "stages": {
+        "baseline": {
+          "roundMedianRssBytes": [
+            87113728,
+            87556096,
+            87179264
+          ],
+          "medianAcrossRoundsRssBytes": 87179264,
+          "roundMaximumRssBytes": [
+            87113728,
+            87556096,
+            87179264
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "query": {
+          "roundMedianRssBytes": [
+            87113728,
+            87941120,
+            87900160
+          ],
+          "medianAcrossRoundsRssBytes": 87900160,
+          "roundMaximumRssBytes": [
+            87916544,
+            88326144,
+            87900160
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "retainedIdle": {
+          "roundMedianRssBytes": [
+            87916544,
+            88326144,
+            87900160
+          ],
+          "medianAcrossRoundsRssBytes": 87916544,
+          "roundMaximumRssBytes": [
+            87916544,
+            88326144,
+            87900160
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        },
+        "lateIdle": {
+          "roundMedianRssBytes": [
+            87916544,
+            88326144,
+            87900160
+          ],
+          "medianAcrossRoundsRssBytes": 87916544,
+          "roundMaximumRssBytes": [
+            87916544,
+            88326144,
+            87900160
+          ],
+          "maximumProcessCounts": [
+            1,
+            1,
+            1
+          ]
+        }
+      }
+    }
+  },
+  "limitations": [
+    "RSS is resident pages mapped into each process. Summing a process tree can count shared pages more than once. It is not unique physical memory, proportional set size, memory pressure, or reclaimable memory.",
+    "Maximum means the greatest observed sample, not a true peak. Sampling can miss short lived processes and allocation spikes. Raw samples include actual gaps and ps duration.",
+    "A root PID and recursively observed descendants define ownership. Detached observed descendants remain tracked. A daemon that detaches before any sample may be missed. No daemon mode is requested.",
+    "Operating system caches are not purged. Each server is fresh and each index is prepared in a separate setup process. The first measured query therefore reads an existing index.",
+    "Three rotated rounds on two authored corpora are descriptive observations. One shared machine and a small number of rounds do not establish statistical or universal superiority.",
+    "Each provider returns different context. A matching source path is a retrieval access control, not proof of equivalent source completeness or completed code behavior.",
+    "Graphify uses local code only extraction without clustering or model calls. Setup, installation files and runtime disk footprint are separate from serving RSS.",
+    "The controller, ps sampler and unrelated processes are excluded from provider sums. Background host activity is uncontrolled and can affect residency.",
+    "Captured RSS and source path controls do not measure model token use or agent outcome quality. Error and empty responses are not counted as successful low memory retrievals."
+  ],
+  "identityUnchanged": {
+    "typelatch": true,
+    "codegraph": true,
+    "graphify": true,
+    "pythonRuntime": true
+  },
+  "completedSessions": 18,
+  "successfulSessions": 18,
+  "finishedAt": "2026-10-06T15:11:00.227Z",
+  "raw": {
+    "path": "artifacts/competitive/process-space/2026-10-06T15-00-27.459Z/samples-and-responses.json.gz",
+    "bytes": 935335,
+    "sha256": "acceb8d68ccb022db523414347870adda6b299ac2dccaed3a030961071dd044f"
+  }
+}

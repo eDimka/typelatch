@@ -1,0 +1,120 @@
+{
+  "generatedAt": "2026-10-06T14:22:00.011Z",
+  "kind": "workspace cache storage regression",
+  "node": "v22.23.1",
+  "sqlite": "3.53.4",
+  "passed": true,
+  "baselineRef": "0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125",
+  "baselineModuleSha256": "b311c8afe241dcef46206396a97c757d80d509aaedaabbe0e1dcc05f9698c333",
+  "currentModuleSha256": "3abab7d4facc665081d7673cb4cf2f53f89ad4df622c6ab0402acb4b341b8145",
+  "method": "Fresh isolated SQLite caches, identical pinned Git corpus and absolute paths, default production page size, database and WAL/SHM logical bytes after connections close. Allocated bytes are stat.blocks times 512. Every ordered candidate, truncation signal, limit signal and refresh count compared across 16 questions. Timings are one sequential run and have no latency gate.",
+  "limitations": "Authored fixtures and one repository snapshot. Measures the workspace cache, excluding dependencies, package indexes, executable size and process memory. No competitor or general agent superiority claim. Very small indexes may grow because an additional content table and file lookup index have fixed page costs. Migration rebuild cost is covered by tests but excluded from these fresh cache measurements.",
+  "reproduction": "Run npm run build then node scripts/benchmark-storage.mjs. Requires local Git commit 0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125 and installed package dependencies. Reconstructs the baseline and corpus from that immutable commit and compiles it with the same installed compiler and dependencies as the current version. No prior artifact files are required. Optional --baseline-ref <git-commit> explicitly selects a different comparison.",
+  "rawArchive": {
+    "path": "artifacts/competitive/storage/evidence.json.gz",
+    "sha256": "1d0a9d3a813e5c7bb7af4d555bee84087d2758698a72bfc7a8f82b526b72b517",
+    "bytes": 928920
+  },
+  "rawEvidence": [
+    "artifacts/competitive/storage/baseline-rerun.json",
+    "artifacts/competitive/storage/after.json",
+    "artifacts/competitive/storage/corpus.json"
+  ],
+  "rows": [
+    {
+      "name": "small",
+      "files": 1,
+      "sourceBytes": 74,
+      "fixtureSha256": "1ef30292dc26749c92148af8157035c4f55552e8dc67ccc77cf777938f19f5c3",
+      "beforeBytes": 32768,
+      "afterBytes": 36864,
+      "savedBytes": -4096,
+      "reductionPercent": -12.5,
+      "beforeAllocatedBytes": 32768,
+      "afterAllocatedBytes": 36864,
+      "queries": 3,
+      "orderedCandidateParity": true,
+      "warmNoRebuild": true,
+      "beforeFirstMs": 9.004541000000017,
+      "afterFirstMs": 3.542124999999942,
+      "beforeWarmMs": [
+        1.068416999999954,
+        0.9765840000000026,
+        0.6093339999999898
+      ],
+      "afterWarmMs": [
+        0.9591250000003129,
+        0.7250410000001466,
+        0.6937079999997877
+      ]
+    },
+    {
+      "name": "repository",
+      "files": 57,
+      "sourceBytes": 392163,
+      "fixtureSha256": "0e2fcca6f03ee9288bb4646efab54ae2d37e6ab3ffadc8ea0def97eee9a8fa69",
+      "beforeBytes": 4952064,
+      "afterBytes": 1228800,
+      "savedBytes": 3723264,
+      "reductionPercent": 75.19,
+      "beforeAllocatedBytes": 4952064,
+      "afterAllocatedBytes": 1228800,
+      "queries": 9,
+      "orderedCandidateParity": true,
+      "warmNoRebuild": true,
+      "beforeFirstMs": 192.51479100000006,
+      "afterFirstMs": 123.36045899999999,
+      "beforeWarmMs": [
+        3.8912920000002487,
+        1.6865410000000338,
+        1.9724169999999503,
+        2.7934580000001006,
+        1.7231670000001031,
+        2.213333000000148,
+        2.7316249999998945,
+        1.6622499999998581,
+        1.551665999999841
+      ],
+      "afterWarmMs": [
+        2.4630409999999756,
+        1.3753330000004098,
+        1.6236669999998412,
+        1.9427919999998267,
+        1.5573749999998654,
+        1.8080409999997755,
+        1.7507909999999356,
+        1.2286669999998594,
+        1.6497079999999187
+      ]
+    },
+    {
+      "name": "generated",
+      "files": 80,
+      "sourceBytes": 538720,
+      "fixtureSha256": "d6388f9fc184062248432006119aa2fa65aa1ee2d4c1904e7598bf513dca202b",
+      "beforeBytes": 6864896,
+      "afterBytes": 1441792,
+      "savedBytes": 5423104,
+      "reductionPercent": 79,
+      "beforeAllocatedBytes": 6864896,
+      "afterAllocatedBytes": 1441792,
+      "queries": 4,
+      "orderedCandidateParity": true,
+      "warmNoRebuild": true,
+      "beforeFirstMs": 174.01479199999994,
+      "afterFirstMs": 112.0168749999998,
+      "beforeWarmMs": [
+        7.35287500000004,
+        8.215416999999889,
+        6.981374999999844,
+        0.8818750000000364
+      ],
+      "afterWarmMs": [
+        4.197125000000142,
+        5.8987090000000535,
+        4.199708999999984,
+        0.7958749999997963
+      ]
+    }
+  ]
+}

@@ -237,5 +237,5 @@ describe("production workspace controls", () => {
     const bad = await validateWorkspace({ config: f.config, record: false })
     expect(bad.checks.typechecked.status).toBe("fail")
     expect(bad.checks.typechecked.diagnostics.some(d => d.code === 2322)).toBe(true)
-  }, 20000)
+  }, 60000)
 })

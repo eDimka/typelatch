@@ -16,6 +16,24 @@ export type WorkspaceSearchResult = SearchChunk & {
   projectRoot: string | null; dependencyRoots: string[]; kind: string; signature: string | null
 }
 type DependencyCoverage = Dependency & { status: "searched" | "missing-index" | "error"; reason?: string }
+type SearchPreview = Pick<WorkspaceSearchResult, "origin" | "source" | "line" | "endLine" | "symbol" | "position" | "kind" | "score" | "matchedTerms" | "snippet"> &
+  Partial<Pick<WorkspaceSearchResult, "package" | "version" | "integrity" | "projectRoot" | "dependencyRoots" | "signature">> & {
+    preview: { omittedCharacters: number }
+    inspect?: { tool: "library_symbol"; arguments: { package: string; version: string; symbol: string } }
+  }
+
+function previewResult(result: WorkspaceSearchResult): SearchPreview {
+  const characters = [...result.snippet]
+  const { origin, source, line, endLine, symbol, position, kind, score, matchedTerms } = result
+  return {
+    origin, source, line, endLine, symbol, position, kind, score, matchedTerms,
+    snippet: characters.slice(0, 360).join(""), preview: { omittedCharacters: Math.max(0, characters.length - 360) },
+    ...(origin === "workspace" ? { projectRoot: result.projectRoot } : {
+      package: result.package, version: result.version, integrity: result.integrity, dependencyRoots: result.dependencyRoots,
+      ...(result.package && result.version && symbol ? { inspect: { tool: "library_symbol" as const, arguments: { package: result.package, version: result.version, symbol } } } : {})
+    })
+  }
+}
 
 export async function workspaceSearch(input: SearchRequest, options: { signal?: AbortSignal } = {}) {
   const request = searchSchema.parse(input)
@@ -79,11 +97,13 @@ export async function workspaceSearch(input: SearchRequest, options: { signal?: 
   const complete = issues.length === 0 && dependencies.every(item => item.status === "searched")
   const gapsFirst = [...dependencies].sort((a, b) => Number(a.status === "searched") - Number(b.status === "searched"))
   return {
-    workspaceRoot: root, question: request.question, scope,
+    workspaceRoot: root, question: request.question, scope, detail: request.detail ?? "full",
     status: !complete ? "partial" as const : results.length ? "ok" as const : "empty" as const,
-    results, latencyMs: Math.round(performance.now() - started), index: indexed?.index ?? null,
+    results: request.detail === "compact" ? results.map(previewResult) : results,
+    latencyMs: Math.round(performance.now() - started), index: indexed?.index ?? null,
     coverage: {
       complete, selection: inventory.selection, files: inventory.files.filter(file => file.searchable).length,
+      ...(inventory.savedScope ? { savedScope: inventory.savedScope } : {}),
       projects: inventory.projects.slice(0, 100), configs: inventory.configs.slice(0, 100),
       projectsOmitted: Math.max(0, inventory.projects.length - 100), configsOmitted: Math.max(0, inventory.configs.length - 100),
       excluded: inventory.excluded.map(item => ({ ...item, path: relative(root, item.path) })), excludedCount: inventory.excludedCount,

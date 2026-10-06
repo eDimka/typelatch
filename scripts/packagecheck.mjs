@@ -1,13 +1,14 @@
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'))
-const directory = mkdtempSync(join(tmpdir(), `${pkg.name}-install-`))
+const directory = realpathSync(mkdtempSync(join(tmpdir(), `${pkg.name}-install-`)))
+const firstUse = realpathSync(mkdtempSync(join(tmpdir(), `${pkg.name}-first-use-`)))
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 const run = (command, args, options = {}) => execFileSync(command, args, { encoding: 'utf8', timeout: 180_000, ...options })
 const env = { ...process.env, TYPELATCH_HOME: join(directory, 'data'), TYPELATCH_USAGE: 'off' }
@@ -15,10 +16,11 @@ let client
 try {
   const packed = JSON.parse(run(npm, ['pack', '--json', '--ignore-scripts', '--pack-destination', directory]))[0]
   assert(packed.files.some(file => file.path === 'dist/benchmark/corpus.json'))
+  assert(packed.files.some(file => file.path === 'scripts/setup-mcp.sh' && (file.mode & 0o111)))
   assert.equal(packed.files.filter(file => file.path.startsWith('dist/benchmark/cases/') && file.path.endsWith('.json')).length, 10)
   assert(!packed.files.some(file => /node_modules|\.env|\.db$/.test(file.path)))
   writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module' }))
-  const artifact = process.env.TYPELATCH_PACKAGE ?? join(directory, packed.filename)
+  const artifact = process.env.TYPELATCH_PACKAGE || join(directory, packed.filename)
   if (process.env.TYPELATCH_PACKAGE?.endsWith('.tgz')) {
     assert(readFileSync(artifact).equals(readFileSync(join(directory, packed.filename))), 'Release artifact must exactly match the checked source package')
   }
@@ -27,6 +29,29 @@ try {
   assert.equal(JSON.parse(readFileSync(join(installed, 'package.json'), 'utf8')).version, pkg.version)
   const cli = join(installed, 'dist/cli.js')
   assert.match(run(process.execPath, [cli, '--help'], { cwd: directory, env }), /local API evidence/)
+  assert.match(run(process.execPath, [cli, 'setup', '--help'], { cwd: firstUse, env }), /typelatch setup/)
+  const setupBin = join(firstUse, 'clients')
+  const setupCapture = join(firstUse, 'registration.json')
+  mkdirSync(setupBin)
+  for (const name of ['codex', 'claude']) {
+    writeFileSync(join(setupBin, name), '#!/usr/bin/env node\nrequire("node:fs").writeFileSync(process.env.SETUP_CAPTURE, JSON.stringify(process.argv.slice(2)))\n', { mode: 0o755 })
+  }
+  const setupEnv = { ...env, PATH: `${setupBin}:${env.PATH}`, SETUP_CAPTURE: setupCapture }
+  // Run the packed package through npm in a directory with no project or installation.
+  const setupOutput = run(npm, ['exec', '--yes', '--cache', join(firstUse, 'npm-cache'), '--package', artifact, '--', 'typelatch', 'setup'], {
+    cwd: firstUse, env: setupEnv, input: '1\n\ny\n',
+  })
+  assert.match(setupOutput, /Registered typelatch with codex/)
+  let registration = JSON.parse(readFileSync(setupCapture, 'utf8'))
+  assert.deepEqual(registration.slice(0, 4), ['mcp', 'add', 'typelatch', '--'])
+  assert.match(registration[4], /(?:^|\/)npx$/)
+  assert.deepEqual(registration.slice(5), ['--yes', `--package=typelatch@${pkg.version}`, 'typelatch-mcp'])
+  assert(!JSON.stringify(registration).includes(firstUse), 'Do not persist temporary npm package paths')
+  run(process.execPath, [cli, 'setup'], { cwd: firstUse, env: setupEnv, input: '2\n\ny\n' })
+  registration = JSON.parse(readFileSync(setupCapture, 'utf8'))
+  assert.deepEqual(registration.slice(0, 8), ['mcp', 'add', '--transport', 'stdio', '--scope', 'user', 'typelatch', '--'])
+  assert.deepEqual(registration.slice(9), ['--yes', `--package=typelatch@${pkg.version}`, 'typelatch-mcp'])
+  console.log('Fresh npm setup registered both stub clients with the exact package version and no checkout dependency.')
   const corpusUrl = new URL(`file://${join(installed, 'dist/benchmark/corpus.js')}`).href
   const cases = run(process.execPath, ['--input-type=module', '-e', `const m = await import(${JSON.stringify(corpusUrl)}); console.log(m.loadCorpus().packages.reduce((n, p) => n + m.corpusCaseFile(p.name).length, 0))`], { cwd: directory, env })
   assert.equal(Number(cases.trim()), 73)
@@ -39,6 +64,12 @@ try {
   writeFileSync(join(directory, 'index.ts'), 'export const answer: number = 42\n')
   const workspaceSearch = JSON.parse(run(process.execPath, [cli, 'search', 'answer', '--scope', 'workspace', '--json'], { cwd: directory, env }))
   assert(workspaceSearch.results.some(item => item.symbol === 'answer' && item.line === 1))
+  const warmSearch = JSON.parse(run(process.execPath, [cli, 'search', 'answer', '--scope', 'workspace', '--json'], { cwd: directory, env }))
+  const compactSearch = JSON.parse(run(process.execPath, [cli, 'search', 'answer', '--compact', '--scope', 'workspace', '--json'], { cwd: directory, env }))
+  assert.equal(compactSearch.detail, 'compact')
+  assert.deepEqual(compactSearch.coverage, warmSearch.coverage)
+  assert.deepEqual(compactSearch.checks, workspaceSearch.checks)
+  assert(compactSearch.results.some(item => item.symbol === 'answer' && item.preview.omittedCharacters === 0))
   const request = { config: join(directory, 'tsconfig.json'), record: false, testCommand: [process.execPath, '-e', 'require("node:assert/strict").equal(6 * 7, 42)'] }
   writeFileSync(join(directory, 'request.json'), JSON.stringify(request))
   const validation = JSON.parse(run(process.execPath, [cli, 'validate', join(directory, 'request.json')], { cwd: directory, env }))
@@ -46,6 +77,7 @@ try {
   client = new Client({ name: 'releasecheck', version: pkg.version })
   const transport = new StdioClientTransport({ command: process.execPath, args: [join(installed, 'dist/mcp.js')], cwd: directory, env })
   await client.connect(transport)
+  assert.equal(client.getServerVersion()?.version, pkg.version, 'MCP advertises the released package version')
   const listed = await client.listTools()
   assert.deepEqual(listed.tools.map(tool => tool.name).sort(), ['library_feedback', 'library_search', 'library_stats', 'library_symbol', 'workspace_context', 'workspace_search', 'workspace_validate'])
   const discovery = await client.callTool({ name: 'workspace_search', arguments: { workspaceRoot: directory, question: 'answer', scope: 'workspace' } })
@@ -61,10 +93,89 @@ try {
   assert(dependencyContent.results.some(item => item.package === 'ansi-regex' && item.version === '6.3.0'))
   assert.equal(dependencyContent.status, 'partial')
   assert.equal(dependencyContent.coverage.missingIndexes, 1)
+  const lockFixtures = [
+    ['pnpm-lock.yaml', "lockfileVersion: '9.0'\nimporters:\n  .:\n    dependencies:\n      ansi-regex:\n        version: 6.3.0\npackages:\n  ansi-regex@6.3.0: {}\n"],
+    ['bun.lock', JSON.stringify({ lockfileVersion: 1, packages: { 'ansi-regex': ['ansi-regex@6.3.0', '', {}] } })],
+    ['yarn.lock', '__metadata:\n  version: 8\n"ansi-regex@npm:^6.0.0":\n  version: 6.3.0\n  resolution: "ansi-regex@npm:6.3.0"\n']
+  ]
+  for (const [file, text] of lockFixtures) {
+    const fixture = join(directory, `lock-${file}`)
+    mkdirSync(fixture)
+    writeFileSync(join(fixture, 'package.json'), JSON.stringify({ dependencies: { 'ansi-regex': '^6.0.0' } }))
+    writeFileSync(join(fixture, file), text)
+    assert.match(run(process.execPath, [cli, 'sync'], { cwd: fixture, env }), /ansi-regex@6\.3\.0 already installed/)
+    const discovery = await client.callTool({ name: 'workspace_search', arguments: { workspaceRoot: fixture, question: 'ansiRegex', scope: 'dependencies' } })
+    assert.notEqual(discovery.isError, true)
+    const content = JSON.parse(discovery.content.find(item => item.type === 'text').text)
+    assert(content.results.some(item => item.package === 'ansi-regex' && item.version === '6.3.0'), file)
+    assert(content.coverage.dependencies.every(item => item.identity === 'lockfile' && item.installed === false), file)
+  }
+  const monorepo = join(directory, 'monorepo')
+  mkdirSync(join(monorepo, '.git'), { recursive: true })
+  mkdirSync(join(monorepo, 'apps/web'), { recursive: true })
+  mkdirSync(join(monorepo, 'apps/api'), { recursive: true })
+  mkdirSync(join(monorepo, 'examples/ignored'), { recursive: true })
+  writeFileSync(join(monorepo, 'package.json'), JSON.stringify({ private: true, workspaces: ['apps/*'] }))
+  for (const project of ['apps/web', 'apps/api']) writeFileSync(join(monorepo, project, 'package.json'), JSON.stringify({ dependencies: { 'ansi-regex': '^6.0.0' } }))
+  writeFileSync(join(monorepo, 'examples/ignored/package.json'), JSON.stringify({ dependencies: { 'never-download-this': '1.0.0' } }))
+  writeFileSync(join(monorepo, 'pnpm-lock.yaml'), "lockfileVersion: '9.0'\nimporters:\n  .: {}\n  apps/web:\n    dependencies:\n      ansi-regex:\n        version: 6.3.0\npackages:\n  ansi-regex@6.3.0: {}\n")
+  writeFileSync(join(monorepo, 'apps/api/bun.lock'), JSON.stringify({ lockfileVersion: 1, packages: { 'ansi-regex': ['ansi-regex@6.3.0', '', {}] } }))
+  const syncPlan = JSON.parse(run(process.execPath, [cli, 'sync', '--workspaces', '--dry-run', '--json'], { cwd: monorepo, env }))
+  assert.equal(syncPlan.ready, true)
+  assert.equal(syncPlan.projects.length, 3)
+  assert.equal(syncPlan.targets.length, 1)
+  assert.equal(syncPlan.targets[0].sources.length, 2)
+  assert.equal(syncPlan.targets[0].cache, 'ready')
+  const synced = JSON.parse(run(process.execPath, [cli, 'sync', '--project', 'apps/web', '--project', 'apps/api', '--json'], { cwd: monorepo, env }))
+  assert.equal(synced.success, true)
+  assert.deepEqual(synced.results.map(item => item.status), ['cached'])
+  console.log('Packed monorepo sync preview and execution selected declared projects, resolved shared and nested locks, and reused one exact index.')
+  run('git', ['init', '-q', monorepo])
+  writeFileSync(join(monorepo, 'apps/web/index.ts'), 'export const scopeMarkerWeb = true\n')
+  writeFileSync(join(monorepo, 'apps/api/index.ts'), 'export const scopeMarkerApi = true\n')
+  const scopeCommand = (...args) => JSON.parse(run(process.execPath, [cli, 'scope', ...args, '--json'], { cwd: monorepo, env }))
+  const scopedSearch = async (scope = 'workspace', question = 'scopeMarker') => {
+    const response = await client.callTool({ name: 'workspace_search', arguments: { workspaceRoot: monorepo, question, scope } })
+    assert.notEqual(response.isError, true)
+    return JSON.parse(response.content.find(item => item.type === 'text').text)
+  }
+  assert.deepEqual(scopeCommand('add', 'apps/web').projects, [join(monorepo, 'apps/web')])
+  const savedPlan = JSON.parse(run(process.execPath, [cli, 'sync', '--dry-run', '--json'], { cwd: join(monorepo, 'apps/web'), env }))
+  assert.equal(savedPlan.ready, true)
+  assert.equal(savedPlan.projects.length, 1)
+  assert.equal(savedPlan.savedScope.path, join(monorepo, '.typelatch/scope.json'))
+  const scoped = await scopedSearch()
+  assert.deepEqual(scoped.results.map(item => item.symbol), ['scopeMarkerWeb'])
+  assert.equal(scoped.coverage.complete, true)
+  assert.equal(scoped.coverage.savedScope.dependencyPolicy, 'direct')
+  const scopedDependencies = await scopedSearch('dependencies', 'ansiRegex')
+  assert.equal(scopedDependencies.coverage.dependencyCount, 1)
+  assert(scopedDependencies.results.some(item => item.package === 'ansi-regex' && item.version === '6.3.0'))
+  assert.equal((await scopedSearch()).index.updatedFiles, 0)
+  scopeCommand('add', 'apps/api')
+  const expanded = await scopedSearch()
+  assert.deepEqual(expanded.results.map(item => item.symbol).sort(), ['scopeMarkerApi', 'scopeMarkerWeb'])
+  assert.equal(expanded.index.updatedFiles, 2)
+  scopeCommand('remove', 'apps/web')
+  const contracted = await scopedSearch()
+  assert.deepEqual(contracted.results.map(item => item.symbol), ['scopeMarkerApi'])
+  assert.equal(contracted.index.removedFiles, 2)
+  scopeCommand('remove', 'apps/api')
+  assert.deepEqual((await scopedSearch()).results, [])
+  assert.equal(scopeCommand('clear').removed, true)
+  assert.equal(scopeCommand('list').configured, false)
+  console.log('Packed saved scope limited source and dependencies, inherited from a project directory, expanded without rebuilding unchanged files, contracted, and cleared in a live MCP session.')
   const result = await client.callTool({ name: 'library_search', arguments: { package: 'ansi-regex', version: '6.3.0', question: 'ansiRegex' } })
   assert.notEqual(result.isError, true)
   const content = JSON.parse(result.content.find(item => item.type === 'text').text)
   assert(content.results.length > 0)
+  const exact = await client.callTool({ name: 'library_symbol', arguments: { package: 'ansi-regex', version: '6.3.0', symbol: content.results[0].symbol } })
+  assert.notEqual(exact.isError, true)
+  const exactContent = JSON.parse(exact.content.find(item => item.type === 'text').text)
+  assert.equal(exactContent.lookup.status, 'exact')
+  assert.equal(exactContent.results.length, 1)
+  const missing = await client.callTool({ name: 'library_symbol', arguments: { package: 'ansi-regex', version: '6.3.0', symbol: `missing/module.${content.results[0].symbol.split('.').at(-1)}` } })
+  assert.equal(JSON.parse(missing.content.find(item => item.type === 'text').text).lookup.status, 'not-found')
   writeFileSync(join(directory, 'index.ts'), 'export const answer: number = "wrong"\n')
   const invalid = await client.callTool({ name: 'workspace_validate', arguments: request })
   assert.notEqual(invalid.isError, true)
@@ -76,4 +187,5 @@ try {
 } finally {
   await client?.close()
   rmSync(directory, { recursive: true, force: true })
+  rmSync(firstUse, { recursive: true, force: true })
 }

@@ -55,6 +55,12 @@ export type QueryResponse = {
   latencyMs: number
   results: QueryResultItem[]
   fallback: string | null
+  lookup?: {
+    status: "exact" | "ambiguous" | "not-found"
+    matchedBy: "qualified-name" | "bare-name" | null
+    totalMatches: number
+    omitted: number
+  }
 }
 
 export type BrainMetadata = {

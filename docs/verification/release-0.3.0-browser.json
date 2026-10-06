@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-10-06T15:34:18.043Z",
+  "browser": "153.0.8010.12",
+  "viewports": [
+    {
+      "width": 320,
+      "view": "lookup",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 320,
+      "view": "use",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 390,
+      "view": "lookup",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 390,
+      "view": "use",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 768,
+      "view": "lookup",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 768,
+      "view": "use",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 1024,
+      "view": "lookup",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 1024,
+      "view": "use",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 1440,
+      "view": "lookup",
+      "expandedEvidence": "fits"
+    },
+    {
+      "width": 1440,
+      "view": "use",
+      "expandedEvidence": "fits"
+    }
+  ],
+  "onboarding": [
+    {
+      "width": 320,
+      "viewportHeight": 844,
+      "commandBottom": 501.765625,
+      "declarationFontSize": 13
+    },
+    {
+      "width": 390,
+      "viewportHeight": 844,
+      "commandBottom": 479.375,
+      "declarationFontSize": 13
+    },
+    {
+      "width": 768,
+      "viewportHeight": 844,
+      "commandBottom": 589.484375,
+      "declarationFontSize": 13
+    },
+    {
+      "width": 1024,
+      "viewportHeight": 844,
+      "commandBottom": 633.671875,
+      "declarationFontSize": 13
+    },
+    {
+      "width": 1440,
+      "viewportHeight": 844,
+      "commandBottom": 680.734375,
+      "declarationFontSize": 13
+    }
+  ],
+  "checks": [
+    "Correct Typelatch page, immediate npm command, wordmark without a corner icon, exact recorded signature",
+    "Keyboard skip link, workflow navigation and native evidence disclosure",
+    "Clipboard success and honest denied-permission selection fallback",
+    "Reduced motion has static tracing and no smooth scrolling, replay never claims live execution",
+    "JavaScript disabled retains both workflows, setup and native disclosure",
+    "Printed output includes both workflows",
+    "No page exceptions or failed local resources",
+    "README and social banner rendered from original local artwork"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-10-06T14:51:33.386952+00:00",
+  "scope": "Competitive product changes and captured candidate, not a publication or universal superiority result",
+  "candidate": {
+    "path": "/tmp/typelatch-competitive-candidate-20261006",
+    "manifest": "artifacts/competitive/verification/candidate-snapshot.json",
+    "manifestSha256": "5e0e616708b524feacebae0751d9cf0519c631c76846519174a086c937c5c6ab",
+    "sourceAndBuildArchive": "artifacts/competitive/verification/candidate-source-and-build.tar.gz",
+    "archiveSha256": "4b90b5a61341a7887df9588adb8bfa8df651eb9413cd75e7e15fb0ddd7a34453"
+  },
+  "checks": [
+    {
+      "command": "npm run release:check",
+      "cwd": "/tmp/typelatch-competitive-candidate-20261006",
+      "exitCode": 0,
+      "tests": {
+        "passed": 159,
+        "skipped": 1
+      },
+      "log": "artifacts/competitive/verification/frozen-release-check.log",
+      "result": "Type check, complete test suite, clean packed installation, CLI and seven MCP tools, compact output parity, exact lookup and negative controls passed.",
+      "logSha256": "a7e0b5b4c354c5ae9cb292e8d33c6b5706923dce8bcbc1126f7be23f35fc1a3f"
+    },
+    {
+      "command": "node scripts/benchmark-workspace.mjs",
+      "cwd": "/tmp/typelatch-competitive-candidate-20261006",
+      "exitCode": 0,
+      "casesPassed": 8,
+      "casesTotal": 8,
+      "log": "artifacts/competitive/verification/frozen-workspace-benchmark.log",
+      "logSha256": "896b96451caba603eb2b1aefcf97ef8c961209090e01cc1c89d26e2531cca63c"
+    },
+    {
+      "command": "node scripts/benchmark-package-storage.mjs",
+      "exitCode": 0,
+      "log": "artifacts/competitive/verification/package-storage.log",
+      "logSha256": "bcbe65b29de44be64fa67d1f26b08b0d9889a6bb333898b8f854e68b23e8d860"
+    },
+    {
+      "command": "node scripts/benchmark-usability.mjs",
+      "exitCode": 0,
+      "log": "artifacts/competitive/verification/usability.log",
+      "logSha256": "8d6940866e3a1167f16288bf22408a94743360fd8c9f86e84ac8f28abde5e9be"
+    },
+    {
+      "command": "node scripts/showcase-agent.mjs",
+      "exitCode": 0,
+      "log": "artifacts/competitive/verification/showcase-agent.log",
+      "limitation": "Curated replay. Final artifact match is unknown; compiler and assertion success are distinct.",
+      "logSha256": "19f7dca657455f82a49f1685f52baa1174db8d4b3e3de0932f9aedd153bd3434"
+    },
+    {
+      "command": "node scripts/benchmark-install-space.mjs <codegraph-install> <graphify-python>",
+      "cwd": "/tmp/typelatch-competitive-candidate-20261006",
+      "exitCode": 0,
+      "log": "artifacts/competitive/verification/frozen-install-space.log",
+      "logSha256": "8f1ef3962cfb95b6ca3e79dd896ba8ceb56dae1caf286aaefef106608929ed70"
+    },
+    {
+      "command": "npm audit --json",
+      "exitCode": 0,
+      "advisories": 0,
+      "log": "artifacts/competitive/verification/audit-after.json",
+      "logSha256": "b9ae3639f1668a3192da1b385470edd3c32073f937c3e652d663a588405606d9"
+    }
+  ],
+  "reports": {
+    "storage": {
+      "path": "docs/benchmarks/storage.json",
+      "sha256": "357447b9fb096d752b2d033164f58f1a97cdba6a0b70584ce9b0787a6113f091"
+    },
+    "package-storage": {
+      "path": "docs/benchmarks/package-storage.json",
+      "sha256": "8dea6ac73a2c940028834e275d962589f458036b705426ba2ca7a69c9f9985f2"
+    },
+    "search-session": {
+      "path": "docs/benchmarks/search-session.json",
+      "sha256": "264aa7ecb1c53738dc9034d1e0d0a4cab7c4557448de0718629f07106e096599"
+    },
+    "usability": {
+      "path": "docs/benchmarks/usability.json",
+      "sha256": "033c9b3ec7fb62f2fc469185f58f9b6412333d9bdcb8e627a4dd1553a3a306db"
+    },
+    "competitive-final-small": {
+      "path": "docs/benchmarks/competitive-final-small.json",
+      "sha256": "7c0aca443d2af3615c4ecf4280831fd09ec0f506d3da96d24216c05e7c4ef90f"
+    },
+    "competitive-final-repository": {
+      "path": "docs/benchmarks/competitive-final-repository.json",
+      "sha256": "a4a06da6bd93f7a8422f182e5dc18564b699b513a4c1e27d4d088989ac9fe235"
+    },
+    "competitive-final-integrity": {
+      "path": "docs/benchmarks/competitive-final-integrity.json",
+      "sha256": "9d2053f885d78bda2aa4a805eae5eeee6859159cabdcef7ca7aa73159bc9eec0"
+    },
+    "install-space": {
+      "path": "docs/benchmarks/install-space.json",
+      "sha256": "6478d42803c71088fae58e371f10b15fb87991c1f4c9e0731120eebc24c17e53"
+    },
+    "agent-pilot": {
+      "path": "docs/benchmarks/agent-pilot.json",
+      "sha256": "f17d4abdda30a0d1dc31d68782fc97790f57800bfcf6383597749170f476a050"
+    },
+    "retrieval": {
+      "path": "docs/benchmarks/retrieval.json",
+      "sha256": "3cb8394d28d5b1e6113677ab753fb3951aa5751e635b619e15de95b220c382e5"
+    },
+    "support": {
+      "path": "docs/benchmarks/support.json",
+      "sha256": "befc528702ca18c029307c53973916a195c69c22f4d8584a1bfbce6746d908fa"
+    },
+    "workspace-search": {
+      "path": "docs/benchmarks/workspace-search.json",
+      "sha256": "47601d8a0dc61e21d1f961081756a527df27d956a49f32970a852f08db79b5b4"
+    }
+  },
+  "currentSourceDriftFromCandidate": [
+    "src/lockfiles.ts",
+    "src/cli.ts",
+    "src/mcp.ts",
+    "src/workspace/inventory.ts"
+  ],
+  "limitations": [
+    "Concurrent setup and lockfile work was preserved. Later changes to the shared checkout are not validated by the frozen candidate release result.",
+    "The coding pilot used an earlier recorded product snapshot. It did not capture executed dist hashes, model token use, or a host sandbox.",
+    "Storage, session, retrieval and support reports describe their own source snapshots and must not be treated as one unseen-task benchmark.",
+    "The first moving-checkout release attempt encountered four unfinished concurrent lockfile tests. Its failure log is preserved as release-check.log; the frozen candidate subsequently passed.",
+    "No npm package publication, push or commit was performed for this comparison."
+  ]
+}

@@ -1,13 +1,31 @@
 # Usage
 
-Search exact dependency APIs, then check their use in a local TypeScript project. The CLI and MCP server share the same implementation. The published npm release is **0.1.1**. Workspace discovery through `workspace_search` and `typelatch search` belongs to **unreleased 0.2.0** and requires the [source setup](#local-data-and-source-setup).
+Start with a workspace question, inspect the relevant source or exact dependency APIs, then check their use in a local TypeScript project. The CLI and MCP server share the same implementation.
 
 ## Install and connect
+
+Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI on `PATH`. Run this from any directory:
+
+```sh
+npx typelatch@0.3.0 setup
+```
+
+Choose your client, keep or change the server name, then confirm registration. Setup pins the exact Typelatch version being run and configures npm as the server launcher. It does not require a clone, global installation, or a project dependency. The client can launch it after npm clears its temporary package cache. Restart your client in the project and ask: "Use workspace_search to explain how this project is organized."
+
+Running setup again with a newer release prepares a registration for that version. Codex can replace the named entry; Claude Code may require you to remove the old entry first or choose another name.
+
+To prepare dependency indexes without installing globally, run `npx typelatch@0.3.0 sync` in your project. The SQLite dependency uses a native binary. If no suitable binary is available, npm installation requires a working C++ build toolchain. Initial installation and an uncached server launch need npm access.
+
+### Source checkout and manual registration
+
+From a source checkout, run `npm run setup:mcp` for interactive registration with Codex or Claude Code. You can also run `bash scripts/setup-mcp.sh` directly. Choose the current checkout, an installed `typelatch-mcp`, or an exact npm package version, then review and confirm the command. Registration uses your client user configuration.
+
+The checkout option runs `npm ci` if `node_modules` is missing and builds before registration. It records absolute Node and server paths, so keep the checkout in place. The installed option records the executable found on `PATH`. The npm option looks up the current published version and checks the selected exact version before registration. It needs network access and may download the package when the server first starts. Published versions can have fewer tools than the current source. Registration does not itself verify server health.
 
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. If your platform has no suitable binary, installation requires a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.1.1
+npm install --global typelatch@0.3.0
 typelatch --help
 typelatch add kysely@0.28.8
 ```
@@ -45,7 +63,7 @@ For a client that accepts an MCP JSON configuration:
 }
 ```
 
-Start a new client session after registration or upgrading. Published version 0.1.1 exposes the [six published tools](#mcp-tool-reference) over standard input and output. It does not include `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
+Start a new client session after registration or upgrading. Version 0.3.0 exposes the [seven tools](#mcp-tool-reference) over standard input and output, including `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
 
 <details>
 <summary>Use npm without a global installation</summary>
@@ -53,14 +71,14 @@ Start a new client session after registration or upgrading. Published version 0.
 Prepare the same local index:
 
 ```sh
-npx --yes --package=typelatch@0.1.1 typelatch add kysely@0.28.8
+npx --yes --package=typelatch@0.3.0 typelatch add kysely@0.28.8
 ```
 
 Register either client with npm as the launcher:
 
 ```sh
-codex mcp add typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
-claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
+codex mcp add typelatch -- npx --yes --package=typelatch@0.3.0 typelatch-mcp
+claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.3.0 typelatch-mcp
 ```
 
 The package name is `typelatch`. Its server executable is `typelatch-mcp`. Do not use `npx typelatch-mcp`, which asks npm for a different package. The npm launcher may need network access before it can start the server. Use the same `TYPELATCH_HOME` for index preparation and the server if you override the default.
@@ -113,7 +131,7 @@ A client can use its normal file tools for edits. Typelatch does not edit source
 
 ## Library discovery
 
-An explicit version makes an index request reproducible. Without one, `add` first checks the current npm lockfile and otherwise resolves through npm. Search without a version uses the newest installed index, not necessarily the workspace version.
+An explicit version makes an index request reproducible. Without one, `add` first checks the project lockfile and otherwise resolves through npm. Search without a version uses the newest installed index, not necessarily the workspace version.
 
 ```sh
 typelatch add kysely@0.28.8
@@ -121,7 +139,62 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 typelatch sync
 ```
 
-`sync` indexes direct locked dependencies. Supply package names to restrict it, for example `typelatch sync kysely`. Packages need TypeScript declarations or usable TypeScript sources. Indexing a JavaScript package does not automatically fetch its separate `@types` package.
+`sync` indexes direct locked dependencies, including development and optional dependencies. Supply package names to restrict it, for example `typelatch sync kysely`. Packages need TypeScript declarations or usable TypeScript sources. Indexing a JavaScript package does not automatically fetch its separate `@types` package.
+
+| Package manager | Lockfile | Supported schema |
+| :--- | :--- | :--- |
+| npm | `package-lock.json`, `npm-shrinkwrap.json` | 1 to 3 |
+| pnpm | `pnpm-lock.yaml` | 5, 6, 9 |
+| Yarn | `yarn.lock` | Classic and modern Yarn |
+| Bun | `bun.lock` | 0, 1 |
+
+Workspace packages can use a lockfile in a parent directory. Aliases retain the actual registry package name. If several package managers have lockfiles, set `packageManager` in `package.json` to choose one. npm shrinkwrap takes precedence over package lock, and Bun text takes precedence over Bun binary.
+
+Without a saved scope, `sync` defaults to the package in the current directory. Select projects explicitly or expand the workspace declarations:
+
+```sh
+typelatch sync --workspaces
+typelatch sync --project apps/web --project services/api
+typelatch sync kysely --project apps/web
+typelatch sync --workspaces --dry-run --json
+typelatch sync --project apps/web --lockfile pnpm-lock.yaml
+```
+
+`--workspaces` includes the root and declared member packages from `package.json` or `pnpm-workspace.yaml`, including declared exclusions. It does not automatically include unrelated examples or fixtures. Repeated `--project` flags replace the default selection and cannot be combined with `--workspaces`. Project paths and the optional `--lockfile` path are relative to the current directory. A lockfile override applies to one selected project and must be in that project's directory or an ancestor.
+
+### Keep a monorepo subset
+
+Save the projects you work on, then add more when needed. Run these commands from the repository root:
+
+```sh
+typelatch scope add apps/web packages/ui
+typelatch sync --dry-run --json
+typelatch sync
+typelatch search "Where are requests validated?"
+
+typelatch scope add services/api
+typelatch sync
+typelatch scope list
+typelatch scope remove apps/web
+```
+
+`scope add` preserves the existing selection and ignores duplicates. `scope set <project ...>` replaces it. Each path must name a directory with a `package.json`. Paths are relative to the current directory and saved relative to the repository or workspace root in `.typelatch/scope.json`. Commands in descendant directories find the nearest saved scope. Keep `.typelatch/` ignored for a personal selection.
+
+The saved scope applies to plain `sync`, CLI search, and MCP `workspace_search`. Search indexes the selected source subtrees and discovers only the selected projects' direct dependencies. Include local workspace packages explicitly when you want their source searched. Ancestor lockfiles and manifests can supply dependency identities without adding ancestor source or dependencies. Yarn Classic may also read declared member manifests to identify local workspace dependencies.
+
+Scope commands save the selection without downloading or indexing. Source changes take effect on the next search, including in an already running MCP server. Adding projects reuses unchanged source entries and existing package indexes. Removing projects removes their source from the workspace index on the next search. Shared package indexes remain available for other projects and explicit library queries.
+
+`scope list --json` shows the active configuration. Removing the last project leaves an explicit empty selection. `scope clear` removes the nearest saved scope, restoring the defaults unless an ancestor has another saved scope. Malformed configurations and missing selected projects produce errors instead of falling back to the whole repository.
+
+Explicit `sync --project` or `sync --workspaces` overrides the saved selection for that invocation without changing it. Search always intersects the saved source selection with its requested `workspaceRoot`, so a narrower search never expands to sibling projects. `coverage.savedScope` records the selection and its direct dependency policy. Completeness refers to that subset. The saved scope controls discovery and sync; explicit library queries, workspace context and validation keep their own requested targets.
+
+### Sync plans and identity
+
+Each project uses its nearest applicable lockfile. Independent nested projects can use different package managers. The complete plan is checked before downloads begin. Identical package artifacts are indexed once; different versions are retained. Conflicting integrity values for the same package and version stop sync because one cache entry cannot represent both artifacts.
+
+`--dry-run` reads local files and cache metadata without downloading packages or building indexes. Its output shows selected projects, lockfile paths, exact versions, cache status, skipped local dependencies and problems. Add `--json` for a structured plan. A plan with errors returns a nonzero exit code. Normal `--json` execution also returns per package results. Existing indexes are reused only when their metadata matches the requested identity; `--force` rebuilds them.
+
+Malformed files, unknown schemas and unresolved direct registry identities produce errors. Binary `bun.lockb` requires conversion with `bun install --save-text-lockfile --frozen-lockfile --lockfile-only`. Local workspace, file and link declarations are not downloaded by `sync` as registry packages.
 
 The equivalent `library_search` request is:
 
@@ -152,13 +225,13 @@ The CLI equivalent is:
 typelatch symbol kysely@0.28.8 esm/kysely.TransactionBuilder --json
 ```
 
-For other packages, use the exact returned `symbol` with the same `package` and `version`. Responses retain package identity, source locations, signatures, documentation, relationships, and retrieval signals. Finding a candidate does not establish that it resolves or compiles in your project.
+For other packages, use the exact returned `symbol` with the same `package` and `version`. Lookup is case sensitive. A qualified symbol must match that exact module and declaration; a missing qualified symbol never falls back to another module. Bare names can match several declarations. The `lookup` object reports `exact`, `ambiguous` or `not-found`, plus `totalMatches` and `omitted` counts, even when the returned list hides some candidates. Responses retain package identity, source locations, signatures, documentation, relationships, and retrieval signals. Finding a candidate does not establish that it resolves or compiles in your project.
 
 ## Workspace search
 
-**Unreleased 0.2.0 feature.** Published 0.1.1 does not include `workspace_search` or `typelatch search`. Complete the [source setup](#local-data-and-source-setup), register the locally linked `typelatch-mcp` executable, and restart the MCP client before following this section.
-
 For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
+
+Workspace search is included in version 0.3.0. Install or upgrade with `npm install --global typelatch@0.3.0`, then restart the MCP client so it discovers the new tool.
 
 Use `workspace_search` when the relevant file or dependency is unknown:
 
@@ -177,17 +250,20 @@ typelatch search "Where do we validate incoming requests?" --json
 typelatch search "retry failed requests" --root /absolute/path/to/repo --json
 typelatch search "validateRequest" --scope workspace --file src/server.ts --json
 typelatch search "retry with exponential delay" --scope dependencies --json
+typelatch search "retry failed requests" --compact --json
 ```
 
 `scope` is `all` by default, or `workspace` or `dependencies`. `file` is an optional path within the root that favors nearby workspace results. It does not limit the search or establish compiler resolution. `limit` is 1 through 20 and defaults to 8. MCP accepts `timeoutMs`, defaulting to 60000. Cancellation fails the request rather than returning an apparently complete result.
+
+Use `detail: "compact"` in MCP or `--compact` in the CLI for smaller discovery previews. The default is `full`. Compact results retain the same shortlist, ranking, source positions, coverage and evidence checks. Each snippet contains at most 360 Unicode characters, with `preview.omittedCharacters` recording any omitted portion of the original excerpt. Null package fields and duplicate signatures are omitted. Dependency hits include exact `inspect` arguments for `library_symbol`. Read the source or inspect the symbol before changing code; a preview is not the complete declaration. Compact mode is an output projection and does not change what gets indexed or searched.
 
 Source search includes internal declarations, implementation text, tests, documentation, and configuration. TypeScript and JavaScript declarations receive symbol names and UTF16 positions when the bundled parser recognizes them. Other UTF8 text is searched as text. No project compiler or application code executes during search.
 
 In Git workspaces, the inventory includes tracked and unignored files, including uncommitted edits. Generated and dependency directories, source symlinks, binary files, environment files, and common archive or media formats are excluded. Lockfiles supply dependency identities and are excluded from content retrieval. Outside Git, filesystem traversal remains available and reports that Git ignore rules were not applied. The response names the selection policy and samples exclusions. Linked source outside the root is outside the search scope.
 
-Search discovers nested package manifests, TypeScript configs, installed dependencies and nested transitive installations. It uses each installed manifest's name and exact version, including aliases and multiple versions, rather than the newest global index. npm lockfiles of version 2 or 3 also provide exact candidates when packages are not installed. These results are labeled `identity: "lockfile"` and `installed: false`. A lockfile candidate is not proof of workspace resolution. Other lockfile formats are not parsed; available installed manifests can still supply identities. Unidentified declared dependencies are reported.
+Search discovers nested package manifests, TypeScript configs, installed dependencies and nested transitive installations. It uses each installed manifest's name and exact version, including aliases and multiple versions, rather than the newest global index. Supported npm, pnpm, Yarn and Bun text lockfiles also provide exact candidates when packages are not installed. These results are labeled `identity: "lockfile"` and `installed: false`. A lockfile candidate is not proof of workspace resolution. Unsupported formats and resolutions are reported as coverage gaps; available installed manifests can still supply identities. For lock entries without an installation path, dependency roots point to the lockfile. Modern Yarn checksums describe Yarn archives and are not treated as npm artifact integrity. Unidentified declared dependencies are reported.
 
-Search uses existing package indexes and does not download or build missing ones. Run `typelatch sync` in each relevant npm project to prepare direct locked dependencies. Missing entries in `coverage.dependencies` include exact `typelatch add name@version` commands, including for transitive packages. A JavaScript package without usable TypeScript declarations may still be unindexable. Do not substitute another version. Registry metadata and any available lockfile integrity must match; installed artifact equivalence remains unknown.
+Search uses existing package indexes and does not download or build missing ones. Run `typelatch sync --workspaces` for declared workspace packages, or select projects with repeated `--project` flags, to prepare their direct locked dependencies. Missing entries in `coverage.dependencies` include exact `typelatch add name@version` commands, including for transitive packages. A JavaScript package without usable TypeScript declarations may still be unindexable. Do not substitute another version. Registry metadata and any available lockfile integrity must match; installed artifact equivalence remains unknown.
 
 Each source hit includes an absolute `source`, `line`, `endLine`, compact `snippet`, owning `projectRoot`, and optional `symbol` and `position`. A dependency hit instead identifies its package, exact version, registry integrity, artifact relative source path, and known dependency roots. Inspect it with `library_symbol` using that identity. `coverage.configs` lists discovered configs; the agent must select one that owns the relevant file before using `workspace_context`.
 
@@ -213,9 +289,9 @@ authorized assertions. Report missing evidence separately.
 
 The result `status` is `ok` when candidates were found with complete declared inventory coverage, `empty` when no candidates were found with that coverage, and `partial` when inventories, indexes, or file indexing have gaps. `coverage.complete` refers to the declared inventory policy, not exhaustive retrieval, semantic understanding, or an atomic filesystem snapshot. The evidence checks explicitly leave resolution, compilation, and tests as `not-run`, and stability and installed artifact matching as `unknown`.
 
-Retrieval is lexical and uses a shared content score across source and dependency candidates, with a bounded shortlist and overlap suppression. It does not use embeddings. Current limits are 20000 inventoried paths, 1 MB per file, 64 MiB of workspace text, 2000 dependency installations, 500 chunks per file, 400 workspace candidates, 20 candidates per dependency, and 20 returned hits. Coverage reports inventory and indexing limits. Retrieval limits remain explicit even when inventory coverage is complete. Dependency coverage details prioritize gaps and show up to 40 entries with omitted counts; large project and config inventories are also summarized. An empty shortlist never proves that a symbol or behavior is absent.
+Retrieval is lexical and uses a shared content score across source and dependency candidates, with a bounded shortlist and overlap suppression. It does not use embeddings. Current limits are 20000 inventoried paths, 1 MB per source file, 64 MiB of workspace text, 2000 dependency installations, 500 chunks per file, 400 workspace candidates, 20 candidates per dependency, and 20 returned hits. A saved scope is applied before source enumeration and its limits. Scoped dependency discovery allows 2000 direct declarations and lockfiles up to 16 MiB. Coverage reports inventory and indexing limits. Retrieval limits remain explicit even when inventory coverage is complete. Dependency coverage details prioritize gaps and show up to 40 entries with omitted counts; large project and config inventories are also summarized. An empty shortlist never proves that a symbol or behavior is absent.
 
-The SQLite cache lives under `~/.typelatch/workspaces`, or the selected `TYPELATCH_HOME`. It stores source excerpts. Every search reads file contents and checks hashes, so same size edits with preserved timestamps, additions, removals, and changed ignore rules refresh the index. Unchanged files reuse cached chunks. `TYPELATCH_USAGE=off` controls query history, not this cache. Workspace searches currently do not create `library_feedback` query IDs or contribute to `library_stats`.
+The SQLite cache lives under `~/.typelatch/workspaces`, or the selected `TYPELATCH_HOME`. It stores search postings, source paths and excerpt positions. Excerpts are reconstructed from the contents read for the current request. The postings still reveal source terms, so treat the cache as workspace data. Every search reads file contents and checks hashes, so same size edits with preserved timestamps, additions, removals, and changed ignore rules refresh the index. Unchanged files reuse cached chunk positions. `TYPELATCH_USAGE=off` controls query history, not this cache. Workspace searches currently do not create `library_feedback` query IDs or contribute to `library_stats`.
 
 ## Workspace context
 
@@ -285,10 +361,9 @@ Validation records compiler inputs and, when execution is requested, the runtime
 
 ## MCP tool reference
 
-Published `typelatch@0.1.1` provides these six tools:
-
 | Tool | Request | Result |
 | :--- | :--- | :--- |
+| `workspace_search` | absolute `workspaceRoot`, `question`; optional `scope`, `file`, `detail`, `limit` from 1 to 20, `timeoutMs` | Ranked local file and exact dependency candidates, cache refresh details, coverage and evidence limits |
 | `library_search` | `package`, `question`; optional `version`, `limit` from 1 to 20 | Search results from an installed index |
 | `library_symbol` | `package`, `symbol`; optional `version` | Exact symbol lookup and relationships |
 | `workspace_context` | `config`, `file`; optional `importSpecifier`, `symbol`, `position`, `question`, `expectedVersion`, `overlays`, `limit`, `timeoutMs` | Workspace definitions, types, identity, and optional discovery |
@@ -296,19 +371,13 @@ Published `typelatch@0.1.1` provides these six tools:
 | `library_feedback` | `queryId` UUID; optional `accepted`, `compilePassed`, `testsPassed`, `notes` up to 1000 characters | Agent reported outcome stored against a prior query |
 | `library_stats` | `{}` | Local query, latency, hit rate, context size, and outcome aggregates |
 
-Unreleased 0.2.0 source development adds this seventh tool. It requires the [source setup](#local-data-and-source-setup).
-
-| Tool | Request | Result |
-| :--- | :--- | :--- |
-| `workspace_search` | absolute `workspaceRoot`, `question`; optional `scope`, `file`, `limit` from 1 to 20, `timeoutMs` | Ranked local file and exact dependency candidates, cache refresh details, coverage and evidence limits |
-
 Workspace tools accept the same fields as the corresponding CLI request files. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
 
 ## Local data and source setup
 
 Indexes and query history live in `~/.typelatch`. `TYPELATCH_HOME` selects another directory. `TYPELATCH_USAGE=off` disables query and validation recording. Explicit feedback can still update an existing query when requested. Query history can contain source related questions and feedback notes. The application does not upload that history. [Security](../SECURITY.md) describes the trust boundary.
 
-The source checkout contains unreleased 0.2.0 features, including `workspace_search` and `typelatch search`. To build, verify, and link this development version locally:
+To build and verify Typelatch itself:
 
 ```sh
 git clone https://github.com/eDimka/typelatch.git
@@ -317,7 +386,5 @@ npm ci
 npm run release:check
 npm link
 ```
-
-Register the linked `typelatch-mcp` executable using the client commands above, then start a new client session. This source build exposes seven MCP tools. It is separate from the six tools in published `typelatch@0.1.1`.
 
 [Contributing](../CONTRIBUTING.md) · [Architecture](ARCHITECTURE.md) · [Benchmark evidence](BENCHMARKS.md) · [Release checks](RELEASE.md)
