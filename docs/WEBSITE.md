@@ -42,7 +42,7 @@ The checked in README banner is generated from `site/brand-banner.html`. To rege
 
 The [publishing workflow](../.github/workflows/pages.yml) builds and checks the site on pull requests and on pushes to `main`. A push to `main` or a manual workflow run can publish only after the static checks, npm release check, and browser checks pass. The workflow uses pinned GitHub Actions, no site runtime secrets, and deployment permissions only in the deployment job.
 
-The npm release check reads the exact Typelatch installation and `--package` pins in `site/index.html`, `README.md`, and `docs/USAGE.md`. It verifies each version against `https://registry.npmjs.org`, including the returned package identity and artifact metadata. A missing version, registry failure, or mismatched identity prevents publication. The development version in `package.json` is not evidence of an npm release. Run the check separately from the offline static build:
+The npm release check reads the exact Typelatch installation, direct `npx`, and `--package` pins in `site/index.html`, `README.md`, and `docs/USAGE.md`. It verifies each version against `https://registry.npmjs.org`, including the returned package identity and artifact metadata. A missing version, registry failure, or mismatched identity prevents publication. The development version in `package.json` is not evidence of an npm release. Run the check separately from the offline static build:
 
 ```sh
 node --test scripts/site-releasecheck.test.mjs

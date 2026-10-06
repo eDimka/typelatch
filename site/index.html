@@ -50,7 +50,7 @@
     <main id="main">
       <section class="hero wrap" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="release-label">FOR CODEX AND CLAUDE CODE</p>
+          <p class="release-label">VERSION 0.3.0 · FOR CODEX AND CLAUDE CODE</p>
           <h1 id="hero-title">
             The right API.<br /><span>Not a wall<br />of docs.</span>
           </h1>
@@ -60,9 +60,9 @@
             More attention on the code.
           </p>
           <div class="hero-install">
-            <p class="small-label">INSTALL ONCE. CONNECT YOUR AGENT.</p>
+            <p class="small-label">CONNECT YOUR AGENT. NO CLONE NEEDED.</p>
             <div>
-              <pre><code id="hero-install-command">npm install --global typelatch@0.1.1</code></pre>
+              <pre><code id="hero-install-command">npx typelatch@0.3.0 setup</code></pre>
               <button type="button" data-copy="hero-install-command" hidden>Copy</button>
             </div>
           </div>
@@ -320,9 +320,10 @@
           <p class="eyebrow">MAKE IT PART OF THE WORKFLOW</p>
           <h2 id="setup-title">Your agent.<br /><span>Better equipped.</span></h2>
           <p>
-            Install published version 0.1.1, index a dependency,<br class="desktop-break" />
-            and connect your agent. No repository clone.
+            Run setup, choose your client,<br class="desktop-break" />
+            and confirm. No repository clone or global installation.
           </p>
+          <p>New in 0.3.0: interactive setup, exact locked dependencies, and saved monorepo scopes. <a href="https://github.com/eDimka/typelatch/blob/main/CHANGELOG.md#030">Release notes ↗</a></p>
           <a class="npm-link" href="https://www.npmjs.com/package/typelatch"
             >typelatch on npm <span aria-hidden="true">↗</span></a
           >
@@ -330,48 +331,50 @@
         <div class="setup-workbench">
           <div class="setup-command">
             <div class="code-heading">
-              <h3>Install Typelatch</h3>
+              <h3>Connect Typelatch</h3>
               <button type="button" data-copy="install-command" hidden>Copy</button>
             </div>
-            <pre><code id="install-command">npm install --global typelatch@0.1.1</code></pre>
+            <pre><code id="install-command">npx typelatch@0.3.0 setup</code></pre>
             <p>
-              Node.js 22.12 or newer. The native SQLite dependency may need a C++ toolchain if a
+              Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
+              The native SQLite dependency may need a C++ toolchain if a
               prebuilt binary is unavailable.
             </p>
           </div>
           <div class="setup-command">
             <div class="code-heading">
-              <h3>Give it an exact package</h3>
+              <h3>Initialize from your lockfile</h3>
               <button type="button" data-copy="index-command" hidden>Copy</button>
             </div>
-            <pre><code id="index-command">typelatch add kysely@0.28.8</code></pre>
+            <pre><code id="index-command">npx typelatch@0.3.0 sync</code></pre>
             <p>
-              Use the version in your project. Inside an npm project,
-              <code>typelatch sync</code> indexes direct locked dependencies. Indexing needs npm
-              access. Indexed search works offline.
+              Read exact direct dependencies from npm, pnpm, Yarn, or Bun text lockfiles.
+              Preview the plan with <code>sync --dry-run --json</code>, then build reusable local indexes.
+              Indexing needs npm access. Indexed search works offline.
+            </p>
+          </div>
+          <div class="setup-command">
+            <div class="code-heading">
+              <h3>Choose your monorepo projects</h3>
+              <button type="button" data-copy="scope-command" hidden>Copy</button>
+            </div>
+            <pre><code id="scope-command">npx typelatch@0.3.0 scope add apps/web packages/ui</code></pre>
+            <p>
+              Save the projects you need. Source search and plain <code>sync</code> use that selection.
+              Add more later with <code>scope add</code>, or narrow it with <code>scope remove</code>.
+              Use <code>sync --workspaces</code> to prepare every declared workspace instead.
+              <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md#keep-a-monorepo-subset">Monorepo workflow ↗</a>
             </p>
           </div>
           <div class="agent-install">
             <div class="agent-heading">
-              <h3>Connect your agent</h3>
+              <h3>Start your first session</h3>
               <span>LOCAL STDIO MCP</span>
             </div>
-            <div class="client-command">
-              <div class="code-heading">
-                <h4>Codex</h4>
-                <button type="button" data-copy="codex-command" hidden>Copy</button>
-              </div>
-              <pre><code id="codex-command">codex mcp add typelatch -- typelatch-mcp</code></pre>
-            </div>
-            <div class="client-command">
-              <div class="code-heading">
-                <h4>Claude Code</h4>
-                <button type="button" data-copy="claude-command" hidden>Copy</button>
-              </div>
-              <pre><code id="claude-command">claude mcp add --transport stdio --scope user typelatch -- typelatch-mcp</code></pre>
-            </div>
             <p>
-              Restart or reconnect your agent after configuration. Use the same
+              Setup registers the exact package version for the client you choose.
+              Restart your agent in your project and ask: "Use workspace_search to explain how this project is organized."
+              Use the same
               <code>TYPELATCH_HOME</code> for indexing and the MCP server.
               <a
                 href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md#install-and-connect"
@@ -391,22 +394,19 @@
               ><button type="button" data-copy="agent-prompt" hidden>Copy prompt</button>
             </div>
             <p id="agent-prompt">
-              Use library_search with my dependency's exact package name and version to find relevant
-              APIs. Inspect returned source locations and declarations with library_symbol. Resolve
-              the actual use in my project with workspace_context. After
+              Start with workspace_search and my repository root when the relevant file or package is
+              unknown. Inspect coverage gaps and returned source locations. Resolve the actual use
+              with workspace_context and inspect exact dependency APIs with library_symbol. After
               editing, use workspace_validate with authorized assertions. Report retrieval,
               resolution, compilation and tests separately, including anything unknown or not run.
             </p>
             <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
-              >More workflows and the six published tools <span aria-hidden="true">↗</span></a
+              >More workflows and all seven tools <span aria-hidden="true">↗</span></a
             >
             <p>
               <a href="https://github.com/eDimka/typelatch/blob/main/docs/showcase/agent-workflow.md"
                 >Follow the agent workflow: discover, reproduce, edit and verify</a
-              >. This exercise uses workspace_search from unreleased version 0.2.0 and requires a
-              <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md#local-data-and-source-setup"
-                >source build</a
-              >. It is not included in the published npm package.
+              >. Includes a runnable exercise, actual MCP requests and assertion output.
             </p>
           </div>
         </div>

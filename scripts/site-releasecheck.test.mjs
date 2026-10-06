@@ -66,3 +66,13 @@ test('rejects metadata for a different package or version and missing artifact m
     await assert.rejects(verifyPublishedPins(pins, { fetchImpl: async () => metadataResponse(metadata) }), /package identity mismatch/)
   await assert.rejects(verifyPublishedPins(pins, { fetchImpl: async () => metadataResponse({ ...published, dist: {} }) }), /artifact metadata is incomplete/)
 })
+
+
+test('checks direct npx setup and sync pins and rejects moving references', () => {
+  assert.deepEqual(collectInstallPins([{ path: 'site/index.html', text: 'npx typelatch@0.3.0 setup\nnpx --yes typelatch@0.3.0 sync' }]), [
+    { path: 'site/index.html', version: '0.3.0' },
+    { path: 'site/index.html', version: '0.3.0' },
+  ])
+  for (const command of ['npx typelatch@latest setup', 'npx typelatch setup'])
+    assert.throws(() => collectInstallPins([{ path: 'README.md', text: 'npm install typelatch@0.1.1\n' + command }]), /requires an exact typelatch version/)
+})

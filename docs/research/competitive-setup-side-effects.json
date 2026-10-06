@@ -1,0 +1,76 @@
+{
+  "event": "Graphify 0.9.77 CLI automatically refreshed an existing skill on first extraction before GRAPHIFY_NO_AUTO_REFRESH was configured",
+  "restored": [
+    {
+      "path": "/Users/dima/.claude/skills/graphify/SKILL.md",
+      "sha256": "628d21bccca09247f1e1499a21f2e9a3030988f72ee3f3940bc3722a3230c753",
+      "source": "Exact SKILL.md.bak bytes"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/.graphify_version",
+      "value": "0.8.44",
+      "source": "Logged previous version"
+    }
+  ],
+  "unresolved": [],
+  "mitigation": "All subsequent competitor calls use isolated HOME and XDG directories; Graphify automatic skill refresh is disabled.",
+  "backupSearch": {
+    "locations": [
+      "/Users/dima/.claude/skills/graphify",
+      "/Users/dima/.cache/uv/archive-v0",
+      "/Users/dima/.local/share/uv/tools"
+    ],
+    "result": "Only the exact SKILL.md backup and new graphifyy 0.9.77 cache were found. No original reference sidecar was available."
+  },
+  "referenceRecovery": [
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/add-watch.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/add-watch.md",
+      "sha256": "b3f67570240582689c2834b4831917550c2d1aaf042148868c39dcbf387ce3fd",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/add-watch.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/exports.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/exports.md",
+      "sha256": "ee47fae477f106d8aed38798c58493b5a7f060a0d9d2581ce6132302827bc14b",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/exports.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/extraction-spec.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/extraction-spec.md",
+      "sha256": "32c1b89647b824456e8063ec3045a441c8fc95084e3c1a2b4a692116e8210bf7",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/extraction-spec.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/github-and-merge.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/github-and-merge.md",
+      "sha256": "e5ebd90c7686f50363ff7a535556bc2f596d4c47ec1e6c8b95e11e36a0dfea2b",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/github-and-merge.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/hooks.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/hooks.md",
+      "sha256": "b9a4e9f66813c6fc720589f1071d1a03c95756ab7101447e14e57291fe7844e5",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/hooks.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/query.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/query.md",
+      "sha256": "286b69e67b7657188aa24165f01a030cc1a69f0d3ee359979a3009b74eba0ead",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/query.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/transcribe.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/transcribe.md",
+      "sha256": "676a1e39aa6d43cdfcc416ec56616e36f7bad74066a82bd33a9485515b9a865c",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/transcribe.md"
+    },
+    {
+      "path": "/Users/dima/.claude/skills/graphify/references/update.md",
+      "source": "/Users/dima/.local/pipx/venvs/graphifyy/lib/python3.14/site-packages/graphify/skills/claude/references/update.md",
+      "sha256": "bf01e88661952a40d6e170b491d98cf1070838e87cf6ab3623bf8f9c6940881e",
+      "previousReplacementBackup": "artifacts/graphify-recovery-0.9.77-references/update.md"
+    }
+  ],
+  "recoveryLimit": "All eight references now exactly match the intact original 0.8.44 distribution. The original main skill matched that distribution byte for byte. Prior custom edits to reference files, if any, cannot be reconstructed because previous sidecar bytes were not captured."
+}

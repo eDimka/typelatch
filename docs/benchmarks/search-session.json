@@ -1,0 +1,108 @@
+{
+  "kind": "retained search worker latency",
+  "generatedAt": "2026-10-06T14:31:38.111Z",
+  "passed": true,
+  "node": "v22.23.1",
+  "platform": "darwin",
+  "arch": "arm64",
+  "baselineRef": "0053a7fbb1c8f8e7b3572145f2e64e18e8dc7125",
+  "method": "Three actual stdio MCP sessions per implementation. Each session begins with an empty isolated SQLite cache and nine sequential search requests. Provider order alternates within each session. Before uses current build and current index format with only runtime.js, persistent.js and search-worker.js replaced by the immutable baseline versions. After uses the current build. Tool latency is measured from SDK call to response. Worker starts are observed through a Node import probe in both variants.",
+  "parity": "Full structured responses match after removing only latencyMs/searchMs and replacing the separate cache directory prefixes with one placeholder. Every result, source location, coverage detail, evidence state, snapshot, updatedFiles and removedFiles value is preserved.",
+  "limitations": "One authored repository source snapshot on this machine. Cold means new worker and empty application cache, not a cold operating system cache. No concurrent-load or peak-memory measurement. Retained workers may keep parser runtime memory for up to thirty idle seconds. Workspace contents are still read and hashed on every request. No autonomous agent time or general competitor superiority claim.",
+  "reproduction": "Run npm run build then node scripts/benchmark-search-session.mjs. Requires the fixed baseline Git commit and installed dependencies; no old artifacts are needed.",
+  "files": 43,
+  "sourceSha256": "555b8580be629ae47f8f430824aa1ad3bb639e27443bee0dda8c0653b40b8083",
+  "queriesPerSession": 9,
+  "measurements": {
+    "before": {
+      "coldMs": [
+        468.202667,
+        459.675792,
+        467.4925829999993
+      ],
+      "coldMedianMs": 467.4925829999993,
+      "warmMs": [
+        335.18333299999995,
+        322.7987079999998,
+        325.8757089999999,
+        321.1090000000004,
+        323.7624589999996,
+        326.39699999999993,
+        330.78708300000017,
+        323.06875000000036,
+        331.94066699999985,
+        323.0308750000004,
+        322.8531669999993,
+        327.7877090000002,
+        325.52391700000044,
+        330.798417,
+        331.75695799999994,
+        321.8072080000002,
+        334.50237500000003,
+        321.51679200000035,
+        326.1504169999989,
+        329.2430830000012,
+        328.0485000000008,
+        332.6955830000006,
+        330.9075839999987,
+        321.800792
+      ],
+      "warmMedianMs": 326.27370849999943,
+      "warmP95Ms": 334.50237500000003,
+      "searchWorkerStarts": 27
+    },
+    "after": {
+      "coldMs": [
+        452.61470899999995,
+        467.816417,
+        456.27404099999876
+      ],
+      "coldMedianMs": 456.27404099999876,
+      "warmMs": [
+        21.27404200000001,
+        18.693833999999697,
+        16.539332999999715,
+        20.25275000000056,
+        21.860000000000582,
+        20.292875000000095,
+        18.226042000000234,
+        18.744541000000027,
+        22.40429200000017,
+        20.554417000000285,
+        24.29791699999987,
+        23.98662499999955,
+        19.992958000000726,
+        18.793540999999095,
+        18.89708299999984,
+        18.497207999998864,
+        22.23804199999904,
+        18.597125000000233,
+        16.66345900000124,
+        19.295915999999124,
+        21.678082999998878,
+        20.84700000000157,
+        18.769790999998804,
+        18.53912500000115
+      ],
+      "warmMedianMs": 19.644436999999925,
+      "warmP95Ms": 23.98662499999955,
+      "searchWorkerStarts": 3
+    }
+  },
+  "warmMedianReductionPercent": 93.9791541616048,
+  "baselineModules": {
+    "workspace/runtime.js": "8d90e7313d0db9e53cb3e3858ffc561aa9b5ee0227b5121a85f7321e0c4bad2b",
+    "workspace/persistent.js": "455f751375d0fe705a02b9d5411f3397833e014e12582859d5ae6548cc43542e",
+    "workspace/search-worker.js": "32754753f79a3f137c4c3ff84008061de876c7b6c846a25c203fcea8d144ae4a"
+  },
+  "candidateModules": {
+    "workspace/runtime.js": "b9368b3606d76689f90af79c953e12ee8d20d0c4d4b2787e5b4ee7562188b2ba",
+    "workspace/persistent.js": "3d8cdb44d58465ed52ad5568c010533b984ea3cb0774a4499c6c587b234bb0fb",
+    "workspace/search-worker.js": "899a6d442ab3cdcff02ee3e49ee44e4c1b897954a5931810fe6f14b95aadcf06"
+  },
+  "rawArchive": {
+    "path": "artifacts/competitive/search-session/evidence.json.gz",
+    "bytes": 115416,
+    "sha256": "44b45049ea83c8ba11f8c2c4b0a8f8e8ec8a42aecce91e603f686898a1ba367c"
+  }
+}

@@ -9,11 +9,11 @@ import { workspaceContextAsync, workspaceSearchAsync } from "./workspace/runtime
 import { validateWorkspace } from "./workspace/validate.js"
 import { contextSchema, searchSchema, validationSchema } from "./workspace/schema.js"
 
-const server = new McpServer({ name: "typelatch", version: "0.2.0" })
+const server = new McpServer({ name: "typelatch", version: "0.3.0" })
 
 server.registerTool("workspace_search", {
   title: "Search a whole workspace and its exact dependencies",
-  description: "Start here when the relevant file or package is unknown. Search local source, internal declarations, tests, docs, configuration and exact installed or npm locked dependency indexes. Supply an absolute workspaceRoot; file is an optional ranking hint. Refreshes a local content index without downloads or executing project code. Inspect coverage gaps and limits. Results are lexical candidates, not compiler resolution or validation. Follow workspace hits with workspace_context, dependency hits with library_symbol using the returned exact version, and edits with workspace_validate.",
+  description: "Start here when the relevant file or package is unknown. Search local source, internal declarations, tests, docs, configuration and exact installed or locked dependency indexes. Supply an absolute workspaceRoot; file is an optional ranking hint. Use detail=compact for bounded previews with explicit omissions and exact dependency inspection arguments. Refreshes a local content index without downloads or executing project code. Inspect coverage gaps and limits. Results are lexical candidates, not compiler resolution or validation. Follow workspace hits with workspace_context, dependency hits with library_symbol using the returned exact version, and edits with workspace_validate.",
   inputSchema: searchSchema.shape
 }, async (input, extra) => {
   const response = await workspaceSearchAsync(input, { signal: extra.signal })
@@ -48,7 +48,7 @@ server.registerTool(
   "library_symbol",
   {
     title: "Find an exact library symbol",
-    description: "Look up an exact API symbol and its relationships in an installed brain.",
+    description: "Look up a case-sensitive API symbol and its relationships in an installed brain. Use the complete symbol and exact package version returned by search. Qualified identities never fall back to another module. Bare names expose ambiguity and omitted candidate counts in lookup.",
     inputSchema: {
       package: z.string(),
       version: z.string().optional(),

@@ -1,0 +1,14 @@
+{
+  "kind": "authored retrieval tasks, expectations frozen before first provider run",
+  "cases": [
+    {"id":"symbol-total","question":"calculateInvoiceTotal","expected":"src/billing.ts","lane":"code"},
+    {"id":"symbol-retry","question":"retryDelay","expected":"src/retry.ts","lane":"code"},
+    {"id":"symbol-session","question":"sessionIsValid","expected":"src/session.ts","lane":"code"},
+    {"id":"intent-total","question":"calculate final invoice total after tax","expected":"src/billing.ts","lane":"code"},
+    {"id":"intent-retry","question":"exponential retry delay capped maximum","expected":"src/retry.ts","lane":"code"},
+    {"id":"intent-order","question":"submit order session authorization invoice validation","expected":"src/orders.ts","lane":"code"},
+    {"id":"test-rounding","question":"invoiceRoundingTest","expected":"test/billing.test.ts","lane":"code"},
+    {"id":"docs-operations","question":"manual review queue payment timeout","expected":"docs/operations.md","lane":"docs"},
+    {"id":"config-strict","question":"compilerOptions moduleResolution strict noEmit","expected":"tsconfig.json","lane":"config"}
+  ]
+}

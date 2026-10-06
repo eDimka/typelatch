@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs"
 import { fileURLToPath } from "node:url"
 import { runCommand } from "./command.js"
-import { persistentContext, retireIdleContextWorkers } from "./persistent.js"
+import { persistentRequest, retireIdleWorkers } from "./persistent.js"
 import type { ContextRequest, workspaceContext } from "./context.js"
 import type { checkProject } from "./check.js"
 import type { SearchRequest, workspaceSearch } from "./search.js"
@@ -41,8 +41,8 @@ export async function workerRequest<T>(operation: "context" | "check" | "search"
       : [process.execPath, "--max-old-space-size=1024", "--import", import.meta.resolve("tsx"), source]
     const remaining = Math.floor(deadline - performance.now())
     if (remaining < 1) throw new Error("Request timed out before worker execution")
-    if (operation === "context") return await persistentContext<T>(command, JSON.stringify({ operation, request }), deadline, control.signal)
-    if (operation === "check") retireIdleContextWorkers()
+    if (operation === "context" || operation === "search") return await persistentRequest<T>(command, JSON.stringify({ operation, request }), deadline, control.signal, operation)
+    if (operation === "check") retireIdleWorkers()
     const execution = await runCommand(command, process.cwd(), remaining, JSON.stringify({ operation, request }), { signal: control.signal, maxOutputBytes: 8_000_000 })
     if (execution.cancelled) throw new Error("Request cancelled")
     if (execution.timedOut) throw new Error(`${label} worker timed out`)

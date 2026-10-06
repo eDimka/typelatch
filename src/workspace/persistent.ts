@@ -9,7 +9,7 @@ type Slot = {
 const slots: Slot[] = []
 
 /** Make room for a one-shot check within the same global process budget. */
-export function retireIdleContextWorkers(): void {
+export function retireIdleWorkers(): void {
   for (const slot of slots.filter(s => !s.busy)) stop(slot)
 }
 
@@ -35,17 +35,19 @@ function referenced(slot: Slot, ref: boolean): void {
 }
 
 /** The caller owns the global two-active/sixteen-queued admission limit. */
-export async function persistentContext<T>(command: string[], input: string, deadline: number, signal?: AbortSignal): Promise<T> {
-  if (Buffer.byteLength(input) > 55_000_000) throw new Error("Request exceeds 55 MB")
+export async function persistentRequest<T>(command: string[], input: string, deadline: number, signal?: AbortSignal, operation: "context" | "search" = "context"): Promise<T> {
+  const label = operation === "search" ? "Search" : "Compiler"
+  const inputLimit = operation === "search" ? 1_000_000 : 55_000_000
+  if (Buffer.byteLength(input) > inputLimit) throw new Error(operation === "search" ? "Search request exceeds 1 MB" : "Request exceeds 55 MB")
   const key = JSON.stringify([command, process.cwd(), process.env])
   for (let attempt = 0; attempt < 2; attempt++) {
     if (signal?.aborted) throw new Error("Request cancelled")
     const remaining = Math.floor(deadline - performance.now())
-    if (remaining < 1) throw new Error("Compiler worker timed out")
+    if (remaining < 1) throw new Error(`${label} worker timed out`)
     let slot = slots.find(s => !s.busy && s.key === key)
     if (!slot) {
       for (const unused of slots.filter(s => !s.busy)) stop(unused)
-      if (slots.length >= 2) throw new Error("Compiler worker capacity exceeded")
+      if (slots.length >= 2) throw new Error(`${label} worker capacity exceeded`)
       const child = spawn(command[0]!, [...command.slice(1), "--persistent"], {
         cwd: process.cwd(), shell: false, detached: process.platform !== "win32", stdio: "pipe"
       })
@@ -81,10 +83,10 @@ export async function persistentContext<T>(command: string[], input: string, dea
       }
       const abort = () => fail(new Error("Request cancelled"))
       const failed = (error: Error) => fail(error)
-      const closed = (code: number | null, reason: string | null) => fail(new Error(`Compiler worker failed: ${stderr.slice(-2000) || reason || code}`))
+      const closed = (code: number | null, reason: string | null) => fail(new Error(`${label} worker failed: ${stderr.slice(-2000) || reason || code}`))
       const collect = (data: string): boolean => {
         bytes += Buffer.byteLength(data)
-        if (bytes > 8_000_000) { fail(new Error("Compiler response exceeded 8 MB; narrow the project or request")); return false }
+        if (bytes > 8_000_000) { fail(new Error(`${label} response exceeded 8 MB; narrow the project or request`)); return false }
         return true
       }
       const errors = (data: string) => { if (collect(data)) stderr += data }
@@ -104,9 +106,9 @@ export async function persistentContext<T>(command: string[], input: string, dea
           current.idle = setTimeout(() => stop(current), 30_000)
           current.idle.unref()
           resolve(value)
-        } catch { fail(new Error("Compiler produced an invalid response")) }
+        } catch { fail(new Error(`${label} produced an invalid response`)) }
       }
-      const timer = setTimeout(() => fail(new Error("Compiler worker timed out")), remaining)
+      const timer = setTimeout(() => fail(new Error(`${label} worker timed out`)), remaining)
       child.stdout.setEncoding("utf8")
       child.stderr.setEncoding("utf8")
       child.stdout.on("data", output)
@@ -118,8 +120,10 @@ export async function persistentContext<T>(command: string[], input: string, dea
       else child.stdin.write(input + "\n")
     })
     if (envelope.restart) { stop(current); continue }
-    if (!envelope.ok) { stop(current); throw new Error(envelope.error ?? "Compiler request failed") }
+    if (!envelope.ok) { stop(current); throw new Error(envelope.error ?? `${label} request failed`) }
     return envelope.result
   }
-  throw new Error("Compiler inputs changed repeatedly during request")
+  throw new Error(`${label} inputs changed repeatedly during request`)
 }
+
+export { persistentRequest as persistentContext, retireIdleWorkers as retireIdleContextWorkers }

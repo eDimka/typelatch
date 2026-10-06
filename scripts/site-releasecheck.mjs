@@ -16,6 +16,8 @@ export function collectInstallPins(sources) {
     }
     for (const match of source.matchAll(/--package(?:=|\s+)["']?typelatch(?:@([^\s"'`<>;,|&]+))?(?![\w/-])/g))
       specs.push(match[1])
+    for (const match of source.matchAll(/\bnpx\s+(?:(?:--yes|-y)\s+)?typelatch(?:@([^\s"'`<>;,|&]+))?(?![\w@/-])/g))
+      specs.push(match[1])
     if (!specs.length) throw new Error(`${path}: no Typelatch installation pin found`)
     for (const version of specs) {
       if (!version || !exactVersion.test(version))

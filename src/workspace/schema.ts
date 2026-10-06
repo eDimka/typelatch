@@ -4,6 +4,7 @@ export const searchSchema = z.object({
   question: z.string().trim().min(1).max(2000),
   file: z.string().min(1).optional(),
   scope: z.enum(["all", "workspace", "dependencies"]).optional(),
+  detail: z.enum(["full", "compact"]).optional().describe("Compact preserves all coverage and checks, caps result snippets at 360 characters with explicit omissions, and omits duplicate signatures"),
   limit: z.number().int().min(1).max(20).optional(),
   timeoutMs: z.number().int().min(1).max(600_000).optional()
 }).strict()

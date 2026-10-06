@@ -1,6 +1,6 @@
 {
   "name": "typelatch",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Local API evidence for TypeScript coding agents",
   "type": "module",
   "bin": {
@@ -9,6 +9,7 @@
   },
   "files": [
     "dist",
+    "scripts/setup-mcp.sh",
     "docs/*.md",
     "README.md",
     "LICENSE",
@@ -17,6 +18,7 @@
     "CHANGELOG.md"
   ],
   "scripts": {
+    "setup:mcp": "bash scripts/setup-mcp.sh",
     "build": "tsc -p tsconfig.json && node scripts/assets.mjs",
     "site:build": "node scripts/site.mjs",
     "site:check": "node --test scripts/site.test.mjs",
@@ -27,6 +29,12 @@
     "prove:support": "npm run build && npm ci --prefix examples/support --ignore-scripts && node scripts/support.mjs",
     "benchmark": "npm run build && node scripts/benchmark.mjs",
     "benchmark:workspace": "npm run build && node scripts/benchmark-workspace.mjs",
+    "benchmark:storage": "npm run build && node scripts/benchmark-storage.mjs",
+    "benchmark:package-storage": "npm run build && node scripts/benchmark-package-storage.mjs",
+    "benchmark:competitive": "npm run build && node scripts/competitive-proof.mjs",
+    "benchmark:competitive:repository": "npm run build && node scripts/competitive-repository.mjs",
+    "prove:usability": "npm run build && node scripts/benchmark-usability.mjs",
+    "prove:search-session": "npm run build && node scripts/benchmark-search-session.mjs",
     "showcase:agent": "npm run build && node scripts/showcase-agent.mjs",
     "showcase:agent:prepare": "node scripts/showcase-agent.mjs --prepare-only",
     "release:check": "npm run verify && node scripts/packagecheck.mjs",
@@ -38,14 +46,19 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.30.0",
+    "@yarnpkg/parsers": "3.1.0",
     "better-sqlite3": "13.0.3",
+    "minimatch": "10.2.6",
+    "semver": "7.8.5",
     "tar": "7.5.22",
     "typescript": "6.0.3",
+    "yaml": "2.9.1",
     "zod": "4.5.4"
   },
   "devDependencies": {
     "@types/better-sqlite3": "9.6.0",
     "@types/node": "22.20.1",
+    "@types/semver": "7.8.0",
     "effect": "3.22.1",
     "tsx": "4.23.13",
     "vitest": "5.0.0"
