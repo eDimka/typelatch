@@ -68,7 +68,7 @@ try {
   await page.evaluate(() => document.fonts.ready)
   assert.equal(
     await page.locator('.hero #hero-install-command').innerText(),
-    'npm install --global typelatch@0.2.0',
+    'npm install --global typelatch@0.1.1',
   )
   assert.equal(await page.locator('.brand img').count(), 0)
   assert.equal(
@@ -166,9 +166,13 @@ try {
   await page.locator('[data-copy="hero-install-command"]').click()
   assert.equal(
     await page.evaluate(() => navigator.clipboard.readText()),
-    'npm install --global typelatch@0.2.0',
+    'npm install --global typelatch@0.1.1',
   )
   assert.equal(await page.locator('[data-copy="hero-install-command"]').innerText(), 'Copied')
+  await page.locator('[data-copy="agent-prompt"]').click()
+  const copiedPrompt = await page.evaluate(() => navigator.clipboard.readText())
+  assert.match(copiedPrompt, /library_search/)
+  assert.doesNotMatch(copiedPrompt, /workspace_search/)
   await page.evaluate(() => {
     navigator.clipboard.writeText = async () => {
       throw new Error('Clipboard denied for test')

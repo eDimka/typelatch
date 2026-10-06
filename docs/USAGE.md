@@ -1,13 +1,13 @@
 # Usage
 
-Start with a workspace question, inspect the relevant source or exact dependency APIs, then check their use in a local TypeScript project. The CLI and MCP server share the same implementation.
+Search exact dependency APIs, then check their use in a local TypeScript project. The CLI and MCP server share the same implementation. The published npm release is **0.1.1**. Workspace discovery through `workspace_search` and `typelatch search` belongs to **unreleased 0.2.0** and requires the [source setup](#local-data-and-source-setup).
 
 ## Install and connect
 
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. If your platform has no suitable binary, installation requires a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.2.0
+npm install --global typelatch@0.1.1
 typelatch --help
 typelatch add kysely@0.28.8
 ```
@@ -45,7 +45,7 @@ For a client that accepts an MCP JSON configuration:
 }
 ```
 
-Start a new client session after registration or upgrading. Version 0.2.0 exposes the [seven tools](#mcp-tool-reference) over standard input and output, including `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
+Start a new client session after registration or upgrading. Published version 0.1.1 exposes the [six published tools](#mcp-tool-reference) over standard input and output. It does not include `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
 
 <details>
 <summary>Use npm without a global installation</summary>
@@ -53,14 +53,14 @@ Start a new client session after registration or upgrading. Version 0.2.0 expose
 Prepare the same local index:
 
 ```sh
-npx --yes --package=typelatch@0.2.0 typelatch add kysely@0.28.8
+npx --yes --package=typelatch@0.1.1 typelatch add kysely@0.28.8
 ```
 
 Register either client with npm as the launcher:
 
 ```sh
-codex mcp add typelatch -- npx --yes --package=typelatch@0.2.0 typelatch-mcp
-claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.2.0 typelatch-mcp
+codex mcp add typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
+claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.1.1 typelatch-mcp
 ```
 
 The package name is `typelatch`. Its server executable is `typelatch-mcp`. Do not use `npx typelatch-mcp`, which asks npm for a different package. The npm launcher may need network access before it can start the server. Use the same `TYPELATCH_HOME` for index preparation and the server if you override the default.
@@ -156,9 +156,9 @@ For other packages, use the exact returned `symbol` with the same `package` and 
 
 ## Workspace search
 
-For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
+**Unreleased 0.2.0 feature.** Published 0.1.1 does not include `workspace_search` or `typelatch search`. Complete the [source setup](#local-data-and-source-setup), register the locally linked `typelatch-mcp` executable, and restart the MCP client before following this section.
 
-Workspace search is included in version 0.2.0. Install or upgrade with `npm install --global typelatch@0.2.0`, then restart the MCP client so it discovers the new tool.
+For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
 
 Use `workspace_search` when the relevant file or dependency is unknown:
 
@@ -285,9 +285,10 @@ Validation records compiler inputs and, when execution is requested, the runtime
 
 ## MCP tool reference
 
+Published `typelatch@0.1.1` provides these six tools:
+
 | Tool | Request | Result |
 | :--- | :--- | :--- |
-| `workspace_search` | absolute `workspaceRoot`, `question`; optional `scope`, `file`, `limit` from 1 to 20, `timeoutMs` | Ranked local file and exact dependency candidates, cache refresh details, coverage and evidence limits |
 | `library_search` | `package`, `question`; optional `version`, `limit` from 1 to 20 | Search results from an installed index |
 | `library_symbol` | `package`, `symbol`; optional `version` | Exact symbol lookup and relationships |
 | `workspace_context` | `config`, `file`; optional `importSpecifier`, `symbol`, `position`, `question`, `expectedVersion`, `overlays`, `limit`, `timeoutMs` | Workspace definitions, types, identity, and optional discovery |
@@ -295,13 +296,19 @@ Validation records compiler inputs and, when execution is requested, the runtime
 | `library_feedback` | `queryId` UUID; optional `accepted`, `compilePassed`, `testsPassed`, `notes` up to 1000 characters | Agent reported outcome stored against a prior query |
 | `library_stats` | `{}` | Local query, latency, hit rate, context size, and outcome aggregates |
 
+Unreleased 0.2.0 source development adds this seventh tool. It requires the [source setup](#local-data-and-source-setup).
+
+| Tool | Request | Result |
+| :--- | :--- | :--- |
+| `workspace_search` | absolute `workspaceRoot`, `question`; optional `scope`, `file`, `limit` from 1 to 20, `timeoutMs` | Ranked local file and exact dependency candidates, cache refresh details, coverage and evidence limits |
+
 Workspace tools accept the same fields as the corresponding CLI request files. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
 
 ## Local data and source setup
 
 Indexes and query history live in `~/.typelatch`. `TYPELATCH_HOME` selects another directory. `TYPELATCH_USAGE=off` disables query and validation recording. Explicit feedback can still update an existing query when requested. Query history can contain source related questions and feedback notes. The application does not upload that history. [Security](../SECURITY.md) describes the trust boundary.
 
-To build and verify Typelatch itself:
+The source checkout contains unreleased 0.2.0 features, including `workspace_search` and `typelatch search`. To build, verify, and link this development version locally:
 
 ```sh
 git clone https://github.com/eDimka/typelatch.git
@@ -310,5 +317,7 @@ npm ci
 npm run release:check
 npm link
 ```
+
+Register the linked `typelatch-mcp` executable using the client commands above, then start a new client session. This source build exposes seven MCP tools. It is separate from the six tools in published `typelatch@0.1.1`.
 
 [Contributing](../CONTRIBUTING.md) · [Architecture](ARCHITECTURE.md) · [Benchmark evidence](BENCHMARKS.md) · [Release checks](RELEASE.md)

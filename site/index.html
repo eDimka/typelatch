@@ -62,7 +62,7 @@
           <div class="hero-install">
             <p class="small-label">INSTALL ONCE. CONNECT YOUR AGENT.</p>
             <div>
-              <pre><code id="hero-install-command">npm install --global typelatch@0.2.0</code></pre>
+              <pre><code id="hero-install-command">npm install --global typelatch@0.1.1</code></pre>
               <button type="button" data-copy="hero-install-command" hidden>Copy</button>
             </div>
           </div>
@@ -320,7 +320,7 @@
           <p class="eyebrow">MAKE IT PART OF THE WORKFLOW</p>
           <h2 id="setup-title">Your agent.<br /><span>Better equipped.</span></h2>
           <p>
-            Install the published package, index a dependency,<br class="desktop-break" />
+            Install published version 0.1.1, index a dependency,<br class="desktop-break" />
             and connect your agent. No repository clone.
           </p>
           <a class="npm-link" href="https://www.npmjs.com/package/typelatch"
@@ -333,7 +333,7 @@
               <h3>Install Typelatch</h3>
               <button type="button" data-copy="install-command" hidden>Copy</button>
             </div>
-            <pre><code id="install-command">npm install --global typelatch@0.2.0</code></pre>
+            <pre><code id="install-command">npm install --global typelatch@0.1.1</code></pre>
             <p>
               Node.js 22.12 or newer. The native SQLite dependency may need a C++ toolchain if a
               prebuilt binary is unavailable.
@@ -391,19 +391,22 @@
               ><button type="button" data-copy="agent-prompt" hidden>Copy prompt</button>
             </div>
             <p id="agent-prompt">
-              Start with workspace_search and my repository root when the relevant file or package is
-              unknown. Inspect coverage gaps and returned source locations. Resolve the actual use
-              with workspace_context and inspect exact dependency APIs with library_symbol. After
+              Use library_search with my dependency's exact package name and version to find relevant
+              APIs. Inspect returned source locations and declarations with library_symbol. Resolve
+              the actual use in my project with workspace_context. After
               editing, use workspace_validate with authorized assertions. Report retrieval,
               resolution, compilation and tests separately, including anything unknown or not run.
             </p>
             <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
-              >More workflows and all seven tools <span aria-hidden="true">↗</span></a
+              >More workflows and the six published tools <span aria-hidden="true">↗</span></a
             >
             <p>
               <a href="https://github.com/eDimka/typelatch/blob/main/docs/showcase/agent-workflow.md"
                 >Follow the agent workflow: discover, reproduce, edit and verify</a
-              >. Includes a runnable exercise, actual MCP requests and assertion output.
+              >. This exercise uses workspace_search from unreleased version 0.2.0 and requires a
+              <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md#local-data-and-source-setup"
+                >source build</a
+              >. It is not included in the published npm package.
             </p>
           </div>
         </div>

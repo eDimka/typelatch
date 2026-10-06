@@ -19,6 +19,10 @@ jobs:
         with:
           node-version: 22
       - run: npm run site:check
+      - name: Verify advertised npm releases
+        run: |
+          node --test scripts/site-releasecheck.test.mjs
+          node scripts/site-releasecheck.mjs
       - name: Install isolated browser verification tools
         run: |
           npm install --prefix "$RUNNER_TEMP/typelatch-site-tools" --no-package-lock --no-save playwright@1.63.0 @axe-core/playwright@4.13.0

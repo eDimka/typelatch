@@ -2,9 +2,11 @@
 
 [![Typelatch. The right API. Not a wall of docs.](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/readme-banner.png)](https://edimka.github.io/typelatch/)
 
-**Search your workspace and its dependencies. Give Codex and Claude Code relevant source and API context, then verify changes with your TypeScript project.**
+**Find exact dependency APIs. Give Codex and Claude Code relevant API context, then verify changes with your TypeScript project.**
 
-Start with a question, without choosing a package or file first. Typelatch searches local source, internal functions, tests, docs, configuration, and available indexes for exact dependency versions. It returns a focused shortlist with source locations and visible coverage gaps. Use the workspace compiler and explicit assertions to check the changes that follow. Search runs locally through MCP or the terminal. Actual token use and time saved depend on the task and client; we do not claim measured agent savings.
+Typelatch searches local indexes for exact dependency versions and returns focused API context with source locations. Use the workspace compiler and explicit assertions to check the changes that follow. Search runs locally through MCP or the terminal. Actual token use and time saved depend on the task and client; we do not claim measured agent savings.
+
+The published npm release is **0.1.1**, with six MCP tools for package discovery, workspace context, and validation. Workspace discovery through `workspace_search` and `typelatch search` is part of **unreleased 0.2.0** source development. To try those features, use the [source setup](docs/USAGE.md#local-data-and-source-setup).
 
 [npm package](https://www.npmjs.com/package/typelatch) · [See the walkthrough](https://edimka.github.io/typelatch/) · [Usage](docs/USAGE.md) · [Recorded evidence](docs/showcase/recording.json)
 
@@ -13,7 +15,7 @@ Start with a question, without choosing a package or file first. Typelatch searc
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. A platform without a suitable binary needs a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.2.0
+npm install --global typelatch@0.1.1
 typelatch --help
 ```
 
@@ -31,9 +33,11 @@ codex mcp add typelatch -- typelatch-mcp
 claude mcp add --transport stdio --scope user typelatch -- typelatch-mcp
 ```
 
-Start a new agent session in your TypeScript project, or restart it after upgrading so it discovers `workspace_search`. Workspace source is indexed on the first search and refreshed from file contents on later searches. To prepare direct dependency indexes, run `typelatch sync` inside an npm project with a lockfile. Search reports missing indexes and exact preparation commands; it does not download packages automatically. [Usage](docs/USAGE.md) covers workspace setup, configuration files, and running without a global installation.
+Start a new agent session in your TypeScript project, or restart it after registration. To prepare direct dependency indexes, run `typelatch sync` inside an npm project with a lockfile, then use `library_search` with a package and exact version. [Usage](docs/USAGE.md) covers workspace setup, configuration files, and running without a global installation.
 
 ## Search the whole workspace
+
+**Unreleased 0.2.0 feature.** The examples in this section require the [source setup](docs/USAGE.md#local-data-and-source-setup). Published 0.1.1 does not include `workspace_search` or the `typelatch search` command.
 
 When you do not know which file or package contains the answer, start with `workspace_search`:
 
@@ -58,6 +62,8 @@ The agent workflow is **search, inspect, resolve, edit, validate**. Use `library
 Eight authored repository questions returned the expected source file first in the [workspace discovery regression](docs/benchmarks/workspace-search.json). That is a regression result on known questions, not a measurement of general agent success. [Verification details](docs/verification/workspace-search.md).
 
 ## Watch the agent workflow
+
+This walkthrough uses unreleased 0.2.0 workspace discovery. Complete the [source setup](docs/USAGE.md#local-data-and-source-setup) before running it.
 
 **The task:** contact imports leave partial data after a duplicate name. Find the implementation and make the whole batch roll back while preserving parameter binding.
 
@@ -143,17 +149,20 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 
 [Try the same task in your agent](docs/USAGE.md#try-the-sqlite-task), with an explicit assertion command and a report that keeps retrieval, resolution, compilation, and execution separate.
 
-## Seven tools, one local server
+## Six published tools, one local server
+
+Published `typelatch@0.1.1` provides these six tools:
 
 | Tool | What it does |
 | :--- | :--- |
-| `workspace_search` | Discover relevant workspace files and exact dependency APIs without choosing a package first |
 | `library_search` | Search an installed package index by question and exact version |
 | `library_symbol` | Look up an exact symbol and its relationships |
 | `workspace_context` | Resolve imports, definitions, and types with the workspace compiler |
 | `workspace_validate` | Compile the project, then optionally run an explicit assertion command |
 | `library_feedback` | Record an agent reported outcome for a prior query |
 | `library_stats` | Read local query, latency, context size, and outcome aggregates |
+
+Unreleased 0.2.0 source development adds a seventh tool, `workspace_search`, to discover relevant workspace files and exact dependency APIs without choosing a package first. It requires the [source setup](docs/USAGE.md#local-data-and-source-setup).
 
 Retrieval is not compilation. Compilation is not execution. Context resolution does neither, and agent feedback stays separate from tool executed evidence. [Request examples and evidence states](docs/USAGE.md#read-the-evidence) explain what each result establishes.
 
