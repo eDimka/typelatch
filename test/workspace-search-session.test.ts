@@ -114,7 +114,8 @@ describe("retained search worker", () => {
   }
 
   async function waitFor(file: string, count = 1) {
-    for (let tries = 0; tries < 200; tries++) {
+    const deadline = performance.now() + 10_000
+    while (performance.now() < deadline) {
       if (existsSync(file) && readFileSync(file, "utf8").trim().split("\n").length >= count) return
       await new Promise(resolve => setTimeout(resolve, 10))
     }

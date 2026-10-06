@@ -24,8 +24,10 @@ The active comparison chat's source context feature, lazy parser experiment, and
 * Agent walkthrough: the failing fixture was repaired, compilation and assertions passed, the assertions stayed unchanged, and the index refreshed. Artifact equivalence remains unknown.
 * Storage, package storage, exact symbol usability, and repeated search session reruns passed their assertions.
 * Website static tests and seven publication gate tests passed. The gate now recognizes direct npx commands.
-* Chromium workflows and automated accessibility checks passed at 320, 390, 768, 1024, and 1440 pixels. Mobile hero and setup screenshots were visually reviewed.
+* Chromium workflows passed at 320, 390, 768, 1024, and 1440 pixels. Automated accessibility checks passed at the tested mobile and desktop widths. Mobile hero and setup screenshots were visually reviewed.
 * Eight accounting extractor tests passed. The separate coding grader requires a prepared candidate and was not used as a release test.
+
+Linux Node 22 CI exposed two integration test startup budgets that were too short under runner load. The multi command scope test now has the same 20 second budget as its sibling, and the worker readiness probe waits up to 10 seconds. Behavioral assertions and production timeouts are unchanged.
 
 ## Publication
 

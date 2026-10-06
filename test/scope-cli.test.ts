@@ -51,7 +51,7 @@ it("sets a replacement subset and clears the saved selection explicitly", () => 
   json("scope", "clear")
   expect(json("scope", "list").configured).toBe(false)
   expect(json("sync", "--dry-run").targets.map((item: any) => item.version)).toEqual(["1.0.0"])
-})
+}, 20_000)
 
 it.each([["add"], ["remove"], ["set"], ["list", "apps/web"], ["clear", "apps/web"], ["add", "--unknown"], ["unknown"]])("rejects invalid scope command %j without creating saved state", (...args) => {
   const result = run("scope", ...args)
