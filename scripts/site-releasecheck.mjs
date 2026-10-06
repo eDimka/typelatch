@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { appendFileSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
@@ -28,7 +28,7 @@ export function collectInstallPins(sources) {
   return pins
 }
 
-export async function verifyPublishedPins(pins, { fetchImpl = fetch } = {}) {
+export async function verifyPublishedPins(pins, { fetchImpl = fetch, deferUnpublished = false } = {}) {
   const versions = [...new Set(pins.map((pin) => pin.version))]
   if (!versions.length) throw new Error('No installation pins to verify')
   for (const version of versions) {
@@ -45,6 +45,7 @@ export async function verifyPublishedPins(pins, { fetchImpl = fetch } = {}) {
     } catch (error) {
       throw new Error(`${label}: npm registry request failed: ${error.message}`, { cause: error })
     }
+    if (response.status === 404 && deferUnpublished) return null
     if (!response.ok)
       throw new Error(`${label}: npm registry returned HTTP ${response.status}; publication is not verified`)
     let metadata
@@ -61,13 +62,31 @@ export async function verifyPublishedPins(pins, { fetchImpl = fetch } = {}) {
   return versions
 }
 
+export async function isLatestVersion(version, { fetchImpl = fetch } = {}) {
+  const response = await fetchImpl('https://registry.npmjs.org/typelatch/latest', {
+    headers: { accept: 'application/json', 'cache-control': 'no-cache' },
+    signal: AbortSignal.timeout(15_000), redirect: 'error',
+  })
+  if (!response.ok) throw new Error(`Cannot verify npm latest: HTTP ${response.status}`)
+  const metadata = await response.json()
+  if (metadata?.name !== 'typelatch' || !exactVersion.test(metadata.version)) throw new Error('Invalid npm latest identity')
+  return metadata.version === version
+}
+
 async function main() {
   const root = resolve(import.meta.dirname, '..')
   const pins = collectInstallPins(documents.map((path) => ({
     path,
     text: readFileSync(resolve(root, path), 'utf8'),
   })))
-  const versions = await verifyPublishedPins(pins)
+  const versions = await verifyPublishedPins(pins, { deferUnpublished: process.env.TYPELATCH_DEFER_UNPUBLISHED === 'true' })
+  const version = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')).version
+  const ready = versions !== null && await isLatestVersion(version)
+  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `ready=${ready}\n`)
+  if (!ready) {
+    console.log('Website deployment deferred: source version is not the published npm latest.')
+    return
+  }
   console.log(`Verified ${pins.length} installation pins against npm: ${versions.map((version) => `typelatch@${version}`).join(', ')}`)
 }
 

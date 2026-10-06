@@ -3,26 +3,34 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_call:
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      ready: ${{ steps.publication.outputs.ready }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: 22
       - run: npm run site:check
+      - run: node --test scripts/site-releasecheck.test.mjs
       - name: Verify advertised npm releases
-        run: |
-          node --test scripts/site-releasecheck.test.mjs
-          node scripts/site-releasecheck.mjs
+        id: publication
+        if: github.event_name != 'pull_request'
+        env:
+          TYPELATCH_DEFER_UNPUBLISHED: ${{ github.ref == 'refs/heads/main' }}
+        run: node scripts/site-releasecheck.mjs
       - name: Install isolated browser verification tools
         run: |
           npm install --prefix "$RUNNER_TEMP/typelatch-site-tools" --no-package-lock --no-save playwright@1.63.0 @axe-core/playwright@4.13.0
@@ -36,7 +44,7 @@ jobs:
         with:
           path: _site
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: needs.build.outputs.ready == 'true' && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10

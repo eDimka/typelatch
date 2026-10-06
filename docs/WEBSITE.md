@@ -40,9 +40,9 @@ The checked in README banner is generated from `site/brand-banner.html`. To rege
 
 ## GitHub Pages
 
-The [publishing workflow](../.github/workflows/pages.yml) builds and checks the site on pull requests and on pushes to `main`. A push to `main` or a manual workflow run can publish only after the static checks, npm release check, and browser checks pass. The workflow uses pinned GitHub Actions, no site runtime secrets, and deployment permissions only in the deployment job.
+The [publishing workflow](../.github/workflows/pages.yml) builds and checks the site on pull requests and on pushes to `main`. The stable tag release workflow also calls it after npm and GitHub publication. Deployment requires static and browser checks, published installation pins, and a source version equal to npm `latest`. Pull requests run static and browser verification without requiring their future version to be published. A push to `main` with an unpublished candidate defers deployment until its tag release succeeds. The workflow uses pinned GitHub Actions, no site runtime secrets, and deployment permissions only in the deployment job.
 
-The npm release check reads the exact Typelatch installation, direct `npx`, and `--package` pins in `site/index.html`, `README.md`, and `docs/USAGE.md`. It verifies each version against `https://registry.npmjs.org`, including the returned package identity and artifact metadata. A missing version, registry failure, or mismatched identity prevents publication. The development version in `package.json` is not evidence of an npm release. Run the check separately from the offline static build:
+The npm release check reads the exact Typelatch installation, direct `npx`, and `--package` pins in `site/index.html`, `README.md`, and `docs/USAGE.md`. It verifies each version against `https://registry.npmjs.org`, including the returned package identity and artifact metadata. A missing version, registry failure, or mismatched identity prevents deployment. Only a missing version on `main` is treated as an expected deferral; network and metadata errors still fail. The development version in `package.json` is not evidence of an npm release. Run the check separately from the offline static build:
 
 ```sh
 node --test scripts/site-releasecheck.test.mjs
@@ -51,7 +51,7 @@ node scripts/site-releasecheck.mjs
 
 Enable GitHub Pages in repository Settings, under Pages, with GitHub Actions as the deployment source. Push the verified commit and inspect the Publish website workflow. The target is `https://edimka.github.io/typelatch/`.
 
-Adding this workflow does not itself establish that the public site has been deployed. Local preview results and GitHub deployment results are separate evidence. Documentation and website updates can publish independently of a new npm release, provided their installation commands use published versions.
+Adding this workflow does not itself establish that the public site has been deployed. Local preview results and GitHub deployment results are separate evidence. Documentation and website updates can publish independently when their installation commands use published versions and their source version remains npm `latest`. See [the release procedure](RELEASE.md) for tag and environment configuration.
 
 ## Evidence updates
 

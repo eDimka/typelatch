@@ -39,7 +39,8 @@
     "showcase:agent:prepare": "node scripts/showcase-agent.mjs --prepare-only",
     "release:check": "npm run verify && node scripts/packagecheck.mjs",
     "prepack": "npm run build",
-    "pretest": "npm run build"
+    "pretest": "npm run build",
+    "test:release": "node --test scripts/release.test.mjs scripts/release-workflow.test.mjs scripts/site-releasecheck.test.mjs"
   },
   "engines": {
     "node": ">=22.12.0"
@@ -79,5 +80,9 @@
     "api",
     "verification",
     "sqlite"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }

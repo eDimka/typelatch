@@ -31,4 +31,6 @@ Linux Node 22 CI exposed two integration test startup budgets that were too shor
 
 ## Publication
 
-npm and public website publication are pending. The saved npm credentials returned HTTP 401. The new website cannot deploy until its advertised exact version is available from npm. Local checks do not establish remote CI, registry publication, or a public deployment.
+npm and public website publication are pending. The earlier local tarball and manual draft are superseded by the tag driven Actions process. Local artifacts must not be published. The saved npm credentials returned HTTP 401, so owner authorization for npm trusted publishing remains necessary. The website waits for its advertised exact version to become npm latest. Local checks do not establish registry publication or a public deployment.
+
+The release automation adds canonical SemVer and metadata checks, artifact integrity and retry tests, workflow privilege checks, and website deferral and rollback checks. The release workflow builds its own artifact from the pushed tag and reuses that artifact through verification and publication.

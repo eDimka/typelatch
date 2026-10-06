@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { collectInstallPins, verifyPublishedPins } from './site-releasecheck.mjs'
+import { collectInstallPins, verifyPublishedPins, isLatestVersion } from './site-releasecheck.mjs'
 
 const pins = [{ path: 'site/index.html', version: '0.1.1' }]
 const published = {
@@ -75,4 +75,18 @@ test('checks direct npx setup and sync pins and rejects moving references', () =
   ])
   for (const command of ['npx typelatch@latest setup', 'npx typelatch setup'])
     assert.throws(() => collectInstallPins([{ path: 'README.md', text: 'npm install typelatch@0.1.1\n' + command }]), /requires an exact typelatch version/)
+})
+
+test('main may defer a missing release without treating it as published', async () => {
+  assert.equal(await verifyPublishedPins(pins, { deferUnpublished: true, fetchImpl: async () => new Response('', { status: 404 }) }), null)
+  await assert.rejects(verifyPublishedPins(pins, { deferUnpublished: true, fetchImpl: async () => new Response('', { status: 503 }) }), /publication is not verified/)
+})
+
+
+test('older releases cannot roll the website back and registry failures fail closed', async () => {
+  const fetchImpl = async () => metadataResponse(published)
+  assert.equal(await isLatestVersion('0.1.1', { fetchImpl }), true)
+  assert.equal(await isLatestVersion('0.1.0', { fetchImpl }), false)
+  await assert.rejects(isLatestVersion('0.1.1', { fetchImpl: async () => metadataResponse({ ...published, name: 'wrong' }) }), /Invalid npm latest identity/)
+  await assert.rejects(isLatestVersion('0.1.1', { fetchImpl: async () => new Response('', { status: 503 }) }), /Cannot verify npm latest/)
 })

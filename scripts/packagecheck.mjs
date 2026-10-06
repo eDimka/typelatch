@@ -20,7 +20,7 @@ try {
   assert.equal(packed.files.filter(file => file.path.startsWith('dist/benchmark/cases/') && file.path.endsWith('.json')).length, 10)
   assert(!packed.files.some(file => /node_modules|\.env|\.db$/.test(file.path)))
   writeFileSync(join(directory, 'package.json'), JSON.stringify({ private: true, type: 'module' }))
-  const artifact = process.env.TYPELATCH_PACKAGE ?? join(directory, packed.filename)
+  const artifact = process.env.TYPELATCH_PACKAGE || join(directory, packed.filename)
   if (process.env.TYPELATCH_PACKAGE?.endsWith('.tgz')) {
     assert(readFileSync(artifact).equals(readFileSync(join(directory, packed.filename))), 'Release artifact must exactly match the checked source package')
   }

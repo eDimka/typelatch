@@ -2,6 +2,8 @@
 
 ## 0.3.0
 
+Added strict semantic release checks and GitHub Actions publication from annotated version tags. The workflow tests one preserved artifact, publishes with npm trusted publishing and provenance, creates an immutable GitHub release, and deploys the website after registry verification.
+
 Added `typelatch setup` and `npm run setup:mcp` for interactive Codex and Claude Code registration. The npm workflow pins the running version and works without a global installation or repository clone.
 
 Added exact dependency discovery from npm package lock and shrinkwrap, pnpm, Yarn Classic and modern Yarn, and Bun text lockfiles. `sync` supports ancestor lockfiles, aliases, mixed package managers, repeated `--project` selection, and `--workspaces`. `--dry-run --json` exposes the complete plan before downloads. Conflicting artifact integrity and unresolved identities stop preparation.

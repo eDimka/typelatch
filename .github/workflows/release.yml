@@ -1,0 +1,127 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+concurrency:
+  group: npm-release
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.repository == 'eDimka/typelatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      artifact-id: ${{ steps.upload.outputs.artifact-id }}
+      version: ${{ steps.package.outputs.version }}
+      prerelease: ${{ steps.package.outputs.prerelease }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+      - run: npm install --global npm@11.21.0 --ignore-scripts
+      - run: npm ci
+      - run: npm run test:release
+      - name: Check release metadata
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node scripts/release-build.mjs check "$RELEASE_TAG"
+      - run: npm run build
+      - name: Pack the tagged source
+        id: package
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node scripts/release-build.mjs build "$RELEASE_TAG" "$RUNNER_TEMP/release"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        id: upload
+        with:
+          name: release-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/release/
+          if-no-files-found: error
+          retention-days: 30
+  verify:
+    needs: build
+    uses: ./.github/workflows/ci.yml
+    with:
+      artifact-id: ${{ needs.build.outputs.artifact-id }}
+      release-version: ${{ needs.build.outputs.version }}
+  npm:
+    needs: [build, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: npm-release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+      - run: npm install --global npm@11.21.0 --ignore-scripts
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          artifact-ids: ${{ needs.build.outputs.artifact-id }}
+          merge-multiple: true
+          path: ${{ runner.temp }}/release
+      - name: Publish exact artifact using npm trusted publishing
+        run: node scripts/release-publish.mjs npm "$RUNNER_TEMP/release"
+  registry-check:
+    needs: [build, npm]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+      - run: npm install --global npm@11.21.0 --ignore-scripts
+      - run: npm ci
+      - run: npm run build
+      - name: Exercise a fresh registry installation
+        env:
+          TYPELATCH_PACKAGE: typelatch@${{ needs.build.outputs.version }}
+          npm_config_cache: ${{ runner.temp }}/registry-cache
+        run: node scripts/packagecheck.mjs
+  github-release:
+    needs: [build, registry-check]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      latest: ${{ steps.release.outputs.latest }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          artifact-ids: ${{ needs.build.outputs.artifact-id }}
+          merge-multiple: true
+          path: ${{ runner.temp }}/release
+      - name: Attach verified assets and publish immutable release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/release-publish.mjs github "$RUNNER_TEMP/release"
+  website:
+    needs: github-release
+    if: needs.github-release.outputs.latest == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml

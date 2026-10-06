@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readFileSync } from "node:fs"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod"
@@ -9,7 +10,8 @@ import { workspaceContextAsync, workspaceSearchAsync } from "./workspace/runtime
 import { validateWorkspace } from "./workspace/validate.js"
 import { contextSchema, searchSchema, validationSchema } from "./workspace/schema.js"
 
-const server = new McpServer({ name: "typelatch", version: "0.3.0" })
+const { version } = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as { version: string }
+const server = new McpServer({ name: "typelatch", version })
 
 server.registerTool("workspace_search", {
   title: "Search a whole workspace and its exact dependencies",
