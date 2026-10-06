@@ -27,7 +27,7 @@ The active comparison chat's source context feature, lazy parser experiment, and
 * Chromium workflows passed at 320, 390, 768, 1024, and 1440 pixels. Automated accessibility checks passed at the tested mobile and desktop widths. Mobile hero and setup screenshots were visually reviewed.
 * Eight accounting extractor tests passed. The separate coding grader requires a prepared candidate and was not used as a release test.
 
-Linux Node 22 CI exposed two integration test startup budgets that were too short under runner load. The multi command scope test now has the same 20 second budget as its sibling, and the worker readiness probe waits up to 10 seconds. Behavioral assertions and production timeouts are unchanged.
+Linux Node 22 CI exposed two integration test startup budgets that were too short under runner load. The multi command scope test now has the same 20 second budget as its sibling, and the worker readiness probe waits up to 10 seconds. The existing compiler reference test also exceeded its combined 20 second budget twice on macOS Node 22; its two validations and live compiler lookup now have a 60 second outer test budget. Behavioral assertions and production timeouts are unchanged.
 
 ## Publication
 
