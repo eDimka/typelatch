@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "id": "pnpm-v10.32.1-readonly-v1",
+  "status": "queries-frozen-before-provider-responses",
+  "createdAt": "2026-11-06T17:35:15.534Z",
+  "corpus": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "tag": "v10.32.1",
+    "commit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "sourceTreeSha256": "e115695ff86e66c472ecb3f4dcb7a6608b8bc812ff2501b75c6a39d1712dbc6f",
+    "counts": {
+      "trackedFiles": 2946,
+      "typescriptFiles": 1101,
+      "javascriptFiles": 102,
+      "typescriptFilesUnderSrc": 649,
+      "workspacePackagesExcludingRoot": 198,
+      "workspaceFamilies": 39,
+      "lockImporters": 199,
+      "lockPackageEntries": 1741,
+      "packageNamesWithMultipleLockedVersions": 168,
+      "aliases": 10,
+      "usedAliases": 10,
+      "tsconfigs": 503,
+      "configParseErrors": 0,
+      "configsWithProjectReferences": 282,
+      "directNamesWithDistinctImporterVersions": 0
+    },
+    "dependencyState": "Filtered selected leaf closures plus root development tooling. All committed file bytes unchanged. Exact lockfile and installed qualification are retained outside corpus."
+  },
+  "questions": [
+    {
+      "id": "discovery-workspace-scan",
+      "family": "discovery",
+      "question": "Locate the production function that finds workspace projects and checks whether each package is installable. Show the relevant implementation, including how its unchecked scan handles the workspace root and sorts projects.",
+      "context": {
+        "scope": "repository-production-source"
+      }
+    },
+    {
+      "id": "owning-configs",
+      "family": "ownership",
+      "question": "Identify the owning TypeScript configuration for each supplied file, explain their source versus test role, and show the compiler settings and project references that establish ownership. Do not substitute a root config merely because it is nearest to the repository root.",
+      "context": {
+        "files": [
+          "workspace/find-packages/src/index.ts",
+          "workspace/find-packages/test/index.ts"
+        ],
+        "scope": "supplied-files"
+      }
+    },
+    {
+      "id": "alias-api-old",
+      "family": "installed-api",
+      "question": "For the supplied file, identify the exact installed package behind the execa import, its version, declaration file, callable sync signature, and whether that import provides a named type export called execa. Distinguish the import name from the installed package name.",
+      "context": {
+        "file": "env/system-node-version/src/index.ts",
+        "importSpecifier": "execa",
+        "scope": "owning-project"
+      }
+    },
+    {
+      "id": "alias-api-new",
+      "family": "installed-api",
+      "question": "For the supplied file, identify the exact installed package behind the safe-execa import, its version, declaration file, callable sync signature, and whether that import provides a named type export called execa. Distinguish the import name from the installed package name.",
+      "context": {
+        "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+        "importSpecifier": "safe-execa",
+        "scope": "owning-project"
+      }
+    },
+    {
+      "id": "transitive-cache-api",
+      "family": "installed-api",
+      "question": "Compare the cache API directly imported by the npm resolver with the cache API used internally by the hosted-git-info package imported by the Git resolver. Follow the actual installed import edges. Report package versions, CommonJS or named constructor shape, and the expiry option accepted by each. Do not use a different same-named cache package elsewhere in the repository.",
+      "context": {
+        "files": [
+          "resolving/npm-resolver/src/index.ts",
+          "resolving/git-resolver/src/parseBareSpecifier.ts"
+        ],
+        "scope": "owning-projects-and-resolved-dependency-edges"
+      }
+    },
+    {
+      "id": "scoped-selector-parser",
+      "family": "scope",
+      "question": "Within the workspace family only, locate the production parser for package selector strings. Show how it represents exclude-self, dependency, dependent and directory selection. Distinguish parsing from later graph filtering.",
+      "context": {
+        "directories": [
+          "workspace"
+        ],
+        "scope": "explicit-directories-production-source"
+      }
+    },
+    {
+      "id": "direct-workspace-imports",
+      "family": "cross-package",
+      "question": "List every production source file that directly imports the named findWorkspacePackages export from @pnpm/workspace.find-packages. Include the import site and local alias if renamed. Exclude tests, docs, declarations, transitive dependency guesses and same-spelled symbols from other packages.",
+      "context": {
+        "importSpecifier": "@pnpm/workspace.find-packages",
+        "symbol": "findWorkspacePackages",
+        "scope": "repository-production-source"
+      }
+    },
+    {
+      "id": "declared-dependent-impact",
+      "family": "cross-package",
+      "question": "Which workspace packages directly depend on @pnpm/env.system-node-version for production, optional or peer use? Provide the declaring manifests and dependency relationship. Do not count development-only or transitive dependents as direct production dependents.",
+      "context": {
+        "packageName": "@pnpm/env.system-node-version",
+        "scope": "declared-workspaces"
+      }
+    },
+    {
+      "id": "scope-negative",
+      "family": "negative",
+      "question": "Within the workspace family only, locate a production definition of getAuthHeadersFromConfig. If it has no definition in this scope, state that explicitly. A definition in a different family does not satisfy the request.",
+      "context": {
+        "directories": [
+          "workspace"
+        ],
+        "symbol": "getAuthHeadersFromConfig",
+        "scope": "explicit-directories-production-source"
+      }
+    },
+    {
+      "id": "missing-symbol",
+      "family": "negative",
+      "question": "Locate the production definition of findWorkspacePackagesRecursive. If that exact export is absent, state the absence and keep any similarly named suggestion clearly separate.",
+      "context": {
+        "symbol": "findWorkspacePackagesRecursive",
+        "scope": "repository-production-source"
+      }
+    },
+    {
+      "id": "ambiguous-handler",
+      "family": "ambiguity",
+      "question": "Locate the production function named handler. Is the name sufficient to select one definition? If ambiguous, show at least two distinct package definitions and request or identify the missing disambiguation context rather than silently selecting one.",
+      "context": {
+        "symbol": "handler",
+        "scope": "repository-production-source"
+      }
+    },
+    {
+      "id": "freshness-concurrency",
+      "family": "freshness",
+      "question": "In the current working tree, what maximum bounds the default workspace concurrency and how is it combined with available parallelism? Show the current production implementation and any supporting constant. Re-read live evidence even if this question was asked earlier in the session.",
+      "context": {
+        "scope": "repository-production-source"
+      },
+      "sequence": {
+        "initial": "Query once from the unchanged corpus.",
+        "warm": "Repeat the same question twice in the same provider session without changes.",
+        "mutation": "Coordinator changes one existing constant in one source file, using the frozen private mutation recipe.",
+        "refresh": "After a common 500ms grace, allow the provider documented refresh or readiness procedure. Charge all grace, refresh, waiting and query time from the completed file write. Deadline60s. Record immediate stale or pending evidence separately from the final usable response.",
+        "changed": "Repeat the same question once after the mutation; then the coordinator restores the original source bytes after the provider exits."
+      }
+    }
+  ],
+  "commonCapabilities": {
+    "nativeFileReads": true,
+    "targetedRipgrep": true,
+    "dependencyManifestAndDeclarationReads": true,
+    "sameExplicitContextForAllProviders": true,
+    "networkDuringQueries": false,
+    "projectScriptExecutionDuringQueries": false,
+    "providerDocumentedRefresh": true,
+    "nativeFallbackAllowedAndCharged": true,
+    "maximumRetrievalActionsPerProbe": 8,
+    "maximumCumulativeReturnedTextBytesPerProbe": 65536,
+    "reason": "Bounded evidence collection. Record omitted evidence and failures; do not silently score clipped output as complete."
+  },
+  "execution": {
+    "copies": "Identical full corpus and prepared dependencies per provider; provider state and homes isolated outside corpus.",
+    "schedule": "Three sequential rotations over each qualified provider. Reverse provider order in rotation2 and rotate one position in rotation3. Preserve every attempt.",
+    "cold": "Fresh provider process and empty provider indexes/caches. Record setup, indexing, first query and total readiness separately.",
+    "warm": "Repeated same queries in the existing session, keeping source and tool version fixed.",
+    "refresh": "Only freshness-concurrency mutates the corpus, after all static probes. Charge mutation-to-usable-answer time including common500ms grace and explicit refresh. Preserve immediate stale/pending response too.",
+    "timeouts": {
+      "coldSetupMs": 600000,
+      "probeMs": 60000
+    },
+    "noModelTokensClaim": "This read-only tool screen records facts, actions, bytes and elapsed time. It cannot establish coding-agent token or task-time savings."
+  },
+  "selectionGate": {
+    "correctness": "No false installed identity, false named type availability, out-of-scope success or stale answer represented as current. All decisive task facts must be present; unknown remains unknown.",
+    "advance": "Equivalent complete evidence with fewer required retrieval and assembly steps, OR lower bytes or charged time, can advance to a small actual-agent check. Apply this opportunity equally to higher-level competitors. Counts and backend microbenchmarks alone do not establish token savings.",
+    "stop": "False identity, scope or currentness claims block advancement until corrected. Backend CPU or byte dominance by handwritten native scripts alone cannot establish lack of agent value or a final archive decision. If no credible workflow advantage remains, record that uncertainty; final product stopping requires actual-agent evidence or failure to supply the required correct capability."
+  },
+  "laterAgentGate": "Predeclare separate coding tasks and independent correctness checks before sessions. Require substantial savings in BOTH total tokens and charged end-to-end time with no correctness loss against the strongest qualified controls. Date-fns remains a separate external replication; this source screen does not count as that trial."
+}
