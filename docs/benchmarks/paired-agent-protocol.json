@@ -149,5 +149,18 @@
   ],
   "accountingSource": "Codex CLI turn.completed usage; https://learn.chatgpt.com/docs/non-interactive-mode",
   "animation": "Replay the first SQLite pair, selected before scoring, regardless of outcome. Show actual public actions at recorded JSONL receipt times. Separate sessions align at their start and playback is accelerated. This is a rendered action replay, not a screen recording.",
-  "frozenInputsDigest": "7caa0a696f8713831c96a8a48ad4cfc2d7774f990195a1ff32ba86527fdf7bf4"
+  "frozenInputsDigest": "6dfb39d77df1ac34a407f70817bc369a822936f9ec65f3bdeffce7a5be8abf7d",
+  "amendments": [
+    {
+      "recordedAt": "2026-11-06T15:10:10.343Z",
+      "afterRunIds": [
+        "sqlite-rollback-1-baseline"
+      ],
+      "originalProtocolSha256": "51cdaf7625a04198c91579575610619aa43a961b9baadf28059d4ad9ec42709e",
+      "originalProtocol": "https://github.com/eDimka/typelatch/blob/e881cf8/docs/benchmarks/paired-agent-protocol.json",
+      "originalFrozenInputsDigest": "7caa0a696f8713831c96a8a48ad4cfc2d7774f990195a1ff32ba86527fdf7bf4",
+      "reason": "Preparation stopped before the second launch because two generated native build files contain workspace paths. The completed run is retained unchanged. No prompt, model, tool, fixture source, runtime code, grader, schedule or scored metric changed.",
+      "change": "Pairing normalizes only exact workspace paths in node_modules/better-sqlite3/build/Makefile and build/config.gypi. Original and normalized inventory digests are recorded separately. All other bytes remain strict. Resume continues the original schedule without repeating completed runs."
+    }
+  ]
 }

@@ -84,7 +84,7 @@ export function freezeInputs(repositoryRoot, runtime) {
   ]
   assert(manifests.some(manifest => manifest.name.startsWith('trustedDependencies:')), 'Trusted grader dependencies must be installed before freezing')
   const files = [
-    ...['paired-agent.mjs', 'paired-agent-runner.mjs', 'paired-agent-evidence.mjs', 'paired-agent-fixtures.mjs', 'paired-agent-integrity.mjs', 'demo-evidence.mjs'].map(name => fileIdentity('harness:' + name, join(root, 'scripts', name))),
+    ...['paired-agent.mjs', 'paired-agent-runner.mjs', 'paired-agent-evidence.mjs', 'paired-agent-fixtures.mjs', 'paired-agent-integrity.mjs', 'paired-agent-comparison.mjs', 'demo-evidence.mjs'].map(name => fileIdentity('harness:' + name, join(root, 'scripts', name))),
     fileIdentity('codexBinary', resolvedCodexBinary().path),
     fileIdentity('nodeBinary', realpathSync(process.execPath)),
   ]

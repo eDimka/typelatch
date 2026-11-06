@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir, platform, arch, cpus, totalmem, tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { performance } from 'node:perf_hooks'
@@ -9,6 +9,7 @@ import { extractPairedEvents, summarizePairedRuns } from './paired-agent-evidenc
 import { normalizeDemo } from './demo-evidence.mjs'
 import { hash, pairedConfig, runAgent, writeJson } from './paired-agent-runner.mjs'
 import { freezeInputs, verifyFrozenInputs } from './paired-agent-integrity.mjs'
+import { comparisonManifest, assertComparableFixtures } from './paired-agent-comparison.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const extra = process.argv.slice(3)
@@ -26,6 +27,7 @@ function command(command, args, options = {}) {
   assert.equal(result.status, 0, `${command} failed: ${result.stderr}`)
   return result.stdout.trim()
 }
+const publicComparison = comparison => ({ rawManifestSha256: comparison.rawManifestSha256, comparisonSha256: comparison.comparisonSha256, normalizations: comparison.normalizations.map(({ aliases, ...row }) => ({ ...row, aliasReplacementCounts: aliases.map(alias => alias.replacements) })) })
 
 function makeProtocol() {
   const schedule = []
@@ -60,8 +62,9 @@ if (process.argv[2] === '--freeze') {
   writeJson(protocolPath, { ...makeProtocol(), frozenInputsDigest: frozen.digest })
   console.log('Frozen paired benchmark protocol without running tasks')
 } else {
-  assert.equal(process.argv[2], '--run', 'Usage: node scripts/paired-agent.mjs --freeze|--run')
-  assert(existsSync(protocolPath) && !existsSync(reportPath), 'Freeze the protocol first; never overwrite a recorded benchmark')
+  const resuming = process.argv[2] === '--resume'
+  assert(resuming || process.argv[2] === '--run', 'Usage: node scripts/paired-agent.mjs --freeze|--run|--resume')
+  assert(existsSync(protocolPath) && (resuming ? existsSync(reportPath) : !existsSync(reportPath)), 'Freeze first; use explicit resume to retain a partial study')
   const protocolBytes = readFileSync(protocolPath), protocol = JSON.parse(protocolBytes)
   const frozen = JSON.parse(readFileSync(frozenPath))
   assert.equal(frozen.digest, protocol.frozenInputsDigest)
@@ -72,21 +75,51 @@ if (process.argv[2] === '--freeze') {
   const packageMetadata = JSON.parse(command('npm', ['view', 'typelatch@0.3.0', 'dist', '--json']))
   const packageManifestSha256 = hash(readFileSync(join(runtime, 'package.json')))
   const sourceCommit = command('git', ['rev-parse', 'HEAD'], { cwd: root })
+  const prior = resuming ? JSON.parse(readFileSync(reportPath)) : null
+  if (prior) {
+    assert(!prior.complete, 'A completed study cannot resume')
+    assert.deepEqual(prior.protocol.tasks, protocol.tasks, 'Resume cannot change tasks or prompts')
+    assert.deepEqual(prior.protocol.schedule, protocol.schedule, 'Resume cannot change the run order')
+    assert.deepEqual(prior.protocol.config, protocol.config, 'Resume cannot change agent settings')
+    assert(prior.runs.every((run, index) => run.id === protocol.schedule[index].id && run.status !== 'running'), 'Resume requires a completed prefix, not a replacement run')
+    assert.equal(prior.cliVersion, cliVersion)
+    assert.deepEqual(prior.package.dist, packageMetadata)
+  }
   const captureRoot = mkdtempSync(join(root, 'artifacts/paired-agent/scored-'))
   const publicDirectory = join(studyDirectory, 'paired-agent-runs'); mkdirSync(publicDirectory, { recursive: true })
-  const harnessFiles = ['scripts/paired-agent.mjs', 'scripts/paired-agent-runner.mjs', 'scripts/paired-agent-evidence.mjs', 'scripts/paired-agent-fixtures.mjs', 'scripts/paired-agent-integrity.mjs']
+  const harnessFiles = ['scripts/paired-agent.mjs', 'scripts/paired-agent-runner.mjs', 'scripts/paired-agent-evidence.mjs', 'scripts/paired-agent-fixtures.mjs', 'scripts/paired-agent-integrity.mjs', 'scripts/paired-agent-comparison.mjs']
   const harness = harnessFiles.map(path => ({ path, sha256: hash(readFileSync(join(root, path))) }))
   const report = { schemaVersion: 1, startedAt: new Date().toISOString(), capturedAt: null, protocol, protocolSha256: hash(protocolBytes), sourceCommit, cliVersion, package: { identity: 'typelatch@0.3.0', manifestSha256: packageManifestSha256, dist: packageMetadata }, machine: { platform: platform(), architecture: arch(), nodeVersion: process.version, processor: cpus()[0]?.model, logicalProcessors: cpus().length, memoryBytes: totalmem() }, harness, frozenInputs: { digest: frozen.digest, manifests: frozen.manifests.map(({name,sha256,entries}) => ({name,sha256,entries:entries.length})), files: frozen.files.map(({name,sha256,bytes})=>({name,sha256,bytes})) }, tasks: protocol.tasks.map(({ id, title }) => ({ id, title })), runs: [], summary: summarizePairedRuns([]), complete: false }
+  report.fixtureComparisons = {}
+  const comparisons = new Map()
+  if (prior) {
+    report.startedAt = prior.startedAt
+    report.runs = prior.runs
+    report.captureRevisions = [...(prior.captureRevisions ?? [{ sourceCommit: prior.sourceCommit, protocolSha256: prior.protocolSha256, frozenInputs: prior.frozenInputs, runIds: prior.runs.map(run => run.id) }]), { sourceCommit, protocolSha256: report.protocolSha256, frozenInputs: report.frozenInputs, runIds: protocol.schedule.slice(prior.runs.length).map(run => run.id) }]
+    for (const run of prior.runs) {
+      const candidates = readdirSync(join(root, 'artifacts/paired-agent')).filter(name => name.startsWith('scored-')).map(name => join(root, 'artifacts/paired-agent', name, run.id, 'before.json')).filter(existsSync)
+      assert.equal(candidates.length, 1, 'One preserved prelaunch inventory is required to resume each existing run')
+      const before = JSON.parse(readFileSync(candidates[0])).prepared
+      assert.equal(before.fixtureSha256, run.fixtureSha256)
+      const comparison = comparisonManifest(before.files, before.workspace)
+      comparisons.set(run.task, comparison)
+      report.fixtureComparisons[run.id] = publicComparison(comparison)
+    }
+  }
+  report.summary = summarizePairedRuns(report.runs)
   writeJson(join(captureRoot, 'protocol.json'), protocol)
   writeJson(reportPath, report)
   for (const scheduled of protocol.schedule) {
+    if (report.runs.some(run => run.id === scheduled.id)) continue
     console.log(JSON.stringify({ event: 'preparing', ...scheduled }))
     const task = protocol.tasks.find(task => task.id === scheduled.task)
     const workspace = mkdtempSync(join(tmpdir(), 'typelatch-paired-'))
     const prepared = await prepareTask(task.id, workspace)
     assert.equal(prepared.baseline.passed, false, 'An unfixed task must fail its correctness gate')
-    const priorFixture = report.runs.find(run => run.task === task.id)
-    if (priorFixture) assert.equal(prepared.fixtureSha256, priorFixture.fixtureSha256, 'Every repetition must start with identical source and dependency files')
+    const comparison = comparisonManifest(prepared.files, workspace)
+    if (comparisons.has(task.id)) assertComparableFixtures(comparisons.get(task.id), comparison)
+    else comparisons.set(task.id, comparison)
+    report.fixtureComparisons[scheduled.id] = publicComparison(comparison)
     const sourceBefore = Object.fromEntries(prepared.files.filter(file => file.path === 'batch.ts' || /^src\/.+\.ts$/u.test(file.path)).map(file => [file.path, readFileSync(join(workspace, file.path), 'utf8')]))
     const setupMs = prepared.setupMs
     let indexSetupMs = 0, preparation = null
