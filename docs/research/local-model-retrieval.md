@@ -1,6 +1,6 @@
 # Local models for bounded code evidence
 
-Reviewed 2026-11-06. Research and proposed experiments only. No inference, installation, weight download or performance trial was performed for this note.
+Historical planning note reviewed 2026-11-06. The recommendations and proposed gates below precede execution. Later [local model results](monorepo-evidence/local-ranking/summary.json) and [completed coding comparisons](../BENCHMARKS.md#instructed-tool-use) retain the measured outcomes. Neither compact validation nor the source packet established token and time savings over native tools.
 
 ## Recommendation
 
@@ -14,7 +14,7 @@ The target is at least 25% lower main model total tokens and end to end task tim
 
 The [original explicit tool use study](../benchmarks/typelatch-use/paired-agent.json) records six runs per arm: native tools used 936,683 total model tokens and 317.8 seconds; Typelatch used 1,861,666 tokens and 452.7 seconds. Correctness was 4/6 and 5/6, and grep calls were 22 and 10. These authored tasks demonstrate a cost problem; they are development evidence, not unseen evaluation tasks.
 
-The [validation capture provenance](../../test/fixtures/mcp/recorded-sqlite-validation.provenance.json) identifies a 102,424 byte semantic response. The current [compact projection](../../src/workspace/validation-output.ts) omits full input manifest rows while preserving checks, diagnostics, execution, snapshot identities and explicit counts. Full detail and recording remain separate. The controlled rerun must establish whether smaller responses improve task time and tokens.
+The [validation capture provenance](https://github.com/eDimka/typelatch/blob/a3ffe7d2a08df31eb673dfaad57fedc330b0a37f/test/fixtures/mcp/recorded-sqlite-validation.provenance.json) identifies a 102,424 byte semantic response. The development [compact projection](https://github.com/eDimka/typelatch/blob/a3ffe7d2a08df31eb673dfaad57fedc330b0a37f/src/workspace/validation-output.ts) omits full input manifest rows while preserving checks, diagnostics, execution, snapshot identities and explicit counts. Full detail and recording remain separate. The later [controlled rerun](../benchmarks/typelatch-040-candidate/paired-agent.json) used 63.0% more tokens and 44.8% more charged time than native tools.
 
 Current [workspace search](../../src/workspace/search.ts) already uses content hashes, lexical scoring, deduplication and exact dependency identities. [Source context](../../src/workspace/source-context.ts) selects excerpts near hits and one hop of unambiguous relative imports, bounded to 24 KiB total, 8 KiB per file and 12 files. A new vector database is not a prerequisite.
 
