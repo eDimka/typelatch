@@ -1,5 +1,20 @@
 # Benchmarks
 
+## Large monorepo availability
+
+Two real, localized repairs in the pinned pnpm repository, with 198 workspace packages. Each condition ran both tasks twice. All 16 solutions passed independent checks, and every session made zero MCP calls. Neither candidate met the frozen savings gate. Differences in these runs do not demonstrate a benefit from retrieval.
+
+| Four sessions per condition | Total tokens | Charged time | Grep shell calls | MCP calls | Correct |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Native tools | 361,174 | 106.7 s | 10 | 0 | 4/4 |
+| Serena 2.1.0 available | 378,639 | 103.3 s | 11 | 0 | 4/4 |
+| Typelatch 0.4.0 candidate available | 407,578 | 100.2 s | 12 | 0 | 4/4 |
+| Compact source experiment available | 393,729 | 104.3 s | 12 | 0 | 4/4 |
+
+Tokens include cached input and output once. Charged time includes provider setup and the complete agent session. Shared fixture copying and independent grading remain separate. The gate requires at least 20% aggregate and median paired savings in both metrics against native tools and Serena, improvement in each repeat, and preserved correctness. Each task needs one implementation file, and the failing checks provide useful debugging clues. This is not a scaling study.
+
+[All runs](benchmarks/monorepo-agent-study/report.json) · [Frozen protocol](benchmarks/monorepo-agent-study/protocol.json) · [Independent review](benchmarks/monorepo-agent-study/independent-review.json) · [Retained launch failures](benchmarks/monorepo-agent-study/infrastructure-attempt-001/report.json) · [Reproduction and six tool comparisons](research/monorepo-evidence/README.md)
+
 ## Paired agent comparison
 
 [Results](https://edimka.github.io/typelatch/#benchmark) · [Current candidate evidence](benchmarks/typelatch-040-candidate/paired-agent.json) · [Candidate protocol](benchmarks/typelatch-040-candidate/paired-agent-protocol.json) · [Original 0.3.0 evidence](benchmarks/typelatch-use/paired-agent.json)

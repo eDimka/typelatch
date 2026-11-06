@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T18:16:22.938Z",
+  "status": "scratch-qualified-experimental-arm",
+  "defaultModelVisibleByteLimit": 8192,
+  "qualification": {
+    "projectionTestsPassed": 4,
+    "mcpTransportQualified": true,
+    "liveEditObserved": true,
+    "heldOutTaskRead": false,
+    "modelCalls": 0
+  },
+  "runtime": {
+    "defaultRoot": "artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+    "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+    "sharedDependencies": "MCP SDK and zod resolve from the repository installation; the coordinator must retain its existing runtime freeze."
+  },
+  "files": [
+    {
+      "path": "projection.mjs",
+      "sha256": "73e27c051c2d4e0e97463c1d3edda047e2f99d869614b9cfb7713b416bdca88a",
+      "bytes": 5994
+    },
+    {
+      "path": "service.mjs",
+      "sha256": "522018c101929ba460bd09d767a956b0dbf11eed8fc9960bde110ce33ce7d2a5",
+      "bytes": 3326
+    },
+    {
+      "path": "mcp.mjs",
+      "sha256": "1230b65edf6ec6e743458f1322686972471cef3b7399c0c029f22ca475847c63",
+      "bytes": 972
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "bytes": 443
+    },
+    {
+      "path": "projection.test.mjs",
+      "sha256": "56ad63d2d86c2c08ece0309715c99b98928494e8aee0a69738a197b063d31a77",
+      "bytes": 3083
+    },
+    {
+      "path": "smoke.mjs",
+      "sha256": "185eb173bbbc60348b0cd8f839c60f633a583ae9f688329c28f6b60f3a457c20",
+      "bytes": 4154
+    },
+    {
+      "path": "README.md",
+      "sha256": "a57bb1de6f92094cca40152d67ca88a313c46b5fc95b278d320bd825ae3c76e0",
+      "bytes": 3280
+    },
+    {
+      "path": "qualification/transport.json",
+      "sha256": "e9d9044ff9afd298b07382dbeffa3da64af002ec0bdf7fbcda62026824a6f749",
+      "bytes": 11639
+    },
+    {
+      "path": "qualification/tests.json",
+      "sha256": "d54f99fd2c95593367347e4ada27a2da1b923c0cea7510efa4002a7414569bb1",
+      "bytes": 327
+    },
+    {
+      "path": "qualification/23784-0001.json",
+      "sha256": "aeec0121397f248f83ea18c260ed95565a4452e15b35e920eef6b0aa04e5f318",
+      "bytes": 10888
+    },
+    {
+      "path": "qualification/23784-0002.json",
+      "sha256": "399c0b5b96b89523a37a3a00f5a3180e86d3af91903d5e60f35bb5d7af37aebb",
+      "bytes": 10893
+    }
+  ],
+  "observed": [
+    {
+      "file": "23784-0001.json",
+      "measurement": {
+        "rawResponseBytes": 4427,
+        "availableSourceBytes": 231,
+        "modelVisibleBytes": 2414,
+        "byteLimit": 8192,
+        "candidateCount": 2,
+        "returnedCandidates": 2,
+        "sourceBytes": 231,
+        "apiCalls": 0,
+        "compilerCalls": 0,
+        "modelCalls": 0,
+        "limitation": "Bytes are not model token savings; evidence may be omitted by the fixed budget.",
+        "retrievalMs": 223.649125,
+        "serviceMs": 224.60183299999997,
+        "backendCalls": 1,
+        "responseWireBytes": 4877,
+        "diagnosticPersistenceIncluded": false
+      }
+    },
+    {
+      "file": "23784-0002.json",
+      "measurement": {
+        "rawResponseBytes": 4425,
+        "availableSourceBytes": 231,
+        "modelVisibleBytes": 2414,
+        "byteLimit": 8192,
+        "candidateCount": 2,
+        "returnedCandidates": 2,
+        "sourceBytes": 231,
+        "apiCalls": 0,
+        "compilerCalls": 0,
+        "modelCalls": 0,
+        "limitation": "Bytes are not model token savings; evidence may be omitted by the fixed budget.",
+        "retrievalMs": 13.34004200000004,
+        "serviceMs": 13.672042000000033,
+        "backendCalls": 1,
+        "responseWireBytes": 4877,
+        "diagnosticPersistenceIncluded": false
+      }
+    }
+  ]
+}

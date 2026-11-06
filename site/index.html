@@ -25,7 +25,7 @@
     <nav aria-label="Main navigation">
       <a href="#walkthrough">The walkthrough</a>
       <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md">Docs <span aria-hidden="true">↗</span></a>
-      <a href="#benchmark">Benchmark</a>
+      <a href="{{benchmarkAnchor}}">Benchmark</a>
       <a class="nav-github" href="https://github.com/eDimka/typelatch">GitHub <span aria-hidden="true">↗</span></a>
       <a class="nav-setup" href="#setup">Get started <span aria-hidden="true">↗</span></a>
     </nav>
@@ -38,7 +38,7 @@
         <p class="hero-description">Your source. Your dependency versions. <strong>Typelatch gives coding agents a focused place to start</strong> and the tools to check what comes next.</p>
         <div class="hero-install">
           <p class="small-label">CONNECT CODEX OR CLAUDE CODE</p>
-          <div class="command-line"><span class="shell-dollar" aria-hidden="true">$</span><pre tabindex="0" aria-label="Connect your coding agent"><code id="hero-install-command">npx typelatch@latest setup</code></pre><button type="button" data-copy="hero-install-command" hidden>Copy</button></div>
+          <div class="command-line"><span class="shell-dollar" aria-hidden="true">$</span><pre tabindex="0" aria-label="Connect your coding agent"><code id="hero-install-command">npx typelatch@0.3.0 setup</code></pre><button type="button" data-copy="hero-install-command" hidden>Copy</button></div>
         </div>
 
         <div class="hero-actions"><a href="#walkthrough">See it in action <span aria-hidden="true">↓</span></a><span>Open source · Runs locally · TypeScript</span></div>
@@ -64,6 +64,7 @@
       </div>
     </section>
 
+    {{monorepoBenchmark}}
     {{pairedBenchmark}}
 
     <section class="approach-section wrap" aria-labelledby="approach-title">
@@ -92,7 +93,7 @@
               <h3>Connect Typelatch</h3>
               <button type="button" data-copy="install-command" hidden>Copy</button>
             </div>
-            <pre tabindex="0" aria-label="Connect Typelatch"><code id="install-command">npx typelatch@latest setup</code></pre>
+            <pre tabindex="0" aria-label="Connect Typelatch"><code id="install-command">npx typelatch@0.3.0 setup</code></pre>
             <p>
               Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
               The native SQLite dependency may need a C++ toolchain if a
@@ -104,7 +105,7 @@
               <h3>Initialize from your lockfile</h3>
               <button type="button" data-copy="index-command" hidden>Copy</button>
             </div>
-            <pre tabindex="0" aria-label="Prepare dependency indexes"><code id="index-command">npx typelatch@latest sync</code></pre>
+            <pre tabindex="0" aria-label="Prepare dependency indexes"><code id="index-command">npx typelatch@0.3.0 sync</code></pre>
             <p>
               Read exact npm dependencies from npm, pnpm, Yarn, Bun or Deno lockfiles. Binary Bun locks require Bun on your machine.
               Preview the plan with <code>sync --dry-run --json</code>, then build reusable local indexes.
@@ -116,7 +117,7 @@
               <h3>Choose your monorepo projects</h3>
               <button type="button" data-copy="scope-command" hidden>Copy</button>
             </div>
-            <pre tabindex="0" aria-label="Select monorepo projects"><code id="scope-command">npx typelatch@latest scope add apps/web packages/ui</code></pre>
+            <pre tabindex="0" aria-label="Select monorepo projects"><code id="scope-command">npx typelatch@0.3.0 scope add apps/web packages/ui</code></pre>
             <p>
               Save the projects you need. Source search and plain <code>sync</code> use that selection.
               Add more later with <code>scope add</code>, or narrow it with <code>scope remove</code>.

@@ -7,14 +7,16 @@ Start with a workspace question, inspect the relevant source or exact dependency
 Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI on `PATH`. Run this from any directory:
 
 ```sh
-npx typelatch@0.4.0 setup
+npx typelatch@0.3.0 setup
 ```
+
+These commands install the published 0.3.0 release. [0.4.0 development features](../CHANGELOG.md#040) require a source checkout.
 
 Choose your client, keep or change the server name, then confirm registration. Setup pins the exact Typelatch version being run and configures npm as the server launcher. It does not require a clone, global installation, or a project dependency. The client can launch it after npm clears its temporary package cache. Restart your client in the project and ask: "Use workspace_search to explain how this project is organized."
 
 Running setup again with a newer release prepares a registration for that version. Codex can replace the named entry; Claude Code may require you to remove the old entry first or choose another name.
 
-To prepare dependency indexes without installing globally, run `npx typelatch@0.4.0 sync` in your project. The SQLite dependency uses a native binary. If no suitable binary is available, npm installation requires a working C++ build toolchain. Initial installation and an uncached server launch need npm access.
+To prepare dependency indexes without installing globally, run `npx typelatch@0.3.0 sync` in your project. The SQLite dependency uses a native binary. If no suitable binary is available, npm installation requires a working C++ build toolchain. Initial installation and an uncached server launch need npm access.
 
 ### Source checkout and manual registration
 
@@ -25,7 +27,7 @@ The checkout option runs `npm ci` if `node_modules` is missing and builds before
 Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native binary. If your platform has no suitable binary, installation requires a working C++ build toolchain.
 
 ```sh
-npm install --global typelatch@0.4.0
+npm install --global typelatch@0.3.0
 typelatch --help
 typelatch add kysely@0.28.19
 ```
@@ -71,14 +73,14 @@ Start a new client session after registration or upgrading. Typelatch exposes th
 Prepare the same local index:
 
 ```sh
-npx --yes --package=typelatch@0.4.0 typelatch add kysely@0.28.19
+npx --yes --package=typelatch@0.3.0 typelatch add kysely@0.28.19
 ```
 
 Register either client with npm as the launcher:
 
 ```sh
-codex mcp add typelatch -- npx --yes --package=typelatch@0.4.0 typelatch-mcp
-claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.4.0 typelatch-mcp
+codex mcp add typelatch -- npx --yes --package=typelatch@0.3.0 typelatch-mcp
+claude mcp add --transport stdio --scope user typelatch -- npx --yes --package=typelatch@0.3.0 typelatch-mcp
 ```
 
 The package name is `typelatch`. Its server executable is `typelatch-mcp`. Do not use `npx typelatch-mcp`, which asks npm for a different package. The npm launcher may need network access before it can start the server. Use the same `TYPELATCH_HOME` for index preparation and the server if you override the default.
@@ -253,7 +255,7 @@ New indexes retain declared generics, parameters and return annotations for dire
 
 For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
 
-Install or upgrade with `npm install --global typelatch@0.4.0`, then restart the MCP client so it discovers the new tool.
+Install or upgrade with `npm install --global typelatch@0.3.0`, then restart the MCP client so it discovers the new tool.
 
 Use `workspace_search` when the relevant file or dependency is unknown:
 

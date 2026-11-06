@@ -1,0 +1,1531 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-selector-screen",
+  "backend": "ollama",
+  "status": "complete",
+  "startedAt": "2026-11-06T17:19:05Z",
+  "scriptSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+  "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "settings": {
+    "pairMaxTokens": 512,
+    "queryMaxTokens": 128,
+    "topK": 2,
+    "instruction": "Given a software maintenance task, retrieve source code or API evidence needed to understand and correctly implement the requested change.",
+    "candidateBatchSize": 1,
+    "ollamaContextTokens": 32768,
+    "ollamaOutputTokenLimit": 512,
+    "ordering": "input order; score ties sort by candidate ID"
+  },
+  "limitations": [
+    "Retrieval screening, not coding correctness or cloud token savings",
+    "MLX scores pairs; Ollama selects a list; same source windows, different prompt tokenizers",
+    "MLX has no calibrated no-match threshold",
+    "Download time is external and retained from the model manifest",
+    "RSS covers this Python process, not the separate Ollama server",
+    "Cold Ollama means absent from /api/ps; filesystem and server caches may be warm",
+    "No hidden reasoning or full model response bodies are exported"
+  ],
+  "elapsedMs": 15639.319375000923,
+  "casesSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+  "modelManifest": {
+    "manifestSha256": "2162af6538d00e6f823c7479f9e50734da2bb35f311f4c45fc4e496364b1e038",
+    "repository": "mlx-community/Qwen3-Reranker-0.6B-4bit",
+    "revision": "5f324548f1d20c2b5a450f126fc6ef2fb1126524",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 1890,
+        "sha256": "e560db1813f60798fbbf0e38b34aaf581efcca70ef5b620f2eb31032304f4b7e"
+      },
+      {
+        "path": "config.json",
+        "bytes": 1021,
+        "sha256": "09adff58b65e9305009c9caa4923b3365b18dd2f84135b44168aaf869278bea4"
+      },
+      {
+        "path": "generation_config.json",
+        "bytes": 214,
+        "sha256": "81051cd3f6e77013827148d0b8a6ead93f8ac390d5ab805f849199f0af6a08db"
+      },
+      {
+        "path": "model.safetensors",
+        "bytes": 335296756,
+        "sha256": "1d212560a5b1c36186787fdae19f11f20fecfc29bef91522e12a8e0d118f4545"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "bytes": 49770,
+        "sha256": "90d82744cdb6b7d093f0b812fc21a49b6ffa9d0084a45428f0cfd01eb4adbe12"
+      },
+      {
+        "path": "tokenizer.json",
+        "bytes": 11422650,
+        "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "bytes": 377,
+        "sha256": "1689852cc9c45010de040c8302a8acdc0d2c4c6c740dd7e9dd0a8c704e16eada"
+      }
+    ],
+    "reportedDownloadMs": 11530.87995900205,
+    "verificationMs": 178.53349999859347
+  },
+  "libraries": {
+    "transformers": "5.22.2",
+    "mlx": "0.32.4",
+    "mlx-lm": "0.31.3"
+  },
+  "tokenizerLoadMs": 1140.056750002259,
+  "peakProcessRssBytes": 302235648,
+  "ollamaIdentity": {
+    "server": {
+      "version": "0.40.6"
+    },
+    "model": {
+      "name": "qwen3:1.7b",
+      "model": "qwen3:1.7b",
+      "modified_at": "2026-08-21T20:29:57.206042037+02:00",
+      "size": 1359293444,
+      "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "2.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 40960,
+        "embedding_length": 2048,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ]
+    },
+    "loadedModels": [],
+    "residency": "cold"
+  },
+  "unload": {
+    "status": "ok",
+    "done": true,
+    "selectedModelStillLoaded": false,
+    "elapsedMs": 50.93695799951092
+  },
+  "cases": [
+    {
+      "id": "root-glob:source-cause",
+      "status": "ok",
+      "rankedIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd"
+      ],
+      "preparation": {
+        "id": "root-glob:source-cause",
+        "queryOriginalTokens": 17,
+        "queryUsedTokens": 17,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 17.4920409990591,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 461,
+            "untruncatedPairTokens": 461,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 237,
+            "untruncatedPairTokens": 237,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 889,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "9f5228c591473dde8c084e345c90997047278f4cdaab5542eccc5bf39a1a00bb",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1262,
+            "omittedCharacters": 1102
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 630,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "5f7c56440fc7d7ff586ea77a93295f69d001382985a8f94ae327116ed4c89c62",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1126,
+            "omittedCharacters": 426
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 214,
+            "untruncatedPairTokens": 214,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1747,
+      "outputTokens": 38,
+      "evaluation": {
+        "relevantIds": [
+          "6af5c08240bc73bd"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 0.5,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 2207.0117500006745,
+      "usage": {
+        "prompt_eval_count": 1747,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 38,
+        "total_duration": 2187436500,
+        "load_duration": 1040741500,
+        "prompt_eval_duration": 846445000,
+        "eval_duration": 293216000
+      },
+      "requestSha256": "83f6f5ca29cd93f8459cc8d17c69e8b36262d36161d6665a8d855ca13d85ec8a",
+      "responseSha256": "f2e84fd0b7c69f7feeceaaf81c9c36f365e33d8597900a403770edb62aef82d8",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 2188.652875000116,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:08.735325+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-glob:public-contract",
+      "status": "ok",
+      "rankedIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd"
+      ],
+      "preparation": {
+        "id": "root-glob:public-contract",
+        "queryOriginalTokens": 20,
+        "queryUsedTokens": 20,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 22.32962500056601,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 464,
+            "untruncatedPairTokens": 464,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 240,
+            "untruncatedPairTokens": 240,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 892,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "a32249e53b695aeb0829ce79fca821930ac766e489f07b5c90ab8bb53b738221",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1258,
+            "omittedCharacters": 1106
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 633,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "d78ac2694a8d8c4d13b67626271f90a848e72b6523e3172df90fb0682122431d",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1115,
+            "omittedCharacters": 437
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 217,
+            "untruncatedPairTokens": 217,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1744,
+      "outputTokens": 38,
+      "evaluation": {
+        "relevantIds": [
+          "263d030f5e9ee87f"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 1160.7854169997154,
+      "usage": {
+        "prompt_eval_count": 1744,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 38,
+        "total_duration": 1135606959,
+        "load_duration": 1851292,
+        "prompt_eval_duration": 807522000,
+        "eval_duration": 301371000
+      },
+      "requestSha256": "4e7a5a9a96ac5d235797018da3134d6072a695d9bc8e194ed9eacbdc7cf170e9",
+      "responseSha256": "f4ba884cb00b94e263b12ca1dde710bfaef136447f1ba5df03d36c2766af0999",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1136.9177090018638,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:09.895816+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-glob:call-contract",
+      "status": "ok",
+      "rankedIds": [
+        "6af5c08240bc73bd",
+        "c5e1971a4913f70f"
+      ],
+      "preparation": {
+        "id": "root-glob:call-contract",
+        "queryOriginalTokens": 19,
+        "queryUsedTokens": 19,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 21.303249999618856,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 463,
+            "untruncatedPairTokens": 463,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 239,
+            "untruncatedPairTokens": 239,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 891,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "9451f67c1c83df735f7f6ec4d12139f8af43414a0530abe8e902b52220a5dd6f",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1260,
+            "omittedCharacters": 1104
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 632,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "873d5daa3ce420a2642c0318832610011231f366af911c8bea3273d10d36f09c",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1120,
+            "omittedCharacters": 432
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 216,
+            "untruncatedPairTokens": 216,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1744,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [
+          "a0f8a3d51614ac3a"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 0,
+          "recallAtK": 0,
+          "allRelevantAtK": false,
+          "reciprocalRankAtK": 0,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 1167.8207500008284,
+      "usage": {
+        "prompt_eval_count": 1744,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 39,
+        "total_duration": 1144730542,
+        "load_duration": 2551750,
+        "prompt_eval_duration": 811254000,
+        "eval_duration": 307640000
+      },
+      "requestSha256": "4ae78eee1f367c2c53e8fd15ce03c0f0da838eed76d7b10ca0f1a220ba0f4f20",
+      "responseSha256": "cc2455c840e784320d8f9545097ff41881c99b78915b3fb6b2995e4dc7c207f0",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1145.8112910004274,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "263d030f5e9ee87f",
+        "a0f8a3d51614ac3a",
+        "f3d126a98eaa8daa"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:11.06747+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-glob:basename-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "6af5c08240bc73bd",
+        "263d030f5e9ee87f"
+      ],
+      "preparation": {
+        "id": "root-glob:basename-semantics-absent",
+        "queryOriginalTokens": 14,
+        "queryUsedTokens": 14,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 25.91729100095108,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 458,
+            "untruncatedPairTokens": 458,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 234,
+            "untruncatedPairTokens": 234,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 886,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "1a5e3431814fefaa52dfcd0801800905a179a9d824a4df735bbb362ce1dc3a9d",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1265,
+            "omittedCharacters": 1099
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 627,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "de0fd4d0babbeb51064e3b399d77e245764500a87caeec165960a5b78da499e7",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1135,
+            "omittedCharacters": 417
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 211,
+            "untruncatedPairTokens": 211,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1751,
+      "outputTokens": 38,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 1159.494999999879,
+      "usage": {
+        "prompt_eval_count": 1751,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 38,
+        "total_duration": 1131781959,
+        "load_duration": 2098500,
+        "prompt_eval_duration": 807577000,
+        "eval_duration": 298026000
+      },
+      "requestSha256": "7b588ae2e358d6622f36f18008680afffee2636ef1b69e9cdca75812837031be",
+      "responseSha256": "612aaa4a52c74868393ac85eb02781828ede45984aa82fb9e94ca0be09005757",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1132.8277499997057,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:12.227758+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "root-glob:dot-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd"
+      ],
+      "preparation": {
+        "id": "root-glob:dot-semantics-absent",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 17.887083002278814,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 462,
+            "untruncatedPairTokens": 462,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 238,
+            "untruncatedPairTokens": 238,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 890,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "df2e50635c6ec23d422a61cec1201d5dea7100c030949a03a14eb515d18630dd",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1261,
+            "omittedCharacters": 1103
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 631,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "33a0ae5d1fe0da87687c21736e34abe5fe5e8c7078c7fd2ad719391fa9765180",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1125,
+            "omittedCharacters": 427
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 215,
+            "untruncatedPairTokens": 215,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1746,
+      "outputTokens": 38,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 1181.2024589999055,
+      "usage": {
+        "prompt_eval_count": 1746,
+        "prompt_eval_cached_count": 70,
+        "eval_count": 38,
+        "total_duration": 1161653625,
+        "load_duration": 2485000,
+        "prompt_eval_duration": 813630000,
+        "eval_duration": 320913000
+      },
+      "requestSha256": "5e314a58377e3544934ec084f0ce0d4d1d22fbfa1861a0db3a1203422c916fae",
+      "responseSha256": "f6653b4119259e81865ed0e80c35a88094bc603f1fa59695e947d9e0770b97a7",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1162.6730830030283,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:13.410179+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:source-cause",
+      "status": "ok",
+      "rankedIds": [
+        "4c7985a65be86c3e",
+        "be49ef649000560d"
+      ],
+      "preparation": {
+        "id": "yaml-settings:source-cause",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 25.2310830001079,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 434,
+            "untruncatedPairTokens": 434,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 299,
+            "untruncatedPairTokens": 299,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 516,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "f059fca7cc9290c11b6df9e749e57fe11a007ef163cab1fea7b73d04937e6201",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1134,
+            "omittedCharacters": 7
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 675,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "782ba757649eb19849be757475caf79bb0c39804377ae7276bb7724c1106cc8f",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1354,
+            "omittedCharacters": 489
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 189,
+            "untruncatedPairTokens": 189,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1763,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [
+          "4c7985a65be86c3e"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 1186.2117079981545,
+      "usage": {
+        "prompt_eval_count": 1763,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 39,
+        "total_duration": 1159088542,
+        "load_duration": 1635709,
+        "prompt_eval_duration": 809869000,
+        "eval_duration": 319538000
+      },
+      "requestSha256": "17cbac8f59d8fca201814762eac07a290d99ee7a671bcb64467547a41df49c6d",
+      "responseSha256": "34b544c133c38a32983805625b1cf836072110aa3b93df8ee679ec31b2d11ab6",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1160.139583000273,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "7fb735e463024462",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:14.597117+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:public-contract",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "8a9c2684066a1a07"
+      ],
+      "preparation": {
+        "id": "yaml-settings:public-contract",
+        "queryOriginalTokens": 25,
+        "queryUsedTokens": 25,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 17.600500003027264,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 441,
+            "untruncatedPairTokens": 441,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 306,
+            "untruncatedPairTokens": 306,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 523,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "2c9f7ead11f9c2741a94c03244683395c010003b1b34fe995dd16abfa9b04804",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1117,
+            "omittedCharacters": 24
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 682,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "f57e6d66ced5b1ad4283061ce77ce2a649ff64a25351fdf42caad78610a277ed",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1340,
+            "omittedCharacters": 503
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 196,
+            "untruncatedPairTokens": 196,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1757,
+      "outputTokens": 40,
+      "evaluation": {
+        "relevantIds": [
+          "be49ef649000560d"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 1229.3919590010773,
+      "usage": {
+        "prompt_eval_count": 1757,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 40,
+        "total_duration": 1209871125,
+        "load_duration": 2062917,
+        "prompt_eval_duration": 806431000,
+        "eval_duration": 373277000
+      },
+      "requestSha256": "2f6741645499dfaea3f9c2169ff24af9d640170ff7b89b0fc6c411d7109563c2",
+      "responseSha256": "1f2d501853093b216156f37a95f91f0591f8708b4b99817a177b85ca28151d80",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1211.0108330016374,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "4c7985a65be86c3e",
+        "7fb735e463024462",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:15.827989+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:stream-contract",
+      "status": "ok",
+      "rankedIds": [
+        "4c7985a65be86c3e",
+        "be49ef649000560d"
+      ],
+      "preparation": {
+        "id": "yaml-settings:stream-contract",
+        "queryOriginalTokens": 24,
+        "queryUsedTokens": 24,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 14.42033399871434,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 440,
+            "untruncatedPairTokens": 440,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 305,
+            "untruncatedPairTokens": 305,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 522,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "9692f0b083a02e663acae0263586315cf3c5c814b53189b51a9e6916eb2755a9",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1118,
+            "omittedCharacters": 23
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 681,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "e17caa992229c9a88ffa230a33a4e00c8d96a74e48ed1d54ee1ea36f10458fd8",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1341,
+            "omittedCharacters": 502
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 195,
+            "untruncatedPairTokens": 195,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1757,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [
+          "f8c4b6a08e13fb50"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 0,
+          "recallAtK": 0,
+          "allRelevantAtK": false,
+          "reciprocalRankAtK": 0,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 1166.9478749972768,
+      "usage": {
+        "prompt_eval_count": 1757,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 39,
+        "total_duration": 1151083625,
+        "load_duration": 1516500,
+        "prompt_eval_duration": 817128000,
+        "eval_duration": 304716000
+      },
+      "requestSha256": "421cf5bbb79021006f89257ef6bea3f8bd0651d9e1e746392db7cb57bd82fd66",
+      "responseSha256": "fe89b6b1c664616c56fb30c14709ea79a7e6ca28246202ad3f9f415159954d59",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1151.8942920010886,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "7fb735e463024462",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:16.996596+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:uniqueness-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e"
+      ],
+      "preparation": {
+        "id": "yaml-settings:uniqueness-semantics-absent",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 18.69737499873736,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 434,
+            "untruncatedPairTokens": 434,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 299,
+            "untruncatedPairTokens": 299,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 516,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "f059fca7cc9290c11b6df9e749e57fe11a007ef163cab1fea7b73d04937e6201",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1134,
+            "omittedCharacters": 7
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 675,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "782ba757649eb19849be757475caf79bb0c39804377ae7276bb7724c1106cc8f",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1354,
+            "omittedCharacters": 489
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 189,
+            "untruncatedPairTokens": 189,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1763,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 1171.9934169996122,
+      "usage": {
+        "prompt_eval_count": 1763,
+        "prompt_eval_cached_count": 68,
+        "eval_count": 39,
+        "total_duration": 1149726125,
+        "load_duration": 2226166,
+        "prompt_eval_duration": 807785000,
+        "eval_duration": 307699000
+      },
+      "requestSha256": "4352e83b1eff84251aa997a1ab373b9c688751accbb435640d58ba56c0bc86c8",
+      "responseSha256": "a9a20c1935b5a14ddb7a8d9f61d0f49316df31515d4ad9433299946c9fc0f85a",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1152.1979160024785,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "7fb735e463024462",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:18.168168+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:document-errors-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e"
+      ],
+      "preparation": {
+        "id": "yaml-settings:document-errors-absent",
+        "queryOriginalTokens": 19,
+        "queryUsedTokens": 19,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 15.510040997469332,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 435,
+            "untruncatedPairTokens": 435,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 300,
+            "untruncatedPairTokens": 300,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 517,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "a3fec92f2506a822c5142cddab45d17e702e72e470ae48dc911d46b987d87976",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1129,
+            "omittedCharacters": 12
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 676,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "8a7ce24224ee80d9881f223138fb9f748db5460fdc1248fdfd68dd1046312251",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1353,
+            "omittedCharacters": 490
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 190,
+            "untruncatedPairTokens": 190,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1762,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 1160.3830409985676,
+      "usage": {
+        "prompt_eval_count": 1762,
+        "prompt_eval_cached_count": 70,
+        "eval_count": 39,
+        "total_duration": 1143128417,
+        "load_duration": 1899667,
+        "prompt_eval_duration": 807301000,
+        "eval_duration": 304838000
+      },
+      "requestSha256": "fa9755f064c28c1628049a466c2f7c72ab4428356bee3d0eb71a796a160ba7c8",
+      "responseSha256": "be58bdac00d6f0386e520a93c8d315d30cf39d3986b7ea5919d02a61164dc675",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1144.2175839983975,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "7fb735e463024462",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:19.331903+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yaml-settings:mapping-root-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e"
+      ],
+      "preparation": {
+        "id": "yaml-settings:mapping-root-absent",
+        "queryOriginalTokens": 21,
+        "queryUsedTokens": 21,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 26.801874999364372,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 437,
+            "untruncatedPairTokens": 437,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 302,
+            "untruncatedPairTokens": 302,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 519,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "35b0c4b5580cf53e1ae3004de11e030e258b7b0a792936190d22f3241b406614",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1122,
+            "omittedCharacters": 19
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 678,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "74759bf60185392f2ee03102195f13b32f8e8cdfbf42d3eeaa4b8d5c39a57712",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1350,
+            "omittedCharacters": 493
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 192,
+            "untruncatedPairTokens": 192,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "inputTokens": 1760,
+      "outputTokens": 39,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 1189.9305419974553,
+      "usage": {
+        "prompt_eval_count": 1760,
+        "prompt_eval_cached_count": 69,
+        "eval_count": 39,
+        "total_duration": 1161239667,
+        "load_duration": 2986292,
+        "prompt_eval_duration": 807918000,
+        "eval_duration": 311066000
+      },
+      "requestSha256": "9043c03458bac9dfa38e2a713259cc1f5a60d22ab08682aade2281e119b70de1",
+      "responseSha256": "6ce58d3a7dcabad29ccc9c8b80171fd2d067cc6215f0e2280ec370780a3856d3",
+      "done": true,
+      "doneReason": "stop",
+      "requestWallMs": 1162.403375001304,
+      "safeToContinue": true,
+      "selectionContentBytes": 55,
+      "unselectedIds": [
+        "7fb735e463024462",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50"
+      ],
+      "residencyAfterRequest": {
+        "models": [
+          {
+            "name": "qwen3:1.7b",
+            "model": "qwen3:1.7b",
+            "size": 4935248772,
+            "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen3",
+              "families": [
+                "qwen3"
+              ],
+              "parameter_size": "2.0B",
+              "quantization_level": "Q4_K_M"
+            },
+            "expires_at": "2026-11-06T18:24:20.52325+01:00",
+            "size_vram": 4935248772,
+            "context_length": 32768,
+            "runner": "llamacpp"
+          }
+        ]
+      }
+    }
+  ]
+}

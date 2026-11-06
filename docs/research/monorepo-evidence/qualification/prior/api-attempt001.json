@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "status": "qualification-failed",
+  "startedAt": "2026-11-06T18:24:39.979Z",
+  "source": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "baselineCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "upstreamMigration": "3a5bfaa94fdf28db21cae8d6a86bd8d76ab70a84",
+    "upstreamParent": "56b065dd47e71c79aa748c81d76369deef95a529",
+    "pullRequest": "https://github.com/pnpm/pnpm/pull/10930",
+    "adaptation": "Isolate one genuine upstream API migration: @pnpm/config changes its direct can-write-to-dir dependency to2.0.0, while the rest of the older monorepo retains its dependency declarations. This is an explicit upgrade fixture, not an existing defect in the untouched old lockfile."
+  },
+  "results": {},
+  "install": {
+    "command": "$USER_HOME/.hermes/node/bin/node",
+    "args": [
+      "$REPOSITORY/artifacts/research/large-monorepo/tools/pnpm/node_modules/pnpm/bin/pnpm.cjs",
+      "install",
+      "--no-frozen-lockfile",
+      "--ignore-scripts",
+      "--store-dir",
+      "$REPOSITORY/artifacts/research/large-monorepo/pnpm-store",
+      "--config.enableGlobalVirtualStore=false",
+      "--config.managePackageManagerVersions=false",
+      "--filter=monorepo-root",
+      "--filter=@pnpm/env.system-node-version...",
+      "--filter=@pnpm/filter-workspace-packages...",
+      "--filter=@pnpm/plugin-commands-patching...",
+      "--filter=@pnpm/config...",
+      "--reporter=append-only"
+    ],
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 5302.368999999999,
+    "stdout": "pnpm                                     |  WARN  The field \"pnpm.overrides\" was found in $REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-001/baseline/pnpm/package.json. This will not take effect. You should configure \"pnpm.overrides\" at the root of the workspace instead.\nScope: 147 of 199 workspace projects\nProgress: resolved 1, reused 0, downloaded 0, added 0\nstore/store-path                         |  WARN  deprecated rimraf@3.0.2\n__utils__/eslint-config                  |  WARN  deprecated eslint-config-standard-with-typescript@39.1.1\n.                                        |  WARN  deprecated verdaccio@5.20.1\n.                                        |  WARN  deprecated eslint@8.57.1\nProgress: resolved 242, reused 0, downloaded 0, added 0\nProgress: resolved 1650, reused 0, downloaded 0, added 0\nProgress: resolved 1746, reused 0, downloaded 0, added 0\n WARN  21 deprecated subdependencies found: @humanwhocodes/config-array@0.13.0, @humanwhocodes/object-schema@2.0.3, @sinonjs/text-encoding@0.7.3, @types/glob@9.0.0, are-we-there-yet@1.1.7, gauge@2.7.4, git-raw-commits@2.0.11, glob@10.5.0, glob@6.0.4, glob@7.2.3, glob@8.1.0, har-validator@5.1.5, inflight@1.0.6, lodash.clone@4.3.2, lodash.clone@4.5.0, npmlog@4.1.2, prebuild-install@7.1.1, rimraf@2.4.5, rimraf@2.7.1, uid-number@0.0.6, uuid@8.3.2\nProgress: resolved 1746, reused 0, downloaded 0, added 0, done\n.                                        |   +5 +\nDone in 5.2s using pnpm v10.32.0\n",
+    "stderr": "",
+    "result": null,
+    "error": null
+  },
+  "error": {
+    "name": "AssertionError",
+    "message": "Unrelated lock importer changed: .meta-updater\n+ actual - expected\n... Skipped lines\n\n  {\n    dependencies: {\n      '@pnpm/lockfile.fs': {\n        specifier: 'workspace:*',\n        version: 'link:../lockfile/fs'\n...\n        specifier: 'catalog:',\n+       version: '2.0.6(@types/node@18.19.130)(typanion@3.14.0)'\n-       version: '2.0.6(@types/node@25.4.0)(typanion@3.14.0)'\n      },\n      '@pnpm/object.key-sorting': {\n        specifier: 'workspace:*',\n        version: 'link:../object/key-sorting'\n      },\n"
+  }
+}

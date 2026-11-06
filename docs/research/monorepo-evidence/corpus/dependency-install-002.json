@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "createdAt": "2026-11-06T17:28:04.915Z",
+  "completedAt": "2026-11-06T17:28:14.526Z",
+  "elapsedMs": 9610.701833,
+  "exitCode": 0,
+  "signal": null,
+  "command": [
+    "$USER_HOME/.hermes/node/bin/node",
+    "$REPOSITORY/artifacts/research/large-monorepo/tools/pnpm/node_modules/pnpm/bin/pnpm.cjs",
+    "install",
+    "--frozen-lockfile",
+    "--ignore-scripts",
+    "--store-dir",
+    "$REPOSITORY/artifacts/research/large-monorepo/pnpm-store",
+    "--config.enableGlobalVirtualStore=false",
+    "--config.managePackageManagerVersions=false",
+    "--filter=monorepo-root",
+    "--filter=@pnpm/env.system-node-version...",
+    "--filter=@pnpm/filter-workspace-packages...",
+    "--filter=@pnpm/plugin-commands-patching...",
+    "--reporter=append-only"
+  ],
+  "before": {
+    "pnpm-lock.yaml": "87e0f4e47bf162918c984e8589c18073dc3beaa0b9267e2a7b22dc91199d60a0",
+    "pnpm-workspace.yaml": "3c0b6d83d8774437dd5fdb98de1b62f117b48a2c52cd3abe0d7aecbb58361874",
+    "package.json": "d8f0907556c0f648892d42c6accda2b53f8a3d8c30442f01026469807903d0e3",
+    ".pnpmfile.cjs": "9b1f3ebb391a0f658ed95de1f734dc8456595f741d4d332b91536fcbcb2f8026"
+  },
+  "after": {
+    "pnpm-lock.yaml": "87e0f4e47bf162918c984e8589c18073dc3beaa0b9267e2a7b22dc91199d60a0",
+    "pnpm-workspace.yaml": "3c0b6d83d8774437dd5fdb98de1b62f117b48a2c52cd3abe0d7aecbb58361874",
+    "package.json": "d8f0907556c0f648892d42c6accda2b53f8a3d8c30442f01026469807903d0e3",
+    ".pnpmfile.cjs": "9b1f3ebb391a0f658ed95de1f734dc8456595f741d4d332b91536fcbcb2f8026"
+  },
+  "protectedFilesUnchanged": true,
+  "environment": {
+    "lifecycleScripts": false,
+    "pnpmfileHooks": true,
+    "metadataHookDescription": "The exact committed readPackage hook filters Linux optional @reflink/reflink binaries; required by the frozen lock checksum.",
+    "globalVirtualStore": false,
+    "isolatedStore": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-store",
+    "isolatedHome": "$REPOSITORY/artifacts/research/large-monorepo/install-home"
+  },
+  "logSha256": "9960ba765935d291d09e15eae411287fbccea94d30089e95bb814572d817a5d8",
+  "limitations": [
+    "This filtered install prepares selected leaf dependency closures and the root development toolchain, not every monorepo package.",
+    "No repository build or test script is run."
+  ]
+}

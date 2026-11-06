@@ -1,0 +1,38 @@
+{
+  "status": "qualified-targeted-protocol-amendment",
+  "createdAt": "2026-11-06T18:13:20.186454+00:00",
+  "reason": "Retain whole-file navtree budget failures from screen003; derive targeted hover and definition requests from actual search match positions. Core corpus and questions unchanged.",
+  "tests": {
+    "redBeforeFix": true,
+    "unitPassed": true,
+    "actualScratchPassed": true,
+    "scratchSourceLines": 1802,
+    "scratchReturnedTextBytes": 2948
+  },
+  "files": [
+    {
+      "path": "collect.mjs",
+      "sha256": "d3dd3a688d954ef01bde380a7386858e7361dd3defa518b6319d9308ff06656d"
+    },
+    {
+      "path": "providers.mjs",
+      "sha256": "cd6be1546b2c11b483ac02f68db3f5ef0ad9fda17740921fa20505667006cd94"
+    },
+    {
+      "path": "collect-targeted.test.mjs",
+      "sha256": "70fabbef9671bdb607028ed0dc6a437771766781688fdff7261b2371366462c1"
+    },
+    {
+      "path": "collect-targeted-smoke.mjs",
+      "sha256": "d99e33e2e3dfee96a10a3acfa33511008fd53533215bb12df0fdc9f7d23dccff"
+    },
+    {
+      "path": "targeted-smoke-001/result.json",
+      "sha256": "662d1deb7a35eec9e893225e654fea188f3760fabd8011a65396699d34da33d4"
+    },
+    {
+      "path": "collect-qualified.json",
+      "sha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b"
+    }
+  ]
+}

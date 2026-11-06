@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "compact inventory receipt; full inventory remains private local data",
+  "sourcePath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+  "sourceSha256": "e8486d6687edbb5cd17c180bf52f94f01779ff31fce63fc131b12253c8d70d28",
+  "treeSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+  "entryCount": 72747,
+  "entriesByKind": {
+    "file": 54776,
+    "directory": 12737,
+    "symlink": 5234
+  },
+  "limitation": "Omitted per-file dependency inventory is not independently reconstructable from this receipt alone. Frozen dependency locks and prepare scripts permit a new installation, whose machine-specific tree identity may differ."
+}

@@ -17,6 +17,8 @@ import { demoHash } from './demo-evidence.mjs'
 import { verifyRecordedFixture } from './showcase-fixture.mjs'
 import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmark, verifySiteBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation, verifySiteBenchmarkFixtures } from './site-benchmark.mjs'
 import { summarizePairedRuns } from './paired-agent-evidence.mjs'
+import { advertisedInstallCommand } from './site-releasecheck.mjs'
+import './site-monorepo-benchmark.test.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
@@ -74,7 +76,7 @@ test('builds an inspectable static experience from the recorded run', () => {
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1)
   assert.doesNotMatch(html, /\{\{[a-zA-Z]+\}\}/)
   assert.match(html, /https:\/\/www.npmjs.com\/package\/typelatch/)
-  assert.ok(html.includes('<code id="hero-install-command">npx typelatch@latest setup</code>'), 'Onboarding must resolve a published npm tag')
+  assert.ok(html.includes('<code id="hero-install-command">npx typelatch@0.3.0 setup</code>'), 'Onboarding must use the verified exact published release')
   assert.doesNotMatch(html, /New in 0\.4\.0/, 'An unpublished candidate must not be announced as an available release')
   assert.match(html, /Codex or Claude Code CLI/)
   assert.match(html, /library_search/)
@@ -86,7 +88,7 @@ test('builds an inspectable static experience from the recorded run', () => {
   assert.match(html, /<details/)
   assert.doesNotMatch(html, /\/Users\/|\/private\/var\/|\/var\/folders\//)
   assert.doesNotMatch(html, /[—–]/)
-  assert.doesNotMatch(html, /0[123]\s*\//)
+  assert.doesNotMatch(html.replace(/<[^>]*>/gu, ''), /0[123]\s*\//)
   assert.doesNotMatch(html, /LibBrain|Codegraph/i)
   assert.doesNotMatch(html, /class="brand"[^>]*>\s*<img/)
   assert.match(html, /id="hero-install-command"/)
@@ -126,6 +128,14 @@ test('builds an inspectable static experience from the recorded run', () => {
   for (const run of JSON.parse(read('docs/benchmarks/paired-agent.json')).runs) assert.equal(read(`_site/evidence/automatic/${run.evidence}`), read(`docs/benchmarks/${run.evidence}`), 'Original automatic choice evidence stays unchanged and separate')
   assert.match(html, /id="benchmark"/)
   assert.equal((html.match(/data-benchmark-run="/g) || []).length, JSON.parse(read('docs/benchmarks/typelatch-040-candidate/paired-agent.json')).runs.length, 'Every primary benchmark session is visible')
+  const monorepoDirectory = 'docs/benchmarks/monorepo-agent-study'
+  if (existsSync(resolve(root, monorepoDirectory, 'report.json'))) {
+    assert.match(html, /id="monorepo-benchmark"/)
+    assert.equal((html.match(/data-monorepo-run="/g) || []).length, 16, 'Every maintenance study session is visible')
+    assert.deepEqual([...html.matchAll(/data-monorepo-arm="([^"]+)"/g)].map(match => match[1]), ['native', 'competitor', 'typelatch', 'packet'])
+    const manifest = JSON.parse(read(`${monorepoDirectory}/manifest.json`))
+    for (const file of [...manifest.files, { path: 'manifest.json' }]) assert.equal(read(`_site/evidence/monorepo-agent-study/${file.path}`), read(`${monorepoDirectory}/${file.path}`), 'Every public maintenance artifact is packaged unchanged')
+  } else assert.doesNotMatch(html, /id="monorepo-benchmark"/, 'No incomplete study or placeholder result is published')
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const link = match[1]
     if (/^(https?:|mailto:|data:)/.test(link)) continue
@@ -195,7 +205,7 @@ test('refuses a failed recording or historical snapshot changed after capture', 
 test('historical evidence builds independently of the maintained example', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-snapshot-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
@@ -216,10 +226,10 @@ test('historical evidence builds independently of the maintained example', () =>
   }
 })
 
-test('a newer release keeps the walkthrough bound to its captured package version', () => {
+test('a newer source version preserves published onboarding and the captured walkthrough', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-historical-version-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
@@ -228,10 +238,9 @@ test('a newer release keeps the walkthrough bound to its captured package versio
     const nextVersion = capturedVersion.replace(/\d+$/, value => String(Number(value) + 1))
     manifest.version = nextVersion
     writeFileSync(resolve(directory, 'package.json'), JSON.stringify(manifest))
-    writeFileSync(resolve(directory, 'site/index.html'), read('site/index.html').replace(/npx typelatch@\d+\.\d+\.\d+/g, `npx typelatch@${nextVersion}`))
     execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' })
     const html = readFileSync(resolve(directory, '_site/index.html'), 'utf8')
-    assert.ok(html.includes('npx typelatch@latest setup'), 'Onboarding resolves the published tag independently of the checkout version')
+    assert.ok(html.includes(advertisedInstallCommand(read('site/index.html'))), 'Onboarding keeps its exact published pin independently of the checkout version')
     assert.ok(html.includes(`npx typelatch@${capturedVersion} setup`), 'Recorded walkthrough keeps its original identity')
     assert.equal(readFileSync(resolve(directory, '_site/evidence/codex-session.json'), 'utf8'), read('docs/showcase/codex-session.json'))
     assert.equal(readFileSync(resolve(directory, '_site/evidence/demo.json'), 'utf8'), read('site/demo.json'))

@@ -17,8 +17,10 @@ Local workspace search and package API evidence for coding agents. Give Codex or
 Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
 
 ```sh
-npx typelatch@0.4.0 setup
+npx typelatch@0.3.0 setup
 ```
+
+These commands install the published 0.3.0 release. [0.4.0 development features](CHANGELOG.md#040) require a source checkout.
 
 Choose your client and confirm registration. Start a new client session in your project, then ask:
 
@@ -33,17 +35,17 @@ Setup pins the exact Typelatch version it registers. There is no global installa
 To prepare your direct dependency APIs, run this inside a project with a supported lockfile:
 
 ```sh
-npx typelatch@0.4.0 sync
+npx typelatch@0.3.0 sync
 ```
 
 Source discovery works without this preparation. Missing indexes and preparation commands stay visible in search results. For a monorepo, save the projects you want to search and sync:
 
 ```sh
-npx typelatch@0.4.0 scope add apps/web packages/ui
-npx typelatch@0.4.0 sync
+npx typelatch@0.3.0 scope add apps/web packages/ui
+npx typelatch@0.3.0 sync
 ```
 
-Reads npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, Bun text and binary locks, and Deno npm dependencies. Binary Bun locks require Bun on `PATH`. [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
+The source checkout covers npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, Bun text and binary locks, and Deno npm dependencies. Binary Bun and Deno support are 0.4.0 development additions. Binary Bun locks require Bun on `PATH`. [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
 
 ## Start with a question
 
@@ -66,23 +68,25 @@ Results carry source locations, exact package versions and visible coverage gaps
 Prefer the terminal?
 
 ```sh
-npx typelatch@0.4.0 search "Where do we validate incoming requests?" --compact --json
+npx typelatch@0.3.0 search "Where do we validate incoming requests?" --compact --json
 ```
 
 ## Codex with and without Typelatch
 
 [![Actual Codex actions with and without Typelatch](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-comparison.gif)](https://edimka.github.io/typelatch/#benchmark)
 
-Accelerated replay of recorded actions from the first matched pair. The full comparison ran three tasks twice in each condition with Codex and `typelatch@0.3.0`, using the same workflow prompt.
+Accelerated replay of recorded actions from the first matched pair. This comparison ran three tasks twice in each condition with Codex and the unpublished 0.4.0 candidate, using the same workflow prompt. The pair was selected before scoring.
 
 | All six sessions per condition | Without Typelatch | With Typelatch |
 | :--- | ---: | ---: |
-| Grep shell calls | 22 | 10 |
-| Total tokens | 936,683 | 1,861,666 |
-| Agent time | 317.8 s | 452.7 s |
+| Grep shell calls | 22 | 13 |
+| Total tokens | 954,947 | 1,556,137 |
+| Agent time plus index preparation | 320.0 s | 463.3 s |
 | Correct solutions | 4/6 | 5/6 |
 
-Typelatch reduced grep calls and passed one more solution in this small sample, while using more tokens and time. Tokens include cached input. Preparation is measured separately. These are authored tasks, not a general performance ranking. [Every run, method and reproduction](docs/BENCHMARKS.md#paired-agent-comparison).
+The candidate used 63.0% more tokens and 44.8% more charged time. It failed the savings gate. Tokens include cached input once; index preparation is included in the time above. These are authored tasks, not a general performance ranking. [Every run and method](docs/BENCHMARKS.md#paired-agent-comparison) · [Earlier 0.3.0 results](docs/benchmarks/typelatch-use/paired-agent.json).
+
+A separate availability study ran two real pnpm repairs twice with native tools, Serena, Typelatch and a compact source experiment. All 16 fixes passed; every session made zero MCP calls. Neither candidate met the savings gate. This establishes no retrieval benefit or scaling advantage. [All monorepo results](docs/benchmarks/monorepo-agent-study/report.json).
 
 ## From a bug to a checked change
 

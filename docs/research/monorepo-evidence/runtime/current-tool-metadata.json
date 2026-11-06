@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-06T17:22:37.153Z",
+  "observed": [
+    {
+      "name": "codegraph",
+      "source": "https://registry.npmjs.org/@colbymchenry%2Fcodegraph/latest",
+      "version": "1.6.2",
+      "gitHead": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+      "tarball": "https://registry.npmjs.org/@colbymchenry/codegraph/-/codegraph-1.6.2.tgz",
+      "integrity": "sha512-hODH/mGnCf3IUMs6rzktv/zbecJIKJfdZAYHZ9mqecb0G7ZkHaA8CZafDVnswANFEL1YFcG+lfAwc5SIXzUH6Q=="
+    },
+    {
+      "name": "graphify",
+      "source": "https://pypi.org/pypi/graphifyy/json",
+      "version": "0.9.103",
+      "projectUrls": {
+        "Documentation": "https://docs.graphify.com",
+        "Homepage": "https://graphify.com",
+        "Issues": "https://github.com/Graphify-Labs/graphify/issues",
+        "Repository": "https://github.com/Graphify-Labs/graphify"
+      },
+      "artifacts": [
+        {
+          "filename": "graphifyy-0.9.103-py3-none-any.whl",
+          "sha256": "7948c030f8b04153d88bc1ee23a485ddaa0c2d6aaa03a748c177e3c217bcfe34",
+          "url": "https://files.pythonhosted.org/packages/ff/fe/ff1474a96b2abe3ae15a7554195797f9af184067e57d6d200d43e78e137e/graphifyy-0.9.103-py3-none-any.whl"
+        },
+        {
+          "filename": "graphifyy-0.9.103.tar.gz",
+          "sha256": "9ddf6c18666ee64ee65c130266b87adb45a613a9c4fe2afce7babbcbb1555b95",
+          "url": "https://files.pythonhosted.org/packages/7f/c3/d33a4bb7e439adc21ca5f17c451b1ec222159dba2a57e2b94605677e105c/graphifyy-0.9.103.tar.gz"
+        }
+      ]
+    }
+  ]
+}

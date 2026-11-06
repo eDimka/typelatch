@@ -2485,6 +2485,39 @@ h1 span {
   min-width:0;
   overscroll-behavior-x:contain
 }
+.monorepo-decisions {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+  margin:30px 0;
+}
+.benchmark-scroll-hint {
+  display:none;
+}
+.monorepo-decision {
+  border-top:1px solid #d5ced1;
+  padding-top:20px;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.monorepo-decision h3 {
+  font-size:19px;
+  margin:0 0 12px;
+}
+.monorepo-decision p,.monorepo-decision li {
+  font-size:14px;
+  line-height:1.65;
+}
+.monorepo-run-table th span {
+  display:block;
+  margin-top:5px;
+  color:#5d555f;
+  font:10px/1.5 var(--mono);
+}
+@media(max-width:680px) {
+  .monorepo-decisions { grid-template-columns:1fr; gap:18px }
+  .benchmark-scroll-hint { display:block; margin:0; font-size:13px; color:#5d555f }
+}
 .benchmark-table-wrap:focus-visible {
   outline:3px solid #a13c28;
   outline-offset:5px

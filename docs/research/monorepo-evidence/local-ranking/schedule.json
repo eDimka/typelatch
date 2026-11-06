@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "kind": "development-local-selector-screen",
+  "frozenAt": "2026-11-06T17:18:30Z",
+  "casesSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+  "screenScriptSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+  "runnerSha256": "e57015c5a93bc395b139c453cbfd84c457d138058f852b2617be2dfd86c6e99d",
+  "topK": 2,
+  "repeatsPerBackend": 2,
+  "ollamaDigest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "order": [
+    "mlx-1",
+    "mlx-2",
+    "ollama-1",
+    "ollama-2"
+  ],
+  "caseOrder": "file order",
+  "noSelectiveReruns": true,
+  "timing": "Each measured command runs alone after fixture qualification; external process wall time includes interpreter startup and final serialization.",
+  "results": [
+    {
+      "id": "mlx-1",
+      "status": "not-run"
+    },
+    {
+      "id": "mlx-2",
+      "status": "not-run"
+    },
+    {
+      "id": "ollama-1",
+      "status": "not-run"
+    },
+    {
+      "id": "ollama-2",
+      "status": "not-run"
+    }
+  ]
+}

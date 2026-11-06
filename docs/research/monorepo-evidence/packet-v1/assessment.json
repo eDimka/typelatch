@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "kind": "supplemental-public-development-qualification",
+  "createdAt": "2026-11-06T18:30:32.366Z",
+  "candidate": "source-arm-v1",
+  "status": "transport-and-byte-cap-qualified-but-required-discovery-evidence-absent",
+  "modelCalls": 0,
+  "actualCodingTasksRead": false,
+  "record": {
+    "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/qualification/public-discovery/result.json",
+    "sha256": "142441b7e1e8965613bda73d33e3633b9efc2e1d935ffefb3ee7c0477012b927"
+  },
+  "diagnostic": {
+    "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/qualification/public-discovery/diagnostics/36039-0001.json",
+    "sha256": "ea7e903999c41047030f1e5564ed83f07d5c4b55973b08646eeba6b79e378929"
+  },
+  "qualifiedManifestSha256": "d396f862c8cd2a03208841d35afea803ad9ec929f1c1645464bdd213c2e19520",
+  "runtimeBoundarySha256": "0644582d0c6742cc99cef8391f5c29795ac9485cbbc5bea80463a017495a3a17",
+  "frozenFilesReverified": 18,
+  "observed": {
+    "modelVisibleBytes": 7924,
+    "wireBytes": 15897,
+    "callMs": 3561.910875,
+    "startupAndCallMs": 3709.172625,
+    "candidates": [
+      {
+        "path": "workspace/find-packages/src/index.ts",
+        "lines": [
+          62,
+          90
+        ],
+        "startColumn": 1,
+        "lexicalScore": 104,
+        "fileSha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b",
+        "excerptSha256": "ffc60069635c859f0a6f087ad1e2e7638b100db584e502cf1204ed7d793f44aa",
+        "complete": false,
+        "omittedBytes": 2040
+      },
+      {
+        "path": "config/package-is-installable/src/checkEngine.ts",
+        "lines": [
+          9,
+          45
+        ],
+        "startColumn": 1,
+        "lexicalScore": 67,
+        "fileSha256": "4f280c1dd26d382094046e26b183eb78d41320b2c82bdbfe4f5dbf2515fe7056",
+        "excerptSha256": "7f74d914a9d4fda4b7626908013ba846f43fcb323190b1f4748e6af7b6c3e351",
+        "complete": false,
+        "omittedBytes": 208
+      },
+      {
+        "path": "workspace/find-packages/test/index.ts",
+        "lines": [
+          1,
+          53
+        ],
+        "startColumn": 1,
+        "lexicalScore": 67,
+        "fileSha256": "f86b6372f9d7e8edaa8bd111436469e726413f31d67f8625149e43c8d0f7e02d",
+        "excerptSha256": "74beafce64119b0c3b1fc4a8360f02637a3908d92c29543536345a0f88736afc",
+        "complete": false,
+        "omittedBytes": 92
+      }
+    ]
+  },
+  "semanticReview": {
+    "supportedFacts": 0,
+    "requiredFacts": 4,
+    "reason": "The production target file is ranked first but only lines62–90 are returned, beginning with return pkgs and then manifest-warning helpers. The function definition, unchecked delegation and package installability loop, scan-root/exclusions and lexCompare sort are omitted. Tests and nearby installability implementation do not supply the requested function semantics.",
+    "selectionLimitation": "The lexical-hit-centered window can omit the relevant declaration within a correct file. The byte cap alone is not semantic qualification.",
+    "nextWork": "Preserve this negative unchanged. A separately versioned generic source projection may be explored before candidate freeze; do not infer token or task-completion benefits."
+  }
+}

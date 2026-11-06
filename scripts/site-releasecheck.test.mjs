@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { collectInstallPins, verifyPublishedPins, isLatestVersion } from './site-releasecheck.mjs'
+import { advertisedInstallCommand, collectInstallPins, verifyPublishedPins, isLatestVersion } from './site-releasecheck.mjs'
 
 const pins = [{ path: 'site/index.html', version: '0.1.1' }]
 const published = {
@@ -12,6 +12,13 @@ const published = {
   },
 }
 const metadataResponse = (metadata) => new Response(JSON.stringify(metadata))
+
+test('browser onboarding follows the exact advertised release independently of source version prose', () => {
+  const html = 'Source version typelatch@0.4.0 is unreleased.\n<code>npx typelatch@0.3.0 setup</code>\n<code>npx typelatch@0.3.0 sync</code>'
+  assert.equal(advertisedInstallCommand(html), 'npx typelatch@0.3.0 setup')
+  assert.throws(() => advertisedInstallCommand('npx typelatch@latest setup'), /requires an exact/)
+  assert.throws(() => advertisedInstallCommand('npx typelatch@0.3.0 setup\nnpx typelatch@0.4.0 sync'), /one consistent exact/)
+})
 
 test('collects installation and launcher pins without treating source version prose as a release', () => {
   const result = collectInstallPins([

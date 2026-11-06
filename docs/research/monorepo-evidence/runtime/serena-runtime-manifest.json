@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T17:59:07.246Z",
+  "kind": "dependency-lock-and-selected-runtime-file-manifest",
+  "fullInstalledRuntimeHash": false,
+  "limitation": "Dependency locks, installed distribution versions and selected files are pinned. Not every installed dependency file is hashed.",
+  "serena": {
+    "version": "2.1.0",
+    "commit": "5e4f5cd173c7ff3eed37ee3f1de6c266b937c5dc",
+    "trackedSourceClean": true,
+    "python": {
+      "version": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+      "executable": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/python",
+      "machine": "arm64",
+      "packages": [
+        {
+          "name": "annotated-types",
+          "version": "0.7.0"
+        },
+        {
+          "name": "anthropic",
+          "version": "0.117.0"
+        },
+        {
+          "name": "anyio",
+          "version": "4.13.0"
+        },
+        {
+          "name": "attrs",
+          "version": "26.1.0"
+        },
+        {
+          "name": "beautifulsoup4",
+          "version": "4.14.2"
+        },
+        {
+          "name": "blinker",
+          "version": "1.9.0"
+        },
+        {
+          "name": "bottle",
+          "version": "0.13.4"
+        },
+        {
+          "name": "cattrs",
+          "version": "26.1.0"
+        },
+        {
+          "name": "certifi",
+          "version": "2026.2.25"
+        },
+        {
+          "name": "cffi",
+          "version": "2.0.0"
+        },
+        {
+          "name": "charset-normalizer",
+          "version": "3.4.6"
+        },
+        {
+          "name": "click",
+          "version": "8.3.1"
+        },
+        {
+          "name": "cryptography",
+          "version": "50.0.0"
+        },
+        {
+          "name": "distro",
+          "version": "1.9.0"
+        },
+        {
+          "name": "docstring_parser",
+          "version": "0.17.0"
+        },
+        {
+          "name": "filelock",
+          "version": "3.25.2"
+        },
+        {
+          "name": "Flask",
+          "version": "3.1.3"
+        },
+        {
+          "name": "h11",
+          "version": "0.16.0"
+        },
+        {
+          "name": "httpcore",
+          "version": "1.0.9"
+        },
+        {
+          "name": "httpcore2",
+          "version": "2.9.1"
+        },
+        {
+          "name": "httpx",
+          "version": "0.28.1"
+        },
+        {
+          "name": "httpx2",
+          "version": "2.9.1"
+        },
+        {
+          "name": "idna",
+          "version": "3.18"
+        },
+        {
+          "name": "itsdangerous",
+          "version": "2.2.0"
+        },
+        {
+          "name": "Jinja2",
+          "version": "3.1.6"
+        },
+        {
+          "name": "jiter",
+          "version": "0.13.0"
+        },
+        {
+          "name": "joblib",
+          "version": "1.5.1"
+        },
+        {
+          "name": "jsonschema",
+          "version": "4.26.0"
+        },
+        {
+          "name": "jsonschema-specifications",
+          "version": "2025.9.1"
+        },
+        {
+          "name": "lsprotocol",
+          "version": "2025.0.0"
+        },
+        {
+          "name": "MarkupSafe",
+          "version": "3.0.3"
+        },
+        {
+          "name": "mcp",
+          "version": "2.2.0"
+        },
+        {
+          "name": "mcp-types",
+          "version": "2.2.0"
+        },
+        {
+          "name": "mslex",
+          "version": "1.3.0"
+        },
+        {
+          "name": "opentelemetry-api",
+          "version": "1.44.0"
+        },
+        {
+          "name": "oslex",
+          "version": "2.0.0"
+        },
+        {
+          "name": "overrides",
+          "version": "7.7.0"
+        },
+        {
+          "name": "pathspec",
+          "version": "0.12.1"
+        },
+        {
+          "name": "pillow",
+          "version": "12.3.0"
+        },
+        {
+          "name": "proxy_tools",
+          "version": "0.1.0"
+        },
+        {
+          "name": "psutil",
+          "version": "7.0.0"
+        },
+        {
+          "name": "pycparser",
+          "version": "3.0"
+        },
+        {
+          "name": "pydantic",
+          "version": "2.12.5"
+        },
+        {
+          "name": "pydantic_core",
+          "version": "2.41.5"
+        },
+        {
+          "name": "pygls",
+          "version": "2.1.1"
+        },
+        {
+          "name": "PyJWT",
+          "version": "2.13.0"
+        },
+        {
+          "name": "pyobjc-core",
+          "version": "12.1"
+        },
+        {
+          "name": "pyobjc-framework-Cocoa",
+          "version": "12.1"
+        },
+        {
+          "name": "pyobjc-framework-Quartz",
+          "version": "12.1"
+        },
+        {
+          "name": "pyobjc-framework-Security",
+          "version": "12.1"
+        },
+        {
+          "name": "pyobjc-framework-UniformTypeIdentifiers",
+          "version": "12.1"
+        },
+        {
+          "name": "pyobjc-framework-WebKit",
+          "version": "12.1"
+        },
+        {
+          "name": "pystray",
+          "version": "0.19.5"
+        },
+        {
+          "name": "python-dotenv",
+          "version": "1.2.2"
+        },
+        {
+          "name": "python-multipart",
+          "version": "0.0.31"
+        },
+        {
+          "name": "pywebview",
+          "version": "6.2"
+        },
+        {
+          "name": "PyYAML",
+          "version": "6.0.2"
+        },
+        {
+          "name": "referencing",
+          "version": "0.37.0"
+        },
+        {
+          "name": "regex",
+          "version": "2026.2.28"
+        },
+        {
+          "name": "requests",
+          "version": "2.33.0"
+        },
+        {
+          "name": "rpds-py",
+          "version": "0.30.0"
+        },
+        {
+          "name": "ruamel.yaml",
+          "version": "0.18.14"
+        },
+        {
+          "name": "ruamel.yaml.clib",
+          "version": "0.2.15"
+        },
+        {
+          "name": "sensai-utils",
+          "version": "1.5.0"
+        },
+        {
+          "name": "serena-agent",
+          "version": "2.1.0"
+        },
+        {
+          "name": "six",
+          "version": "1.17.0"
+        },
+        {
+          "name": "sniffio",
+          "version": "1.3.1"
+        },
+        {
+          "name": "soupsieve",
+          "version": "2.8.4"
+        },
+        {
+          "name": "sse-starlette",
+          "version": "3.3.3"
+        },
+        {
+          "name": "starlette",
+          "version": "1.3.1"
+        },
+        {
+          "name": "tiktoken",
+          "version": "0.12.0"
+        },
+        {
+          "name": "tqdm",
+          "version": "4.67.1"
+        },
+        {
+          "name": "truststore",
+          "version": "0.10.4"
+        },
+        {
+          "name": "types-PyYAML",
+          "version": "6.0.12.20250516"
+        },
+        {
+          "name": "typing-inspection",
+          "version": "0.4.2"
+        },
+        {
+          "name": "typing_extensions",
+          "version": "4.15.0"
+        },
+        {
+          "name": "urllib3",
+          "version": "2.8.0"
+        },
+        {
+          "name": "uvicorn",
+          "version": "0.42.0"
+        },
+        {
+          "name": "Werkzeug",
+          "version": "3.1.7"
+        }
+      ]
+    },
+    "typescriptLanguageServerVersion": "5.1.3",
+    "observedCompilerVersion": "5.5.4",
+    "compilerNotifications": [
+      "INFO  2026-11-06 18:58:10,793 [LSP-stdout-reader:typescript] solidlsp.language_servers.typescript_language_server:handle_typescript_version:496 - TypeScript server version notification received: {'version': '5.5.4', 'source': 'workspace'}"
+    ],
+    "launch": {
+      "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+      "args": [
+        "start-mcp-server",
+        "--project",
+        "$REPOSITORY/artifacts/research/serena-baseline/scratch",
+        "--agent-interface",
+        "REPL",
+        "--transport",
+        "stdio",
+        "--enable-web-dashboard",
+        "false",
+        "--enable-gui-log-window",
+        "false",
+        "--open-web-dashboard",
+        "false",
+        "--log-level",
+        "INFO"
+      ],
+      "env": {
+        "SERENA_HOME": "$REPOSITORY/artifacts/research/serena-baseline/collector-qualification-002/serena/serena-home",
+        "XDG_CACHE_HOME": "$REPOSITORY/artifacts/research/serena-baseline/collector-qualification-002/serena/xdg-cache",
+        "XDG_CONFIG_HOME": "$REPOSITORY/artifacts/research/serena-baseline/collector-qualification-002/serena/xdg-config",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONUNBUFFERED": "1",
+        "npm_config_cache": "$REPOSITORY/artifacts/research/serena-baseline/npm-cache",
+        "npm_config_offline": "true"
+      }
+    },
+    "config": {
+      "projects": [
+        "$REPOSITORY/artifacts/research/serena-baseline/scratch"
+      ],
+      "agent_interface": "REPL",
+      "web_dashboard": false,
+      "web_dashboard_open_on_launch": false,
+      "gui_log_window": false,
+      "project_serena_folder_location": "$REPOSITORY/artifacts/research/serena-baseline/collector-qualification-002/serena/project-data",
+      "trusted_project_path_patterns": [
+        "$REPOSITORY/artifacts/research/serena-baseline/scratch"
+      ],
+      "ls_specific_settings": {
+        "typescript": {
+          "ls_path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules/.bin/typescript-language-server",
+          "typescript_version": "5.5.4",
+          "typescript_language_server_version": "5.1.3",
+          "indexing_timeout": 120,
+          "indexing_start_grace": 10
+        }
+      },
+      "log_level": "INFO"
+    }
+  },
+  "typescript": {
+    "version": "5.5.4",
+    "compiler": {
+      "version": "5.5.4",
+      "packageRoot": "$REPOSITORY/artifacts/research/serena-baseline/scratch/node_modules/typescript",
+      "serverPath": "$REPOSITORY/artifacts/research/serena-baseline/scratch/node_modules/typescript/lib/tsserver.js",
+      "serverSha256": "339c0e8643936d1e59b963c8aa18d0d72b8e64960b2a64e4d860cdd13cf2de08",
+      "status": {
+        "seq": 0,
+        "type": "response",
+        "command": "status",
+        "request_seq": 1,
+        "success": true,
+        "body": {
+          "version": "5.5.4"
+        }
+      }
+    },
+    "launch": {
+      "command": "$USER_HOME/.hermes/node/bin/node",
+      "args": [
+        "$REPOSITORY/artifacts/research/serena-baseline/scratch/node_modules/typescript/lib/tsserver.js",
+        "--disableAutomaticTypingAcquisition",
+        "--logVerbosity",
+        "terse",
+        "--logFile",
+        "$REPOSITORY/artifacts/research/serena-baseline/collector-qualification-002/typescript/tsserver.log"
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "providers.mjs",
+      "sha256": "cd6be1546b2c11b483ac02f68db3f5ef0ad9fda17740921fa20505667006cd94",
+      "bytes": 10301
+    },
+    {
+      "path": "collect.mjs",
+      "sha256": "315ca50ec78f62a76eeccfef7ffc66348b1c1da5ffd5e0b14f9def1aab3c60c9",
+      "bytes": 9718
+    },
+    {
+      "path": "source/pyproject.toml",
+      "sha256": "ed88a9ce7dee9e006b72d46d971a9cfd8de349409fa0dfd4293bb7ea11b11711",
+      "bytes": 14122
+    },
+    {
+      "path": "source/uv.lock",
+      "sha256": "24bbc88ca06a3b1bb84635829b9571a1132ee0d78d5ef5f45a673d9ae4d65837",
+      "bytes": 527311
+    },
+    {
+      "path": "source/src/serena/cli.py",
+      "sha256": "fef91a35fdc62395d2f1b0c80ccb7f8e7b8ab1d7778a00c459b09e22e2c4db1e",
+      "bytes": 75428
+    },
+    {
+      "path": "source/src/serena/tools/repl_tools.py",
+      "sha256": "5042b1a0a85255c335c66d7185c32aceaf292f3c1650648a297aebf950a61534",
+      "bytes": 3823
+    },
+    {
+      "path": "source/src/solidlsp/language_servers/typescript_language_server.py",
+      "sha256": "fa8cff870d5d3ff79f09bc0f79649d9b10bc5c9c832ce3ec9d5170edabfc794b",
+      "bytes": 32985
+    },
+    {
+      "path": "ls-runtime/package-lock.json",
+      "sha256": "6e2a285a9faa72a89c4df05eb8a4edee6861b166e8698d27364ab8c3da22db17",
+      "bytes": 1185
+    },
+    {
+      "path": "ls-runtime/node_modules/typescript-language-server/lib/cli.mjs",
+      "sha256": "3c2a7818315bd8399e56f461fe7da01c0f8f67a9c66108af0b655605b088dd77",
+      "bytes": 866723
+    },
+    {
+      "path": "ls-runtime/node_modules/typescript/lib/typescript.js",
+      "sha256": "f7ff3e27aafe5dcc82d0307575e9a7dc5b053b141da123bec81c858537765b56",
+      "bytes": 8874208
+    },
+    {
+      "path": "ls-runtime/node_modules/typescript/lib/tsserver.js",
+      "sha256": "339c0e8643936d1e59b963c8aa18d0d72b8e64960b2a64e4d860cdd13cf2de08",
+      "bytes": 26131
+    },
+    {
+      "path": "venv/bin/serena",
+      "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+      "bytes": 311
+    }
+  ]
+}

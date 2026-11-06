@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "kind": "development-local-selector-screen-summary",
+  "casesSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+  "positiveCases": 6,
+  "absentFactCases": 5,
+  "topK": 2,
+  "deterministicInputOrder": {
+    "positiveHitsAt2": 4,
+    "positiveMRRAt2": 0.5,
+    "cases": [
+      {
+        "id": "root-glob:source-cause",
+        "top2": [
+          "263d030f5e9ee87f",
+          "6af5c08240bc73bd"
+        ],
+        "relevantIds": [
+          "6af5c08240bc73bd"
+        ],
+        "hit": true,
+        "reciprocalRankAt2": 0.5,
+        "absentRecognized": null
+      },
+      {
+        "id": "root-glob:public-contract",
+        "top2": [
+          "263d030f5e9ee87f",
+          "6af5c08240bc73bd"
+        ],
+        "relevantIds": [
+          "263d030f5e9ee87f"
+        ],
+        "hit": true,
+        "reciprocalRankAt2": 1,
+        "absentRecognized": null
+      },
+      {
+        "id": "root-glob:call-contract",
+        "top2": [
+          "263d030f5e9ee87f",
+          "6af5c08240bc73bd"
+        ],
+        "relevantIds": [
+          "a0f8a3d51614ac3a"
+        ],
+        "hit": false,
+        "reciprocalRankAt2": 0,
+        "absentRecognized": null
+      },
+      {
+        "id": "root-glob:basename-semantics-absent",
+        "top2": [
+          "263d030f5e9ee87f",
+          "6af5c08240bc73bd"
+        ],
+        "relevantIds": [],
+        "hit": null,
+        "reciprocalRankAt2": null,
+        "absentRecognized": false
+      },
+      {
+        "id": "root-glob:dot-semantics-absent",
+        "top2": [
+          "263d030f5e9ee87f",
+          "6af5c08240bc73bd"
+        ],
+        "relevantIds": [],
+        "hit": null,
+        "reciprocalRankAt2": null,
+        "absentRecognized": false
+      },
+      {
+        "id": "yaml-settings:source-cause",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [
+          "4c7985a65be86c3e"
+        ],
+        "hit": true,
+        "reciprocalRankAt2": 0.5,
+        "absentRecognized": null
+      },
+      {
+        "id": "yaml-settings:public-contract",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [
+          "be49ef649000560d"
+        ],
+        "hit": true,
+        "reciprocalRankAt2": 1,
+        "absentRecognized": null
+      },
+      {
+        "id": "yaml-settings:stream-contract",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [
+          "f8c4b6a08e13fb50"
+        ],
+        "hit": false,
+        "reciprocalRankAt2": 0,
+        "absentRecognized": null
+      },
+      {
+        "id": "yaml-settings:uniqueness-semantics-absent",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [],
+        "hit": null,
+        "reciprocalRankAt2": null,
+        "absentRecognized": false
+      },
+      {
+        "id": "yaml-settings:document-errors-absent",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [],
+        "hit": null,
+        "reciprocalRankAt2": null,
+        "absentRecognized": false
+      },
+      {
+        "id": "yaml-settings:mapping-root-absent",
+        "top2": [
+          "be49ef649000560d",
+          "4c7985a65be86c3e"
+        ],
+        "relevantIds": [],
+        "hit": null,
+        "reciprocalRankAt2": null,
+        "absentRecognized": false
+      }
+    ]
+  },
+  "runs": [
+    {
+      "id": "mlx-1",
+      "reportSha256": "8ab3374dff2afa326748df48027a94dcce11c73596ff75e42219c3dce7c55a28",
+      "processWallMs": 9817.599665999296,
+      "caseWallMs": 7060.134208997624,
+      "caseMedianWallMs": 528.0913329988834,
+      "inputTokens": 21416,
+      "outputTokens": 0,
+      "positiveHitsAt2": 6,
+      "positiveMRRAt2": 0.8333333333333334,
+      "absentRecognized": 0,
+      "peakProcessRssBytes": 860585984,
+      "peakMlxAllocatorBytes": 1049757944,
+      "maxObservedOllamaSizeVram": null,
+      "modelLoadMs": 652.6739170003566,
+      "ollamaReportedLoadMs": null,
+      "initialResidency": null,
+      "candidateTruncationCount": 22
+    },
+    {
+      "id": "mlx-2",
+      "reportSha256": "16e7b94638622de794e36f408d6be6395522fc464385ab6ee551f804271458ba",
+      "processWallMs": 8241.604792001453,
+      "caseWallMs": 5990.994541003602,
+      "caseMedianWallMs": 543.709375000617,
+      "inputTokens": 21416,
+      "outputTokens": 0,
+      "positiveHitsAt2": 6,
+      "positiveMRRAt2": 0.8333333333333334,
+      "absentRecognized": 0,
+      "peakProcessRssBytes": 861044736,
+      "peakMlxAllocatorBytes": 1049757944,
+      "maxObservedOllamaSizeVram": null,
+      "modelLoadMs": 556.0587079999095,
+      "ollamaReportedLoadMs": null,
+      "initialResidency": null,
+      "candidateTruncationCount": 22
+    },
+    {
+      "id": "ollama-1",
+      "reportSha256": "b359fd54d94c6a3787dc57e652706f1964dc348748b7792d9305566d410782df",
+      "processWallMs": 16260.888083001191,
+      "caseWallMs": 14423.502375007956,
+      "caseMedianWallMs": 1173.191666999628,
+      "inputTokens": 19294,
+      "outputTokens": 426,
+      "positiveHitsAt2": 4,
+      "positiveMRRAt2": 0.5833333333333334,
+      "absentRecognized": 0,
+      "peakProcessRssBytes": 303710208,
+      "peakMlxAllocatorBytes": null,
+      "maxObservedOllamaSizeVram": 4935248772,
+      "modelLoadMs": null,
+      "ollamaReportedLoadMs": 1568.6134160000001,
+      "initialResidency": "cold",
+      "candidateTruncationCount": 22
+    },
+    {
+      "id": "ollama-2",
+      "reportSha256": "68640cd7e52c5f89b035bc2fecbceebf10ccc2de6ddcbf785dbb876e83225d40",
+      "processWallMs": 15774.94191599908,
+      "caseWallMs": 13981.173917993146,
+      "caseMedianWallMs": 1171.9934169996122,
+      "inputTokens": 19294,
+      "outputTokens": 426,
+      "positiveHitsAt2": 4,
+      "positiveMRRAt2": 0.5833333333333334,
+      "absentRecognized": 0,
+      "peakProcessRssBytes": 302235648,
+      "peakMlxAllocatorBytes": null,
+      "maxObservedOllamaSizeVram": 4935248772,
+      "modelLoadMs": null,
+      "ollamaReportedLoadMs": 1062.0552930000001,
+      "initialResidency": "cold",
+      "candidateTruncationCount": 22
+    }
+  ],
+  "limitations": [
+    "Two authored task pools, not eleven independent coding tasks",
+    "Same order in both repeats; not a counterbalanced latency study",
+    "MLX has no calibrated abstention policy",
+    "Both model inputs truncate candidate text explicitly; relevance labels concern full candidates",
+    "No end-to-end coding, cloud token or time savings measured"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T17:59:07.256Z",
+  "qualified": true,
+  "status": "scratch-qualified-no-corpus-probes",
+  "repositoryProbesExecuted": 0,
+  "publicProbeManifestSha256": "299a395497c825251b7017b5af4fe3b2fc578b3695a73919e10fb08b6187280b",
+  "files": [
+    {
+      "path": "providers.mjs",
+      "sha256": "cd6be1546b2c11b483ac02f68db3f5ef0ad9fda17740921fa20505667006cd94",
+      "bytes": 10301
+    },
+    {
+      "path": "collect.mjs",
+      "sha256": "315ca50ec78f62a76eeccfef7ffc66348b1c1da5ffd5e0b14f9def1aab3c60c9",
+      "bytes": 9718
+    },
+    {
+      "path": "README.md",
+      "sha256": "94e855737369625ee2ea18d405633813d2ac6675933705865144daae7c97040c",
+      "bytes": 302
+    },
+    {
+      "path": "QUALIFICATION.md",
+      "sha256": "9fe949b757b16fbddd040996af042d79f4a6d93cb02222247c121a8bec592bd9",
+      "bytes": 8194
+    },
+    {
+      "path": "runtime-manifest.json",
+      "sha256": "f890d00afd7a17b54d377d288dd7a8b79cea92c93275c595288d6309ecf3b8c3",
+      "bytes": 13385
+    },
+    {
+      "path": "collector-qualification-002/summary.json",
+      "sha256": "6406c5f9df246ad07a60ed3e60aed76e63da5075c26f2338a8f7cea821e5adbf",
+      "bytes": 1381
+    },
+    {
+      "path": "collector-qualification-002/typescript.json",
+      "sha256": "d390ba1f9b895a20f388f6124a0888572501e025e9bd02e77229c5243dc9b0fa",
+      "bytes": 24996
+    },
+    {
+      "path": "collector-qualification-002/serena.json",
+      "sha256": "bb8af2c053dbcd8b4862547aa8084e4ef25e0c0ef32a66f1cd41247130935fb7",
+      "bytes": 26380
+    },
+    {
+      "path": "collector-contract-qualified.json",
+      "sha256": "5f1c0400468793cae900ac3549605c3f99bc1326f09f6f1f9bdeeff21592302c",
+      "bytes": 1795
+    },
+    {
+      "path": "deadline-qualification-red/result.json",
+      "sha256": "ede3e4e6cb7b106b061ba32152c34374069765907904d10bb22079b48ac025ce",
+      "bytes": 498
+    },
+    {
+      "path": "deadline-qualification-green/result.json",
+      "sha256": "2079621185c810494e74ae04180b981212a485401673f140d869295c5383447b",
+      "bytes": 689
+    },
+    {
+      "path": "late-source-qualification-red/result.json",
+      "sha256": "822db803aa080e124cb4f1af48f4495b37a436b335a6bf39379859f8aba29503",
+      "bytes": 36731
+    },
+    {
+      "path": "late-source-qualification-green/result.json",
+      "sha256": "5743ec9b4a36b338cb4807fb4d05ea7c4f13a92cb90449196381b4185a3edaa2",
+      "bytes": 19490
+    }
+  ],
+  "limits": [
+    "Transport and synthetic contract qualification only; real corpus correctness remains unmeasured.",
+    "Initial instructions are charged once per Serena session.",
+    "Source output remains bounded with explicit omissions.",
+    "The shared native helper is frozen and charged by the coordinator."
+  ]
+}

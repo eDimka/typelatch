@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict'
-import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { verifySiteDemo } from './site-demo.mjs'
 import { verifyRecordedFixture } from './showcase-fixture.mjs'
 import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation } from './site-benchmark.mjs'
+import { renderMonorepoBenchmark, verifyMonorepoEvidence } from './site-monorepo-benchmark.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -138,7 +139,18 @@ const pairedAnimation = verifySiteBenchmarkAnimation(
   { reportBytes: pairedReportBytes, rendererBytes: readFileSync(resolve(root, 'scripts/paired-agent-gif.py')) },
 )
 
+const monorepoDirectory = 'docs/benchmarks/monorepo-agent-study'
+const monorepoReportPath = resolve(root, monorepoDirectory, 'report.json')
+const monorepoBenchmark = existsSync(monorepoReportPath) ? await verifyMonorepoEvidence(
+  readFileSync(monorepoReportPath),
+  readFileSync(resolve(root, monorepoDirectory, 'protocol.json')),
+  readFileSync(resolve(root, monorepoDirectory, 'manifest.json')),
+  path => readFileSync(resolve(root, monorepoDirectory, path)),
+) : null
+
 const replacements = {
+  benchmarkAnchor: monorepoBenchmark ? '#monorepo-benchmark' : '#benchmark',
+  monorepoBenchmark: monorepoBenchmark ? renderMonorepoBenchmark(monorepoBenchmark) : '',
   pairedBenchmark: renderSiteBenchmark(pairedBenchmark, pairedAnimation, renderHistoricalBenchmark(historicalBenchmark) + renderAutomaticBenchmark(automaticBenchmark)),
   demoPlayer,
   demoDisclosure: escape(demo.disclosure),
@@ -231,6 +243,10 @@ cpSync(resolve(root, 'docs/benchmarks/paired-agent.json'), resolve(output, 'evid
 for (const [path, bytes] of automaticEvidence) {
   mkdirSync(resolve(output, 'evidence/automatic', path, '..'), { recursive: true })
   writeFileSync(resolve(output, 'evidence/automatic', path), bytes)
+}
+if (monorepoBenchmark) for (const [path, bytes] of monorepoBenchmark.files) {
+  mkdirSync(resolve(output, 'evidence/monorepo-agent-study', path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence/monorepo-agent-study', path), bytes)
 }
 for (const item of recording.mcp)
   writeFileSync(resolve(output, `evidence/${item.id}.json`), JSON.stringify(item, null, 2) + '\n')

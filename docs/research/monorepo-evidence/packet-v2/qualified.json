@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "qualifiedAt": "2026-11-06T18:33:40.300Z",
+  "status": "scratch and public development qualification only",
+  "files": [
+    {
+      "path": "projection.mjs",
+      "sha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c"
+    },
+    {
+      "path": "service.mjs",
+      "sha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352"
+    },
+    {
+      "path": "mcp.mjs",
+      "sha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8"
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c"
+    },
+    {
+      "path": "projection.test.mjs",
+      "sha256": "bb2c899af75d292e87047ed25a10ef2207ce99137a2a4623a1b3dd8edfce68bb"
+    },
+    {
+      "path": "qualify-public.mjs",
+      "sha256": "0ac8d8761bb348d49b30a2b7873d153f954eea4bd0c4437ddfec0497bdff2cb5"
+    },
+    {
+      "path": "README.md",
+      "sha256": "82a4febac473a3d38f8ec53a09067a94aa768d59c2a27290d4e92c1ea6185450"
+    },
+    {
+      "path": "runtime-boundary.json",
+      "sha256": "7baeec16ebfc601c176bd5490ab90e2c05d778523990aaa76f171fe306ef8346"
+    },
+    {
+      "path": "qualification/tests.tap",
+      "sha256": "3358e47c9f879052a04ae7a76763e1d3fbdea8391732c6a13b19076cd489f0c5"
+    },
+    {
+      "path": "qualification/public-discovery/result.json",
+      "sha256": "9a53e17e299ec78c2c6d22a8a7498e4b5af2af801b79e5d7ba35a55b603b2340"
+    },
+    {
+      "path": "qualification/public-discovery/independent-assessment.json",
+      "sha256": "8aed4edea6b22ebc5674b1a77941a44cd2a87cef7c3fe4e3e967ce842c92e49e"
+    }
+  ],
+  "backendVersion": "0.4.0",
+  "backendUnchanged": true,
+  "parserVersion": "6.0.3",
+  "byteLimit": 8192,
+  "tool": "workspace_evidence",
+  "testsPassed": 5,
+  "modelCalls": 0,
+  "heldOutPromptsOrGradersRead": false,
+  "limitations": [
+    "Complete source does not prove task facts or correctness.",
+    "Observed public discovery question is development only.",
+    "No end to end coding token or time savings have been measured."
+  ],
+  "independentPublicDevelopmentFacts": {
+    "supported": 4,
+    "total": 4,
+    "heldOut": false
+  }
+}
