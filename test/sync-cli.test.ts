@@ -82,6 +82,26 @@ it("accepts an explicit lockfile choice and shows its provenance", () => {
   expect(plan.projects[0].lockfile).toBe(join(root, "bun.lock"))
 })
 
+it.each(["missing", "failed"])("reports a %s Bun decoder before downloading packages", state => {
+  rmSync(join(root, "package-lock.json"))
+  const binary = readFileSync(new URL("./fixtures/lockfiles/bun.lockb", import.meta.url))
+  writeFileSync(join(root, "bun.lockb"), binary)
+  if (state === "failed") writeFileSync(join(root, "bin/bun"), '#!/bin/sh\nprintf private-decoder-detail >&2\nexit 42\n', { mode: 0o755 })
+  const result = spawnSync(process.execPath, ["--import", tsx, cli, "sync", "--json"], {
+    cwd: root, encoding: "utf8", timeout: 20_000,
+    env: { ...process.env, TYPELATCH_HOME: join(root, "data"), PATH: join(root, "bin"), SYNC_NPM_MARKER: join(root, "npm-called") },
+  })
+  expect(result.status).toBe(1)
+  const plan = JSON.parse(result.stdout)
+  expect(plan.ready).toBe(false)
+  expect(plan.targets).toEqual([])
+  expect(plan.issues.join(" ")).toContain(state === "missing" ? "Reading bun.lockb requires Bun on PATH" : "Cannot decode bun.lockb")
+  expect(result.stdout + result.stderr).not.toContain("private-decoder-detail")
+  expect(existsSync(join(root, "npm-called"))).toBe(false)
+  expect(existsSync(join(root, "data"))).toBe(false)
+  expect(readFileSync(join(root, "bun.lockb"))).toEqual(binary)
+})
+
 it("skips a verified cached index when executing the plan", () => {
   const path = join(root, "data/brains/effect/1.0.0/brain.db")
   mkdirSync(dirname(path), { recursive: true })
@@ -101,7 +121,7 @@ it("continues past a package without TypeScript evidence and reports incomplete 
   for (const name of ["a-native", "z-typed"]) {
     put(`fixtures/${name}/package/package.json`, { name, version: "1.0.0" })
     put(`fixtures/${name}/package/${name === "a-native" ? "index.js" : "index.d.ts"}`, name === "a-native" ? "exports.value = 42" : "export declare const value: number")
-    const archive = join(root, `fixtures/${name}.tgz`)
+    const archive = join(root, `fixtures/${name}-1.0.0.tgz`)
     c({ cwd: join(root, `fixtures/${name}`), file: archive, sync: true, gzip: true }, ["package"])
     registry[`${name}@1.0.0`] = { archive, integrity: `sha512-${createHash("sha512").update(readFileSync(archive)).digest("base64")}` }
   }
@@ -112,7 +132,7 @@ const registry = ${JSON.stringify(registry)};
 const [command, spec, ...args] = process.argv.slice(2), item = registry[spec];
 if (!item) process.exit(89);
 if (command === "view") console.log(JSON.stringify({name:spec.split("@")[0], version:"1.0.0", "dist.integrity":item.integrity, "dist.tarball":"https://example.invalid/fixture.tgz"}));
-else if (command === "pack") { const filename = path.basename(item.archive); fs.copyFileSync(item.archive,path.join(args[args.indexOf("--pack-destination")+1],filename)); console.log(JSON.stringify([{filename,size:fs.statSync(item.archive).size,unpackedSize:200}])); }
+else if (command === "pack") { const filename = path.basename(item.archive); fs.copyFileSync(item.archive,path.join(args[args.indexOf("--pack-destination")+1],filename)); console.log(JSON.stringify([{id:spec,name:spec.split("@")[0],version:"1.0.0",filename,size:fs.statSync(item.archive).size,unpackedSize:200}])); }
 else process.exit(89);\n`, { mode: 0o755 })
   const result = run("--json")
   expect(result.status, result.stderr).toBe(0)

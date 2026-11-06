@@ -17,7 +17,7 @@ Local workspace search and package API evidence for coding agents. Give Codex or
 Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
 
 ```sh
-npx typelatch@0.3.0 setup
+npx typelatch@0.4.0 setup
 ```
 
 Choose your client and confirm registration. Start a new client session in your project, then ask:
@@ -33,17 +33,17 @@ Setup pins the exact Typelatch version it registers. There is no global installa
 To prepare your direct dependency APIs, run this inside a project with a supported lockfile:
 
 ```sh
-npx typelatch@0.3.0 sync
+npx typelatch@0.4.0 sync
 ```
 
 Source discovery works without this preparation. Missing indexes and preparation commands stay visible in search results. For a monorepo, save the projects you want to search and sync:
 
 ```sh
-npx typelatch@0.3.0 scope add apps/web packages/ui
-npx typelatch@0.3.0 sync
+npx typelatch@0.4.0 scope add apps/web packages/ui
+npx typelatch@0.4.0 sync
 ```
 
-Supports npm, pnpm, Yarn and Bun text lockfiles. [Choose projects and manage scopes](docs/USAGE.md#keep-a-monorepo-subset).
+Reads npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, Bun text and binary locks, and Deno npm dependencies. Binary Bun locks require Bun on `PATH`. [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
 
 ## Start with a question
 
@@ -66,8 +66,23 @@ Results carry source locations, exact package versions and visible coverage gaps
 Prefer the terminal?
 
 ```sh
-npx typelatch@0.3.0 search "Where do we validate incoming requests?" --compact --json
+npx typelatch@0.4.0 search "Where do we validate incoming requests?" --compact --json
 ```
+
+## Codex with and without Typelatch
+
+[![Actual Codex actions with and without Typelatch](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-comparison.gif)](https://edimka.github.io/typelatch/#benchmark)
+
+Accelerated replay of recorded actions from the first matched pair. The full comparison ran three tasks twice in each condition with Codex and `typelatch@0.3.0`, using the same workflow prompt.
+
+| All six sessions per condition | Without Typelatch | With Typelatch |
+| :--- | ---: | ---: |
+| Grep shell calls | 22 | 10 |
+| Total tokens | 936,683 | 1,861,666 |
+| Agent time | 317.8 s | 452.7 s |
+| Correct solutions | 4/6 | 5/6 |
+
+Typelatch reduced grep calls and passed one more solution in this small sample, while using more tokens and time. Tokens include cached input. Preparation is measured separately. These are authored tasks, not a general performance ranking. [Every run, method and reproduction](docs/BENCHMARKS.md#paired-agent-comparison).
 
 ## From a bug to a checked change
 

@@ -1,5 +1,33 @@
 # Benchmarks
 
+## Paired agent comparison
+
+[Results](https://edimka.github.io/typelatch/#benchmark) · [Data and per run evidence](benchmarks/typelatch-use/paired-agent.json) · [Frozen protocol](benchmarks/typelatch-use/paired-agent-protocol.json)
+
+Three authored TypeScript tasks, two repetitions per condition, twelve fresh Codex sessions. Tasks cover SQLite rollback, cart preview correctness, and an Effect manifest validator. The latter two share a 57 source file project.
+
+Both conditions use Codex CLI 0.166.0, requested model `gpt-6.1-sol`, medium reasoning, identical task and workflow prompts, starting source, dependencies, native tools and permissions. The shared prompt requires source discovery, installed API inspection and tests before and after editing. It directs the agent to Typelatch when available and native equivalents otherwise. One condition provides published `typelatch@0.3.0` MCP tools. Runs are sequential, with condition order reversed for the second repetition. All attempts remain in the results. Only workspace paths in two generated native build files are normalized when comparing initial inventories; original hashes are retained.
+
+| Metric | Definition |
+| :--- | :--- |
+| Grep calls | Completed shell call groups invoking `rg`, `grep`, `egrep` or `fgrep`. Compound calls count once. Content search and file listing are separate. |
+| Tokens | Terminal CLI input plus output. Cached input and reasoning output are included subsets, never added twice. Missing usage stays unknown. |
+| Agent time | Process launch to exit, including MCP startup and tool execution. |
+| Preparation | Fixture installation and baseline checks, plus separate Typelatch dependency indexing. Excluded from agent time. Source search starts with an empty cache. |
+| Correctness | Independent compilation, public tests, held out assertions, API contracts and protected file checks after the agent exits. |
+
+All shell and MCP calls are reported. Search counts do not cover searches hidden in scripts, aliases or other tools. Token accounting follows the [CLI JSON events](https://learn.chatgpt.com/docs/non-interactive-mode), not a billing estimate. Provider caching remains enabled. The model alias is pinned; a provider snapshot and sampling seed are unavailable.
+
+Each broken fixture must compile and fail its intended regression; reference fixes must pass. Grading copies the final implementation into a fresh directory with trusted tests, configuration and dependencies. It ignores the agent's generated build output. File integrity checks include installed dependencies and reject changes outside existing implementation files. Public evidence includes commands, final source changes, test results and hashes; model reasoning and authentication data are excluded.
+
+A separate [automatic choice study](benchmarks/paired-agent.json) retained twelve runs with neutral tool instructions. None of its six sessions with Typelatch enabled called MCP. Its results remain separate from the explicit tool use comparison.
+
+### Reproduce
+
+Use an authenticated Codex CLI and the recorded lockfiles. Use npm 10.9.8 for the captured Typelatch 0.3.0 runtime; npm 12 response compatibility starts in Typelatch 0.4.0. Install `typelatch@0.3.0` in `artifacts/paired-agent/runtime`. Run `node --test scripts/paired-agent*.test.mjs`. For a new study, run `node scripts/paired-agent-use.mjs --freeze --output-directory artifacts/paired-agent/new-study`, then the same command with `--run` instead of `--freeze`. The runner refuses to overwrite existing evidence. Fixtures and independent assertions are in `scripts/fixtures/paired-agent`.
+
+These are known development exercises, not unseen production tasks. Two repetitions do not add task diversity. Machine load, network latency, provider caching and sampling affect measurements. Starting from an empty machine also incurs the separately reported preparation costs. Results describe this sample and do not establish a general performance guarantee.
+
 ## Method
 
 The retrieval suite contains 73 authored questions across ten pinned npm packages. Each case preserves its expected API symbols. The strict case score passes when every expected symbol appears in the first five results. Recall measures the fraction of expected symbols returned. Mean reciprocal rank averages reciprocal positions across all expected symbols, including zero for missing symbols. A separate discovery hit records whether at least one expected symbol appeared.

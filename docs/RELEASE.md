@@ -32,12 +32,12 @@ Authenticate the owner account with `npm login` if necessary. This authenticatio
 1. Gather completed changes in a release pull request. Choose the semantic increment, update package and lockfile versions together, write the changelog and migration notes, and update the website installation pins. For example, `npm version minor --no-git-tag-version` updates metadata without creating the release trigger.
 2. Run `npm ci`, `npm run test:release`, `npm run release:check`, and `npm run site:check`. Review the package contents and release notes. CI also runs retrieval, workspace, support, agent walkthrough and browser checks.
 3. Merge the reviewed release pull request after its checks pass. Fetch `origin/main` and identify the exact merged commit. Do not include unrelated development work.
-4. Confirm repository and npm trust configuration, then create and push one annotated tag. For the prepared 0.3.0 release:
+4. Confirm repository and npm trust configuration, then create and push one annotated tag. For the prepared 0.4.0 release:
 
 ```sh
 git fetch origin main
-git tag -a v0.3.0 origin/main -m 'Typelatch 0.3.0'
-git push origin refs/tags/v0.3.0
+git tag -a v0.4.0 origin/main -m 'Typelatch 0.4.0'
+git push origin refs/tags/v0.4.0
 ```
 
 The tag must point to a commit on `main`. Push one release at a time and wait for completion before pushing the next. Workflow concurrency serializes publication, but GitHub can replace a pending run if several additional tags arrive.
@@ -47,7 +47,7 @@ The tag must point to a commit on `main`. Push one release at a time and wait fo
 The [release workflow](../.github/workflows/release.yml) performs these phases:
 
 1. Validate the tag and metadata, confirm an annotated tag on `main`, build with Node 24 and pinned npm, and pack one candidate. Record its commit, SHA256 and npm SHA512 integrity.
-2. Pass that immutable artifact ID to the reusable CI workflow. Test and install those exact bytes on Linux and macOS with Node 22 and 24. Run the evidence suites without publication privileges.
+2. Pass that immutable artifact ID to the reusable CI workflow. Test and install those exact bytes on Linux and macOS with Node 22 and npm 11, and Node 24 and npm 12. Run the evidence suites without publication privileges.
 3. Publish the preserved tarball using npm OIDC and provenance. The job has no package dependency installation or lifecycle execution. Verify the registry integrity and downloaded bytes.
 4. In a separate job without OIDC permissions, install the exact registry version with a fresh cache and exercise CLI and MCP behavior.
 5. Create a GitHub draft, attach the tarball, `SHA256SUMS` and `release.json`, then publish the immutable release. The GitHub write credential is isolated from npm publishing and package execution.

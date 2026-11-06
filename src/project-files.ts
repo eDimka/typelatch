@@ -1,7 +1,9 @@
 import { lstat, readFile, realpath } from "node:fs/promises"
 import { createRequire } from "node:module"
-import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path"
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path"
 import { minimatch } from "minimatch"
+import { yarnCatalogConfig } from "./lockfiles.js"
+import { readProjectManifest } from "./project-manifest.js"
 
 const require = createRequire(import.meta.url)
 
@@ -27,7 +29,8 @@ export function projectReader(): ProjectRead {
         if (info.size > 16 * 1024 * 1024) throw new Error(`Project file exceeds 16 MiB: ${path}`)
         bytes += info.size
         if (bytes > 64 * 1024 * 1024 || observed.size > 20_000) throw new Error("Project file reads exceed sync planning limits")
-        return readFile(path, "utf8")
+        const text = await readFile(path, basename(path) === "bun.lockb" ? "latin1" : "utf8")
+        return basename(path) === ".yarnrc.yml" ? yarnCatalogConfig(text) : text
       })()
       observed.set(path, pending)
     }
@@ -39,7 +42,7 @@ export function workspacePatterns(manifest: Record<string, unknown>, yaml?: stri
   const declared = Array.isArray(manifest.workspaces) ? manifest.workspaces :
     manifest.workspaces && typeof manifest.workspaces === "object" ? (manifest.workspaces as { packages?: unknown }).packages : undefined
   let patterns = declared
-  if (yaml !== undefined) {
+  if (yaml !== undefined && !(typeof manifest.packageManager === "string" && manifest.packageManager.split("@")[0] === "deno")) {
     const { parseAllDocuments } = require("yaml") as typeof import("yaml")
     const documents = parseAllDocuments(yaml, { uniqueKeys: true })
     if (documents.length !== 1 || documents[0]!.errors.length) throw new Error("Invalid pnpm-workspace.yaml")
@@ -71,10 +74,10 @@ export async function projectBoundary(project: string, read: ProjectRead): Promi
     })
     if (git) return directory
     if (directory !== project) {
-      const text = await read(join(directory, "package.json"))
+      const manifest = await readProjectManifest(directory, read)
       const yaml = await read(join(directory, "pnpm-workspace.yaml"))
-      if (text || yaml) {
-        const patterns = workspacePatterns(text ? JSON.parse(text) : {}, yaml)
+      if (manifest || yaml) {
+        const patterns = workspacePatterns(manifest?.data ?? {}, yaml)
         if (matchesWorkspace(relative(directory, project).split(sep).join("/"), patterns)) workspaceRoot = directory
       }
     }

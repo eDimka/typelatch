@@ -6,6 +6,7 @@ import { resolve, extname, sep } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 const root = resolve(import.meta.dirname, '..')
+const installCommand = `npx typelatch@${JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8')).version} setup`
 const tools = createRequire(resolve(process.env.TYPELATCH_BROWSER_TOOLS || root, 'package.json'))
 const { chromium } = tools('playwright')
 const { default: AxeBuilder } = tools('@axe-core/playwright')
@@ -69,7 +70,7 @@ try {
   await page.evaluate(() => document.fonts.ready)
   assert.equal(
     await page.locator('.hero #hero-install-command').innerText(),
-    'npx typelatch@0.3.0 setup',
+    installCommand,
   )
   assert.equal(await page.locator('.brand img').count(), 0)
   assert.equal(
@@ -114,6 +115,28 @@ try {
   await page.keyboard.press('Enter')
   assert.equal(await page.locator('[data-demo-scene="3"]').isVisible(), true)
   report.checks.push('All six walkthrough steps, keyboard selection, play, pause and restart')
+  const paired = JSON.parse(readFileSync(resolve(root, 'docs/benchmarks/typelatch-use/paired-agent.json'), 'utf8'))
+  await page.locator('a[href="#benchmark"]').click()
+  assert.equal(await page.locator('#benchmark').isVisible(), true)
+  assert.equal(await page.locator('[data-benchmark-run]').count(), paired.runs.length)
+  await page.locator('.benchmark-details summary').focus()
+  await page.keyboard.press('Enter')
+  assert.equal(await page.locator('.benchmark-details').getAttribute('open'), '')
+  assert.match(await page.locator('.benchmark-method').innerText(), /Cached input tokens, already included/)
+  assert.match(await page.locator('.benchmark-method').innerText(), /Typelatch index preparation/)
+  assert.equal(await page.locator('a[href="evidence/paired-agent.json"]').count(), 1)
+  assert.equal(await page.locator('a[href="evidence/automatic/paired-agent.json"]').count(), 1)
+  assert.match(await page.locator('.benchmark-automatic').innerText(), /not pooled/)
+  assert.match(await page.locator('.benchmark-scope').innerText(), /identical task and workflow instructions/)
+  assert.equal(await page.locator('[data-comparison-image]').getAttribute('src'), 'assets/codex-comparison.png')
+  await page.locator('[data-comparison-play]').click()
+  assert.equal(await page.locator('[data-comparison-play]').innerText(), 'Stop replay')
+  assert.equal(await page.locator('[data-comparison-image]').getAttribute('src'), 'assets/codex-comparison.gif')
+  await page.locator('[data-comparison-play]').click()
+  assert.equal(await page.locator('[data-comparison-image]').getAttribute('src'), 'assets/codex-comparison.png')
+  assert.equal(await page.locator('[data-comparison-play]').getAttribute('aria-pressed'), 'false')
+  report.checks.push('Every paired benchmark run, keyboard accounting disclosure and public evidence link')
+  report.checks.push('Actual Codex comparison GIF starts on request and stops on its static poster')
 
   for (const width of [320, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 844 })
@@ -185,7 +208,7 @@ try {
   await page.locator('[data-copy="hero-install-command"]').click()
   assert.equal(
     await page.evaluate(() => navigator.clipboard.readText()),
-    'npx typelatch@0.3.0 setup',
+    installCommand,
   )
   assert.equal(await page.locator('[data-copy="hero-install-command"]').innerText(), 'Copied')
   await page.evaluate(() => {
@@ -196,7 +219,7 @@ try {
   await page.locator('[data-copy="install-command"]').click()
   assert.equal(
     await page.evaluate(() => window.getSelection().toString()),
-    'npx typelatch@0.3.0 setup',
+    installCommand,
   )
   assert.match(await page.locator('#action-status').textContent(), /unavailable/)
   report.checks.push('Clipboard success and honest denied-permission selection fallback')
@@ -207,6 +230,8 @@ try {
   const reducedPage = await reduced.newPage()
   await reducedPage.goto(url)
   assert.equal(await reducedPage.locator('[data-demo-play]').isVisible(), false)
+  assert.equal(await reducedPage.locator('[data-comparison-play]').isVisible(), false)
+  assert.match(await reducedPage.locator('[data-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/codex-comparison\.png$/)
   await reducedPage.locator('[data-demo-step="5"]').click()
   assert.equal(await reducedPage.locator('[data-demo-scene="5"]').isVisible(), true)
   await reducedPage.locator('[data-trace]').click()
@@ -236,6 +261,8 @@ try {
   await staticPage.goto(url)
   assert.equal(await staticPage.locator('[data-demo-scene]:visible').count(), 6)
   assert.equal(await staticPage.locator('[data-demo-play]').isVisible(), false)
+  assert.equal(await staticPage.locator('[data-comparison-play]').isVisible(), false)
+  assert.equal(await staticPage.locator('[data-comparison-image]').getAttribute('src'), 'assets/codex-comparison.png')
   assert.equal(await staticPage.locator('#lookup').isVisible(), true)
   assert.equal(await staticPage.locator('#use').isVisible(), true)
   assert.equal(await staticPage.locator('[data-trace]').isVisible(), false)

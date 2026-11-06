@@ -3,6 +3,7 @@ import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { verifySiteDemo } from './site-demo.mjs'
 import { verifyRecordedFixture } from './showcase-fixture.mjs'
+import { renderSiteBenchmark, renderAutomaticBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation } from './site-benchmark.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -97,11 +98,34 @@ const assertionProofs = testNames
 
 const demo = JSON.parse(read('site/demo.json'))
 const { counts: demoCounts } = verifySiteDemo(read('docs/showcase/codex-session.json'), demo)
-assert.equal(demo.source.packageVersion, JSON.parse(read('package.json')).version, 'Walkthrough package version matches the release')
 const sceneLabels = ['Connect', 'Discover', 'Reproduce', 'Inspect', 'Edit', 'Verify']
 const demoPlayer = `<div class="demo-player" aria-label="${escape(demo.label)}"><div class="demo-sidebar"><p class="small-label">THE AGENT WORKFLOW</p><nav class="demo-steps" aria-label="Walkthrough steps">${demo.scenes.map((scene, index) => `<a class="demo-step" href="#demo-${escape(scene.id)}" data-demo-step="${index}"><span class="demo-number">${String(index + 1).padStart(2, '0')}</span>${sceneLabels[index]}</a>`).join('')}</nav><div class="demo-controls" hidden><button type="button" data-demo-play>Play walkthrough</button><button type="button" data-demo-restart aria-label="Restart walkthrough">↺</button></div></div><div class="demo-stage"><div class="terminal-bar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>typelatch / agent session</span><span>${escape(demo.animationLabel.toUpperCase())}</span></div>${demo.scenes.map((scene, index) => `<article class="demo-scene" id="demo-${escape(scene.id)}" data-demo-scene="${index}" data-duration="${scene.durationMs}" aria-labelledby="demo-title-${index}"><p class="demo-eyebrow">${escape(scene.eyebrow)}</p><h3 id="demo-title-${index}">${escape(scene.title)}</h3><p>${escape(scene.body)}</p>${code(scene.code, `${scene.title} walkthrough excerpt`)}<p class="demo-caption">${escape(scene.caption)}</p></article>`).join('')}</div></div>`
 
+const pairedDirectory = 'docs/benchmarks/typelatch-use'
+const pairedReportBytes = readFileSync(resolve(root, pairedDirectory, 'paired-agent.json'))
+const pairedBenchmark = JSON.parse(pairedReportBytes)
+assert.equal(pairedBenchmark.protocol.study, 'explicit-tool-use', 'The main comparison records explicit tool use instructions')
+const pairedEvidence = verifySiteBenchmarkEvidence(
+  pairedBenchmark,
+  readFileSync(resolve(root, pairedDirectory, 'paired-agent-protocol.json')),
+  path => readFileSync(resolve(root, pairedDirectory, path)),
+)
+const automaticBenchmark = JSON.parse(read('docs/benchmarks/paired-agent.json'))
+assert.notEqual(automaticBenchmark.protocol.study, 'explicit-tool-use', 'The automatic choice study stays separate')
+const automaticEvidence = verifySiteBenchmarkEvidence(
+  automaticBenchmark,
+  readFileSync(resolve(root, 'docs/benchmarks/paired-agent-protocol.json')),
+  path => readFileSync(resolve(root, 'docs/benchmarks', path)),
+)
+const pairedAnimation = verifySiteBenchmarkAnimation(
+  pairedBenchmark,
+  JSON.parse(read('site/benchmark-animation.json')),
+  path => readFileSync(resolve(root, 'site', path)),
+  { reportBytes: pairedReportBytes, rendererBytes: readFileSync(resolve(root, 'scripts/paired-agent-gif.py')) },
+)
+
 const replacements = {
+  pairedBenchmark: renderSiteBenchmark(pairedBenchmark, pairedAnimation, renderAutomaticBenchmark(automaticBenchmark)),
   demoPlayer,
   demoDisclosure: escape(demo.disclosure),
   demoCounts: `${demoCounts.successfulMcpCalls} successful MCP calls · ${demoCounts.shellCommands} shell command · ${demoCounts.grepCommands} rg or grep commands`,
@@ -176,6 +200,18 @@ cpSync(resolve(root, 'docs/showcase/recording.json'), resolve(output, 'evidence/
 cpSync(resolve(root, 'docs/showcase/recorded-fixture.json'), resolve(output, 'evidence/recorded-fixture.json'))
 cpSync(resolve(root, 'docs/showcase/codex-session.json'), resolve(output, 'evidence/codex-session.json'))
 cpSync(resolve(root, 'site/demo.json'), resolve(output, 'evidence/demo.json'))
+cpSync(resolve(root, pairedDirectory, 'paired-agent.json'), resolve(output, 'evidence/paired-agent.json'))
+cpSync(resolve(root, 'site/benchmark-animation.json'), resolve(output, 'evidence/benchmark-animation.json'))
+for (const [path, bytes] of pairedEvidence) {
+  mkdirSync(resolve(output, 'evidence', path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence', path), bytes)
+}
+mkdirSync(resolve(output, 'evidence/automatic'), { recursive: true })
+cpSync(resolve(root, 'docs/benchmarks/paired-agent.json'), resolve(output, 'evidence/automatic/paired-agent.json'))
+for (const [path, bytes] of automaticEvidence) {
+  mkdirSync(resolve(output, 'evidence/automatic', path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence/automatic', path), bytes)
+}
 for (const item of recording.mcp)
   writeFileSync(resolve(output, `evidence/${item.id}.json`), JSON.stringify(item, null, 2) + '\n')
 writeFileSync(

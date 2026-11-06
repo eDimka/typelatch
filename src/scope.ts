@@ -3,6 +3,7 @@ import { constants } from "node:fs"
 import { lstat, mkdir, open, readFile, realpath, rename, rm, unlink } from "node:fs/promises"
 import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path"
 import { insideProject, projectBoundary, projectReader } from "./project-files.js"
+import { readProjectManifest } from "./project-manifest.js"
 
 export type SavedScope = { root: string; path: string; projects: string[] }
 const limit = 1000
@@ -56,7 +57,7 @@ async function location(cwd: string): Promise<{ cwd: string; boundary: string; r
   let ancestor = cwd
   // Workspace patterns name packages, so resolve a source directory through its owning package.
   for (let depth = 0; depth < 64; depth++) {
-    if (await inspect(join(ancestor, ".git")) || await read(join(ancestor, "package.json")) !== undefined) {
+    if (await inspect(join(ancestor, ".git")) || await readProjectManifest(ancestor, read) !== undefined) {
       project = ancestor
       break
     }
@@ -91,12 +92,7 @@ async function validateProject(root: string, path: string): Promise<string> {
   }
   if (!insideProject(root, canonical)) throw new Error(`Scope project symlink escapes ${root}: ${path}`)
   if (!(await lstat(canonical)).isDirectory()) throw new Error(`Scope project must be a directory: ${path}`)
-  const manifestPath = join(canonical, "package.json")
-  const text = await projectReader()(manifestPath)
-  if (text === undefined) throw new Error(`Scope project has no package.json: ${canonical}`)
-  let manifest: unknown
-  try { manifest = JSON.parse(text) } catch { throw new Error(`Scope project has invalid package.json: ${canonical}`) }
-  if (!manifest || typeof manifest !== "object" || Array.isArray(manifest)) throw new Error(`Scope project has invalid package.json: ${canonical}`)
+  if (!await readProjectManifest(canonical, projectReader())) throw new Error(`Scope project has no package.json, deno.json or deno.jsonc: ${canonical}`)
   return canonical
 }
 

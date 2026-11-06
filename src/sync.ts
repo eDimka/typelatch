@@ -4,11 +4,12 @@ import { dirname, join, relative, resolve, sep } from "node:path"
 import { Minimatch } from "minimatch"
 import { satisfies } from "semver"
 import { openBrainDatabase } from "./database.js"
-import { declaredDependencies, lockfileNames } from "./lockfiles.js"
+import { lockfileNames } from "./lockfiles.js"
 import { brainPath } from "./paths.js"
 import { readScope, resolveScopeProjects, type SavedScope } from "./scope.js"
-import { resolveProjectLockfile } from "./project.js"
+import { readEffectiveManifest, resolveProjectLockfile } from "./project.js"
 import { insideProject, matchesWorkspace, projectBoundary, projectReader, workspacePatterns, type ProjectRead } from "./project-files.js"
+import { readProjectManifest } from "./project-manifest.js"
 
 export type SyncTarget = {
   name: string; version: string; integrity?: string
@@ -27,12 +28,12 @@ export type SyncPlan = {
 export type SyncOptions = { cwd: string; projects?: string[]; workspaces?: boolean; lockfile?: string; packages?: string[]; force?: boolean }
 const excludedDirectories = new Set([".git", "node_modules", "dist", "build", "coverage", ".next", ".nuxt", ".turbo", ".cache", ".typelatch", "artifacts", "_site"])
 const message = (error: unknown) => error instanceof Error ? error.message : String(error)
-const packageName = (alias: string, spec: string) => spec.startsWith("npm:") ? spec.slice(4).match(/^(@[^/]+\/[^@]+|[^@]+)(?:@|$)/)?.[1] ?? alias : alias
+const packageName = (alias: string, spec: string) => spec.startsWith("npm:") ? spec.slice(4).match(/^(@[^/]+\/[^@/]+|[^@/]+)(?:@|\/|$)/)?.[1] ?? alias : alias
 
 async function discoverWorkspaces(root: string, read: ProjectRead): Promise<string[]> {
-  const text = await read(join(root, "package.json"))
-  if (text === undefined) throw new Error(`No package.json found in ${root}`)
-  const patterns = workspacePatterns(JSON.parse(text), await read(join(root, "pnpm-workspace.yaml")))
+  const manifest = await readProjectManifest(root, read)
+  if (!manifest) throw new Error(`No project manifest found in ${root}`)
+  const patterns = workspacePatterns(manifest.data, await read(join(root, "pnpm-workspace.yaml")))
   const include = patterns.filter(pattern => !pattern.startsWith("!")).map(pattern => new Minimatch(pattern, { dot: false, partial: true }))
   const projects = [root]
   let directories = 0
@@ -43,7 +44,7 @@ async function discoverWorkspaces(root: string, read: ProjectRead): Promise<stri
       const path = join(directory, entry.name)
       const rel = relative(root, path).split(sep).join("/")
       if (!include.some(pattern => pattern.match(rel))) continue
-      if (matchesWorkspace(rel, patterns) && await read(join(path, "package.json")) !== undefined) projects.push(path)
+      if (matchesWorkspace(rel, patterns) && await readProjectManifest(path, read) !== undefined) projects.push(path)
       if (projects.length > 1000) throw new Error("Workspace discovery exceeds 1000 projects")
       await visit(path, depth + 1)
     }
@@ -97,7 +98,7 @@ export async function planSync(options: SyncOptions): Promise<SyncPlan> {
     const localWorkspace = async (root: string, name: string, range: string): Promise<boolean> => {
       let manifests = workspaceManifests.get(root)
       if (!manifests) {
-        manifests = discoverWorkspaces(root, read).then(async paths => Promise.all(paths.slice(1).map(async path => JSON.parse((await read(join(path, "package.json")))!))))
+        manifests = discoverWorkspaces(root, read).then(async paths => Promise.all(paths.slice(1).map(async path => (await readProjectManifest(path, read))!.data as { name: string; version: string })))
         workspaceManifests.set(root, manifests)
       }
       return (await manifests).some(manifest => manifest.name === name && typeof manifest.version === "string" && satisfies(manifest.version, range))
@@ -106,9 +107,11 @@ export async function planSync(options: SyncOptions): Promise<SyncPlan> {
       const selection = { root: project, lockfile: null as string | null }
       plan.projects.push(selection)
       try {
-        const text = await read(join(project, "package.json"))
-        if (text === undefined) throw new Error(`No package.json found in ${project}`)
-        const declared = Object.entries(declaredDependencies(JSON.parse(text))).sort(([a], [b]) => a.localeCompare(b))
+        const ownerBoundary = await projectBoundary(project, read)
+        const manifest = await readEffectiveManifest(project, ownerBoundary, read)
+        if (!manifest) throw new Error(`No package.json, deno.json or deno.jsonc found in ${project}`)
+        plan.issues.push(...manifest.issues)
+        const declared = Object.entries(manifest.dependencies).sort(([a], [b]) => a.localeCompare(b))
         const selected = declared.filter(([alias, spec]) => {
           if (typeof spec !== "string") throw new Error(`Invalid dependency specification for ${alias}`)
           const name = packageName(alias, spec)
@@ -122,7 +125,6 @@ export async function planSync(options: SyncOptions): Promise<SyncPlan> {
           return false
         })
         if (!registry.length && !options.lockfile) continue
-        const ownerBoundary = await projectBoundary(project, read)
         const lock = await resolveProjectLockfile(project, ownerBoundary, read, options.lockfile ? resolve(cwd, options.lockfile) : undefined)
         if (!lock) throw new Error(`No supported lockfile for ${project}; expected ${lockfileNames.join(", ")}`)
         selection.lockfile = lock.path

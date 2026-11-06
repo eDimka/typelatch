@@ -144,3 +144,37 @@ demoControls.hidden = false
 showScene(0)
 showLinkedScene()
 window.addEventListener('hashchange', showLinkedScene)
+
+const comparisonImage = document.querySelector('[data-comparison-image]')
+const comparisonButton = document.querySelector('[data-comparison-play]')
+let comparisonPlaying = false
+
+function stopComparison() {
+  if (!comparisonImage || !comparisonButton) return
+  comparisonImage.src = comparisonImage.dataset.poster
+  comparisonPlaying = false
+  comparisonButton.textContent = 'Play comparison'
+  comparisonButton.setAttribute('aria-pressed', 'false')
+  comparisonButton.hidden = reducedMotion.matches
+}
+
+if (comparisonImage && comparisonButton) {
+  comparisonButton.hidden = reducedMotion.matches
+  comparisonButton.addEventListener('click', () => {
+    if (comparisonPlaying) {
+      stopComparison()
+      status.textContent = 'Comparison replay stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    comparisonImage.src = comparisonImage.dataset.gif
+    comparisonPlaying = true
+    comparisonButton.textContent = 'Stop replay'
+    comparisonButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded Codex actions with accelerated timing. No new agent session is running.'
+  })
+  reducedMotion.addEventListener('change', stopComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopComparison()
+  })
+}
