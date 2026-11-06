@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "kind": "public-preregistration",
-  "privateProtocolSha256": "540a7abf0cc328323f39e7f99ff5c4fd032e02faa2d3bcee67ff39c9937a7a3f",
+  "privateProtocolSha256": "447d41337338c3c5fa684c618b31e7b373bad3272ece809f1eec94eb23693f60",
   "normalization": "Repository, home and temporary paths replaced with placeholders. PATH omitted from public environment; exact private protocol hash retained.",
   "protocol": {
     "schemaVersion": 1,
-    "study": "real-maintenance-guided-retrieval-v1",
-    "createdAt": "2026-11-06T19:17:03.116Z",
+    "study": "real-maintenance-inventory-guided-retrieval-v1",
+    "createdAt": "2026-11-06T19:36:29.391Z",
     "status": "frozen-before-agent-sessions",
     "runCount": 12,
     "repeats": 2,
@@ -30,6 +30,83 @@
         "promptSha256": "4db0afcdec9a32c0770e39c3cfd6e02315ec6d276db323c705f659d56fe2f233"
       }
     ],
+    "prompts": [
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "6f4c531f03c2ab2072d4feef9d391b246f59a8cc5a420a7a8016f22c7f88c57a"
+      },
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "8967939c75f02d254325f05a50d09ca1022cc7af668649a9f9024ac41a828d42"
+      },
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "packet",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "15c645a4ce136d42fb9cf73dada3497fc4291049166531c8afacca83a6f0fbd4"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "b4ce49f475a28d4429a27478de96eb77b7579450cb6b9e676afda06374cf3f5b"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "1afbb1dc4bca466007a51902a23341a4af23fc6898eaf92c0f8a998683515cee"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "packet",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "986d7ca3049468665e24fe0a66f794a2f97234f6aa879770936f114f723527f2"
+      }
+    ],
+    "promptPolicy": "Task and guided instructions are identical. An equal-format declaration names the actually enabled provider/tools for each arm, or none for native. Each exact sent prompt is separately hash-bound. No task query recipe is supplied.",
+    "toolUseQualification": {
+      "receiptSha256": "55c7c27b9b7e17eca7a935805eb2a670c51680fb979fb2502a4b4163774ffb7b",
+      "captureSha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+      "arms": [
+        {
+          "arm": "packet",
+          "status": "passed",
+          "proof": [
+            {
+              "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+              "server": "typelatch_packet",
+              "tool": "workspace_evidence",
+              "resultSha256": "2bd004660f38dff3da247fb5c04a8eabc1caf712426459ba802efe5d9e525ba9",
+              "markerObserved": true
+            }
+          ]
+        },
+        {
+          "arm": "competitor",
+          "status": "passed",
+          "proof": [
+            {
+              "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+              "server": "serena",
+              "tool": "serena_repl",
+              "resultSha256": "2eb7f0acfc325ea780aa37fd6f698aaf998ba4604eb293c221b541352de11c88",
+              "markerObserved": true
+            }
+          ]
+        }
+      ]
+    },
     "schedule": [
       {
         "id": "pnpm-changed-project-move-r1-native",
@@ -132,6 +209,7 @@
     "decisionGate": {
       "minimumReductionPercent": 20,
       "workflowReviewRules": {
+        "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
         "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
         "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
         "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
@@ -148,6 +226,7 @@
       "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
     },
     "workflowReviewRules": {
+      "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
       "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
       "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
       "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
@@ -168,6 +247,12 @@
         "pnpm-changed-project-move-r1-packet"
       ],
       "rule": "Preselect the first task and first repeat before guided outcomes. Retain failures and zero/failed retrieval without substituting a later pair. Use measured public-action receipt timestamps; any display-time compression must be disclosed."
+    },
+    "supplementalOutputs": {
+      "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "fileName": "tool-outputs.json",
+      "policy": "After all timed sessions, export only completed native command outputs and MCP results/errors. Verify raw and public action hashes before machine-path normalization. Retain original/normalized hashes. Exclude reasoning and assistant messages.",
+      "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575"
     },
     "spec": {
       "schemaVersion": 1,
@@ -436,77 +521,111 @@
           "kind": "file"
         },
         {
-          "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/startup-reuse.json",
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
           "kind": "file"
         },
         {
-          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/run.mjs",
           "kind": "file"
         },
         {
-          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/competitor/invocation.json",
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/packet/invocation.json",
           "kind": "file"
         },
         {
-          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/packet/invocation.json",
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/competitor/invocation.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/protocol.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/methodology-review.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/independent-review.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/tool-output-export-qualification-001/report.json",
           "kind": "file"
         }
       ],
       "preSessionAmendment": {
-        "reason": "Separate instructed-use follow-up proposed while availability study002 was running, after its first task used zero MCP calls across all four arms. No existing result is replaced or pooled. Tasks, runtime, grader and gate thresholds remain unchanged.",
-        "priorAvailabilitySpec": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
-        "priorStudy": "agent-study-002",
-        "status": "Reviewed source;21 offline tests passed; identical actual startup qualifications reused. Authorized to freeze only; root launches after public commit."
+        "reason": "The retained three-session guided001 pilot exposed ambiguous provider discovery. Explicit same-format inventory tells native no provider and names enabled tools for Serena/packet. This makes the strong native control concrete and does not replace any earlier result. Task prompts, candidate/runtime and20percent thresholds are otherwise retained.",
+        "retainedAvailabilityStudy": "agent-study-002",
+        "retainedGuidedPilot": "guided-study-001",
+        "status": "Independently reviewed;26 offline harness tests pass. Both actual Codex provider calls qualified on independent scratch source. Supplemental extractor independently qualified. Authorized to freeze; root publishes before model launch."
       },
       "infrastructureAmendment": {
         "priorStudy": "agent-study-001",
         "priorProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
         "reason": "Retain the completed native run and three pre-model MCP configuration failures. Correct only CLI environment-map serialization to individual TOML leaf overrides. Tasks, prompts, candidate source, thresholds and16-session schedule unchanged. Run every arm fresh; no valid result is substituted from the earlier attempt.",
         "startupQualification": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json"
+      },
+      "toolUseQualification": {
+        "receipt": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
+        "sourceSpec": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json"
+      },
+      "supplementalOutputs": {
+        "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "fileName": "tool-outputs.json",
+        "policy": "After all timed sessions, export only completed native command outputs and MCP results/errors. Verify raw and public action hashes before machine-path normalization. Retain original/normalized hashes. Exclude reasoning and assistant messages.",
+        "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575"
       }
     },
-    "specSha256": "35b733bdbbbbab53696181392c1a4f353da491ea7289a06999a3bd8be009d47a",
+    "specSha256": "fb19b6a617de5efc4c8d63ccb224f3ca530926045869aff41a6ee8fb66e3215b",
     "inputs": [
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/run.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/run.mjs",
         "kind": "file",
-        "sha256": "ffc7c059561e0f2d1523e320fea4feee8bde8a9776ed53e514ad26d1cd3b674a",
-        "bytes": 26032,
+        "sha256": "70f4c6177197f0ca0f1dc13174dfe0876ea45e87e01b81e2bfd2f962090d3efa",
+        "bytes": 30206,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/capture.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
         "kind": "file",
         "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
         "bytes": 6079,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/decision.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/decision.mjs",
         "kind": "file",
         "sha256": "3efebebc8a4405f544edbcb2f6691745cd9db1c6ba4f88c115a86431aca1b279",
         "bytes": 9741,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/fixture-git.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/fixture-git.mjs",
         "kind": "file",
         "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
         "bytes": 2867,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/workflow-review.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/workflow-review.mjs",
         "kind": "file",
-        "sha256": "b412c523b4d3e36b216ac30739783ccd5600e8cc14c54ec999d52d7e258b0f1d",
-        "bytes": 7930,
+        "sha256": "656686c61700f399fb241d892a5f79536e182f76f7cf87f0d7a968d8410a94e1",
+        "bytes": 9916,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/adjudicate.mjs",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/adjudicate.mjs",
         "kind": "file",
-        "sha256": "77c8d6dc8e166d83e9fd0169ea0dacc185015c41f767db763679474ea9b68147",
-        "bytes": 3113,
+        "sha256": "42bad53cdb5f24778893d6bb7c47a421dfa9004908c385c9935e846d508b57b9",
+        "bytes": 3445,
         "entries": null
       },
       {
@@ -566,10 +685,10 @@
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/selected-spec-001.json",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/selected-spec-001.json",
         "kind": "file",
-        "sha256": "35b733bdbbbbab53696181392c1a4f353da491ea7289a06999a3bd8be009d47a",
-        "bytes": 15806,
+        "sha256": "fb19b6a617de5efc4c8d63ccb224f3ca530926045869aff41a6ee8fb66e3215b",
+        "bytes": 17772,
         "entries": null
       },
       {
@@ -888,24 +1007,73 @@
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-agent-trial/startup-reuse.json",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
         "kind": "file",
-        "sha256": "a1f772255633533fa59ab2e6c40b6885aa95145dca342df2d183cfb880f98d29",
-        "bytes": 1243,
+        "sha256": "55c7c27b9b7e17eca7a935805eb2a670c51680fb979fb2502a4b4163774ffb7b",
+        "bytes": 8054,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/competitor/invocation.json",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/run.mjs",
         "kind": "file",
-        "sha256": "cc3d1718929e98ab823a97b2dd1a3cdf3ed062c31347a4d919f288fc11b65695",
-        "bytes": 10511,
+        "sha256": "aae2779a1b86321763e9db542d16ee75e87ee20a4057d87e900b195acc273d5e",
+        "bytes": 6176,
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/packet/invocation.json",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/packet/invocation.json",
         "kind": "file",
-        "sha256": "82a8667d5d9d8fdb459416b9e8411df9dfdcc2a5645359ab14ab6db255cbb563",
-        "bytes": 5483,
+        "sha256": "465c9f4b55869494dd66cd327004c79d04af9a6d7c60977cdd268004d8ad7023",
+        "bytes": 6037,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/competitor/invocation.json",
+        "kind": "file",
+        "sha256": "550b3c8b37c3b987184b909d27ccb93f338754d6944a52402242bc5550fc8b5f",
+        "bytes": 11098,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+        "kind": "file",
+        "sha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+        "bytes": 16066,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/protocol.json",
+        "kind": "file",
+        "sha256": "540a7abf0cc328323f39e7f99ff5c4fd032e02faa2d3bcee67ff39c9937a7a3f",
+        "bytes": 50804,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/methodology-review.json",
+        "kind": "file",
+        "sha256": "3764d58a098fabf463528a4f26bd70b420c1d3da29de9c6e811b7845b84977da",
+        "bytes": 718,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "kind": "file",
+        "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "bytes": 6699,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/independent-review.json",
+        "kind": "file",
+        "sha256": "ddf47c5d49ade0cedc08d83320c5a0e59d48258dc3ef818791376d4e7dcd8299",
+        "bytes": 1459,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/tool-output-export-qualification-001/report.json",
+        "kind": "file",
+        "sha256": "61ff5ac7a05e0171f6840c7816269864beb936d2fff445cb063c02f97430528d",
+        "bytes": 2430,
         "entries": null
       }
     ],
@@ -918,14 +1086,14 @@
       "name": "typelatch",
       "version": "0.4.0"
     },
-    "treatment": "Same conditional first-investigation instruction in all arms. Native uses native retrieval; packet and Serena must attempt one task-relevant provider retrieval before choosing freely. Startup instructions do not count as retrieval. No forced API inspection or provider validation. Independent public-action review is required before a qualified win.",
+    "treatment": "Same conditional first-investigation instruction and equal-format explicit capability inventory in all arms. Native uses native retrieval; packet and Serena must attempt one task-relevant provider retrieval before choosing freely. Startup instructions do not count as retrieval. No forced API inspection or provider validation. Independent public-action review is required before a qualified win.",
     "timing": "Fresh corpus copies and independent grading excluded. Provider-specific setup is charged once, plus agent wall time including MCP startup, query work and native validation. Teardown measured separately. No prepared package index is required for Typelatch; any indexing it performs during use is already inside agent time.",
-    "selection": "Separate secondary instructed-use study after the availability design showed zero provider adoption in its first task. The same two qualified tasks, unchanged candidate runtime and controls are retained. All prior studies stay separate. No outcomes are replaced or pooled. Two repeats use ABBA task order and reverse arm order per task; with three arms ordinal positions cannot balance exactly across four blocks.",
+    "selection": "Separate inventory-explicit instructed-use study. Availability study002 completed with zero provider use. Guided pilot001 retained three completed sessions before stopping at a frozen boundary because its conditional prompt caused unnecessary resource-catalog discovery in native and packet arms. This is an observed methodology correction, not an infrastructure failure or discarded losing run. The same qualified tasks, candidate runtime, controls and20percent thresholds remain unchanged. No prior outcomes are replaced or pooled. Two repeats use ABBA task order and reverse arm order per task; with three arms ordinal positions cannot balance exactly across four blocks.",
     "failurePolicy": "Persist preparation before work and run before launch. Preserve every attempt. Failed or interrupted preparation cannot be retried; interrupted or incomplete launches remain visible. Resume only a completed prefix. No replacements.",
-    "evidencePolicy": "Private raw JSONL retained. Only completed public actions, source changes, independent test results, usage and timestamp metadata are eligible for export. No reasoning or assistant message bodies.",
+    "evidencePolicy": "Private raw JSONL retained. Completed public-action metadata, source changes, independent grades, usage and timestamp metadata are eligible for export. The frozen supplemental extractor may publish full completed native command output and MCP results/errors, after verifying raw/public-action hashes and normalizing machine paths. Each supplement retains original and normalized content identities. No reasoning or assistant message bodies are exported. Output extraction runs after timed sessions; human usable-evidence judgments cite hash-bound supplements.",
     "limits": [
       "Instructed use cannot establish automatic adoption or an availability benefit.",
-      "This follow-up was proposed after observing zero adoption in initial availability runs; it is a separate research question.",
+      "This protocol follows an observed, retained guided pilot that exposed provider-discovery ambiguity. Capability declarations differ by treatment; task and policy text do not.",
       "One task tests a real installed-API migration and one tests source workflow in the same pnpm snapshot. This narrow sample does not establish general API or monorepo superiority.",
       "A two-task sample with two repeats is not universal superiority or a statistical confidence bound.",
       "The public upstream repairs may occur in model training data.",
