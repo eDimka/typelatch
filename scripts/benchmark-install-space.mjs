@@ -4,13 +4,17 @@ import { lstatSync, mkdirSync, readFileSync, readdirSync, realpathSync, writeFil
 import { arch, platform } from 'node:os'
 import { join, relative, resolve } from 'node:path'
 import { gzipSync } from 'node:zlib'
+import { parsePackedArtifact } from '../dist/npm.js'
 
 const [codegraphRoot, graphifyPython] = process.argv.slice(2)
 if (!codegraphRoot || !graphifyPython) throw new Error('Usage: node scripts/benchmark-install-space.mjs <isolated-codegraph-install> <isolated-graphify-python>')
 const root = resolve('artifacts/competitive/install-space', new Date().toISOString().replaceAll(':', '-'))
 mkdirSync(root, { recursive: true })
 const run = (cmd, args, options = {}) => execFileSync(cmd, args, { encoding: 'utf8', timeout: 180_000, ...options })
-const packed = JSON.parse(run('npm', ['pack', '--json', '--ignore-scripts', '--pack-destination', root]))[0]
+const packed = parsePackedArtifact(
+  JSON.parse(run('npm', ['pack', '--json', '--ignore-scripts', '--pack-destination', root])),
+  JSON.parse(readFileSync('package.json', 'utf8')),
+)
 const install = join(root, 'typelatch-install')
 mkdirSync(install)
 writeFileSync(join(install, 'package.json'), JSON.stringify({ private: true }))

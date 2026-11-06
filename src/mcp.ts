@@ -8,6 +8,7 @@ import { readStats, recordOutcome } from "./usage.js"
 
 import { workspaceContextAsync, workspaceSearchAsync } from "./workspace/runtime.js"
 import { validateWorkspace } from "./workspace/validate.js"
+import { validationOutput } from "./workspace/validation-output.js"
 import { contextSchema, searchSchema, validationSchema } from "./workspace/schema.js"
 
 const { version } = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as { version: string }
@@ -120,7 +121,8 @@ server.registerTool("workspace_validate", {
   description: "Type-check a leaf tsconfig with its installed compiler. Runs only the explicitly supplied testCommand argv, with a timeout, after checking passes. Test commands execute local code: supply one only when the user authorized that validation. Unsaved overlays cannot be runtime-tested. Stores evidence separately from agent-reported feedback unless record=false or TYPELATCH_USAGE=off.",
   inputSchema: validationSchema.shape
 }, async (input, extra) => {
-  const response = await validateWorkspace(validationSchema.parse(input), { signal: extra.signal })
+  const { detail, ...request } = validationSchema.parse(input)
+  const response = validationOutput(await validateWorkspace(request, { signal: extra.signal }), detail)
   return { content: [{ type: "text" as const, text: JSON.stringify(response) }], structuredContent: response }
 })
 

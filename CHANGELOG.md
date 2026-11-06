@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0
+
+Expanded JavaScript and TypeScript lockfile discovery, including Deno npm dependencies and legacy binary Bun lockfiles. Binary Bun decoding uses an installed Bun executable without installing dependencies or running lifecycle scripts.
+
+Fixed npm 12 metadata and archive responses, npm v1 aliases, npm v4 registry entries, pnpm package names containing underscores, Yarn catalogs and current Bun text schemas. Exact package identities, local dependency exclusions and unsupported artifact diagnostics remain explicit.
+
+Reduced default MCP validation output by replacing full input manifests with snapshot IDs and explicit row counts. Checks, diagnostics and test output remain intact. `detail: "full"` returns every input row; CLI output, saved evidence and recording controls retain their existing behavior.
+
+Published paired Codex measurements and a GIF replay of actual actions with and without Typelatch. Across six sessions per condition, the recorded Typelatch 0.3.0 workflow used 10 grep shell calls versus 22 and passed 5 solutions versus 4. It used more tokens and time. Every run, the protocol and independent correctness checks are retained.
+
 ## 0.3.0
 
 Added strict semantic release checks and GitHub Actions publication from annotated version tags. The workflow tests one preserved artifact, publishes with npm trusted publishing and provenance, creates an immutable GitHub release, and deploys the website after registry verification.

@@ -1,6 +1,6 @@
 {
   "name": "typelatch",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Local workspace search and exact package APIs for TypeScript agents",
   "type": "module",
   "bin": {

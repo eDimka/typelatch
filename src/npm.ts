@@ -5,7 +5,7 @@ import { execFile } from "node:child_process"
 import { createHash } from "node:crypto"
 import { mkdtemp, readFile, rm, stat } from "node:fs/promises"
 import { tmpdir } from "node:os"
-import { basename, join } from "node:path"
+import { join } from "node:path"
 import { promisify } from "node:util"
 import type { PackageIdentity } from "./types.js"
 
@@ -24,7 +24,8 @@ export async function resolvePackage(spec: string): Promise<PackageIdentity> {
     timeout: 60000,
     maxBuffer: 4 * 1024 * 1024
   })
-  const value = JSON.parse(stdout) as NpmView
+  const response = JSON.parse(stdout) as NpmView | NpmView[]
+  const value = Array.isArray(response) ? response.length === 1 ? response[0] : undefined : response
   if (Array.isArray(value) || !value || typeof value.name !== "string" || typeof value.version !== "string" || typeof value["dist.integrity"] !== "string" || typeof value["dist.tarball"] !== "string") throw new Error("Registry did not resolve one exact artifact; specify an exact version")
   assertPackageName(value.name)
   assertExactVersion(value.version)
@@ -45,6 +46,26 @@ export type PackedPackage = {
   cleanup: () => Promise<void>
 }
 
+export type PackedArtifact = {
+  id: string; name: string; version: string; filename: string; size: number; unpackedSize: number
+  [key: string]: unknown
+}
+
+export function parsePackedArtifact(output: unknown, identity: { name: string; version: string }): PackedArtifact {
+  assertPackageName(identity.name)
+  assertExactVersion(identity.version)
+  const record = (value: unknown): value is Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value)
+  const value = Array.isArray(output) ? output.length === 1 ? output[0] : undefined :
+    record(output) && Object.keys(output).length === 1 && Object.hasOwn(output, identity.name) ? output[identity.name] : undefined
+  const filename = `${identity.name.replace(/^@/, "").replace("/", "-")}-${identity.version}.tgz`
+  if (!record(value) || value.id !== `${identity.name}@${identity.version}` || value.name !== identity.name || value.version !== identity.version ||
+    value.filename !== filename || typeof value.size !== "number" || !Number.isSafeInteger(value.size) || value.size < 0 ||
+    typeof value.unpackedSize !== "number" || !Number.isSafeInteger(value.unpackedSize) || value.unpackedSize < 0) {
+    throw new Error(`npm pack returned an invalid artifact for ${identity.name}@${identity.version}`)
+  }
+  return value as PackedArtifact
+}
+
 export async function packPackage(identity: PackageIdentity): Promise<PackedPackage> {
   assertPackageName(identity.name)
   assertExactVersion(identity.version)
@@ -54,9 +75,8 @@ export async function packPackage(identity: PackageIdentity): Promise<PackedPack
       timeout: 90000,
       maxBuffer: 8 * 1024 * 1024
     })
-    const packed = (JSON.parse(stdout) as Array<{ filename: string; size: number; unpackedSize: number }>)[0]
-    if (!packed) throw new Error(`npm pack returned no artifact for ${identity.name}@${identity.version}`)
-    const tarballPath = join(directory, basename(packed.filename))
+    const packed = parsePackedArtifact(JSON.parse(stdout), identity)
+    const tarballPath = join(directory, packed.filename)
     if ((await stat(tarballPath)).size > 128 * 1024 * 1024) throw new Error("Package archive exceeds 128 MiB download limit")
     await verifyIntegrity(tarballPath, identity.integrity)
     const built = fileURLToPath(new URL("./archive.js", import.meta.url))

@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
+import { parsePackedArtifact } from '../dist/npm.js'
 
 const pkg = JSON.parse(readFileSync('package.json', 'utf8'))
 const directory = realpathSync(mkdtempSync(join(tmpdir(), `${pkg.name}-install-`)))
@@ -14,7 +15,8 @@ const run = (command, args, options = {}) => execFileSync(command, args, { encod
 const env = { ...process.env, TYPELATCH_HOME: join(directory, 'data'), TYPELATCH_USAGE: 'off' }
 let client
 try {
-  const packed = JSON.parse(run(npm, ['pack', '--json', '--ignore-scripts', '--pack-destination', directory]))[0]
+  const response = JSON.parse(run(npm, ['pack', '--json', '--ignore-scripts', '--pack-destination', directory]))
+  const packed = parsePackedArtifact(response, pkg)
   assert(packed.files.some(file => file.path === 'dist/benchmark/corpus.json'))
   assert(packed.files.some(file => file.path === 'scripts/setup-mcp.sh' && (file.mode & 0o111)))
   assert.equal(packed.files.filter(file => file.path.startsWith('dist/benchmark/cases/') && file.path.endsWith('.json')).length, 10)

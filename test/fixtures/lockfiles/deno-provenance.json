@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/denoland/deno",
+  "revision": "e7b39ebd55c85aaf6a29290c1f5a99e2e21e09dd",
+  "license": "MIT",
+  "fixtures": {
+    "deno-v2.json": {
+      "source": "https://raw.githubusercontent.com/denoland/deno/e7b39ebd55c85aaf6a29290c1f5a99e2e21e09dd/libs/lockfile/transforms.rs",
+      "section": "test_transforms_2_to_3 original input; JSON formatting normalized"
+    },
+    "deno-v3.json": {
+      "source": "https://raw.githubusercontent.com/denoland/deno/e7b39ebd55c85aaf6a29290c1f5a99e2e21e09dd/libs/lockfile/tests/specs/transforms/upgrades_v3_real_example_1.txt",
+      "section": "original input; JSON formatting normalized"
+    }
+  }
+}

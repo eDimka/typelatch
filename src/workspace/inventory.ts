@@ -8,10 +8,11 @@ import { Minimatch } from "minimatch"
 import { satisfies } from "semver"
 import { assertExactVersion, assertPackageName } from "../identity.js"
 import { brainHome } from "../paths.js"
-import { declaredDependencies, lockfileNames, type Lockfile } from "../lockfiles.js"
-import { resolveProjectLockfile } from "../project.js"
+import { lockfileNames, yarnCatalogConfig, type Lockfile } from "../lockfiles.js"
+import { readEffectiveManifest, resolveProjectLockfile } from "../project.js"
 import { readScope, resolveScopeProjects } from "../scope.js"
 import { matchesWorkspace, workspacePatterns } from "../project-files.js"
+import { manifestNames, type ProjectManifest } from "../project-manifest.js"
 
 const exec = promisify(execFile)
 const excludedDirectories = new Set([".git", "node_modules", "dist", "build", "coverage", ".next", ".nuxt", ".turbo", ".cache", ".typelatch", ".libbrain", "artifacts", "_site"])
@@ -55,7 +56,7 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
     for (const project of sourceRoots) {
       let directory = dirname(project)
       while (inside(root, directory) && !sourceRoots.some(source => inside(source, directory))) {
-        for (const name of ["package.json", ...lockfileNames]) metadata.add(join(directory, name))
+        for (const name of [...manifestNames, ".yarnrc.yml", ...lockfileNames]) metadata.add(join(directory, name))
         if (directory === root) break
         directory = dirname(directory)
       }
@@ -118,7 +119,7 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
       return { reason: `file exceeds ${label}`, issue: `File exceeds ${label}: ${rel}` }
     }
     const source = !saved || sourceRoots.some(directory => inside(directory, path))
-    return { size: info.size, searchable: source && !/^(?:package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock|bun\.lockb?)$/.test(basename(path)) }
+    return { size: info.size, searchable: source && !/^(?:package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock|deno\.lock|bun\.lockb?|\.yarnrc\.yml)$/.test(basename(path)) }
   }
   let hintedAdmission: Admission | undefined
   let hintError: unknown
@@ -161,14 +162,14 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
       if (data.includes(0) || !isUtf8(data)) {
         exclude(path, "binary or non UTF8")
         if (path === hint && result.fileHint) result.fileHint.reason = "binary or non UTF8"
-        if (basename(path) === "bun.lockb") result.files.push({ path, text: "", hash: createHash("sha256").update(data).digest("hex"), searchable: false })
+        if (basename(path) === "bun.lockb") result.files.push({ path, text: data.toString("latin1"), hash: createHash("sha256").update(data).digest("hex"), searchable: false })
         continue
       }
       const text = data.toString("utf8")
       const source = !saved || sourceRoots.some(directory => inside(directory, path))
       const searchable = admission.searchable
       if (!searchable) exclude(path, source ? "dependency lockfile; identity inventory only" : "ancestor metadata; identity inventory only")
-      result.files.push({ path, text, hash: hash(text), searchable })
+      result.files.push({ path, text: basename(path) === ".yarnrc.yml" ? yarnCatalogConfig(text) : text, hash: hash(text), searchable })
     } catch (error) {
       const reason = `Cannot read ${rel}: ${error instanceof Error ? error.message : String(error)}`
       result.issues.push(reason)
@@ -179,7 +180,7 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
   result.files.sort((a, b) => a.path === b.path ? 0 : a.path < b.path ? -1 : 1)
   for (const file of result.files) {
     const source = !saved || sourceRoots.some(directory => inside(directory, file.path))
-    if (basename(file.path) === "package.json" && (!saved || selectedProjects!.includes(dirname(file.path)))) result.projects.push(dirname(file.path))
+    if ((manifestNames as readonly string[]).includes(basename(file.path)) && (!saved || selectedProjects!.includes(dirname(file.path))) && !result.projects.includes(dirname(file.path))) result.projects.push(dirname(file.path))
     if (source && /^tsconfig(?:\..+)?\.json$/.test(basename(file.path))) result.configs.push(file.path)
   }
   if (result.fileHint) {
@@ -217,8 +218,6 @@ async function inventoryScopedDependencies(inventory: Inventory, signal: AbortSi
   let count = 0
   for (const project of inventory.savedScope!.projects.filter(project => inside(inventory.root, project))) {
     signal.throwIfAborted()
-    const text = observed.get(join(project, "package.json"))
-    if (text === undefined) { inventory.issues.push(`Selected project manifest excluded or unavailable: ${project}`); continue }
     let boundary = project
     while (boundary !== inventory.root) {
       const git = await lstat(join(boundary, ".git")).catch(error => {
@@ -231,22 +230,25 @@ async function inventoryScopedDependencies(inventory: Inventory, signal: AbortSi
     let lock: Lockfile | undefined
     try { lock = await resolveProjectLockfile(project, boundary, read) }
     catch (error) { inventory.issues.push(`Cannot inventory lockfile in ${project}: ${error instanceof Error ? error.message : String(error)}`) }
-    let declared: Record<string, string>
-    try { declared = declaredDependencies(JSON.parse(text)) }
-    catch { inventory.issues.push(`Invalid package manifest: ${join(project, "package.json")}`); continue }
-    for (const [alias, spec] of Object.entries(declared).sort()) {
+    let manifest: ProjectManifest | undefined
+    try { manifest = await readEffectiveManifest(project, boundary, read) }
+    catch (error) { inventory.issues.push(`Invalid project manifest: ${project}: ${error instanceof Error ? error.message : String(error)}`); continue }
+    if (!manifest) { inventory.issues.push(`Selected project manifest excluded or unavailable: ${project}`); continue }
+    inventory.issues.push(...manifest.issues)
+    for (const [alias, spec] of Object.entries(manifest.dependencies).sort()) {
       signal.throwIfAborted()
       if (++count > 2000) { inventory.issues.push("Dependency inventory limited to 2000 direct declarations"); break }
       try {
-        assertPackageName(alias)
+        const denoImport = manifest.npmImports.has(alias)
         if (typeof spec !== "string") throw new Error("Dependency specifier must be a string")
-        if (lock?.isLocal(project, alias, spec) || /^(?:workspace:|link:|file:|portal:)/.test(spec)) continue
+        if (/^(?:workspace:|link:|file:|portal:)/.test(spec) || lock?.isLocal(project, alias, spec)) continue
+        if (!denoImport) assertPackageName(alias)
         const locked = lock?.direct(project, alias, spec)
         if (lock?.workspaceRanges && await localWorkspace(dirname(lock.path), alias, spec)) continue
         let dependency: Dependency | undefined
         let installed = false
         let directory = project
-        while (inside(boundary, directory)) {
+        while (!denoImport && inside(boundary, directory)) {
           const path = join(directory, "node_modules", alias)
           const entry = await lstat(path).catch(error => {
             if ((error as NodeJS.ErrnoException).code === "ENOENT") return undefined
@@ -273,7 +275,7 @@ async function inventoryScopedDependencies(inventory: Inventory, signal: AbortSi
           if (directory === boundary) break
           directory = dirname(directory)
         }
-        if (!installed && locked) dependency = { package: locked.name, version: locked.version, roots: [join(project, "node_modules", alias)], identity: "lockfile", installed: false,
+        if (!installed && locked) dependency = { package: locked.name, version: locked.version, roots: [denoImport ? lock!.path : join(project, "node_modules", alias)], identity: "lockfile", installed: false,
           ...(locked.integrity ? { integrity: locked.integrity } : {}) }
         if (!installed && !locked) inventory.issues.push(`No exact installed or locked identity for ${alias} in ${project}`)
         if (dependency) {
@@ -401,20 +403,26 @@ async function inventoryDependencies(inventory: Inventory, signal: AbortSignal):
       if (!paths.length || competing.has(dirname(lock.path))) candidates.set(`${lock.path}#${entry.name}@${entry.version}:${entry.integrity ?? ""}`, { ...dependency, roots: [lock.path] })
     }
   }
-  // Lock locations are candidates. Installed manifests take precedence below.
-  for (const file of inventory.files.filter(file => basename(file.path) === "package.json")) {
+  // Lock locations are candidates. Deno import aliases are not installation paths.
+  const manifests = new Map<string, ProjectManifest>()
+  for (const project of inventory.projects) {
     try {
-      const lock = projectLocks.get(dirname(file.path))
+      const manifest = await readEffectiveManifest(project, await boundaryFor(project), read)
+      if (!manifest) continue
+      manifests.set(project, manifest)
+      inventory.issues.push(...manifest.issues)
+      const lock = projectLocks.get(project)
       if (!lock) continue
-      for (const [alias, spec] of Object.entries(declaredDependencies(JSON.parse(file.text)))) {
-        const entry = lock.direct(dirname(file.path), alias, spec)
+      for (const [alias, spec] of Object.entries(manifest.dependencies)) {
+        const entry = lock.direct(project, alias, spec)
         if (!entry) continue
+        if (manifest.npmImports.has(alias)) continue
         assertPackageName(alias)
-        const path = join(dirname(file.path), "node_modules", alias)
+        const path = join(project, "node_modules", alias)
         locations.set(path, { package: entry.name, version: entry.version, roots: [path], identity: "lockfile", installed: false,
           ...(entry.integrity ? { integrity: entry.integrity } : {}) })
       }
-    } catch (error) { inventory.issues.push(`Cannot identify locked dependencies for ${file.path}: ${error instanceof Error ? error.message : String(error)}`) }
+    } catch (error) { inventory.issues.push(`Cannot identify locked dependencies for ${project}: ${error instanceof Error ? error.message : String(error)}`) }
   }
   const visited = new Set<string>()
   let count = 0
@@ -467,25 +475,24 @@ async function inventoryDependencies(inventory: Inventory, signal: AbortSignal):
     else grouped.set(key, item)
   }
   inventory.dependencies = [...grouped.values()].sort((a, b) => a.package.localeCompare(b.package) || a.version.localeCompare(b.version))
-  for (const file of inventory.files.filter(file => basename(file.path) === "package.json")) {
+  for (const [project, manifest] of manifests) {
     try {
-      const manifest = JSON.parse(file.text)
-      const declared = Object.keys({ ...manifest.dependencies, ...manifest.devDependencies, ...manifest.optionalDependencies })
-      const boundary = boundaries.get(dirname(file.path)) ?? dirname(file.path)
-      for (const name of declared) {
-        let directory = dirname(file.path)
+      const boundary = boundaries.get(project) ?? project
+      for (const [name, spec] of Object.entries(manifest.dependencies)) {
+        const lock = projectLocks.get(project)
+        if (/^(?:workspace:|link:|file:|portal:)/.test(spec) || lock?.isLocal(project, name, spec)) continue
+        if (manifest.npmImports.has(name) && lock?.direct(project, name, spec)) continue
+        let directory = project
         let found = false
         while (inside(boundary, directory)) {
           if (locations.has(join(directory, "node_modules", name))) { found = true; break }
           if (directory === boundary) break
           directory = dirname(directory)
         }
-        if (!found && !inventory.projects.some(project => {
-          if (boundaries.get(project) !== boundary) return false
-          const local = inventory.files.find(item => item.path === join(project, "package.json"))
-          try { return local && JSON.parse(local.text).name === name } catch { return false }
-        })) inventory.issues.push(`No exact installed or locked identity for ${name} in ${dirname(file.path)}`)
+        if (!found && ![...manifests].some(([local, value]) => boundaries.get(local) === boundary && value.data.name === name)) {
+          inventory.issues.push(`No exact installed or locked identity for ${name} in ${project}`)
+        }
       }
-    } catch { inventory.issues.push(`Invalid package manifest: ${file.path}`) }
+    } catch { inventory.issues.push(`Invalid project manifest: ${manifest.path}`) }
   }
 }

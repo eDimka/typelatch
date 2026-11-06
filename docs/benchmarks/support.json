@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "development-integration",
-  "generatedAt": "2026-11-06T12:27:01.582Z",
+  "generatedAt": "2026-11-06T16:03:38.976Z",
   "manifestHash": "2b2d3a90c42f47c6e250bd9d0cc46e1f2742e0bd4a9270088a3441e40b0c00e1",
   "complete": true,
   "passed": true,
@@ -24,7 +24,7 @@
   ],
   "rawEvidence": {
     "file": "support.json.gz",
-    "sha256": "216c964b4fb58f37b18b83943d711dd16c9435598763081d4b9d8c2116fa5bde",
+    "sha256": "c581c1cc764316223bca0840cd6df2ee32d66be8aaa3d3a7e01931da02e8c2e6",
     "format": "gzip compressed JSON",
     "localPath": "artifacts/support.json.gz"
   },

@@ -21,6 +21,7 @@ export const contextSchema = z.object({
   limit: z.number().int().min(1).max(20).optional()
 }).strict()
 export const validationSchema = z.object({
+  detail: z.enum(["compact", "full"]).optional().describe("Compact is the default model response. It preserves all checks, diagnostics and test output, and summarizes complete input manifests with their snapshot IDs and explicit row counts. Full includes every input row for audit. Recording remains controlled separately by record and TYPELATCH_USAGE"),
   config: z.string().min(1), overlays,
   testCommand: z.array(z.string()).min(1).optional(),
   timeoutMs: z.number().int().min(1).max(600_000).optional(),

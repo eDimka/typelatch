@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process"
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, realpathSync } from "node:fs"
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, realpathSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { dirname, join } from "node:path"
 import { afterEach, beforeEach, expect, it } from "vitest"
@@ -139,15 +139,33 @@ it("reports ambiguity and honors packageManager", async () => {
   expect(inventory.issues).toEqual([])
 })
 
-it("rejects malformed, unsupported and binary locks without falling back to npm", async () => {
+it("rejects malformed and unsupported locks without falling back to npm", async () => {
   put("bun.lock", "{ broken")
   await expect(exactProjectVersion(root, "effect")).rejects.toThrow("Invalid bun.lock")
   put("bun.lock", { lockfileVersion: 999, packages: {} })
   await expect(projectDependencies(root)).rejects.toThrow("Unsupported Bun lockfile version")
   rmSync(join(root, "bun.lock"))
   writeFileSync(join(root, "bun.lockb"), Buffer.from([0, 255]))
-  await expect(projectDependencies(root)).rejects.toThrow("Unsupported binary bun.lockb")
-  expect((await inventoryWorkspace(root, true, new AbortController().signal)).issues.join(" ")).toContain("Unsupported binary bun.lockb")
+  await expect(projectDependencies(root)).rejects.toThrow("Invalid binary bun.lockb header")
+  expect((await inventoryWorkspace(root, true, new AbortController().signal)).issues.join(" ")).toContain("Invalid binary bun.lockb header")
+})
+
+let bunAvailable = false
+try { execFileSync("bun", ["--version"], { stdio: "ignore", timeout: 5000 }); bunAvailable = true } catch { /* Bun is optional for text lockfiles. */ }
+it.skipIf(!bunAvailable)("reads a generated binary Bun lock through the actual read-only printer", async () => {
+  // Generated with Bun 1.3.9, saveTextLockfile=false, --lockfile-only and --ignore-scripts.
+  const bytes = readFileSync(new URL("./fixtures/lockfiles/bun.lockb", import.meta.url))
+  writeFileSync(join(root, "bun.lockb"), bytes)
+  put("package.json", { name: "fixture", workspaces: ["packages/*"], dependencies: { "is-odd": "3.0.1", alias: "npm:is-number@6.0.0" } })
+  put("packages/app/package.json", { name: "app", version: "1.0.0", dependencies: { "is-number": "7.0.0" } })
+  expect(await projectDependencies(root)).toEqual([
+    { name: "is-number", version: "6.0.0", alias: "alias" }, { name: "is-odd", version: "3.0.1" },
+  ])
+  expect(await projectDependencies(join(root, "packages/app"))).toEqual([{ name: "is-number", version: "7.0.0" }])
+  const inventory = await inventoryWorkspace(root, true, new AbortController().signal)
+  expect(inventory.issues).toEqual([])
+  expect(inventory.dependencies.map(item => `${item.package}@${item.version}`).sort()).toEqual(["is-number@6.0.0", "is-number@7.0.0", "is-odd@3.0.1"])
+  expect(readFileSync(join(root, "bun.lockb"))).toEqual(bytes)
 })
 
 it("does not substitute another Yarn version when the requested descriptor is missing", async () => {

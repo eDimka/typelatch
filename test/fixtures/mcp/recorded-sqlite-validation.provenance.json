@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "recorded-response-replay",
+  "sourceRun": "docs/benchmarks/typelatch-use/paired-agent-runs/sqlite-rollback-1-typelatch.json",
+  "sourceTool": "workspace_validate",
+  "sourceActionIndex": 3,
+  "sourceResultSha256": "d600085548dd680f9b8aaaede1806cb1aef7b349e53590dc9d37ccb25d493efd",
+  "sourceSemanticSha256": "3355df67e6d427ef463f184a201718e53909bb5614b4791fbdeaf6b627a87cc5",
+  "fixtureSha256": "2e63739289abfa762e7c00e93baae46e2af44c0f0cfb3cad5f3ef0569d7e6136",
+  "sourceSemanticBytes": 102424,
+  "fixtureSemanticBytes": 71144,
+  "normalization": "Replace the observed absolute workspace directory and its macOS /private alias with /workspace in every string. Preserve original snapshot IDs and file digests; they are recorded evidence identifiers, not hashes recomputed from the normalized fixture."
+}

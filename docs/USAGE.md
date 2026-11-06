@@ -10,6 +10,8 @@ Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI on 
 npx typelatch@0.3.0 setup
 ```
 
+These commands install the published 0.3.0 release. [0.4.0 development features](../CHANGELOG.md#040) require a source checkout.
+
 Choose your client, keep or change the server name, then confirm registration. Setup pins the exact Typelatch version being run and configures npm as the server launcher. It does not require a clone, global installation, or a project dependency. The client can launch it after npm clears its temporary package cache. Restart your client in the project and ask: "Use workspace_search to explain how this project is organized."
 
 Running setup again with a newer release prepares a registration for that version. Codex can replace the named entry; Claude Code may require you to remove the old entry first or choose another name.
@@ -63,7 +65,7 @@ For a client that accepts an MCP JSON configuration:
 }
 ```
 
-Start a new client session after registration or upgrading. Version 0.3.0 exposes the [seven tools](#mcp-tool-reference) over standard input and output, including `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
+Start a new client session after registration or upgrading. Typelatch exposes the [seven tools](#mcp-tool-reference) over standard input and output, including `workspace_search`. If the client cannot find `typelatch-mcp`, check the executable path in the environment that launches the client or configure its absolute path.
 
 <details>
 <summary>Use npm without a global installation</summary>
@@ -145,12 +147,22 @@ typelatch sync
 
 | Package manager | Lockfile | Supported schema |
 | :--- | :--- | :--- |
-| npm | `package-lock.json`, `npm-shrinkwrap.json` | 1 to 3 |
-| pnpm | `pnpm-lock.yaml` | 5, 6, 9 |
+| npm | `package-lock.json`, `npm-shrinkwrap.json` | 1 to 4; ordinary registry entries only |
+| pnpm | `pnpm-lock.yaml` | 5 including 5.3 and 5.4, 6, 9 |
 | Yarn | `yarn.lock` | Classic and modern Yarn |
-| Bun | `bun.lock` | 0, 1 |
+| Bun | `bun.lock` | 0, 1, 2 |
+| Bun legacy binary | `bun.lockb` | Binary formats 2 and 3, through an installed Bun executable on `PATH` |
+| Deno | `deno.lock` | 2, 3, 4, 5; exact npm entries only |
 
-Workspace packages can use a lockfile in a parent directory. Aliases retain the actual registry package name. If several package managers have lockfiles, set `packageManager` in `package.json` to choose one. npm shrinkwrap takes precedence over package lock, and Bun text takes precedence over Bun binary.
+Workspace packages can use a lockfile in a parent directory. Aliases retain the actual registry package name. Lockfile discovery works in JavaScript projects without a `tsconfig.json`. This does not change the TypeScript evidence required for package API indexing.
+
+If several package managers have lockfiles, set `packageManager` in `package.json` to choose one. npm shrinkwrap takes precedence for legacy npm; an explicit `npm@12` or newer selects `package-lock.json` because [npm 12 no longer reads shrinkwrap](https://docs.npmjs.com/cli/v12/configuring-npm/package-lock-json/#npm-shrinkwrapjson). Bun text takes precedence over Bun binary. Binary reading uses [Bun's lockfile printer](https://bun.sh/guides/install/yarnlock) on a temporary copy of the observed bytes. It does not install dependencies or run lifecycle scripts.
+
+pnpm and Bun catalogs use the exact resolved entries in the lockfile. Binary Bun catalog aliases also use catalog declarations from the root `package.json` to recover the package name omitted by the printer. Yarn catalogs use the root `.yarnrc.yml` catalog declarations to select the matching locked descriptor. Missing catalog entries or descriptors remain unresolved; Typelatch never chooses a version from a catalog range. Unrelated Yarn configuration fields are not retained as catalog evidence.
+
+Deno projects can declare npm imports in `deno.json` or `deno.jsonc`, including aliases and import subpaths. Declared Deno workspace members, inherited root imports and saved project selections are supported. Package API indexing covers exact npm entries with recorded integrity, using the [Deno lockfile formats](https://github.com/denoland/deno/tree/main/libs/lockfile). JSR packages, remote modules, npm tarball overrides, external import maps, scoped import maps, links, vendored resolution, disabled locking and custom lockfile paths produce explicit limitations. Typelatch does not run the Deno compiler or index JSR package APIs. Schema 1 contained remote module hashes and is not supported for npm API indexing.
+
+An explicit npm or Yarn Classic artifact URL must identify the canonical package and version tarball on `registry.npmjs.org` or `registry.yarnpkg.com`, or carry an integrity value that must match registry metadata when downloaded. Custom URLs without that evidence are rejected. Legacy canonical URLs with a SHA1 fragment retain registry identity; that fragment is not promoted to a separately verified integrity field.
 
 Without a saved scope, `sync` defaults to the package in the current directory. Select projects explicitly or expand the workspace declarations:
 
@@ -162,7 +174,7 @@ typelatch sync --workspaces --dry-run --json
 typelatch sync --project apps/web --lockfile pnpm-lock.yaml
 ```
 
-`--workspaces` includes the root and declared member packages from `package.json` or `pnpm-workspace.yaml`, including declared exclusions. It does not automatically include unrelated examples or fixtures. Repeated `--project` flags replace the default selection and cannot be combined with `--workspaces`. Project paths and the optional `--lockfile` path are relative to the current directory. A lockfile override applies to one selected project and must be in that project's directory or an ancestor.
+`--workspaces` includes the root and declared member packages from `package.json`, `pnpm-workspace.yaml`, `deno.json` or `deno.jsonc`, including declared exclusions. It does not automatically include unrelated examples or fixtures. Repeated `--project` flags replace the default selection and cannot be combined with `--workspaces`. Project paths and the optional `--lockfile` path are relative to the current directory. A lockfile override applies to one selected project and must be in that project's directory or an ancestor.
 
 ### Keep a monorepo subset
 
@@ -196,7 +208,7 @@ Each project uses its nearest applicable lockfile. Independent nested projects c
 
 `--dry-run` reads local files and cache metadata without downloading packages or building indexes. Its output shows selected projects, lockfile paths, exact versions, cache status, skipped local dependencies and problems. Add `--json` for a structured plan. A plan with errors returns a nonzero exit code. Normal `--json` execution also returns per package results. Existing indexes are reused only when their metadata matches the requested identity; `--force` rebuilds them.
 
-Malformed files, unknown schemas and unresolved direct registry identities produce errors. Binary `bun.lockb` requires conversion with `bun install --save-text-lockfile --frozen-lockfile --lockfile-only`. Local workspace, file and link declarations are not downloaded by `sync` as registry packages.
+Malformed files, unknown schemas and unresolved direct registry identities produce errors. Local workspace, file and link declarations are not downloaded by `sync` as registry packages. Git, patched and repaired package entries are not represented as unchanged registry artifacts. A binary `bun.lockb` containing patch records requires conversion to text because Bun's Yarn printer does not retain those records. Without Bun on `PATH`, convert the binary lockfile with `bun install --save-text-lockfile --frozen-lockfile --lockfile-only` before using Typelatch.
 
 The equivalent `library_search` request is:
 
@@ -243,7 +255,7 @@ New indexes retain declared generics, parameters and return annotations for dire
 
 For a complete task, follow the [agent workflow showcase](showcase/agent-workflow.md). It starts from a broken contact import, discovers source without naming a package, inspects an exact dependency API, and captures the same assertions failing before and passing after the edit. A preparation command gives your own agent an isolated exercise; a separate replay records actual MCP and CLI output.
 
-Workspace search is included in version 0.3.0. Install or upgrade with `npm install --global typelatch@0.3.0`, then restart the MCP client so it discovers the new tool.
+Install or upgrade with `npm install --global typelatch@0.3.0`, then restart the MCP client so it discovers the new tool.
 
 Use `workspace_search` when the relevant file or dependency is unknown:
 
@@ -395,6 +407,10 @@ Results keep `pass`, `fail`, `unknown`, and `not-run` distinct. A command return
 
 Validation's overall `success` is true only when compilation, assertion execution, and input stability all pass. A compilation only request can therefore have `checks.typechecked.status` equal to `pass`, `checks.tested.status` equal to `not-run`, and `success` equal to `false`. Read the individual checks rather than interpreting that as a compiler failure. The CLI uses status 2 when required checks fail and status 1 for command errors.
 
+`workspace_validate` defaults to `detail: "compact"`. Checks, diagnostics, test output and snapshot IDs are preserved. The `snapshot` and `runtimeSnapshot` summaries report `inputCount` and `inputsOmitted` instead of listing individual input rows. Add `"detail": "full"` to an MCP request to include every row.
+
+CLI output and saved validation evidence retain full input manifests. `record: false` or `TYPELATCH_USAGE=off` disables saving and leaves `evidencePath` null. Selecting full detail does not enable recording.
+
 Validation records compiler inputs and, when execution is requested, the runtime file scope before and after the command. `runtimeInputs` extends that scope. `snapshotExclude` excludes known generated outputs. `workspaceRoot` bounds snapshot collection. Excluded files, remote services, and environmental state are outside the recorded evidence boundary.
 
 ## MCP tool reference
@@ -405,11 +421,11 @@ Validation records compiler inputs and, when execution is requested, the runtime
 | `library_search` | `package`, `question`; optional `version`, `limit` from 1 to 20 | Search results from an installed index |
 | `library_symbol` | `package`, `symbol`; optional `version` | Exact symbol lookup and relationships |
 | `workspace_context` | `config`, `file`; optional `importSpecifier`, `symbol`, `position`, `question`, `expectedVersion`, `overlays`, `limit`, `timeoutMs` | Workspace definitions, types, identity, and optional discovery |
-| `workspace_validate` | `config`; optional `testCommand`, `queryId`, `record`, `overlays`, `timeoutMs`, `runtimeInputs`, `snapshotExclude`, `workspaceRoot` | Compiler, execution, and input stability evidence |
+| `workspace_validate` | `config`; optional `detail` (`compact` or `full`), `testCommand`, `queryId`, `record`, `overlays`, `timeoutMs`, `runtimeInputs`, `snapshotExclude`, `workspaceRoot` | Compiler, execution, and input stability evidence with compact input summaries by default |
 | `library_feedback` | `queryId` UUID; optional `accepted`, `compilePassed`, `testsPassed`, `notes` up to 1000 characters | Agent reported outcome stored against a prior query |
 | `library_stats` | `{}` | Local query, latency, hit rate, context size, and outcome aggregates |
 
-Workspace tools accept the same fields as the corresponding CLI request files. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
+Workspace tools accept the same execution fields as the corresponding CLI request files. Validation `detail` selects the MCP response view; CLI validation output remains full. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
 
 ## Local data and source setup
 
