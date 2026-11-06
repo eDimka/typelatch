@@ -1,0 +1,1120 @@
+{
+  "schemaVersion": 1,
+  "rawCaptureSha256": "33f8a968c01af8c40b5e28a22017a2092cb1a249f6482af647e216b7e0b3343d",
+  "publicRecordSha256": "726033996bfa85f576b8ec5d00705285c34cc766ac16baf8a053292ccdfafee4",
+  "runId": "pnpm-glob-migration-r1-typelatch",
+  "identicalCompletedDuplicates": 0,
+  "normalization": {
+    "rule": "Longest explicit absolute prefixes first, applied to all JSON keys and string values after original payload binding. Uncovered private machine paths fail closed.",
+    "prefixes": [
+      {
+        "prefixSha256": "c7d452f3281c78a099c3134dc2156ad4d612463c8d9845b28ef3f2829d1c89ca",
+        "replacement": "$PROVIDER_STATE"
+      },
+      {
+        "prefixSha256": "e6a1d4a52ee68185dd9a9195316a6d9567490beaaf42b69d9a571135977b3448",
+        "replacement": "$WORKSPACE"
+      },
+      {
+        "prefixSha256": "e32efd768a068c190c04544b5efb743704edd8a019b1cfa432d876203b02087f",
+        "replacement": "$STUDY"
+      },
+      {
+        "prefixSha256": "768a63684ee857a90d0c5e1aac2d644942946e9d0e89296a385f90a539686b00",
+        "replacement": "$REPOSITORY"
+      },
+      {
+        "prefixSha256": "76d509b275fdc76041a48f4ed3789b73a1588b1b6c472dff3507750705b8256f",
+        "replacement": "$TEMP"
+      },
+      {
+        "prefixSha256": "e4693ec98d2762b9a5b34fc9dd8c540384a2a5fb719f88d14d760230b3990fc9",
+        "replacement": "$USER_HOME"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 6,
+      "outputSha256": "88d61a792e0fa27095dc104fe344d6df9b28657345e15bf36aed2039311d5c66",
+      "outputBytes": 1083,
+      "exitCode": 1,
+      "stdout": "\n> test:typelatch-benchmark\n> node '$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs'\n\n{\"passed\":false,\"cases\":2,\"results\":[{\"id\":\"native-typescript-build-five-production-packages\",\"passed\":false,\"clean\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":722.6738750000001,\"stdout\":\"\",\"stderr\":\"\",\"error\":null},\"build\":{\"exitCode\":2,\"signal\":null,\"elapsedMs\":6080.158332999999,\"stdout\":\"cache/api/src/cacheList.ts(3,22): error TS2307: Cannot find module 'fast-glob' or its corresponding type declarations.\\ncache/api/src/cacheView.ts(3,22): error TS2307: Cannot find module 'fast-glob' or its corresponding type declarations.\\nfs/find-packages/src/index.ts(7,22): error TS2307: Cannot find module 'fast-glob' or its corresponding type declarations.\\npkg-manager/package-bins/src/index.ts(3,22): error TS2307: Cannot find module 'fast-glob' or its corresponding type declarations.\\n\",\"stderr\":\"\",\"error\":null}},{\"id\":\"runtime-results\",\"passed\":false,\"reason\":\"Not run because native compilation failed\"}],\"runtime\":null}\n"
+    },
+    {
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 8,
+      "server": "typelatch",
+      "tool": "workspace_search",
+      "resultSha256": "8577e238064e4e84488e6c6a0691c56033e3125eb17a4a46ce8366f85d49e091",
+      "resultBytes": 178528,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"fast-glob tinyglobby package discovery metadata matching executable discovery patch archive\",\"scope\":\"workspace\",\"detail\":\"source\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/workspace/filter-workspace-packages/src/index.ts\",\"line\":319,\"endLine\":330,\"symbol\":\"matchPackagesByGlob\",\"position\":10963,\"kind\":\"declaration\",\"score\":66,\"matchedTerms\":[\"glob\",\"packag\",\"match\"],\"snippet\":\"function matchPackagesByGlob<Pkg extends Package> (\\n  graph: PackageGraph<Pkg>,\\n  pathStartsWith: string\\n): ProjectRootDir[] {\\n  const format = (str: string) => str.replace(/\\\\/$/, '')\\n  const formattedFilter = pathStartsWith.replace(/\\\\\\\\/g, '/').replace(/\\\\/$/, '')\\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => micromatch.isMatch(paren\",\"preview\":{\"omittedCharacters\":111},\"projectRoot\":\"$WORKSPACE/workspace/filter-workspace-packages\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/fs/find-packages/CHANGELOG.md\",\"line\":133,\"endLine\":148,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":62,\"matchedTerms\":[\"fast\",\"glob\",\"tinyglobby\",\"packag\",\"patch\"],\"snippet\":\"\\n## 1000.0.7\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [a5e4965]\\n  - @pnpm/types@1000.2.1\\n  - @pnpm/read-project-manifest@1000.0.7\\n\\n## 1000.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [8fcc221]\\n  - @pnpm/types@\",\"preview\":{\"omittedCharacters\":8},\"projectRoot\":\"$WORKSPACE/fs/find-packages\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/package-bins/CHANGELOG.md\",\"line\":97,\"endLine\":112,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":62,\"matchedTerms\":[\"fast\",\"glob\",\"tinyglobby\",\"packag\",\"patch\"],\"snippet\":\"\\n## 1000.0.4\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [a5e4965]\\n  - @pnpm/types@1000.2.1\\n\\n## 1000.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [8fcc221]\\n  - @pnpm/types@1000.2.0\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/pkg-manager/package-bins\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/fs/find-packages/src/index.ts\",\"line\":25,\"endLine\":36,\"symbol\":\"globOpts\",\"position\":693,\"kind\":\"declaration\",\"score\":54,\"matchedTerms\":[\"fast\",\"glob\",\"packag\"],\"snippet\":\"  const globOpts = { ...opts, cwd: root }\\n  globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\\n  const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\\n  const paths: string[] = await fastGlob(patterns, globOpts)\\n\\n  if (opts.includeRoot) {\\n    // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\\n    paths.push(...(await fast\",\"preview\":{\"omittedCharacters\":128},\"projectRoot\":\"$WORKSPACE/fs/find-packages\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/package.json\",\"line\":61,\"endLine\":76,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":54,\"matchedTerms\":[\"tinyglobby\",\"packag\",\"patch\"],\"snippet\":\"    \\\"normalize-path\\\": \\\"catalog:\\\",\\n    \\\"ramda\\\": \\\"catalog:\\\",\\n    \\\"realpath-missing\\\": \\\"catalog:\\\",\\n    \\\"render-help\\\": \\\"catalog:\\\",\\n    \\\"safe-execa\\\": \\\"catalog:\\\",\\n    \\\"semver\\\": \\\"catalog:\\\",\\n    \\\"terminal-link\\\": \\\"catalog:\\\",\\n    \\\"tinyglobby\\\": \\\"catalog:\\\"\\n  },\\n  \\\"peerDependencies\\\": {\\n    \\\"@pnpm/logger\\\": \\\"catalog:\\\"\\n  },\\n  \\\"devDependencies\\\": {\\n    \\\"@jest/globals\\\": \\\"catalo\",\"preview\":{\"omittedCharacters\":92},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/workspace/filter-workspace-packages/src/index.ts\",\"line\":202,\"endLine\":213,\"symbol\":\"matchPackagesByPath\",\"position\":6847,\"kind\":\"declaration\",\"score\":54,\"matchedTerms\":[\"glob\",\"packag\",\"match\"],\"snippet\":\"  const matchPackagesByPath = opts.useGlobDirFiltering === true\\n    ? matchPackagesByGlob\\n    : matchPackagesByExactPath\\n  for (const selector of packageSelectors) {\\n    let entryPackages: ProjectRootDir[] | null = null\\n    if (selector.diff) {\\n      let ignoreDependentForPkgs: ProjectRootDir[] = []\\n      // eslint-disable-next-line no-await-in-loop\\n      ;[\",\"preview\":{\"omittedCharacters\":150},\"projectRoot\":\"$WORKSPACE/workspace/filter-workspace-packages\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/CHANGELOG.md\",\"line\":865,\"endLine\":880,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":52,\"matchedTerms\":[\"fast\",\"glob\",\"tinyglobby\",\"patch\"],\"snippet\":\"\\n  ```yaml\\n  verifyDepsBeforeRun: install\\n  optimisticRepeatInstall: true\\n  publicHoistPattern:\\n    - \\\"*types*\\\"\\n    - \\\"!@types/react\\\"\\n  ```\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [6a59366]\\n- Updated dependencie\",\"preview\":{\"omittedCharacters\":77},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/src/patchCommit.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":52,\"matchedTerms\":[\"fast\",\"glob\",\"packag\",\"patch\"],\"snippet\":\"import fs from 'fs'\\nimport path from 'path'\\nimport { docsUrl } from '@pnpm/cli-utils'\\nimport { type Config, types as allTypes } from '@pnpm/config'\\nimport { createShortHash } from '@pnpm/crypto.hash'\\nimport { PnpmError } from '@pnpm/error'\\nimport { packlist } from '@pnpm/fs.packlist'\\nimport { globalWarn } from '@pnpm/logger'\\nimport { install } from '@pnpm/pl\",\"preview\":{\"omittedCharacters\":334},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/core/test/install/patch.ts\",\"line\":25,\"endLine\":40,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":52,\"matchedTerms\":[\"fast\",\"packag\",\"match\",\"patch\"],\"snippet\":\"  const opts = testDefaults({\\n    neverBuiltDependencies: undefined,\\n    onlyBuiltDependencies: [],\\n    fastUnpack: false,\\n    sideEffectsCacheRead: true,\\n    sideEffectsCacheWrite: true,\\n    patchedDependencies,\\n    reporter,\\n  }, {}, {}, { packageImportMethod: 'hardlink' })\\n  await install({\\n    dependencies: {\\n      'is-positive': '1.0.0',\\n    },\\n  }, opt\",\"preview\":{\"omittedCharacters\":39},\"projectRoot\":\"$WORKSPACE/pkg-manager/core\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/core/test/install/patch.ts\",\"line\":121,\"endLine\":136,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":52,\"matchedTerms\":[\"fast\",\"packag\",\"match\",\"patch\"],\"snippet\":\"    neverBuiltDependencies: undefined,\\n    onlyBuiltDependencies: [],\\n    fastUnpack: false,\\n    sideEffectsCacheRead: true,\\n    sideEffectsCacheWrite: true,\\n    patchedDependencies,\\n    reporter,\\n  }, {}, {}, { packageImportMethod: 'hardlink' })\\n  await install({\\n    dependencies: {\\n      'is-positive': '1.0.0',\\n    },\\n  }, opts)\\n\\n  expect(reporter.calledWi\",\"preview\":{\"omittedCharacters\":31},\"projectRoot\":\"$WORKSPACE/pkg-manager/core\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pnpm/CHANGELOG.md\",\"line\":1045,\"endLine\":1060,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":50,\"matchedTerms\":[\"fast\",\"glob\",\"tinyglobby\",\"packag\",\"patch\"],\"snippet\":\"  ```\\n\\n- Projects using a `file:` dependency on a local tarball file (i.e. `.tgz`, `.tar.gz`, `.tar`) will see a performance improvement during installation. Previously, using a `file:` dependency on a tarball caused the lockfile resolution step to always run. The lockfile will now be considered up-to-date if the tarball is unchanged.\\n\\n### Patch Changes\\n\\n- `\",\"preview\":{\"omittedCharacters\":978},\"projectRoot\":\"$WORKSPACE/pnpm\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/test/patch.test.ts\",\"line\":1412,\"endLine\":1416,\"symbol\":\"match\",\"position\":52501,\"kind\":\"declaration\",\"score\":44,\"matchedTerms\":[\"match\",\"patch\"],\"snippet\":\"  const match = output.match(/['\\\"]([^'\\\"]+)['\\\"]/)\\n  if (match?.[1] == null) throw new Error('No path in output')\\n  return match[1]\\n}\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"}],\"sourceContext\":{\"files\":[{\"source\":\"$WORKSPACE/workspace/filter-workspace-packages/src/index.ts\",\"sha256\":\"4fbab60228ed8133c9c24575010364dc4b53f87b85390cfa6b50376cee7f944b\",\"text\":\"    }\\n    if (selector.includeDependents) {\\n      if (reversedGraph == null) {\\n        reversedGraph = reverseGraph(graph)\\n      }\\n      pickSubgraph(reversedGraph, entryPackages, walkedDependents, { includeRoot: !selector.excludeSelf })\\n    }\\n\\n    if (selector.includeDependencies && selector.includeDependents) {\\n      pickSubgraph(graph, Array.from(walkedDependents), walkedDependentsDependencies, { includeRoot: false })\\n    }\\n\\n    if (!selector.includeDependencies && !selector.includeDependents) {\\n      cherryPickedPackages.push(...entryPackages)\\n    }\\n  }\\n}\\n\\nfunction pkgGraphToGraph<Pkg extends Package> (pkgGraph: PackageGraph<Pkg>): Graph {\\n  const graph: Graph = {}\\n  for (const nodeId of Object.keys(pkgGraph) as ProjectRootDir[]) {\\n    graph[nodeId] = pkgGraph[nodeId].dependencies\\n  }\\n  return graph\\n}\\n\\nfunction reverseGraph (graph: Graph): Graph {\\n  const reversedGraph: Graph = {}\\n  for (const dependentNodeId of Object.keys(graph) as ProjectRootDir[]) {\\n    for (const dependencyNodeId of graph[dependentNodeId]) {\\n      if (!reversedGraph[dependencyNodeId]) {\\n        reversedGraph[dependencyNodeId] = [dependentNodeId]\\n      } else {\\n        reversedGraph[dependencyNodeId].push(dependentNodeId)\\n      }\\n    }\\n  }\\n  return reversedGraph\\n}\\n\\nfunction matchPackages<Pkg extends Package> (\\n  graph: PackageGraph<Pkg>,\\n  pattern: string\\n): ProjectRootDir[] {\\n  const match = createMatcher(pattern)\\n  const matches = (Object.keys(graph) as ProjectRootDir[]).filter((id) => graph[id].package.manifest.name && match(graph[id].package.manifest.name!))\\n  if (matches.length === 0 && !(pattern[0] === '@') && !pattern.includes('/')) {\\n    const scopedMatches = matchPackages(graph, `@*/${pattern}`)\\n    return scopedMatches.length !== 1 ? [] : scopedMatches\\n  }\\n  return matches\\n}\\n\\nfunction matchPackagesByExactPath<Pkg extends Package> (\\n  graph: PackageGraph<Pkg>,\\n  pathStartsWith: string\\n): ProjectRootDir[] {\\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => isSubdir(pathStartsWith, parentDir))\\n}\\n\\nfunction matchPackagesByGlob<Pkg extends Package> (\\n  graph: PackageGraph<Pkg>,\\n  pathStartsWith: string\\n): ProjectRootDir[] {\\n  const format = (str: string) => str.replace(/\\\\/$/, '')\\n  const formattedFilter = pathStartsWith.replace(/\\\\\\\\/g, '/').replace(/\\\\/$/, '')\\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => micromatch.isMatch(parentDir, formattedFilter, { format }))\\n}\\n\\nfunction pickSubgraph (\\n  graph: Graph,\\n  nextNodeIds: ProjectRootDir[],\\n  walked: Set<ProjectRootDir>,\\n  opts: {\\n    includeRoot: boolean\\n  }\\n): void {\\n  for (const nextNodeId of nextNodeIds) {\\n    if (!walked.has(nextNodeId)) {\\n      if (opts.includeRoot) {\\n        walked.add(nextNodeId)\\n      }\\n\\n      if (graph[nextNodeId]) pickSubgraph(graph, graph[nextNodeId], walked, { includeRoot: true })\\n    }\\n  }\\n}\\n\",\"startLine\":259,\"startColumn\":1,\"endLine\":345,\"bytes\":2845,\"complete\":false,\"omittedBytes\":8919,\"omittedBefore\":8919,\"omittedAfter\":0,\"reason\":\"result\"},{\"source\":\"$WORKSPACE/fs/find-packages/CHANGELOG.md\",\"sha256\":\"e900b535dd65435409bbcd160c533dbd2111e21ad25020e859f7ae33b326ed51\",\"text\":\"# @pnpm/fs.find-packages\\n\\n## 1000.0.23\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@1001.2.5\\n\\n## 1000.0.22\\n\\n### Patch Changes\\n\\n- Updated dependencies [d75628a]\\n  - @pnpm/types@1001.3.0\\n  - @pnpm/read-project-manifest@1001.2.4\\n\\n## 1000.0.21\\n\\n### Patch Changes\\n\\n- Updated dependencies [59a81aa]\\n  - @pnpm/types@1001.2.0\\n  - @pnpm/read-project-manifest@1001.2.3\\n\\n## 1000.0.20\\n\\n### Patch Changes\\n\\n- Updated dependencies [9b05bdd]\\n  - @pnpm/types@1001.1.0\\n  - @pnpm/read-project-manifest@1001.2.2\\n\\n## 1000.0.19\\n\\n### Patch Changes\\n\\n- Updated dependencies [2fc23e4]\\n- Updated dependencies [c206765]\\n  - @pnpm/read-project-manifest@1001.2.1\\n  - @pnpm/types@1001.0.1\\n\\n## 1000.0.18\\n\\n### Patch Changes\\n\\n- Updated dependencies [5847af4]\\n- Updated dependencies [68ad086]\\n- Updated dependencies [5847af4]\\n  - @pnpm/types@1001.0.0\\n  - @pnpm/read-project-manifest@1001.2.0\\n\\n## 1000.0.17\\n\\n### Patch Changes\\n\\n- Updated dependencies [7c1382f]\\n- Updated dependencies [dee39ec]\\n  - @pnpm/types@1000.9.0\\n  - @pnpm/read-project-manifest@1001.1.4\\n\\n## 1000.0.16\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@1001.1.3\\n\\n## 1000.0.15\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@1001.1.2\\n\\n## 1000.0.14\\n\\n### Patch Changes\\n\\n- Updated dependencies [e792927]\\n  - @pnpm/types@1000.8.0\\n  - @pnpm/read-project-manifest@1001.1.1\\n\\n## 1000.0.13\\n\\n### Patch Changes\\n\\n- Updated dependencies [d1edf73]\\n- Updated dependencies [86b33e9]\\n  - @pnpm/read-project-manifest@1001.1.0\\n\\n## 1000.0.12\\n\\n### Patch Changes\\n\\n- Updated dependencies [1a07b8f]\\n- Updated dependencies [1a07b8f]\\n- Updated dependencies [1a07b8f]\\n  - @pnpm/types@1000.7.0\\n  - @pnpm/read-project-manifest@1001.0.0\\n\\n## 1000.0.11\\n\\n### Patch Changes\\n\\n- c00360b: Update `@pnpm/util.lex-comparator` to v3.0.2.\\n- Updated dependencies [5ec7255]\\n  - @pnpm/types@1000.6.0\\n  - @pnpm/read-project-manifest@1000.0.11\\n\\n## 1000.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [5b73df1]\\n  - @pnpm/types@1000.5.0\\n  - @pnpm/read-project-manifest@1000.0.10\\n\\n## 1000.0.9\\n\\n### Patch Changes\\n\\n- c85aaf8: Do not hang indefinitely, when there is a glob that starts with `!/` in `pnpm-workspace.yaml`. This fixes a regression introduced by [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [750ae7d]\\n  - @pnpm/types@1000.4.0\\n  - @pnpm/read-project-manifest@1000.0.9\\n\\n## 1000.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [5f7be64]\\n- Updated dependencies [5f7be64]\\n  - @pnpm/types@1000.3.0\\n  - @pnpm/read-project-manifest@1000.0.8\\n\\n## 1000.0.7\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [a5e4965]\\n  - @pnpm/types@1000.2.1\\n  - @pnpm/read-project-manifest@1000.0.7\\n\\n## 1000.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [8fcc221]\\n  - @pnpm/types@1000.2.0\\n  - @pnpm/read-project-manifest@1000.0.6\\n\\n## 1000.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies [1e229d7]\\n  - @pnpm/read-project-manifest@1000.0.5\\n\\n## 1000.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [b562deb]\\n  - @pnpm/types@1000.1.1\\n  - @pnpm/read-project-manifest@1000.0.4\\n\\n## 1000.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [e050221]\\n  - @pnpm/read-project-manifest@1000.0.3\\n\\n## 1000.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [9591a18]\\n  - @pnpm/types@1000.1.0\\n  - @pnpm/read-project-manifest@1000.0.2\\n\\n## 1000.0.1\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@1000.0.1\\n\\n## 4.0.6\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@6.0.10\\n\\n## 4.0.5\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@6.0.9\\n\\n## 4.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [d500d9f]\\n  - @pnpm/types@12.2.0\\n  - @pnpm/read-project-manifest@6.0.8\\n\\n## 4.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [7ee59a1]\\n  - @pnpm/types@12.1.0\\n  - @pnpm/read-project-manifest@6.0.7\\n\\n## 4.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [cb006df]\\n  - @pnpm/types@12.0.0\\n  - @pnpm/read-project-manifest@6.0.6\\n\\n## 4.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [0ef168b]\\n  - @pnpm/types@11.1.0\\n  - @pnpm/read-project-manifest@6.0.5\\n\\n## 4.0.0\\n\\n### Major Changes\\n\\n- dd00eeb: Renamed dir to rootDir in the Project object.\\n\\n### Patch Changes\\n\\n- Updated dependencies [dd00eeb]\\n- Updated dependencies\\n  - @pnpm/types@11.0.0\\n  - @pnpm/read-project-manifest@6.0.4\\n\\n## 3.0.3\\n\\n### Patch Changes\\n\\n- 13e55b2: If install is performed on a subset of workspace projects, always create an up-to-date lockfile first. So, a partial install can be performed only on a fully resolved (non-partial) lockfile [#8165](https://github.com/pnpm/pnpm/issues/8165).\\n- Updated dependencies [13e55b2]\\n  - @pnpm/types@10.1.1\\n  - @pnpm/read-project-manifest@6.0.3\\n\\n## 3.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [45f4262]\\n  - @pnpm/types@10.1.0\\n  - @pnpm/read-project-manifest@6.0.2\\n\\n## 3.0.1\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@6.0.1\\n\\n## 3.0.0\\n\\n### Major Changes\\n\\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\\n\\n### Patch Changes\\n\\n- Updated dependencies [7733f3a]\\n- Updated dependencies [43cdd87]\\n- Updated dependencies [730929e]\\n  - @pnpm/types@10.0.0\\n  - @pnpm/read-project-manifest@6.0.0\\n\\n## 2.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [4d34684f1]\\n  - @pnpm/types@9.4.2\\n  - @pnpm/read-project-manifest@5.0.10\\n\\n## 2.0.9\\n\\n### Patch Changes\\n\\n- Updated dependencies\\n  - @pnpm/types@9.4.1\\n  - @pnpm/read-project-manifest@5.0.9\\n\\n## 2.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [43ce9e4a6]\\n  - @pnpm/types@9.4.0\\n  - @pnpm/read-project-manifest@5.0.8\\n\\n## 2.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [d774a3196]\\n  - @pnpm/types@9.3.0\\n  - @pnpm/read-project-manifest@5.0.7\\n\\n## 2.0.6\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@5.0.6\\n\\n## 2.0.5\\n\\n### Patch Changes\\n\\n- e9aa6f682: Apply fixes from @typescript-eslint v6 for nullish coalescing and optional chains. No behavior changes are expected with this change.\\n  - @pnpm/read-project-manifest@5.0.5\\n\\n## 2.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [aa2ae8fe2]\\n  - @pnpm/types@9.2.0\\n  - @pnpm/read-project-manifest@5.0.4\\n\\n## 2.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [b4892acc5]\\n  - @pnpm/read-project-manifest@5.0.3\\n\\n## 2.0.2\\n\\n### Patch Changes\\n\\n- @pnpm/read-project-manifest@5.0.2\\n\",\"startLine\":1,\"startColumn\":1,\"endLine\":345,\"bytes\":6185,\"complete\":true,\"omittedBytes\":0,\"omittedBefore\":0,\"omittedAfter\":0,\"reason\":\"result\"},{\"source\":\"$WORKSPACE/pkg-manager/package-bins/CHANGELOG.md\",\"sha256\":\"7e16835068b64d35adc6ba53f04b98cc529901bd0e81c54285614c7eb16ae823\",\"text\":\"# @pnpm/package-bins\\n\\n## 1000.0.17\\n\\n### Patch Changes\\n\\n- 17432ad: Security fix: prevent path traversal in `directories.bin` field.\\n\\n## 1000.0.16\\n\\n### Patch Changes\\n\\n- 8afbb15: Fixed a path traversal vulnerability in pnpm's bin linking. Bin names starting with `@` bypassed validation, and after scope normalization, path traversal sequences like `../../` remained intact.\\n- Updated dependencies [d75628a]\\n  - @pnpm/types@1001.3.0\\n\\n## 1000.0.15\\n\\n### Patch Changes\\n\\n- Updated dependencies [59a81aa]\\n  - @pnpm/types@1001.2.0\\n\\n## 1000.0.14\\n\\n### Patch Changes\\n\\n- Updated dependencies [9b05bdd]\\n  - @pnpm/types@1001.1.0\\n\\n## 1000.0.13\\n\\n### Patch Changes\\n\\n- Updated dependencies [c206765]\\n  - @pnpm/types@1001.0.1\\n\\n## 1000.0.12\\n\\n### Patch Changes\\n\\n- Updated dependencies [5847af4]\\n- Updated dependencies [68ad086]\\n- Updated dependencies [5847af4]\\n  - @pnpm/types@1001.0.0\\n\\n## 1000.0.11\\n\\n### Patch Changes\\n\\n- Updated dependencies [7c1382f]\\n- Updated dependencies [dee39ec]\\n  - @pnpm/types@1000.9.0\\n\\n## 1000.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [e792927]\\n  - @pnpm/types@1000.8.0\\n\\n## 1000.0.9\\n\\n### Patch Changes\\n\\n- Updated dependencies [1a07b8f]\\n  - @pnpm/types@1000.7.0\\n\\n## 1000.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [5ec7255]\\n  - @pnpm/types@1000.6.0\\n\\n## 1000.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [5b73df1]\\n  - @pnpm/types@1000.5.0\\n\\n## 1000.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [750ae7d]\\n  - @pnpm/types@1000.4.0\\n\\n## 1000.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies [5f7be64]\\n- Updated dependencies [5f7be64]\\n  - @pnpm/types@1000.3.0\\n\\n## 1000.0.4\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [a5e4965]\\n  - @pnpm/types@1000.2.1\\n\\n## 1000.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [8fcc221]\\n  - @pnpm/types@1000.2.0\\n\\n## 1000.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [b562deb]\\n  - @pnpm/types@1000.1.1\\n\\n## 1000.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [9591a18]\\n  - @pnpm/types@1000.1.0\\n\\n## 9.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [d500d9f]\\n  - @pnpm/types@12.2.0\\n\\n## 9.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [7ee59a1]\\n  - @pnpm/types@12.1.0\\n\\n## 9.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies [cb006df]\\n  - @pnpm/types@12.0.0\\n\\n## 9.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [0ef168b]\\n  - @pnpm/types@11.1.0\\n\\n## 9.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [dd00eeb]\\n- Updated dependencies\\n  - @pnpm/types@11.0.0\\n\\n## 9.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [13e55b2]\\n  - @pnpm/types@10.1.1\\n\\n## 9.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [45f4262]\\n  - @pnpm/types@10.1.0\\n\\n## 9.0.0\\n\\n### Major Changes\\n\\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\\n\\n### Patch Changes\\n\\n- Updated dependencies [7733f3a]\\n- Updated dependencies [43cdd87]\\n- Updated dependencies [730929e]\\n  - @pnpm/types@10.0.0\\n\\n## 8.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [4d34684f1]\\n  - @pnpm/types@9.4.2\\n\\n## 8.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies\\n  - @pnpm/types@9.4.1\\n\\n## 8.0.4\\n\\n### Patch Changes\\n\\n- d2dc2e66a: Allow scoped name as bin name [#7112](https://github.com/pnpm/pnpm/issues/7112).\\n- Updated dependencies [43ce9e4a6]\\n  - @pnpm/types@9.4.0\\n\\n## 8.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [d774a3196]\\n  - @pnpm/types@9.3.0\\n\\n## 8.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [aa2ae8fe2]\\n  - @pnpm/types@9.2.0\\n\\n## 8.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [a9e0b7cbf]\\n  - @pnpm/types@9.1.0\\n\\n## 8.0.0\\n\\n### Major Changes\\n\\n- eceaa8b8b: Node.js 14 support dropped.\\n\\n### Patch Changes\\n\\n- Updated dependencies [eceaa8b8b]\\n  - @pnpm/types@9.0.0\\n\\n## 7.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [b77651d14]\\n  - @pnpm/types@8.10.0\\n\\n## 7.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [702e847c1]\\n  - @pnpm/types@8.9.0\\n\\n## 7.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [844e82f3a]\\n  - @pnpm/types@8.8.0\\n\\n## 7.0.0\\n\\n### Major Changes\\n\\n- f884689e0: Require `@pnpm/logger` v5.\\n\\n## 6.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [d665f3ff7]\\n  - @pnpm/types@8.7.0\\n\\n## 6.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [156cc1ef6]\\n  - @pnpm/types@8.6.0\\n\\n## 6.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [c90798461]\\n  - @pnpm/types@8.5.0\\n\\n## 6.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies [8e5b77ef6]\\n  - @pnpm/types@8.4.0\\n\\n## 6.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [2a34b21ce]\\n  - @pnpm/types@8.3.0\\n\\n## 6.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [fb5bbfd7a]\\n  - @pnpm/types@8.2.0\\n\\n## 6.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [4d39e4a0c]\\n  - @pnpm/types@8.1.0\\n\\n## 6.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [18ba5e2c0]\\n  - @pnpm/types@8.0.1\\n\\n## 6.0.0\\n\\n### Major Changes\\n\\n- 542014839: Node.js 12 is not supported.\\n\\n### Patch Changes\\n\\n- Updated dependencies [d504dc380]\\n- Updated dependencies [542014839]\\n  - @pnpm/types@8.0.0\\n\\n## 5.0.12\\n\\n### Patch Changes\\n\\n- Updated dependencies [b138d048c]\\n  - @pnpm/types@7.10.0\\n\\n## 5.0.11\\n\\n### Patch Changes\\n\\n- Updated dependencies [26cd01b88]\\n  - @pnpm/types@7.9.0\\n\\n## 5.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [b5734a4a7]\\n  - @pnpm/types@7.8.0\\n\\n## 5.0.9\\n\\n### Patch Changes\\n\\n- Updated dependencies [6493e0c93]\\n  - @pnpm/types@7.7.1\\n\\n## 5.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [ba9b2eba1]\\n  - @pnpm/types@7.7.0\\n\\n## 5.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [302ae4f6f]\\n  - @pnpm/types@7.6.0\\n\\n## 5.0.6\\n\\n### Patch Changes\\n\\n- Updated dependencies [4ab87844a]\\n  - @pnpm/types@7.5.0\\n\\n## 5.0.5\\n\\n### Patch Changes\\n\\n- 97f90e537: Allow the \\\\$ sign to be a command name.\\n\\n## 5.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [b734b45ea]\\n  - @pnpm/types@7.4.0\\n\\n## 5.0.3\\n\\n### Patch Changes\\n\\n- Updated dependencies [8e76690f4]\\n  - @pnpm/types@7.3.0\\n\\n## 5.0.2\\n\\n### Patch Changes\\n\\n- Updated dependencies [724c5abd8]\\n  - @pnpm/types@7.2.0\\n\\n## 5.0.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [97c64bae4]\\n  - @pnpm/types@7.1.0\\n\\n## 5.0.0\\n\\n### Major Changes\\n\\n- 97b986fbc: Node.js 10 support is dropped. At least Node.js 12.17 is required for the package to work.\\n\\n### Patch Changes\\n\\n- Updated dependencies [97b986fbc]\\n  - @pnpm/types@7.0.0\\n\\n## 4.1.0\\n\\n### Minor Changes\\n\\n- d853fb14a: Find all files inside the bin directory.\\n\\n## 4.0.11\\n\\n### Patch Changes\\n\\n- ad113645b: pin graceful-fs to v4.2.4\\n\\n## 4.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [9ad8c27bf]\\n  - @pnpm/types@6.4.0\\n\\n## 4.0.9\\n\\n### Patch Changes\\n\\n- Updated dependencies [b5d694e7f]\\n  - @pnpm/types@6.3.1\\n\\n## 4.0.8\\n\\n### Patch Changes\\n\\n- Updated dependencies [d54043ee4]\\n  - @pnpm/types@6.3.0\\n\\n## 4.0.7\\n\\n### Patch Changes\\n\\n- Updated dependencies [db17f6f7b]\\n  - @pnpm/types@6.2.0\\n\\n## 4.0.6\\n\\n### Patch Changes\\n\\n- 1520e3d6f: Update graceful-fs to v4.2.4\\n\\n## 4.0.5\\n\\n### Patch Changes\\n\\n- Updated dependencies [71a8c8ce3]\\n  - @pnpm/types@6.1.0\\n\\n## 4.0.4\\n\\n### Patch Changes\\n\\n- Updated dependencies [da091c711]\\n  - @pnpm/types@6.0.0\\n\\n## 4.0.4-alpha.0\\n\\n### Patch Changes\\n\\n- Updated dependencies [da091c71]\\n  - @pnpm/types@6.0.0-alpha.0\\n\",\"startLine\":1,\"startColumn\":1,\"endLine\":498,\"bytes\":7015,\"complete\":true,\"omittedBytes\":0,\"omittedBefore\":0,\"omittedAfter\":0,\"reason\":\"result\"},{\"source\":\"$WORKSPACE/fs/find-packages/src/index.ts\",\"sha256\":\"528cd6e7e96ebd130b36c3ff7bdb08b124fda1ee52f69cefd16339f1ae48b8dd\",\"text\":\"import { promises as fs } from 'fs'\\nimport path from 'path'\\nimport util from 'util'\\nimport { readExactProjectManifest } from '@pnpm/read-project-manifest'\\nimport { type Project, type ProjectRootDir, type ProjectRootDirRealPath } from '@pnpm/types'\\nimport { lexCompare } from '@pnpm/util.lex-comparator'\\nimport fastGlob from 'fast-glob'\\nimport pFilter from 'p-filter'\\n\\nconst DEFAULT_IGNORE = [\\n  '**/node_modules/**',\\n  '**/bower_components/**',\\n  '**/test/**',\\n  '**/tests/**',\\n]\\n\\nexport interface Options {\\n  ignore?: string[]\\n  includeRoot?: boolean\\n  patterns?: string[]\\n}\\n\\nexport async function findPackages (root: string, opts?: Options): Promise<Project[]> {\\n  opts = opts ?? {}\\n  const globOpts = { ...opts, cwd: root }\\n  globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\\n  const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\\n  const paths: string[] = await fastGlob(patterns, globOpts)\\n\\n  if (opts.includeRoot) {\\n    // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\\n    paths.push(...(await fastGlob(normalizePatterns(['.']), globOpts)))\\n  }\\n\\n  return pFilter(\\n    // `Array.from()` doesn't create an intermediate instance,\\n    // unlike `array.map()`\\n    Array.from(\\n      // Remove duplicate paths using `Set`\\n      new Set(\\n        paths\\n          .map(manifestPath => path.join(root, manifestPath))\\n          .sort((path1, path2) =>\\n            lexCompare(path.dirname(path1), path.dirname(path2))\\n          )\\n      ),\\n      async manifestPath => {\\n        try {\\n          const rootDir = path.dirname(manifestPath) as ProjectRootDir\\n          return {\\n            rootDir,\\n            rootDirRealPath: await fs.realpath(rootDir) as ProjectRootDirRealPath,\\n            ...await readExactProjectManifest(manifestPath),\\n          } as Project\\n        } catch (err: unknown) {\\n          if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\\n            return null!\\n          }\\n          throw err\\n        }\\n      }),\\n    Boolean\\n  )\\n}\\n\\nfunction normalizePatterns (patterns: readonly string[]): string[] {\\n  const normalizedPatterns: string[] = []\\n  for (const pattern of patterns) {\\n    normalizedPatterns.push(pattern.replace(/\\\\/?$/, '/package.{json,yaml,json5}'))\\n  }\\n  return normalizedPatterns\\n}\\n\",\"startLine\":1,\"startColumn\":1,\"endLine\":72,\"bytes\":2277,\"complete\":true,\"omittedBytes\":0,\"omittedBefore\":0,\"omittedAfter\":0,\"reason\":\"result\"},{\"source\":\"$WORKSPACE/patching/plugin-commands-patching/package.json\",\"sha256\":\"687e236ab81b4ad932c86bca98d35d332d6e1c585128bc5121ac648c4d413ca1\",\"text\":\"{\\n  \\\"name\\\": \\\"@pnpm/plugin-commands-patching\\\",\\n  \\\"version\\\": \\\"1000.3.43\\\",\\n  \\\"description\\\": \\\"Commands for creating patches\\\",\\n  \\\"keywords\\\": [\\n    \\\"pnpm\\\",\\n    \\\"pnpm10\\\",\\n    \\\"scripts\\\"\\n  ],\\n  \\\"license\\\": \\\"MIT\\\",\\n  \\\"funding\\\": \\\"https://opencollective.com/pnpm\\\",\\n  \\\"repository\\\": \\\"https://github.com/pnpm/pnpm/tree/main/patching/plugin-commands-patching\\\",\\n  \\\"homepage\\\": \\\"https://github.com/pnpm/pnpm/tree/main/patching/plugin-commands-patching#readme\\\",\\n  \\\"bugs\\\": {\\n    \\\"url\\\": \\\"https://github.com/pnpm/pnpm/issues\\\"\\n  },\\n  \\\"type\\\": \\\"commonjs\\\",\\n  \\\"main\\\": \\\"lib/index.js\\\",\\n  \\\"types\\\": \\\"lib/index.d.ts\\\",\\n  \\\"exports\\\": {\\n    \\\".\\\": \\\"./lib/index.js\\\"\\n  },\\n  \\\"files\\\": [\\n    \\\"lib\\\",\\n    \\\"!*.map\\\"\\n  ],\\n  \\\"scripts\\\": {\\n    \\\"start\\\": \\\"tsc --watch\\\",\\n    \\\"lint\\\": \\\"eslint \\\\\\\"src/**/*.ts\\\\\\\" \\\\\\\"test/**/*.ts\\\\\\\"\\\",\\n    \\\"_test\\\": \\\"jest\\\",\\n    \\\"test\\\": \\\"pnpm run compile && pnpm run _test\\\",\\n    \\\"prepublishOnly\\\": \\\"pnpm run compile\\\",\\n    \\\"compile\\\": \\\"tsc --build && pnpm run lint --fix\\\"\\n  },\\n  \\\"dependencies\\\": {\\n    \\\"@pnpm/cli-utils\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/config\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/config.config-writer\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/constants\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/crypto.hash\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/error\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/fs.packlist\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/lockfile.fs\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/lockfile.utils\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/modules-yaml\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/parse-wanted-dependency\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/patching.apply-patch\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/pick-fetcher\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/plugin-commands-installation\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/read-package-json\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/read-project-manifest\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/store-connection-manager\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/store-path\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/types\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/workspace.read-manifest\\\": \\\"workspace:*\\\",\\n    \\\"chalk\\\": \\\"catalog:\\\",\\n    \\\"enquirer\\\": \\\"catalog:\\\",\\n    \\\"escape-string-regexp\\\": \\\"catalog:\\\",\\n    \\\"is-windows\\\": \\\"catalog:\\\",\\n    \\\"make-empty-dir\\\": \\\"catalog:\\\",\\n    \\\"normalize-path\\\": \\\"catalog:\\\",\\n    \\\"ramda\\\": \\\"catalog:\\\",\\n    \\\"realpath-missing\\\": \\\"catalog:\\\",\\n    \\\"render-help\\\": \\\"catalog:\\\",\\n    \\\"safe-execa\\\": \\\"catalog:\\\",\\n    \\\"semver\\\": \\\"catalog:\\\",\\n    \\\"terminal-link\\\": \\\"catalog:\\\",\\n    \\\"tinyglobby\\\": \\\"catalog:\\\"\\n  },\\n  \\\"peerDependencies\\\": {\\n    \\\"@pnpm/logger\\\": \\\"catalog:\\\"\\n  },\\n  \\\"devDependencies\\\": {\\n    \\\"@jest/globals\\\": \\\"catalog:\\\",\\n    \\\"@pnpm/logger\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/plugin-commands-patching\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/prepare\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/registry-mock\\\": \\\"catalog:\\\",\\n    \\\"@pnpm/test-fixtures\\\": \\\"workspace:*\\\",\\n    \\\"@pnpm/workspace.filter-packages-from-dir\\\": \\\"workspace:*\\\",\\n    \\\"@types/is-windows\\\": \\\"catalog:\\\",\\n    \\\"@types/normalize-path\\\": \\\"catalog:\\\",\\n    \\\"@types/ramda\\\": \\\"catalog:\\\",\\n    \\\"@types/semver\\\": \\\"catalog:\\\",\\n    \\\"tempy\\\": \\\"catalog:\\\",\\n    \\\"write-yaml-file\\\": \\\"catalog:\\\"\\n  },\\n  \\\"engines\\\": {\\n    \\\"node\\\": \\\">=18.12\\\"\\n  },\\n  \\\"jest\\\": {\\n    \\\"preset\\\": \\\"@pnpm/jest-config/with-registry\\\"\\n  }\\n}\\n\",\"startLine\":1,\"startColumn\":1,\"endLine\":94,\"bytes\":2935,\"complete\":true,\"omittedBytes\":0,\"omittedBefore\":0,\"omittedAfter\":0,\"reason\":\"result\"},{\"source\":\"$WORKSPACE/patching/plugin-commands-patching/CHANGELOG.md\",\"sha256\":\"84320c174deeb9bc391a21063706f23fdc53113122fe5bdaa5465b5a65545a8d\",\"text\":\"\\n- 0378a9a: `pnpm patch-commit` will now use the same filesystem as the store directory to compare and create patch files.\\n  - @pnpm/cli-utils@1000.0.15\\n  - @pnpm/crypto.hash@1000.1.1\\n  - @pnpm/plugin-commands-installation@1002.1.2\\n  - @pnpm/config@1002.5.2\\n  - @pnpm/lockfile.fs@1001.1.6\\n  - @pnpm/lockfile.utils@1001.0.5\\n  - @pnpm/store-connection-manager@1000.0.14\\n\\n## 1000.1.1\\n\\n### Patch Changes\\n\\n- Updated dependencies [c3aa4d8]\\n  - @pnpm/config@1002.5.1\\n  - @pnpm/cli-utils@1000.0.14\\n  - @pnpm/plugin-commands-installation@1002.1.1\\n  - @pnpm/store-connection-manager@1000.0.13\\n\\n## 1000.1.0\\n\\n### Minor Changes\\n\\n- d965748: `pnpm-workspace.yaml` can now hold all the settings that `.npmrc` accepts. The settings should use camelCase [#9211](https://github.com/pnpm/pnpm/pull/9211).\\n\\n  `pnpm-workspace.yaml` example:\\n\\n  ```yaml\\n  verifyDepsBeforeRun: install\\n  optimisticRepeatInstall: true\\n  publicHoistPattern:\\n    - \\\"*types*\\\"\\n    - \\\"!@types/react\\\"\\n  ```\\n\\n### Patch Changes\\n\\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\\n- Updated dependencies [6a59366]\\n- Updated dependencies [a5e4965]\\n- Updated dependencies [d9d7607]\\n- Updated dependencies [d965748]\\n- Updated dependencies [453a18a]\\n- Updated dependencies [e4eeafd]\\n  - @pnpm/plugin-commands-installation@1002.1.0\\n  - @pnpm/types@1000.2.1\\n  - @pnpm/config@1002.5.0\\n  - @pnpm/patching.apply-patch@1000.0.3\\n  - @pnpm/cli-utils@1000.0.13\\n  - @pnpm/pick-registry-for-package@1000.0.4\\n  - @pnpm/lockfile.fs@1001.1.5\\n  - @pnpm/lockfile.utils@1001.0.4\\n  - @pnpm/modules-yaml@1000.1.4\\n  - @pnpm/read-package-json@1000.0.5\\n  - @pnpm/read-project-manifest@1000.0.7\\n  - @pnpm/store-connection-manager@1000.0.12\\n  - @pnpm/pick-fetcher@1000.0.0\\n\\n## 1000.0.14\\n\\n### Patch Changes\\n\\n- Updated dependencies [76973d8]\\n- Updated dependencies [1c2eb8c]\\n  - @pnpm/plugin-commands-installation@1002.0.1\\n  - @pnpm/config@1002.4.1\\n  - @pnpm/cli-utils@1000.0.12\\n  - @pnpm/store-connection-manager@1000.0.11\\n\\n## 1000.0.13\\n\\n### Patch Changes\\n\\n- Updated dependencies [8fcc221]\\n- Updated dependencies [8fcc221]\\n- Updated dependencies [e32b1a2]\\n- Updated dependencies [5296961]\\n- Updated dependencies [8fcc221]\\n  - @pnpm/plugin-commands-installation@1002.0.0\\n  - @pnpm/config@1002.4.0\\n  - @pnpm/types@1000.2.0\\n  - @pnpm/cli-utils@1000.0.11\\n  - @pnpm/store-connection-manager@1000.0.10\\n  - @pnpm/pick-registry-for-package@1000.0.3\\n  - @pnpm/lockfile.fs@1001.1.4\\n  - @pnpm/lockfile.utils@1001.0.3\\n  - @pnpm/modules-yaml@1000.1.3\\n  - @pnpm/read-package-json@1000.0.4\\n  - @pnpm/read-project-manifest@1000.0.6\\n  - @pnpm/patching.apply-patch@1000.0.2\\n  - @pnpm/pick-fetcher@1000.0.0\\n\\n## 1000.0.12\\n\\n### Patch Changes\\n\\n- Updated dependencies [fee898f]\\n- Updated dependencies [546ab37]\\n  - @pnpm/config@1002.3.1\\n  - @pnpm/plugin-commands-installation@1001.5.1\\n  - @pnpm/cli-utils@1000.0.10\\n  - @pnpm/store-connection-manager@1000.0.9\\n  - @pnpm/lockfile.fs@1001.1.3\\n\\n## 1000.0.11\\n\\n### Patch Changes\\n\\n- Updated dependencies [91d46ee]\\n  - @pnpm/plugin-commands-installation@1001.5.0\\n  - @pnpm/cli-utils@1000.0.9\\n\\n## 1000.0.10\\n\\n### Patch Changes\\n\\n- Updated dependencies [f6006f2]\\n  - @pnpm/plugin-commands-installation@1001.4.0\\n  - @pnpm/config@1002.3.0\\n  - @pnpm/cli-utils@1000.0.8\\n  - @pnpm/store-connect\",\"startLine\":838,\"startColumn\":1,\"endLine\":959,\"bytes\":3319,\"complete\":false,\"omittedBytes\":79354,\"omittedBefore\":23207,\"omittedAfter\":56147,\"reason\":\"result\"}],\"bytes\":24576,\"byteLimit\":24576,\"fileByteLimit\":8192,\"fileLimit\":12,\"filesOmitted\":12,\"unavailableImports\":0,\"ambiguousImports\":0,\"resolution\":\"not-run\"},\"latencyMs\":3462,\"index\":{\"path\":\"$PROVIDER_STATE/typelatch/workspaces/e6a1d4a52ee68185dd9a9195316a6d9567490beaaf42b69d9a571135977b3448/search.db\",\"updatedFiles\":2715,\"removedFiles\":0,\"files\":2715,\"snapshot\":\"fcb0d9f90d18a2134b146d62123affdaea02da191d751dd7f6a42aeea2c5c2b5\"},\"coverage\":{\"complete\":false,\"selection\":\"Git tracked and unignored files, with generated directories and source symlinks excluded\",\"files\":2715,\"projects\":[\"$WORKSPACE/.meta-updater\",\"$WORKSPACE/__fixtures__/circular\",\"$WORKSPACE/__fixtures__/custom-modules-dir\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo\",\"$WORKSPACE/__fixtures__/empty\",\"$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-version\",\"$WORKSPACE/__fixtures__/fixture\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/general\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only\",\"$WORKSPACE/__fixtures__/general\",\"$WORKSPACE/__fixtures__/has-2-outdated-deps\",\"$WORKSPACE/__fixtures__/has-major-outdated-deps\",\"$WORKSPACE/__fixtures__/has-no-lockfile\",\"$WORKSPACE/__fixtures__/has-not-outdated-deps\",\"$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/has-only-deprecated-deps\",\"$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias\",\"$WORKSPACE/__fixtures__/has-outdated-deps\",\"$WORKSPACE/__fixtures__/has-package-lock-json\",\"$WORKSPACE/__fixtures__/has-package-lock-v3-json\",\"$WORKSPACE/__fixtures__/has-yarn-lock\",\"$WORKSPACE/__fixtures__/has-yarn2-lock\",\"$WORKSPACE/__fixtures__/hello-world-js-bin\",\"$WORKSPACE/__fixtures__/local-pkg\",\"$WORKSPACE/__fixtures__/local-scoped-pkg\",\"$WORKSPACE/__fixtures__/monorepo/package\",\"$WORKSPACE/__fixtures__/multiple-scripts-error-exit\",\"$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg\",\"$WORKSPACE/__fixtures__/with-aliased-dep\",\"$WORKSPACE/__fixtures__/with-file-dep\",\"$WORKSPACE/__fixtures__/with-git-protocol-dep\",\"$WORKSPACE/__fixtures__/with-non-package-dep\",\"$WORKSPACE/__fixtures__/with-peer\",\"$WORKSPACE/__fixtures__/with-pnpm-update-ignore\",\"$WORKSPACE/__fixtures__/with-unsaved-deps\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public\",\"$WORKSPACE/__typecheck__\",\"$WORKSPACE/__typings__\",\"$WORKSPACE/__utils__/assert-project\",\"$WORKSPACE/__utils__/assert-project/test/fixture/project\",\"$WORKSPACE/__utils__/assert-store\",\"$WORKSPACE/__utils__/assert-store/test/fixture/project\",\"$WORKSPACE/__utils__/build-artifacts\",\"$WORKSPACE/__utils__/eslint-config\",\"$WORKSPACE/__utils__/get-release-text\",\"$WORKSPACE/__utils__/jest-config\",\"$WORKSPACE/__utils__/prepare-temp-dir\",\"$WORKSPACE/__utils__/prepare\",\"$WORKSPACE/__utils__/scripts\",\"$WORKSPACE/__utils__/test-fixtures\",\"$WORKSPACE/__utils__/test-ipc-server\",\"$WORKSPACE/__utils__/tsconfig\",\"$WORKSPACE/builder/policy\",\"$WORKSPACE/cache/api\",\"$WORKSPACE/cache/commands\",\"$WORKSPACE/catalogs/config\",\"$WORKSPACE/catalogs/protocol-parser\",\"$WORKSPACE/catalogs/resolver\",\"$WORKSPACE/catalogs/types\",\"$WORKSPACE/cli/cli-meta\",\"$WORKSPACE/cli/cli-utils\",\"$WORKSPACE/cli/command\",\"$WORKSPACE/cli/common-cli-options-help\",\"$WORKSPACE/cli/default-reporter\",\"$WORKSPACE/cli/parse-cli-args\"],\"configs\":[\"$WORKSPACE/.meta-updater/tsconfig.json\",\"$WORKSPACE/.meta-updater/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-project/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-store/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.lint.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.lint.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json\",\"$WORKSPACE/__utils__/tsconfig/tsconfig.json\",\"$WORKSPACE/builder/policy/test/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.lint.json\",\"$WORKSPACE/cache/api/tsconfig.json\",\"$WORKSPACE/cache/api/tsconfig.lint.json\",\"$WORKSPACE/cache/commands/test/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.lint.json\",\"$WORKSPACE/catalogs/config/test/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.lint.json\",\"$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json\",\"$WORKSPACE/catalogs/resolver/test/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.lint.json\",\"$WORKSPACE/catalogs/types/tsconfig.json\",\"$WORKSPACE/catalogs/types/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-meta/test/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-utils/test/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.lint.json\",\"$WORKSPACE/cli/command/tsconfig.json\",\"$WORKSPACE/cli/command/tsconfig.lint.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json\",\"$WORKSPACE/cli/default-reporter/test/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.lint.json\",\"$WORKSPACE/cli/parse-cli-args/test/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json\",\"$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json\",\"$WORKSPACE/config/config-writer/tsconfig.json\",\"$WORKSPACE/config/config-writer/tsconfig.lint.json\",\"$WORKSPACE/config/config/test/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.lint.json\",\"$WORKSPACE/config/deps-installer/test/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.lint.json\",\"$WORKSPACE/config/matcher/test/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.lint.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.lint.json\",\"$WORKSPACE/config/package-is-installable/test/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.lint.json\",\"$WORKSPACE/config/parse-overrides/test/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.lint.json\",\"$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json\",\"$WORKSPACE/config/plugin-commands-config/test/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json\",\"$WORKSPACE/config/version-policy/test/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.lint.json\",\"$WORKSPACE/crypto/hash/test/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.lint.json\",\"$WORKSPACE/crypto/object-hasher/test/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.lint.json\",\"$WORKSPACE/crypto/polyfill/tsconfig.json\",\"$WORKSPACE/crypto/polyfill/tsconfig.lint.json\",\"$WORKSPACE/crypto/shasums-file/test/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.lint.json\",\"$WORKSPACE/dedupe/check/test/tsconfig.json\"],\"projectsOmitted\":294,\"configsOmitted\":403,\"excluded\":[{\"path\":\"CLAUDE.md\",\"reason\":\"symlink\"},{\"path\":\"__fixtures__/circular/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/custom-modules-dir/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/empty/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-2-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-major-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-negative\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-positive\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md\",\"reason\":\"generated or dependency directory\"}],\"excludedCount\":231,\"dependencies\":[],\"dependencyCount\":0,\"searchedDependencies\":0,\"missingIndexes\":0,\"dependencyErrors\":0,\"dependenciesOmitted\":0,\"issues\":[\"File exceeds 1 MB: reviewing/list/test/__fixtures__/many-deps/pnpm-lock.yaml\",\"File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json\",\"File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md\",\"File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md\"],\"issuesOmitted\":0,\"retrieval\":{\"workspaceCandidateLimit\":400,\"workspaceCandidateLimitReached\":true,\"perDependencyLimit\":20,\"exhaustive\":false}},\"checks\":{\"retrieved\":{\"status\":\"pass\",\"reason\":\"Lexical candidates only; coverage and ranking limits remain explicit\"},\"resolved\":{\"status\":\"not-run\",\"reason\":\"Use workspace_context for compiler resolution\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace_validate for compilation\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No assertion command executed\"},\"stable\":{\"status\":\"unknown\",\"reason\":\"Search records files as read; it does not establish an atomic workspace snapshot\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed dependency contents were not compared with registry artifacts\"}},\"next\":\"Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.\",\"searchMs\":3329}"
+          }
+        ],
+        "structured_content": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "fast-glob tinyglobby package discovery metadata matching executable discovery patch archive",
+          "scope": "workspace",
+          "detail": "source",
+          "status": "partial",
+          "results": [
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/workspace/filter-workspace-packages/src/index.ts",
+              "line": 319,
+              "endLine": 330,
+              "symbol": "matchPackagesByGlob",
+              "position": 10963,
+              "kind": "declaration",
+              "score": 66,
+              "matchedTerms": [
+                "glob",
+                "packag",
+                "match"
+              ],
+              "snippet": "function matchPackagesByGlob<Pkg extends Package> (\n  graph: PackageGraph<Pkg>,\n  pathStartsWith: string\n): ProjectRootDir[] {\n  const format = (str: string) => str.replace(/\\/$/, '')\n  const formattedFilter = pathStartsWith.replace(/\\\\/g, '/').replace(/\\/$/, '')\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => micromatch.isMatch(paren",
+              "preview": {
+                "omittedCharacters": 111
+              },
+              "projectRoot": "$WORKSPACE/workspace/filter-workspace-packages"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/fs/find-packages/CHANGELOG.md",
+              "line": 133,
+              "endLine": 148,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 62,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "tinyglobby",
+                "packag",
+                "patch"
+              ],
+              "snippet": "\n## 1000.0.7\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [a5e4965]\n  - @pnpm/types@1000.2.1\n  - @pnpm/read-project-manifest@1000.0.7\n\n## 1000.0.6\n\n### Patch Changes\n\n- Updated dependencies [8fcc221]\n  - @pnpm/types@",
+              "preview": {
+                "omittedCharacters": 8
+              },
+              "projectRoot": "$WORKSPACE/fs/find-packages"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pkg-manager/package-bins/CHANGELOG.md",
+              "line": 97,
+              "endLine": 112,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 62,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "tinyglobby",
+                "packag",
+                "patch"
+              ],
+              "snippet": "\n## 1000.0.4\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [a5e4965]\n  - @pnpm/types@1000.2.1\n\n## 1000.0.3\n\n### Patch Changes\n\n- Updated dependencies [8fcc221]\n  - @pnpm/types@1000.2.0\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/pkg-manager/package-bins"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/fs/find-packages/src/index.ts",
+              "line": 25,
+              "endLine": 36,
+              "symbol": "globOpts",
+              "position": 693,
+              "kind": "declaration",
+              "score": 54,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "packag"
+              ],
+              "snippet": "  const globOpts = { ...opts, cwd: root }\n  globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\n  const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\n  const paths: string[] = await fastGlob(patterns, globOpts)\n\n  if (opts.includeRoot) {\n    // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\n    paths.push(...(await fast",
+              "preview": {
+                "omittedCharacters": 128
+              },
+              "projectRoot": "$WORKSPACE/fs/find-packages"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/package.json",
+              "line": 61,
+              "endLine": 76,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 54,
+              "matchedTerms": [
+                "tinyglobby",
+                "packag",
+                "patch"
+              ],
+              "snippet": "    \"normalize-path\": \"catalog:\",\n    \"ramda\": \"catalog:\",\n    \"realpath-missing\": \"catalog:\",\n    \"render-help\": \"catalog:\",\n    \"safe-execa\": \"catalog:\",\n    \"semver\": \"catalog:\",\n    \"terminal-link\": \"catalog:\",\n    \"tinyglobby\": \"catalog:\"\n  },\n  \"peerDependencies\": {\n    \"@pnpm/logger\": \"catalog:\"\n  },\n  \"devDependencies\": {\n    \"@jest/globals\": \"catalo",
+              "preview": {
+                "omittedCharacters": 92
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/workspace/filter-workspace-packages/src/index.ts",
+              "line": 202,
+              "endLine": 213,
+              "symbol": "matchPackagesByPath",
+              "position": 6847,
+              "kind": "declaration",
+              "score": 54,
+              "matchedTerms": [
+                "glob",
+                "packag",
+                "match"
+              ],
+              "snippet": "  const matchPackagesByPath = opts.useGlobDirFiltering === true\n    ? matchPackagesByGlob\n    : matchPackagesByExactPath\n  for (const selector of packageSelectors) {\n    let entryPackages: ProjectRootDir[] | null = null\n    if (selector.diff) {\n      let ignoreDependentForPkgs: ProjectRootDir[] = []\n      // eslint-disable-next-line no-await-in-loop\n      ;[",
+              "preview": {
+                "omittedCharacters": 150
+              },
+              "projectRoot": "$WORKSPACE/workspace/filter-workspace-packages"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/CHANGELOG.md",
+              "line": 865,
+              "endLine": 880,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 52,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "tinyglobby",
+                "patch"
+              ],
+              "snippet": "\n  ```yaml\n  verifyDepsBeforeRun: install\n  optimisticRepeatInstall: true\n  publicHoistPattern:\n    - \"*types*\"\n    - \"!@types/react\"\n  ```\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [6a59366]\n- Updated dependencie",
+              "preview": {
+                "omittedCharacters": 77
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/src/patchCommit.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 52,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "packag",
+                "patch"
+              ],
+              "snippet": "import fs from 'fs'\nimport path from 'path'\nimport { docsUrl } from '@pnpm/cli-utils'\nimport { type Config, types as allTypes } from '@pnpm/config'\nimport { createShortHash } from '@pnpm/crypto.hash'\nimport { PnpmError } from '@pnpm/error'\nimport { packlist } from '@pnpm/fs.packlist'\nimport { globalWarn } from '@pnpm/logger'\nimport { install } from '@pnpm/pl",
+              "preview": {
+                "omittedCharacters": 334
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pkg-manager/core/test/install/patch.ts",
+              "line": 25,
+              "endLine": 40,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 52,
+              "matchedTerms": [
+                "fast",
+                "packag",
+                "match",
+                "patch"
+              ],
+              "snippet": "  const opts = testDefaults({\n    neverBuiltDependencies: undefined,\n    onlyBuiltDependencies: [],\n    fastUnpack: false,\n    sideEffectsCacheRead: true,\n    sideEffectsCacheWrite: true,\n    patchedDependencies,\n    reporter,\n  }, {}, {}, { packageImportMethod: 'hardlink' })\n  await install({\n    dependencies: {\n      'is-positive': '1.0.0',\n    },\n  }, opt",
+              "preview": {
+                "omittedCharacters": 39
+              },
+              "projectRoot": "$WORKSPACE/pkg-manager/core"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pkg-manager/core/test/install/patch.ts",
+              "line": 121,
+              "endLine": 136,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 52,
+              "matchedTerms": [
+                "fast",
+                "packag",
+                "match",
+                "patch"
+              ],
+              "snippet": "    neverBuiltDependencies: undefined,\n    onlyBuiltDependencies: [],\n    fastUnpack: false,\n    sideEffectsCacheRead: true,\n    sideEffectsCacheWrite: true,\n    patchedDependencies,\n    reporter,\n  }, {}, {}, { packageImportMethod: 'hardlink' })\n  await install({\n    dependencies: {\n      'is-positive': '1.0.0',\n    },\n  }, opts)\n\n  expect(reporter.calledWi",
+              "preview": {
+                "omittedCharacters": 31
+              },
+              "projectRoot": "$WORKSPACE/pkg-manager/core"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pnpm/CHANGELOG.md",
+              "line": 1045,
+              "endLine": 1060,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 50,
+              "matchedTerms": [
+                "fast",
+                "glob",
+                "tinyglobby",
+                "packag",
+                "patch"
+              ],
+              "snippet": "  ```\n\n- Projects using a `file:` dependency on a local tarball file (i.e. `.tgz`, `.tar.gz`, `.tar`) will see a performance improvement during installation. Previously, using a `file:` dependency on a tarball caused the lockfile resolution step to always run. The lockfile will now be considered up-to-date if the tarball is unchanged.\n\n### Patch Changes\n\n- `",
+              "preview": {
+                "omittedCharacters": 978
+              },
+              "projectRoot": "$WORKSPACE/pnpm"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/test/patch.test.ts",
+              "line": 1412,
+              "endLine": 1416,
+              "symbol": "match",
+              "position": 52501,
+              "kind": "declaration",
+              "score": 44,
+              "matchedTerms": [
+                "match",
+                "patch"
+              ],
+              "snippet": "  const match = output.match(/['\"]([^'\"]+)['\"]/)\n  if (match?.[1] == null) throw new Error('No path in output')\n  return match[1]\n}\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            }
+          ],
+          "sourceContext": {
+            "files": [
+              {
+                "source": "$WORKSPACE/workspace/filter-workspace-packages/src/index.ts",
+                "sha256": "4fbab60228ed8133c9c24575010364dc4b53f87b85390cfa6b50376cee7f944b",
+                "text": "    }\n    if (selector.includeDependents) {\n      if (reversedGraph == null) {\n        reversedGraph = reverseGraph(graph)\n      }\n      pickSubgraph(reversedGraph, entryPackages, walkedDependents, { includeRoot: !selector.excludeSelf })\n    }\n\n    if (selector.includeDependencies && selector.includeDependents) {\n      pickSubgraph(graph, Array.from(walkedDependents), walkedDependentsDependencies, { includeRoot: false })\n    }\n\n    if (!selector.includeDependencies && !selector.includeDependents) {\n      cherryPickedPackages.push(...entryPackages)\n    }\n  }\n}\n\nfunction pkgGraphToGraph<Pkg extends Package> (pkgGraph: PackageGraph<Pkg>): Graph {\n  const graph: Graph = {}\n  for (const nodeId of Object.keys(pkgGraph) as ProjectRootDir[]) {\n    graph[nodeId] = pkgGraph[nodeId].dependencies\n  }\n  return graph\n}\n\nfunction reverseGraph (graph: Graph): Graph {\n  const reversedGraph: Graph = {}\n  for (const dependentNodeId of Object.keys(graph) as ProjectRootDir[]) {\n    for (const dependencyNodeId of graph[dependentNodeId]) {\n      if (!reversedGraph[dependencyNodeId]) {\n        reversedGraph[dependencyNodeId] = [dependentNodeId]\n      } else {\n        reversedGraph[dependencyNodeId].push(dependentNodeId)\n      }\n    }\n  }\n  return reversedGraph\n}\n\nfunction matchPackages<Pkg extends Package> (\n  graph: PackageGraph<Pkg>,\n  pattern: string\n): ProjectRootDir[] {\n  const match = createMatcher(pattern)\n  const matches = (Object.keys(graph) as ProjectRootDir[]).filter((id) => graph[id].package.manifest.name && match(graph[id].package.manifest.name!))\n  if (matches.length === 0 && !(pattern[0] === '@') && !pattern.includes('/')) {\n    const scopedMatches = matchPackages(graph, `@*/${pattern}`)\n    return scopedMatches.length !== 1 ? [] : scopedMatches\n  }\n  return matches\n}\n\nfunction matchPackagesByExactPath<Pkg extends Package> (\n  graph: PackageGraph<Pkg>,\n  pathStartsWith: string\n): ProjectRootDir[] {\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => isSubdir(pathStartsWith, parentDir))\n}\n\nfunction matchPackagesByGlob<Pkg extends Package> (\n  graph: PackageGraph<Pkg>,\n  pathStartsWith: string\n): ProjectRootDir[] {\n  const format = (str: string) => str.replace(/\\/$/, '')\n  const formattedFilter = pathStartsWith.replace(/\\\\/g, '/').replace(/\\/$/, '')\n  return (Object.keys(graph) as ProjectRootDir[]).filter((parentDir) => micromatch.isMatch(parentDir, formattedFilter, { format }))\n}\n\nfunction pickSubgraph (\n  graph: Graph,\n  nextNodeIds: ProjectRootDir[],\n  walked: Set<ProjectRootDir>,\n  opts: {\n    includeRoot: boolean\n  }\n): void {\n  for (const nextNodeId of nextNodeIds) {\n    if (!walked.has(nextNodeId)) {\n      if (opts.includeRoot) {\n        walked.add(nextNodeId)\n      }\n\n      if (graph[nextNodeId]) pickSubgraph(graph, graph[nextNodeId], walked, { includeRoot: true })\n    }\n  }\n}\n",
+                "startLine": 259,
+                "startColumn": 1,
+                "endLine": 345,
+                "bytes": 2845,
+                "complete": false,
+                "omittedBytes": 8919,
+                "omittedBefore": 8919,
+                "omittedAfter": 0,
+                "reason": "result"
+              },
+              {
+                "source": "$WORKSPACE/fs/find-packages/CHANGELOG.md",
+                "sha256": "e900b535dd65435409bbcd160c533dbd2111e21ad25020e859f7ae33b326ed51",
+                "text": "# @pnpm/fs.find-packages\n\n## 1000.0.23\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@1001.2.5\n\n## 1000.0.22\n\n### Patch Changes\n\n- Updated dependencies [d75628a]\n  - @pnpm/types@1001.3.0\n  - @pnpm/read-project-manifest@1001.2.4\n\n## 1000.0.21\n\n### Patch Changes\n\n- Updated dependencies [59a81aa]\n  - @pnpm/types@1001.2.0\n  - @pnpm/read-project-manifest@1001.2.3\n\n## 1000.0.20\n\n### Patch Changes\n\n- Updated dependencies [9b05bdd]\n  - @pnpm/types@1001.1.0\n  - @pnpm/read-project-manifest@1001.2.2\n\n## 1000.0.19\n\n### Patch Changes\n\n- Updated dependencies [2fc23e4]\n- Updated dependencies [c206765]\n  - @pnpm/read-project-manifest@1001.2.1\n  - @pnpm/types@1001.0.1\n\n## 1000.0.18\n\n### Patch Changes\n\n- Updated dependencies [5847af4]\n- Updated dependencies [68ad086]\n- Updated dependencies [5847af4]\n  - @pnpm/types@1001.0.0\n  - @pnpm/read-project-manifest@1001.2.0\n\n## 1000.0.17\n\n### Patch Changes\n\n- Updated dependencies [7c1382f]\n- Updated dependencies [dee39ec]\n  - @pnpm/types@1000.9.0\n  - @pnpm/read-project-manifest@1001.1.4\n\n## 1000.0.16\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@1001.1.3\n\n## 1000.0.15\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@1001.1.2\n\n## 1000.0.14\n\n### Patch Changes\n\n- Updated dependencies [e792927]\n  - @pnpm/types@1000.8.0\n  - @pnpm/read-project-manifest@1001.1.1\n\n## 1000.0.13\n\n### Patch Changes\n\n- Updated dependencies [d1edf73]\n- Updated dependencies [86b33e9]\n  - @pnpm/read-project-manifest@1001.1.0\n\n## 1000.0.12\n\n### Patch Changes\n\n- Updated dependencies [1a07b8f]\n- Updated dependencies [1a07b8f]\n- Updated dependencies [1a07b8f]\n  - @pnpm/types@1000.7.0\n  - @pnpm/read-project-manifest@1001.0.0\n\n## 1000.0.11\n\n### Patch Changes\n\n- c00360b: Update `@pnpm/util.lex-comparator` to v3.0.2.\n- Updated dependencies [5ec7255]\n  - @pnpm/types@1000.6.0\n  - @pnpm/read-project-manifest@1000.0.11\n\n## 1000.0.10\n\n### Patch Changes\n\n- Updated dependencies [5b73df1]\n  - @pnpm/types@1000.5.0\n  - @pnpm/read-project-manifest@1000.0.10\n\n## 1000.0.9\n\n### Patch Changes\n\n- c85aaf8: Do not hang indefinitely, when there is a glob that starts with `!/` in `pnpm-workspace.yaml`. This fixes a regression introduced by [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [750ae7d]\n  - @pnpm/types@1000.4.0\n  - @pnpm/read-project-manifest@1000.0.9\n\n## 1000.0.8\n\n### Patch Changes\n\n- Updated dependencies [5f7be64]\n- Updated dependencies [5f7be64]\n  - @pnpm/types@1000.3.0\n  - @pnpm/read-project-manifest@1000.0.8\n\n## 1000.0.7\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [a5e4965]\n  - @pnpm/types@1000.2.1\n  - @pnpm/read-project-manifest@1000.0.7\n\n## 1000.0.6\n\n### Patch Changes\n\n- Updated dependencies [8fcc221]\n  - @pnpm/types@1000.2.0\n  - @pnpm/read-project-manifest@1000.0.6\n\n## 1000.0.5\n\n### Patch Changes\n\n- Updated dependencies [1e229d7]\n  - @pnpm/read-project-manifest@1000.0.5\n\n## 1000.0.4\n\n### Patch Changes\n\n- Updated dependencies [b562deb]\n  - @pnpm/types@1000.1.1\n  - @pnpm/read-project-manifest@1000.0.4\n\n## 1000.0.3\n\n### Patch Changes\n\n- Updated dependencies [e050221]\n  - @pnpm/read-project-manifest@1000.0.3\n\n## 1000.0.2\n\n### Patch Changes\n\n- Updated dependencies [9591a18]\n  - @pnpm/types@1000.1.0\n  - @pnpm/read-project-manifest@1000.0.2\n\n## 1000.0.1\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@1000.0.1\n\n## 4.0.6\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@6.0.10\n\n## 4.0.5\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@6.0.9\n\n## 4.0.4\n\n### Patch Changes\n\n- Updated dependencies [d500d9f]\n  - @pnpm/types@12.2.0\n  - @pnpm/read-project-manifest@6.0.8\n\n## 4.0.3\n\n### Patch Changes\n\n- Updated dependencies [7ee59a1]\n  - @pnpm/types@12.1.0\n  - @pnpm/read-project-manifest@6.0.7\n\n## 4.0.2\n\n### Patch Changes\n\n- Updated dependencies [cb006df]\n  - @pnpm/types@12.0.0\n  - @pnpm/read-project-manifest@6.0.6\n\n## 4.0.1\n\n### Patch Changes\n\n- Updated dependencies [0ef168b]\n  - @pnpm/types@11.1.0\n  - @pnpm/read-project-manifest@6.0.5\n\n## 4.0.0\n\n### Major Changes\n\n- dd00eeb: Renamed dir to rootDir in the Project object.\n\n### Patch Changes\n\n- Updated dependencies [dd00eeb]\n- Updated dependencies\n  - @pnpm/types@11.0.0\n  - @pnpm/read-project-manifest@6.0.4\n\n## 3.0.3\n\n### Patch Changes\n\n- 13e55b2: If install is performed on a subset of workspace projects, always create an up-to-date lockfile first. So, a partial install can be performed only on a fully resolved (non-partial) lockfile [#8165](https://github.com/pnpm/pnpm/issues/8165).\n- Updated dependencies [13e55b2]\n  - @pnpm/types@10.1.1\n  - @pnpm/read-project-manifest@6.0.3\n\n## 3.0.2\n\n### Patch Changes\n\n- Updated dependencies [45f4262]\n  - @pnpm/types@10.1.0\n  - @pnpm/read-project-manifest@6.0.2\n\n## 3.0.1\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@6.0.1\n\n## 3.0.0\n\n### Major Changes\n\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\n\n### Patch Changes\n\n- Updated dependencies [7733f3a]\n- Updated dependencies [43cdd87]\n- Updated dependencies [730929e]\n  - @pnpm/types@10.0.0\n  - @pnpm/read-project-manifest@6.0.0\n\n## 2.0.10\n\n### Patch Changes\n\n- Updated dependencies [4d34684f1]\n  - @pnpm/types@9.4.2\n  - @pnpm/read-project-manifest@5.0.10\n\n## 2.0.9\n\n### Patch Changes\n\n- Updated dependencies\n  - @pnpm/types@9.4.1\n  - @pnpm/read-project-manifest@5.0.9\n\n## 2.0.8\n\n### Patch Changes\n\n- Updated dependencies [43ce9e4a6]\n  - @pnpm/types@9.4.0\n  - @pnpm/read-project-manifest@5.0.8\n\n## 2.0.7\n\n### Patch Changes\n\n- Updated dependencies [d774a3196]\n  - @pnpm/types@9.3.0\n  - @pnpm/read-project-manifest@5.0.7\n\n## 2.0.6\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@5.0.6\n\n## 2.0.5\n\n### Patch Changes\n\n- e9aa6f682: Apply fixes from @typescript-eslint v6 for nullish coalescing and optional chains. No behavior changes are expected with this change.\n  - @pnpm/read-project-manifest@5.0.5\n\n## 2.0.4\n\n### Patch Changes\n\n- Updated dependencies [aa2ae8fe2]\n  - @pnpm/types@9.2.0\n  - @pnpm/read-project-manifest@5.0.4\n\n## 2.0.3\n\n### Patch Changes\n\n- Updated dependencies [b4892acc5]\n  - @pnpm/read-project-manifest@5.0.3\n\n## 2.0.2\n\n### Patch Changes\n\n- @pnpm/read-project-manifest@5.0.2\n",
+                "startLine": 1,
+                "startColumn": 1,
+                "endLine": 345,
+                "bytes": 6185,
+                "complete": true,
+                "omittedBytes": 0,
+                "omittedBefore": 0,
+                "omittedAfter": 0,
+                "reason": "result"
+              },
+              {
+                "source": "$WORKSPACE/pkg-manager/package-bins/CHANGELOG.md",
+                "sha256": "7e16835068b64d35adc6ba53f04b98cc529901bd0e81c54285614c7eb16ae823",
+                "text": "# @pnpm/package-bins\n\n## 1000.0.17\n\n### Patch Changes\n\n- 17432ad: Security fix: prevent path traversal in `directories.bin` field.\n\n## 1000.0.16\n\n### Patch Changes\n\n- 8afbb15: Fixed a path traversal vulnerability in pnpm's bin linking. Bin names starting with `@` bypassed validation, and after scope normalization, path traversal sequences like `../../` remained intact.\n- Updated dependencies [d75628a]\n  - @pnpm/types@1001.3.0\n\n## 1000.0.15\n\n### Patch Changes\n\n- Updated dependencies [59a81aa]\n  - @pnpm/types@1001.2.0\n\n## 1000.0.14\n\n### Patch Changes\n\n- Updated dependencies [9b05bdd]\n  - @pnpm/types@1001.1.0\n\n## 1000.0.13\n\n### Patch Changes\n\n- Updated dependencies [c206765]\n  - @pnpm/types@1001.0.1\n\n## 1000.0.12\n\n### Patch Changes\n\n- Updated dependencies [5847af4]\n- Updated dependencies [68ad086]\n- Updated dependencies [5847af4]\n  - @pnpm/types@1001.0.0\n\n## 1000.0.11\n\n### Patch Changes\n\n- Updated dependencies [7c1382f]\n- Updated dependencies [dee39ec]\n  - @pnpm/types@1000.9.0\n\n## 1000.0.10\n\n### Patch Changes\n\n- Updated dependencies [e792927]\n  - @pnpm/types@1000.8.0\n\n## 1000.0.9\n\n### Patch Changes\n\n- Updated dependencies [1a07b8f]\n  - @pnpm/types@1000.7.0\n\n## 1000.0.8\n\n### Patch Changes\n\n- Updated dependencies [5ec7255]\n  - @pnpm/types@1000.6.0\n\n## 1000.0.7\n\n### Patch Changes\n\n- Updated dependencies [5b73df1]\n  - @pnpm/types@1000.5.0\n\n## 1000.0.6\n\n### Patch Changes\n\n- Updated dependencies [750ae7d]\n  - @pnpm/types@1000.4.0\n\n## 1000.0.5\n\n### Patch Changes\n\n- Updated dependencies [5f7be64]\n- Updated dependencies [5f7be64]\n  - @pnpm/types@1000.3.0\n\n## 1000.0.4\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [a5e4965]\n  - @pnpm/types@1000.2.1\n\n## 1000.0.3\n\n### Patch Changes\n\n- Updated dependencies [8fcc221]\n  - @pnpm/types@1000.2.0\n\n## 1000.0.2\n\n### Patch Changes\n\n- Updated dependencies [b562deb]\n  - @pnpm/types@1000.1.1\n\n## 1000.0.1\n\n### Patch Changes\n\n- Updated dependencies [9591a18]\n  - @pnpm/types@1000.1.0\n\n## 9.0.7\n\n### Patch Changes\n\n- Updated dependencies [d500d9f]\n  - @pnpm/types@12.2.0\n\n## 9.0.6\n\n### Patch Changes\n\n- Updated dependencies [7ee59a1]\n  - @pnpm/types@12.1.0\n\n## 9.0.5\n\n### Patch Changes\n\n- Updated dependencies [cb006df]\n  - @pnpm/types@12.0.0\n\n## 9.0.4\n\n### Patch Changes\n\n- Updated dependencies [0ef168b]\n  - @pnpm/types@11.1.0\n\n## 9.0.3\n\n### Patch Changes\n\n- Updated dependencies [dd00eeb]\n- Updated dependencies\n  - @pnpm/types@11.0.0\n\n## 9.0.2\n\n### Patch Changes\n\n- Updated dependencies [13e55b2]\n  - @pnpm/types@10.1.1\n\n## 9.0.1\n\n### Patch Changes\n\n- Updated dependencies [45f4262]\n  - @pnpm/types@10.1.0\n\n## 9.0.0\n\n### Major Changes\n\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\n\n### Patch Changes\n\n- Updated dependencies [7733f3a]\n- Updated dependencies [43cdd87]\n- Updated dependencies [730929e]\n  - @pnpm/types@10.0.0\n\n## 8.0.6\n\n### Patch Changes\n\n- Updated dependencies [4d34684f1]\n  - @pnpm/types@9.4.2\n\n## 8.0.5\n\n### Patch Changes\n\n- Updated dependencies\n  - @pnpm/types@9.4.1\n\n## 8.0.4\n\n### Patch Changes\n\n- d2dc2e66a: Allow scoped name as bin name [#7112](https://github.com/pnpm/pnpm/issues/7112).\n- Updated dependencies [43ce9e4a6]\n  - @pnpm/types@9.4.0\n\n## 8.0.3\n\n### Patch Changes\n\n- Updated dependencies [d774a3196]\n  - @pnpm/types@9.3.0\n\n## 8.0.2\n\n### Patch Changes\n\n- Updated dependencies [aa2ae8fe2]\n  - @pnpm/types@9.2.0\n\n## 8.0.1\n\n### Patch Changes\n\n- Updated dependencies [a9e0b7cbf]\n  - @pnpm/types@9.1.0\n\n## 8.0.0\n\n### Major Changes\n\n- eceaa8b8b: Node.js 14 support dropped.\n\n### Patch Changes\n\n- Updated dependencies [eceaa8b8b]\n  - @pnpm/types@9.0.0\n\n## 7.0.3\n\n### Patch Changes\n\n- Updated dependencies [b77651d14]\n  - @pnpm/types@8.10.0\n\n## 7.0.2\n\n### Patch Changes\n\n- Updated dependencies [702e847c1]\n  - @pnpm/types@8.9.0\n\n## 7.0.1\n\n### Patch Changes\n\n- Updated dependencies [844e82f3a]\n  - @pnpm/types@8.8.0\n\n## 7.0.0\n\n### Major Changes\n\n- f884689e0: Require `@pnpm/logger` v5.\n\n## 6.0.8\n\n### Patch Changes\n\n- Updated dependencies [d665f3ff7]\n  - @pnpm/types@8.7.0\n\n## 6.0.7\n\n### Patch Changes\n\n- Updated dependencies [156cc1ef6]\n  - @pnpm/types@8.6.0\n\n## 6.0.6\n\n### Patch Changes\n\n- Updated dependencies [c90798461]\n  - @pnpm/types@8.5.0\n\n## 6.0.5\n\n### Patch Changes\n\n- Updated dependencies [8e5b77ef6]\n  - @pnpm/types@8.4.0\n\n## 6.0.4\n\n### Patch Changes\n\n- Updated dependencies [2a34b21ce]\n  - @pnpm/types@8.3.0\n\n## 6.0.3\n\n### Patch Changes\n\n- Updated dependencies [fb5bbfd7a]\n  - @pnpm/types@8.2.0\n\n## 6.0.2\n\n### Patch Changes\n\n- Updated dependencies [4d39e4a0c]\n  - @pnpm/types@8.1.0\n\n## 6.0.1\n\n### Patch Changes\n\n- Updated dependencies [18ba5e2c0]\n  - @pnpm/types@8.0.1\n\n## 6.0.0\n\n### Major Changes\n\n- 542014839: Node.js 12 is not supported.\n\n### Patch Changes\n\n- Updated dependencies [d504dc380]\n- Updated dependencies [542014839]\n  - @pnpm/types@8.0.0\n\n## 5.0.12\n\n### Patch Changes\n\n- Updated dependencies [b138d048c]\n  - @pnpm/types@7.10.0\n\n## 5.0.11\n\n### Patch Changes\n\n- Updated dependencies [26cd01b88]\n  - @pnpm/types@7.9.0\n\n## 5.0.10\n\n### Patch Changes\n\n- Updated dependencies [b5734a4a7]\n  - @pnpm/types@7.8.0\n\n## 5.0.9\n\n### Patch Changes\n\n- Updated dependencies [6493e0c93]\n  - @pnpm/types@7.7.1\n\n## 5.0.8\n\n### Patch Changes\n\n- Updated dependencies [ba9b2eba1]\n  - @pnpm/types@7.7.0\n\n## 5.0.7\n\n### Patch Changes\n\n- Updated dependencies [302ae4f6f]\n  - @pnpm/types@7.6.0\n\n## 5.0.6\n\n### Patch Changes\n\n- Updated dependencies [4ab87844a]\n  - @pnpm/types@7.5.0\n\n## 5.0.5\n\n### Patch Changes\n\n- 97f90e537: Allow the \\$ sign to be a command name.\n\n## 5.0.4\n\n### Patch Changes\n\n- Updated dependencies [b734b45ea]\n  - @pnpm/types@7.4.0\n\n## 5.0.3\n\n### Patch Changes\n\n- Updated dependencies [8e76690f4]\n  - @pnpm/types@7.3.0\n\n## 5.0.2\n\n### Patch Changes\n\n- Updated dependencies [724c5abd8]\n  - @pnpm/types@7.2.0\n\n## 5.0.1\n\n### Patch Changes\n\n- Updated dependencies [97c64bae4]\n  - @pnpm/types@7.1.0\n\n## 5.0.0\n\n### Major Changes\n\n- 97b986fbc: Node.js 10 support is dropped. At least Node.js 12.17 is required for the package to work.\n\n### Patch Changes\n\n- Updated dependencies [97b986fbc]\n  - @pnpm/types@7.0.0\n\n## 4.1.0\n\n### Minor Changes\n\n- d853fb14a: Find all files inside the bin directory.\n\n## 4.0.11\n\n### Patch Changes\n\n- ad113645b: pin graceful-fs to v4.2.4\n\n## 4.0.10\n\n### Patch Changes\n\n- Updated dependencies [9ad8c27bf]\n  - @pnpm/types@6.4.0\n\n## 4.0.9\n\n### Patch Changes\n\n- Updated dependencies [b5d694e7f]\n  - @pnpm/types@6.3.1\n\n## 4.0.8\n\n### Patch Changes\n\n- Updated dependencies [d54043ee4]\n  - @pnpm/types@6.3.0\n\n## 4.0.7\n\n### Patch Changes\n\n- Updated dependencies [db17f6f7b]\n  - @pnpm/types@6.2.0\n\n## 4.0.6\n\n### Patch Changes\n\n- 1520e3d6f: Update graceful-fs to v4.2.4\n\n## 4.0.5\n\n### Patch Changes\n\n- Updated dependencies [71a8c8ce3]\n  - @pnpm/types@6.1.0\n\n## 4.0.4\n\n### Patch Changes\n\n- Updated dependencies [da091c711]\n  - @pnpm/types@6.0.0\n\n## 4.0.4-alpha.0\n\n### Patch Changes\n\n- Updated dependencies [da091c71]\n  - @pnpm/types@6.0.0-alpha.0\n",
+                "startLine": 1,
+                "startColumn": 1,
+                "endLine": 498,
+                "bytes": 7015,
+                "complete": true,
+                "omittedBytes": 0,
+                "omittedBefore": 0,
+                "omittedAfter": 0,
+                "reason": "result"
+              },
+              {
+                "source": "$WORKSPACE/fs/find-packages/src/index.ts",
+                "sha256": "528cd6e7e96ebd130b36c3ff7bdb08b124fda1ee52f69cefd16339f1ae48b8dd",
+                "text": "import { promises as fs } from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { readExactProjectManifest } from '@pnpm/read-project-manifest'\nimport { type Project, type ProjectRootDir, type ProjectRootDirRealPath } from '@pnpm/types'\nimport { lexCompare } from '@pnpm/util.lex-comparator'\nimport fastGlob from 'fast-glob'\nimport pFilter from 'p-filter'\n\nconst DEFAULT_IGNORE = [\n  '**/node_modules/**',\n  '**/bower_components/**',\n  '**/test/**',\n  '**/tests/**',\n]\n\nexport interface Options {\n  ignore?: string[]\n  includeRoot?: boolean\n  patterns?: string[]\n}\n\nexport async function findPackages (root: string, opts?: Options): Promise<Project[]> {\n  opts = opts ?? {}\n  const globOpts = { ...opts, cwd: root }\n  globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\n  const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\n  const paths: string[] = await fastGlob(patterns, globOpts)\n\n  if (opts.includeRoot) {\n    // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\n    paths.push(...(await fastGlob(normalizePatterns(['.']), globOpts)))\n  }\n\n  return pFilter(\n    // `Array.from()` doesn't create an intermediate instance,\n    // unlike `array.map()`\n    Array.from(\n      // Remove duplicate paths using `Set`\n      new Set(\n        paths\n          .map(manifestPath => path.join(root, manifestPath))\n          .sort((path1, path2) =>\n            lexCompare(path.dirname(path1), path.dirname(path2))\n          )\n      ),\n      async manifestPath => {\n        try {\n          const rootDir = path.dirname(manifestPath) as ProjectRootDir\n          return {\n            rootDir,\n            rootDirRealPath: await fs.realpath(rootDir) as ProjectRootDirRealPath,\n            ...await readExactProjectManifest(manifestPath),\n          } as Project\n        } catch (err: unknown) {\n          if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\n            return null!\n          }\n          throw err\n        }\n      }),\n    Boolean\n  )\n}\n\nfunction normalizePatterns (patterns: readonly string[]): string[] {\n  const normalizedPatterns: string[] = []\n  for (const pattern of patterns) {\n    normalizedPatterns.push(pattern.replace(/\\/?$/, '/package.{json,yaml,json5}'))\n  }\n  return normalizedPatterns\n}\n",
+                "startLine": 1,
+                "startColumn": 1,
+                "endLine": 72,
+                "bytes": 2277,
+                "complete": true,
+                "omittedBytes": 0,
+                "omittedBefore": 0,
+                "omittedAfter": 0,
+                "reason": "result"
+              },
+              {
+                "source": "$WORKSPACE/patching/plugin-commands-patching/package.json",
+                "sha256": "687e236ab81b4ad932c86bca98d35d332d6e1c585128bc5121ac648c4d413ca1",
+                "text": "{\n  \"name\": \"@pnpm/plugin-commands-patching\",\n  \"version\": \"1000.3.43\",\n  \"description\": \"Commands for creating patches\",\n  \"keywords\": [\n    \"pnpm\",\n    \"pnpm10\",\n    \"scripts\"\n  ],\n  \"license\": \"MIT\",\n  \"funding\": \"https://opencollective.com/pnpm\",\n  \"repository\": \"https://github.com/pnpm/pnpm/tree/main/patching/plugin-commands-patching\",\n  \"homepage\": \"https://github.com/pnpm/pnpm/tree/main/patching/plugin-commands-patching#readme\",\n  \"bugs\": {\n    \"url\": \"https://github.com/pnpm/pnpm/issues\"\n  },\n  \"type\": \"commonjs\",\n  \"main\": \"lib/index.js\",\n  \"types\": \"lib/index.d.ts\",\n  \"exports\": {\n    \".\": \"./lib/index.js\"\n  },\n  \"files\": [\n    \"lib\",\n    \"!*.map\"\n  ],\n  \"scripts\": {\n    \"start\": \"tsc --watch\",\n    \"lint\": \"eslint \\\"src/**/*.ts\\\" \\\"test/**/*.ts\\\"\",\n    \"_test\": \"jest\",\n    \"test\": \"pnpm run compile && pnpm run _test\",\n    \"prepublishOnly\": \"pnpm run compile\",\n    \"compile\": \"tsc --build && pnpm run lint --fix\"\n  },\n  \"dependencies\": {\n    \"@pnpm/cli-utils\": \"workspace:*\",\n    \"@pnpm/config\": \"workspace:*\",\n    \"@pnpm/config.config-writer\": \"workspace:*\",\n    \"@pnpm/constants\": \"workspace:*\",\n    \"@pnpm/crypto.hash\": \"workspace:*\",\n    \"@pnpm/error\": \"workspace:*\",\n    \"@pnpm/fs.packlist\": \"workspace:*\",\n    \"@pnpm/lockfile.fs\": \"workspace:*\",\n    \"@pnpm/lockfile.utils\": \"workspace:*\",\n    \"@pnpm/modules-yaml\": \"workspace:*\",\n    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\n    \"@pnpm/patching.apply-patch\": \"workspace:*\",\n    \"@pnpm/pick-fetcher\": \"workspace:*\",\n    \"@pnpm/plugin-commands-installation\": \"workspace:*\",\n    \"@pnpm/read-package-json\": \"workspace:*\",\n    \"@pnpm/read-project-manifest\": \"workspace:*\",\n    \"@pnpm/store-connection-manager\": \"workspace:*\",\n    \"@pnpm/store-path\": \"workspace:*\",\n    \"@pnpm/types\": \"workspace:*\",\n    \"@pnpm/workspace.read-manifest\": \"workspace:*\",\n    \"chalk\": \"catalog:\",\n    \"enquirer\": \"catalog:\",\n    \"escape-string-regexp\": \"catalog:\",\n    \"is-windows\": \"catalog:\",\n    \"make-empty-dir\": \"catalog:\",\n    \"normalize-path\": \"catalog:\",\n    \"ramda\": \"catalog:\",\n    \"realpath-missing\": \"catalog:\",\n    \"render-help\": \"catalog:\",\n    \"safe-execa\": \"catalog:\",\n    \"semver\": \"catalog:\",\n    \"terminal-link\": \"catalog:\",\n    \"tinyglobby\": \"catalog:\"\n  },\n  \"peerDependencies\": {\n    \"@pnpm/logger\": \"catalog:\"\n  },\n  \"devDependencies\": {\n    \"@jest/globals\": \"catalog:\",\n    \"@pnpm/logger\": \"workspace:*\",\n    \"@pnpm/plugin-commands-patching\": \"workspace:*\",\n    \"@pnpm/prepare\": \"workspace:*\",\n    \"@pnpm/registry-mock\": \"catalog:\",\n    \"@pnpm/test-fixtures\": \"workspace:*\",\n    \"@pnpm/workspace.filter-packages-from-dir\": \"workspace:*\",\n    \"@types/is-windows\": \"catalog:\",\n    \"@types/normalize-path\": \"catalog:\",\n    \"@types/ramda\": \"catalog:\",\n    \"@types/semver\": \"catalog:\",\n    \"tempy\": \"catalog:\",\n    \"write-yaml-file\": \"catalog:\"\n  },\n  \"engines\": {\n    \"node\": \">=18.12\"\n  },\n  \"jest\": {\n    \"preset\": \"@pnpm/jest-config/with-registry\"\n  }\n}\n",
+                "startLine": 1,
+                "startColumn": 1,
+                "endLine": 94,
+                "bytes": 2935,
+                "complete": true,
+                "omittedBytes": 0,
+                "omittedBefore": 0,
+                "omittedAfter": 0,
+                "reason": "result"
+              },
+              {
+                "source": "$WORKSPACE/patching/plugin-commands-patching/CHANGELOG.md",
+                "sha256": "84320c174deeb9bc391a21063706f23fdc53113122fe5bdaa5465b5a65545a8d",
+                "text": "\n- 0378a9a: `pnpm patch-commit` will now use the same filesystem as the store directory to compare and create patch files.\n  - @pnpm/cli-utils@1000.0.15\n  - @pnpm/crypto.hash@1000.1.1\n  - @pnpm/plugin-commands-installation@1002.1.2\n  - @pnpm/config@1002.5.2\n  - @pnpm/lockfile.fs@1001.1.6\n  - @pnpm/lockfile.utils@1001.0.5\n  - @pnpm/store-connection-manager@1000.0.14\n\n## 1000.1.1\n\n### Patch Changes\n\n- Updated dependencies [c3aa4d8]\n  - @pnpm/config@1002.5.1\n  - @pnpm/cli-utils@1000.0.14\n  - @pnpm/plugin-commands-installation@1002.1.1\n  - @pnpm/store-connection-manager@1000.0.13\n\n## 1000.1.0\n\n### Minor Changes\n\n- d965748: `pnpm-workspace.yaml` can now hold all the settings that `.npmrc` accepts. The settings should use camelCase [#9211](https://github.com/pnpm/pnpm/pull/9211).\n\n  `pnpm-workspace.yaml` example:\n\n  ```yaml\n  verifyDepsBeforeRun: install\n  optimisticRepeatInstall: true\n  publicHoistPattern:\n    - \"*types*\"\n    - \"!@types/react\"\n  ```\n\n### Patch Changes\n\n- b8b0c68: `fast-glob` replace with `tinyglobby` to reduce the size of the pnpm CLI dependencies [#9169](https://github.com/pnpm/pnpm/pull/9169).\n- Updated dependencies [6a59366]\n- Updated dependencies [a5e4965]\n- Updated dependencies [d9d7607]\n- Updated dependencies [d965748]\n- Updated dependencies [453a18a]\n- Updated dependencies [e4eeafd]\n  - @pnpm/plugin-commands-installation@1002.1.0\n  - @pnpm/types@1000.2.1\n  - @pnpm/config@1002.5.0\n  - @pnpm/patching.apply-patch@1000.0.3\n  - @pnpm/cli-utils@1000.0.13\n  - @pnpm/pick-registry-for-package@1000.0.4\n  - @pnpm/lockfile.fs@1001.1.5\n  - @pnpm/lockfile.utils@1001.0.4\n  - @pnpm/modules-yaml@1000.1.4\n  - @pnpm/read-package-json@1000.0.5\n  - @pnpm/read-project-manifest@1000.0.7\n  - @pnpm/store-connection-manager@1000.0.12\n  - @pnpm/pick-fetcher@1000.0.0\n\n## 1000.0.14\n\n### Patch Changes\n\n- Updated dependencies [76973d8]\n- Updated dependencies [1c2eb8c]\n  - @pnpm/plugin-commands-installation@1002.0.1\n  - @pnpm/config@1002.4.1\n  - @pnpm/cli-utils@1000.0.12\n  - @pnpm/store-connection-manager@1000.0.11\n\n## 1000.0.13\n\n### Patch Changes\n\n- Updated dependencies [8fcc221]\n- Updated dependencies [8fcc221]\n- Updated dependencies [e32b1a2]\n- Updated dependencies [5296961]\n- Updated dependencies [8fcc221]\n  - @pnpm/plugin-commands-installation@1002.0.0\n  - @pnpm/config@1002.4.0\n  - @pnpm/types@1000.2.0\n  - @pnpm/cli-utils@1000.0.11\n  - @pnpm/store-connection-manager@1000.0.10\n  - @pnpm/pick-registry-for-package@1000.0.3\n  - @pnpm/lockfile.fs@1001.1.4\n  - @pnpm/lockfile.utils@1001.0.3\n  - @pnpm/modules-yaml@1000.1.3\n  - @pnpm/read-package-json@1000.0.4\n  - @pnpm/read-project-manifest@1000.0.6\n  - @pnpm/patching.apply-patch@1000.0.2\n  - @pnpm/pick-fetcher@1000.0.0\n\n## 1000.0.12\n\n### Patch Changes\n\n- Updated dependencies [fee898f]\n- Updated dependencies [546ab37]\n  - @pnpm/config@1002.3.1\n  - @pnpm/plugin-commands-installation@1001.5.1\n  - @pnpm/cli-utils@1000.0.10\n  - @pnpm/store-connection-manager@1000.0.9\n  - @pnpm/lockfile.fs@1001.1.3\n\n## 1000.0.11\n\n### Patch Changes\n\n- Updated dependencies [91d46ee]\n  - @pnpm/plugin-commands-installation@1001.5.0\n  - @pnpm/cli-utils@1000.0.9\n\n## 1000.0.10\n\n### Patch Changes\n\n- Updated dependencies [f6006f2]\n  - @pnpm/plugin-commands-installation@1001.4.0\n  - @pnpm/config@1002.3.0\n  - @pnpm/cli-utils@1000.0.8\n  - @pnpm/store-connect",
+                "startLine": 838,
+                "startColumn": 1,
+                "endLine": 959,
+                "bytes": 3319,
+                "complete": false,
+                "omittedBytes": 79354,
+                "omittedBefore": 23207,
+                "omittedAfter": 56147,
+                "reason": "result"
+              }
+            ],
+            "bytes": 24576,
+            "byteLimit": 24576,
+            "fileByteLimit": 8192,
+            "fileLimit": 12,
+            "filesOmitted": 12,
+            "unavailableImports": 0,
+            "ambiguousImports": 0,
+            "resolution": "not-run"
+          },
+          "latencyMs": 3462,
+          "index": {
+            "path": "$PROVIDER_STATE/typelatch/workspaces/e6a1d4a52ee68185dd9a9195316a6d9567490beaaf42b69d9a571135977b3448/search.db",
+            "updatedFiles": 2715,
+            "removedFiles": 0,
+            "files": 2715,
+            "snapshot": "fcb0d9f90d18a2134b146d62123affdaea02da191d751dd7f6a42aeea2c5c2b5"
+          },
+          "coverage": {
+            "complete": false,
+            "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+            "files": 2715,
+            "projects": [
+              "$WORKSPACE/.meta-updater",
+              "$WORKSPACE/__fixtures__/circular",
+              "$WORKSPACE/__fixtures__/custom-modules-dir",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo",
+              "$WORKSPACE/__fixtures__/empty",
+              "$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-version",
+              "$WORKSPACE/__fixtures__/fixture",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/general",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only",
+              "$WORKSPACE/__fixtures__/general",
+              "$WORKSPACE/__fixtures__/has-2-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-major-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-no-lockfile",
+              "$WORKSPACE/__fixtures__/has-not-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/has-only-deprecated-deps",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias",
+              "$WORKSPACE/__fixtures__/has-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-package-lock-json",
+              "$WORKSPACE/__fixtures__/has-package-lock-v3-json",
+              "$WORKSPACE/__fixtures__/has-yarn-lock",
+              "$WORKSPACE/__fixtures__/has-yarn2-lock",
+              "$WORKSPACE/__fixtures__/hello-world-js-bin",
+              "$WORKSPACE/__fixtures__/local-pkg",
+              "$WORKSPACE/__fixtures__/local-scoped-pkg",
+              "$WORKSPACE/__fixtures__/monorepo/package",
+              "$WORKSPACE/__fixtures__/multiple-scripts-error-exit",
+              "$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg",
+              "$WORKSPACE/__fixtures__/with-aliased-dep",
+              "$WORKSPACE/__fixtures__/with-file-dep",
+              "$WORKSPACE/__fixtures__/with-git-protocol-dep",
+              "$WORKSPACE/__fixtures__/with-non-package-dep",
+              "$WORKSPACE/__fixtures__/with-peer",
+              "$WORKSPACE/__fixtures__/with-pnpm-update-ignore",
+              "$WORKSPACE/__fixtures__/with-unsaved-deps",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public",
+              "$WORKSPACE/__typecheck__",
+              "$WORKSPACE/__typings__",
+              "$WORKSPACE/__utils__/assert-project",
+              "$WORKSPACE/__utils__/assert-project/test/fixture/project",
+              "$WORKSPACE/__utils__/assert-store",
+              "$WORKSPACE/__utils__/assert-store/test/fixture/project",
+              "$WORKSPACE/__utils__/build-artifacts",
+              "$WORKSPACE/__utils__/eslint-config",
+              "$WORKSPACE/__utils__/get-release-text",
+              "$WORKSPACE/__utils__/jest-config",
+              "$WORKSPACE/__utils__/prepare-temp-dir",
+              "$WORKSPACE/__utils__/prepare",
+              "$WORKSPACE/__utils__/scripts",
+              "$WORKSPACE/__utils__/test-fixtures",
+              "$WORKSPACE/__utils__/test-ipc-server",
+              "$WORKSPACE/__utils__/tsconfig",
+              "$WORKSPACE/builder/policy",
+              "$WORKSPACE/cache/api",
+              "$WORKSPACE/cache/commands",
+              "$WORKSPACE/catalogs/config",
+              "$WORKSPACE/catalogs/protocol-parser",
+              "$WORKSPACE/catalogs/resolver",
+              "$WORKSPACE/catalogs/types",
+              "$WORKSPACE/cli/cli-meta",
+              "$WORKSPACE/cli/cli-utils",
+              "$WORKSPACE/cli/command",
+              "$WORKSPACE/cli/common-cli-options-help",
+              "$WORKSPACE/cli/default-reporter",
+              "$WORKSPACE/cli/parse-cli-args"
+            ],
+            "configs": [
+              "$WORKSPACE/.meta-updater/tsconfig.json",
+              "$WORKSPACE/.meta-updater/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-project/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-store/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/tsconfig/tsconfig.json",
+              "$WORKSPACE/builder/policy/test/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.lint.json",
+              "$WORKSPACE/cache/api/tsconfig.json",
+              "$WORKSPACE/cache/api/tsconfig.lint.json",
+              "$WORKSPACE/cache/commands/test/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/config/test/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/resolver/test/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/types/tsconfig.json",
+              "$WORKSPACE/catalogs/types/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-meta/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-utils/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.lint.json",
+              "$WORKSPACE/cli/command/tsconfig.json",
+              "$WORKSPACE/cli/command/tsconfig.lint.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json",
+              "$WORKSPACE/cli/default-reporter/test/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.lint.json",
+              "$WORKSPACE/cli/parse-cli-args/test/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json",
+              "$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json",
+              "$WORKSPACE/config/config-writer/tsconfig.json",
+              "$WORKSPACE/config/config-writer/tsconfig.lint.json",
+              "$WORKSPACE/config/config/test/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.lint.json",
+              "$WORKSPACE/config/deps-installer/test/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.lint.json",
+              "$WORKSPACE/config/matcher/test/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.lint.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.lint.json",
+              "$WORKSPACE/config/package-is-installable/test/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.lint.json",
+              "$WORKSPACE/config/parse-overrides/test/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.lint.json",
+              "$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json",
+              "$WORKSPACE/config/plugin-commands-config/test/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json",
+              "$WORKSPACE/config/version-policy/test/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.lint.json",
+              "$WORKSPACE/crypto/hash/test/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.lint.json",
+              "$WORKSPACE/crypto/object-hasher/test/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.lint.json",
+              "$WORKSPACE/crypto/polyfill/tsconfig.json",
+              "$WORKSPACE/crypto/polyfill/tsconfig.lint.json",
+              "$WORKSPACE/crypto/shasums-file/test/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.lint.json",
+              "$WORKSPACE/dedupe/check/test/tsconfig.json"
+            ],
+            "projectsOmitted": 294,
+            "configsOmitted": 403,
+            "excluded": [
+              {
+                "path": "CLAUDE.md",
+                "reason": "symlink"
+              },
+              {
+                "path": "__fixtures__/circular/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/custom-modules-dir/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/empty/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md",
+                "reason": "generated or dependency directory"
+              }
+            ],
+            "excludedCount": 231,
+            "dependencies": [],
+            "dependencyCount": 0,
+            "searchedDependencies": 0,
+            "missingIndexes": 0,
+            "dependencyErrors": 0,
+            "dependenciesOmitted": 0,
+            "issues": [
+              "File exceeds 1 MB: reviewing/list/test/__fixtures__/many-deps/pnpm-lock.yaml",
+              "File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md"
+            ],
+            "issuesOmitted": 0,
+            "retrieval": {
+              "workspaceCandidateLimit": 400,
+              "workspaceCandidateLimitReached": true,
+              "perDependencyLimit": 20,
+              "exhaustive": false
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+            },
+            "resolved": {
+              "status": "not-run",
+              "reason": "Use workspace_context for compiler resolution"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace_validate for compilation"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No assertion command executed"
+            },
+            "stable": {
+              "status": "unknown",
+              "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed dependency contents were not compared with registry artifacts"
+            }
+          },
+          "next": "Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.",
+          "searchMs": 3329
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 10,
+      "outputSha256": "631aae573409c6997588d0e0af12bf422b9648021c2a90a7e60977d4eb1abdb6",
+      "outputBytes": 963,
+      "exitCode": 0,
+      "stdout": "releasing/plugin-commands-publishing/src/pack.ts:13:import fg from 'fast-glob'\n__utils__/scripts/src/typecheck-only.ts:6:import glob from 'fast-glob'\nfs/find-packages/src/index.ts:7:import fastGlob from 'fast-glob'\nfs/find-packages/src/index.ts:28:  const paths: string[] = await fastGlob(patterns, globOpts)\nfs/find-packages/src/index.ts:32:    paths.push(...(await fastGlob(normalizePatterns(['.']), globOpts)))\npatching/plugin-commands-patching/src/patchCommit.ts:13:import glob from 'fast-glob'\npkg-manager/package-bins/src/index.ts:3:import fastGlob from 'fast-glob'\npkg-manager/package-bins/src/index.ts:32:    return await fastGlob('**', {\ncache/api/src/cacheView.ts:3:import fastGlob from 'fast-glob'\ncache/api/src/cacheView.ts:17:  const metaFilePaths = (await fastGlob(`${prefix}/${packageName}.json`, {\ncache/api/src/cacheList.ts:3:import fastGlob from 'fast-glob'\ncache/api/src/cacheList.ts:17:  const metaFiles = await fastGlob(patterns, {\nAGENTS.md\n"
+    },
+    {
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 12,
+      "outputSha256": "297bef8f08b4ebf64f4d0f5e2b5a574c8094a9fdc2ae24a7ee7a21b1a053cc07",
+      "outputBytes": 19206,
+      "exitCode": 1,
+      "stdout": "# Agent Guide to pnpm Repository\n\nThis document provides context and instructions for AI agents working on the pnpm codebase.\n\n## Repository Structure\n\nThe pnpm codebase is a monorepo managed by pnpm itself. The root contains functional directories organized by domain:\n\n### Core Directories\n\n-   `pnpm/`: The CLI entry point and main package.\n-   `pkg-manager/`: Core package management logic (installation, linking, etc.).\n-   `resolving/`: Dependency resolution logic (resolvers for npm, tarballs, git, etc.).\n-   `fetching/`: Package fetching logic.\n-   `store/`: Store management logic (content-addressable storage).\n-   `lockfile/`: Lockfile handling, parsing, and utilities.\n\n### CLI & Configuration\n\n-   `cli/`: CLI command implementations and infrastructure.\n-   `config/`: Configuration management and parsing.\n-   `hooks/`: pnpm hooks (readPackage, etc.).\n-   `completion/`: Shell completion support.\n\n### Other Functional Directories\n\n-   `network/`: Network-related utilities (proxy, fetch, auth).\n-   `workspace/`: Workspace-related utilities.\n-   `exec/`: Execution-related commands (run, exec, dlx).\n-   `env/`: Node.js environment management.\n-   `cache/`: Cache-related commands and utilities.\n-   `patching/`: Package patching functionality.\n-   `reviewing/`: License and dependency review tools.\n-   `releasing/`: Release and publishing utilities.\n\n### Shared Utilities\n\n-   `packages/`: Shared utility packages (constants, error handling, logger, types, etc.).\n-   `fs/`: Filesystem utilities.\n-   `crypto/`: Cryptographic utilities.\n-   `text/`: Text processing utilities.\n\n## Setup & Build\n\nTo set up the environment and build the project:\n\n```bash\npnpm install\npnpm run compile\n```\n\n## Testing\n\nNever run all tests in the repository as it takes a lot of time.\n\nRun tests for a specific project instead:\n\n```bash\n# From the project directory\npnpm test\n\n# From the root, filtering by package name\npnpm --filter <package_name> test\n```\n\nOr better yet, run tests for a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path>\n```\n\nOr a specific test case in a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path> -t <test_name_pattern>\n```\n\n## Linting\n\nTo run all linting checks:\n\n```bash\npnpm run lint\n```\n\n## Contribution Workflow\n\n### Changesets\n\nIf your changes affect published packages, you MUST create a changeset file in the `.changeset` directory. The changeset file should describe the change and specify the packages that are affected with the pending version bump types: patch, minor, or major.\n\n**IMPORTANT: Always explicitly include `\"pnpm\"` in the changeset** with the appropriate version bump (patch, minor, or major). The pnpm CLI will only receive automatic patch bumps from its dependencies, so if your change warrants a minor or major version bump for the CLI, you must specify it explicitly. The changeset description will appear on the release notes page.\n\nExample:\n\n```\n---\n\"@pnpm/core\": minor\n\"pnpm\": minor\n---\n\nAdded a new setting `blockExoticSubdeps` that prevents the resolution of exotic protocols in transitive dependencies [#10352](https://github.com/pnpm/pnpm/issues/10352).\n```\n\n**Versioning Guidelines for pnpm CLI:**\n- **patch**: Bug fixes, internal refactors, and changes that don't require documentation updates\n- **minor**: New features, settings, or commands that should be documented (anything users should know about)\n- **major**: Breaking changes\n\n### Commit Messages\n\nFollow the [Conventional Commits](https://www.conventionalcommits.org/) specification.\n    -   `feat`: a new feature\n    -   `fix`: a bug fix\n    -   `docs`: documentation only changes\n    -   `style`: formatting, missing semi-colons, etc.\n    -   `refactor`: code change that neither fixes a bug nor adds a feature\n    -   `perf`: a code change that improves performance\n    -   `test`: adding missing tests\n    -   `chore`: changes to build process or auxiliary tools\n\n## Code Style\n\nThis repository uses [Standard Style](https://github.com/standard/standard) with a few modifications:\n-   **Trailing commas** are used.\n-   **Functions are preferred** over classes.\n-   **Functions are declared after they are used** (hoisting is relied upon).\n-   **Import Order**:\n    1.  Standard libraries (e.g., `fs`, `path`).\n    2.  External dependencies (sorted alphabetically).\n    3.  Relative imports.\n\nTo ensure your code adheres to the style guide, run:\n\n```bash\npnpm run lint\n```\n\n## Common Gotchas\n\n### Error Type Checking in Jest\n\nWhen checking if a caught error is an `Error` object, **do not use `instanceof Error`**. Jest runs tests in a VM context where `instanceof` checks can fail across realms.\n\nInstead, use `util.types.isNativeError()`:\n\n```typescript\nimport util from 'util'\n\ntry {\n  // ... some operation\n} catch (err: unknown) {\n  // ❌ Wrong - may fail in Jest\n  if (err instanceof Error && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  \n  // ✅ Correct - works across realms\n  if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  throw err\n}\n```\n\n## Key Configuration Files\n\n-   `pnpm-workspace.yaml`: Defines the workspace structure.\n-   `package.json` (root): Root scripts and devDependencies.\n-   `CONTRIBUTING.md`: Detailed contribution guidelines.\nimport { promises as fs } from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { readExactProjectManifest } from '@pnpm/read-project-manifest'\nimport { type Project, type ProjectRootDir, type ProjectRootDirRealPath } from '@pnpm/types'\nimport { lexCompare } from '@pnpm/util.lex-comparator'\nimport fastGlob from 'fast-glob'\nimport pFilter from 'p-filter'\n\nconst DEFAULT_IGNORE = [\n  '**/node_modules/**',\n  '**/bower_components/**',\n  '**/test/**',\n  '**/tests/**',\n]\n\nexport interface Options {\n  ignore?: string[]\n  includeRoot?: boolean\n  patterns?: string[]\n}\n\nexport async function findPackages (root: string, opts?: Options): Promise<Project[]> {\n  opts = opts ?? {}\n  const globOpts = { ...opts, cwd: root }\n  globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\n  const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\n  const paths: string[] = await fastGlob(patterns, globOpts)\n\n  if (opts.includeRoot) {\n    // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\n    paths.push(...(await fastGlob(normalizePatterns(['.']), globOpts)))\n  }\n\n  return pFilter(\n    // `Array.from()` doesn't create an intermediate instance,\n    // unlike `array.map()`\n    Array.from(\n      // Remove duplicate paths using `Set`\n      new Set(\n        paths\n          .map(manifestPath => path.join(root, manifestPath))\n          .sort((path1, path2) =>\n            lexCompare(path.dirname(path1), path.dirname(path2))\n          )\n      ),\n      async manifestPath => {\n        try {\n          const rootDir = path.dirname(manifestPath) as ProjectRootDir\n          return {\n            rootDir,\n            rootDirRealPath: await fs.realpath(rootDir) as ProjectRootDirRealPath,\n            ...await readExactProjectManifest(manifestPath),\n          } as Project\n        } catch (err: unknown) {\n          if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\n            return null!\n          }\n          throw err\n        }\n      }),\n    Boolean\n  )\n}\n\nfunction normalizePatterns (patterns: readonly string[]): string[] {\n  const normalizedPatterns: string[] = []\n  for (const pattern of patterns) {\n    normalizedPatterns.push(pattern.replace(/\\/?$/, '/package.{json,yaml,json5}'))\n  }\n  return normalizedPatterns\n}\nimport fs from 'fs'\nimport getRegistryName from 'encode-registry'\nimport fastGlob from 'fast-glob'\n\nexport async function cacheListRegistries (opts: { cacheDir: string, registry?: string, registries?: boolean }): Promise<string> {\n  return fs.readdirSync(opts.cacheDir).sort().join('\\n')\n}\n\nexport async function cacheList (opts: { cacheDir: string, registry?: string, registries?: boolean }, filter: string[]): Promise<string> {\n  const metaFiles = await findMetadataFiles(opts, filter)\n  return metaFiles.sort().join('\\n')\n}\n\nexport async function findMetadataFiles (opts: { cacheDir: string, registry?: string }, filter: string[]): Promise<string[]> {\n  const prefix = opts.registry ? `${getRegistryName(opts.registry)}` : '*'\n  const patterns = filter.length ? filter.map((filter) => `${prefix}/${filter}.json`) : [`${prefix}/**`]\n  const metaFiles = await fastGlob(patterns, {\n    cwd: opts.cacheDir,\n  })\n  return metaFiles\n}\nimport fs from 'fs'\nimport path from 'path'\nimport fastGlob from 'fast-glob'\nimport { getIndexFilePathInCafs } from '@pnpm/store.cafs'\nimport { type PackageMeta } from '@pnpm/npm-resolver'\nimport getRegistryName from 'encode-registry'\n\ninterface CachedVersions {\n  cachedVersions: string[]\n  nonCachedVersions: string[]\n  cachedAt?: string\n  distTags: Record<string, string>\n}\n\nexport async function cacheView (opts: { cacheDir: string, storeDir: string, registry?: string }, packageName: string): Promise<string> {\n  const prefix = opts.registry ? `${getRegistryName(opts.registry)}` : '*'\n  const metaFilePaths = (await fastGlob(`${prefix}/${packageName}.json`, {\n    cwd: opts.cacheDir,\n  })).sort()\n  const metaFilesByPath: Record<string, CachedVersions> = {}\n  for (const filePath of metaFilePaths) {\n    const metaObject = JSON.parse(fs.readFileSync(path.join(opts.cacheDir, filePath), 'utf8')) as PackageMeta\n    const cachedVersions: string[] = []\n    const nonCachedVersions: string[] = []\n    for (const [version, manifest] of Object.entries(metaObject.versions)) {\n      if (!manifest.dist.integrity) continue\n      const indexFilePath = getIndexFilePathInCafs(opts.storeDir, manifest.dist.integrity, `${manifest.name}@${manifest.version}`)\n      if (fs.existsSync(indexFilePath)) {\n        cachedVersions.push(version)\n      } else {\n        nonCachedVersions.push(version)\n      }\n    }\n    let registryName = filePath\n    while (path.dirname(registryName) !== '.') {\n      registryName = path.dirname(registryName)\n    }\n    metaFilesByPath[registryName.replaceAll('+', ':')] = {\n      cachedVersions,\n      nonCachedVersions,\n      cachedAt: metaObject.cachedAt ? new Date(metaObject.cachedAt).toString() : undefined,\n      distTags: metaObject['dist-tags'],\n    }\n  }\n  return JSON.stringify(metaFilesByPath, null, 2)\n}\nimport path from 'path'\nimport { type DependencyManifest, type PackageBin } from '@pnpm/types'\nimport fastGlob from 'fast-glob'\nimport isSubdir from 'is-subdir'\n\nexport interface Command {\n  name: string\n  path: string\n}\n\nexport async function getBinsFromPackageManifest (manifest: DependencyManifest, pkgPath: string): Promise<Command[]> {\n  if (manifest.bin) {\n    return commandsFromBin(manifest.bin, manifest.name, pkgPath)\n  }\n  if (manifest.directories?.bin) {\n    const binDir = path.join(pkgPath, manifest.directories.bin)\n    // Validate: directories.bin must be within the package root\n    if (!isSubdir(pkgPath, binDir)) {\n      return []\n    }\n    const files = await findFiles(binDir)\n    return files.map((file) => ({\n      name: path.basename(file),\n      path: path.join(binDir, file),\n    }))\n  }\n  return []\n}\n\nasync function findFiles (dir: string): Promise<string[]> {\n  try {\n    return await fastGlob('**', {\n      cwd: dir,\n      onlyFiles: true,\n      followSymbolicLinks: false,\n      })\n  } catch (err: any) { // eslint-disable-line\n    if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {\n      throw err\n    }\n    return []\n  }\n}\n\nfunction commandsFromBin (bin: PackageBin, pkgName: string, pkgPath: string): Command[] {\n  const cmds: Command[] = []\n  for (const [commandName, binRelativePath] of typeof bin === 'string' ? [[pkgName, bin]] : Object.entries(bin)) {\n    const binName = commandName[0] === '@'\n      ? commandName.slice(commandName.indexOf('/') + 1)\n      : commandName\n    // Validate: must be safe (no path traversal) - only allow URL-safe chars or $\n    if (binName !== encodeURIComponent(binName) && binName !== '$') {\n      continue\n    }\n    const binPath = path.join(pkgPath, binRelativePath)\n    if (!isSubdir(pkgPath, binPath)) {\n      continue\n    }\n    cmds.push({ name: binName, path: binPath })\n  }\n  return cmds\n}\npatching/plugin-commands-patching/src/patchCommit.ts-4-import { type Config, types as allTypes } from '@pnpm/config'\npatching/plugin-commands-patching/src/patchCommit.ts-5-import { createShortHash } from '@pnpm/crypto.hash'\npatching/plugin-commands-patching/src/patchCommit.ts-6-import { PnpmError } from '@pnpm/error'\npatching/plugin-commands-patching/src/patchCommit.ts-7-import { packlist } from '@pnpm/fs.packlist'\npatching/plugin-commands-patching/src/patchCommit.ts-8-import { globalWarn } from '@pnpm/logger'\npatching/plugin-commands-patching/src/patchCommit.ts-9-import { install } from '@pnpm/plugin-commands-installation'\npatching/plugin-commands-patching/src/patchCommit.ts-10-import { readPackageJsonFromDir } from '@pnpm/read-package-json'\npatching/plugin-commands-patching/src/patchCommit.ts-11-import { getStorePath } from '@pnpm/store-path'\npatching/plugin-commands-patching/src/patchCommit.ts-12-import { type ProjectRootDir } from '@pnpm/types'\npatching/plugin-commands-patching/src/patchCommit.ts:13:import glob from 'fast-glob'\npatching/plugin-commands-patching/src/patchCommit.ts-14-import normalizePath from 'normalize-path'\npatching/plugin-commands-patching/src/patchCommit.ts-15-import pick from 'ramda/src/pick'\npatching/plugin-commands-patching/src/patchCommit.ts-16-import equals from 'ramda/src/equals'\npatching/plugin-commands-patching/src/patchCommit.ts-17-import execa from 'safe-execa'\npatching/plugin-commands-patching/src/patchCommit.ts-18-import escapeStringRegexp from 'escape-string-regexp'\npatching/plugin-commands-patching/src/patchCommit.ts-19-import makeEmptyDir from 'make-empty-dir'\npatching/plugin-commands-patching/src/patchCommit.ts-20-import renderHelp from 'render-help'\npatching/plugin-commands-patching/src/patchCommit.ts-21-import { type WritePackageOptions, writePackage } from './writePackage.js'\npatching/plugin-commands-patching/src/patchCommit.ts-22-import { type ParseWantedDependencyResult, parseWantedDependency } from '@pnpm/parse-wanted-dependency'\n--\npatching/plugin-commands-patching/src/patchCommit.ts-224-      const destDir = path.dirname(destFile)\npatching/plugin-commands-patching/src/patchCommit.ts-225-      await fs.promises.mkdir(destDir, { recursive: true })\npatching/plugin-commands-patching/src/patchCommit.ts-226-      await fs.promises.link(srcFile, destFile)\npatching/plugin-commands-patching/src/patchCommit.ts-227-    })\npatching/plugin-commands-patching/src/patchCommit.ts-228-  )\npatching/plugin-commands-patching/src/patchCommit.ts-229-  return dest\npatching/plugin-commands-patching/src/patchCommit.ts-230-}\npatching/plugin-commands-patching/src/patchCommit.ts-231-\npatching/plugin-commands-patching/src/patchCommit.ts-232-async function areAllFilesInPkg (files: string[], basePath: string): Promise<boolean> {\npatching/plugin-commands-patching/src/patchCommit.ts:233:  const allFiles = await glob('**', {\npatching/plugin-commands-patching/src/patchCommit.ts-234-    cwd: basePath,\npatching/plugin-commands-patching/src/patchCommit.ts-235-  })\npatching/plugin-commands-patching/src/patchCommit.ts-236-  return equals(allFiles.sort(), files.sort())\npatching/plugin-commands-patching/src/patchCommit.ts-237-}\npatching/plugin-commands-patching/src/patchCommit.ts-238-\npatching/plugin-commands-patching/src/patchCommit.ts-239-async function getGitTarballUrlFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<string | undefined> {\npatching/plugin-commands-patching/src/patchCommit.ts-240-  const { preferredVersions } = await getVersionsFromLockfile(dep, opts)\npatching/plugin-commands-patching/src/patchCommit.ts-241-  return preferredVersions[0]?.gitTarballUrl\npatching/plugin-commands-patching/src/patchCommit.ts-242-}\n--\nreleasing/plugin-commands-publishing/src/pack.ts-4-import { type Catalogs } from '@pnpm/catalogs.types'\nreleasing/plugin-commands-publishing/src/pack.ts-5-import { PnpmError } from '@pnpm/error'\nreleasing/plugin-commands-publishing/src/pack.ts-6-import { types as allTypes, type UniversalOptions, type Config, getWorkspaceConcurrency, getDefaultWorkspaceConcurrency } from '@pnpm/config'\nreleasing/plugin-commands-publishing/src/pack.ts-7-import { readProjectManifest } from '@pnpm/cli-utils'\nreleasing/plugin-commands-publishing/src/pack.ts-8-import { createExportableManifest } from '@pnpm/exportable-manifest'\nreleasing/plugin-commands-publishing/src/pack.ts-9-import { packlist } from '@pnpm/fs.packlist'\nreleasing/plugin-commands-publishing/src/pack.ts-10-import { getBinsFromPackageManifest } from '@pnpm/package-bins'\nreleasing/plugin-commands-publishing/src/pack.ts-11-import { type Hooks } from '@pnpm/pnpmfile'\nreleasing/plugin-commands-publishing/src/pack.ts-12-import { type ProjectManifest, type Project, type ProjectRootDir, type ProjectsGraph, type DependencyManifest } from '@pnpm/types'\nreleasing/plugin-commands-publishing/src/pack.ts:13:import fg from 'fast-glob'\nreleasing/plugin-commands-publishing/src/pack.ts-14-import pick from 'ramda/src/pick'\nreleasing/plugin-commands-publishing/src/pack.ts-15-import realpathMissing from 'realpath-missing'\nreleasing/plugin-commands-publishing/src/pack.ts-16-import renderHelp from 'render-help'\nreleasing/plugin-commands-publishing/src/pack.ts-17-import tar from 'tar-stream'\nreleasing/plugin-commands-publishing/src/pack.ts-18-import { runScriptsIfPresent } from './publish.js'\nreleasing/plugin-commands-publishing/src/pack.ts-19-import chalk from 'chalk'\nreleasing/plugin-commands-publishing/src/pack.ts-20-import validateNpmPackageName from 'validate-npm-package-name'\nreleasing/plugin-commands-publishing/src/pack.ts-21-import pLimit from 'p-limit'\nreleasing/plugin-commands-publishing/src/pack.ts-22-import { FILTERING } from '@pnpm/common-cli-options-help'\nreleasing/plugin-commands-publishing/src/pack.ts-23-import { sortPackages } from '@pnpm/sort-packages'\nreleasing/plugin-commands-publishing/src/pack.ts-24-import { logger } from '@pnpm/logger'\nreleasing/plugin-commands-publishing/src/pack.ts-25-\nreleasing/plugin-commands-publishing/src/pack.ts-26-const LICENSE_GLOB = 'LICEN{S,C}E{,.*}' // cspell:disable-line\nreleasing/plugin-commands-publishing/src/pack.ts:27:const findLicenses = fg.bind(fg, [LICENSE_GLOB]) as (opts: { cwd: string }) => Promise<string[]>\nreleasing/plugin-commands-publishing/src/pack.ts-28-\nreleasing/plugin-commands-publishing/src/pack.ts-29-export function rcOptionsTypes (): Record<string, unknown> {\nreleasing/plugin-commands-publishing/src/pack.ts-30-  return {\nreleasing/plugin-commands-publishing/src/pack.ts-31-    ...cliOptionsTypes(),\nreleasing/plugin-commands-publishing/src/pack.ts-32-    ...pick([\nreleasing/plugin-commands-publishing/src/pack.ts-33-      'npm-path',\nreleasing/plugin-commands-publishing/src/pack.ts-34-    ], allTypes),\nreleasing/plugin-commands-publishing/src/pack.ts-35-  }\nreleasing/plugin-commands-publishing/src/pack.ts-36-}\ncat: fs/find-packages/node_modules/tinyglobby/dist/index.d.ts: No such file or directory\n"
+    },
+    {
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 14,
+      "server": "typelatch",
+      "tool": "workspace_context",
+      "resultSha256": "8848189c9b9cb6e28d576c7b533de9d3481099128e0937151965fa847630d50b",
+      "resultBytes": 13699,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"api\":{\"name\":\"glob\",\"type\":\"{ (patterns: string | readonly string[], options?: Omit<GlobOptions, \\\"patterns\\\">): Promise<string[]>; (options: GlobOptions): Promise<string[]>; }\",\"documentation\":\"Asynchronously match files following a glob pattern.\",\"signatures\":[\"(patterns: string | readonly string[], options?: Omit<GlobOptions, \\\"patterns\\\"> | undefined): Promise<string[]>\",\"(options: GlobOptions): Promise<string[]>\"],\"declarations\":[{\"file\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts\",\"start\":3887,\"length\":120},{\"file\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts\",\"start\":4077,\"length\":63}],\"evidence\":{\"characterUnit\":\"utf16-code-units\",\"type\":{\"origin\":\"compiler\",\"total\":146,\"returned\":146,\"omitted\":0},\"documentation\":{\"origin\":\"compiler-documentation\",\"total\":52,\"returned\":52,\"omitted\":0},\"signatures\":{\"origin\":\"compiler\",\"view\":\"value\",\"total\":2,\"returned\":2,\"omitted\":0,\"characters\":[{\"total\":110,\"returned\":110,\"omitted\":0},{\"total\":41,\"returned\":41,\"omitted\":0}]},\"tags\":{\"origin\":\"compiler-jsdoc-tags\",\"total\":2,\"returned\":2,\"omitted\":0,\"items\":[{\"name\":\"see\",\"text\":\"{@link https://superchupu.dev/tinyglobby/documentation#glob}\",\"nameCharacters\":{\"total\":3,\"returned\":3,\"omitted\":0},\"textCharacters\":{\"total\":60,\"returned\":60,\"omitted\":0}},{\"name\":\"deprecated\",\"text\":\"Provide patterns as the first argument instead.\",\"nameCharacters\":{\"total\":10,\"returned\":10,\"omitted\":0},\"textCharacters\":{\"total\":47,\"returned\":47,\"omitted\":0}}]},\"declarations\":{\"origin\":\"declared-syntax\",\"total\":2,\"returned\":2,\"omitted\":0,\"headers\":[{\"file\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts\",\"start\":3887,\"length\":120,\"sha256\":\"0bef38a7338f81e2496aa690938d0410d02b11121610dd76f5211f7f7cb54656\",\"sourceKind\":\"declaration\",\"header\":\"declare function glob(patterns: string | readonly string[], options?: Omit<GlobOptions, \\\"patterns\\\">): Promise<string[]>;\",\"status\":\"complete\",\"elisions\":[],\"characters\":{\"total\":120,\"returned\":120,\"omitted\":0}},{\"file\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts\",\"start\":4077,\"length\":63,\"sha256\":\"0bef38a7338f81e2496aa690938d0410d02b11121610dd76f5211f7f7cb54656\",\"sourceKind\":\"declaration\",\"header\":\"declare function glob(options: GlobOptions): Promise<string[]>;\",\"status\":\"complete\",\"elisions\":[],\"characters\":{\"total\":63,\"returned\":63,\"omitted\":0}}]}},\"status\":\"resolved\",\"reason\":\"This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks\"},\"candidates\":[],\"navigation\":{\"status\":\"not-run\",\"reason\":\"Navigation requires a cursor and resolved import\",\"exportName\":null,\"brain\":null,\"artifactEquivalent\":false},\"syntheticImport\":true,\"originalSourceHash\":\"528cd6e7e96ebd130b36c3ff7bdb08b124fda1ee52f69cefd16339f1ae48b8dd\",\"language\":\"typescript\",\"route\":\"installed-api\",\"file\":\"$WORKSPACE/fs/find-packages/src/index.ts\",\"hover\":null,\"definitions\":[],\"references\":[],\"declaration\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts\",\"dependency\":{\"name\":\"tinyglobby\",\"version\":\"0.2.15\",\"root\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby\",\"manifest\":\"$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/package.json\",\"manifestHash\":\"473bd5e2e8708e7c5700b2196c4225b42418c310d29893d4043aece3d5dea51d\"},\"brain\":null,\"brainProvenance\":null,\"cursorEvidence\":{\"scope\":\"compiler-project\",\"config\":\"$WORKSPACE/fs/find-packages/tsconfig.json\",\"position\":null,\"definitions\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":20},\"references\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":50}},\"checks\":{\"retrieved\":{\"status\":\"not-run\",\"reason\":\"No discovery question supplied\"},\"resolved\":{\"status\":\"pass\",\"reason\":\"Import resolved by the project compiler\"},\"versionMatch\":{\"status\":\"not-run\",\"reason\":\"No expected version supplied\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed package contents have not been compared with the registry artifact\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace validation for project diagnostics\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No test command executed\"}},\"snapshot\":{\"id\":\"79e0e1ff1f5fed70589c9cdc544013668f3b04bb06949e24d959722a852f3135\",\"config\":\"$WORKSPACE/fs/find-packages/tsconfig.json\",\"compiler\":{\"version\":\"5.5.4\",\"path\":\"$WORKSPACE/node_modules/.pnpm/typescript@5.5.4/node_modules/typescript/lib/typescript.js\"},\"scope\":\"Compiler-read inputs and configuration; not a full runtime filesystem snapshot\",\"overlayFiles\":[\"$WORKSPACE/fs/find-packages/src/index.ts\"],\"inputCount\":295},\"latencyMs\":1004.7137909999999}"
+          }
+        ],
+        "structured_content": {
+          "api": {
+            "name": "glob",
+            "type": "{ (patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\">): Promise<string[]>; (options: GlobOptions): Promise<string[]>; }",
+            "documentation": "Asynchronously match files following a glob pattern.",
+            "signatures": [
+              "(patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\"> | undefined): Promise<string[]>",
+              "(options: GlobOptions): Promise<string[]>"
+            ],
+            "declarations": [
+              {
+                "file": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts",
+                "start": 3887,
+                "length": 120
+              },
+              {
+                "file": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts",
+                "start": 4077,
+                "length": 63
+              }
+            ],
+            "evidence": {
+              "characterUnit": "utf16-code-units",
+              "type": {
+                "origin": "compiler",
+                "total": 146,
+                "returned": 146,
+                "omitted": 0
+              },
+              "documentation": {
+                "origin": "compiler-documentation",
+                "total": 52,
+                "returned": 52,
+                "omitted": 0
+              },
+              "signatures": {
+                "origin": "compiler",
+                "view": "value",
+                "total": 2,
+                "returned": 2,
+                "omitted": 0,
+                "characters": [
+                  {
+                    "total": 110,
+                    "returned": 110,
+                    "omitted": 0
+                  },
+                  {
+                    "total": 41,
+                    "returned": 41,
+                    "omitted": 0
+                  }
+                ]
+              },
+              "tags": {
+                "origin": "compiler-jsdoc-tags",
+                "total": 2,
+                "returned": 2,
+                "omitted": 0,
+                "items": [
+                  {
+                    "name": "see",
+                    "text": "{@link https://superchupu.dev/tinyglobby/documentation#glob}",
+                    "nameCharacters": {
+                      "total": 3,
+                      "returned": 3,
+                      "omitted": 0
+                    },
+                    "textCharacters": {
+                      "total": 60,
+                      "returned": 60,
+                      "omitted": 0
+                    }
+                  },
+                  {
+                    "name": "deprecated",
+                    "text": "Provide patterns as the first argument instead.",
+                    "nameCharacters": {
+                      "total": 10,
+                      "returned": 10,
+                      "omitted": 0
+                    },
+                    "textCharacters": {
+                      "total": 47,
+                      "returned": 47,
+                      "omitted": 0
+                    }
+                  }
+                ]
+              },
+              "declarations": {
+                "origin": "declared-syntax",
+                "total": 2,
+                "returned": 2,
+                "omitted": 0,
+                "headers": [
+                  {
+                    "file": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts",
+                    "start": 3887,
+                    "length": 120,
+                    "sha256": "0bef38a7338f81e2496aa690938d0410d02b11121610dd76f5211f7f7cb54656",
+                    "sourceKind": "declaration",
+                    "header": "declare function glob(patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\">): Promise<string[]>;",
+                    "status": "complete",
+                    "elisions": [],
+                    "characters": {
+                      "total": 120,
+                      "returned": 120,
+                      "omitted": 0
+                    }
+                  },
+                  {
+                    "file": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts",
+                    "start": 4077,
+                    "length": 63,
+                    "sha256": "0bef38a7338f81e2496aa690938d0410d02b11121610dd76f5211f7f7cb54656",
+                    "sourceKind": "declaration",
+                    "header": "declare function glob(options: GlobOptions): Promise<string[]>;",
+                    "status": "complete",
+                    "elisions": [],
+                    "characters": {
+                      "total": 63,
+                      "returned": 63,
+                      "omitted": 0
+                    }
+                  }
+                ]
+              }
+            },
+            "status": "resolved",
+            "reason": "This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks"
+          },
+          "candidates": [],
+          "navigation": {
+            "status": "not-run",
+            "reason": "Navigation requires a cursor and resolved import",
+            "exportName": null,
+            "brain": null,
+            "artifactEquivalent": false
+          },
+          "syntheticImport": true,
+          "originalSourceHash": "528cd6e7e96ebd130b36c3ff7bdb08b124fda1ee52f69cefd16339f1ae48b8dd",
+          "language": "typescript",
+          "route": "installed-api",
+          "file": "$WORKSPACE/fs/find-packages/src/index.ts",
+          "hover": null,
+          "definitions": [],
+          "references": [],
+          "declaration": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.d.cts",
+          "dependency": {
+            "name": "tinyglobby",
+            "version": "0.2.15",
+            "root": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby",
+            "manifest": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/package.json",
+            "manifestHash": "473bd5e2e8708e7c5700b2196c4225b42418c310d29893d4043aece3d5dea51d"
+          },
+          "brain": null,
+          "brainProvenance": null,
+          "cursorEvidence": {
+            "scope": "compiler-project",
+            "config": "$WORKSPACE/fs/find-packages/tsconfig.json",
+            "position": null,
+            "definitions": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 20
+            },
+            "references": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 50
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "not-run",
+              "reason": "No discovery question supplied"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "not-run",
+              "reason": "No expected version supplied"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "snapshot": {
+            "id": "79e0e1ff1f5fed70589c9cdc544013668f3b04bb06949e24d959722a852f3135",
+            "config": "$WORKSPACE/fs/find-packages/tsconfig.json",
+            "compiler": {
+              "version": "5.5.4",
+              "path": "$WORKSPACE/node_modules/.pnpm/typescript@5.5.4/node_modules/typescript/lib/typescript.js"
+            },
+            "scope": "Compiler-read inputs and configuration; not a full runtime filesystem snapshot",
+            "overlayFiles": [
+              "$WORKSPACE/fs/find-packages/src/index.ts"
+            ],
+            "inputCount": 295
+          },
+          "latencyMs": 1004.7137909999999
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 17,
+      "outputSha256": "230f72d3be7b151fbdc3ad3c088522d09dc3e36b4a409fe10adf9fffb35c6bd5",
+      "outputBytes": 8155,
+      "exitCode": 0,
+      "stdout": "import { FSLike } from \"fdir\";\n\n//#region src/utils.d.ts\n\n/**\n* Converts a path to a pattern depending on the platform.\n* Identical to {@link escapePath} on POSIX systems.\n* @see {@link https://superchupu.dev/tinyglobby/documentation#convertPathToPattern}\n*/\ndeclare const convertPathToPattern: (path: string) => string;\n/**\n* Escapes a path's special characters depending on the platform.\n* @see {@link https://superchupu.dev/tinyglobby/documentation#escapePath}\n*/\ndeclare const escapePath: (path: string) => string;\n/**\n* Checks if a pattern has dynamic parts.\n*\n* Has a few minor differences with [`fast-glob`](https://github.com/mrmlnc/fast-glob) for better accuracy:\n*\n* - Doesn't necessarily return `false` on patterns that include `\\`.\n* - Returns `true` if the pattern includes parentheses, regardless of them representing one single pattern or not.\n* - Returns `true` for unfinished glob extensions i.e. `(h`, `+(h`.\n* - Returns `true` for unfinished brace expansions as long as they include `,` or `..`.\n*\n* @see {@link https://superchupu.dev/tinyglobby/documentation#isDynamicPattern}\n*/\ndeclare function isDynamicPattern(pattern: string, options?: {\n  caseSensitiveMatch: boolean;\n}): boolean;\n//#endregion\n//#region src/index.d.ts\ninterface GlobOptions {\n  /**\n  * Whether to return absolute paths. Disable to have relative paths.\n  * @default false\n  */\n  absolute?: boolean;\n  /**\n  * Enables support for brace expansion syntax, like `{a,b}` or `{1..9}`.\n  * @default true\n  */\n  braceExpansion?: boolean;\n  /**\n  * Whether to match in case-sensitive mode.\n  * @default true\n  */\n  caseSensitiveMatch?: boolean;\n  /**\n  * The working directory in which to search. Results will be returned relative to this directory, unless\n  * {@link absolute} is set.\n  *\n  * It is important to avoid globbing outside this directory when possible, even with absolute paths enabled,\n  * as doing so can harm performance due to having to recalculate relative paths.\n  * @default process.cwd()\n  */\n  cwd?: string | URL;\n  /**\n  * Logs useful debug information. Meant for development purposes. Logs can change at any time.\n  * @default false\n  */\n  debug?: boolean;\n  /**\n  * Maximum directory depth to crawl.\n  * @default Infinity\n  */\n  deep?: number;\n  /**\n  * Whether to return entries that start with a dot, like `.gitignore` or `.prettierrc`.\n  * @default false\n  */\n  dot?: boolean;\n  /**\n  * Whether to automatically expand directory patterns.\n  *\n  * Important to disable if migrating from [`fast-glob`](https://github.com/mrmlnc/fast-glob).\n  * @default true\n  */\n  expandDirectories?: boolean;\n  /**\n  * Enables support for extglobs, like `+(pattern)`.\n  * @default true\n  */\n  extglob?: boolean;\n  /**\n  * Whether to traverse and include symbolic links. Can slightly affect performance.\n  * @default true\n  */\n  followSymbolicLinks?: boolean;\n  /**\n  * An object that overrides `node:fs` functions.\n  * @default import('node:fs')\n  */\n  fs?: FileSystemAdapter;\n  /**\n  * Enables support for matching nested directories with globstars (`**`).\n  * If `false`, `**` behaves exactly like `*`.\n  * @default true\n  */\n  globstar?: boolean;\n  /**\n  * Glob patterns to exclude from the results.\n  * @default []\n  */\n  ignore?: string | readonly string[];\n  /**\n  * Enable to only return directories.\n  * If `true`, disables {@link onlyFiles}.\n  * @default false\n  */\n  onlyDirectories?: boolean;\n  /**\n  * Enable to only return files.\n  * @default true\n  */\n  onlyFiles?: boolean;\n  /**\n  * @deprecated Provide patterns as the first argument instead.\n  */\n  patterns?: string | readonly string[];\n  /**\n  * An `AbortSignal` to abort crawling the file system.\n  * @default undefined\n  */\n  signal?: AbortSignal;\n}\ntype FileSystemAdapter = Partial<FSLike>;\n/**\n* Asynchronously match files following a glob pattern.\n* @see {@link https://superchupu.dev/tinyglobby/documentation#glob}\n*/\ndeclare function glob(patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\">): Promise<string[]>;\n/**\n* @deprecated Provide patterns as the first argument instead.\n*/\ndeclare function glob(options: GlobOptions): Promise<string[]>;\n/**\n* Synchronously match files following a glob pattern.\n* @see {@link https://superchupu.dev/tinyglobby/documentation#globSync}\n*/\ndeclare function globSync(patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\">): string[];\n/**\n* @deprecated Provide patterns as the first argument instead.\n*/\ndeclare function globSync(options: GlobOptions): string[];\n//#endregion\nexport { FileSystemAdapter, GlobOptions, convertPathToPattern, escapePath, glob, globSync, isDynamicPattern };__utils__/scripts/package.json:9:    \"fast-glob\": \"catalog:\",\nreleasing/plugin-commands-publishing/package.json:66:    \"tinyglobby\": \"catalog:\",\npatching/plugin-commands-patching/package.json:68:    \"tinyglobby\": \"catalog:\"\npkg-manager/package-bins/package.json:38:    \"tinyglobby\": \"catalog:\"\ncache/api/package.json:39:    \"tinyglobby\": \"catalog:\"\nfs/find-packages/package.json:40:    \"tinyglobby\": \"catalog:\"\nreleasing/plugin-commands-publishing/src/pack.ts:26:const LICENSE_GLOB = 'LICEN{S,C}E{,.*}' // cspell:disable-line\nreleasing/plugin-commands-publishing/src/pack.ts:27:const findLicenses = fg.bind(fg, [LICENSE_GLOB]) as (opts: { cwd: string }) => Promise<string[]>\nreleasing/plugin-commands-publishing/src/pack.ts:226:  const normalizedName = manifest.name.replace('@', '').replace('/', '-')\nreleasing/plugin-commands-publishing/src/pack.ts:231:    const preparedOut = opts.out.replaceAll('%s', normalizedName).replaceAll('%v', manifest.version)\nreleasing/plugin-commands-publishing/src/pack.ts:236:    tarballName = `${normalizedName}-${manifest.version}.tgz`\nreleasing/plugin-commands-publishing/src/pack.ts:255:    const licenses = await findLicenses({ cwd: opts.workspaceDir })\nreleasing/plugin-commands-publishing/src/pack.ts:256:    for (const license of licenses) {\nreleasing/plugin-commands-publishing/src/pack.ts:257:      filesMap[`package/${license}`] = path.join(opts.workspaceDir, license)\n158-const PARENT_DIRECTORY = /^(\\/?\\.\\.)+/;\n159-const ESCAPING_BACKSLASHES = /\\\\(?=[()[\\]{}!*+?@|])/g;\n160-const BACKSLASHES = /\\\\/g;\n161:function normalizePattern(pattern, expandDirectories, cwd, props, isIgnore) {\n162-\tlet result = pattern;\n163-\tif (pattern.endsWith(\"/\")) result = pattern.slice(0, -1);\n164:\tif (!result.endsWith(\"*\") && expandDirectories) result += \"/**\";\n165-\tconst escapedCwd = escapePath(cwd);\n166-\tif (path.default.isAbsolute(result.replace(ESCAPING_BACKSLASHES, \"\"))) result = path.posix.relative(escapedCwd, result);\n167-\telse result = path.posix.normalize(result);\n--\n201-\t}\n202-\treturn result;\n203-}\n204:function processPatterns({ patterns = [\"**/*\"], ignore = [], expandDirectories = true }, cwd, props) {\n205-\tif (typeof patterns === \"string\") patterns = [patterns];\n206-\tif (typeof ignore === \"string\") ignore = [ignore];\n207-\tconst matchPatterns = [];\n208-\tconst ignorePatterns = [];\n209-\tfor (const pattern of ignore) {\n210-\t\tif (!pattern) continue;\n211:\t\tif (pattern[0] !== \"!\" || pattern[1] === \"(\") ignorePatterns.push(normalizePattern(pattern, expandDirectories, cwd, props, true));\n212-\t}\n213-\tfor (const pattern of patterns) {\n214-\t\tif (!pattern) continue;\n215:\t\tif (pattern[0] !== \"!\" || pattern[1] === \"(\") matchPatterns.push(normalizePattern(pattern, expandDirectories, cwd, props, false));\n216:\t\telse if (pattern[1] !== \"!\" || pattern[2] === \"(\") ignorePatterns.push(normalizePattern(pattern.slice(1), expandDirectories, cwd, props, true));\n217-\t}\n218-\treturn {\n219-\t\tmatch: matchPatterns,\n--\n309-\t\tfdirOptions.resolvePaths = true;\n310-\t\tfdirOptions.includeBasePath = true;\n311-\t}\n312:\tif (options.followSymbolicLinks === false) {\n313-\t\tfdirOptions.resolveSymlinks = false;\n314-\t\tfdirOptions.excludeSymlinks = true;\n315-\t}\n316-\tif (options.onlyDirectories) {\n317-\t\tfdirOptions.excludeFiles = true;\n318-\t\tfdirOptions.includeDirs = true;\n319:\t} else if (options.onlyFiles === false) fdirOptions.includeDirs = true;\n320-\tprops.root = props.root.replace(BACKSLASHES, \"\");\n321-\tconst root = props.root;\n322-\tif (options.debug) log(\"internal properties:\", props);\n"
+    },
+    {
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 19,
+      "outputSha256": "e0995a80e82e5130a9aa4ea57d0fde72a84adafbdfdaa7e04ead7c3bcdcfb4d1",
+      "outputBytes": 1677,
+      "exitCode": 1,
+      "stdout": "\n> test:typelatch-benchmark\n> node '$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs'\n\n{\"passed\":false,\"cases\":7,\"results\":[{\"id\":\"native-typescript-build-five-production-packages\",\"passed\":true,\"clean\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":701.065375,\"stdout\":\"\",\"stderr\":\"\",\"error\":null},\"build\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":8905.585792,\"stdout\":\"\",\"stderr\":\"\",\"error\":null}},{\"id\":\"cache-metadata-is-file-not-directory\",\"passed\":true},{\"id\":\"cache-view-excludes-directory-expansion\",\"passed\":true},{\"id\":\"workspace-patterns-root-ignore-and-manifest-formats\",\"passed\":false,\"error\":{\"name\":\"Error\",\"message\":\"Cannot pass patterns as both an argument and an option\"}},{\"id\":\"bins-recursive-files-without-link-or-path-escape\",\"passed\":true},{\"id\":\"pack-inherits-license-file-without-directory-contents\",\"passed\":true},{\"id\":\"patch-comparison-ignores-unpublished-files\",\"passed\":true}],\"runtime\":{\"exitCode\":1,\"signal\":null,\"elapsedMs\":771.8666670000002,\"stdout\":\"{\\\"passed\\\":false,\\\"cases\\\":6,\\\"results\\\":[{\\\"id\\\":\\\"cache-metadata-is-file-not-directory\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"cache-view-excludes-directory-expansion\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"workspace-patterns-root-ignore-and-manifest-formats\\\",\\\"passed\\\":false,\\\"error\\\":{\\\"name\\\":\\\"Error\\\",\\\"message\\\":\\\"Cannot pass patterns as both an argument and an option\\\"}},{\\\"id\\\":\\\"bins-recursive-files-without-link-or-path-escape\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"pack-inherits-license-file-without-directory-contents\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"patch-comparison-ignores-unpublished-files\\\",\\\"passed\\\":true}]}\\n\",\"stderr\":\"\",\"error\":null}}\n"
+    },
+    {
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 21,
+      "outputSha256": "9dcc3de0fa2d3f886eaf9647eb562d3443f676c844e6e20d813ec2f153d56d3e",
+      "outputBytes": 7222,
+      "exitCode": 0,
+      "stdout": " cache/api/src/cacheList.ts                           | 5 +++--\n cache/api/src/cacheView.ts                           | 5 +++--\n fs/find-packages/src/index.ts                        | 8 ++++----\n patching/plugin-commands-patching/src/patchCommit.ts | 3 ++-\n pkg-manager/package-bins/src/index.ts                | 7 ++++---\n releasing/plugin-commands-publishing/src/pack.ts     | 4 ++--\n 6 files changed, 18 insertions(+), 14 deletions(-)\ndiff --git a/cache/api/src/cacheList.ts b/cache/api/src/cacheList.ts\nindex a1a8e73..00554b9 100644\n--- a/cache/api/src/cacheList.ts\n+++ b/cache/api/src/cacheList.ts\n@@ -1,6 +1,6 @@\n import fs from 'fs'\n import getRegistryName from 'encode-registry'\n-import fastGlob from 'fast-glob'\n+import { glob } from 'tinyglobby'\n \n export async function cacheListRegistries (opts: { cacheDir: string, registry?: string, registries?: boolean }): Promise<string> {\n   return fs.readdirSync(opts.cacheDir).sort().join('\\n')\n@@ -14,8 +14,9 @@ export async function cacheList (opts: { cacheDir: string, registry?: string, re\n export async function findMetadataFiles (opts: { cacheDir: string, registry?: string }, filter: string[]): Promise<string[]> {\n   const prefix = opts.registry ? `${getRegistryName(opts.registry)}` : '*'\n   const patterns = filter.length ? filter.map((filter) => `${prefix}/${filter}.json`) : [`${prefix}/**`]\n-  const metaFiles = await fastGlob(patterns, {\n+  const metaFiles = await glob(patterns, {\n     cwd: opts.cacheDir,\n+    expandDirectories: false,\n   })\n   return metaFiles\n }\ndiff --git a/cache/api/src/cacheView.ts b/cache/api/src/cacheView.ts\nindex c4b09c5..34cabdc 100644\n--- a/cache/api/src/cacheView.ts\n+++ b/cache/api/src/cacheView.ts\n@@ -1,9 +1,9 @@\n import fs from 'fs'\n import path from 'path'\n-import fastGlob from 'fast-glob'\n import { getIndexFilePathInCafs } from '@pnpm/store.cafs'\n import { type PackageMeta } from '@pnpm/npm-resolver'\n import getRegistryName from 'encode-registry'\n+import { glob } from 'tinyglobby'\n \n interface CachedVersions {\n   cachedVersions: string[]\n@@ -14,8 +14,9 @@ interface CachedVersions {\n \n export async function cacheView (opts: { cacheDir: string, storeDir: string, registry?: string }, packageName: string): Promise<string> {\n   const prefix = opts.registry ? `${getRegistryName(opts.registry)}` : '*'\n-  const metaFilePaths = (await fastGlob(`${prefix}/${packageName}.json`, {\n+  const metaFilePaths = (await glob(`${prefix}/${packageName}.json`, {\n     cwd: opts.cacheDir,\n+    expandDirectories: false,\n   })).sort()\n   const metaFilesByPath: Record<string, CachedVersions> = {}\n   for (const filePath of metaFilePaths) {\ndiff --git a/fs/find-packages/src/index.ts b/fs/find-packages/src/index.ts\nindex 19f724f..57097b3 100644\n--- a/fs/find-packages/src/index.ts\n+++ b/fs/find-packages/src/index.ts\n@@ -4,8 +4,8 @@ import util from 'util'\n import { readExactProjectManifest } from '@pnpm/read-project-manifest'\n import { type Project, type ProjectRootDir, type ProjectRootDirRealPath } from '@pnpm/types'\n import { lexCompare } from '@pnpm/util.lex-comparator'\n-import fastGlob from 'fast-glob'\n import pFilter from 'p-filter'\n+import { glob } from 'tinyglobby'\n \n const DEFAULT_IGNORE = [\n   '**/node_modules/**',\n@@ -22,14 +22,14 @@ export interface Options {\n \n export async function findPackages (root: string, opts?: Options): Promise<Project[]> {\n   opts = opts ?? {}\n-  const globOpts = { ...opts, cwd: root }\n+  const globOpts = { ...opts, cwd: root, expandDirectories: false }\n   globOpts.ignore = opts.ignore ?? DEFAULT_IGNORE\n   const patterns = normalizePatterns(opts.patterns ?? ['.', '**'])\n-  const paths: string[] = await fastGlob(patterns, globOpts)\n+  const paths: string[] = await glob(patterns, globOpts)\n \n   if (opts.includeRoot) {\n     // Always include the workspace root (https://github.com/pnpm/pnpm/issues/1986)\n-    paths.push(...(await fastGlob(normalizePatterns(['.']), globOpts)))\n+    paths.push(...(await glob(normalizePatterns(['.']), globOpts)))\n   }\n \n   return pFilter(\ndiff --git a/patching/plugin-commands-patching/src/patchCommit.ts b/patching/plugin-commands-patching/src/patchCommit.ts\nindex bf10363..3e0b524 100644\n--- a/patching/plugin-commands-patching/src/patchCommit.ts\n+++ b/patching/plugin-commands-patching/src/patchCommit.ts\n@@ -10,7 +10,7 @@ import { install } from '@pnpm/plugin-commands-installation'\n import { readPackageJsonFromDir } from '@pnpm/read-package-json'\n import { getStorePath } from '@pnpm/store-path'\n import { type ProjectRootDir } from '@pnpm/types'\n-import glob from 'fast-glob'\n+import { glob } from 'tinyglobby'\n import normalizePath from 'normalize-path'\n import pick from 'ramda/src/pick'\n import equals from 'ramda/src/equals'\n@@ -232,6 +232,7 @@ async function preparePkgFilesForDiff (src: string): Promise<string> {\n async function areAllFilesInPkg (files: string[], basePath: string): Promise<boolean> {\n   const allFiles = await glob('**', {\n     cwd: basePath,\n+    expandDirectories: false,\n   })\n   return equals(allFiles.sort(), files.sort())\n }\ndiff --git a/pkg-manager/package-bins/src/index.ts b/pkg-manager/package-bins/src/index.ts\nindex 32a151b..53fc25e 100644\n--- a/pkg-manager/package-bins/src/index.ts\n+++ b/pkg-manager/package-bins/src/index.ts\n@@ -1,7 +1,7 @@\n import path from 'path'\n import { type DependencyManifest, type PackageBin } from '@pnpm/types'\n-import fastGlob from 'fast-glob'\n import isSubdir from 'is-subdir'\n+import { glob } from 'tinyglobby'\n \n export interface Command {\n   name: string\n@@ -29,11 +29,12 @@ export async function getBinsFromPackageManifest (manifest: DependencyManifest,\n \n async function findFiles (dir: string): Promise<string[]> {\n   try {\n-    return await fastGlob('**', {\n+    return await glob('**', {\n       cwd: dir,\n+      expandDirectories: false,\n       onlyFiles: true,\n       followSymbolicLinks: false,\n-      })\n+    })\n   } catch (err: any) { // eslint-disable-line\n     if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {\n       throw err\ndiff --git a/releasing/plugin-commands-publishing/src/pack.ts b/releasing/plugin-commands-publishing/src/pack.ts\nindex 802f8f9..49ae7ba 100644\n--- a/releasing/plugin-commands-publishing/src/pack.ts\n+++ b/releasing/plugin-commands-publishing/src/pack.ts\n@@ -10,7 +10,7 @@ import { packlist } from '@pnpm/fs.packlist'\n import { getBinsFromPackageManifest } from '@pnpm/package-bins'\n import { type Hooks } from '@pnpm/pnpmfile'\n import { type ProjectManifest, type Project, type ProjectRootDir, type ProjectsGraph, type DependencyManifest } from '@pnpm/types'\n-import fg from 'fast-glob'\n+import { glob } from 'tinyglobby'\n import pick from 'ramda/src/pick'\n import realpathMissing from 'realpath-missing'\n import renderHelp from 'render-help'\n@@ -24,7 +24,7 @@ import { sortPackages } from '@pnpm/sort-packages'\n import { logger } from '@pnpm/logger'\n \n const LICENSE_GLOB = 'LICEN{S,C}E{,.*}' // cspell:disable-line\n-const findLicenses = fg.bind(fg, [LICENSE_GLOB]) as (opts: { cwd: string }) => Promise<string[]>\n+const findLicenses = (opts: { cwd: string }): Promise<string[]> => glob([LICENSE_GLOB], { ...opts, expandDirectories: false })\n \n export function rcOptionsTypes (): Record<string, unknown> {\n   return {\n"
+    },
+    {
+      "idSha256": "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 27,
+      "outputSha256": "e48171bb6045c70820b6d2ab88d8136bc1afa6c8d9bbc03423fe0e63e2f897e3",
+      "outputBytes": 242,
+      "exitCode": 1,
+      "stdout": " M cache/api/src/cacheList.ts\n M cache/api/src/cacheView.ts\n M fs/find-packages/src/index.ts\n M patching/plugin-commands-patching/src/patchCommit.ts\n M pkg-manager/package-bins/src/index.ts\n M releasing/plugin-commands-publishing/src/pack.ts\n"
+    },
+    {
+      "idSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 28,
+      "outputSha256": "6739b558b05c7995effb058e0c18359bbd4aad508e64037b512a47f74f5d5360",
+      "outputBytes": 1478,
+      "exitCode": 0,
+      "stdout": "\n> test:typelatch-benchmark\n> node '$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs'\n\n{\"passed\":true,\"cases\":7,\"results\":[{\"id\":\"native-typescript-build-five-production-packages\",\"passed\":true,\"clean\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":733.405084,\"stdout\":\"\",\"stderr\":\"\",\"error\":null},\"build\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":8969.403291999999,\"stdout\":\"\",\"stderr\":\"\",\"error\":null}},{\"id\":\"cache-metadata-is-file-not-directory\",\"passed\":true},{\"id\":\"cache-view-excludes-directory-expansion\",\"passed\":true},{\"id\":\"workspace-patterns-root-ignore-and-manifest-formats\",\"passed\":true},{\"id\":\"bins-recursive-files-without-link-or-path-escape\",\"passed\":true},{\"id\":\"pack-inherits-license-file-without-directory-contents\",\"passed\":true},{\"id\":\"patch-comparison-ignores-unpublished-files\",\"passed\":true}],\"runtime\":{\"exitCode\":0,\"signal\":null,\"elapsedMs\":723.274625,\"stdout\":\"{\\\"passed\\\":true,\\\"cases\\\":6,\\\"results\\\":[{\\\"id\\\":\\\"cache-metadata-is-file-not-directory\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"cache-view-excludes-directory-expansion\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"workspace-patterns-root-ignore-and-manifest-formats\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"bins-recursive-files-without-link-or-path-escape\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"pack-inherits-license-file-without-directory-contents\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"patch-comparison-ignores-unpublished-files\\\",\\\"passed\\\":true}]}\\n\",\"stderr\":\"\",\"error\":null}}\n"
+    }
+  ],
+  "evidenceBoundary": "Only item.completed command_execution stdout and mcp_tool_call result/error payloads. No agent reasoning, assistant messages, command input, unrelated item fields or file edit bodies. Tool-returned message fields remain tool evidence."
+}

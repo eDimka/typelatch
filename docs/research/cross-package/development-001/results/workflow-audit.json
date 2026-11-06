@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "5a28e31d199908eca4bfcbce7f657eb3e922cbe07033414965b5cff715ae77e7",
+  "protocolSha256": "2ed3eddbae80b1d1dffa86859eaab9dbbd3bbbcb3fc0994fd6d33264e54b4d8a",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "method": "Manual review of every public command, MCP argument and relevant returned output; action start/completion times and shell-internal order reviewed. Original grades were not changed. Complete result records, supplements and task artifacts were hash checked. No raw capture or assistant message was read.",
+  "runs": [
+    {
+      "id": "pnpm-glob-migration-r1-native",
+      "evidenceSha256": "31131e21a8e2dfcb3590b9707fe6977880c2c0b4cfe65b551a212171c9304fde",
+      "toolOutputsSha256": "5d0c1ecfb82567fbc010c7b1c3249ac56f9706af2c966222fefda5d8034ea8ab",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "The required native check failed before implementation investigation. Native search and source plus tinyglobby declaration/implementation reads preceded six production source edits. A later seven-case native check passed and no edit followed it. Concurrent final diff/search commands were read only. Independent grading records only permitted source edits and generated compiler outputs. No provider is advertised in this arm.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 14849.147916000002,
+        "completedMs": 14849.81904100001,
+        "outcome": "completed"
+      },
+      "nativeChecks": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 4712.476290999999,
+          "completedMs": 11683.96708300001,
+          "passed": false,
+          "cases": 2,
+          "commandExitCode": 1,
+          "individualCheckExitCode": null
+        },
+        {
+          "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+          "startedMs": 46172.634458,
+          "completedMs": 56666.605291,
+          "passed": true,
+          "cases": 7,
+          "commandExitCode": 0,
+          "individualCheckExitCode": null
+        }
+      ],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [
+          "cache/api/src/cacheList.ts",
+          "cache/api/src/cacheView.ts",
+          "fs/find-packages/src/index.ts",
+          "patching/plugin-commands-patching/src/patchCommit.ts",
+          "pkg-manager/package-bins/src/index.ts",
+          "releasing/plugin-commands-publishing/src/pack.ts"
+        ],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": []
+    },
+    {
+      "id": "pnpm-glob-migration-r1-typelatch",
+      "evidenceSha256": "726033996bfa85f576b8ec5d00705285c34cc766ac16baf8a053292ccdfafee4",
+      "toolOutputsSha256": "994cb41ef419ab49377cda9d3bf80d610435b5e1819782727647182816383c55",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "The failed required native check preceded the first task-directed provider search. Its partial search returned relevant find-packages source among noisier matches. Compiler context resolved tinyglobby 0.2.15 and the async glob overloads, but did not provide expanded option behavior or prove compatibility. Native dependency reads supplied additional semantics. The first edited check compiled but failed workspace pattern handling because patterns were passed twice; that failure and its cost remain. After a further permitted source edit, all seven native cases passed. Independent grading confirms the six permitted files only, plus allowed generated outputs.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d"
+      ],
+      "providerActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 16087.619833000004,
+        "completedMs": 19562.996542000008,
+        "outcome": "completed"
+      },
+      "nativeChecks": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 5402.587874999997,
+          "completedMs": 12266.226083000016,
+          "passed": false,
+          "cases": 2,
+          "commandExitCode": 1,
+          "individualCheckExitCode": null
+        },
+        {
+          "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+          "startedMs": 48613.809917000006,
+          "completedMs": 59164.538,
+          "passed": false,
+          "cases": 7,
+          "commandExitCode": 1,
+          "individualCheckExitCode": null
+        },
+        {
+          "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+          "startedMs": 71435.04504200001,
+          "completedMs": 81864.14900000003,
+          "passed": true,
+          "cases": 7,
+          "commandExitCode": 0,
+          "individualCheckExitCode": null
+        }
+      ],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [
+          "cache/api/src/cacheList.ts",
+          "cache/api/src/cacheView.ts",
+          "fs/find-packages/src/index.ts",
+          "patching/plugin-commands-patching/src/patchCommit.ts",
+          "pkg-manager/package-bins/src/index.ts",
+          "releasing/plugin-commands-publishing/src/pack.ts"
+        ],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": [
+        {
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "tool": "workspace_search",
+          "resultSha256": "8577e238064e4e84488e6c6a0691c56033e3125eb17a4a46ce8366f85d49e091",
+          "semanticBasis": {
+            "pointer": "/result/content/0/text",
+            "textExcerpt": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"fast-glob tinyglobby package discovery metadata matching executable discovery patch archive\",\"scope\":\"workspace\",\"detail\":\"source\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/workspace/filter-workspace-packages/src/index.ts\",\"line\":319,\"endLine\":330,\"symbol\":\"matchPackagesByGlob\",\"position\":10963,\"kind\":\"declaration\",\"score\":66,\"matchedTerms\":[\"glob\",\"packag\",\"match\"],\"snippet\":\"function matchPackagesByGlob<Pkg extends Package> (\\n  graph: PackageGraph<Pkg>,\\n  pathStartsWith: string\\n): ProjectRootDir[] {\\n  const format =",
+            "limitation": "A partial discovery result is usable evidence for follow-up, not a complete-set or absence proof."
+          }
+        },
+        {
+          "actionIdSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+          "tool": "workspace_context",
+          "resultSha256": "8848189c9b9cb6e28d576c7b533de9d3481099128e0937151965fa847630d50b",
+          "semanticBasis": {
+            "dependency": {
+              "name": "tinyglobby",
+              "version": "0.2.15",
+              "root": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby",
+              "manifest": "$WORKSPACE/node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/package.json",
+              "manifestHash": "473bd5e2e8708e7c5700b2196c4225b42418c310d29893d4043aece3d5dea51d"
+            },
+            "api": {
+              "name": "glob",
+              "signatures": [
+                "(patterns: string | readonly string[], options?: Omit<GlobOptions, \"patterns\"> | undefined): Promise<string[]>",
+                "(options: GlobOptions): Promise<string[]>"
+              ]
+            },
+            "checks": {
+              "retrieved": {
+                "status": "not-run",
+                "reason": "No discovery question supplied"
+              },
+              "resolved": {
+                "status": "pass",
+                "reason": "Import resolved by the project compiler"
+              },
+              "versionMatch": {
+                "status": "not-run",
+                "reason": "No expected version supplied"
+              },
+              "artifactMatch": {
+                "status": "unknown",
+                "reason": "Installed package contents have not been compared with the registry artifact"
+              },
+              "typechecked": {
+                "status": "not-run",
+                "reason": "Use workspace validation for project diagnostics"
+              },
+              "tested": {
+                "status": "not-run",
+                "reason": "No test command executed"
+              }
+            },
+            "compilerVersion": "5.5.4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pnpm-glob-migration-r1-competitor",
+      "evidenceSha256": "643b649860523c24b95f924d904c494e6291f4d9c7d7b4dda7c48dcf82dbf7bc",
+      "toolOutputsSha256": "83eec6575fc2a8c0a60be7754949db38e377717315a84ce1ab17c918d7b1aedc",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "The failing native check came first. Initial instructions and REPL API help were setup, not task evidence. The first task investigation used Serena pattern search and returned the actual old import sites in all six affected source modules. This establishes usable source discovery, not compiler reference analysis. Native source and dependency reads followed. The compound command wrote only the six production files and then ran the native check, which passed seven cases; its exit code is aggregate but the command order and JSON result are observable. A subsequent diff was read only.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ],
+      "providerActionIds": [
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "startedMs": 20262.84924999997,
+        "completedMs": 20559.582291,
+        "outcome": "completed"
+      },
+      "nativeChecks": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 6510.90737500001,
+          "completedMs": 13388.139582999982,
+          "passed": false,
+          "cases": 2,
+          "commandExitCode": 1,
+          "individualCheckExitCode": null
+        },
+        {
+          "actionIdSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+          "startedMs": 51620.28937499999,
+          "completedMs": 62139.16854099999,
+          "passed": true,
+          "cases": 7,
+          "commandExitCode": 0,
+          "individualCheckExitCode": null
+        }
+      ],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [
+          "cache/api/src/cacheList.ts",
+          "cache/api/src/cacheView.ts",
+          "fs/find-packages/src/index.ts",
+          "patching/plugin-commands-patching/src/patchCommit.ts",
+          "pkg-manager/package-bins/src/index.ts",
+          "releasing/plugin-commands-publishing/src/pack.ts"
+        ],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": [
+        {
+          "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+          "tool": "serena_repl",
+          "resultSha256": "40b37c5c54efd171741ab09ea654794a2f87da4f9d49153b3329a96493709170",
+          "semanticBasis": {
+            "pointer": "/result/content/0/text",
+            "textExcerpt": "{\"cache/api/src/cacheList.ts\": [\"  >   2:import fastGlob from 'fast-glob'\\n...   3:\\n...   4:export async function cacheListRegistries (opts: { cacheDir: string, registry?: string, registries?: boolean }): Promise<string> {\"], \"cache/api/src/cacheView.ts\": [\"  >   2:import fastGlob from 'fast-glob'\\n...   3:import { getIndexFilePathInCafs } from '@pnpm/store.cafs'\\n...   4:import { type PackageMeta } from '@pnpm/npm-resolver'\"], \"pkg-manager/package-bins/src/index.ts\": [\"  >   2:import fastGlob from 'fast-glob'\\n...   3:import isSubdir from 'is-subdir'\\n...   4:\"], \"__utils__/scripts/src/typec",
+            "limitation": "A partial discovery result is usable evidence for follow-up, not a complete-set or absence proof."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-typelatch",
+      "evidenceSha256": "7106a107169fd058809b1f4673ce9ba61b483374ad0ae2beed7f31cf6ec16607",
+      "toolOutputsSha256": "52f98f993a7f423b68747a21e548952d9db81f2f18d75cc6bcd45e5c3b842334",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "The first task investigation attempted provider search with an invalid limit and failed; its retry returned usable target types and caller snippets before native investigation. The later context response resolved the workspace parser identity/version and signature in parse-overrides, but neither query established the full reverse graph or repository-wide symbol impact. The agent used native TypeScript configuration/module analysis and installed workspace links to assemble that evidence. Only impact-answer.json was written and independent source integrity remained unchanged. Workflow compliance is separate from the original failed grade, whose citation and exclusion limitations are audited separately.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e241483af4c21cbfcc6e68aebae085c699bf4f57a3af50be0eb0e5bb2d8b0b3e",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7"
+      ],
+      "providerActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 9088.787083000061,
+        "completedMs": 9093.072333000018,
+        "outcome": "failed"
+      },
+      "nativeChecks": [],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": [
+        {
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "tool": "workspace_search",
+          "resultSha256": "63dc59975250fcbcfece06f7f27fcb5cdc49da55365b5b7058585115ee4b0f3e",
+          "semanticBasis": {
+            "pointer": "/result/content/0/text",
+            "textExcerpt": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"parseWantedDependency ParseWantedDependencyResult ParsedWantedDependency @pnpm/parse-wanted-dependency\",\"scope\":\"workspace\",\"detail\":\"compact\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/CHANGELOG.md\",\"line\":25,\"endLine\":40,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":136,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"- 2ae1c449d: Export `ParseWantedDependencyResult`.\\n\\n## 4.0.1\\n\\n### Patch Changes\\n\\n- a9d59d8bc: Update dependencies.\\n\\n## 4.0.0\\n\\n### Major",
+            "limitation": "A partial discovery result is usable evidence for follow-up, not a complete-set or absence proof."
+          }
+        },
+        {
+          "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "tool": "workspace_context",
+          "resultSha256": "2603048580905ac4f7d051b79b7a820e6164c13401a5d4f386152f6761d22775",
+          "semanticBasis": {
+            "dependency": {
+              "name": "@pnpm/parse-wanted-dependency",
+              "version": "1001.0.0",
+              "root": "$WORKSPACE/packages/parse-wanted-dependency",
+              "manifest": "$WORKSPACE/packages/parse-wanted-dependency/package.json",
+              "manifestHash": "8f4032272f09d1d32ee565822924f585eb8b4ed464d192ef24a8cc8313f4b231"
+            },
+            "api": {
+              "name": "parseWantedDependency",
+              "signatures": [
+                "(rawWantedDependency: string): ParseWantedDependencyResult"
+              ]
+            },
+            "checks": {
+              "retrieved": {
+                "status": "not-run",
+                "reason": "No discovery question supplied"
+              },
+              "resolved": {
+                "status": "pass",
+                "reason": "Import resolved by the project compiler"
+              },
+              "versionMatch": {
+                "status": "pass",
+                "reason": "Resolved @pnpm/parse-wanted-dependency@1001.0.0; expected 1001.0.0"
+              },
+              "artifactMatch": {
+                "status": "unknown",
+                "reason": "Installed package contents have not been compared with the registry artifact"
+              },
+              "typechecked": {
+                "status": "not-run",
+                "reason": "Use workspace validation for project diagnostics"
+              },
+              "tested": {
+                "status": "not-run",
+                "reason": "No test command executed"
+              }
+            },
+            "compilerVersion": "5.5.4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-competitor",
+      "evidenceSha256": "8106eab275ddc0f3b7695f9d4320e1efc864bfa43f09ac5f041cb54ff4cb02ae",
+      "toolOutputsSha256": "5981fa4156981422d54931e9d0bc2f123c8bc0f8afb6b0ec8af4d15d38ae144b",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Provider startup instructions and REPL help preceded Serena source-pattern search as the first task-directed investigation. Its returned import and call lines covered relevant parser consumers and types. This was useful discovery, not proof of a complete configured symbol graph. Native compiler configuration/module scans and installed package-link traversal supplied the later analysis. Only impact-answer.json was written, with no source/configuration/dependency changes. No native test execution was requested for this analysis task. Original grading remains preserved; an accepted script quotation is semantically wrong as detailed in the separate audit.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7"
+      ],
+      "providerActionIds": [
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "startedMs": 12152.796041000052,
+        "completedMs": 12547.300208,
+        "outcome": "completed"
+      },
+      "nativeChecks": [],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": [
+        {
+          "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+          "tool": "serena_repl",
+          "resultSha256": "7161975bf57a8d3d566bd5539f375d9e9f8db79c231a22d33f44ec4e62e909c0",
+          "semanticBasis": {
+            "pointer": "/result/content/0/text",
+            "textExcerpt": "{\"config/deps-installer/src/resolveConfigDeps.ts\": [\"  >   6:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  23:    const wantedDep = parseWantedDependency(configDep)\"], \"config/parse-overrides/src/index.ts\": [\"  >   1:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  62:  const wantedDep = parseWantedDependency(selector)\"], \"pkg-manager/core/src/parseWantedDependencies.ts\": [\"  >   0:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  24:      const parsed = parseWantedDependency(rawWantedDependency)\"], \"pkg-m",
+            "limitation": "A partial discovery result is usable evidence for follow-up, not a complete-set or absence proof."
+          }
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-native",
+      "evidenceSha256": "8c39cae463edb5d3c598f39b622ffcfc63c11a69191b349dd368f94a785ea344",
+      "toolOutputsSha256": "a89e1ced8950b53b36af28a914e9befeaaf76a6e0477859ff8099593b1c71b2c",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "The first investigation was native file discovery including task-related paths. Native source reads, TypeScript configuration/import analysis and installed workspace-link traversal preceded writing only impact-answer.json. Independent source integrity is unchanged. Native test execution was not requested for this analysis task, and the answer explicitly identifies proposed validation targets as unexecuted. No provider was advertised. Original grading and the independent distinction between semantic graph correctness, representation and script quotation are preserved separately.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 5507.125291000004,
+        "completedMs": 5507.125291000004,
+        "outcome": "completed"
+      },
+      "nativeChecks": [],
+      "sourceIntegrity": {
+        "passed": true,
+        "permittedSourceChanges": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerEvidenceBasis": []
+    }
+  ]
+}
