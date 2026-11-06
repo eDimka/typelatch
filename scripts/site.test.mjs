@@ -15,11 +15,39 @@ import { test } from 'node:test'
 import { verifySiteDemo } from './site-demo.mjs'
 import { demoHash } from './demo-evidence.mjs'
 import { verifyRecordedFixture } from './showcase-fixture.mjs'
-import { renderSiteBenchmark, renderAutomaticBenchmark, verifySiteBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation, verifySiteBenchmarkFixtures } from './site-benchmark.mjs'
+import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmark, verifySiteBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation, verifySiteBenchmarkFixtures } from './site-benchmark.mjs'
 import { summarizePairedRuns } from './paired-agent-evidence.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
+
+test('candidate presentation charges indexing and retains the failed decision gate', () => {
+  const report = JSON.parse(read('docs/benchmarks/typelatch-040-candidate/paired-agent.json'))
+  const html = renderSiteBenchmark(report)
+  assert.match(html, /0\.4\.0 candidate/)
+  assert.match(html, /63\.0% higher/)
+  assert.match(html, /44\.8% higher/)
+  assert.match(html, /Time including indexing/)
+  assert.match(html, /463\.3 s/)
+  assert.match(html, /320\.0 s/)
+  assert.match(html, /did not meet the recorded performance gate/)
+  assert.match(html, /5<span> \/ 6/)
+  assert.match(html, /4<span> \/ 6/)
+  assert.equal((html.match(/data-benchmark-run="/g) || []).length, 12)
+  const stale = structuredClone(report)
+  stale.decision.passed = true
+  assert.throws(() => renderSiteBenchmark(stale), /decision/)
+})
+
+test('historical comparison preserves the earlier loss and original replay links', () => {
+  const report = JSON.parse(read('docs/benchmarks/typelatch-use/paired-agent.json'))
+  const html = renderHistoricalBenchmark(report)
+  assert.match(html, /Earlier 0\.3\.0 comparison/)
+  assert.match(html, /1,861,666/)
+  assert.match(html, /936,683/)
+  assert.match(html, /evidence\/typelatch-030\/paired-agent.json/)
+  assert.match(html, /evidence\/typelatch-030\/assets\/codex-comparison.gif/)
+})
 
 test('README includes npm and the actual question, search and symbol requests', () => {
   const readme = read('README.md')
@@ -46,7 +74,8 @@ test('builds an inspectable static experience from the recorded run', () => {
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1)
   assert.doesNotMatch(html, /\{\{[a-zA-Z]+\}\}/)
   assert.match(html, /https:\/\/www.npmjs.com\/package\/typelatch/)
-  assert.ok(html.includes(`<code id="hero-install-command">npx typelatch@${JSON.parse(read('package.json')).version} setup</code>`), 'Current onboarding pins the current release')
+  assert.ok(html.includes('<code id="hero-install-command">npx typelatch@latest setup</code>'), 'Onboarding must resolve a published npm tag')
+  assert.doesNotMatch(html, /New in 0\.4\.0/, 'An unpublished candidate must not be announced as an available release')
   assert.match(html, /Codex or Claude Code CLI/)
   assert.match(html, /library_search/)
   assert.match(html, /workspace_validate/)
@@ -75,23 +104,28 @@ test('builds an inspectable static experience from the recorded run', () => {
     JSON.parse(read('docs/showcase/recording.json')),
   )
   assert.deepEqual(JSON.parse(read('_site/evidence/codex-session.json')), JSON.parse(read('docs/showcase/codex-session.json')))
-  assert.deepEqual(JSON.parse(read('_site/evidence/paired-agent.json')), JSON.parse(read('docs/benchmarks/typelatch-use/paired-agent.json')))
-  assert.equal(read('_site/evidence/paired-agent-protocol.json'), read('docs/benchmarks/typelatch-use/paired-agent-protocol.json'))
+  assert.deepEqual(JSON.parse(read('_site/evidence/paired-agent.json')), JSON.parse(read('docs/benchmarks/typelatch-040-candidate/paired-agent.json')))
+  assert.equal(read('_site/evidence/paired-agent-protocol.json'), read('docs/benchmarks/typelatch-040-candidate/paired-agent-protocol.json'))
   assert.equal(read('_site/evidence/benchmark-animation.json'), read('site/benchmark-animation.json'))
   assert.match(html, /data-comparison-image/)
   assert.match(html, /Recorded Codex actions, replayed side by side/)
   assert.match(html, /<source media="\(prefers-reduced-motion: reduce\)" srcset="assets\/codex-comparison.png"/)
   const animation = JSON.parse(read('site/benchmark-animation.json'))
   for (const asset of Object.values(animation.assets)) assert.equal(demoHash(readFileSync(resolve(root, '_site', asset.path))), asset.sha256, 'Packaged animation bytes match the selected record manifest')
-  for (const run of JSON.parse(read('docs/benchmarks/typelatch-use/paired-agent.json')).runs) {
-    assert.equal(read(`_site/evidence/${run.evidence}`), read(`docs/benchmarks/typelatch-use/${run.evidence}`), 'Each referenced public run is packaged unchanged')
+  for (const run of JSON.parse(read('docs/benchmarks/typelatch-040-candidate/paired-agent.json')).runs) {
+    assert.equal(read(`_site/evidence/${run.evidence}`), read(`docs/benchmarks/typelatch-040-candidate/${run.evidence}`), 'Each referenced public run is packaged unchanged')
     assert.equal(demoHash(read(`_site/evidence/${run.evidence}`)), run.evidenceSha256, 'Packaged public run digest matches the report')
   }
+  assert.equal(read('_site/evidence/typelatch-030/paired-agent.json'), read('docs/benchmarks/typelatch-use/paired-agent.json'))
+  assert.equal(read('_site/evidence/typelatch-030/benchmark-animation.json'), read('site/history/typelatch-030/benchmark-animation.json'))
+  const historicalAnimation = JSON.parse(read('site/history/typelatch-030/benchmark-animation.json'))
+  for (const asset of Object.values(historicalAnimation.assets)) assert.equal(demoHash(readFileSync(resolve(root, '_site/evidence/typelatch-030', asset.path))), asset.sha256, 'Historical replay bytes are unchanged')
+  for (const run of JSON.parse(read('docs/benchmarks/typelatch-use/paired-agent.json')).runs) assert.equal(read(`_site/evidence/typelatch-030/${run.evidence}`), read(`docs/benchmarks/typelatch-use/${run.evidence}`), 'Earlier paired evidence remains unchanged')
   assert.equal(read('_site/evidence/automatic/paired-agent.json'), read('docs/benchmarks/paired-agent.json'))
   assert.equal(read('_site/evidence/automatic/paired-agent-protocol.json'), read('docs/benchmarks/paired-agent-protocol.json'))
   for (const run of JSON.parse(read('docs/benchmarks/paired-agent.json')).runs) assert.equal(read(`_site/evidence/automatic/${run.evidence}`), read(`docs/benchmarks/${run.evidence}`), 'Original automatic choice evidence stays unchanged and separate')
   assert.match(html, /id="benchmark"/)
-  assert.equal((html.match(/data-benchmark-run="/g) || []).length, JSON.parse(read('docs/benchmarks/typelatch-use/paired-agent.json')).runs.length, 'Every primary benchmark session is visible')
+  assert.equal((html.match(/data-benchmark-run="/g) || []).length, JSON.parse(read('docs/benchmarks/typelatch-040-candidate/paired-agent.json')).runs.length, 'Every primary benchmark session is visible')
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const link = match[1]
     if (/^(https?:|mailto:|data:)/.test(link)) continue
@@ -161,7 +195,7 @@ test('refuses a failed recording or historical snapshot changed after capture', 
 test('historical evidence builds independently of the maintained example', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-snapshot-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
@@ -185,7 +219,7 @@ test('historical evidence builds independently of the maintained example', () =>
 test('a newer release keeps the walkthrough bound to its captured package version', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-historical-version-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
@@ -197,7 +231,7 @@ test('a newer release keeps the walkthrough bound to its captured package versio
     writeFileSync(resolve(directory, 'site/index.html'), read('site/index.html').replace(/npx typelatch@\d+\.\d+\.\d+/g, `npx typelatch@${nextVersion}`))
     execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' })
     const html = readFileSync(resolve(directory, '_site/index.html'), 'utf8')
-    assert.ok(html.includes(`npx typelatch@${nextVersion} setup`), 'Current onboarding uses the newer release')
+    assert.ok(html.includes('npx typelatch@latest setup'), 'Onboarding resolves the published tag independently of the checkout version')
     assert.ok(html.includes(`npx typelatch@${capturedVersion} setup`), 'Recorded walkthrough keeps its original identity')
     assert.equal(readFileSync(resolve(directory, '_site/evidence/codex-session.json'), 'utf8'), read('docs/showcase/codex-session.json'))
     assert.equal(readFileSync(resolve(directory, '_site/evidence/demo.json'), 'utf8'), read('site/demo.json'))

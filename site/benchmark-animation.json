@@ -7,21 +7,21 @@
   "runs": [
     {
       "id": "sqlite-rollback-1-baseline",
-      "evidenceSha256": "0b4f82ef88e277e1ebd8173bd467a754b707b2cb1264e2fcee2f1065c86c0807"
+      "evidenceSha256": "34d3927f2c95fd76f4786d7bd8d71a776d87a51464287f280c844b80083f92bc"
     },
     {
       "id": "sqlite-rollback-1-typelatch",
-      "evidenceSha256": "df6dbfa9e3203e47d4a620b9884eb1a63be2782df25cd3837855cd74b09d1149"
+      "evidenceSha256": "cc03e216fc72b33f20768c4ccdd38c9aa03f15b654d44a12d4565bd614feeed8"
     }
   ],
   "assets": {
     "gif": {
       "path": "assets/codex-comparison.gif",
-      "sha256": "cd935e060ab41d363b68df4d1c230cef82b19ec16de5936805e9299455757527"
+      "sha256": "4c41793fe5b4b1d9d8ad304142080f15a2d70117e864ccc49679a8375a93f8eb"
     },
     "poster": {
       "path": "assets/codex-comparison.png",
-      "sha256": "a65ff3efdd012cef764bd78dea0d91c315ecec9449f832ccf47e73312ed03007"
+      "sha256": "ffa856dda5999ae4fc7c386f68ec01b49f59cb730084a4f5a0638317680ec44a"
     }
   },
   "dimensions": {
@@ -40,6 +40,6 @@
     "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
     "policy": "Only exact workspace paths in the two recorded better-sqlite3 generated metadata files are normalized. All other source and dependency bytes match."
   },
-  "reportSha256": "1692cc9552e15db2cf63425ba2a1ef141d98c2889e349f927bc2fa49895dc0fc",
+  "reportSha256": "498060f732858ea4f55085c2ae102d2e63435df7f3cdc402fc8a4c856180d239",
   "rendererSha256": "e9f584f193e4d48bbc6623064f9cc85e713764eee95af91e826957fbf21f3dea"
 }

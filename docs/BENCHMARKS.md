@@ -2,11 +2,24 @@
 
 ## Paired agent comparison
 
-[Results](https://edimka.github.io/typelatch/#benchmark) · [Data and per run evidence](benchmarks/typelatch-use/paired-agent.json) · [Frozen protocol](benchmarks/typelatch-use/paired-agent-protocol.json)
+[Results](https://edimka.github.io/typelatch/#benchmark) · [Current candidate evidence](benchmarks/typelatch-040-candidate/paired-agent.json) · [Candidate protocol](benchmarks/typelatch-040-candidate/paired-agent-protocol.json) · [Original 0.3.0 evidence](benchmarks/typelatch-use/paired-agent.json)
+
+The latest recorded candidate uses compact MCP validation responses. It did not meet the performance gate: total model tokens increased 63.0%, and agent time plus index preparation increased 44.8%. Correctness was five of six sessions with Typelatch and four of six without it. This is the packed `typelatch@0.4.0` checkout candidate identified by the report's archive digest, not evidence about an npm release.
+
+| Latest candidate totals | Without Typelatch | With Typelatch |
+| :--- | ---: | ---: |
+| Grep shell calls | 22 | 13 |
+| Input plus output tokens | 954,947 | 1,556,137 |
+| Agent time | 320.0 s | 430.9 s |
+| Index preparation | 0.0 s | 32.4 s |
+| Agent time plus indexing | 320.0 s | 463.3 s |
+| Correct solutions | 4 / 6 | 5 / 6 |
+
+The frozen gate required at least 10% improvement in both total tokens and charged time, in aggregate and median paired reductions, improvement in both repeats, and no correctness decline overall or per task. All twelve sessions remain included. Common fixture preparation, final independent grading and installation of the shared benchmark runtime are outside this gate and remain separately disclosed. Candidate results and the original 0.3.0 study are not pooled.
 
 Three authored TypeScript tasks, two repetitions per condition, twelve fresh Codex sessions. Tasks cover SQLite rollback, cart preview correctness, and an Effect manifest validator. The latter two share a 57 source file project.
 
-Both conditions use Codex CLI 0.166.0, requested model `gpt-6.1-sol`, medium reasoning, identical task and workflow prompts, starting source, dependencies, native tools and permissions. The shared prompt requires source discovery, installed API inspection and tests before and after editing. It directs the agent to Typelatch when available and native equivalents otherwise. One condition provides published `typelatch@0.3.0` MCP tools. Runs are sequential, with condition order reversed for the second repetition. All attempts remain in the results. Only workspace paths in two generated native build files are normalized when comparing initial inventories; original hashes are retained.
+Both studies use Codex CLI 0.166.0, requested model `gpt-6.1-sol`, medium reasoning, identical task and workflow prompts within each pair, starting source, dependencies, native tools and permissions. The shared prompt requires source discovery, installed API inspection and tests before and after editing. It directs the agent to Typelatch when available and native equivalents otherwise. The original study provides published `typelatch@0.3.0` MCP tools; the current study uses the captured 0.4.0 candidate. Runs are sequential, with condition order reversed for the second repetition. All attempts remain in the results. Only workspace paths in two generated native build files are normalized when comparing initial inventories; original hashes are retained.
 
 | Metric | Definition |
 | :--- | :--- |
@@ -25,6 +38,8 @@ A separate [automatic choice study](benchmarks/paired-agent.json) retained twelv
 ### Reproduce
 
 Use an authenticated Codex CLI and the recorded lockfiles. Use npm 10.9.8 for the captured Typelatch 0.3.0 runtime; npm 12 response compatibility starts in Typelatch 0.4.0. Install `typelatch@0.3.0` in `artifacts/paired-agent/runtime`. Run `node --test scripts/paired-agent*.test.mjs`. For a new study, run `node scripts/paired-agent-use.mjs --freeze --output-directory artifacts/paired-agent/new-study`, then the same command with `--run` instead of `--freeze`. The runner refuses to overwrite existing evidence. Fixtures and independent assertions are in `scripts/fixtures/paired-agent`.
+
+The candidate capture uses `scripts/paired-agent-candidate.mjs`, the archive identity and frozen inputs in its protocol. Rebuilding a different checkout with the same version number does not reproduce that artifact. The candidate runner retains every preparation and launch attempt and refuses replacement runs. Its first SQLite pair was selected for the action replay before scoring, regardless of outcome.
 
 These are known development exercises, not unseen production tasks. Two repetitions do not add task diversity. Machine load, network latency, provider caching and sampling affect measurements. Starting from an empty machine also incurs the separately reported preparation costs. Results describe this sample and do not establish a general performance guarantee.
 
