@@ -20,7 +20,7 @@ Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
 npx typelatch@0.3.0 setup
 ```
 
-These commands install the published 0.3.0 release. [0.4.0 development features](CHANGELOG.md#040) require a source checkout.
+These commands install the published 0.3.0 release. [Unreleased development](https://github.com/eDimka/typelatch/pull/3) is tracked separately.
 
 Choose your client and confirm registration. Start a new client session in your project, then ask:
 
@@ -45,7 +45,7 @@ npx typelatch@0.3.0 scope add apps/web packages/ui
 npx typelatch@0.3.0 sync
 ```
 
-The source checkout covers npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, Bun text and binary locks, and Deno npm dependencies. Binary Bun and Deno support are 0.4.0 development additions. Binary Bun locks require Bun on `PATH`. [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
+The published package supports npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, and Bun text locks. Binary Bun and Deno npm support are [unreleased additions](https://github.com/eDimka/typelatch/pull/3). [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
 
 ## Start with a question
 
@@ -194,7 +194,7 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 
 Search, compiler resolution, compilation and execution have separate evidence states. Missing evidence stays visible. [Tool reference](docs/USAGE.md#mcp-tool-reference).
 
-MCP validation summarizes input manifests by default and preserves checks, diagnostics and test output. Request `detail: "full"` for every input row. CLI output and saved evidence retain full manifests. Use `record: false` or `TYPELATCH_USAGE=off` to disable saving.
+Validation returns checks, diagnostics, test output and input manifests. Use `record: false` or `TYPELATCH_USAGE=off` to disable saving.
 
 ## Your code stays local
 
