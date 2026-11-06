@@ -27,7 +27,7 @@ Requires Node.js 22.12 or newer and npm. The SQLite dependency uses a native bin
 ```sh
 npm install --global typelatch@0.3.0
 typelatch --help
-typelatch add kysely@0.28.8
+typelatch add kysely@0.28.19
 ```
 
 `add` downloads an npm artifact, verifies its registry integrity, and indexes its TypeScript APIs without running package lifecycle scripts. It does not add a dependency to your workspace. Search uses that local index after preparation, including when offline.
@@ -71,7 +71,7 @@ Start a new client session after registration or upgrading. Version 0.3.0 expose
 Prepare the same local index:
 
 ```sh
-npx --yes --package=typelatch@0.3.0 typelatch add kysely@0.28.8
+npx --yes --package=typelatch@0.3.0 typelatch add kysely@0.28.19
 ```
 
 Register either client with npm as the launcher:
@@ -87,13 +87,15 @@ The package name is `typelatch`. Its server executable is `typelatch-mcp`. Do no
 
 ## Try the SQLite task
 
+The [recorded Codex session](showcase/codex-session.md) demonstrates finding and fixing a broken implementation with workspace search, installed API evidence and unchanged assertions. Its animation summarizes one prompted session on an authored exercise; it does not measure improvement against another agent run. That retained session used `kysely@0.28.8`; the maintained example and commands below now use `kysely@0.28.19`.
+
 The [SQLite fixture](../examples/sqlite) imports a batch of contacts through Kysely and `better-sqlite3`. A duplicate name must reject the batch and leave no partial inserts. It uses an in memory database, not your application's data or Typelatch's index.
 
 From a trusted source checkout, install the fixture's pinned dependencies and prepare its API index:
 
 ```sh
 npm ci --prefix examples/sqlite
-typelatch add kysely@0.28.8
+typelatch add kysely@0.28.19
 ```
 
 Open Codex or Claude Code at the repository root with Typelatch connected. This prompt gives the agent a concrete question and a narrow execution authorization:
@@ -104,7 +106,7 @@ How can I import a batch of contacts into SQLite atomically, roll back
 every new row if a UNIQUE name constraint fails, and safely store a
 name containing a quote?
 
-Search the local kysely@0.28.8 index with library_search. If the first
+Search the local kysely@0.28.19 index with library_search. If the first
 results do not explain the callback transaction, refine the question
 to "TransactionBuilder execute". Inspect the returned transaction API
 with library_symbol. Cite the exact
@@ -125,7 +127,7 @@ Report retrieval, resolution, compilation, and assertion execution
 separately. Keep unknown and not-run evidence visible.
 ```
 
-The fixture already contains an implementation, so this prompt reviews and validates it rather than claiming to be an unseen coding benchmark. The [recording](showcase/recording.json) preserves actual MCP requests and results from an SDK client talking to published `typelatch@0.1.1` over stdio. The question and implementation were authored by Jcode. It is not a recording of Codex or Claude Code. [Capture provenance and reproduction](showcase/README.md) describe the run.
+The fixture already contains an implementation, so this prompt reviews and validates it rather than claiming to be an unseen coding benchmark. The separate historical [recording](showcase/recording.json) preserves actual MCP requests and results for `kysely@0.28.8` from an SDK client talking to published `typelatch@0.1.1` over stdio. Its original fixture is retained as [text and hashes](showcase/recorded-fixture.json). The question and implementation were authored by Jcode. It is not a recording of Codex or Claude Code. [Capture provenance and reproduction](showcase/README.md) describe the run.
 
 A client can use its normal file tools for edits. Typelatch does not edit source files.
 
@@ -134,12 +136,12 @@ A client can use its normal file tools for edits. Typelatch does not edit source
 An explicit version makes an index request reproducible. Without one, `add` first checks the project lockfile and otherwise resolves through npm. Search without a version uses the newest installed index, not necessarily the workspace version.
 
 ```sh
-typelatch add kysely@0.28.8
-typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
+typelatch add kysely@0.28.19
+typelatch query kysely@0.28.19 "TransactionBuilder execute" --json --limit 5
 typelatch sync
 ```
 
-`sync` indexes direct locked dependencies, including development and optional dependencies. Supply package names to restrict it, for example `typelatch sync kysely`. Packages need TypeScript declarations or usable TypeScript sources. Indexing a JavaScript package does not automatically fetch its separate `@types` package.
+`sync` indexes direct locked dependencies, including development and optional dependencies. Supply package names to restrict it, for example `typelatch sync kysely`. Packages need TypeScript declarations or usable TypeScript sources. Indexing a JavaScript package does not automatically fetch its separate `@types` package. Packages without usable TypeScript evidence are reported as `unsupported`, and synchronization continues for the remaining dependencies. JSON output can report `success: true` with `complete: false`; inspect each result and its reason. Download, integrity and parse failures still stop synchronization with an error.
 
 | Package manager | Lockfile | Supported schema |
 | :--- | :--- | :--- |
@@ -201,20 +203,20 @@ The equivalent `library_search` request is:
 ```json
 {
   "package": "kysely",
-  "version": "0.28.8",
+  "version": "0.28.19",
   "question": "TransactionBuilder execute",
   "limit": 5
 }
 ```
 
-This is the refined search from the recording. The initial question about atomic imports returned related constraint and insertion APIs, so the capture retains both searches rather than presenting the refined result as the first attempt.
+This uses the same refined question as the historical recording, with the maintained fixture version. The historical requests retain their original `kysely@0.28.8` identity. That capture keeps the initial and refined searches rather than presenting the refined result as the first attempt.
 
 For this result, the exact `library_symbol` request is:
 
 ```json
 {
   "package": "kysely",
-  "version": "0.28.8",
+  "version": "0.28.19",
   "symbol": "esm/kysely.TransactionBuilder"
 }
 ```
@@ -222,10 +224,20 @@ For this result, the exact `library_symbol` request is:
 The CLI equivalent is:
 
 ```sh
-typelatch symbol kysely@0.28.8 esm/kysely.TransactionBuilder --json
+typelatch symbol kysely@0.28.19 esm/kysely.TransactionBuilder --json
 ```
 
 For other packages, use the exact returned `symbol` with the same `package` and `version`. Lookup is case sensitive. A qualified symbol must match that exact module and declaration; a missing qualified symbol never falls back to another module. Bare names can match several declarations. The `lookup` object reports `exact`, `ambiguous` or `not-found`, plus `totalMatches` and `omitted` counts, even when the returned list hides some candidates. Responses retain package identity, source locations, signatures, documentation, relationships, and retrieval signals. Finding a candidate does not establish that it resolves or compiles in your project.
+
+When a library question names at least two distinct qualified APIs, search returns their exact matches in first mention order before filling remaining slots with lexical candidates. For example, `Schema.Trim Schema.filter Schema.NonEmptyArray Schema.Struct` requests four separate identities. The optional `requestedSymbols` list reports each recognized name as `exact` when returned, `not-found` when absent from that exact package index, or `omitted` when present but excluded by the result limit. An alias or differently cased name is not inferred to mean another declaration. Recognition checks the first 64 distinct names and reports any additional distinct names in `requestedSymbolsTruncated`.
+
+This recognition covers complete ASCII dotted identifiers in prose, including quoted names. Tokens containing URLs, email addresses or filesystem paths, common filename extensions and prose abbreviations are excluded. Use `library_symbol` for paths, filename spellings, Unicode or other identities outside that recognition. Single name and ordinary questions retain their existing discovery behavior. These metadata describe the local index, rather than compiler resolution or complete workspace absence.
+
+If the requested exact package index is missing, both library tools return an error naming that package and version with its `typelatch add name@version` recovery command. They do not download an index or substitute another installed version. Omitting `version` keeps the existing newest installed index selection; pass an exact version when following evidence from a project.
+
+Both tools validate managed index metadata before returning evidence. Stored package and version must match the requested identity, and stored artifact integrity must be nonblank. An identity mismatch or incomplete metadata returns `Brain metadata does not match name@version. Rebuild: typelatch add name@version`. Valid older index formats remain readable without rebuilding. This check protects the cache label; it does not revalidate the registry archive or establish that installed package files match it.
+
+New indexes retain declared generics, parameters and return annotations for direct callable variable initializers. The `…` marker means the implementation is omitted. An absent return annotation remains absent; package discovery does not infer it. Existing indexes remain readable. Run `typelatch add name@version` again to rebuild an older index with the corrected callable evidence.
 
 ## Workspace search
 
@@ -255,17 +267,35 @@ typelatch search "retry failed requests" --compact --json
 
 `scope` is `all` by default, or `workspace` or `dependencies`. `file` is an optional path within the root that favors nearby workspace results. It does not limit the search or establish compiler resolution. `limit` is 1 through 20 and defaults to 8. MCP accepts `timeoutMs`, defaulting to 60000. Cancellation fails the request rather than returning an apparently complete result.
 
+For workspace and combined discovery, an eligible exact file hint selected by Git is considered before the existing inventory limits. Saved source scope, ignored files, generated directories, physical source and file size rules still apply. Prioritizing a file can displace other files at a limit, so partial coverage stays visible. The question must still match and the bounded candidate shortlist can still omit an admitted file. `coverage.fileHint` records the relative path, `admission`, `priorityApplied`, the current searchable source hash when admitted, and a reason. Admission describes the inventory used for this request, not retrieval or compiler evidence. Filesystem fallback can admit a hint normally while reporting `priorityApplied: false`. Dependency only search keeps its existing inventory ordering and output.
+
 Use `detail: "compact"` in MCP or `--compact` in the CLI for smaller discovery previews. The default is `full`. Compact results retain the same shortlist, ranking, source positions, coverage and evidence checks. Each snippet contains at most 360 Unicode characters, with `preview.omittedCharacters` recording any omitted portion of the original excerpt. Null package fields and duplicate signatures are omitted. Dependency hits include exact `inspect` arguments for `library_symbol`. Read the source or inspect the symbol before changing code; a preview is not the complete declaration. Compact mode is an output projection and does not change what gets indexed or searched.
+
+Use `detail: "source"` or CLI `--source` when preparing an edit. It adds `sourceContext` to the compact results. Selected workspace files appear once, followed by available direct relative import candidates. Text comes from the same inventory used for search freshness. Each file includes its full content SHA256, returned line range, text byte count and explicit omitted bytes. A complete file has `complete: true`. Larger files return a bounded region near the first selected hit. `startLine` and `startColumn` begin at one; columns count UTF16 code units. The CLI prints both so an excerpt beginning inside a long line remains locatable.
+
+Source text is limited to 24 KiB in total, 8 KiB per file and 12 files. These limits exclude JSON metadata. `filesOmitted` counts candidates excluded by the limits. `unavailableImports` includes ambiguous matches, also counted in `ambiguousImports`. Import expansion uses only already selected inventory files, respects ignores and symlink exclusions, and follows one level. It does not evaluate compiler settings, package aliases or conditional exports. `resolution: "not-run"` remains explicit. Dependency results retain exact identity and inspection arguments without expanding dependency implementation files. Read omitted source before editing it.
 
 Source search includes internal declarations, implementation text, tests, documentation, and configuration. TypeScript and JavaScript declarations receive symbol names and UTF16 positions when the bundled parser recognizes them. Other UTF8 text is searched as text. No project compiler or application code executes during search.
 
 In Git workspaces, the inventory includes tracked and unignored files, including uncommitted edits. Generated and dependency directories, source symlinks, binary files, environment files, and common archive or media formats are excluded. Lockfiles supply dependency identities and are excluded from content retrieval. Outside Git, filesystem traversal remains available and reports that Git ignore rules were not applied. The response names the selection policy and samples exclusions. Linked source outside the root is outside the search scope.
+
+Large repositories can exceed the 20,000 enumerated entry or 64 MiB inventory limits. Files normally have a 1 MB limit, and indexing also limits chunks per file. Inspect `coverage.complete`, `coverage.issues` and their omission counts. A returned hit can coexist with partial coverage. Refining the question cannot recover files that were excluded from the inventory.
+
+When the relevant source subtree is known, select it as the search root:
+
+```sh
+typelatch search "streamed file reads cancellation" --root /absolute/path/to/repo/src/platform --scope workspace --json
+```
+
+For project selections across a monorepo, use the [saved scope](#keep-a-monorepo-subset) commands. A subtree root limits discovery to that tree; choose the actual owning config separately before compiler context or validation.
 
 Search discovers nested package manifests, TypeScript configs, installed dependencies and nested transitive installations. It uses each installed manifest's name and exact version, including aliases and multiple versions, rather than the newest global index. Supported npm, pnpm, Yarn and Bun text lockfiles also provide exact candidates when packages are not installed. These results are labeled `identity: "lockfile"` and `installed: false`. A lockfile candidate is not proof of workspace resolution. Unsupported formats and resolutions are reported as coverage gaps; available installed manifests can still supply identities. For lock entries without an installation path, dependency roots point to the lockfile. Modern Yarn checksums describe Yarn archives and are not treated as npm artifact integrity. Unidentified declared dependencies are reported.
 
 Search uses existing package indexes and does not download or build missing ones. Run `typelatch sync --workspaces` for declared workspace packages, or select projects with repeated `--project` flags, to prepare their direct locked dependencies. Missing entries in `coverage.dependencies` include exact `typelatch add name@version` commands, including for transitive packages. A JavaScript package without usable TypeScript declarations may still be unindexable. Do not substitute another version. Registry metadata and any available lockfile integrity must match; installed artifact equivalence remains unknown.
 
 Each source hit includes an absolute `source`, `line`, `endLine`, compact `snippet`, owning `projectRoot`, and optional `symbol` and `position`. A dependency hit instead identifies its package, exact version, registry integrity, artifact relative source path, and known dependency roots. Inspect it with `library_symbol` using that identity. `coverage.configs` lists discovered configs; the agent must select one that owns the relevant file before using `workspace_context`.
+
+When a solution delegates file selection to several owning configs, context reports ambiguity and names the configs; repeat the request with one explicit owning config.
 
 The agent workflow is:
 
@@ -303,7 +333,7 @@ Save this request as `context.json`, replacing the paths with your absolute fixt
   "file": "/path/to/typelatch/examples/sqlite/batch.ts",
   "importSpecifier": "kysely",
   "symbol": "Kysely",
-  "expectedVersion": "0.28.8"
+  "expectedVersion": "0.28.19"
 }
 ```
 
@@ -313,7 +343,15 @@ Pass those fields to `workspace_context`, or use the CLI:
 typelatch workspace context.json
 ```
 
-Context uses the project's installed TypeScript language service. It returns definitions, types, and resolved dependency identity. Add `question` to request optional discovery from the matching local index. It does not compile the project or run tests.
+For a known installed export, supply `importSpecifier` and its exact `symbol` path, such as `Schema.Struct`. Omit `question` and `position` to use the `installed-api` route without preparing a package index. Context uses the project's installed TypeScript compiler and returns resolved dependency identity and API evidence. It does not compile the project or run tests.
+
+`api.type` and `api.signatures` are compiler formatted and can include inference. Signatures use the callable value when a declaration also defines an interface. `api.evidence.declarations.headers` separately returns normalized declared syntax, source positions and hashes of the compiler source text. Headers omit implementation bodies, class and namespace members, and unsupported variable initializers. They preserve declared annotations rather than inventing return types. Each header exposes its elisions and `complete`, `truncated` or `unsupported` status. Here `complete` means complete under this elision policy. An unsupported header has a reason and no header text. Older project compilers can still return resolved types and signatures; when their modifier or declaration factory APIs cannot support normalized headers, that projection reports `unsupported` with a reason.
+
+`api.evidence` records total, returned and omitted counts. Text counts use UTF16 code units. Existing limits are 16000 for the type, 12000 for documentation, ten signatures of 8000 each, and ten declaration spans. Additional evidence contains up to ten headers of 8000 each and ten compiler JSDoc tags, with 256 units per name and 4000 per tag text. Documentation and tags are compiler views, not full package documentation or an API graph. These richer responses have a payload cost; preparing no index does not imply lower query memory or latency.
+
+Add `question` to request separate discovery from an existing matching local index. Add `position` to request hover, definitions and references. The evidence extension is attached only to the explicitly selected `api`, so discovery candidates do not repeat the declaration headers and tags.
+
+`cursorEvidence` records the selected compiler config, cursor position and counts for definitions and references. Each collection reports its compiler total, returned and omitted entries, limit, and `complete`, `truncated` or `not-run` status. Definitions return at most 20 entries and references at most 50. A request without a cursor has null totals and omitted counts. A requested cursor with no compiler results has zero counts. Complete means no entries were omitted from that compiler result in the selected project. These counts do not establish complete repository impact or validate usages.
 
 `position` is a UTF16 offset starting at zero. Use it to inspect an actual expression in the file. `overlays` accepts unsaved `{ "file": "...", "text": "..." }` entries. Absolute paths avoid ambiguity when a client starts outside the project.
 

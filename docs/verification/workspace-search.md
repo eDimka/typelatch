@@ -1,5 +1,7 @@
 # Workspace search verification
 
+Historical source milestone checks from September 2026. For current 0.3.0 checks, see the [release verification](release-0.3.0.md). The linked benchmark JSON files are refreshed by later release runs, so their present timings and ranks can differ from this historical narrative.
+
 Version 0.2.0 introduces `workspace_search` and `typelatch search`. The checks below verify the implementation and package installation. Existing version 0.1.1 recordings remain evidence for the earlier six tools.
 
 ## Recorded checks

@@ -7,6 +7,7 @@ import { brainPath } from "../paths.js"
 import { queryBrain } from "../query.js"
 import { inside, inventoryWorkspace, type Dependency } from "./inventory.js"
 import { searchSchema } from "./schema.js"
+import { sourceContext } from "./source-context.js"
 import { scoreCandidate, searchWorkspaceIndex, type SearchChunk } from "./search-index.js"
 
 export type SearchRequest = z.infer<typeof searchSchema>
@@ -44,7 +45,7 @@ export async function workspaceSearch(input: SearchRequest, options: { signal?: 
   const started = performance.now()
   const signal = AbortSignal.any([AbortSignal.timeout(request.timeoutMs ?? 60_000), ...(options.signal ? [options.signal] : [])])
   const scope = request.scope ?? "all"
-  const inventory = await inventoryWorkspace(root, scope !== "workspace", signal)
+  const inventory = await inventoryWorkspace(root, scope !== "workspace", signal, file && scope !== "dependencies" ? { fileHint: file } : {})
   const candidates: WorkspaceSearchResult[] = []
   const indexed = scope === "dependencies" ? null : searchWorkspaceIndex(root, inventory.files, request.question, signal)
   const issues = [...inventory.issues, ...(indexed?.truncated.map(path => `File chunk limit reached: ${path}`) ?? [])]
@@ -99,11 +100,13 @@ export async function workspaceSearch(input: SearchRequest, options: { signal?: 
   return {
     workspaceRoot: root, question: request.question, scope, detail: request.detail ?? "full",
     status: !complete ? "partial" as const : results.length ? "ok" as const : "empty" as const,
-    results: request.detail === "compact" ? results.map(previewResult) : results,
+    results: request.detail === "compact" || request.detail === "source" ? results.map(previewResult) : results,
+    ...(request.detail === "source" ? { sourceContext: sourceContext(inventory.files, results, signal) } : {}),
     latencyMs: Math.round(performance.now() - started), index: indexed?.index ?? null,
     coverage: {
       complete, selection: inventory.selection, files: inventory.files.filter(file => file.searchable).length,
       ...(inventory.savedScope ? { savedScope: inventory.savedScope } : {}),
+      ...(inventory.fileHint ? { fileHint: inventory.fileHint } : {}),
       projects: inventory.projects.slice(0, 100), configs: inventory.configs.slice(0, 100),
       projectsOmitted: Math.max(0, inventory.projects.length - 100), configsOmitted: Math.max(0, inventory.configs.length - 100),
       excluded: inventory.excluded.map(item => ({ ...item, path: relative(root, item.path) })), excludedCount: inventory.excludedCount,

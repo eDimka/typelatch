@@ -13,7 +13,7 @@ npm run prove:support
 
 The first command builds fresh package indexes and writes [retrieval evidence](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/retrieval.json). The second installs pinned fixtures, validates the workspace scenarios, and writes a [support summary](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/support.json). The retrieval command requires a discovery hit for every question and permits only the three recorded missing symbol exceptions in `src/benchmark/limitations.json`. The workspace command requires every scenario and negative control. Both return a failure status when a required gate fails.
 
-Full workspace requests and results are preserved in `artifacts/support.json.gz` and attached to the GitHub release. The summary records the archive SHA256 checksum.
+Full workspace requests and results are preserved in `artifacts/support.json.gz` and uploaded in the CI workflow's `benchmark-evidence` artifact. The summary records the archive SHA256 checksum.
 
 ## Evidence boundary
 
@@ -32,6 +32,8 @@ For context, the report retains the raw output, byte size and timing of a fixed 
 These cases were authored during development and are known to the implementation. They measure regression behavior on this corpus. They do not measure general coding success or unseen task performance. Latency depends on the recorded machine and cache state.
 
 The manifest in `src/benchmark/corpus.json` records the original package selection and exact integrity pins. It is a fixed corpus, not a live popularity ranking. Expected alternatives remain visible in `src/benchmark/cases`. Controls must fail for their intended reason. Missing evidence never counts as a successful case.
+
+The executable support fixtures use maintained dependency pins. Their minimatch version is 11.0.5, with its exact registry integrity enforced separately from the historical 10.2.6 retrieval input. Updating a runnable fixture does not relabel earlier retrieval results or change their expected symbols.
 
 ## Competitive evidence
 

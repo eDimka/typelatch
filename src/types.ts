@@ -55,6 +55,11 @@ export type QueryResponse = {
   latencyMs: number
   results: QueryResultItem[]
   fallback: string | null
+  requestedSymbols?: Array<{
+    symbol: string
+    status: "exact" | "not-found" | "omitted"
+  }>
+  requestedSymbolsTruncated?: number
   lookup?: {
     status: "exact" | "ambiguous" | "not-found"
     matchedBy: "qualified-name" | "bare-name" | null

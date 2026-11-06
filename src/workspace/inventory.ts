@@ -31,10 +31,13 @@ export type Inventory = {
   root: string; files: WorkspaceFile[]; projects: string[]; configs: string[]; dependencies: Dependency[]
   selection: string; excluded: Array<{ path: string; reason: string }>; excludedCount: number; issues: string[]
   savedScope?: { path: string; root: string; projects: string[]; sourceRoots: string[]; dependencyPolicy: "direct"; completeness: string }
+  fileHint?: { path: string; admission: "admitted" | "not-admitted"; priorityApplied: boolean; sourceHash: string | null; reason: string }
 }
 
-export async function inventoryWorkspace(root: string, dependencies: boolean, signal: AbortSignal): Promise<Inventory> {
+export async function inventoryWorkspace(root: string, dependencies: boolean, signal: AbortSignal, options: { fileHint?: string } = {}): Promise<Inventory> {
   const result: Inventory = { root, files: [], projects: [], configs: [], dependencies: [], selection: "filesystem", excluded: [], excludedCount: 0, issues: [] }
+  const hint = options.fileHint
+  if (hint) result.fileHint = { path: relative(root, hint), admission: "not-admitted", priorityApplied: false, sourceHash: null, reason: "File is not selected by the current inventory" }
   // Re-read the saved selection for every request, including requests in a retained worker.
   const saved = await readScope(root)
   const selectedProjects = saved ? await resolveScopeProjects(saved) : undefined
@@ -45,7 +48,10 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
     result.savedScope = { path: saved.path, root: saved.root, projects: selectedProjects!, sourceRoots, dependencyPolicy: "direct",
       completeness: "Coverage applies only to selected source subtrees and the selected projects' direct dependencies within workspaceRoot" }
     result.selection = "Saved project scope intersected with workspaceRoot"
-    if (!sourceRoots.length) return result
+    if (!sourceRoots.length) {
+      if (result.fileHint) result.fileHint.reason = "Saved scope has no source subtree within workspaceRoot"
+      return result
+    }
     for (const project of sourceRoots) {
       let directory = dirname(project)
       while (inside(root, directory) && !sourceRoots.some(source => inside(source, directory))) {
@@ -60,10 +66,12 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
     if (result.excluded.length < 30) result.excluded.push({ path, reason })
   }
   let paths: string[] = []
+  let gitSelected = false
   try {
     const pathspecs = saved ? [...sourceRoots, ...metadata].map(path => relative(root, path) || ".") : ["."]
     const response = await exec("git", ["--literal-pathspecs", "-C", root, "ls-files", "--cached", "--others", "--exclude-standard", "--deduplicate", "-z", "--", ...pathspecs], { signal, maxBuffer: 16 * 1024 * 1024, timeout: 10_000 })
     paths = response.stdout.split("\0").filter(Boolean).map(path => resolve(root, path))
+    gitSelected = true
     result.selection = "Git tracked and unignored files, with generated directories and source symlinks excluded"
   } catch {
     signal.throwIfAborted()
@@ -95,38 +103,92 @@ export async function inventoryWorkspace(root: string, dependencies: boolean, si
   if (paths.length > MAX_FILES) result.issues.push(`File inventory limited to ${MAX_FILES} entries`)
   let bytes = 0
   const dataHome = await realpath(brainHome()).catch(() => resolve(brainHome()))
+  type Admission = { size: number; searchable: boolean } | { reason: string; issue?: string }
+  const inspect = async (path: string): Promise<Admission> => {
+    const rel = relative(root, path)
+    if (!inside(root, path) || inside(dataHome, path) || rel.split(sep).some(part => excludedDirectories.has(part))) return { reason: "generated or dependency directory" }
+    if (/^(?:\.env(?:\..*)?|\.DS_Store)$/.test(basename(path)) || /\.(?:pem|key|p12|pfx|db|tgz|zip|gz|png|jpe?g|gif|webp|pdf|woff2?|mp[34])$/i.test(path)) return { reason: "excluded file type" }
+    const info = await lstat(path)
+    if (info.isSymbolicLink()) return { reason: "symlink" }
+    if (!info.isFile()) return { reason: "not a regular file" }
+    if (await realpath(path) !== path) return { reason: "symlink" }
+    const sizeLimit = saved && (lockfileNames as readonly string[]).includes(basename(path)) ? 16 * 1024 * 1024 : 1_000_000
+    if (info.size > sizeLimit) {
+      const label = sizeLimit === 1_000_000 ? "1 MB" : "16 MiB"
+      return { reason: `file exceeds ${label}`, issue: `File exceeds ${label}: ${rel}` }
+    }
+    const source = !saved || sourceRoots.some(directory => inside(directory, path))
+    return { size: info.size, searchable: source && !/^(?:package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock|bun\.lockb?)$/.test(basename(path)) }
+  }
+  let hintedAdmission: Admission | undefined
+  let hintError: unknown
+  if (hint && result.fileHint) {
+    if (!gitSelected) result.fileHint.reason = "Git selection unavailable; inventory priority was not applied"
+    else if (paths.includes(hint)) {
+      if (!sourceRoots.some(directory => inside(directory, hint))) result.fileHint.reason = "Ancestor metadata does not select source"
+      else {
+        try {
+          hintedAdmission = await inspect(hint)
+          if ("reason" in hintedAdmission) result.fileHint.reason = hintedAdmission.reason
+          else if (!hintedAdmission.searchable) result.fileHint.reason = "Dependency lockfile provides identity only"
+          else {
+            // Grant priority only after structural checks, before the entry slice.
+            paths = [hint, ...paths.filter(path => path !== hint)]
+            result.fileHint.priorityApplied = true
+            result.fileHint.reason = "Eligible selected source considered before inventory limits"
+          }
+        } catch (error) {
+          hintError = error
+          result.fileHint.reason = `Cannot inspect file: ${error instanceof Error ? error.message : String(error)}`
+        }
+      }
+    }
+  }
   for (const path of paths.slice(0, MAX_FILES)) {
     signal.throwIfAborted()
     const rel = relative(root, path)
-    if (!inside(root, path) || inside(dataHome, path) || rel.split(sep).some(part => excludedDirectories.has(part))) { exclude(path, "generated or dependency directory"); continue }
-    if (/^(?:\.env(?:\..*)?|\.DS_Store)$/.test(basename(path)) || /\.(?:pem|key|p12|pfx|db|tgz|zip|gz|png|jpe?g|gif|webp|pdf|woff2?|mp[34])$/i.test(path)) { exclude(path, "excluded file type"); continue }
     try {
-      const info = await lstat(path)
-      if (info.isSymbolicLink()) { exclude(path, "symlink"); continue }
-      if (!info.isFile()) { exclude(path, "not a regular file"); continue }
-      // Reject symlink ancestors too, including tracked files replaced by a linked directory.
-      if (await realpath(path) !== path) { exclude(path, "symlink"); continue }
-      const sizeLimit = saved && (lockfileNames as readonly string[]).includes(basename(path)) ? 16 * 1024 * 1024 : 1_000_000
-      if (info.size > sizeLimit) {
-        const label = sizeLimit === 1_000_000 ? "1 MB" : "16 MiB"
-        exclude(path, `file exceeds ${label}`); result.issues.push(`File exceeds ${label}: ${rel}`); continue
+      if (path === hint && hintError !== undefined) throw hintError
+      const admission = path === hint && hintedAdmission ? hintedAdmission : await inspect(path)
+      if ("reason" in admission) {
+        exclude(path, admission.reason)
+        if (admission.issue) result.issues.push(admission.issue)
+        continue
       }
-      bytes += info.size
+      bytes += admission.size
       if (bytes > MAX_BYTES) { result.issues.push("Workspace text inventory exceeds 64 MiB"); break }
       const data = await readFile(path)
       if (data.includes(0) || !isUtf8(data)) {
         exclude(path, "binary or non UTF8")
+        if (path === hint && result.fileHint) result.fileHint.reason = "binary or non UTF8"
         if (basename(path) === "bun.lockb") result.files.push({ path, text: "", hash: createHash("sha256").update(data).digest("hex"), searchable: false })
         continue
       }
       const text = data.toString("utf8")
       const source = !saved || sourceRoots.some(directory => inside(directory, path))
-      const searchable = source && !/^(?:package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock|bun\.lockb?)$/.test(basename(path))
+      const searchable = admission.searchable
       if (!searchable) exclude(path, source ? "dependency lockfile; identity inventory only" : "ancestor metadata; identity inventory only")
       result.files.push({ path, text, hash: hash(text), searchable })
-      if (basename(path) === "package.json" && (!saved || selectedProjects!.includes(dirname(path)))) result.projects.push(dirname(path))
-      if (source && /^tsconfig(?:\..+)?\.json$/.test(basename(path))) result.configs.push(path)
-    } catch (error) { result.issues.push(`Cannot read ${rel}: ${error instanceof Error ? error.message : String(error)}`) }
+    } catch (error) {
+      const reason = `Cannot read ${rel}: ${error instanceof Error ? error.message : String(error)}`
+      result.issues.push(reason)
+      if (path === hint && result.fileHint) result.fileHint.reason = reason
+    }
+  }
+  // Keep snapshots and metadata in the original code unit file order.
+  result.files.sort((a, b) => a.path === b.path ? 0 : a.path < b.path ? -1 : 1)
+  for (const file of result.files) {
+    const source = !saved || sourceRoots.some(directory => inside(directory, file.path))
+    if (basename(file.path) === "package.json" && (!saved || selectedProjects!.includes(dirname(file.path)))) result.projects.push(dirname(file.path))
+    if (source && /^tsconfig(?:\..+)?\.json$/.test(basename(file.path))) result.configs.push(file.path)
+  }
+  if (result.fileHint) {
+    const admitted = result.files.find(file => file.path === hint && file.searchable)
+    if (admitted) {
+      result.fileHint.admission = "admitted"
+      result.fileHint.sourceHash = admitted.hash
+      if (!result.fileHint.priorityApplied) result.fileHint.reason = "Current inventory contains the file; Git selection unavailable, so priority was not applied"
+    }
   }
   if (dependencies) {
     if (saved) await inventoryScopedDependencies(result, signal)

@@ -1,7 +1,9 @@
 import { lstat, readFile, realpath } from "node:fs/promises"
+import { createRequire } from "node:module"
 import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path"
 import { minimatch } from "minimatch"
-import { parseAllDocuments } from "yaml"
+
+const require = createRequire(import.meta.url)
 
 export const insideProject = (root: string, path: string): boolean => {
   const rel = relative(root, path)
@@ -38,6 +40,7 @@ export function workspacePatterns(manifest: Record<string, unknown>, yaml?: stri
     manifest.workspaces && typeof manifest.workspaces === "object" ? (manifest.workspaces as { packages?: unknown }).packages : undefined
   let patterns = declared
   if (yaml !== undefined) {
+    const { parseAllDocuments } = require("yaml") as typeof import("yaml")
     const documents = parseAllDocuments(yaml, { uniqueKeys: true })
     if (documents.length !== 1 || documents[0]!.errors.length) throw new Error("Invalid pnpm-workspace.yaml")
     const data = documents[0]!.toJS({ maxAliasCount: 100 })

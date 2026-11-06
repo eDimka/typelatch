@@ -218,6 +218,7 @@ describe("runBenchmark aggregate math", () => {
     const path = brainPath(packageName, "1.0.0")
     mkdirSync(dirname(path), { recursive: true })
     const db = createBrainDatabase(path, "baseline")
+    db.prepare("INSERT INTO metadata VALUES ('package',?),('version','1.0.0'),('integrity','sha512-fixture')").run(packageName)
     const insert = db.prepare(`
       INSERT INTO symbols (
         qualified_name, name, kind, module, signature, docs, source_path,

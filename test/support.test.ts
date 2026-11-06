@@ -7,8 +7,22 @@ import { createBrainDatabase } from "../src/database.js"
 import { brainPath } from "../src/paths.js"
 import { workspaceContext } from "../src/workspace/context.js"
 import { validateSupportManifest } from "../src/support.js"
+import { loadCorpus } from "../src/benchmark/corpus.js"
 
-it("keeps the pinned corpus while supporting two exact versions of Effect", () => {
+it("pins the patched executable matcher without changing the historical retrieval corpus", () => {
+  const historical = loadCorpus().packages.find(p => p.name === "minimatch")!
+  expect(historical.version).toBe("10.2.6")
+  const current = JSON.parse(readFileSync("examples/support/manifest.json", "utf8"))
+  const manifest = validateSupportManifest(current)
+  const matcher = manifest.packages.find(p => p.name === "minimatch")!
+  expect(matcher.version).toBe("11.0.5")
+  expect(matcher.integrity).toBe("sha512-snPlVppFcYWfLLFQGhDxUyBcHNtMlWmn3jtj7pEaO+DP8pqL0IvAzXhMYmn1z9ASNtgmwLBdFxSf4tMUB0OTKA==")
+  const stale = structuredClone(manifest)
+  Object.assign(stale.packages.find(p => p.name === "minimatch")!, { version: historical.version, integrity: historical.integrity })
+  expect(() => validateSupportManifest(stale)).toThrow("Corpus identity mismatch: minimatch")
+})
+
+it("keeps exact support pins while supporting two exact versions of Effect", () => {
   const manifest = validateSupportManifest(JSON.parse(readFileSync("examples/support/manifest.json", "utf8")))
   const effects = manifest.packages.filter(p => p.name === "effect")
   expect(effects.map(p => p.version.split(".")[0])).toEqual(["3", "4"])

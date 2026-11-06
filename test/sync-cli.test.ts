@@ -1,10 +1,12 @@
 import { spawnSync } from "node:child_process"
-import { existsSync, mkdirSync, mkdtempSync, realpathSync, rmSync, writeFileSync } from "node:fs"
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from "node:fs"
+import { createHash } from "node:crypto"
 import { tmpdir } from "node:os"
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
 import { afterEach, beforeEach, expect, it } from "vitest"
 import { createBrainDatabase } from "../src/database.js"
+import { c } from "tar"
 
 let root: string
 const cli = fileURLToPath(new URL("../src/cli.ts", import.meta.url))
@@ -92,6 +94,43 @@ it("skips a verified cached index when executing the plan", () => {
   expect(report.targets[0].cache).toBe("ready")
   expect(report.results[0].status).toBe("cached")
   expect(existsSync(join(root, "npm-called"))).toBe(false)
+})
+
+it("continues past a package without TypeScript evidence and reports incomplete preparation", () => {
+  const registry: Record<string, { archive: string; integrity: string }> = {}
+  for (const name of ["a-native", "z-typed"]) {
+    put(`fixtures/${name}/package/package.json`, { name, version: "1.0.0" })
+    put(`fixtures/${name}/package/${name === "a-native" ? "index.js" : "index.d.ts"}`, name === "a-native" ? "exports.value = 42" : "export declare const value: number")
+    const archive = join(root, `fixtures/${name}.tgz`)
+    c({ cwd: join(root, `fixtures/${name}`), file: archive, sync: true, gzip: true }, ["package"])
+    registry[`${name}@1.0.0`] = { archive, integrity: `sha512-${createHash("sha512").update(readFileSync(archive)).digest("base64")}` }
+  }
+  put("package.json", { dependencies: { "a-native": "1.0.0", "z-typed": "1.0.0" } })
+  put("package-lock.json", { lockfileVersion: 3, packages: Object.fromEntries(Object.entries(registry).map(([spec, value]) => [`node_modules/${spec.split("@")[0]}`, { version: "1.0.0", integrity: value.integrity }])) })
+  writeFileSync(join(root, "bin/npm"), `#!${process.execPath}\nconst fs = require("node:fs"), path = require("node:path");
+const registry = ${JSON.stringify(registry)};
+const [command, spec, ...args] = process.argv.slice(2), item = registry[spec];
+if (!item) process.exit(89);
+if (command === "view") console.log(JSON.stringify({name:spec.split("@")[0], version:"1.0.0", "dist.integrity":item.integrity, "dist.tarball":"https://example.invalid/fixture.tgz"}));
+else if (command === "pack") { const filename = path.basename(item.archive); fs.copyFileSync(item.archive,path.join(args[args.indexOf("--pack-destination")+1],filename)); console.log(JSON.stringify([{filename,size:fs.statSync(item.archive).size,unpackedSize:200}])); }
+else process.exit(89);\n`, { mode: 0o755 })
+  const result = run("--json")
+  expect(result.status, result.stderr).toBe(0)
+  const report = JSON.parse(result.stdout)
+  expect(report).toMatchObject({ success: true, complete: false })
+  expect(report.results).toMatchObject([
+    { name: "a-native", version: "1.0.0", status: "unsupported", reason: expect.stringContaining("neither TypeScript source nor declaration files") },
+    { name: "z-typed", version: "1.0.0", status: "indexed" }
+  ])
+  expect(existsSync(join(root, "data/brains/a-native/1.0.0/brain.db"))).toBe(false)
+  expect(existsSync(join(root, "data/brains/z-typed/1.0.0/brain.db"))).toBe(true)
+})
+
+it("still fails on registry errors rather than classifying them as unsupported", () => {
+  const result = run("--json")
+  expect(result.status).toBe(1)
+  const report = JSON.parse(result.stdout)
+  expect(report).toMatchObject({ success: false, complete: false, results: [{ name: "effect", status: "error" }] })
 })
 
 it.each([["--project"], ["--project", "--json"], ["--projct", "apps/web"], ["--lockfile"], ["--lockfile", "a", "--lockfile", "b"]])("rejects malformed options %j before execution", (...args) => {

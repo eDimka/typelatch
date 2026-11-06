@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto"
-import { existsSync, readdirSync } from "node:fs"
+import { existsSync, readdirSync, statSync } from "node:fs"
 import { dirname, join } from "node:path"
 import { performance } from "node:perf_hooks"
 import type Database from "better-sqlite3"
@@ -36,15 +36,28 @@ export type QueryOptions = {
 
 export function queryBrain(packageName: string, question: string, options: QueryOptions = {}): QueryResponse {
   const version = options.version ?? latestInstalledVersion(packageName)
-  const path = options.brainFile ?? brainPath(packageName, version)
-  const db = openBrainDatabase(path)
+  const db = openQueryDatabase(packageName, version, options.brainFile)
   const started = performance.now()
   try {
     const format = brainFormat(db)
-    const strategy = looksExact(question) ? "exact" : "hybrid"
-    const rows = strategy === "exact"
+    const references = qualifiedReferences(question)
+    const compound = references.symbols.length > 1
+    const strategy = compound ? "hybrid" : looksExact(question) ? "exact" : "hybrid"
+    const limit = options.limit ?? 5
+    const requested = compound ? qualifiedRows(db, references.symbols, format) : []
+    const requestedByName = new Map(requested.map(row => [row.qualified_name, row]))
+    const ordered = references.symbols.flatMap(symbol => {
+      const row = requestedByName.get(symbol)
+      return row ? [row] : []
+    })
+    const rows = compound
+      ? [...ordered.slice(0, limit), ...(ordered.length < limit
+        ? hybridRows(db, question, limit, format, new Set(requested.map(row => row.id))).slice(0, limit - ordered.length)
+        : [])]
+      : strategy === "exact"
       ? exactRows(db, extractSymbolCandidate(question), options.limit ?? 5, format)
       : hybridRows(db, question, options.limit ?? 5, format)
+    const returned = new Set(rows.map(row => row.qualified_name))
     const relationships = relationshipsForRows(db, rows, format)
     const results = rows.map((row, index) => resultFromRow(row, index, relationships.get(row.qualified_name) ?? []))
     const response: QueryResponse = {
@@ -57,7 +70,14 @@ export function queryBrain(packageName: string, question: string, options: Query
       results,
       fallback: results.length === 0
         ? `No confident local result. Inspect the installed ${packageName}@${version} source.`
-        : null
+        : null,
+      ...(compound ? {
+        requestedSymbols: references.symbols.map(symbol => ({
+          symbol,
+          status: (requestedByName.has(symbol) ? returned.has(symbol) ? "exact" : "omitted" : "not-found") as "exact" | "not-found" | "omitted"
+        })),
+        ...(references.truncated > 0 ? { requestedSymbolsTruncated: references.truncated } : {})
+      } : {})
     }
     if (options.recordUsage !== false && process.env.TYPELATCH_USAGE !== "off") recordQuery(response)
     return response
@@ -68,7 +88,7 @@ export function queryBrain(packageName: string, question: string, options: Query
 
 export function getSymbol(packageName: string, symbol: string, options: QueryOptions = {}): QueryResponse {
   const version = options.version ?? latestInstalledVersion(packageName)
-  const db = openBrainDatabase(options.brainFile ?? brainPath(packageName, version))
+  const db = openQueryDatabase(packageName, version, options.brainFile)
   const started = performance.now()
   try {
     const format = brainFormat(db)
@@ -96,6 +116,30 @@ export function getSymbol(packageName: string, symbol: string, options: QueryOpt
     return response
   } finally {
     db.close()
+  }
+}
+
+function openQueryDatabase(packageName: string, version: string, brainFile?: string): Database.Database {
+  if (brainFile !== undefined) return openBrainDatabase(brainFile)
+  const path = brainPath(packageName, version)
+  try {
+    statSync(path)
+  } catch (error) {
+    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
+      throw new Error(`No brain installed for ${packageName}@${version}. Run: typelatch add ${packageName}@${version}`)
+    }
+    throw error
+  }
+  const db = openBrainDatabase(path)
+  try {
+    const metadata = Object.fromEntries((db.prepare("SELECT key, value FROM metadata WHERE key IN ('package', 'version', 'integrity')").all() as Array<{ key: string; value: string }>).map(row => [row.key, row.value]))
+    if (metadata.package !== packageName || metadata.version !== version || !metadata.integrity?.trim()) {
+      throw new Error(`Brain metadata does not match ${packageName}@${version}. Rebuild: typelatch add ${packageName}@${version}`)
+    }
+    return db
+  } catch (error) {
+    db.close()
+    throw error
   }
 }
 
@@ -153,7 +197,19 @@ function exactRows(db: Database.Database, candidate: string, limit: number, form
   `).all(candidate, bare, candidate, bare, candidate, bare, limit) as SymbolRow[]
 }
 
-function hybridRows(db: Database.Database, question: string, limit: number, format: BrainFormat): SymbolRow[] {
+function qualifiedRows(db: Database.Database, symbols: string[], format: BrainFormat): SymbolRow[] {
+  const name = format === "trimmed" ? "n.qualified_name" : "s.qualified_name"
+  const columns = format === "trimmed"
+    ? `s.id, n.qualified_name, s.name, s.kind, s.module, s.signature, s.docs,
+       s.source_path, s.line_start, '' AS source,
+       s.is_public, s.is_deprecated, s.is_internal, s.category, s.example_count`
+    : "s.*"
+  return db.prepare(`SELECT ${columns} FROM symbols s
+    ${format === "trimmed" ? "JOIN nodes n ON n.id = s.id" : ""}
+    WHERE ${name} COLLATE BINARY IN (${symbols.map(() => "?").join(",")})`).all(...symbols) as SymbolRow[]
+}
+
+function hybridRows(db: Database.Database, question: string, limit: number, format: BrainFormat, excluded = new Set<number>()): SymbolRow[] {
   const tokens = searchTokens(question)
   if (tokens.length === 0) return []
   const fts = tokens.map((token) => `"${token.replaceAll('"', '""')}"*`).join(" OR ")
@@ -180,6 +236,7 @@ function hybridRows(db: Database.Database, question: string, limit: number, form
       `).all(fts, Math.max(limit * 20, 80))) as SymbolRow[]
   const variants = new Map<string, number>()
   return candidates
+    .filter(row => !excluded.has(row.id))
     .map((row) => ({ row, relevance: relevance(row, tokens, question) }))
     .sort((left, right) =>
       right.relevance - left.relevance ||
@@ -355,6 +412,29 @@ function looksExact(question: string): boolean {
   const trimmed = question.trim()
   return /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)+$/.test(trimmed) ||
     /\b(where|find|locate)\b.*\b(defined|symbol|declaration)\b/i.test(trimmed)
+}
+
+function qualifiedReferences(question: string): { symbols: string[]; truncated: number } {
+  const found = new Set<string>()
+  const fileExtensions = new Set(["ts", "tsx", "mts", "cts", "js", "jsx", "mjs", "cjs", "json", "jsonc", "md", "mdx", "yaml", "yml", "toml", "txt", "html", "css", "scss", "svg", "png", "jpg", "jpeg", "gif", "webp", "pdf"])
+  // Only complete dotted identifiers in prose are recognized. Path based
+  // identities and ambiguous filename spellings remain available to getSymbol.
+  for (const token of question.matchAll(/\S+/g)) {
+    const text = token[0]
+    if (/[\/\\@]/.test(text) || /(?:^|[('"`])(?:www\.|mailto:)/i.test(text)) continue
+    for (const match of text.matchAll(/[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)+/g)) {
+      const symbol = match[0]
+      const before = text[(match.index ?? 0) - 1] ?? ""
+      const afterIndex = (match.index ?? 0) + symbol.length
+      const after = text[afterIndex] ?? ""
+      if (/[\p{ID_Continue}$./\\@%:#+-]/u.test(before)) continue
+      if (/[\p{ID_Continue}$/\\@%#+-]/u.test(after)) continue
+      if (after === "." && /[\p{ID_Continue}$.]/u.test(text[afterIndex + 1] ?? "")) continue
+      if (/^(?:e\.g|i\.e)$/i.test(symbol) || fileExtensions.has(symbol.slice(symbol.lastIndexOf(".") + 1).toLowerCase())) continue
+      found.add(symbol)
+    }
+  }
+  return { symbols: [...found].slice(0, 64), truncated: Math.max(0, found.size - 64) }
 }
 
 function extractSymbolCandidate(question: string): string {

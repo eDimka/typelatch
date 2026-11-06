@@ -19,6 +19,15 @@ export function formatQuery(response: QueryResponse): string {
     `${response.package}@${response.version} · ${response.strategy} · ${response.latencyMs} ms`,
     `Query ID: ${response.queryId}`
   ]
+  if (response.requestedSymbols?.length) {
+    const returned = response.requestedSymbols.filter(item => item.status === "exact").length
+    const missing = response.requestedSymbols.filter(item => item.status === "not-found").map(item => item.symbol)
+    const omitted = response.requestedSymbols.filter(item => item.status === "omitted").map(item => item.symbol)
+    lines.push("", `Requested names: ${returned} of ${response.requestedSymbols.length} returned`)
+    if (missing.length) lines.push(`Not found in local index: ${missing.join(", ")}`)
+    if (omitted.length) lines.push(`Omitted by result limit: ${omitted.join(", ")}`)
+    if (response.requestedSymbolsTruncated) lines.push(`Additional requested names not checked: ${response.requestedSymbolsTruncated} (recognition limit: 64)`)
+  }
   if (response.fallback) lines.push("", response.fallback)
   for (const [index, result] of response.results.entries()) {
     lines.push(

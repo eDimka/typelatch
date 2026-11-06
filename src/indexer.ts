@@ -9,7 +9,14 @@ import { packPackage, resolvePackage } from "./npm.js"
 import { brainPath } from "./paths.js"
 import type { BrainFormat, BrainMetadata, EdgeRecord, PackageIdentity, SymbolRecord } from "./types.js"
 
-export const GENERATOR_VERSION = "typelatch-indexer/0.2.1"
+export const GENERATOR_VERSION = "typelatch-indexer/0.2.2"
+export class UnsupportedPackageError extends Error {
+  constructor() {
+    super("Package contains neither TypeScript source nor declaration files")
+    this.name = "UnsupportedPackageError"
+  }
+}
+const signaturePrinter = ts.createPrinter({ removeComments: true })
 const SCHEMA_VERSIONS: Record<BrainFormat, number> = { baseline: 1, compact: 2, trimmed: 3 }
 const EDGE_TYPE_IDS: Record<EdgeRecord["type"], number> = {
   accepts: 1,
@@ -328,7 +335,7 @@ async function discoverSources(packageRoot: string): Promise<{ root: string; fil
     const canonical = path.replace(/\.d\.(mts|cts)$/, ".d.ts")
     if (!preferred.has(canonical)) preferred.set(canonical, path)
   }
-  if (preferred.size === 0) throw new Error(`Package contains neither TypeScript source nor declaration files: ${packageRoot}`)
+  if (preferred.size === 0) throw new UnsupportedPackageError()
   return { root: packageRoot, files: [...preferred.values()], kind: "declaration" }
 }
 
@@ -440,7 +447,7 @@ export async function analyzeFile(
           name,
           kind: declarationKind(declaration),
           module,
-          signature: clip(stripComments(signature), 12_000),
+          signature: clip(signature, 12_000),
           docs: searchableDocs,
           sourcePath: relativePath,
           lineStart: start,
@@ -679,7 +686,7 @@ function declarationDocumentation(
     if (node !== declaration) {
       const parent = ts.isVariableDeclaration(node) ? node.parent.parent : node
       const docs = cleanDocs(leadingJsDoc(sourceFile.text, parent.getFullStart(), parent.getStart(sourceFile)))
-      blocks.push(`[Referenced type ${declarationName(node)}; ${location(node)}]\n${docs}\n${clip(stripComments(declarationSignature(parent as ts.Statement, node, sourceFile)), 1_600)}`)
+      blocks.push(`[Referenced type ${declarationName(node)}; ${location(node)}]\n${docs}\n${clip(declarationSignature(parent as ts.Statement, node, sourceFile), 1_600)}`)
     }
     members(node)
     const surfaces: ts.Node[] = ts.isVariableDeclaration(node) && node.type ? [node.type]
@@ -736,13 +743,29 @@ function declarationKind(node: NamedDeclaration): string {
 function declarationSignature(statement: ts.Statement, declaration: NamedDeclaration, sourceFile: ts.SourceFile): string {
   if (ts.isVariableDeclaration(declaration)) {
     const name = declaration.name.getText(sourceFile)
-    const type = declaration.type ? `: ${declaration.type.getText(sourceFile)}` : ""
-    return `export const ${name}${type}`
+    if (declaration.type) return stripComments(`export const ${name}: ${declaration.type.getText(sourceFile)}`)
+    let initializer = declaration.initializer
+    while (initializer && ts.isParenthesizedExpression(initializer)) initializer = initializer.expression
+    // Print only declared callable syntax. Elision cannot invent an inferred
+    // return type, and the syntax printer preserves comment shaped literals.
+    if (initializer && ts.isArrowFunction(initializer)) {
+      const header = ts.factory.updateArrowFunction(initializer, initializer.modifiers, initializer.typeParameters,
+        initializer.parameters, initializer.type, initializer.equalsGreaterThanToken, ts.factory.createIdentifier("…"))
+      return `export const ${name} = ${signaturePrinter.printNode(ts.EmitHint.Expression, header, sourceFile)}`
+    }
+    if (initializer && ts.isFunctionExpression(initializer)) {
+      const header = ts.factory.updateFunctionExpression(initializer, initializer.modifiers, initializer.asteriskToken,
+        initializer.name, initializer.typeParameters, initializer.parameters, initializer.type, ts.factory.createBlock([]))
+      return `export const ${name} = ${signaturePrinter.printNode(ts.EmitHint.Expression, header, sourceFile).replace(/\s*\{\s*\}$/, " …")}`
+    }
+    return `export const ${name}`
   }
   if (ts.isFunctionDeclaration(declaration) && declaration.body) {
-    return declaration.getText(sourceFile).slice(0, declaration.body.getStart(sourceFile)).trim()
+    const header = ts.factory.updateFunctionDeclaration(declaration, declaration.modifiers, declaration.asteriskToken,
+      declaration.name, declaration.typeParameters, declaration.parameters, declaration.type, undefined)
+    return signaturePrinter.printNode(ts.EmitHint.Unspecified, header, sourceFile).replace(/;$/, "")
   }
-  return statement.getText(sourceFile)
+  return stripComments(statement.getText(sourceFile))
 }
 
 function sourceFragment(declaration: NamedDeclaration, sourceFile: ts.SourceFile): string {

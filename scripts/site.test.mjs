@@ -12,6 +12,9 @@ import {
 import { resolve, join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { test } from 'node:test'
+import { verifySiteDemo } from './site-demo.mjs'
+import { demoHash } from './demo-evidence.mjs'
+import { verifyRecordedFixture } from './showcase-fixture.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
@@ -56,6 +59,10 @@ test('builds an inspectable static experience from the recorded run', () => {
   assert.doesNotMatch(html, /LibBrain|Codegraph/i)
   assert.doesNotMatch(html, /class="brand"[^>]*>\s*<img/)
   assert.match(html, /id="hero-install-command"/)
+  assert.equal((html.match(/data-demo-scene="/g) || []).length, 6, 'all six scenes exist without JavaScript')
+  assert.equal((html.match(/data-demo-step="/g) || []).length, 6, 'all scenes have step navigation')
+  assert.match(html, /data-demo-play/)
+  assert.match(html, /visual summary of an actual Codex CLI session/)
   const socialImage = html.match(/property="og:image"\s+content="([^"]+)"/)[1]
   assert.ok(
     existsSync(resolve(root, '_site', new URL(socialImage).pathname.replace('/typelatch/', ''))),
@@ -65,6 +72,7 @@ test('builds an inspectable static experience from the recorded run', () => {
     JSON.parse(read('_site/evidence/recording.json')),
     JSON.parse(read('docs/showcase/recording.json')),
   )
+  assert.deepEqual(JSON.parse(read('_site/evidence/codex-session.json')), JSON.parse(read('docs/showcase/codex-session.json')))
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const link = match[1]
     if (/^(https?:|mailto:|data:)/.test(link)) continue
@@ -98,12 +106,12 @@ test('repository links and local social images resolve in the correct checkout',
   }
 })
 
-test('refuses a failed recording or a fixture that changed after capture', () => {
+test('refuses a failed recording or historical snapshot changed after capture', () => {
   const directory = mkdtempSync(
     join(process.env.JCODE_SCRATCH_DIR || tmpdir(), 'typelatch-site-contract-'),
   )
   try {
-    for (const path of ['scripts/site.mjs', 'docs/showcase/recording.json', 'examples/sqlite']) {
+    for (const path of ['scripts', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), {
         recursive: true,
@@ -119,13 +127,56 @@ test('refuses a failed recording or a fixture that changed after capture', () =>
     )
     record.assertions.passed = true
     writeFileSync(resolve(directory, 'docs/showcase/recording.json'), JSON.stringify(record))
-    writeFileSync(resolve(directory, 'examples/sqlite/batch.ts'), 'changed after capture\n')
+    const snapshot = JSON.parse(read('docs/showcase/recorded-fixture.json'))
+    snapshot.files.find(file => file.path === 'examples/sqlite/batch.ts').text += '\n// changed after capture\n'
+    writeFileSync(resolve(directory, 'docs/showcase/recorded-fixture.json'), JSON.stringify(snapshot))
     assert.throws(
       () => execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' }),
-      /Fixture matches recorded execution/,
+      /Historical fixture matches recorded execution/,
     )
   } finally {
     rmSync(directory, { recursive: true, force: true })
+  }
+})
+
+test('historical evidence builds independently of the maintained example', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-snapshot-'))
+  try {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json']) {
+      mkdirSync(resolve(directory, path, '..'), { recursive: true })
+      cpSync(resolve(root, path), resolve(directory, path), { recursive: true })
+    }
+    mkdirSync(resolve(directory, 'examples/sqlite'), { recursive: true })
+    writeFileSync(resolve(directory, 'examples/sqlite/batch.ts'), 'maintained example changed after historical capture\n')
+    execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' })
+    const html = readFileSync(resolve(directory, '_site/index.html'), 'utf8')
+    assert.doesNotMatch(html, /maintained example changed/)
+    assert.match(html, /export async function importContacts/)
+    assert.match(html, /whole batch rollback/)
+    assert.match(html, /href="evidence\/recorded-fixture.json"/)
+    assert.deepEqual(
+      JSON.parse(readFileSync(resolve(directory, '_site/evidence/recorded-fixture.json'), 'utf8')),
+      JSON.parse(read('docs/showcase/recorded-fixture.json')),
+    )
+  } finally {
+    rmSync(directory, { recursive: true, force: true })
+  }
+})
+
+test('historical snapshot rejects missing, additional or altered captured files', () => {
+  const snapshot = JSON.parse(read('docs/showcase/recorded-fixture.json'))
+  const recording = JSON.parse(read('docs/showcase/recording.json'))
+  assert.equal(verifyRecordedFixture(snapshot, recording.fixture).size, recording.fixture.length)
+  for (const mutation of [
+    value => { value.files.pop() },
+    value => { value.files.push(value.files[0]) },
+    value => { value.files[0].path = 'examples/sqlite/renamed.ts' },
+    value => { value.files[0].text += '\n// altered source' },
+    value => { value.files[0].text += '\n// altered source'; value.files[0].sha256 = demoHash(value.files[0].text) },
+  ]) {
+    const changed = structuredClone(snapshot)
+    mutation(changed)
+    assert.throws(() => verifyRecordedFixture(changed, recording.fixture))
   }
 })
 
@@ -137,4 +188,48 @@ test('static fallback and reduced motion do not depend on animation', () => {
   assert.match(read('site/index.html'), /aria-live="polite"/)
   assert.doesNotMatch(read('site/site.js'), /innerHTML\s*=/)
   assert.match(read('site/site.js'), /clipboard/)
+})
+
+
+test('native walkthrough is bound to successful actions, source identity and the actual edit', () => {
+  const capture = read('docs/showcase/codex-session.json')
+  const demo = JSON.parse(read('site/demo.json'))
+  assert.doesNotThrow(() => verifySiteDemo(capture, demo))
+  for (const mutation of [
+    value => { value.scenes[1].evidence.actionIndex = 2 },
+    value => { value.scenes[3].evidence.request.arguments.symbol = 'invented.API' },
+    value => { value.scenes[4].code = 'await db.destroy()' },
+    value => { value.scenes[5].code = value.scenes[5].code.replace('# pass 2', '# pass 9') },
+  ]) {
+    const changed = structuredClone(demo)
+    mutation(changed)
+    assert.throws(() => verifySiteDemo(capture, changed))
+  }
+})
+
+test('native walkthrough rejects denied tools, tampered files and manufactured counts', () => {
+  const capture = JSON.parse(read('docs/showcase/codex-session.json'))
+  const demo = JSON.parse(read('site/demo.json'))
+  for (const mutation of [
+    value => { value.actions[value.qualified.searchAction].status = 'failed' },
+    value => { value.change.after += '\n// changed after capture' },
+    value => { value.fixture.after.find(file => file.path === 'package.json').sha256 = 'changed' },
+    value => { value.qualified.finalValidationAction = 1 },
+    value => { value.counts.mcpCalls = 999 },
+  ]) {
+    const changed = structuredClone(capture)
+    mutation(changed)
+    const text = JSON.stringify(changed)
+    assert.throws(() => verifySiteDemo(text, { ...demo, source: { ...demo.source, sha256: demoHash(text) } }))
+  }
+})
+
+
+test('static command blocks support keyboard scrolling and have accessible names', () => {
+  const blocks = [...read('site/index.html').matchAll(/<pre\b([^>]*)>/g)]
+  assert.ok(blocks.length > 0)
+  for (const [, attributes] of blocks) {
+    assert.match(attributes, /\btabindex="0"/, 'Command blocks are reachable for keyboard scrolling')
+    assert.match(attributes, /\baria-label="[^"]+"/, 'Command blocks describe their purpose')
+  }
 })

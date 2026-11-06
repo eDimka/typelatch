@@ -8,7 +8,7 @@ How can I import a batch of contacts into SQLite atomically, roll back every new
 
 The first search returned `ControlledTransaction`, insertion and constraint APIs. A refinement to `TransactionBuilder execute` found the callback API. Exact symbol lookup returned `esm/kysely.TransactionBuilder` at `dist/esm/kysely.d.ts:623`. The recording retains both searches, including the first result set rather than replacing it with the better query.
 
-The solution uses `db.transaction().execute(...)` and `transaction.insertInto('contact').values(contact).execute()`. It lets errors escape the callback. See [the implementation](../../examples/sqlite/batch.ts) and [assertions](../../examples/sqlite/batch.test.ts).
+The solution uses `db.transaction().execute(...)` and `transaction.insertInto('contact').values(contact).execute()`. It lets errors escape the callback. The exact recorded implementation, assertions and package files are preserved as [text and hashes](recorded-fixture.json). The [maintained runnable example](../../examples/sqlite) now uses patched Kysely 0.28.19; the historical recording continues to identify the 0.28.8 artifact it actually executed.
 
 ## Package identities
 
@@ -20,9 +20,9 @@ The solution uses `db.transaction().execute(...)` and `transaction.insertInto('c
 | Separate runtime declarations in the workspace | `@types/better-sqlite3@9.6.0` |
 | Workspace compiler | `typescript@6.0.3` |
 
-Kysely bundles its declarations. The separate `@types` package is not indexed successfully and is not represented as the Kysely API artifact. The fixture lockfile retains exact package integrities. The recording also retains the published Typelatch install lock, registry metadata, environment versions and fixture SHA256 hashes.
+Kysely bundles its declarations. The separate `@types` package is not indexed successfully and is not represented as the Kysely API artifact. The historical fixture snapshot retains the exact lockfile and package integrities. The recording also retains the published Typelatch install lock, registry metadata, environment versions and fixture SHA256 hashes.
 
-## Reproduce
+## Reproduce the historical capture
 
 Requires Node.js 22.12 or newer, npm, registry access and a working native SQLite dependency. A C++ build toolchain may be needed when no prebuilt native binary is available. The recorded environment was macOS arm64 with Node.js 22.23.1. Consult `provenance.environment` for the actual capture details.
 
@@ -31,20 +31,16 @@ From the repository root:
 ```sh
 npm ci
 export JCODE_SCRATCH_DIR="${JCODE_SCRATCH_DIR:-$HOME/.cache/typelatch-showcase}"
-node scripts/showcase.mjs
-```
-
-The script creates a fresh directory under `JCODE_SCRATCH_DIR`, installs **published `typelatch@0.1.1` from npm**, copies the pinned fixture and runs `npm ci` there. It uses the repository SDK dependency only for the MCP client, never the repository `dist` as the server. It sets an isolated `TYPELATCH_HOME`, indexes Kysely, starts the published MCP executable and runs the supplied commands. It does not alter a global installation or the default Typelatch data directory.
-
-By default this writes `docs/showcase/recording.json`. To keep the checked in recording, give an alternate destination:
-
-```sh
 node scripts/showcase.mjs "$JCODE_SCRATCH_DIR/recording.json"
 ```
 
+This is an explicit historical reproduction using the older recorded package versions. For current dependencies, use the maintained fixture commands below. The script creates a fresh directory under `JCODE_SCRATCH_DIR`, installs **published `typelatch@0.1.1` from npm**, verifies and materializes the exact text files from `recorded-fixture.json`, and runs `npm ci` there. The current `examples/sqlite` lockfile is not used for this historical replay. It uses the repository SDK dependency only for the MCP client, never the repository `dist` as the server. It sets an isolated `TYPELATCH_HOME`, indexes Kysely, starts the published MCP executable and runs the supplied commands. It does not alter a global installation or the default Typelatch data directory.
+
+The explicit output path above preserves the checked in historical recording. A successful capture also writes its matching `recorded-fixture.json` beside the output.
+
 Scratch files remain for inspection. Downloads and native install scripts execute through npm. Workspace validation executes explicitly supplied commands with your permissions, not in a security sandbox. Only run this fixture after reviewing it.
 
-To run the SQLite fixture directly:
+To run the maintained SQLite fixture directly, using its current Kysely 0.28.19 lockfile:
 
 ```sh
 npm ci --prefix examples/sqlite
@@ -77,6 +73,6 @@ The two positive tests prove a valid batch commits, a quoted name and a SQL look
 
 Only private absolute path prefixes are normalized. Tokens are documented in `provenance.pathTokens`: `$WORKSPACE`, `$TYPELATCH_HOME`, `$PUBLISHED_INSTALL`, `$RUN_ROOT`, `$SCRATCH`, `$REPOSITORY`, `$NODE` and `$USER_HOME`. They are explanatory placeholders, not portable executable paths. IDs, hashes, durations, source lines, failures and unknown states remain as returned. Captures are not expected to be byte identical because timestamps, UUIDs, durations, snapshots and environment hashes vary.
 
-The provisional declaration package request `@types/better-sqlite3@9.6.13` returned npm E404. The available exact version `9.6.0` then failed Typelatch indexing with `Unsafe package archive path: better-sqlite3/`. Both attempts are preserved under `commands` as capture notes. No archive workaround, production patch or source build was used to hide that limit.
+The provisional declaration package request `@types/better-sqlite3@9.6.13` returned npm E404. The available exact version `9.6.0` then failed Typelatch indexing with `Unsafe package archive path: better-sqlite3/`. Both attempts are preserved under `commands` as capture notes. No archive workaround, production patch or source build was used to hide that limit in the historical capture. The current 0.3.0 source handles this named archive root; its separate verification is documented in the [release report](../verification/release-0.3.0.md).
 
 This is one authored development example, not an unseen task benchmark. Retrieval did not independently invent the solution. Artifact equivalence remains unknown in workspace context. Passing tests establish only the supplied assertions and the recorded input scope, not general SQL safety, concurrency behavior, filesystem durability or performance gains.

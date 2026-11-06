@@ -22,14 +22,21 @@ export const supportSchema = z.object({
   }).strict()).min(10)
 }).strict()
 
+// Patch the executable fixture while retaining the historical retrieval corpus.
+const supportMinimatch = {
+  version: "11.0.5",
+  integrity: "sha512-snPlVppFcYWfLLFQGhDxUyBcHNtMlWmn3jtj7pEaO+DP8pqL0IvAzXhMYmn1z9ASNtgmwLBdFxSf4tMUB0OTKA=="
+}
+
 export function validateSupportManifest(value: unknown) {
   const manifest = supportSchema.parse(value)
   const corpus = loadCorpus()
   const identities = manifest.packages.map(p => `${p.name}@${p.version}`)
   if (new Set(identities).size !== identities.length) throw new Error("Duplicate support package version")
   for (const pin of corpus.packages) {
-    const entry = manifest.packages.find(p => p.name === pin.name && p.version === pin.version)
-    if (!entry || entry.integrity !== pin.integrity) throw new Error(`Corpus identity mismatch: ${pin.name}`)
+    const required = pin.name === "minimatch" ? supportMinimatch : pin
+    const entry = manifest.packages.find(p => p.name === pin.name && p.version === required.version)
+    if (!entry || entry.integrity !== required.integrity) throw new Error(`Corpus identity mismatch: ${pin.name}`)
   }
   const ids = manifest.packages.flatMap(p => p.tasks.map(t => t.id))
   if (new Set(ids).size !== ids.length) throw new Error("Duplicate support task IDs")

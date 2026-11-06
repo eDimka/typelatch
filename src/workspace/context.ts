@@ -6,6 +6,7 @@ import { brainPath } from "../paths.js"
 import { getSymbol, queryBrain } from "../query.js"
 import type { QueryResponse } from "../types.js"
 import { WorkspaceProject, compilerRuntimeUnchanged, openProjectForFile, sha256, type Check, type Overlay } from "./project.js"
+import { installedApiEvidence } from "./api-evidence.js"
 
 export type ContextRequest = {
   symbol?: string | undefined
@@ -20,6 +21,13 @@ export type ContextRequest = {
   expectedVersion?: string | undefined
   overlays?: Overlay[] | undefined
   limit?: number | undefined
+}
+
+function cursorCounts(total: number | null, returned: number, limit: number) {
+  return {
+    status: total === null ? "not-run" as const : returned < total ? "truncated" as const : "complete" as const,
+    total, returned, omitted: total === null ? null : total - returned, limit
+  }
 }
 
 function packageIdentity(project: WorkspaceProject, file: string) {
@@ -96,16 +104,22 @@ export function workspaceContext(request: ContextRequest, session?: ContextSessi
     let hover: { text: string; documentation: string } | null = null
     let definitions: Array<{ file: string; start: number; length: number; name: string }> = []
     let references: Array<{ file: string; start: number; length: number }> = []
+    let definitionCount: number | null = null
+    let referenceCount: number | null = null
     if (request.position !== undefined) {
       if (!Number.isInteger(request.position) || request.position < 0 || request.position >= source.text.length) {
         throw new Error("position must be a zero-based UTF-16 offset within the file")
       }
       const info = project.service.getQuickInfoAtPosition(source.fileName, request.position)
       hover = info ? { text: T.displayPartsToString(info.displayParts).slice(0, 16000), documentation: T.displayPartsToString(info.documentation).slice(0, 12000) } : null
-      definitions = (project.service.getDefinitionAtPosition(source.fileName, request.position) ?? []).slice(0, 20).map(d => ({
+      const foundDefinitions = project.service.getDefinitionAtPosition(source.fileName, request.position) ?? []
+      definitionCount = foundDefinitions.length
+      definitions = foundDefinitions.slice(0, 20).map(d => ({
         file: d.fileName, start: d.textSpan.start, length: d.textSpan.length, name: d.name
       }))
-      references = (project.service.getReferencesAtPosition(source.fileName, request.position) ?? []).slice(0, 50).map(r => ({
+      const foundReferences = project.service.getReferencesAtPosition(source.fileName, request.position) ?? []
+      referenceCount = foundReferences.length
+      references = foundReferences.slice(0, 50).map(r => ({
         file: r.fileName, start: r.textSpan.start, length: r.textSpan.length
       }))
       resolved = { status: definitions.length ? "pass" : "unknown", reason: "Live symbol navigation only; not proof that this usage type-checks" }
@@ -152,7 +166,7 @@ export function workspaceContext(request: ContextRequest, session?: ContextSessi
         }
       } else if (versionMatch.status === "fail") retrieved = { status: "not-run", reason: "Version mismatch blocks brain discovery" }
     }
-    const api = literal && request.symbol ? resolveExport(project, literal, request.symbol) : null
+    const api = literal && request.symbol ? resolveExport(project, literal, request.symbol, false, true) : null
     const candidates = brain?.results.map(result => ({
       symbol: result.symbol,
       // Index module paths are not JavaScript namespaces. Probe the candidate's
@@ -206,8 +220,14 @@ export function workspaceContext(request: ContextRequest, session?: ContextSessi
     return {
       api, candidates, navigation, syntheticImport, originalSourceHash,
       language: "typescript" as const,
-      route: request.position !== undefined ? "language-service-first" : "brain-discovery",
+      route: request.position !== undefined ? "language-service-first" : request.question ? "brain-discovery"
+        : request.importSpecifier && request.symbol ? "installed-api" : "brain-discovery",
       file, hover, definitions, references, declaration, dependency, brain, brainProvenance,
+      cursorEvidence: {
+        scope: "compiler-project" as const, config: project.config, position: request.position ?? null,
+        definitions: cursorCounts(definitionCount, definitions.length, 20),
+        references: cursorCounts(referenceCount, references.length, 50)
+      },
       checks: {
         retrieved, resolved, versionMatch,
         artifactMatch: { status: "unknown", reason: "Installed package contents have not been compared with the registry artifact" } satisfies Check,
@@ -237,7 +257,7 @@ function findImport(T: typeof ts, source: ts.SourceFile, specifier: string): ts.
   return found
 }
 
-function resolveExport(project: WorkspaceProject, literal: ts.StringLiteralLike, name: string, allowDefaultDeclarationName = false) {
+function resolveExport(project: WorkspaceProject, literal: ts.StringLiteralLike, name: string, allowDefaultDeclarationName = false, withEvidence = false) {
   const checker = project.program().getTypeChecker()
   const T = project.ts
   let symbol = checker.getSymbolAtLocation(literal)
@@ -258,11 +278,19 @@ function resolveExport(project: WorkspaceProject, literal: ts.StringLiteralLike,
   const location = symbol.valueDeclaration ?? symbol.declarations?.[0] ?? literal
   const type = symbol.flags & (T.SymbolFlags.Interface | T.SymbolFlags.TypeAlias)
     ? checker.getDeclaredTypeOfSymbol(symbol) : checker.getTypeOfSymbolAtLocation(symbol, location)
+  const hasValue = !!(symbol.flags & T.SymbolFlags.Value) || !!symbol.valueDeclaration
+  const callableType = hasValue ? checker.getTypeOfSymbolAtLocation(symbol, location) : type
+  const calls = callableType.getCallSignatures()
+  const typeText = checker.typeToString(type, location, T.TypeFormatFlags.NoTruncation)
+  const documentation = T.displayPartsToString(symbol.getDocumentationComment(checker))
+  const signatures = calls.slice(0, 10).map(signature => checker.signatureToString(signature, undefined, T.TypeFormatFlags.NoTruncation))
   return {
-    name, type: checker.typeToString(type, location, T.TypeFormatFlags.NoTruncation).slice(0, 16000),
-    documentation: T.displayPartsToString(symbol.getDocumentationComment(checker)).slice(0, 12000),
-    signatures: type.getCallSignatures().slice(0, 10).map(signature => checker.signatureToString(signature).slice(0, 8000)),
+    name, type: typeText.slice(0, 16000), documentation: documentation.slice(0, 12000),
+    signatures: signatures.map(signature => signature.slice(0, 8000)),
     declarations: (symbol.declarations ?? []).slice(0, 10).map(d => ({ file: d.getSourceFile().fileName, start: d.getStart(), length: d.getWidth() })),
+    ...(withEvidence ? { evidence: installedApiEvidence(project, symbol, {
+      type: typeText, documentation, signatures, signatureCount: calls.length, signatureView: hasValue ? "value" : "declared-type"
+    }) } : {}),
     status: "resolved" as const,
     reason: "This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks"
   }
