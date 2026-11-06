@@ -179,3 +179,13 @@ test('native walkthrough rejects denied tools, tampered files and manufactured c
     assert.throws(() => verifySiteDemo(text, { ...demo, source: { ...demo.source, sha256: demoHash(text) } }))
   }
 })
+
+
+test('static command blocks support keyboard scrolling and have accessible names', () => {
+  const blocks = [...read('site/index.html').matchAll(/<pre\b([^>]*)>/g)]
+  assert.ok(blocks.length > 0)
+  for (const [, attributes] of blocks) {
+    assert.match(attributes, /\btabindex="0"/, 'Command blocks are reachable for keyboard scrolling')
+    assert.match(attributes, /\baria-label="[^"]+"/, 'Command blocks describe their purpose')
+  }
+})
