@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-11-06T21:25:00.912Z",
+  "elapsedMs": 551.735958,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace",
+  "command": "node",
+  "args": [
+    "node_modules/typescript/bin/tsc",
+    "--build",
+    "packages/parse-wanted-dependency/tsconfig.json"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "",
+  "stderr": ""
+}

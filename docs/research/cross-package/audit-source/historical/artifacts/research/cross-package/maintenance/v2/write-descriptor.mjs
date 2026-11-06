@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {join,resolve} from 'node:path';
+import {hash} from '../../../../../scripts/paired-agent-runner.mjs';
+const here=import.meta.dirname,prior=JSON.parse(readFileSync(join(here,'../development-001/descriptor.json'))),qualificationPath=join(here,'qualification.json'),qualification=JSON.parse(readFileSync(qualificationPath));
+assert.equal(qualification.status,'qualified');
+const workspace=join(here,'fixture/workspace');
+const descriptor={...prior,id:'pnpm-catalog-consistency-v2',workspace,initialManifest:join(here,'fixture/initial-manifest.json'),sourceTrackingManifest:join(here,'fixture/source-tracking-manifest.json'),qualification:{status:'qualified',path:qualificationPath,sha256:hash(readFileSync(qualificationPath))},graderModule:join(here,'grade.mjs'),publicCases:9};
+descriptor.policy=prior.policy.map(line=>line.startsWith('Public validation runs')?'Public validation runs native TypeScript compilation and nine real production API/filesystem cases without a listening server. Independent grading runs twenty-two semantic cases plus the exact upstream catalog installation integration outside the agent sandbox. Other upstream native cases are explicitly filtered, not reported as passing.':line);
+descriptor.policy.push('V2 changes only the public check runner relative to the preserved v1 fixture. Actual Codex workspace-write preflights execute the public command without edits on baseline and reference: baseline returns all nine cases with intended failures, reference returns nine passes. V1 study remains environment limited because its public registry could not listen inside that sandbox.');
+descriptor.toolchain=JSON.parse(JSON.stringify(prior.toolchain).replaceAll(prior.workspace,workspace));
+descriptor.frozenInputs=[...new Set([...prior.frozenInputs,...['prepare.mjs','public-check.mjs','grade.mjs','qualify.mjs','write-descriptor.mjs','fixture/initial-manifest.json','fixture/source-tracking-manifest.json','fixture/preparation.json','qualification.json'].map(path=>join(here,path)),resolve(here,'../../../large-monorepo/inventory-agent-trial/capture.mjs'),resolve(here,'../../../large-monorepo/agent-trial/capture.mjs'),resolve(here,'../../../large-monorepo/agent-trial/fixture-git.mjs'),resolve(here,'../../trial/run.mjs'),resolve(here,'../../../../../scripts/paired-agent-evidence.mjs')])];
+writeFileSync(join(here,'descriptor.json'),JSON.stringify(descriptor,null,2)+'\n');
+console.log(JSON.stringify({descriptor:join(here,'descriptor.json'),sha256:hash(readFileSync(join(here,'descriptor.json'))),qualificationSha256:descriptor.qualification.sha256,publicCases:descriptor.publicCases,frozenInputs:descriptor.frozenInputs.length}));

@@ -1,0 +1,8 @@
+{
+  "url": "https://codeload.github.com/pnpm/pnpm/tar.gz/1e6de2539bf2df6477fcb8d9c016f7842f5c5e77",
+  "sha256": "c1b238c15c43214454d051403f559c158e6f5dea920887f0f2de4d878656fc04",
+  "bytes": 2325412,
+  "extractionElapsedMs": 866,
+  "downloadTimeMs": null,
+  "priorAttempt": "Python3.9 lacked safe tar extraction filter; failed before extracting any files. Archives retained and extracted with Python3.12."
+}

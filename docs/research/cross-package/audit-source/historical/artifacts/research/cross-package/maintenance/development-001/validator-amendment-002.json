@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "beforeAnyModelSession": true,
+  "changes": [
+    "Test infrastructure and fixture roots plus test-utils source are now immutable, proven by failing then passing guard test.",
+    "Every native Jest invocation uses its own newly created empty temporary cache.",
+    "Private validator additionally requires clean process completion and every expected semantic result to pass."
+  ],
+  "priorFixtureSha256": "01f9b8b81e6c9c572e00281fd2ef32c4daf7f519e6433f10190056455f97d5e6",
+  "fixtureSha256": "698c5116685a1b3acfe522906b885749b12a428b66541564a9effadcdf9325df",
+  "guardReproducer": {
+    "red": "3bcf6638819a457ffce30e08381d57a72d9cf940b323fb11bb5641de9c9b2ef4",
+    "green": "662ff0a37259c587bfac259acffb4e227f589003cbf4cb4151e578c7ab60675e"
+  },
+  "sourceFiles": [
+    {
+      "path": "development-grade.mjs",
+      "sha256": "45dff9e2130dbe0a31bb8a0befc909458880d73fd0244d3c16be39c80dfacd4b"
+    },
+    {
+      "path": "check-runtime.mjs",
+      "sha256": "add3ad4098a2241f306b1e27a952647b1b25e6650b6fcce567c0549dce5c472e"
+    }
+  ],
+  "qualification": "All five baseline/reference/partial variants rerun with this validator and input snapshot; prior qualification retained as qualification-001.json."
+}

@@ -1,0 +1,6 @@
+{
+  "elapsedMs": 11252.5995,
+  "referenceCommit": "69ebe387643ae781182d7fa0fd59602484ae268d",
+  "baselineTestOverlay": [],
+  "rule": "Baseline retains pinned parent production source. Reference contains exact upstream changed production files. Updated upstream regression tests are available unchanged in both states."
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "privateReportSha256": "404fcd8ada685fbbf59ad78a19914c61bcb0d004794e4a2e7abec764487f069c",
+  "privateProtocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "originalResultsUnchanged": true,
+  "auditHashEncoding": "adjudicated-result.auditSha256 hashes JSON.stringify of the parsed original audit; manifest hashes bind exact file bytes.",
+  "originalParsedAuditSha256": "26bad37c9582cd40b19e16bc4ac2eb98894d92284b0a6e1dc1ad2566cb433156",
+  "publicParsedAuditSha256": "26bad37c9582cd40b19e16bc4ac2eb98894d92284b0a6e1dc1ad2566cb433156",
+  "createdAt": "2026-11-06T23:34:47.499Z",
+  "normalization": "Private report and review files have local path placeholders. Hashes retain original byte identities; completed public action records and tool outputs are copied exactly. No model reasoning or assistant message bodies are included.",
+  "files": [
+    {
+      "path": "report.json",
+      "sha256": "a953c1db11984ce3b1441622be97a6c4ec719e57741217b9fb1c70a8dede9f6d",
+      "originalSha256": "404fcd8ada685fbbf59ad78a19914c61bcb0d004794e4a2e7abec764487f069c",
+      "bytes": 92011
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "34124c015cf141408b0690c8756e70513e4a2613bfc0a12c076655cad9eeb02f",
+      "originalSha256": "34124c015cf141408b0690c8756e70513e4a2613bfc0a12c076655cad9eeb02f",
+      "bytes": 12958
+    },
+    {
+      "path": "adjudicated-result.json",
+      "sha256": "83ac3118241e768168dc1309fcc6a6b464727eebb25ac3877cfa2d98525fad8d",
+      "originalSha256": "83ac3118241e768168dc1309fcc6a6b464727eebb25ac3877cfa2d98525fad8d",
+      "bytes": 13359
+    },
+    {
+      "path": "correctness-audit.json",
+      "sha256": "ca952ec3d0956b7163a22ad06f359c5948966d3cd970f4c48e53c113924fad11",
+      "originalSha256": "ca952ec3d0956b7163a22ad06f359c5948966d3cd970f4c48e53c113924fad11",
+      "bytes": 25172
+    },
+    {
+      "path": "correctness-audit.md",
+      "sha256": "0c633b9b54aa12a34a755e068658fd1c9843140f844d5d36ef0827dfff3b7a60",
+      "originalSha256": "0c633b9b54aa12a34a755e068658fd1c9843140f844d5d36ef0827dfff3b7a60",
+      "bytes": 743
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-native/public-evidence.json",
+      "sha256": "e718e8f93c6eb85939618114ffe3f0a2cfd4c0260e61562029ed5abd7d36690c",
+      "originalSha256": "e718e8f93c6eb85939618114ffe3f0a2cfd4c0260e61562029ed5abd7d36690c",
+      "bytes": 252093
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-native/tool-outputs.json",
+      "sha256": "4bc944a38d9ae481e4bf5b8c891ee366fc87773cdca1d454036409736d31e18b",
+      "originalSha256": "4bc944a38d9ae481e4bf5b8c891ee366fc87773cdca1d454036409736d31e18b",
+      "bytes": 38582
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-typelatch/public-evidence.json",
+      "sha256": "c10d09b25c9ba2d45a97216e552a2b071094367aa89b5cab1e4a5642bb4b05d0",
+      "originalSha256": "c10d09b25c9ba2d45a97216e552a2b071094367aa89b5cab1e4a5642bb4b05d0",
+      "bytes": 252144
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-typelatch/tool-outputs.json",
+      "sha256": "2aa1803df52668d116a17b511ceb18921c4c95b36bc7e84bae83766b753025a4",
+      "originalSha256": "2aa1803df52668d116a17b511ceb18921c4c95b36bc7e84bae83766b753025a4",
+      "bytes": 103437
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-competitor/public-evidence.json",
+      "sha256": "e1c6a30c9aef38413cec642ed6fc81601313e40fe326a0eb0921056fb5fd7c8e",
+      "originalSha256": "e1c6a30c9aef38413cec642ed6fc81601313e40fe326a0eb0921056fb5fd7c8e",
+      "bytes": 253114
+    },
+    {
+      "path": "runs/pnpm-catalog-consistency-v2-r1-competitor/tool-outputs.json",
+      "sha256": "bc1bb1987bb21222e78f90ca05150527631a669c5d7d0fe1019d2733c9551d35",
+      "originalSha256": "bc1bb1987bb21222e78f90ca05150527631a669c5d7d0fe1019d2733c9551d35",
+      "bytes": 62603
+    }
+  ]
+}

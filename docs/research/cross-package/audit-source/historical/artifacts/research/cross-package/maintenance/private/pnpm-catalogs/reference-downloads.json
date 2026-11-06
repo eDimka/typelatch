@@ -1,0 +1,47 @@
+{
+  "elapsedMs": 1636.684917,
+  "files": [
+    {
+      "path": "deps/status/src/checkDepsStatus.ts",
+      "sha256": "edb6f5cec19a12944aed1d43c7cb6216faf74ceb84dbe65d757e54e5a48b5064",
+      "bytes": 21154,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/deps/status/src/checkDepsStatus.ts"
+    },
+    {
+      "path": "lockfile/settings-checker/package.json",
+      "sha256": "d2a14d17c03da084fd4704e8fcc78537428075e4e6dceaf2bbd0bfab2974f8a1",
+      "bytes": 1433,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/lockfile/settings-checker/package.json"
+    },
+    {
+      "path": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+      "sha256": "24b484870ef9f8e872b416efa8c1aaf80b75f81df742ca88ec6ec7e6d51fc3ef",
+      "bytes": 2716,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/lockfile/settings-checker/src/getOutdatedLockfileSetting.ts"
+    },
+    {
+      "path": "lockfile/settings-checker/tsconfig.json",
+      "sha256": "e30f7de8cf1b9b64f2f58a7c6f7e2d8f26d29c6b494cd004ecbd6220b62063fd",
+      "bytes": 490,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/lockfile/settings-checker/tsconfig.json"
+    },
+    {
+      "path": "lockfile/verification/src/index.ts",
+      "sha256": "631d8dce630d598a4b20b0234f3c46c062d368fe1c092c1d18047b37f869d412",
+      "bytes": 452,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/lockfile/verification/src/index.ts"
+    },
+    {
+      "path": "pkg-manager/core/src/install/index.ts",
+      "sha256": "143d0007f7b524d98f010cd06ee90d9933b609b4d50833448842407f92ef27ab",
+      "bytes": 64151,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/pkg-manager/core/src/install/index.ts"
+    },
+    {
+      "path": "pkg-manager/core/test/catalogs.ts",
+      "sha256": "4f874572927a245e2b475db9dba596ddb93310f6a588e40035d6521d10c67f44",
+      "bytes": 54947,
+      "url": "https://raw.githubusercontent.com/pnpm/pnpm/69ebe387643ae781182d7fa0fd59602484ae268d/pkg-manager/core/test/catalogs.ts"
+    }
+  ]
+}

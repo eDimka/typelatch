@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-11-06T21:34:34.521Z",
+  "elapsedMs": 1837.650625,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace/config/parse-overrides",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "exec",
+    "jest",
+    "--runInBand"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "../../pnpm                               |  WARN  The field \"pnpm.overrides\" was found in $REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace/pnpm/package.json. This will not take effect. You should configure \"pnpm.overrides\" at the root of the workspace instead.\n----------|---------|----------|---------|---------|-------------------\nFile      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s \n----------|---------|----------|---------|---------|-------------------\nAll files |    92.3 |     87.5 |   71.42 |    92.3 |                   \n index.js |    92.3 |     87.5 |   71.42 |    92.3 | 18,21             \n----------|---------|----------|---------|---------|-------------------\n",
+  "stderr": "PASS test/index.ts\n  ✓ parseOverrides() (2 ms)\n  ✓ parseOverrides() (1 ms)\n  ✓ parseOverrides()\n  ✓ parseOverrides() (1 ms)\n  ✓ parseOverrides()\n  ✓ parseOverrides() throws an exception on invalid selector (6 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       6 passed, 6 total\nSnapshots:   0 total\nTime:        1.004 s\nRan all test suites.\n"
+}

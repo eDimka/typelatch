@@ -1,0 +1,68 @@
+{
+  "reason": "Restore seven tracked source entries that the historical prepared corpus had altered or omitted. Original pinned source remains untouched.",
+  "receipt": [
+    {
+      "path": "CLAUDE.md",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/AGENTS.md"
+      },
+      "after": {
+        "link": "AGENTS.md"
+      }
+    },
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-not-outdated-deps/node_modules/.pnpm/is-negative@2.1.0/node_modules/is-negative"
+      },
+      "after": {
+        "link": ".pnpm/is-negative@2.1.0/node_modules/is-negative"
+      }
+    },
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-not-outdated-deps/node_modules/.pnpm/is-positive@3.1.0/node_modules/is-positive"
+      },
+      "after": {
+        "link": ".pnpm/is-positive@3.1.0/node_modules/is-positive"
+      }
+    },
+    {
+      "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/is-negative",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative"
+      },
+      "after": {
+        "link": ".pnpm/is-negative@1.0.0/node_modules/is-negative"
+      }
+    },
+    {
+      "path": "__fixtures__/has-outdated-deps-using-npm-alias/node_modules/is-negative-alias",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-outdated-deps-using-npm-alias/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative"
+      },
+      "after": {
+        "link": ".pnpm/is-negative@1.0.0/node_modules/is-negative"
+      }
+    },
+    {
+      "path": "fetching/directory-fetcher/test/fixtures/pkg-with-broken-symlink/not-exists",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/fetching/directory-fetcher/test/fixtures/pkg-with-broken-symlink/broken-symlink"
+      },
+      "after": {
+        "link": "broken-symlink"
+      }
+    },
+    {
+      "path": "store/cafs/test/fixtures/broken-symlink/doesnt-exist",
+      "before": {
+        "link": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/store/cafs/test/fixtures/doesnt-exist"
+      },
+      "after": {
+        "link": "../doesnt-exist"
+      }
+    }
+  ]
+}

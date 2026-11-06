@@ -61,4 +61,16 @@ A catalog consistency repair requires behavior changes in three pnpm packages an
 
 The [validation audit](maintenance-001/results/native-validation-audit.md), [recorded results](maintenance-001/results/report.json) and [export manifest](maintenance-001/results/manifest.json) retain this failure and all costs. A fresh setup must pass the baseline and repaired public commands in the actual agent environment before another measured batch. The original attempts remain unchanged.
 
+## Maintenance rerun
+
+The revised public runner was first qualified inside the actual agent environment on both the broken and repaired fixture. It changes only public validation setup. The independent grader retains all 23 checks, including the upstream registry regression. Every measured repair passed all nine public cases and all 23 independent checks.
+
+| Condition | Total tokens | Charged seconds | Grep calls | Independent repair checks | Final public check | Workflow review |
+| :--- | ---: | ---: | ---: | :--- | :--- | :--- |
+| Native | 216,199 | 78.88 | 5 | 23 of 23 | 9 of 9 | Passed |
+| Typelatch | 285,160 | 112.78 | 3 | 23 of 23 | 9 of 9 | Investigation started before baseline completion |
+| Serena | 226,626 | 72.65 | 3 | 23 of 23 | 9 of 9 | Passed |
+
+Typelatch started its first source search before the baseline command completed. That violates the frozen workflow rule and prevents qualification. It also made an optional workspace validation call that timed out after 30 seconds, after its native command had already passed. All costs are retained. The repair is correct; this run does not establish a compliant workflow advantage. See the [protocol](maintenance-002/protocol.json), [results](maintenance-002/results/report.json), [correctness audit](maintenance-002/results/correctness-audit.md) and [manifest](maintenance-002/results/manifest.json).
+
 Any qualifying category claim requires both cost savings and correctness against native tools and Serena on two distinct held out tasks with two repetitions. A broader comparative claim also requires a CodeGraph challenge.

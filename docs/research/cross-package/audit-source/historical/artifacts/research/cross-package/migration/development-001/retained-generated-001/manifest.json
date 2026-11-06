@@ -1,0 +1,534 @@
+{
+  "root": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/retained-generated-001/tree",
+  "excludeDirectories": [
+    ".git",
+    ".typelatch"
+  ],
+  "entries": [
+    {
+      "path": "cache",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "f1d5615bc814caccc85da44063604e00ca3cedc2c0245507c540aff8878390a4"
+    },
+    {
+      "path": "cache/api",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "44757eded40d02e2f1e451399e8b620137f60bf6bbf0a4b338a287c253bd7a88"
+    },
+    {
+      "path": "cache/api/lib",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "c26a1c6a23bb953dc70cda6e0e27cd33ab525bb07d764fbe11adbed0e8a65eab"
+    },
+    {
+      "path": "cache/api/lib/cacheDelete.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 128,
+      "sha256": "1a6393623dd0c0fc9aef70746dd1a8ee89ec79461ac919ea7a1d0ff9a5c85c3d"
+    },
+    {
+      "path": "cache/api/lib/cacheDelete.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 725,
+      "sha256": "140897c986dc9b929d60921df5d4c07c421050382f320acff425cc3a43ad7e28"
+    },
+    {
+      "path": "cache/api/lib/cacheDelete.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 487,
+      "sha256": "e4be2bde68c8d4530ca4f55f3b997adc2709c36d5726c424264e63c55f99891b"
+    },
+    {
+      "path": "cache/api/lib/cacheList.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 432,
+      "sha256": "a288030b8395449600895b0d0edaaafe470a42aee6954e6017060aec61d065f0"
+    },
+    {
+      "path": "cache/api/lib/cacheList.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1208,
+      "sha256": "a53095e07ed8a74669c2b8f7a2d05087b971fc87c9830bdfbf323ea917d7927b"
+    },
+    {
+      "path": "cache/api/lib/cacheList.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 994,
+      "sha256": "39647faee1776243b0f30e8842753c9eeec6823776033c74df1c183c52fa718f"
+    },
+    {
+      "path": "cache/api/lib/cacheView.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 151,
+      "sha256": "fee85246da6e0efe2da7d8ec7766548a6137a244306624c0ed7fc504c0621ac0"
+    },
+    {
+      "path": "cache/api/lib/cacheView.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2149,
+      "sha256": "b7ffa2197a3221b172099a6e7901099ed75e49f5a0a15e415f7a5f92766398c6"
+    },
+    {
+      "path": "cache/api/lib/cacheView.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1756,
+      "sha256": "52ed94e8901b32437d53a0d62aaa25131b74b9c0c4d919d5f08793ded225e18b"
+    },
+    {
+      "path": "cache/api/lib/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 98,
+      "sha256": "bdc0a9158a4d8c57dddafc43aedac73f3e889c518722e76105601ef9ece94a75"
+    },
+    {
+      "path": "cache/api/lib/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 942,
+      "sha256": "27b61139b4afbfbe124536046ecd6ff10d5b8a5b878d3c8f055d205d37309feb"
+    },
+    {
+      "path": "cache/api/lib/index.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 155,
+      "sha256": "aeaa68b9bee51411cc01c6832e11a2aa7592d3e69630cb0779e83679e8071c11"
+    },
+    {
+      "path": "cache/api/tsconfig.tsbuildinfo",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 45975,
+      "sha256": "c434a27399fd2c34544c78d980f3e98415269cd324337304a24fbf9ad5cbd586"
+    },
+    {
+      "path": "fs",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "8bfdcbff54c4a96a36b65b3f2c966e64c7a07404c565b2d9657935d727f56005"
+    },
+    {
+      "path": "fs/find-packages",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "0d1ddf86933b669ed9afcbc0e7a0d7d6aec44de7122927f8ee86d1009b7b20ed"
+    },
+    {
+      "path": "fs/find-packages/lib",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "72e0d9f00e079fa829c54dff27c0d6933e9735c5b13e12bded8ba1f17a30cc95"
+    },
+    {
+      "path": "fs/find-packages/lib/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 236,
+      "sha256": "a4918a0b9a80bbe6a38bafe78346133b4df11c57827e9b1980c2397986c6d473"
+    },
+    {
+      "path": "fs/find-packages/lib/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2553,
+      "sha256": "4ae3dbf789360a2683e8691ca3eaf1efc4c4970e1a15c9cf6de688db65a59fbc"
+    },
+    {
+      "path": "fs/find-packages/lib/index.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1917,
+      "sha256": "c9534f8e6135c4a242e57b8661e2af76f4cef8c02d8abf7840b01539a977159f"
+    },
+    {
+      "path": "fs/find-packages/tsconfig.tsbuildinfo",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 42901,
+      "sha256": "f019a459c67bf26cbf0faadc8980c24c99064e8c04c2e8ea4de7c5e63ec6fba6"
+    },
+    {
+      "path": "patching",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "a542542580186adababfd24d7a00a1ebb8d9f7a18808874053c7f8358920240f"
+    },
+    {
+      "path": "patching/plugin-commands-patching",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "8067908fd6e9f07423aa49234aabf84659255433c21b53a3efdfbe8760a55f27"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "118fad320d3a16dc516dc83b20e694f80f4b1c3f11fbc162c8e16de4e8dd0da3"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getEditDirPath.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 274,
+      "sha256": "1abe828846bb41bfcb134ed75e8224dd43e88465d10f1e59ccca3393713fbdb5"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getEditDirPath.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 900,
+      "sha256": "2e67ffa70d8e5bb26a71bfca33ff48ca077cb9fcab256dbc1984b42e8e34df89"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getEditDirPath.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 673,
+      "sha256": "439a670521037fe51d02312b1daff9604aa17a299778b64708b23c642f25fb93"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getPatchedDependency.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 951,
+      "sha256": "df3a4d9aae8c3df0f3973af025ddffedf7d082350c191b0e37780b99076b031c"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getPatchedDependency.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4984,
+      "sha256": "4daa29011779761ddcaad7f3fdb7da56af924808b379fd91f8298f694c62cb35"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/getPatchedDependency.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3507,
+      "sha256": "00ceb91509491f43ccd45da3ae4d634575f8280b11a030a37ab9f89d9ebb990f"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 179,
+      "sha256": "255264cb8b8d579eeefaccbf9205f91362bb6bef30ec026c22c30752586216f8"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1475,
+      "sha256": "2a7fc193dc6ff4e62856823a04c0f5c919486d245ceba6fd0d582509ec2f7e4f"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/index.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 200,
+      "sha256": "3f3aa1c4c2a791013b0f53732f807d5f8bc76c4d15f1f0fed3e887b12b808cfe"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patch.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 890,
+      "sha256": "377a92ca42b9e2349c116b784c8bc0b685ed66b46114e115de054257e1dfb1d2"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patch.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5339,
+      "sha256": "30ecd20ce5fd19c61b82cc8f9589c203c0326f50591230250f61a111c1d7f464"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patch.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3584,
+      "sha256": "33b5d926f6bf64afc6378278233d0432ca9d990dede294ca1e7faf9287d10489"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchCommit.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 612,
+      "sha256": "b6f2408e45d9ce92fd3ea9fe6c6799a76be1b718e0989be004203c2f8f12fdc7"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchCommit.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10932,
+      "sha256": "3c541e6204c965518040706992b1ba82cb11857e7387a7ea92c993bd2bf0fc56"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchCommit.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7245,
+      "sha256": "0166a3cce3b14c781dca1f9158674feaad07bdec9c3d11beda20849efe936332"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchRemove.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 597,
+      "sha256": "84e7572c51e6a32b8ba088b18483cd61b8abd11f9ca62865334a27efa44a381c"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchRemove.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3403,
+      "sha256": "b7d1b6c8c853a33b4a462cca559eac217c17e731a1c5a809cc79b881361010da"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/patchRemove.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2483,
+      "sha256": "61ded94acb47b76efb150df4d1c9888abf20a15fd3e995e4bd00b5ff27f9246e"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/stateFile.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 624,
+      "sha256": "2e1c5ae8c9ff95ebd57630cc117a1c78ebd4db1d7a12f617745c8a59192bd229"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/stateFile.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1860,
+      "sha256": "197fb9b3aa01f01ae903fcd80bb3278589a461437461d5894c9cde12e30f9a1c"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/stateFile.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1669,
+      "sha256": "78817abf8a1cfc8d0ec27f507aadc3189fdeaa4b0e41023a4232216dbd48c6e7"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/updatePatchedDependencies.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 236,
+      "sha256": "fa467134eae13a6cfa38e44d1fdef1289c00706957dc235410216d80bd6eb3d4"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/updatePatchedDependencies.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1188,
+      "sha256": "23610cea84e5de1870ed51838b75e6d4819d9410662c563334f88638826da493"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/updatePatchedDependencies.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 766,
+      "sha256": "31963563571d768c54e92c223e8f888514c2e71d6523d850e422d82e87b3fd5a"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/writePackage.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 431,
+      "sha256": "f2433600877884378551c30dd427098f9950b48246b7a5e13c4680c9fb528b08"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/writePackage.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 787,
+      "sha256": "a6dca607d8b3d6a22fbc68ccacb7628abae74e813fd1eec72af2da954fc5f222"
+    },
+    {
+      "path": "patching/plugin-commands-patching/lib/writePackage.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 659,
+      "sha256": "a382399e78dae305f80bd8003583088499c68a083daadd970872a3ce95ec4501"
+    },
+    {
+      "path": "patching/plugin-commands-patching/tsconfig.tsbuildinfo",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 119434,
+      "sha256": "c2f8104b15ac4212f9f37a6728833e15a227b4dc6031f44d65fe4eb570615a39"
+    },
+    {
+      "path": "pkg-manager",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "2581879aa8a9b63c21df3f2e267b21472dba9711c94b4433e108e8ac007df815"
+    },
+    {
+      "path": "pkg-manager/package-bins",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "010005562b5e3d520237c3383c45557091b5e11b8cbfafb7d6ff5cefbf3f439c"
+    },
+    {
+      "path": "pkg-manager/package-bins/lib",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "d80cda506ad3a37b71dd135f25dcf59befe85ee2443b113322db098d0a5fce26"
+    },
+    {
+      "path": "pkg-manager/package-bins/lib/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 239,
+      "sha256": "0c305cd8a14e4be311c4a0d464b980ebde1c963b1ac44f3f8283d44ebfa0e51e"
+    },
+    {
+      "path": "pkg-manager/package-bins/lib/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2173,
+      "sha256": "ca4a83ec19ff11f9981bfe250fb3f652bb667dba0649345b064eac4b247d2581"
+    },
+    {
+      "path": "pkg-manager/package-bins/lib/index.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1876,
+      "sha256": "e0bc470871cce18bea7dd5d045af06474f2ac94ef7a8592a68607ffa568581e9"
+    },
+    {
+      "path": "pkg-manager/package-bins/tsconfig.tsbuildinfo",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 42166,
+      "sha256": "e85d3aadac6ffec381af2770271ad049c052eb8bdec0134077da5e5afd7906f6"
+    },
+    {
+      "path": "releasing",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "d832b183e41e95054527c7dbe366915663a0e179dd57eb3d589f269bdbea8ba0"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "23449756fe972c63d6035bae95abe2a7a10e6b1b165e9d48526147d32f07b888"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib",
+      "kind": "directory",
+      "mode": 493,
+      "sha256": "3177e8a279ddd2f455c5a96df1be824fe5953a27278e12f7171e39c55449e948"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 102,
+      "sha256": "fd3c4d5617e3b5f1a6b68ac4f6b64927854231f050cc3b1ce6b993a8e88069b9"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1330,
+      "sha256": "cc8787c92ac3217db4c8092c4331bd52cb5713225c86aedf9c7ee05fc16ee531"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/index.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 175,
+      "sha256": "1b967584ba5a5de897bc952ba08e582c3e646a7ea9ff7350047f8d0bf74dab7f"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/pack.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1249,
+      "sha256": "8806b4d85448efc11c3b0ac507a756225a923266db925071c39d57a5eff87aa4"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/pack.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14039,
+      "sha256": "510fae5bf96cceac6a5c93dd5b95b56468547103ec7b97f0d2a4179c79b85e98"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/pack.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11156,
+      "sha256": "cc8579ce9b2dfcced0b3e2dd0f1c203d24293af7d7e255a9df864ac75fd1d1ae"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/publish.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1626,
+      "sha256": "6d50ae6b50a3d1118d29b468f03b4a98a6b219f310464875ce60b3d0ae08dc0c"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/publish.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13700,
+      "sha256": "07eadda89a9eb3fa06bdb10c44b570705fed030a279a0e2e3aee70fb2bec76a6"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/publish.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8256,
+      "sha256": "3e28ef573a0b6be24633f04cf0d941f4988b45024fd4d3ce8e5a85e198b08725"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/recursivePublish.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 931,
+      "sha256": "3c835f5f2233440937a1cccc8c6120fdcaf818968c7fe167dec2b7fb6a02c862"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/recursivePublish.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5022,
+      "sha256": "1efed1064fa4d42d208da2439084e72bea2146d926ff6daaf529663c48b9b88c"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/lib/recursivePublish.js.map",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3745,
+      "sha256": "c2dae5ae292e91e0f83f48191a6855650fd0f459995f150f8e8c46a567d7ab9c"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/tsconfig.tsbuildinfo",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 117944,
+      "sha256": "1912be2b9b1645514f4bc9895e78cbc92f0e241a0da7681a119c904ef9c0ce5f"
+    }
+  ],
+  "sha256": "2579f3da2d883db358b0bdece14d0a787b9130ee9b9a86711dbfd0a4f9a9ca92"
+}

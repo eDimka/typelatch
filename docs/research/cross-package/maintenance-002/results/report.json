@@ -1,0 +1,1866 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "cross-package-agent-comparison-v1",
+    "phase": "development",
+    "createdAt": "2026-11-06T23:15:44.704Z",
+    "status": "frozen-before-agent-sessions",
+    "arms": [
+      "native",
+      "typelatch",
+      "competitor"
+    ],
+    "candidates": [
+      "typelatch"
+    ],
+    "repeats": 1,
+    "runCount": 3,
+    "timeoutMs": 900000,
+    "tasks": [
+      {
+        "id": "pnpm-catalog-consistency-v2",
+        "category": "maintenance",
+        "split": "development",
+        "mode": "edit",
+        "description": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.",
+        "scope": {
+          "productionPackages": 3,
+          "upstreamChangedProductionPackages": 4,
+          "behavioralPackages": [
+            "@pnpm/lockfile.settings-checker",
+            "@pnpm/core",
+            "@pnpm/deps.status"
+          ],
+          "additionalInterfacePackage": "@pnpm/lockfile.verification",
+          "boundaryGraph": [
+            [
+              "@pnpm/core",
+              "@pnpm/lockfile.settings-checker"
+            ],
+            [
+              "@pnpm/deps.status",
+              "@pnpm/lockfile.settings-checker"
+            ],
+            [
+              "@pnpm/lockfile.settings-checker",
+              "@pnpm/lockfile.verification"
+            ]
+          ]
+        },
+        "policy": "Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.",
+        "evaluationNotes": [
+          "Only existing tracked production TypeScript source may change. Tests, scripts, dependencies, manifests, project configuration, file additions and deletions are protected.",
+          "The historical upstream change is pinned to pnpm PR10231. Reference dependency declarations, lockfile and project references are preinstalled in the baseline, so dependency installation is outside the edit task.",
+          "Public validation runs native TypeScript compilation and nine real production API/filesystem cases without a listening server. Independent grading runs twenty-two semantic cases plus the exact upstream catalog installation integration outside the agent sandbox. Other upstream native cases are explicitly filtered, not reported as passing.",
+          "The independent core matrix uses empty projects with retained catalog metadata. The upstream regression separately exercises an actual catalog dependency using an isolated Verdaccio registry seeded with recorded npm metadata; validation makes no external registry requests.",
+          "Node22.23.1 runs compilation and APIs. The native registry uses upstream-required Node20.16.0, pinned from the official archive. Authentication and audit plugins are disabled only in the isolated anonymous read-only test registry.",
+          "All four target project lib directories and build-info files are absent from the prepared fixture. Public validation rebuilds them; the private grader separately clones the trusted fixture and copies only allowed submitted source, never agent-generated outputs.",
+          "Three package omission controls are rejected. A fourth control keeps the new shared-checker API types and caller wiring while omitting the comparison logic; it compiles but fails twelve semantic checks and the upstream native regression. Either caller omission fails unchanged-catalog negative controls.",
+          "Every native Jest invocation starts with a distinct empty temporary cache. Test infrastructure and source fixtures are immutable alongside the test files.",
+          "This historical task covers explicitly supplied catalogs. The later upstream report about deployment lockfiles with catalog metadata but no workspace configuration is outside this fixture and is not claimed fixed.",
+          "Development qualification only. No held-out performance conclusion follows from this task.",
+          "V2 changes only the public check runner relative to the preserved v1 fixture. Actual Codex workspace-write preflights execute the public command without edits on baseline and reference: baseline returns all nine cases with intended failures, reference returns nine passes. V1 study remains environment limited because its public registry could not listen inside that sandbox."
+        ],
+        "validationCommand": "npm run test:typelatch-benchmark",
+        "publicCases": 9,
+        "prompt": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.",
+        "promptSha256": "fb4d1ea0c954abcf84335f06b6a1c69bad1f0379f7d21f5a7dc11a8a8669dd65"
+      }
+    ],
+    "prompts": [
+      {
+        "task": "pnpm-catalog-consistency-v2",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "8cf819e67531b4d46c1b6ede42a85056e10e0a0b70df7db86a1753464820fd2a"
+      },
+      {
+        "task": "pnpm-catalog-consistency-v2",
+        "arm": "typelatch",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "9f7e31b79a0c996fdd8b42e3fc6dcda1d58b1978c49984398b73ec8d453fa3d9"
+      },
+      {
+        "task": "pnpm-catalog-consistency-v2",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "33c176e5f19a4c8331208cdcdbb9ce22c97fffbfdd66eeb647e60fc79b1b0d5e"
+      }
+    ],
+    "schedule": [
+      {
+        "id": "pnpm-catalog-consistency-v2-r1-native",
+        "task": "pnpm-catalog-consistency-v2",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+        "task": "pnpm-catalog-consistency-v2",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-catalog-consistency-v2-r1-competitor",
+        "task": "pnpm-catalog-consistency-v2",
+        "repeat": 1,
+        "arm": "competitor"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "cliVersion": "codex-cli 0.166.0",
+    "codexBinary": {
+      "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "bytes": 268972064,
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+    },
+    "decisionGate": {
+      "minimumReductionPercent": 20,
+      "controls": [
+        "native",
+        "competitor"
+      ],
+      "categories": [
+        "maintenance",
+        "migration",
+        "impact"
+      ],
+      "minimumHeldoutTasksPerClaimedCategory": 2,
+      "minimumRepeats": 2,
+      "rule": "Compare each frozen candidate with both native tools and Serena. Require at least 20% aggregate and median paired reduction in total tokens and provider setup plus agent time, improvement in both repeat aggregates, all candidate answers correct, complete captures and cleanup, relevant usable candidate evidence and independent workflow review. A category edge requires two distinct held-out tasks and two repetitions. Development measurements and a single held-out task can only justify replication. Keep all categories, failures and costs visible; do not pool old studies or replace attempts.",
+      "scope": "Prespecified category comparisons are exploratory multiple hypotheses, not statistical confidence bounds or universal superiority. A narrow claim names its exact held-out tasks, repository snapshots, model and treatment."
+    },
+    "reviewRules": {
+      "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+      "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+      "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+      "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+    },
+    "toolUseQualification": {
+      "receiptSha256": "ce3d3bd5c3dc87ad2cb0869c2e3e218d73ed46a66e0dbb76f95bbd856bf41189",
+      "captureSha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45"
+    },
+    "supplementalOutputs": {
+      "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+      "fileName": "tool-outputs.json"
+    },
+    "spec": {
+      "typelatchArtifact": {
+        "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+      },
+      "competitorSelection": {
+        "name": "Serena",
+        "version": "2.1.0",
+        "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+        "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+      },
+      "schemaVersion": 1,
+      "candidates": [
+        "typelatch"
+      ],
+      "arms": {
+        "native": {
+          "servers": {},
+          "setupCommands": [],
+          "frozenInputs": [],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "typelatch": {
+          "servers": {
+            "typelatch": {
+              "command": "$USER_HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_search",
+                "workspace_context",
+                "workspace_validate",
+                "library_search",
+                "library_symbol",
+                "library_feedback",
+                "library_stats"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+              "kind": "tree"
+            }
+          ],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "competitor": {
+          "servers": {
+            "serena": {
+              "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+              "args": [
+                "start-mcp-server",
+                "--project",
+                "{workspace}",
+                "--agent-interface",
+                "REPL",
+                "--transport",
+                "stdio",
+                "--enable-web-dashboard",
+                "false",
+                "--enable-gui-log-window",
+                "false",
+                "--open-web-dashboard",
+                "false",
+                "--log-level",
+                "INFO"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "PATH": "$USER_HOME/.hermes/node/bin:$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+                "TMPDIR": "$TEMP/",
+                "LANG": "C.UTF-8",
+                "LC_ALL": "C.UTF-8",
+                "SERENA_HOME": "{state}/serena-home",
+                "XDG_CACHE_HOME": "{state}/xdg-cache",
+                "XDG_CONFIG_HOME": "{state}/xdg-config",
+                "PYTHONNOUSERSITE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "npm_config_cache": "{state}/npm-cache",
+                "npm_config_offline": "true",
+                "PYTHONDONTWRITEBYTECODE": "1"
+              },
+              "startup_timeout_sec": 600,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "activate_project",
+                "initial_instructions",
+                "serena_repl"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "lifecycle",
+          "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+              "kind": "file"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+            },
+            {
+              "kind": "tree",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+            },
+            {
+              "kind": "file",
+              "path": "$USER_HOME/.hermes/node/bin/node"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+              "kind": "file"
+            }
+          ]
+        }
+      },
+      "status": "selected-and-ready",
+      "phase": "development",
+      "repeats": 1,
+      "timeoutMs": 900000,
+      "tasks": [
+        {
+          "id": "pnpm-catalog-consistency-v2",
+          "category": "maintenance",
+          "split": "development",
+          "mode": "edit",
+          "description": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.",
+          "scope": {
+            "productionPackages": 3,
+            "upstreamChangedProductionPackages": 4,
+            "behavioralPackages": [
+              "@pnpm/lockfile.settings-checker",
+              "@pnpm/core",
+              "@pnpm/deps.status"
+            ],
+            "additionalInterfacePackage": "@pnpm/lockfile.verification",
+            "boundaryGraph": [
+              [
+                "@pnpm/core",
+                "@pnpm/lockfile.settings-checker"
+              ],
+              [
+                "@pnpm/deps.status",
+                "@pnpm/lockfile.settings-checker"
+              ],
+              [
+                "@pnpm/lockfile.settings-checker",
+                "@pnpm/lockfile.verification"
+              ]
+            ]
+          },
+          "policy": "Only existing production source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.",
+          "evaluationNotes": [
+            "Only existing tracked production TypeScript source may change. Tests, scripts, dependencies, manifests, project configuration, file additions and deletions are protected.",
+            "The historical upstream change is pinned to pnpm PR10231. Reference dependency declarations, lockfile and project references are preinstalled in the baseline, so dependency installation is outside the edit task.",
+            "Public validation runs native TypeScript compilation and nine real production API/filesystem cases without a listening server. Independent grading runs twenty-two semantic cases plus the exact upstream catalog installation integration outside the agent sandbox. Other upstream native cases are explicitly filtered, not reported as passing.",
+            "The independent core matrix uses empty projects with retained catalog metadata. The upstream regression separately exercises an actual catalog dependency using an isolated Verdaccio registry seeded with recorded npm metadata; validation makes no external registry requests.",
+            "Node22.23.1 runs compilation and APIs. The native registry uses upstream-required Node20.16.0, pinned from the official archive. Authentication and audit plugins are disabled only in the isolated anonymous read-only test registry.",
+            "All four target project lib directories and build-info files are absent from the prepared fixture. Public validation rebuilds them; the private grader separately clones the trusted fixture and copies only allowed submitted source, never agent-generated outputs.",
+            "Three package omission controls are rejected. A fourth control keeps the new shared-checker API types and caller wiring while omitting the comparison logic; it compiles but fails twelve semantic checks and the upstream native regression. Either caller omission fails unchanged-catalog negative controls.",
+            "Every native Jest invocation starts with a distinct empty temporary cache. Test infrastructure and source fixtures are immutable alongside the test files.",
+            "This historical task covers explicitly supplied catalogs. The later upstream report about deployment lockfiles with catalog metadata but no workspace configuration is outside this fixture and is not claimed fixed.",
+            "Development qualification only. No held-out performance conclusion follows from this task.",
+            "V2 changes only the public check runner relative to the preserved v1 fixture. Actual Codex workspace-write preflights execute the public command without edits on baseline and reference: baseline returns all nine cases with intended failures, reference returns nine passes. V1 study remains environment limited because its public registry could not listen inside that sandbox."
+          ],
+          "validationCommand": "npm run test:typelatch-benchmark",
+          "publicCases": 9
+        }
+      ],
+      "fixtures": {
+        "pnpm-catalog-consistency-v2": {
+          "workspace": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/workspace",
+          "initialManifest": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/initial-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/source-tracking-manifest.json",
+          "graderModule": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/grade.mjs"
+        }
+      },
+      "sharedFrozenInputs": [
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance-selection-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/descriptor.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/prepare-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/install-public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/finalize-inputs.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-checker-behavior.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/write-descriptor.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/check-runtime.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/native-registry-setup.cjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/pin.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/reference-downloads.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/registry-seed-receipt.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-baseline-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-reference-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/source-tracking-manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/qualification.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/preparation.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/link-audit.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/validator-amendment-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-red-001.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-green-001.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/tools/node20/receipt.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/prepare.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/grade.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/qualify.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/write-descriptor.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/initial-manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/source-tracking-manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/preparation.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/qualification.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/capture.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/fixture-git.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/run.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-study.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/freeze-study.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+          "kind": "file"
+        }
+      ],
+      "supplementalOutputs": {
+        "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "fileName": "tool-outputs.json"
+      },
+      "toolUseQualification": {
+        "receipt": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/report.json",
+        "sourceSpec": "$REPOSITORY/artifacts/research/cross-package/provider-spec.json"
+      }
+    },
+    "specSha256": "e4a9f351493f239c7e73c710698c3b78d17a4f93f8473933895dfd97d6c06a4f",
+    "inputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.mjs",
+        "kind": "file",
+        "sha256": "e2718aea7ce893d02b7407e7d908519cb152a0d2319fceceb7a1a82a6381bce7",
+        "bytes": 31793,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.mjs",
+        "kind": "file",
+        "sha256": "4a5516b7742afafe5ab14f15607ec2e86710625157f7e0af288824a2824e3142",
+        "bytes": 9842,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.mjs",
+        "kind": "file",
+        "sha256": "c2b48a629796ca45bf0a4a17c5332d8864d55413728c7d78912ecf9e7e30fe0a",
+        "bytes": 6284,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+        "kind": "file",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+        "kind": "file",
+        "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+        "bytes": 30979,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+        "kind": "file",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+        "kind": "file",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+        "kind": "file",
+        "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+        "bytes": 7159,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+        "kind": "file",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance-spec-002.json",
+        "kind": "file",
+        "sha256": "e4a9f351493f239c7e73c710698c3b78d17a4f93f8473933895dfd97d6c06a4f",
+        "bytes": 23394,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "kind": "file",
+        "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+        "bytes": 381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+        "kind": "file",
+        "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+        "bytes": 523240,
+        "entries": null
+      },
+      {
+        "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+        "kind": "file",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "$USER_HOME/.hermes/node/bin/node",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848,
+        "entries": null
+      },
+      {
+        "path": "/usr/bin/git",
+        "kind": "file",
+        "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+        "bytes": 200560,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+        "kind": "file",
+        "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+        "bytes": 194704,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/workspace",
+        "kind": "tree",
+        "sha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+        "bytes": null,
+        "entries": 56779
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/initial-manifest.json",
+        "kind": "file",
+        "sha256": "2e224130ff9ebf862b05f45a3476fb5938399969071ea3cc082aed29907aff8c",
+        "bytes": 14821227,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/qualification.json",
+        "kind": "file",
+        "sha256": "54012a75f64df87de40e17ed29dbf3adebb7c5ea5519d6e0d2140b92723cea3a",
+        "bytes": 160915,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/grade.mjs",
+        "kind": "file",
+        "sha256": "3a7e27ad0d26cabe2f0a273559999317b76b5d03f5aedf755a19d63e876d85d7",
+        "bytes": 1643,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/source-tracking-manifest.json",
+        "kind": "file",
+        "sha256": "a9d2091b760f7dc21a76022b2830996205ef6fe54da8641e375fb58329f02bbf",
+        "bytes": 649153,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+        "kind": "tree",
+        "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+        "bytes": null,
+        "entries": 5497
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+        "kind": "file",
+        "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+        "bytes": 2681,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/node_modules",
+        "kind": "tree",
+        "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+        "bytes": null,
+        "entries": 10457
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+        "kind": "file",
+        "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+        "bytes": 1916578,
+        "entries": null
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+        "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+        "bytes": null,
+        "entries": 4754
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+        "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+        "bytes": null,
+        "entries": 1702
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+        "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+        "bytes": null,
+        "entries": 149
+      },
+      {
+        "kind": "tree",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+        "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+        "bytes": null,
+        "entries": 3050
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+        "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+        "bytes": 34640,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+        "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+        "bytes": 5985120,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+        "kind": "file",
+        "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+        "bytes": 4601,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+        "kind": "file",
+        "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+        "bytes": 2346,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "kind": "file",
+        "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+        "bytes": 3926,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "kind": "file",
+        "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+        "bytes": 311,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance-selection-002.json",
+        "kind": "file",
+        "sha256": "1426f533138940434753ecea4f1e5e2b1cfe64078fe7560ddfd30093bd273dda",
+        "bytes": 822,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/descriptor.json",
+        "kind": "file",
+        "sha256": "cbc33167100d9cbbf8c4fc165931c4334f69e66f613d188f55c2fc3e76a1acaa",
+        "bytes": 11411,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/prepare-development.mjs",
+        "kind": "file",
+        "sha256": "9168f0416574597e198c45d9a70a1319853f5cb35c3baff07ce6a82dd8195380",
+        "bytes": 3001,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/install-public-check.mjs",
+        "kind": "file",
+        "sha256": "24a2061163bfe47350a0276f91793cf04166eff3c9df1655777495fd1456d55e",
+        "bytes": 2026,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/finalize-inputs.mjs",
+        "kind": "file",
+        "sha256": "644b7be5f1f0f2379186f133c163ae8ac8252db271cd5250a190c87b1b15f23c",
+        "bytes": 1398,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-development.mjs",
+        "kind": "file",
+        "sha256": "3e6fa37c671ddd5e5fa101fad8ae38a6b4057919949f0af54710643dfba39e90",
+        "bytes": 2475,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-checker-behavior.mjs",
+        "kind": "file",
+        "sha256": "ade9fbb6174e6637b49005b4be38a99d58cc5a24aabac88fdaba23a7fc599048",
+        "bytes": 2132,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/write-descriptor.mjs",
+        "kind": "file",
+        "sha256": "28d53dcba232095ed97f58f5b8fb046ed8685620526ed25c59c90eb818154412",
+        "bytes": 7632,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/check-runtime.mjs",
+        "kind": "file",
+        "sha256": "add3ad4098a2241f306b1e27a952647b1b25e6650b6fcce567c0549dce5c472e",
+        "bytes": 3014,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/native-registry-setup.cjs",
+        "kind": "file",
+        "sha256": "9109fe9660c1f58d7ad7f8849244de8d445dc053ed0dc55aceba36d466d9b70e",
+        "bytes": 2753,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.mjs",
+        "kind": "file",
+        "sha256": "45dff9e2130dbe0a31bb8a0befc909458880d73fd0244d3c16be39c80dfacd4b",
+        "bytes": 2975,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.test.mjs",
+        "kind": "file",
+        "sha256": "c9405902be614a69da44f1a28c4de91e4060722c3308221a0f5a7bfbc514dc17",
+        "bytes": 2623,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs",
+        "kind": "file",
+        "sha256": "76a737c9d3b35a69db405c3e2f72d6bc28559c74cfa629e619243b11167d9e1d",
+        "bytes": 5400,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/pin.json",
+        "kind": "file",
+        "sha256": "77201939d9b780a97c7fee14e2d2bbb6043e56abdcf604b779f998867ec5b0f5",
+        "bytes": 782,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/reference-downloads.json",
+        "kind": "file",
+        "sha256": "b88c2f00dd075c385588b02169493804fcf666f9f73d4dc440b94307450f563d",
+        "bytes": 2256,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/registry-seed-receipt.json",
+        "kind": "file",
+        "sha256": "55d7b11d2fe053d6515bc94b3a41fb81c740a17c665482d962247a276ee8fedc",
+        "bytes": 336,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-baseline-002.json",
+        "kind": "file",
+        "sha256": "08ad42aabf4bd23de3ee2df1fcce283f9f0e46f834a9a06b5be9c01b160414f6",
+        "bytes": 60162,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-reference-002.json",
+        "kind": "file",
+        "sha256": "fb0c70158a1e8554573a8697a35af3e6b78c264eaaaa7fa1a668de51fc5d24c4",
+        "bytes": 33780,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/source-tracking-manifest.json",
+        "kind": "file",
+        "sha256": "a6ae9e20dcbe8b01b969f390010f761ddbdcb707926df6b582c6ed2ff67785f7",
+        "bytes": 649158,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/qualification.json",
+        "kind": "file",
+        "sha256": "d989cd9166d92f8b59435845b3bf0dec691070a3442a012bd13c5df47a0c9c6e",
+        "bytes": 336699,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/preparation.json",
+        "kind": "file",
+        "sha256": "92c32596f015373ed83d102b12db0f5ad13194f7052359c78cec025f735e330d",
+        "bytes": 2146,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/link-audit.json",
+        "kind": "file",
+        "sha256": "9048add08428182776b696ee006538c930d55931df86c5ff8080a2542920dcbf",
+        "bytes": 910285,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/validator-amendment-002.json",
+        "kind": "file",
+        "sha256": "16e075abef7b4ad8653f9c38592e6d6355531956e386590bd037e22d0e871400",
+        "bytes": 1233,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-red-001.json",
+        "kind": "file",
+        "sha256": "3bcf6638819a457ffce30e08381d57a72d9cf940b323fb11bb5641de9c9b2ef4",
+        "bytes": 2260,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-green-001.json",
+        "kind": "file",
+        "sha256": "662ff0a37259c587bfac259acffb4e227f589003cbf4cb4151e578c7ab60675e",
+        "bytes": 1320,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/tools/node20/receipt.json",
+        "kind": "file",
+        "sha256": "68ac5ee0c6afb04bc912baa9f7755f1f4b5cae385f1ff09b5b06638c2a1597f1",
+        "bytes": 392,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/prepare.mjs",
+        "kind": "file",
+        "sha256": "df14b4b1d9b482eba4ee5a7da265565acea34102243c3e99d07ad4d6fd29b833",
+        "bytes": 2556,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/public-check.mjs",
+        "kind": "file",
+        "sha256": "ac7535f03e417817fbb585d03c9337a0efeb539b61360eac721461f29b94f098",
+        "bytes": 1865,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/qualify.mjs",
+        "kind": "file",
+        "sha256": "f35eb1171e3e84993781bc95af0eaf670aedf294adbaa114f31117f15b6f4e8f",
+        "bytes": 5270,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/write-descriptor.mjs",
+        "kind": "file",
+        "sha256": "aeeb457767cb3c4dd5ed5c134434be5f16961839b945d9f01056343aad1f0423",
+        "bytes": 2762,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/fixture/preparation.json",
+        "kind": "file",
+        "sha256": "1eb2a4386a63d378bc591970d7cd73ecca04e6be38c48a5cf95e165360f06168",
+        "bytes": 742,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/run.mjs",
+        "kind": "file",
+        "sha256": "fd95aeb08a2c494a6948aefa606596a39551b408e65f7ea0a9efff352c3f445f",
+        "bytes": 6209,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-study.mjs",
+        "kind": "file",
+        "sha256": "a378efced10beb8bb7d799447bb1de5abdf58a376a067c1523316d74a5cd79f8",
+        "bytes": 2891,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/freeze-study.mjs",
+        "kind": "file",
+        "sha256": "331e2329db624f85c11c6402291a7c8dd37fedd9674c13762542fa70b288b700",
+        "bytes": 1248,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+        "kind": "file",
+        "sha256": "a413de45d879de95ca84c7f7526a65cc77c42e3a74a6dd1e67bd6abd5b5c3347",
+        "bytes": 1772,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+        "kind": "file",
+        "sha256": "3fae1afda04506cc1656cbea525149d6700716e13faaebbd657f56dd64e8a8d4",
+        "bytes": 5014,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+        "kind": "file",
+        "sha256": "92cdaeba4da5f52a3491c58d763b276b1c199258027588f9be4e2ee4c36608a4",
+        "bytes": 4646,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+        "kind": "file",
+        "sha256": "926b67d26bca5d4d30cbd7f3f0cd59b9da936ed3763389c63b9a0e8f08bae4bb",
+        "bytes": 4564,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "kind": "file",
+        "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "bytes": 6699,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/report.json",
+        "kind": "file",
+        "sha256": "ce3d3bd5c3dc87ad2cb0869c2e3e218d73ed46a66e0dbb76f95bbd856bf41189",
+        "bytes": 8318,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-spec.json",
+        "kind": "file",
+        "sha256": "6cf446f6c3742abdb81e87f5ad4d6344ae9c84a06604508f1fea9f2099200a3d",
+        "bytes": 8605,
+        "entries": null
+      }
+    ],
+    "typelatchArchiveBinding": {
+      "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+      "packageFileCount": 138,
+      "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+      "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+      "name": "typelatch",
+      "version": "0.4.0"
+    },
+    "replaySelection": {
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arms": [
+        "native",
+        "typelatch"
+      ],
+      "rule": "First task and repeat, fixed before outcomes. Retain failure and disclose accelerated replay."
+    },
+    "treatment": "Same task and workflow policy with equal-format explicit provider inventory. First relevant investigation uses the declared provider where available; native uses ordinary tools. Compiler, language-service and package-manager tools remain available in every arm. Further tool choices are free. Edit tasks validate before and after; analysis tasks write the same structured report and preserve source.",
+    "timing": "Sequential fresh sessions. Charge all provider preparation and agent wall time, including initialization, indexing, tool failures, fallback and validation. Common corpus copy/install/build preparation, independent grading and teardown are reported separately. Fresh provider state per run; OS file caches may be warm.",
+    "fixtureCopy": "APFS copy-on-write clones with distinct inodes and isolated writes, not hardlinks. Exact file bytes, modes and symlink text are verified against the full frozen fixture inventory. Copy time is separately reported common preparation.",
+    "selection": "Task categories were fixed before outcomes. Development cases may inform a later frozen candidate; they cannot establish an edge. Confirmation cases are held from candidate tuning. Any category edge requires a second distinct held-out task and two repetitions, all reported separately from development and earlier studies.",
+    "failurePolicy": "Persist every preparation before work and every run before launch. No replacement or overwrite of failures. Resume only a completely recorded and cleaned prefix. Unknown usage or failed setup cannot pass.",
+    "evidencePolicy": "Export only completed tool actions, returned tool outputs, explicit task artifacts, source changes and independently graded results. Never export model reasoning or assistant message bodies. Supplemental outputs bind raw capture and public evidence hashes. Workflow and usable provider evidence require a separate hash-bound independent review.",
+    "limits": [
+      "Public upstream repairs may occur in model training data.",
+      "No immutable served model snapshot or sampling seed is available.",
+      "Cached input is included once within total input; tokens are not a billing estimate.",
+      "One frozen candidate per confirmation study; category hypotheses are exploratory multiple comparisons, not statistical confidence bounds.",
+      "Filesystem and no-network instructions are procedural; no additional OS isolation is claimed."
+    ]
+  },
+  "protocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "startedAt": "2026-11-06T23:24:32.954Z",
+  "complete": true,
+  "runs": [
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-native",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T23:24:53.733Z",
+      "finishedAt": "2026-11-06T23:26:12.610Z",
+      "fixtureSetupMs": 13573.973791999999,
+      "providerSetupMs": 0.001458000002457993,
+      "elapsedMs": 78877.395792,
+      "teardownMs": 0.2399169999989681,
+      "gradingMs": 31258.785333000007,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 214059,
+        "cachedInputTokens": 190976,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2140,
+        "reasoningOutputTokens": 205,
+        "totalTokens": 216199,
+        "uncachedInputTokens": 23083
+      },
+      "counts": {
+        "shellCalls": 14,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 5,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 3,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "preparedSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "promptSha256": "8cf819e67531b4d46c1b6ede42a85056e10e0a0b70df7db86a1753464820fd2a",
+      "recordingError": null,
+      "rawSha256": "b856e5fac16ae5adbd0442b740655bc44a42d89001c64113889cc746c4703bcf",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": false,
+            "outputSha256": "6f4f2a9e2fb6389db7f44c7c9ac93cd09f54bd057e5db69590efee236e048780"
+          },
+          {
+            "line": 29,
+            "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": true,
+            "outputSha256": "6948e3e17992ba21a15228d4043ace27bb0276182fc3f00185ac4a4a3682fd85"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": false,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "e718e8f93c6eb85939618114ffe3f0a2cfd4c0260e61562029ed5abd7d36690c",
+      "toolOutputsSha256": "4bc944a38d9ae481e4bf5b8c891ee366fc87773cdca1d454036409736d31e18b"
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T23:27:15.680Z",
+      "finishedAt": "2026-11-06T23:29:08.463Z",
+      "fixtureSetupMs": 17808.575249999994,
+      "providerSetupMs": 0.0014999999839346856,
+      "elapsedMs": 112782.46987500001,
+      "teardownMs": 0.2449999999953434,
+      "gradingMs": 33433.02350000001,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 283029,
+        "cachedInputTokens": 253952,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2131,
+        "reasoningOutputTokens": 124,
+        "totalTokens": 285160,
+        "uncachedInputTokens": 29077
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "preparedSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "promptSha256": "9f7e31b79a0c996fdd8b42e3fc6dcda1d58b1978c49984398b73ec8d453fa3d9",
+      "recordingError": null,
+      "rawSha256": "3a533b197b44e362d4421e18fc38f23c59a82bc97a890d524c7166cb914420c3",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 7,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": false,
+            "outputSha256": "ba5197763202d4d30274e9e06f8d7c6cbb736221d689ad5822db4ad43cc893ca"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": true,
+            "outputSha256": "521982701a700117929132fd3a32fca93dee0970373fd2ac997295dee4a6a14f"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "c10d09b25c9ba2d45a97216e552a2b071094367aa89b5cab1e4a5642bb4b05d0",
+      "toolOutputsSha256": "2aa1803df52668d116a17b511ceb18921c4c95b36bc7e84bae83766b753025a4"
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-competitor",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T23:30:12.448Z",
+      "finishedAt": "2026-11-06T23:31:25.097Z",
+      "fixtureSetupMs": 14614.21424999996,
+      "providerSetupMs": 3.489624999987427,
+      "elapsedMs": 72648.37849999999,
+      "teardownMs": 0.49324999999953434,
+      "gradingMs": 31883.927333,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 224608,
+        "cachedInputTokens": 204160,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2018,
+        "reasoningOutputTokens": 213,
+        "totalTokens": 226626,
+        "uncachedInputTokens": 20448
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "preparedSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "promptSha256": "33c176e5f19a4c8331208cdcdbb9ce22c97fffbfdd66eeb647e60fc79b1b0d5e",
+      "recordingError": null,
+      "rawSha256": "eb43c6ef02595f4b8a88b15ca739ac3cc0e5b7088b09962b45fa2d6395772b38",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 10,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": false,
+            "outputSha256": "dc04dcae5049854dab29e527c84087f422ad56c2aba891c2c766ed22a219ccef"
+          },
+          {
+            "line": 25,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": true,
+            "outputSha256": "f7f4065b9dd12cbe20845fe274e178cd3985c56dd3c344410e86f9e574e8a517"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "e1c6a30c9aef38413cec642ed6fc81601313e40fe326a0eb0921056fb5fd7c8e",
+      "toolOutputsSha256": "bc1bb1987bb21222e78f90ca05150527631a669c5d7d0fe1019d2733c9551d35"
+    }
+  ],
+  "preparationAttempts": [
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-native",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T23:24:32.956Z",
+      "providerSetupMs": 0.001458000002457993,
+      "finishedAt": "2026-11-06T23:24:53.578Z"
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T23:26:50.618Z",
+      "providerSetupMs": 0.0014999999839346856,
+      "finishedAt": "2026-11-06T23:27:15.528Z"
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-competitor",
+      "task": "pnpm-catalog-consistency-v2",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T23:29:48.880Z",
+      "providerSetupMs": 3.489624999987427,
+      "finishedAt": "2026-11-06T23:30:12.293Z"
+    }
+  ],
+  "machine": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "nodeVersion": "v22.23.1",
+    "processor": "Apple M1 Max",
+    "logicalProcessors": 10,
+    "memoryBytes": 34359738368
+  },
+  "updatedAt": "2026-11-06T23:32:03.790Z",
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "typelatch": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%.",
+            "native/totalTokens: a repetition did not improve.",
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "native/chargedTimeMs: a repetition did not improve.",
+            "competitor/totalTokens: aggregate or median savings below 20%.",
+            "competitor/totalTokens: a repetition did not improve.",
+            "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+            "competitor/chargedTimeMs: a repetition did not improve.",
+            "Independent workflow review is pending or failed.",
+            "A candidate session did not use its task relevant provider.",
+            "Candidate evidence was not independently judged usable in every session.",
+            "A Serena session did not use its task relevant provider.",
+            "Development outcomes cannot establish a held-out edge.",
+            "Each claimed category needs two distinct held-out tasks.",
+            "Two repetitions are required."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 216199,
+                  "candidate": 285160,
+                  "aggregateReductionPercent": -31.897002298808044,
+                  "medianPairedReductionPercent": -31.897002298808044,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 216199,
+                      "candidate": 285160,
+                      "reductionPercent": -31.897002298808044
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 216199,
+                      "candidate": 285160,
+                      "reductionPercent": -31.897002298808044
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 78877.39725,
+                  "candidate": 112782.471375,
+                  "aggregateReductionPercent": -42.984524473517666,
+                  "medianPairedReductionPercent": -42.984524473517666,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 78877.39725,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -42.984524473517666
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 78877.39725,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -42.984524473517666
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-catalog-consistency-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 226626,
+                  "candidate": 285160,
+                  "aggregateReductionPercent": -25.828457458544033,
+                  "medianPairedReductionPercent": -25.828457458544033,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 226626,
+                      "candidate": 285160,
+                      "reductionPercent": -25.828457458544033
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 226626,
+                      "candidate": 285160,
+                      "reductionPercent": -25.828457458544033
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 72651.86812499998,
+                  "candidate": 112782.471375,
+                  "aggregateReductionPercent": -55.236849768204124,
+                  "medianPairedReductionPercent": -55.236849768204124,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 72651.86812499998,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -55.236849768204124
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 72651.86812499998,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -55.236849768204124
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-catalog-consistency-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "maintenance": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "competitor/chargedTimeMs: a repetition did not improve.",
+              "Independent workflow review is pending or failed.",
+              "A candidate session did not use its task relevant provider.",
+              "Candidate evidence was not independently judged usable in every session.",
+              "A Serena session did not use its task relevant provider.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 216199,
+                    "candidate": 285160,
+                    "aggregateReductionPercent": -31.897002298808044,
+                    "medianPairedReductionPercent": -31.897002298808044,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 216199,
+                        "candidate": 285160,
+                        "reductionPercent": -31.897002298808044
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 216199,
+                        "candidate": 285160,
+                        "reductionPercent": -31.897002298808044
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 78877.39725,
+                    "candidate": 112782.471375,
+                    "aggregateReductionPercent": -42.984524473517666,
+                    "medianPairedReductionPercent": -42.984524473517666,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 78877.39725,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -42.984524473517666
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 78877.39725,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -42.984524473517666
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 226626,
+                    "candidate": 285160,
+                    "aggregateReductionPercent": -25.828457458544033,
+                    "medianPairedReductionPercent": -25.828457458544033,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 226626,
+                        "candidate": 285160,
+                        "reductionPercent": -25.828457458544033
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 226626,
+                        "candidate": 285160,
+                        "reductionPercent": -25.828457458544033
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 72651.86812499998,
+                    "candidate": 112782.471375,
+                    "aggregateReductionPercent": -55.236849768204124,
+                    "medianPairedReductionPercent": -55.236849768204124,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 72651.86812499998,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -55.236849768204124
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 72651.86812499998,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -55.236849768204124
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "finishedAt": "2026-11-06T23:32:03.790Z"
+}

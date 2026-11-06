@@ -1,0 +1,2016 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-11-06T23:12:45.072Z",
+  "purpose": "Actual Codex workspace-write validation preflight; baseline and reference, no coding score.",
+  "fixtureSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+  "prompt": "This is a validation-command transport preflight, not a coding task or benchmark score. Run exactly `npm run test:typelatch-benchmark` in the current workspace once. Wait for completion and briefly report its exit code. Do not edit files, investigate code, install anything, start network services, or run any other commands. Generated outputs produced by the supplied command are expected. Do not change permissions or execution settings if the command fails.",
+  "promptSha256": "9329d91b0ded8e9ad255ec2c6365b2ca57f433013018c5dece0963a05a75d162",
+  "runs": [
+    {
+      "name": "baseline",
+      "setupMs": 14094.535375000001,
+      "git": {
+        "head": "cdf464b5be1f3cb47a3954046a04e4f6c12d7dd2",
+        "trackedFiles": 2943,
+        "root": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/preflight-001/baseline/workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "startedAt": "2026-11-06T23:12:59.170Z",
+      "capture": {
+        "exitCode": 0,
+        "timedOut": false,
+        "processGroupStopped": true,
+        "elapsedMs": 17113.297959,
+        "rawSha256": "7cb5186aac579e81be16c6051b94f158075c2a9fa1f0fb5dd84475bfbac913a9",
+        "stderrSha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+        "usage": {
+          "inputTokens": 49602,
+          "cachedInputTokens": 45696,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 174,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 49776,
+          "uncachedInputTokens": 3906
+        },
+        "capture": {
+          "complete": true,
+          "issues": [],
+          "startupWarnings": [
+            {
+              "line": 2,
+              "kind": "unstable-features",
+              "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+            }
+          ],
+          "turnStarts": 1,
+          "turnCompletions": 1,
+          "duplicateActions": 0,
+          "duplicateCompletions": 0,
+          "failedTurn": false
+        },
+        "counts": {
+          "shellCalls": 1,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 0,
+          "grepShellCalls": 0,
+          "contentSearchShellCalls": 0,
+          "fileListingShellCalls": 0,
+          "ambiguousSearchShellCalls": 0
+        }
+      },
+      "actions": [
+        {
+          "type": "command_execution",
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "status": "failed",
+          "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+          "outputBytes": 3186,
+          "outputSha256": "13c78fc4e17458fd766cb2d5acebd01c248e17bec72d23a60a0d9cba79eb6361",
+          "exitCode": 1,
+          "search": {
+            "search": false,
+            "contentSearch": false,
+            "fileListing": false,
+            "ambiguous": false
+          }
+        }
+      ],
+      "validation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": false,
+            "outputSha256": "13c78fc4e17458fd766cb2d5acebd01c248e17bec72d23a60a0d9cba79eb6361"
+          }
+        ],
+        "failingThenLaterCheckObserved": false,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "trackedSourcesUnchanged": true,
+      "publicPassed": true,
+      "privateGrade": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [],
+          "forbidden": [],
+          "generatedChanged": [
+            "deps/status/lib/assertLockfilesEqual.d.ts",
+            "deps/status/lib/assertLockfilesEqual.js",
+            "deps/status/lib/assertLockfilesEqual.js.map",
+            "deps/status/lib/checkDepsStatus.d.ts",
+            "deps/status/lib/checkDepsStatus.js",
+            "deps/status/lib/checkDepsStatus.js.map",
+            "deps/status/lib/index.d.ts",
+            "deps/status/lib/index.js",
+            "deps/status/lib/index.js.map",
+            "deps/status/lib/safeStat.d.ts",
+            "deps/status/lib/safeStat.js",
+            "deps/status/lib/safeStat.js.map",
+            "deps/status/lib/statManifestFile.d.ts",
+            "deps/status/lib/statManifestFile.js",
+            "deps/status/lib/statManifestFile.js.map",
+            "deps/status/tsconfig.tsbuildinfo",
+            "lockfile/settings-checker/lib/calcPatchHashes.d.ts",
+            "lockfile/settings-checker/lib/calcPatchHashes.js",
+            "lockfile/settings-checker/lib/calcPatchHashes.js.map",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.d.ts",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.js",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.js.map",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.js",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.js.map",
+            "lockfile/settings-checker/lib/index.d.ts",
+            "lockfile/settings-checker/lib/index.js",
+            "lockfile/settings-checker/lib/index.js.map",
+            "lockfile/settings-checker/tsconfig.tsbuildinfo",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.d.ts",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.js",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.js.map",
+            "lockfile/verification/lib/allProjectsAreUpToDate.d.ts",
+            "lockfile/verification/lib/allProjectsAreUpToDate.js",
+            "lockfile/verification/lib/allProjectsAreUpToDate.js.map",
+            "lockfile/verification/lib/diffFlatRecords.d.ts",
+            "lockfile/verification/lib/diffFlatRecords.js",
+            "lockfile/verification/lib/diffFlatRecords.js.map",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.d.ts",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.js",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.js.map",
+            "lockfile/verification/lib/index.d.ts",
+            "lockfile/verification/lib/index.js",
+            "lockfile/verification/lib/index.js.map",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.d.ts",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.js",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.js.map",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.d.ts",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.js",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.js.map",
+            "lockfile/verification/lib/satisfiesPackageManifest.d.ts",
+            "lockfile/verification/lib/satisfiesPackageManifest.js",
+            "lockfile/verification/lib/satisfiesPackageManifest.js.map",
+            "lockfile/verification/tsconfig.tsbuildinfo",
+            "pkg-manager/core/lib/api.d.ts",
+            "pkg-manager/core/lib/api.js",
+            "pkg-manager/core/lib/api.js.map",
+            "pkg-manager/core/lib/getPeerDependencyIssues.d.ts",
+            "pkg-manager/core/lib/getPeerDependencyIssues.js",
+            "pkg-manager/core/lib/getPeerDependencyIssues.js.map",
+            "pkg-manager/core/lib/index.d.ts",
+            "pkg-manager/core/lib/index.js",
+            "pkg-manager/core/lib/index.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.js",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/index.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/index.js",
+            "pkg-manager/core/lib/install/checkCompatibility/index.js.map",
+            "pkg-manager/core/lib/install/extendInstallOptions.d.ts",
+            "pkg-manager/core/lib/install/extendInstallOptions.js",
+            "pkg-manager/core/lib/install/extendInstallOptions.js.map",
+            "pkg-manager/core/lib/install/index.d.ts",
+            "pkg-manager/core/lib/install/index.js",
+            "pkg-manager/core/lib/install/index.js.map",
+            "pkg-manager/core/lib/install/link.d.ts",
+            "pkg-manager/core/lib/install/link.js",
+            "pkg-manager/core/lib/install/link.js.map",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.d.ts",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.js",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.js.map",
+            "pkg-manager/core/lib/install/validateModules.d.ts",
+            "pkg-manager/core/lib/install/validateModules.js",
+            "pkg-manager/core/lib/install/validateModules.js.map",
+            "pkg-manager/core/lib/parseWantedDependencies.d.ts",
+            "pkg-manager/core/lib/parseWantedDependencies.js",
+            "pkg-manager/core/lib/parseWantedDependencies.js.map",
+            "pkg-manager/core/lib/pnpmPkgJson.d.ts",
+            "pkg-manager/core/lib/pnpmPkgJson.js",
+            "pkg-manager/core/lib/pnpmPkgJson.js.map",
+            "pkg-manager/core/lib/types.d.ts",
+            "pkg-manager/core/lib/types.js",
+            "pkg-manager/core/lib/types.js.map",
+            "pkg-manager/core/lib/uninstall/removeDeps.d.ts",
+            "pkg-manager/core/lib/uninstall/removeDeps.js",
+            "pkg-manager/core/lib/uninstall/removeDeps.js.map",
+            "pkg-manager/core/tsconfig.tsbuildinfo"
+          ]
+        },
+        "sourceStable": true,
+        "checks": {
+          "schemaVersion": 1,
+          "passed": false,
+          "cases": 23,
+          "observedCases": 23,
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+            },
+            {
+              "id": "status/changed-default",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802901,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+            },
+            {
+              "id": "core/changed-default",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+            },
+            {
+              "id": "checker/changed-named",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+            },
+            {
+              "id": "status/changed-named",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802933,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+            },
+            {
+              "id": "core/changed-named",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+            },
+            {
+              "id": "checker/removed-entry",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+            },
+            {
+              "id": "status/removed-entry",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802955,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+            },
+            {
+              "id": "core/removed-entry",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+            },
+            {
+              "id": "checker/changed-spelling",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+            },
+            {
+              "id": "status/changed-spelling",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802979,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+            },
+            {
+              "id": "core/changed-spelling",
+              "passed": false,
+              "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "status/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "core/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "checker/unrelated-override",
+              "passed": true
+            },
+            {
+              "id": "native/upstream-frozen-catalog-install",
+              "passed": false,
+              "error": "ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do\ntransform: {\n    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],\n},\nSee more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced\n(node:26281) ExperimentalWarning: VM Modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nFAIL test/catalogs.ts\n  ✕ frozen lockfile error is thrown if catalog config changes (64 ms)\n  ○ skipped installing with \"catalog:\" should work\n  ○ skipped importer to importer dependency with \"catalog:\" should work\n  ○ skipped importer with different peers uses correct peer\n  ○ skipped lockfile contains catalog snapshots\n  ○ skipped lockfile is updated if catalog config changes\n  ○ skipped lockfile catalog snapshots retain existing entries on --filter\n  ○ skipped lockfile catalog snapshots do not contain stale references on --filter\n  ○ skipped dedupe-peer-dependents=false with --filter does not erase catalog snapshots\n  ○ skipped --fix-lockfile with --filter does not erase catalog snapshots\n  ○ skipped external dependency using catalog protocol errors\n  ○ skipped catalog resolutions should be consistent\n  ○ skipped catalog resolutions should be consistent with peer dependencies\n  ○ skipped catalog entry using npm alias can be reused\n  ○ skipped lockfile catalog snapshots should remove unused entries\n  ○ skipped catalogs work in injected dep\n  ○ skipped catalogs work when inject-workspace-packages=true\n  ○ skipped catalogs work in overrides\n  dedupe\n    ○ skipped catalogs are deduped when running pnpm dedupe\n  add\n    ○ skipped adding is-positive@catalog: works\n    ○ skipped adding no specific version will use catalog if present\n    ○ skipped adding specific version equal to catalog version will use catalog if present\n    ○ skipped adding different version than the catalog will not use catalog\n    ○ skipped adding with catalogMode: strict will add to or use from catalog\n    ○ skipped adding with catalogMode: prefer will add to or use from catalog\n    ○ skipped adding mismatched version with catalogMode: strict will error\n    ○ skipped adding mismatched version with catalogMode: prefer will warn and use direct\n  update\n    ○ skipped update works on cataloged dependency\n    ○ skipped update works on named catalog\n    ○ skipped update --latest works on cataloged dependency\n    ○ skipped update only affects matching filter\n\n  ● frozen lockfile error is thrown if catalog config changes\n\n    expect(received).rejects.toThrow()\n\n    Received promise resolved instead of rejected\n    Resolved to value: {\"depsRequiringBuild\": undefined, \"ignoredBuilds\": undefined, \"stats\": {\"added\": 0, \"linkedToRoot\": 0, \"removed\": 0}, \"updatedCatalogs\": undefined, \"updatedProjects\": [{\"binsDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\", \"buildIndex\": 0, \"id\": \"project1\", \"manifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"modulesDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\", \"originalManifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"rootDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\", \"rootDirRealPath\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\"}]}\n\n      297 |   })\n      298 |\n    > 299 |   await expect(frozenLockfileMutation).rejects.toThrow('Cannot proceed with the frozen installation. The current \"catalogs\" configuration doesn\\'t match the value found in the lockfile')\n          |         ^\n      300 | })\n      301 |\n      302 | test('lockfile catalog snapshots retain existing entries on --filter', async () => {\n\n      at expect (../../node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\n      at Object.<anonymous> (test/catalogs.ts:299:9)\n\nTest Suites: 1 failed, 1 total\nTests:       1 failed, 30 skipped, 31 total\nSnapshots:   0 total\nTime:        1.178 s\nRan all test suites within paths \"test/catalogs.ts\".\n"
+            }
+          ],
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 9236.597125,
+            "stdout": "",
+            "stderr": "",
+            "result": null
+          },
+          "semantics": {
+            "exitCode": 1,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 1178.6258330000055,
+            "stdout": "{\"schemaVersion\":1,\"passed\":false,\"cases\":22,\"failed\":12,\"results\":[{\"id\":\"checker/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11\"},{\"id\":\"status/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794006802901,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5\"},{\"id\":\"core/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5\"},{\"id\":\"checker/changed-named\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11\"},{\"id\":\"status/changed-named\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794006802933,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5\"},{\"id\":\"core/changed-named\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5\"},{\"id\":\"checker/removed-entry\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11\"},{\"id\":\"status/removed-entry\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794006802955,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5\"},{\"id\":\"core/removed-entry\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5\"},{\"id\":\"checker/changed-spelling\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11\"},{\"id\":\"status/changed-spelling\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794006802979,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5\"},{\"id\":\"core/changed-spelling\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5\"},{\"id\":\"checker/unchanged-default\",\"passed\":true},{\"id\":\"status/unchanged-default\",\"passed\":true},{\"id\":\"core/unchanged-default\",\"passed\":true},{\"id\":\"checker/unreferenced-addition\",\"passed\":true},{\"id\":\"status/unreferenced-addition\",\"passed\":true},{\"id\":\"core/unreferenced-addition\",\"passed\":true},{\"id\":\"checker/no-catalogs\",\"passed\":true},{\"id\":\"status/no-catalogs\",\"passed\":true},{\"id\":\"core/no-catalogs\",\"passed\":true},{\"id\":\"checker/unrelated-override\",\"passed\":true}],\"scratch\":\"$TEMP/typelatch-catalog-check-kMq0SO\",\"scope\":\"Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency.\"}\n",
+            "stderr": "",
+            "result": {
+              "schemaVersion": 1,
+              "passed": false,
+              "cases": 22,
+              "failed": 12,
+              "results": [
+                {
+                  "id": "checker/changed-default",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+                },
+                {
+                  "id": "status/changed-default",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802901,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+                },
+                {
+                  "id": "core/changed-default",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+                },
+                {
+                  "id": "checker/changed-named",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+                },
+                {
+                  "id": "status/changed-named",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802933,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+                },
+                {
+                  "id": "core/changed-named",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+                },
+                {
+                  "id": "checker/removed-entry",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+                },
+                {
+                  "id": "status/removed-entry",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802955,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+                },
+                {
+                  "id": "core/removed-entry",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+                },
+                {
+                  "id": "checker/changed-spelling",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nnull !== 'catalogs'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:44\n    at check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:39)\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:31:11"
+                },
+                {
+                  "id": "status/changed-spelling",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: {\"upToDate\":true,\"workspaceState\":{\"lastValidatedTimestamp\":1794006802979,\"pnpmfiles\":[],\"settings\":{},\"projects\":{},\"filteredInstall\":false}}\n\ntrue !== false\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:40:14\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:32:5"
+                },
+                {
+                  "id": "core/changed-spelling",
+                  "passed": false,
+                  "error": "AssertionError [ERR_ASSERTION]: undefined\n+ actual - expected\n\n+ undefined\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\n\n    at file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:51:29\n    at async check (file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:27:33)\n    at async file://$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs:43:5"
+                },
+                {
+                  "id": "checker/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "status/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "core/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "checker/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "status/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "core/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "checker/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "status/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "core/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "checker/unrelated-override",
+                  "passed": true
+                }
+              ],
+              "scratch": "$TEMP/typelatch-catalog-check-kMq0SO",
+              "scope": "Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency."
+            }
+          },
+          "native": {
+            "exitCode": 1,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 3744.2002079999947,
+            "stdout": "{\"numFailedTestSuites\":1,\"numFailedTests\":1,\"numPassedTestSuites\":0,\"numPassedTests\":0,\"numPendingTestSuites\":0,\"numPendingTests\":30,\"numRuntimeErrorTestSuites\":0,\"numTodoTests\":0,\"numTotalTestSuites\":1,\"numTotalTests\":31,\"openHandles\":[],\"snapshot\":{\"added\":0,\"didUpdate\":false,\"failure\":false,\"filesAdded\":0,\"filesRemoved\":0,\"filesRemovedList\":[],\"filesUnmatched\":0,\"filesUpdated\":0,\"matched\":0,\"total\":0,\"unchecked\":0,\"uncheckedKeysByFile\":[],\"unmatched\":0,\"updated\":0},\"startTime\":1794006825745,\"success\":false,\"testResults\":[{\"assertionResults\":[{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"installing with \\\"catalog:\\\" should work\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"pending\",\"title\":\"installing with \\\"catalog:\\\" should work\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"importer to importer dependency with \\\"catalog:\\\" should work\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"pending\",\"title\":\"importer to importer dependency with \\\"catalog:\\\" should work\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"importer with different peers uses correct peer\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"pending\",\"title\":\"importer with different peers uses correct peer\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile contains catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"pending\",\"title\":\"lockfile contains catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile is updated if catalog config changes\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"pending\",\"title\":\"lockfile is updated if catalog config changes\"},{\"ancestorTitles\":[],\"duration\":64,\"failing\":false,\"failureDetails\":[{\"message\":\"expect(received).rejects.toThrow()\\n\\nReceived promise resolved instead of rejected\\nResolved to value: {\\\"depsRequiringBuild\\\": undefined, \\\"ignoredBuilds\\\": undefined, \\\"stats\\\": {\\\"added\\\": 0, \\\"linkedToRoot\\\": 0, \\\"removed\\\": 0}, \\\"updatedCatalogs\\\": undefined, \\\"updatedProjects\\\": [{\\\"binsDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\\\", \\\"buildIndex\\\": 0, \\\"id\\\": \\\"project1\\\", \\\"manifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"modulesDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\\\", \\\"originalManifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"rootDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\", \\\"rootDirRealPath\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\"}]}\"}],\"failureMessages\":[\"Error: expect(received).rejects.toThrow()\\n\\nReceived promise resolved instead of rejected\\nResolved to value: {\\\"depsRequiringBuild\\\": undefined, \\\"ignoredBuilds\\\": undefined, \\\"stats\\\": {\\\"added\\\": 0, \\\"linkedToRoot\\\": 0, \\\"removed\\\": 0}, \\\"updatedCatalogs\\\": undefined, \\\"updatedProjects\\\": [{\\\"binsDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\\\", \\\"buildIndex\\\": 0, \\\"id\\\": \\\"project1\\\", \\\"manifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"modulesDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\\\", \\\"originalManifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"rootDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\", \\\"rootDirRealPath\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\"}]}\\n    at expect ($REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\\n    at Object.<anonymous> ($REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/pkg-manager/core/test/catalogs.ts:299:9)\"],\"fullName\":\"frozen lockfile error is thrown if catalog config changes\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":1,\"retryReasons\":[],\"startAt\":1794006826760,\"status\":\"failed\",\"title\":\"frozen lockfile error is thrown if catalog config changes\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots retain existing entries on --filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots retain existing entries on --filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots do not contain stale references on --filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots do not contain stale references on --filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"dedupe-peer-dependents=false with --filter does not erase catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"dedupe-peer-dependents=false with --filter does not erase catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"--fix-lockfile with --filter does not erase catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"--fix-lockfile with --filter does not erase catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"external dependency using catalog protocol errors\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"external dependency using catalog protocol errors\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog resolutions should be consistent\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalog resolutions should be consistent\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog resolutions should be consistent with peer dependencies\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalog resolutions should be consistent with peer dependencies\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog entry using npm alias can be reused\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalog entry using npm alias can be reused\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots should remove unused entries\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots should remove unused entries\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work in injected dep\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalogs work in injected dep\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work when inject-workspace-packages=true\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalogs work when inject-workspace-packages=true\"},{\"ancestorTitles\":[\"dedupe\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"dedupe catalogs are deduped when running pnpm dedupe\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalogs are deduped when running pnpm dedupe\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding is-positive@catalog: works\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding is-positive@catalog: works\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding no specific version will use catalog if present\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding no specific version will use catalog if present\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding specific version equal to catalog version will use catalog if present\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding specific version equal to catalog version will use catalog if present\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding different version than the catalog will not use catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding different version than the catalog will not use catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding with catalogMode: strict will add to or use from catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding with catalogMode: strict will add to or use from catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding with catalogMode: prefer will add to or use from catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding with catalogMode: prefer will add to or use from catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding mismatched version with catalogMode: strict will error\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding mismatched version with catalogMode: strict will error\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding mismatched version with catalogMode: prefer will warn and use direct\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"adding mismatched version with catalogMode: prefer will warn and use direct\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update works on cataloged dependency\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"update works on cataloged dependency\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update works on named catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"update works on named catalog\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update --latest works on cataloged dependency\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"update --latest works on cataloged dependency\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update only affects matching filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"update only affects matching filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work in overrides\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006826837,\"status\":\"pending\",\"title\":\"catalogs work in overrides\"}],\"endTime\":1794006826920,\"message\":\"  ● frozen lockfile error is thrown if catalog config changes\\n\\n    expect(received).rejects.toThrow()\\n\\n    Received promise resolved instead of rejected\\n    Resolved to value: {\\\"depsRequiringBuild\\\": undefined, \\\"ignoredBuilds\\\": undefined, \\\"stats\\\": {\\\"added\\\": 0, \\\"linkedToRoot\\\": 0, \\\"removed\\\": 0}, \\\"updatedCatalogs\\\": undefined, \\\"updatedProjects\\\": [{\\\"binsDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\\\", \\\"buildIndex\\\": 0, \\\"id\\\": \\\"project1\\\", \\\"manifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"modulesDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\\\", \\\"originalManifest\\\": {\\\"dependencies\\\": {\\\"is-positive\\\": \\\"catalog:\\\"}, \\\"name\\\": \\\"project1\\\"}, \\\"rootDir\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\", \\\"rootDirRealPath\\\": \\\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\\\"}]}\\n\\n      297 |   })\\n      298 |\\n    > 299 |   await expect(frozenLockfileMutation).rejects.toThrow('Cannot proceed with the frozen installation. The current \\\"catalogs\\\" configuration doesn\\\\'t match the value found in the lockfile')\\n          |         ^\\n      300 | })\\n      301 |\\n      302 | test('lockfile catalog snapshots retain existing entries on --filter', async () => {\\n\\n      at expect (../../node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\\n      at Object.<anonymous> (test/catalogs.ts:299:9)\\n\",\"name\":\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/pkg-manager/core/test/catalogs.ts\",\"startTime\":1794006825763,\"status\":\"failed\",\"summary\":\"\"}],\"wasInterrupted\":false}\n",
+            "stderr": "ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do\ntransform: {\n    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],\n},\nSee more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced\n(node:26281) ExperimentalWarning: VM Modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nFAIL test/catalogs.ts\n  ✕ frozen lockfile error is thrown if catalog config changes (64 ms)\n  ○ skipped installing with \"catalog:\" should work\n  ○ skipped importer to importer dependency with \"catalog:\" should work\n  ○ skipped importer with different peers uses correct peer\n  ○ skipped lockfile contains catalog snapshots\n  ○ skipped lockfile is updated if catalog config changes\n  ○ skipped lockfile catalog snapshots retain existing entries on --filter\n  ○ skipped lockfile catalog snapshots do not contain stale references on --filter\n  ○ skipped dedupe-peer-dependents=false with --filter does not erase catalog snapshots\n  ○ skipped --fix-lockfile with --filter does not erase catalog snapshots\n  ○ skipped external dependency using catalog protocol errors\n  ○ skipped catalog resolutions should be consistent\n  ○ skipped catalog resolutions should be consistent with peer dependencies\n  ○ skipped catalog entry using npm alias can be reused\n  ○ skipped lockfile catalog snapshots should remove unused entries\n  ○ skipped catalogs work in injected dep\n  ○ skipped catalogs work when inject-workspace-packages=true\n  ○ skipped catalogs work in overrides\n  dedupe\n    ○ skipped catalogs are deduped when running pnpm dedupe\n  add\n    ○ skipped adding is-positive@catalog: works\n    ○ skipped adding no specific version will use catalog if present\n    ○ skipped adding specific version equal to catalog version will use catalog if present\n    ○ skipped adding different version than the catalog will not use catalog\n    ○ skipped adding with catalogMode: strict will add to or use from catalog\n    ○ skipped adding with catalogMode: prefer will add to or use from catalog\n    ○ skipped adding mismatched version with catalogMode: strict will error\n    ○ skipped adding mismatched version with catalogMode: prefer will warn and use direct\n  update\n    ○ skipped update works on cataloged dependency\n    ○ skipped update works on named catalog\n    ○ skipped update --latest works on cataloged dependency\n    ○ skipped update only affects matching filter\n\n  ● frozen lockfile error is thrown if catalog config changes\n\n    expect(received).rejects.toThrow()\n\n    Received promise resolved instead of rejected\n    Resolved to value: {\"depsRequiringBuild\": undefined, \"ignoredBuilds\": undefined, \"stats\": {\"added\": 0, \"linkedToRoot\": 0, \"removed\": 0}, \"updatedCatalogs\": undefined, \"updatedProjects\": [{\"binsDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\", \"buildIndex\": 0, \"id\": \"project1\", \"manifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"modulesDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\", \"originalManifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"rootDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\", \"rootDirRealPath\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\"}]}\n\n      297 |   })\n      298 |\n    > 299 |   await expect(frozenLockfileMutation).rejects.toThrow('Cannot proceed with the frozen installation. The current \"catalogs\" configuration doesn\\'t match the value found in the lockfile')\n          |         ^\n      300 | })\n      301 |\n      302 | test('lockfile catalog snapshots retain existing entries on --filter', async () => {\n\n      at expect (../../node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\n      at Object.<anonymous> (test/catalogs.ts:299:9)\n\nTest Suites: 1 failed, 1 total\nTests:       1 failed, 30 skipped, 31 total\nSnapshots:   0 total\nTime:        1.178 s\nRan all test suites within paths \"test/catalogs.ts\".\n",
+            "result": {
+              "numFailedTestSuites": 1,
+              "numFailedTests": 1,
+              "numPassedTestSuites": 0,
+              "numPassedTests": 0,
+              "numPendingTestSuites": 0,
+              "numPendingTests": 30,
+              "numRuntimeErrorTestSuites": 0,
+              "numTodoTests": 0,
+              "numTotalTestSuites": 1,
+              "numTotalTests": 31,
+              "openHandles": [],
+              "snapshot": {
+                "added": 0,
+                "didUpdate": false,
+                "failure": false,
+                "filesAdded": 0,
+                "filesRemoved": 0,
+                "filesRemovedList": [],
+                "filesUnmatched": 0,
+                "filesUpdated": 0,
+                "matched": 0,
+                "total": 0,
+                "unchecked": 0,
+                "uncheckedKeysByFile": [],
+                "unmatched": 0,
+                "updated": 0
+              },
+              "startTime": 1794006825745,
+              "success": false,
+              "testResults": [
+                {
+                  "assertionResults": [
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "installing with \"catalog:\" should work",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "pending",
+                      "title": "installing with \"catalog:\" should work"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "importer to importer dependency with \"catalog:\" should work",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "pending",
+                      "title": "importer to importer dependency with \"catalog:\" should work"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "importer with different peers uses correct peer",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "pending",
+                      "title": "importer with different peers uses correct peer"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile contains catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "pending",
+                      "title": "lockfile contains catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile is updated if catalog config changes",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "pending",
+                      "title": "lockfile is updated if catalog config changes"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": 64,
+                      "failing": false,
+                      "failureDetails": [
+                        {
+                          "message": "expect(received).rejects.toThrow()\n\nReceived promise resolved instead of rejected\nResolved to value: {\"depsRequiringBuild\": undefined, \"ignoredBuilds\": undefined, \"stats\": {\"added\": 0, \"linkedToRoot\": 0, \"removed\": 0}, \"updatedCatalogs\": undefined, \"updatedProjects\": [{\"binsDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\", \"buildIndex\": 0, \"id\": \"project1\", \"manifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"modulesDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\", \"originalManifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"rootDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\", \"rootDirRealPath\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\"}]}"
+                        }
+                      ],
+                      "failureMessages": [
+                        "Error: expect(received).rejects.toThrow()\n\nReceived promise resolved instead of rejected\nResolved to value: {\"depsRequiringBuild\": undefined, \"ignoredBuilds\": undefined, \"stats\": {\"added\": 0, \"linkedToRoot\": 0, \"removed\": 0}, \"updatedCatalogs\": undefined, \"updatedProjects\": [{\"binsDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\", \"buildIndex\": 0, \"id\": \"project1\", \"manifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"modulesDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\", \"originalManifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"rootDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\", \"rootDirRealPath\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\"}]}\n    at expect ($REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\n    at Object.<anonymous> ($REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/pkg-manager/core/test/catalogs.ts:299:9)"
+                      ],
+                      "fullName": "frozen lockfile error is thrown if catalog config changes",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 1,
+                      "retryReasons": [],
+                      "startAt": 1794006826760,
+                      "status": "failed",
+                      "title": "frozen lockfile error is thrown if catalog config changes"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots retain existing entries on --filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots retain existing entries on --filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots do not contain stale references on --filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots do not contain stale references on --filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "dedupe-peer-dependents=false with --filter does not erase catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "dedupe-peer-dependents=false with --filter does not erase catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "--fix-lockfile with --filter does not erase catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "--fix-lockfile with --filter does not erase catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "external dependency using catalog protocol errors",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "external dependency using catalog protocol errors"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog resolutions should be consistent",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalog resolutions should be consistent"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog resolutions should be consistent with peer dependencies",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalog resolutions should be consistent with peer dependencies"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog entry using npm alias can be reused",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalog entry using npm alias can be reused"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots should remove unused entries",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots should remove unused entries"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work in injected dep",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalogs work in injected dep"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work when inject-workspace-packages=true",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalogs work when inject-workspace-packages=true"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "dedupe"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "dedupe catalogs are deduped when running pnpm dedupe",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalogs are deduped when running pnpm dedupe"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding is-positive@catalog: works",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding is-positive@catalog: works"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding no specific version will use catalog if present",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding no specific version will use catalog if present"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding specific version equal to catalog version will use catalog if present",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding specific version equal to catalog version will use catalog if present"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding different version than the catalog will not use catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding different version than the catalog will not use catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding with catalogMode: strict will add to or use from catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding with catalogMode: strict will add to or use from catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding with catalogMode: prefer will add to or use from catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding with catalogMode: prefer will add to or use from catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding mismatched version with catalogMode: strict will error",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding mismatched version with catalogMode: strict will error"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding mismatched version with catalogMode: prefer will warn and use direct",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "adding mismatched version with catalogMode: prefer will warn and use direct"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update works on cataloged dependency",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "update works on cataloged dependency"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update works on named catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "update works on named catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update --latest works on cataloged dependency",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "update --latest works on cataloged dependency"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update only affects matching filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "update only affects matching filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work in overrides",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006826837,
+                      "status": "pending",
+                      "title": "catalogs work in overrides"
+                    }
+                  ],
+                  "endTime": 1794006826920,
+                  "message": "  ● frozen lockfile error is thrown if catalog config changes\n\n    expect(received).rejects.toThrow()\n\n    Received promise resolved instead of rejected\n    Resolved to value: {\"depsRequiringBuild\": undefined, \"ignoredBuilds\": undefined, \"stats\": {\"added\": 0, \"linkedToRoot\": 0, \"removed\": 0}, \"updatedCatalogs\": undefined, \"updatedProjects\": [{\"binsDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules/.bin\", \"buildIndex\": 0, \"id\": \"project1\", \"manifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"modulesDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1/node_modules\", \"originalManifest\": {\"dependencies\": {\"is-positive\": \"catalog:\"}, \"name\": \"project1\"}, \"rootDir\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\", \"rootDirRealPath\": \"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/pnpm_tmp/0_26281/1/project/project1\"}]}\n\n      297 |   })\n      298 |\n    > 299 |   await expect(frozenLockfileMutation).rejects.toThrow('Cannot proceed with the frozen installation. The current \"catalogs\" configuration doesn\\'t match the value found in the lockfile')\n          |         ^\n      300 | })\n      301 |\n      302 | test('lockfile catalog snapshots retain existing entries on --filter', async () => {\n\n      at expect (../../node_modules/.pnpm/expect@30.0.5/node_modules/expect/build/index.js:2116:15)\n      at Object.<anonymous> (test/catalogs.ts:299:9)\n",
+                  "name": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn/workspace/pkg-manager/core/test/catalogs.ts",
+                  "startTime": 1794006825763,
+                  "status": "failed",
+                  "summary": ""
+                }
+              ],
+              "wasInterrupted": false
+            }
+          },
+          "nativeCache": "$TEMP/typelatch-catalog-jest-actDMf",
+          "elapsedMs": 14160.086374999999
+        },
+        "copyMs": 10076.820999999996,
+        "gradeRoot": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-kVxcpn",
+        "elapsedMs": 34438.804834
+      },
+      "privateExpectedOutcome": true,
+      "finishedAt": "2026-11-06T23:13:54.465Z"
+    },
+    {
+      "name": "reference",
+      "setupMs": 16504.317375,
+      "git": {
+        "head": "5ceb35208ed3d97e44c0636cdec2844f418d586c",
+        "trackedFiles": 2943,
+        "root": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/preflight-001/reference/workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "startedAt": "2026-11-06T23:14:10.971Z",
+      "capture": {
+        "exitCode": 0,
+        "timedOut": false,
+        "processGroupStopped": true,
+        "elapsedMs": 16959.277459000004,
+        "rawSha256": "f19e48e9837f7ce8971953f85c3cc4254a8aadfc931dd65a44a3ad567db09964",
+        "stderrSha256": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+        "usage": {
+          "inputTokens": 48834,
+          "cachedInputTokens": 45568,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 170,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 49004,
+          "uncachedInputTokens": 3266
+        },
+        "capture": {
+          "complete": true,
+          "issues": [],
+          "startupWarnings": [
+            {
+              "line": 2,
+              "kind": "unstable-features",
+              "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+            }
+          ],
+          "turnStarts": 1,
+          "turnCompletions": 1,
+          "duplicateActions": 0,
+          "duplicateCompletions": 0,
+          "failedTurn": false
+        },
+        "counts": {
+          "shellCalls": 1,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 0,
+          "grepShellCalls": 0,
+          "contentSearchShellCalls": 0,
+          "fileListingShellCalls": 0,
+          "ambiguousSearchShellCalls": 0
+        }
+      },
+      "actions": [
+        {
+          "type": "command_execution",
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "status": "completed",
+          "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+          "outputBytes": 810,
+          "outputSha256": "f2cfb82a14efb9bcf1a4d3d238ea9b10f6c8c50004e61fbc5b714e3d436b629a",
+          "exitCode": 0,
+          "search": {
+            "search": false,
+            "contentSearch": false,
+            "fileListing": false,
+            "ambiguous": false
+          }
+        }
+      ],
+      "validation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 9,
+            "expectedFinalCases": 9,
+            "completePassingCheck": true,
+            "outputSha256": "f2cfb82a14efb9bcf1a4d3d238ea9b10f6c8c50004e61fbc5b714e3d436b629a"
+          }
+        ],
+        "failingThenLaterCheckObserved": false,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "trackedSourcesUnchanged": true,
+      "publicPassed": true,
+      "privateGrade": {
+        "passed": true,
+        "integrity": {
+          "passed": true,
+          "changed": [
+            "deps/status/src/checkDepsStatus.ts",
+            "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+            "lockfile/verification/src/index.ts",
+            "pkg-manager/core/src/install/index.ts"
+          ],
+          "forbidden": [],
+          "generatedChanged": [
+            "deps/status/lib/assertLockfilesEqual.d.ts",
+            "deps/status/lib/assertLockfilesEqual.js",
+            "deps/status/lib/assertLockfilesEqual.js.map",
+            "deps/status/lib/checkDepsStatus.d.ts",
+            "deps/status/lib/checkDepsStatus.js",
+            "deps/status/lib/checkDepsStatus.js.map",
+            "deps/status/lib/index.d.ts",
+            "deps/status/lib/index.js",
+            "deps/status/lib/index.js.map",
+            "deps/status/lib/safeStat.d.ts",
+            "deps/status/lib/safeStat.js",
+            "deps/status/lib/safeStat.js.map",
+            "deps/status/lib/statManifestFile.d.ts",
+            "deps/status/lib/statManifestFile.js",
+            "deps/status/lib/statManifestFile.js.map",
+            "deps/status/tsconfig.tsbuildinfo",
+            "lockfile/settings-checker/lib/calcPatchHashes.d.ts",
+            "lockfile/settings-checker/lib/calcPatchHashes.js",
+            "lockfile/settings-checker/lib/calcPatchHashes.js.map",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.d.ts",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.js",
+            "lockfile/settings-checker/lib/createOverridesMapFromParsed.js.map",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.js",
+            "lockfile/settings-checker/lib/getOutdatedLockfileSetting.js.map",
+            "lockfile/settings-checker/lib/index.d.ts",
+            "lockfile/settings-checker/lib/index.js",
+            "lockfile/settings-checker/lib/index.js.map",
+            "lockfile/settings-checker/tsconfig.tsbuildinfo",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.d.ts",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.js",
+            "lockfile/verification/lib/allCatalogsAreUpToDate.js.map",
+            "lockfile/verification/lib/allProjectsAreUpToDate.d.ts",
+            "lockfile/verification/lib/allProjectsAreUpToDate.js",
+            "lockfile/verification/lib/allProjectsAreUpToDate.js.map",
+            "lockfile/verification/lib/diffFlatRecords.d.ts",
+            "lockfile/verification/lib/diffFlatRecords.js",
+            "lockfile/verification/lib/diffFlatRecords.js.map",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.d.ts",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.js",
+            "lockfile/verification/lib/getWorkspacePackagesByDirectory.js.map",
+            "lockfile/verification/lib/index.d.ts",
+            "lockfile/verification/lib/index.js",
+            "lockfile/verification/lib/index.js.map",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.d.ts",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.js",
+            "lockfile/verification/lib/linkedPackagesAreUpToDate.js.map",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.d.ts",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.js",
+            "lockfile/verification/lib/localTarballDepsAreUpToDate.js.map",
+            "lockfile/verification/lib/satisfiesPackageManifest.d.ts",
+            "lockfile/verification/lib/satisfiesPackageManifest.js",
+            "lockfile/verification/lib/satisfiesPackageManifest.js.map",
+            "lockfile/verification/tsconfig.tsbuildinfo",
+            "pkg-manager/core/lib/api.d.ts",
+            "pkg-manager/core/lib/api.js",
+            "pkg-manager/core/lib/api.js.map",
+            "pkg-manager/core/lib/getPeerDependencyIssues.d.ts",
+            "pkg-manager/core/lib/getPeerDependencyIssues.js",
+            "pkg-manager/core/lib/getPeerDependencyIssues.js.map",
+            "pkg-manager/core/lib/index.d.ts",
+            "pkg-manager/core/lib/index.js",
+            "pkg-manager/core/lib/index.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/BreakingChangeError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/CatalogVersionMismatchError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.js",
+            "pkg-manager/core/lib/install/checkCompatibility/ErrorRelatedSources.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/ModulesBreakingChangeError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedStoreError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.js",
+            "pkg-manager/core/lib/install/checkCompatibility/UnexpectedVirtualStoreDirError.js.map",
+            "pkg-manager/core/lib/install/checkCompatibility/index.d.ts",
+            "pkg-manager/core/lib/install/checkCompatibility/index.js",
+            "pkg-manager/core/lib/install/checkCompatibility/index.js.map",
+            "pkg-manager/core/lib/install/extendInstallOptions.d.ts",
+            "pkg-manager/core/lib/install/extendInstallOptions.js",
+            "pkg-manager/core/lib/install/extendInstallOptions.js.map",
+            "pkg-manager/core/lib/install/index.d.ts",
+            "pkg-manager/core/lib/install/index.js",
+            "pkg-manager/core/lib/install/index.js.map",
+            "pkg-manager/core/lib/install/link.d.ts",
+            "pkg-manager/core/lib/install/link.js",
+            "pkg-manager/core/lib/install/link.js.map",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.d.ts",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.js",
+            "pkg-manager/core/lib/install/reportPeerDependencyIssues.js.map",
+            "pkg-manager/core/lib/install/validateModules.d.ts",
+            "pkg-manager/core/lib/install/validateModules.js",
+            "pkg-manager/core/lib/install/validateModules.js.map",
+            "pkg-manager/core/lib/parseWantedDependencies.d.ts",
+            "pkg-manager/core/lib/parseWantedDependencies.js",
+            "pkg-manager/core/lib/parseWantedDependencies.js.map",
+            "pkg-manager/core/lib/pnpmPkgJson.d.ts",
+            "pkg-manager/core/lib/pnpmPkgJson.js",
+            "pkg-manager/core/lib/pnpmPkgJson.js.map",
+            "pkg-manager/core/lib/types.d.ts",
+            "pkg-manager/core/lib/types.js",
+            "pkg-manager/core/lib/types.js.map",
+            "pkg-manager/core/lib/uninstall/removeDeps.d.ts",
+            "pkg-manager/core/lib/uninstall/removeDeps.js",
+            "pkg-manager/core/lib/uninstall/removeDeps.js.map",
+            "pkg-manager/core/tsconfig.tsbuildinfo"
+          ]
+        },
+        "sourceStable": true,
+        "checks": {
+          "schemaVersion": 1,
+          "passed": true,
+          "cases": 23,
+          "observedCases": 23,
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": true
+            },
+            {
+              "id": "status/changed-default",
+              "passed": true
+            },
+            {
+              "id": "core/changed-default",
+              "passed": true
+            },
+            {
+              "id": "checker/changed-named",
+              "passed": true
+            },
+            {
+              "id": "status/changed-named",
+              "passed": true
+            },
+            {
+              "id": "core/changed-named",
+              "passed": true
+            },
+            {
+              "id": "checker/removed-entry",
+              "passed": true
+            },
+            {
+              "id": "status/removed-entry",
+              "passed": true
+            },
+            {
+              "id": "core/removed-entry",
+              "passed": true
+            },
+            {
+              "id": "checker/changed-spelling",
+              "passed": true
+            },
+            {
+              "id": "status/changed-spelling",
+              "passed": true
+            },
+            {
+              "id": "core/changed-spelling",
+              "passed": true
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "status/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "core/unreferenced-addition",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "checker/unrelated-override",
+              "passed": true
+            },
+            {
+              "id": "native/upstream-frozen-catalog-install",
+              "passed": true
+            }
+          ],
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 9388.744708999991,
+            "stdout": "",
+            "stderr": "",
+            "result": null
+          },
+          "semantics": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 1076.5307079999911,
+            "stdout": "{\"schemaVersion\":1,\"passed\":true,\"cases\":22,\"failed\":0,\"results\":[{\"id\":\"checker/changed-default\",\"passed\":true},{\"id\":\"status/changed-default\",\"passed\":true},{\"id\":\"core/changed-default\",\"passed\":true},{\"id\":\"checker/changed-named\",\"passed\":true},{\"id\":\"status/changed-named\",\"passed\":true},{\"id\":\"core/changed-named\",\"passed\":true},{\"id\":\"checker/removed-entry\",\"passed\":true},{\"id\":\"status/removed-entry\",\"passed\":true},{\"id\":\"core/removed-entry\",\"passed\":true},{\"id\":\"checker/changed-spelling\",\"passed\":true},{\"id\":\"status/changed-spelling\",\"passed\":true},{\"id\":\"core/changed-spelling\",\"passed\":true},{\"id\":\"checker/unchanged-default\",\"passed\":true},{\"id\":\"status/unchanged-default\",\"passed\":true},{\"id\":\"core/unchanged-default\",\"passed\":true},{\"id\":\"checker/unreferenced-addition\",\"passed\":true},{\"id\":\"status/unreferenced-addition\",\"passed\":true},{\"id\":\"core/unreferenced-addition\",\"passed\":true},{\"id\":\"checker/no-catalogs\",\"passed\":true},{\"id\":\"status/no-catalogs\",\"passed\":true},{\"id\":\"core/no-catalogs\",\"passed\":true},{\"id\":\"checker/unrelated-override\",\"passed\":true}],\"scratch\":\"$TEMP/typelatch-catalog-check-o1TFSf\",\"scope\":\"Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency.\"}\n",
+            "stderr": "",
+            "result": {
+              "schemaVersion": 1,
+              "passed": true,
+              "cases": 22,
+              "failed": 0,
+              "results": [
+                {
+                  "id": "checker/changed-default",
+                  "passed": true
+                },
+                {
+                  "id": "status/changed-default",
+                  "passed": true
+                },
+                {
+                  "id": "core/changed-default",
+                  "passed": true
+                },
+                {
+                  "id": "checker/changed-named",
+                  "passed": true
+                },
+                {
+                  "id": "status/changed-named",
+                  "passed": true
+                },
+                {
+                  "id": "core/changed-named",
+                  "passed": true
+                },
+                {
+                  "id": "checker/removed-entry",
+                  "passed": true
+                },
+                {
+                  "id": "status/removed-entry",
+                  "passed": true
+                },
+                {
+                  "id": "core/removed-entry",
+                  "passed": true
+                },
+                {
+                  "id": "checker/changed-spelling",
+                  "passed": true
+                },
+                {
+                  "id": "status/changed-spelling",
+                  "passed": true
+                },
+                {
+                  "id": "core/changed-spelling",
+                  "passed": true
+                },
+                {
+                  "id": "checker/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "status/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "core/unchanged-default",
+                  "passed": true
+                },
+                {
+                  "id": "checker/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "status/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "core/unreferenced-addition",
+                  "passed": true
+                },
+                {
+                  "id": "checker/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "status/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "core/no-catalogs",
+                  "passed": true
+                },
+                {
+                  "id": "checker/unrelated-override",
+                  "passed": true
+                }
+              ],
+              "scratch": "$TEMP/typelatch-catalog-check-o1TFSf",
+              "scope": "Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency."
+            }
+          },
+          "native": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null,
+            "elapsedMs": 3730.942292000007,
+            "stdout": "{\"numFailedTestSuites\":0,\"numFailedTests\":0,\"numPassedTestSuites\":1,\"numPassedTests\":1,\"numPendingTestSuites\":0,\"numPendingTests\":30,\"numRuntimeErrorTestSuites\":0,\"numTodoTests\":0,\"numTotalTestSuites\":1,\"numTotalTests\":31,\"openHandles\":[],\"snapshot\":{\"added\":0,\"didUpdate\":false,\"failure\":false,\"filesAdded\":0,\"filesRemoved\":0,\"filesRemovedList\":[],\"filesUnmatched\":0,\"filesUpdated\":0,\"matched\":0,\"total\":0,\"unchecked\":0,\"uncheckedKeysByFile\":[],\"unmatched\":0,\"updated\":0},\"startTime\":1794006897079,\"success\":true,\"testResults\":[{\"assertionResults\":[{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"installing with \\\"catalog:\\\" should work\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"pending\",\"title\":\"installing with \\\"catalog:\\\" should work\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"importer to importer dependency with \\\"catalog:\\\" should work\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"pending\",\"title\":\"importer to importer dependency with \\\"catalog:\\\" should work\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"importer with different peers uses correct peer\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"pending\",\"title\":\"importer with different peers uses correct peer\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile contains catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"pending\",\"title\":\"lockfile contains catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile is updated if catalog config changes\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"pending\",\"title\":\"lockfile is updated if catalog config changes\"},{\"ancestorTitles\":[],\"duration\":98,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"frozen lockfile error is thrown if catalog config changes\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":2,\"retryReasons\":[],\"startAt\":1794006898155,\"status\":\"passed\",\"title\":\"frozen lockfile error is thrown if catalog config changes\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots retain existing entries on --filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots retain existing entries on --filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots do not contain stale references on --filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots do not contain stale references on --filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"dedupe-peer-dependents=false with --filter does not erase catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"dedupe-peer-dependents=false with --filter does not erase catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"--fix-lockfile with --filter does not erase catalog snapshots\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"--fix-lockfile with --filter does not erase catalog snapshots\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"external dependency using catalog protocol errors\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"external dependency using catalog protocol errors\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog resolutions should be consistent\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalog resolutions should be consistent\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog resolutions should be consistent with peer dependencies\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalog resolutions should be consistent with peer dependencies\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalog entry using npm alias can be reused\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalog entry using npm alias can be reused\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"lockfile catalog snapshots should remove unused entries\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"lockfile catalog snapshots should remove unused entries\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work in injected dep\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalogs work in injected dep\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work when inject-workspace-packages=true\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalogs work when inject-workspace-packages=true\"},{\"ancestorTitles\":[\"dedupe\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"dedupe catalogs are deduped when running pnpm dedupe\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalogs are deduped when running pnpm dedupe\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding is-positive@catalog: works\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding is-positive@catalog: works\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding no specific version will use catalog if present\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding no specific version will use catalog if present\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding specific version equal to catalog version will use catalog if present\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding specific version equal to catalog version will use catalog if present\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding different version than the catalog will not use catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding different version than the catalog will not use catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding with catalogMode: strict will add to or use from catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding with catalogMode: strict will add to or use from catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding with catalogMode: prefer will add to or use from catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding with catalogMode: prefer will add to or use from catalog\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding mismatched version with catalogMode: strict will error\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding mismatched version with catalogMode: strict will error\"},{\"ancestorTitles\":[\"add\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"add adding mismatched version with catalogMode: prefer will warn and use direct\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"adding mismatched version with catalogMode: prefer will warn and use direct\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update works on cataloged dependency\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"update works on cataloged dependency\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update works on named catalog\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"update works on named catalog\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update --latest works on cataloged dependency\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"update --latest works on cataloged dependency\"},{\"ancestorTitles\":[\"update\"],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"update update only affects matching filter\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"update only affects matching filter\"},{\"ancestorTitles\":[],\"duration\":null,\"failing\":false,\"failureDetails\":[],\"failureMessages\":[],\"fullName\":\"catalogs work in overrides\",\"invocations\":1,\"location\":null,\"numPassingAsserts\":0,\"retryReasons\":[],\"startAt\":1794006898253,\"status\":\"pending\",\"title\":\"catalogs work in overrides\"}],\"endTime\":1794006898316,\"message\":\"\",\"name\":\"$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-frhIOt/workspace/pkg-manager/core/test/catalogs.ts\",\"startTime\":1794006897096,\"status\":\"focused\",\"summary\":\"\"}],\"wasInterrupted\":false}\n",
+            "stderr": "ts-jest[ts-jest-transformer] (WARN) Define `ts-jest` config under `globals` is deprecated. Please do\ntransform: {\n    <transform_regex>: ['ts-jest', { /* ts-jest config goes here in Jest */ }],\n},\nSee more at https://kulshekhar.github.io/ts-jest/docs/getting-started/presets#advanced\n(node:27950) ExperimentalWarning: VM Modules is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nPASS test/catalogs.ts\n  ✓ frozen lockfile error is thrown if catalog config changes (98 ms)\n  ○ skipped installing with \"catalog:\" should work\n  ○ skipped importer to importer dependency with \"catalog:\" should work\n  ○ skipped importer with different peers uses correct peer\n  ○ skipped lockfile contains catalog snapshots\n  ○ skipped lockfile is updated if catalog config changes\n  ○ skipped lockfile catalog snapshots retain existing entries on --filter\n  ○ skipped lockfile catalog snapshots do not contain stale references on --filter\n  ○ skipped dedupe-peer-dependents=false with --filter does not erase catalog snapshots\n  ○ skipped --fix-lockfile with --filter does not erase catalog snapshots\n  ○ skipped external dependency using catalog protocol errors\n  ○ skipped catalog resolutions should be consistent\n  ○ skipped catalog resolutions should be consistent with peer dependencies\n  ○ skipped catalog entry using npm alias can be reused\n  ○ skipped lockfile catalog snapshots should remove unused entries\n  ○ skipped catalogs work in injected dep\n  ○ skipped catalogs work when inject-workspace-packages=true\n  ○ skipped catalogs work in overrides\n  dedupe\n    ○ skipped catalogs are deduped when running pnpm dedupe\n  add\n    ○ skipped adding is-positive@catalog: works\n    ○ skipped adding no specific version will use catalog if present\n    ○ skipped adding specific version equal to catalog version will use catalog if present\n    ○ skipped adding different version than the catalog will not use catalog\n    ○ skipped adding with catalogMode: strict will add to or use from catalog\n    ○ skipped adding with catalogMode: prefer will add to or use from catalog\n    ○ skipped adding mismatched version with catalogMode: strict will error\n    ○ skipped adding mismatched version with catalogMode: prefer will warn and use direct\n  update\n    ○ skipped update works on cataloged dependency\n    ○ skipped update works on named catalog\n    ○ skipped update --latest works on cataloged dependency\n    ○ skipped update only affects matching filter\n\nTest Suites: 1 passed, 1 total\nTests:       30 skipped, 1 passed, 31 total\nSnapshots:   0 total\nTime:        1.239 s\nRan all test suites within paths \"test/catalogs.ts\".\n",
+            "result": {
+              "numFailedTestSuites": 0,
+              "numFailedTests": 0,
+              "numPassedTestSuites": 1,
+              "numPassedTests": 1,
+              "numPendingTestSuites": 0,
+              "numPendingTests": 30,
+              "numRuntimeErrorTestSuites": 0,
+              "numTodoTests": 0,
+              "numTotalTestSuites": 1,
+              "numTotalTests": 31,
+              "openHandles": [],
+              "snapshot": {
+                "added": 0,
+                "didUpdate": false,
+                "failure": false,
+                "filesAdded": 0,
+                "filesRemoved": 0,
+                "filesRemovedList": [],
+                "filesUnmatched": 0,
+                "filesUpdated": 0,
+                "matched": 0,
+                "total": 0,
+                "unchecked": 0,
+                "uncheckedKeysByFile": [],
+                "unmatched": 0,
+                "updated": 0
+              },
+              "startTime": 1794006897079,
+              "success": true,
+              "testResults": [
+                {
+                  "assertionResults": [
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "installing with \"catalog:\" should work",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "pending",
+                      "title": "installing with \"catalog:\" should work"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "importer to importer dependency with \"catalog:\" should work",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "pending",
+                      "title": "importer to importer dependency with \"catalog:\" should work"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "importer with different peers uses correct peer",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "pending",
+                      "title": "importer with different peers uses correct peer"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile contains catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "pending",
+                      "title": "lockfile contains catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile is updated if catalog config changes",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "pending",
+                      "title": "lockfile is updated if catalog config changes"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": 98,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "frozen lockfile error is thrown if catalog config changes",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 2,
+                      "retryReasons": [],
+                      "startAt": 1794006898155,
+                      "status": "passed",
+                      "title": "frozen lockfile error is thrown if catalog config changes"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots retain existing entries on --filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots retain existing entries on --filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots do not contain stale references on --filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots do not contain stale references on --filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "dedupe-peer-dependents=false with --filter does not erase catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "dedupe-peer-dependents=false with --filter does not erase catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "--fix-lockfile with --filter does not erase catalog snapshots",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "--fix-lockfile with --filter does not erase catalog snapshots"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "external dependency using catalog protocol errors",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "external dependency using catalog protocol errors"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog resolutions should be consistent",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalog resolutions should be consistent"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog resolutions should be consistent with peer dependencies",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalog resolutions should be consistent with peer dependencies"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalog entry using npm alias can be reused",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalog entry using npm alias can be reused"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "lockfile catalog snapshots should remove unused entries",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "lockfile catalog snapshots should remove unused entries"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work in injected dep",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalogs work in injected dep"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work when inject-workspace-packages=true",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalogs work when inject-workspace-packages=true"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "dedupe"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "dedupe catalogs are deduped when running pnpm dedupe",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalogs are deduped when running pnpm dedupe"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding is-positive@catalog: works",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding is-positive@catalog: works"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding no specific version will use catalog if present",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding no specific version will use catalog if present"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding specific version equal to catalog version will use catalog if present",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding specific version equal to catalog version will use catalog if present"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding different version than the catalog will not use catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding different version than the catalog will not use catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding with catalogMode: strict will add to or use from catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding with catalogMode: strict will add to or use from catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding with catalogMode: prefer will add to or use from catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding with catalogMode: prefer will add to or use from catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding mismatched version with catalogMode: strict will error",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding mismatched version with catalogMode: strict will error"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "add"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "add adding mismatched version with catalogMode: prefer will warn and use direct",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "adding mismatched version with catalogMode: prefer will warn and use direct"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update works on cataloged dependency",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "update works on cataloged dependency"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update works on named catalog",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "update works on named catalog"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update --latest works on cataloged dependency",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "update --latest works on cataloged dependency"
+                    },
+                    {
+                      "ancestorTitles": [
+                        "update"
+                      ],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "update update only affects matching filter",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "update only affects matching filter"
+                    },
+                    {
+                      "ancestorTitles": [],
+                      "duration": null,
+                      "failing": false,
+                      "failureDetails": [],
+                      "failureMessages": [],
+                      "fullName": "catalogs work in overrides",
+                      "invocations": 1,
+                      "location": null,
+                      "numPassingAsserts": 0,
+                      "retryReasons": [],
+                      "startAt": 1794006898253,
+                      "status": "pending",
+                      "title": "catalogs work in overrides"
+                    }
+                  ],
+                  "endTime": 1794006898316,
+                  "message": "",
+                  "name": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-frhIOt/workspace/pkg-manager/core/test/catalogs.ts",
+                  "startTime": 1794006897096,
+                  "status": "focused",
+                  "summary": ""
+                }
+              ],
+              "wasInterrupted": false
+            }
+          },
+          "nativeCache": "$TEMP/typelatch-catalog-jest-x0IfOZ",
+          "elapsedMs": 14196.790792000014
+        },
+        "copyMs": 10025.193957999989,
+        "gradeRoot": "$REPOSITORY/artifacts/research/cross-package/maintenance/v2/private/grade-frhIOt",
+        "elapsedMs": 33569.074250000005
+      },
+      "privateExpectedOutcome": true,
+      "finishedAt": "2026-11-06T23:15:04.992Z"
+    }
+  ],
+  "scope": {
+    "publicCases": 9,
+    "privateCases": 23,
+    "public": "Native TypeScript build and real production API/filesystem checks without a listening server.",
+    "private": "Twenty-two independent semantic checks plus the exact upstream catalog installation integration with a local registry outside the agent sandbox."
+  },
+  "finishedAt": "2026-11-06T23:15:04.993Z",
+  "status": "qualified"
+}

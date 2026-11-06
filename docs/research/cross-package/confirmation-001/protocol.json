@@ -1,0 +1,2222 @@
+{
+  "schemaVersion": 1,
+  "study": "cross-package-agent-comparison-v1",
+  "phase": "confirmation",
+  "createdAt": "2026-11-06T23:36:48.826Z",
+  "status": "frozen-before-agent-sessions",
+  "arms": [
+    "native",
+    "impact",
+    "competitor",
+    "codegraph"
+  ],
+  "candidates": [
+    "impact",
+    "codegraph"
+  ],
+  "repeats": 2,
+  "runCount": 16,
+  "timeoutMs": 900000,
+  "tasks": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2",
+      "category": "impact",
+      "split": "heldout",
+      "mode": "analysis",
+      "description": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+      "scope": {
+        "productionPackages": 6
+      },
+      "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+      "evaluationNotes": [
+        "Analysis only. The sole allowed new file is impact-answer.json.",
+        "Native configuration, source aliases and exact dependencies are identical for every condition.",
+        "Type references and public barrel exposure are distinct from runtime effects.",
+        "Setup costs are retained separately; no external application impact is asserted.",
+        "Held-out expected facts remain private until the generic provider is frozen.",
+        "V2 grading is prospective. Original trial grades and source fixtures are unchanged.",
+        "Only constrained uncertainty states are accepted; unsupported certainty cannot be added as unchecked answer prose."
+      ],
+      "answerFile": "impact-answer.json",
+      "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.",
+      "promptSha256": "1b82b585c05dded75385f137f2597fbfea65092dc10c08366c8bb9cce7e74bb5"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2",
+      "category": "impact",
+      "split": "heldout",
+      "mode": "analysis",
+      "description": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+      "scope": {
+        "productionPackages": 8
+      },
+      "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+      "evaluationNotes": [
+        "Analysis only. The sole allowed new file is impact-answer.json.",
+        "Original source aliases, package identities and dependency graph are identical for every condition.",
+        "Compiler generated names are reported as an explicit static-analysis boundary, not an unaffected package claim.",
+        "The unchanged frozen development grader is reused; no model outcome has informed this case or its truth.",
+        "Held-out expected facts remain private until the generic provider is frozen.",
+        "V2 grading is prospective. Original trial grades and source fixtures are unchanged.",
+        "Only constrained uncertainty states are accepted; unsupported certainty cannot be added as unchecked answer prose."
+      ],
+      "answerFile": "impact-answer.json",
+      "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.",
+      "promptSha256": "f7abf5f38877c7f2c17f310ade95012eb8f09c6739f1f49226d181be1974367d"
+    }
+  ],
+  "prompts": [
+    {
+      "task": "vue-type-impact-heldout-grading-v2",
+      "arm": "native",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "7bf28b056689a3a3c4d5f5907d4b04e0577f80d0488e66055903c19ce976c1db"
+    },
+    {
+      "task": "vue-type-impact-heldout-grading-v2",
+      "arm": "impact",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "1f252cae8ffa20868c0f5888739e5b7f82cd20818b78a91a9ac9140b5f8aed05"
+    },
+    {
+      "task": "vue-type-impact-heldout-grading-v2",
+      "arm": "competitor",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "1a7bc215144c6c7b39040d8a1fb24e140240bc44fe46368641bb84603b42467d"
+    },
+    {
+      "task": "vue-type-impact-heldout-grading-v2",
+      "arm": "codegraph",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: codegraph\nTools: mcp__codegraph__codegraph_explore, mcp__codegraph__codegraph_node, mcp__codegraph__codegraph_search, mcp__codegraph__codegraph_callers, mcp__codegraph__codegraph_callees, mcp__codegraph__codegraph_impact, mcp__codegraph__codegraph_files, mcp__codegraph__codegraph_status\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: codegraph\nTools: mcp__codegraph__codegraph_explore, mcp__codegraph__codegraph_node, mcp__codegraph__codegraph_search, mcp__codegraph__codegraph_callers, mcp__codegraph__codegraph_callees, mcp__codegraph__codegraph_impact, mcp__codegraph__codegraph_files, mcp__codegraph__codegraph_status\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "1c4df5c858b07ad380f570007562697a0896388d81b36af6bd75add7512681de"
+    },
+    {
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "arm": "native",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "0e21d818ddae20614a03a9c5f00d7ba406071566ac817e3795ac887e28f51a06"
+    },
+    {
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "arm": "impact",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "74e5193d4e024bd26b041875ad9eea38b6e5609ed69ed9c02831f83f758a286e"
+    },
+    {
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "arm": "competitor",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "4b362f2b227ae0e91dbebd09602e6912709a08eabc52cd6e6736a142eb2850b9"
+    },
+    {
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "arm": "codegraph",
+      "inventory": "Repository retrieval capability inventory for this session:\nProvider: codegraph\nTools: mcp__codegraph__codegraph_explore, mcp__codegraph__codegraph_node, mcp__codegraph__codegraph_search, mcp__codegraph__codegraph_callers, mcp__codegraph__codegraph_callees, mcp__codegraph__codegraph_impact, mcp__codegraph__codegraph_files, mcp__codegraph__codegraph_status\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: codegraph\nTools: mcp__codegraph__codegraph_explore, mcp__codegraph__codegraph_node, mcp__codegraph__codegraph_search, mcp__codegraph__codegraph_callers, mcp__codegraph__codegraph_callees, mcp__codegraph__codegraph_impact, mcp__codegraph__codegraph_files, mcp__codegraph__codegraph_status\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+      "promptSha256": "fd9612f49d60bf544f242c652873280859ddc53dcb9aecde2305d645c48e6e97"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "native"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "impact"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-competitor",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "competitor"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-codegraph",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "codegraph"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-impact",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "impact"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "competitor"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-codegraph",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "codegraph"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "native"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-native",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "native"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "codegraph"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-competitor",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "competitor"
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-impact",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "impact"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-codegraph",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "codegraph"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-competitor",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "competitor"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-impact",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "impact"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-native",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "native"
+    }
+  ],
+  "config": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "cliVersion": "codex-cli 0.166.0",
+  "codexBinary": {
+    "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+    "bytes": 268972064,
+    "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+  },
+  "decisionGate": {
+    "minimumReductionPercent": 20,
+    "controls": [
+      "native",
+      "competitor"
+    ],
+    "categories": [
+      "maintenance",
+      "migration",
+      "impact"
+    ],
+    "minimumHeldoutTasksPerClaimedCategory": 2,
+    "minimumRepeats": 2,
+    "rule": "Compare each frozen candidate with both native tools and Serena. Require at least 20% aggregate and median paired reduction in total tokens and provider setup plus agent time, improvement in both repeat aggregates, all candidate answers correct, complete captures and cleanup, relevant usable candidate evidence and independent workflow review. A category edge requires two distinct held-out tasks and two repetitions. Development measurements and a single held-out task can only justify replication. Keep all categories, failures and costs visible; do not pool old studies or replace attempts.",
+    "scope": "Prespecified category comparisons are exploratory multiple hypotheses, not statistical confidence bounds or universal superiority. A narrow claim names its exact held-out tasks, repository snapshots, model and treatment."
+  },
+  "reviewRules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "toolUseQualification": {
+    "receiptSha256": "e9ae52e5ab460e054b30f6be5a0f73173b0077e022c956eafb489dfeae889cf6",
+    "captureSha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45"
+  },
+  "supplementalOutputs": {
+    "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+    "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+    "fileName": "tool-outputs.json"
+  },
+  "spec": {
+    "typelatchArtifact": {
+      "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+      "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+    },
+    "competitorSelection": {
+      "name": "Serena",
+      "version": "2.1.0",
+      "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+      "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+    },
+    "schemaVersion": 1,
+    "candidates": [
+      "impact",
+      "codegraph"
+    ],
+    "arms": {
+      "native": {
+        "servers": {},
+        "setupCommands": [],
+        "frozenInputs": [],
+        "allowedStateLinks": [],
+        "cleanupMode": "process-group"
+      },
+      "impact": {
+        "servers": {
+          "impact": {
+            "command": "$USER_HOME/.hermes/node/bin/node",
+            "args": [
+              "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs"
+            ],
+            "cwd": "{workspace}",
+            "env": {
+              "TYPELATCH_HOME": "{state}/typelatch",
+              "TYPELATCH_USAGE": "off",
+              "TYPELATCH_IMPACT_RUNTIME": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+            },
+            "startup_timeout_sec": 60,
+            "tool_timeout_sec": 180,
+            "tools": [
+              "package_evidence"
+            ]
+          }
+        },
+        "setupCommands": [],
+        "frozenInputs": [
+          {
+            "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/service.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/cli.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.test.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.test.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/review.test.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/node_modules",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/transport.test.mjs",
+            "kind": "file"
+          }
+        ],
+        "allowedStateLinks": [],
+        "cleanupMode": "process-group"
+      },
+      "competitor": {
+        "servers": {
+          "serena": {
+            "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+            "args": [
+              "start-mcp-server",
+              "--project",
+              "{workspace}",
+              "--agent-interface",
+              "REPL",
+              "--transport",
+              "stdio",
+              "--enable-web-dashboard",
+              "false",
+              "--enable-gui-log-window",
+              "false",
+              "--open-web-dashboard",
+              "false",
+              "--log-level",
+              "INFO"
+            ],
+            "cwd": "{workspace}",
+            "env": {
+              "PATH": "$USER_HOME/.hermes/node/bin:$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+              "TMPDIR": "$TEMP/",
+              "LANG": "C.UTF-8",
+              "LC_ALL": "C.UTF-8",
+              "SERENA_HOME": "{state}/serena-home",
+              "XDG_CACHE_HOME": "{state}/xdg-cache",
+              "XDG_CONFIG_HOME": "{state}/xdg-config",
+              "PYTHONNOUSERSITE": "1",
+              "PYTHONUNBUFFERED": "1",
+              "npm_config_cache": "{state}/npm-cache",
+              "npm_config_offline": "true",
+              "PYTHONDONTWRITEBYTECODE": "1"
+            },
+            "startup_timeout_sec": 600,
+            "tool_timeout_sec": 180,
+            "tools": [
+              "activate_project",
+              "initial_instructions",
+              "serena_repl"
+            ]
+          }
+        },
+        "setupCommands": [],
+        "cleanupMode": "lifecycle",
+        "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "allowedStateLinks": [],
+        "frozenInputs": [
+          {
+            "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/node_modules",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+            "kind": "tree"
+          },
+          {
+            "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+            "kind": "tree"
+          },
+          {
+            "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+            "kind": "file"
+          },
+          {
+            "kind": "tree",
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+          },
+          {
+            "kind": "tree",
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+          },
+          {
+            "kind": "tree",
+            "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+          },
+          {
+            "kind": "tree",
+            "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+          },
+          {
+            "kind": "file",
+            "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+          },
+          {
+            "kind": "file",
+            "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+          },
+          {
+            "kind": "file",
+            "path": "$USER_HOME/.hermes/node/bin/node"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+            "kind": "file"
+          }
+        ]
+      },
+      "codegraph": {
+        "servers": {
+          "codegraph": {
+            "command": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph",
+            "args": [
+              "serve",
+              "--mcp",
+              "--path",
+              "{workspace}"
+            ],
+            "cwd": "{workspace}",
+            "env": {
+              "PATH": "$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+              "TMPDIR": "$TEMP/",
+              "LANG": "C.UTF-8",
+              "LC_ALL": "C.UTF-8",
+              "HOME": "{state}/codegraph/home",
+              "XDG_CONFIG_HOME": "{state}/codegraph/config",
+              "XDG_CACHE_HOME": "{state}/codegraph/cache",
+              "XDG_DATA_HOME": "{state}/codegraph/data",
+              "CODEX_HOME": "{state}/codegraph/codex",
+              "CLAUDE_CONFIG_DIR": "{state}/codegraph/claude",
+              "CODEGRAPH_TELEMETRY": "0",
+              "DO_NOT_TRACK": "1",
+              "CODEGRAPH_NO_UPDATE_CHECK": "1",
+              "CODEGRAPH_NO_INSTALL_REFRESH": "1",
+              "CODEGRAPH_NO_DOWNLOAD": "1",
+              "CODEGRAPH_MCP_TOOLS": "explore,node,search,callers,callees,impact,files,status"
+            },
+            "startup_timeout_sec": 600,
+            "tool_timeout_sec": 180,
+            "tools": [
+              "codegraph_explore",
+              "codegraph_node",
+              "codegraph_search",
+              "codegraph_callers",
+              "codegraph_callees",
+              "codegraph_impact",
+              "codegraph_files",
+              "codegraph_status"
+            ]
+          }
+        },
+        "setupCommands": [],
+        "allowedStateLinks": [
+          ".codegraph"
+        ],
+        "cleanupMode": "lifecycle",
+        "lifecycleModule": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.mjs",
+        "frozenInputs": [
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/sources",
+            "kind": "tree"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.test.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/prepare.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/qualify.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/write-spec.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/write-provider004.mjs",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime-files.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime-verification.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/preparation.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/cleanup-red.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/cleanup-green.json",
+            "kind": "file"
+          },
+          {
+            "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+            "kind": "file"
+          }
+        ]
+      }
+    },
+    "researchRoles": {
+      "native": "native control",
+      "impact": "frozen experimental candidate",
+      "competitor": "Serena control",
+      "codegraph": "additional CodeGraph control"
+    },
+    "codegraphIntegration": {
+      "baseSpecSha256": "162c0fd03702a3230fb24a5782078e3098abed53a7b8be3f22494a5353e90b0a",
+      "armSha256": "99f32297a4f04daa3e52d7778503e7c0f5b0e4927910caf4f6a7945a20cad828",
+      "policy": "Original native, impact and Serena arm values are unchanged. The common gate treats CodeGraph as a listed candidate for compatibility; the separate frozen impact versus CodeGraph evaluator determines the added control comparison."
+    },
+    "status": "selected-and-ready",
+    "phase": "confirmation",
+    "repeats": 2,
+    "timeoutMs": 900000,
+    "tasks": [
+      {
+        "id": "vue-type-impact-heldout-grading-v2",
+        "category": "impact",
+        "split": "heldout",
+        "mode": "analysis",
+        "description": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+        "scope": {
+          "productionPackages": 6
+        },
+        "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+        "evaluationNotes": [
+          "Analysis only. The sole allowed new file is impact-answer.json.",
+          "Native configuration, source aliases and exact dependencies are identical for every condition.",
+          "Type references and public barrel exposure are distinct from runtime effects.",
+          "Setup costs are retained separately; no external application impact is asserted.",
+          "Held-out expected facts remain private until the generic provider is frozen.",
+          "V2 grading is prospective. Original trial grades and source fixtures are unchanged.",
+          "Only constrained uncertainty states are accepted; unsupported certainty cannot be added as unchecked answer prose."
+        ],
+        "answerFile": "impact-answer.json"
+      },
+      {
+        "id": "vue-runtime-impact-heldout-grading-v2",
+        "category": "impact",
+        "split": "heldout",
+        "mode": "analysis",
+        "description": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+        "scope": {
+          "productionPackages": 8
+        },
+        "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+        "evaluationNotes": [
+          "Analysis only. The sole allowed new file is impact-answer.json.",
+          "Original source aliases, package identities and dependency graph are identical for every condition.",
+          "Compiler generated names are reported as an explicit static-analysis boundary, not an unaffected package claim.",
+          "The unchanged frozen development grader is reused; no model outcome has informed this case or its truth.",
+          "Held-out expected facts remain private until the generic provider is frozen.",
+          "V2 grading is prospective. Original trial grades and source fixtures are unchanged.",
+          "Only constrained uncertainty states are accepted; unsupported certainty cannot be added as unchecked answer prose."
+        ],
+        "answerFile": "impact-answer.json"
+      }
+    ],
+    "fixtures": {
+      "vue-type-impact-heldout-grading-v2": {
+        "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/vue-source",
+        "initialManifest": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/initial-manifest.json",
+        "qualification": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/qualification.json",
+        "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/tracking-manifest.json",
+        "graderModule": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/grader.mjs"
+      },
+      "vue-runtime-impact-heldout-grading-v2": {
+        "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace",
+        "initialManifest": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/initial-manifest.json",
+        "qualification": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/qualification.json",
+        "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/tracking-manifest.json",
+        "graderModule": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/grader.mjs"
+      }
+    },
+    "sharedFrozenInputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact-confirmation-selection-001.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grade-answer.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/answer-schema.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/script-evidence.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/prepare.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grader.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/integrity.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/private-checks.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/grader.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/truth.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/gold-answer.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/answer-schema.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/grader.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/truth.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/gold-answer.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/answer-schema.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/truth.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/gold-answer.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/answer-schema.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/initial-manifest.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/tracking-manifest.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/descriptor.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/truth.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/gold-answer.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/answer-schema.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/initial-manifest.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/tracking-manifest.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-heldout-grading-v2.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/freeze-heldout.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/freeze-runtime-impact-v1.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-truth.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-runtime-impact-v1.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-oracle.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-gold.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-integrity-v1.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-integrity-v1.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/answer-schema.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grade-answer.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/compiler-oracle.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-workspaces.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-dependent-filter.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-install.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-native-check.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-ref-tests.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/copy.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/dependent-filter.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-check.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-references.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-tests.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/truth-v1.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/gold-v1.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspaces.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/clarify-heldout-prompts-v3.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prompt-amendment-v3.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/prompt.txt",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/qualification.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/confirmation-freeze-inputs.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/grader.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/grader.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/confirmation-freeze-inputs-v3.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/docs/research/cross-package/confirmation-candidate.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge-policy.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/aggregate-provider004.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/export-study-v2.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-spec-002.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-002/report.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-002/run.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/README.md",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/readiness.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-study.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/freeze-study.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+        "kind": "file"
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+        "kind": "file"
+      }
+    ],
+    "supplementalOutputs": {
+      "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+      "fileName": "tool-outputs.json"
+    },
+    "toolUseQualification": {
+      "receipt": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-004/report.json",
+      "sourceSpec": "$REPOSITORY/artifacts/research/cross-package/provider-spec-004.json"
+    }
+  },
+  "specSha256": "0e21f8541fa67d6da5c620b8dd4e046c2462172c49e49dc6a8a7aab8486eec5a",
+  "inputs": [
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.mjs",
+      "kind": "file",
+      "sha256": "e2718aea7ce893d02b7407e7d908519cb152a0d2319fceceb7a1a82a6381bce7",
+      "bytes": 31793,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.mjs",
+      "kind": "file",
+      "sha256": "4a5516b7742afafe5ab14f15607ec2e86710625157f7e0af288824a2824e3142",
+      "bytes": 9842,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.mjs",
+      "kind": "file",
+      "sha256": "c2b48a629796ca45bf0a4a17c5332d8864d55413728c7d78912ecf9e7e30fe0a",
+      "bytes": 6284,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
+      "kind": "file",
+      "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+      "bytes": 6079,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/fixture-git.mjs",
+      "kind": "file",
+      "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+      "bytes": 2867,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+      "kind": "file",
+      "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+      "bytes": 9847,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+      "kind": "file",
+      "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+      "bytes": 6178,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+      "kind": "file",
+      "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+      "bytes": 17713,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+      "kind": "file",
+      "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+      "bytes": 30979,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+      "kind": "file",
+      "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+      "bytes": 11019,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+      "kind": "file",
+      "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+      "bytes": 4693,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+      "kind": "file",
+      "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+      "bytes": 7159,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+      "kind": "file",
+      "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+      "bytes": 9837,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-confirmation-spec-001.json",
+      "kind": "file",
+      "sha256": "0e21f8541fa67d6da5c620b8dd4e046c2462172c49e49dc6a8a7aab8486eec5a",
+      "bytes": 51032,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+      "kind": "file",
+      "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+      "bytes": 381,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+      "kind": "file",
+      "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+      "bytes": 523240,
+      "entries": null
+    },
+    {
+      "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "kind": "file",
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+      "bytes": 268972064,
+      "entries": null
+    },
+    {
+      "kind": "file",
+      "path": "$USER_HOME/.hermes/node/bin/node",
+      "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+      "bytes": 112928848,
+      "entries": null
+    },
+    {
+      "path": "/usr/bin/git",
+      "kind": "file",
+      "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+      "bytes": 200560,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+      "kind": "file",
+      "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "bytes": 194704,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-source",
+      "kind": "tree",
+      "sha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "bytes": null,
+      "entries": 24132
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/initial-manifest.json",
+      "kind": "file",
+      "sha256": "5ac1b9f8618c66f630ffdd247e1f219049c73a86d3a316d03eccd929bd39b7c3",
+      "bytes": 6446754,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/qualification.json",
+      "kind": "file",
+      "sha256": "d231f2bfa81840c9b4a396c06f806baa72bd734efbc1e7d378066f97e9898faf",
+      "bytes": 2560,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/grader.mjs",
+      "kind": "file",
+      "sha256": "56b7a7e23f0bc3fa2dfaac598af1a33d6b4aca61bf6dc462fc17f7d0fa4b9108",
+      "bytes": 302,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/tracking-manifest.json",
+      "kind": "file",
+      "sha256": "7b8aa9ecdcafb466f65a1139f25adb9c910b0673c3b7780e8a7676f87b61e4a1",
+      "bytes": 155073,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace",
+      "kind": "tree",
+      "sha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "bytes": null,
+      "entries": 24132
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/initial-manifest.json",
+      "kind": "file",
+      "sha256": "bcd531b76f04d7e264ff706bf3b6c8d697ae0b67f686dafcc27d8bfe49dc68ee",
+      "bytes": 6446783,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/qualification.json",
+      "kind": "file",
+      "sha256": "b9b4dffdf20b14da0fcc88ef49d1e1e9a9f95089a97679b2b2053c8915d59e55",
+      "bytes": 2579,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/grader.mjs",
+      "kind": "file",
+      "sha256": "56b7a7e23f0bc3fa2dfaac598af1a33d6b4aca61bf6dc462fc17f7d0fa4b9108",
+      "bytes": 302,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/tracking-manifest.json",
+      "kind": "file",
+      "sha256": "13223d550094619a96d7db3c71d643df3d2684c786e3dbc7430e2f00ccd9bb08",
+      "bytes": 155102,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+      "kind": "tree",
+      "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+      "bytes": null,
+      "entries": 5497
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.mjs",
+      "kind": "file",
+      "sha256": "11a0bcd515bda9825f6b67a2382b4c9b594c2fa858dc6a92ce2624ea3d3176fe",
+      "bytes": 24483,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.mjs",
+      "kind": "file",
+      "sha256": "90b2aec255826f0d1796a1a6f2c159c2154b3a6b8be952d7f1347ad6459bcefc",
+      "bytes": 2604,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/service.mjs",
+      "kind": "file",
+      "sha256": "2d923531423a12912a7f7247e439cefdf07d5631b2457a1922827a33066a5608",
+      "bytes": 828,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs",
+      "kind": "file",
+      "sha256": "54e025e1399af277e416b398fe46e4b0a89e00a8d27fa6911f63160454342add",
+      "bytes": 1439,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/cli.mjs",
+      "kind": "file",
+      "sha256": "8e5c7c7751e99dc78b9dc61d7c9404c1b5d7b88681f6f9fc6ec42db71ef99c4c",
+      "bytes": 407,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.test.mjs",
+      "kind": "file",
+      "sha256": "cf3ca7f428dafd3861b9477dcd60371672de627a85dd9acb3715003db6c968c6",
+      "bytes": 4277,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.test.mjs",
+      "kind": "file",
+      "sha256": "1019ff8dca61e8e51dc6601e2dda79faa5528f9ce9cce4d76b2bd30bf9be32ba",
+      "bytes": 2206,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/review.test.mjs",
+      "kind": "file",
+      "sha256": "e01fbb54bc99ef99d32ca1f9b664d4a7a781cb41090018cf8fb302a2891167ee",
+      "bytes": 12213,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/node_modules",
+      "kind": "tree",
+      "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+      "bytes": null,
+      "entries": 10457
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/transport.test.mjs",
+      "kind": "file",
+      "sha256": "b8275d8fecdc2b68fd776722a001e62cb41a12077a22fe4a2fc9a47014a761d8",
+      "bytes": 3343,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+      "kind": "file",
+      "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+      "bytes": 2681,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+      "kind": "file",
+      "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+      "bytes": 1916578,
+      "entries": null
+    },
+    {
+      "kind": "tree",
+      "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+      "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+      "bytes": null,
+      "entries": 4754
+    },
+    {
+      "kind": "tree",
+      "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+      "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+      "bytes": null,
+      "entries": 1702
+    },
+    {
+      "kind": "tree",
+      "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+      "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+      "bytes": null,
+      "entries": 149
+    },
+    {
+      "kind": "tree",
+      "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+      "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+      "bytes": null,
+      "entries": 3050
+    },
+    {
+      "kind": "file",
+      "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+      "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+      "bytes": 34640,
+      "entries": null
+    },
+    {
+      "kind": "file",
+      "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+      "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+      "bytes": 5985120,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+      "kind": "file",
+      "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+      "bytes": 4601,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+      "kind": "file",
+      "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+      "bytes": 2346,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+      "kind": "file",
+      "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+      "bytes": 3926,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+      "kind": "file",
+      "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+      "bytes": 311,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime",
+      "kind": "tree",
+      "sha256": "402c9cbc57961fea549d74f88bf114476e72452e8aee56d6f07a6f2dee5b1600",
+      "bytes": null,
+      "entries": 1675
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/sources",
+      "kind": "tree",
+      "sha256": "47435605781c6c88f178a599d2a39e9efbff32903a3216cad65ef28dc153e360",
+      "bytes": null,
+      "entries": 5
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.mjs",
+      "kind": "file",
+      "sha256": "f9ba442405de59654fac5efc21f16011e68ddc6afac79a9696f79794e243e79e",
+      "bytes": 8663,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.test.mjs",
+      "kind": "file",
+      "sha256": "6a1143094f977497801f649136054607f901f156ce23dda89bc582f4a13fc4d0",
+      "bytes": 1164,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/prepare.mjs",
+      "kind": "file",
+      "sha256": "5c623c0564b6cea89d875da203293afe4a0d9851f511650ff4e6812249fb1c75",
+      "bytes": 3480,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/qualify.mjs",
+      "kind": "file",
+      "sha256": "f4b1beee897f8a0d2ae95a5302d0fdfe9486da356b22b1aa41746620a0d3f5d3",
+      "bytes": 10055,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/write-spec.mjs",
+      "kind": "file",
+      "sha256": "44bab0732468296629d820ce78b2f683e4508724b669effaab2d65b640485d7a",
+      "bytes": 1756,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/write-provider004.mjs",
+      "kind": "file",
+      "sha256": "587b4265d7d2eb88c5fbadb8b36a007eac8c1c2fa3bae5bd2a5a706570edf5d0",
+      "bytes": 1491,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime-files.json",
+      "kind": "file",
+      "sha256": "b794118f83ba65d9fce546ec1448559462834622c33f60ea735966959dcd9dba",
+      "bytes": 336875,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime-verification.json",
+      "kind": "file",
+      "sha256": "35384135e3d038aa8582140f150a8dc7eadb3feff8c94860f0648e407b8613d4",
+      "bytes": 377,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/preparation.json",
+      "kind": "file",
+      "sha256": "678d1d8695e28de814cb6f291fa0b1f83294605061e2547912c45f7bbef5ca43",
+      "bytes": 3183,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/cleanup-red.json",
+      "kind": "file",
+      "sha256": "45b2dbf4625945079c514e0c2bf874626a8321845041c65274d46f555411a576",
+      "bytes": 2439,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/cleanup-green.json",
+      "kind": "file",
+      "sha256": "48724136ea04eb299c3d2778008715cebc45e702a2964746b44c69bc64b48315",
+      "bytes": 621,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+      "kind": "file",
+      "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+      "bytes": 51952,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph",
+      "kind": "file",
+      "sha256": "3184bbf582b5db7cffd07373017631fdc4392842860c2e3991be3f23b6fb3559",
+      "bytes": 1004,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-confirmation-selection-001.json",
+      "kind": "file",
+      "sha256": "92826d6965ce1616b51f6dc5e0ab9ae20900c3e0f05e4c141f332d9c5b7d37a8",
+      "bytes": 13881,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/descriptor.json",
+      "kind": "file",
+      "sha256": "36c2109816e3ae4b3e2a7e8540ba9f422f0b58d9e362550a25f4ff42ea290f9c",
+      "bytes": 7457,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/descriptor.json",
+      "kind": "file",
+      "sha256": "878a1ffc77909a656515487cc30e430f762e67faf20101107305a0d2d0caecd8",
+      "bytes": 7802,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grade-answer.mjs",
+      "kind": "file",
+      "sha256": "ce4bdf24dedc353aa1fc018882c5fde0c272bcecd7d1f80b9103d8f36abc2093",
+      "bytes": 8204,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/answer-schema.mjs",
+      "kind": "file",
+      "sha256": "74b645483936885f796ee1062f6f11508b6af156ece5f9d3b65f6523680b4a01",
+      "bytes": 4188,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.mjs",
+      "kind": "file",
+      "sha256": "65df16940354aae319d572a9a148fdc73849d4358f976c344ed41f0cf06684f4",
+      "bytes": 13692,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/script-evidence.mjs",
+      "kind": "file",
+      "sha256": "593de09e6520c328b2e43a4abe3e91c60ef0c9ac2148f48f4fdfffac296f04f1",
+      "bytes": 1284,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/prepare.mjs",
+      "kind": "file",
+      "sha256": "183dcef28ea68349b73b766cfab6dccef057bf4469a9ddf0e4f25bf61be39b79",
+      "bytes": 6463,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grader.test.mjs",
+      "kind": "file",
+      "sha256": "5d152fadaa28c8858d07c11895362d1220af882d57e794fe927786399a7d9ca8",
+      "bytes": 8297,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.test.mjs",
+      "kind": "file",
+      "sha256": "09d242a7047ac7c33328bba4e99f8e6042ce708f785bb9b7f1ad32ed7c252028",
+      "bytes": 2866,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/integrity.test.mjs",
+      "kind": "file",
+      "sha256": "b3c143962eda33a4e22467e7b79c2300134bdd665f54f97cf440295eec388ba6",
+      "bytes": 2028,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/private-checks.json",
+      "kind": "file",
+      "sha256": "68b9793dcb6ee6a8abab506cab808a215cbd2a3e02996e77172224f979eb7ece",
+      "bytes": 1087,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/descriptor.json",
+      "kind": "file",
+      "sha256": "86a0ccd319ef0ff0f1b82b7a8a8f2be00092659a0a8b19a2ae2add3d99c00fad",
+      "bytes": 7343,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/truth.json",
+      "kind": "file",
+      "sha256": "b23f0c8735de315f351cb7082eb16be1d8fb56fa9acdac7320bfbc0f32c2729e",
+      "bytes": 6297586,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/gold-answer.json",
+      "kind": "file",
+      "sha256": "3bb71ad752d5ca1879ad969fbe03c2b2af292c76dbbe774a754241c134ae9a9c",
+      "bytes": 5580,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/answer-schema.json",
+      "kind": "file",
+      "sha256": "3cf88cad1ff3728b7b8631cf205129d0224ae2e5ea427522293e82a7c221679a",
+      "bytes": 1895,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/qualification.json",
+      "kind": "file",
+      "sha256": "309eb8160c40206252b0b2cf26b59997abfd16f93b7d3cd1b87cd205ee69bd3c",
+      "bytes": 2277,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/prompt.txt",
+      "kind": "file",
+      "sha256": "6fd4889b8b98adfc90cb275f92308bb236e5602b9dbbb64f35b15574f788a622",
+      "bytes": 5080,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/descriptor.json",
+      "kind": "file",
+      "sha256": "f0e93ca6c4784ea863527b81ca728e7a02ba7401e883ac6370b9be71d09b7256",
+      "bytes": 7629,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/truth.json",
+      "kind": "file",
+      "sha256": "6a68514183726a061ed54ef74250485042d57b164b45572ba9e73d2f3a4806d9",
+      "bytes": 6300370,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/gold-answer.json",
+      "kind": "file",
+      "sha256": "65fb1a2f4e1c1490f6f8a7216378bdab1deaf2a79bc874b1ef1cf4eedc769a0b",
+      "bytes": 7214,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/answer-schema.json",
+      "kind": "file",
+      "sha256": "3cf88cad1ff3728b7b8631cf205129d0224ae2e5ea427522293e82a7c221679a",
+      "bytes": 1895,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/qualification.json",
+      "kind": "file",
+      "sha256": "fb0b60256973ed1ba56a2577f95d8f92b612ab3d8385f94338061dd72de5f67c",
+      "bytes": 2299,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/prompt.txt",
+      "kind": "file",
+      "sha256": "3976ca20315a70990ade368987dad3df8355a5072035b8cb860b4dc99a420c16",
+      "bytes": 5214,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/descriptor.json",
+      "kind": "file",
+      "sha256": "fa0b8f27ad0fa788623b18b78fe78512f7f8c1d840459ca371aa32c12858c194",
+      "bytes": 5404,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/truth.json",
+      "kind": "file",
+      "sha256": "174e4e07cf19621698430aa0a2a44e733fcedab6a584e35041edd97a4c2cdced",
+      "bytes": 20413,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/gold-answer.json",
+      "kind": "file",
+      "sha256": "4fec2ef0562a5bf38092537c5f58caba515bf734dccc14f7ef905eb1bda3dd8d",
+      "bytes": 5867,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/answer-schema.json",
+      "kind": "file",
+      "sha256": "73523fb2f6e83e73e372f8a353113ba9c93226308a4d049e28017711b65b5728",
+      "bytes": 1573,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/qualification.json",
+      "kind": "file",
+      "sha256": "c51c7f37263804e167054cd16785ccc73e9db6b29cc1ff7b5e3b1d0ca9ba270c",
+      "bytes": 1534,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/prompt.txt",
+      "kind": "file",
+      "sha256": "d9e9224b216a92c6e3b652a14340b631b686dfd35e14d719fb23ebc2900dd243",
+      "bytes": 3798,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/descriptor.json",
+      "kind": "file",
+      "sha256": "b15f45f5af96f5e0b52c9f5a78f1cde04ac33f2adfb427fb7133dc68b4d7a485",
+      "bytes": 5677,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/truth.json",
+      "kind": "file",
+      "sha256": "da06a31ee1ab4fafaa8da35ac65298442769fd3e348d731b4f1fc54b39fb3a23",
+      "bytes": 25481,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/gold-answer.json",
+      "kind": "file",
+      "sha256": "33f594ccedefb1dd4d3f48af8dfc48b5075f13e1fb938d2efcd03b7c4808ff5d",
+      "bytes": 7675,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/answer-schema.json",
+      "kind": "file",
+      "sha256": "73523fb2f6e83e73e372f8a353113ba9c93226308a4d049e28017711b65b5728",
+      "bytes": 1573,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/qualification.json",
+      "kind": "file",
+      "sha256": "e4d7ecd9c10e6618dd994f4d479f434240d561c82955fda7cee275b5e81204b4",
+      "bytes": 1983,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/prompt.txt",
+      "kind": "file",
+      "sha256": "7ee5fa0ac20efb4e4693d24bf5a8cec073ea1a53899268b8ee52bbc7914ef4a3",
+      "bytes": 3932,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-heldout-grading-v2.mjs",
+      "kind": "file",
+      "sha256": "06f253eb60322bab9f855856ba216f3e0e921ad31a6554fe1f7565214eea64ac",
+      "bytes": 696,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2.test.mjs",
+      "kind": "file",
+      "sha256": "86f6132b23c66463e846d371a5c6b929038d00950ba5175b53c2e4bb5a9fdc5b",
+      "bytes": 2012,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/freeze-heldout.mjs",
+      "kind": "file",
+      "sha256": "bc610a4e33f081fb7f795b4b359570f5f8474fabc0e902edefd37dcbc84d5d38",
+      "bytes": 6041,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/freeze-runtime-impact-v1.mjs",
+      "kind": "file",
+      "sha256": "58eb86d96195e73be3b435cbc88cadd503789386bcc87cf56f26b7052c72e7a6",
+      "bytes": 7021,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-truth.mjs",
+      "kind": "file",
+      "sha256": "ee510fc65199bee749c0eec71de74e6800c90c26499a321da6930f01d7404e42",
+      "bytes": 5041,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prepare-runtime-impact-v1.mjs",
+      "kind": "file",
+      "sha256": "b165ee145bc6b9f4a232690251688a75a0213ca860d045ddf3f8540a73dc1b67",
+      "bytes": 5479,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-oracle.json",
+      "kind": "file",
+      "sha256": "174e4e07cf19621698430aa0a2a44e733fcedab6a584e35041edd97a4c2cdced",
+      "bytes": 20413,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-gold.json",
+      "kind": "file",
+      "sha256": "4fec2ef0562a5bf38092537c5f58caba515bf734dccc14f7ef905eb1bda3dd8d",
+      "bytes": 5867,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-integrity-v1.json",
+      "kind": "file",
+      "sha256": "2ee78448020e1bfdf1e2faa9330210cde4ccb21718bb96acdbba3f3b23fedfd4",
+      "bytes": 1495,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-integrity-v1.test.mjs",
+      "kind": "file",
+      "sha256": "98d7eed82cbb2d858d50a602be1e3573f98257b6f24948a74a1152651b899ffa",
+      "bytes": 2748,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/answer-schema.mjs",
+      "kind": "file",
+      "sha256": "9cc27c978d75e8cf1a4e75faa3d2a9887a1afdc01ea8863ac623fb926682eb7b",
+      "bytes": 2610,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grade-answer.mjs",
+      "kind": "file",
+      "sha256": "4a70157eca4988f9732bebc17f69fad5be120ded5a5d1e57fde9cc61f8fa06f5",
+      "bytes": 6305,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/compiler-oracle.mjs",
+      "kind": "file",
+      "sha256": "e1a87ee2a7c50f18313eb3bfd5fef74279392a4087ce567f934b695c7cee6de2",
+      "bytes": 10248,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-workspaces.json",
+      "kind": "file",
+      "sha256": "06a4b54f5c691fef360fc1b10de79b78e876676931d882519b573838125f4481",
+      "bytes": 4966,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-dependent-filter.json",
+      "kind": "file",
+      "sha256": "ed6b7d695c4bbb77c555d15c2ee7227f65c36fbe2573993cdac10e2e5f1e0a50",
+      "bytes": 3283,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-install.json",
+      "kind": "file",
+      "sha256": "7ac76b57478564d0a0d931b0435730e8426b7705fb35e736f4bfd0a90049ff73",
+      "bytes": 2579,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-native-check.json",
+      "kind": "file",
+      "sha256": "941edf848d766e0f7e5715d04f6b3d34ba79065f1a27448dc9e7db4cc768639d",
+      "bytes": 620,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/vue-ref-tests.json",
+      "kind": "file",
+      "sha256": "082ad93579d215719e6366f4b524b62bbc0e60e3f5aff6615ac75c61e853e4fc",
+      "bytes": 1165,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/copy.json",
+      "kind": "file",
+      "sha256": "18d5c069866f980de99c4041b319ba1dcbff855a003ddbc395cf416af33a0784",
+      "bytes": 384,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/dependent-filter.json",
+      "kind": "file",
+      "sha256": "526cb80d12617475e910df69a79a19fb42688c8cf01c08b3416b88bc6f0d4f41",
+      "bytes": 5032,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-check.json",
+      "kind": "file",
+      "sha256": "0369e3d7bde485f975851ce0d0c4d6e02aaac81cba1eabc7ee037c38db2b6942",
+      "bytes": 672,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-references.json",
+      "kind": "file",
+      "sha256": "791f87f65a4bf0af4fc71cbe3eb8d88a8f2b6623d26a73e01d026b584b611137",
+      "bytes": 10749,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/native-tests.json",
+      "kind": "file",
+      "sha256": "d760523966844d8d23086aed53d49d478764d2a95e650e25832d68350b0333ee",
+      "bytes": 1535,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/truth-v1.json",
+      "kind": "file",
+      "sha256": "da06a31ee1ab4fafaa8da35ac65298442769fd3e348d731b4f1fc54b39fb3a23",
+      "bytes": 25481,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/gold-v1.json",
+      "kind": "file",
+      "sha256": "33f594ccedefb1dd4d3f48af8dfc48b5075f13e1fb938d2efcd03b7c4808ff5d",
+      "bytes": 7675,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspaces.json",
+      "kind": "file",
+      "sha256": "c3d5c66ba44d8df8ee91721ef56074a4deecf0f9ca04edc4243c602cb43a2bdb",
+      "bytes": 5517,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/clarify-heldout-prompts-v3.mjs",
+      "kind": "file",
+      "sha256": "d3c83e158ed6f955da91701e5d1926b0d548bbd157276a6d5225e843834f7923",
+      "bytes": 5179,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/prompt-amendment-v3.json",
+      "kind": "file",
+      "sha256": "7e33859e368f0d8a6de9c0b615862697fb2ed182a5ba56305f638d0e3bdc52b4",
+      "bytes": 3795,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/prompt.txt",
+      "kind": "file",
+      "sha256": "5793135c90d77db082980c55fcdf06b143e2667abce2722f244a39182334dd0b",
+      "bytes": 5162,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/prompt.txt",
+      "kind": "file",
+      "sha256": "c7088eb314aa5eaea55aa0caeb5dccafe66c162aa021ca9da11ec26becc2119e",
+      "bytes": 5358,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/confirmation-freeze-inputs.json",
+      "kind": "file",
+      "sha256": "7d6fa9f0c7281cf11a347b092c2078fa4c2617cd544c811d9c162d0ac0c0397c",
+      "bytes": 13080,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout/grader.mjs",
+      "kind": "file",
+      "sha256": "c23c9495ba4509ec03af47be9c13acbe7419fd4ec1e0140f2cf3396d31762573",
+      "bytes": 291,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-v1/grader.mjs",
+      "kind": "file",
+      "sha256": "c23c9495ba4509ec03af47be9c13acbe7419fd4ec1e0140f2cf3396d31762573",
+      "bytes": 291,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/private/confirmation-freeze-inputs-v3.json",
+      "kind": "file",
+      "sha256": "94d9795c818a6349f0024180929176328203ee50cdf180a3cb74972fc90ebc75",
+      "bytes": 15219,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/docs/research/cross-package/confirmation-candidate.json",
+      "kind": "file",
+      "sha256": "a57063b1bd55d6e59ba74fa72dfa25002ab59f633666010e89789a22e4a787c3",
+      "bytes": 4937,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge.mjs",
+      "kind": "file",
+      "sha256": "3b0958c7127daa2ed9cc73d5377b866f1a8e20374baf7bb0824945d351f6b501",
+      "bytes": 4604,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge.test.mjs",
+      "kind": "file",
+      "sha256": "0b37202814d43acb5a058ea50dca20d72cf77ee576f8f8509620db8cb645ea6e",
+      "bytes": 6046,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/codegraph-challenge-policy.json",
+      "kind": "file",
+      "sha256": "7f0c6e2419b494a79f42d9b88835a69173c8b23c31b18d59a86e9a0d84534a67",
+      "bytes": 806,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/aggregate-provider004.mjs",
+      "kind": "file",
+      "sha256": "af2766b97efdaf85bc27c51aab64d75eb7a80b5a560aea05587eb7cdc14bb078",
+      "bytes": 2650,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/export-study-v2.mjs",
+      "kind": "file",
+      "sha256": "ad1d6645e8da444a7ccac0676fe55f455a59832fdb98f7934a71f575b8195e9b",
+      "bytes": 3712,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/provider-spec-002.json",
+      "kind": "file",
+      "sha256": "162c0fd03702a3230fb24a5782078e3098abed53a7b8be3f22494a5353e90b0a",
+      "bytes": 10397,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-002/report.json",
+      "kind": "file",
+      "sha256": "75218560bc082b4bb71b9c710ab9ac70bcc54e284d1bfcf0c7c61a692fd697a1",
+      "bytes": 10196,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-002/run.mjs",
+      "kind": "file",
+      "sha256": "4abf2b1b1e335a947fbd9003c76ac09d45d74cf063e68b7c2bd7462b9399da39",
+      "bytes": 7246,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/README.md",
+      "kind": "file",
+      "sha256": "1d501ebf0f76709aa902d9f9a5919d9946fabee77dbabec40a540b8c76d41222",
+      "bytes": 4310,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/readiness.json",
+      "kind": "file",
+      "sha256": "eaf4b5b3d609ba06d5f0e792c993d9b43e5fb5d7808fc1468989973000d9e3d8",
+      "bytes": 864,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-study.mjs",
+      "kind": "file",
+      "sha256": "a378efced10beb8bb7d799447bb1de5abdf58a376a067c1523316d74a5cd79f8",
+      "bytes": 2891,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/freeze-study.mjs",
+      "kind": "file",
+      "sha256": "331e2329db624f85c11c6402291a7c8dd37fedd9674c13762542fa70b288b700",
+      "bytes": 1248,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+      "kind": "file",
+      "sha256": "a413de45d879de95ca84c7f7526a65cc77c42e3a74a6dd1e67bd6abd5b5c3347",
+      "bytes": 1772,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+      "kind": "file",
+      "sha256": "3fae1afda04506cc1656cbea525149d6700716e13faaebbd657f56dd64e8a8d4",
+      "bytes": 5014,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+      "kind": "file",
+      "sha256": "92cdaeba4da5f52a3491c58d763b276b1c199258027588f9be4e2ee4c36608a4",
+      "bytes": 4646,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+      "kind": "file",
+      "sha256": "926b67d26bca5d4d30cbd7f3f0cd59b9da936ed3763389c63b9a0e8f08bae4bb",
+      "bytes": 4564,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "kind": "file",
+      "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+      "bytes": 6699,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-004/report.json",
+      "kind": "file",
+      "sha256": "e9ae52e5ab460e054b30f6be5a0f73173b0077e022c956eafb489dfeae889cf6",
+      "bytes": 24262,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/provider-spec-004.json",
+      "kind": "file",
+      "sha256": "309ea9bc424589354ce04c12a80a2df97f331585a19fa007fa28d869c044f680",
+      "bytes": 17420,
+      "entries": null
+    }
+  ],
+  "typelatchArchiveBinding": {
+    "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+    "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+    "packageFileCount": 138,
+    "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+    "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+    "name": "typelatch",
+    "version": "0.4.0"
+  },
+  "replaySelection": {
+    "task": "vue-type-impact-heldout-grading-v2",
+    "repeat": 1,
+    "arms": [
+      "native",
+      "impact"
+    ],
+    "rule": "First task and repeat, fixed before outcomes. Retain failure and disclose accelerated replay."
+  },
+  "treatment": "Same task and workflow policy with equal-format explicit provider inventory. First relevant investigation uses the declared provider where available; native uses ordinary tools. Compiler, language-service and package-manager tools remain available in every arm. Further tool choices are free. Edit tasks validate before and after; analysis tasks write the same structured report and preserve source.",
+  "timing": "Sequential fresh sessions. Charge all provider preparation and agent wall time, including initialization, indexing, tool failures, fallback and validation. Common corpus copy/install/build preparation, independent grading and teardown are reported separately. Fresh provider state per run; OS file caches may be warm.",
+  "fixtureCopy": "APFS copy-on-write clones with distinct inodes and isolated writes, not hardlinks. Exact file bytes, modes and symlink text are verified against the full frozen fixture inventory. Copy time is separately reported common preparation.",
+  "selection": "Task categories were fixed before outcomes. Development cases may inform a later frozen candidate; they cannot establish an edge. Confirmation cases are held from candidate tuning. Any category edge requires a second distinct held-out task and two repetitions, all reported separately from development and earlier studies.",
+  "failurePolicy": "Persist every preparation before work and every run before launch. No replacement or overwrite of failures. Resume only a completely recorded and cleaned prefix. Unknown usage or failed setup cannot pass.",
+  "evidencePolicy": "Export only completed tool actions, returned tool outputs, explicit task artifacts, source changes and independently graded results. Never export model reasoning or assistant message bodies. Supplemental outputs bind raw capture and public evidence hashes. Workflow and usable provider evidence require a separate hash-bound independent review.",
+  "limits": [
+    "Public upstream repairs may occur in model training data.",
+    "No immutable served model snapshot or sampling seed is available.",
+    "Cached input is included once within total input; tokens are not a billing estimate.",
+    "One frozen candidate per confirmation study; category hypotheses are exploratory multiple comparisons, not statistical confidence bounds.",
+    "Filesystem and no-network instructions are procedural; no additional OS isolation is claimed."
+  ]
+}

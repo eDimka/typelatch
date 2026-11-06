@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {hash} from '../../../../scripts/paired-agent-runner.mjs';
+import {serverSpec} from './lifecycle.mjs';
+const here=import.meta.dirname,proof=join(here,'qualification-001/report.json'),qualification=JSON.parse(readFileSync(proof));assert.equal(qualification.passed,true);
+const arm={servers:{codegraph:serverSpec()},setupCommands:[],allowedStateLinks:['.codegraph'],cleanupMode:'lifecycle',lifecycleModule:join(here,'lifecycle.mjs'),frozenInputs:[{path:join(here,'runtime'),kind:'tree'},{path:join(here,'sources'),kind:'tree'},...['lifecycle.mjs','lifecycle.test.mjs','prepare.mjs','qualify.mjs','write-spec.mjs','write-provider004.mjs','runtime-files.json','runtime-verification.json','preparation.json','cleanup-red.json','cleanup-green.json','qualification-001/report.json'].map(path=>({path:join(here,path),kind:'file'}))]};
+writeFileSync(join(here,'arm.json'),JSON.stringify(arm,null,2)+'\n');writeFileSync(join(here,'readiness.json'),JSON.stringify({schemaVersion:1,version:'1.6.2',sourceCommit:'6560052a6f856855d3f71eee838fd66ccfa4285d',arm:'codegraph',armSha256:hash(readFileSync(join(here,'arm.json'))),qualification:{path:proof,sha256:hash(readFileSync(proof))},runtimeManifestSha256:hash(readFileSync(join(here,'runtime-files.json'))),allEightToolsObserved:true,scratchMultiSymbolRetrieval:true,scratchSourceRefresh:true,actualCodexMcpTransport:true,allOwnedProcessesStopped:true,scope:'Independent qualification only. No task correctness, comparative cost or held-out advantage established.'},null,2)+'\n');console.log(JSON.stringify({arm:join(here,'arm.json'),sha256:hash(readFileSync(join(here,'arm.json')))}));

@@ -1,0 +1,15 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import {inventoryTree} from '../../../../scripts/paired-agent-integrity.mjs';
+const here=import.meta.dirname,out=join(here,'development-001'),workspace=join(out,'workspace');
+const listed=spawnSync('tar',['-tzf',join(here,'private/pnpm-catalogs/baseline.tar.gz')],{encoding:'utf8',maxBuffer:16e6});if(listed.status!==0)throw Error(listed.stderr);
+const paths=new Set(listed.stdout.split('\n').filter(p=>p&&!p.endsWith('/')).map(p=>p.split('/').slice(1).join('/')));
+const initial=inventoryTree(workspace);
+for(const row of initial.entries)if(row.path.startsWith('.typelatch-benchmark/')&&row.kind!=='directory')paths.add(row.path);
+const entries=initial.entries.filter(row=>paths.has(row.path));
+if(entries.length!==paths.size)throw Error(`Source inventory mismatch: ${entries.length}/${paths.size}`);
+const tracking={root:workspace,entries,sha256:createHash('sha256').update(JSON.stringify(entries)).digest('hex')};
+writeFileSync(join(out,'initial-manifest.json'),JSON.stringify(initial,null,2)+'\n');writeFileSync(join(out,'source-tracking-manifest.json'),JSON.stringify(tracking,null,2)+'\n');
+console.log(JSON.stringify({workspace,treeSha256:initial.sha256,sourcePaths:entries.length,runtimePaths:initial.entries.length}));

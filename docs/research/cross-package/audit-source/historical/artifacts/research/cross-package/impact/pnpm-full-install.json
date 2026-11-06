@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-11-06T21:28:16.506Z",
+  "elapsedMs": 528.069875,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "install",
+    "--frozen-lockfile",
+    "--ignore-scripts"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 243,
+  "signal": null,
+  "error": null,
+  "stdout": "pnpm                                     |  WARN  The field \"pnpm.overrides\" was found in $REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace/pnpm/package.json. This will not take effect. You should configure \"pnpm.overrides\" at the root of the workspace instead.\nScope: all 199 workspace projects\n EACCES  EACCES: permission denied, mkdir '$HOME/Library/pnpm/store/v10/projects'\n\n\n\n",
+  "stderr": ""
+}

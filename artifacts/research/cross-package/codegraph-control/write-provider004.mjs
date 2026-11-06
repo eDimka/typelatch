@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {hash} from '../../../../scripts/paired-agent-runner.mjs';
+const here=import.meta.dirname,basePath=join(here,'../provider-spec-002.json'),armPath=join(here,'arm.json'),base=JSON.parse(readFileSync(basePath)),arm=JSON.parse(readFileSync(armPath));
+const result={...base,candidates:['impact','codegraph'],arms:{...base.arms,codegraph:arm},researchRoles:{native:'native control',impact:'frozen experimental candidate',competitor:'Serena control',codegraph:'additional CodeGraph control'},codegraphIntegration:{baseSpecSha256:hash(readFileSync(basePath)),armSha256:hash(readFileSync(armPath)),policy:'Original native, impact and Serena arm values are unchanged. The common gate treats CodeGraph as a listed candidate for compatibility; the separate frozen impact versus CodeGraph evaluator determines the added control comparison.'}};
+for(const name of ['native','impact','competitor'])assert.deepEqual(result.arms[name],base.arms[name]);assert.deepEqual(Object.keys(result.arms),['native','impact','competitor','codegraph']);const output=join(here,'../provider-spec-004.json');writeFileSync(output,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({path:output,sha256:hash(readFileSync(output)),unchangedArms:['native','impact','competitor'],scope:'Provider fragment only. Root must validate the assembled task study specification.'}));

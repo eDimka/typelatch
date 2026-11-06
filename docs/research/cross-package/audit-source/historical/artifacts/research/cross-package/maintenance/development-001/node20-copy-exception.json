@@ -1,0 +1,5 @@
+{
+  "error": "Error: ENOSYS: function not implemented, copyfile '$REPOSITORY/artifacts/research/cross-package/maintenance/tools/node20/node-v20.16.0-darwin-arm64/bin/node' -> '$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/workspace/.typelatch-benchmark/node20'",
+  "bytes": 94192160,
+  "scope": "One extracted registry runtime binary only. Independent byte copy; all full fixture copies still require APFS cloning."
+}

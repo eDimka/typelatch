@@ -1,0 +1,11 @@
+import {spawn} from 'node:child_process';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {resolve,join} from 'node:path';
+import {createHash} from 'node:crypto';
+const root=import.meta.dirname; const label=process.argv[2];
+const cwd=join(root,'private',label,'baseline-source');
+const binary=label==='changesets-workspace'?'yarn/bin/yarn.js':'pnpm/bin/pnpm.mjs';
+const args=label==='changesets-workspace'?['install','--frozen-lockfile','--ignore-scripts','--non-interactive']:['--filter','@pnpm/lockfile.settings-checker...','--filter','@pnpm/deps.status...','--filter','@pnpm/core...','install','--frozen-lockfile','--ignore-scripts','--config.manage-package-manager-versions=false','--store-dir',join(root,'pnpm-store')];
+const out=join(root,'private',label,'dependency-setup-'+(process.argv[3]??'001')+'.json'); if(existsSync(out))throw Error('Keep every setup attempt');
+const lock=join(cwd,label==='changesets-workspace'?'yarn.lock':'pnpm-lock.yaml');const sha=x=>createHash('sha256').update(x).digest('hex');const before=sha(readFileSync(lock));
+const started=performance.now();const child=spawn(process.execPath,[join(root,'tools/node_modules',binary),...args],{cwd,env:{...process.env,CI:'1',COREPACK_ENABLE_PROJECT_SPEC:'0'},stdio:['ignore','pipe','pipe']});let stdout='',stderr='';child.stdout.on('data',x=>stdout+=x);child.stderr.on('data',x=>stderr+=x);const exit=await new Promise(done=>child.on('close',(code,signal)=>done({code,signal})));const result={schemaVersion:1,label,command:process.execPath,args:[join(root,'tools/node_modules',binary),...args],node:process.version,elapsedMs:performance.now()-started,startedAt:new Date(Date.now()-(performance.now()-started)).toISOString(),...exit,lockBefore:before,lockAfter:sha(readFileSync(lock)),stdout,stderr};writeFileSync(out,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({label,...exit,elapsedMs:result.elapsedMs,lockUnchanged:before===result.lockAfter,tail:(stdout+'\n'+stderr).slice(-3000)}));process.exitCode=exit.code??1;

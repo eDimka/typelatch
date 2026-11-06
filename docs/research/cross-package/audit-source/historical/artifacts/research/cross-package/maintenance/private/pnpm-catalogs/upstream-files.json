@@ -1,0 +1,122 @@
+[
+  {
+    "sha": "d320f5afd5c325f75020ed94aacb86b3e820c6b6",
+    "filename": ".changeset/salty-beds-sell.md",
+    "status": "added",
+    "additions": 8,
+    "deletions": 0,
+    "changes": 8,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/.changeset%2Fsalty-beds-sell.md",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/.changeset%2Fsalty-beds-sell.md",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/.changeset%2Fsalty-beds-sell.md?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -0,0 +1,8 @@\n+---\n+\"@pnpm/lockfile.settings-checker\": patch\n+\"@pnpm/lockfile.verification\": patch\n+\"@pnpm/core\": patch\n+\"@pnpm/deps.status\": patch\n+---\n+\n+Properly throw a frozen lockfile error when changing catalogs defined in `pnpm-workspace.yaml` and running `pnpm install --frozen-lockfile`. This previously passed silently as reported in [#9369](https://github.com/pnpm/pnpm/issues/9369)."
+  },
+  {
+    "sha": "21b565263d605c69c47b00d206c2b787354c938a",
+    "filename": "__fixtures__/pnpm-workspace.yaml",
+    "status": "modified",
+    "additions": 4,
+    "deletions": 0,
+    "changes": 4,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/__fixtures__%2Fpnpm-workspace.yaml",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/__fixtures__%2Fpnpm-workspace.yaml",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/__fixtures__%2Fpnpm-workspace.yaml?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -18,3 +18,7 @@ packages:\n   - '!workspace-has-shared-package-lock-json'\n   - '!workspace-has-shared-npm-shrinkwrap-json'\n sharedWorkspaceLockfile: false\n+\n+catalog:\n+  # Used in has-outdated-deps-using-catalog-protocol fixture.\n+  is-negative: ^1.0.0"
+  },
+  {
+    "sha": "8894a5f5decbff37f7eebde1950daa1b22d23f00",
+    "filename": "deps/status/src/checkDepsStatus.ts",
+    "status": "modified",
+    "additions": 1,
+    "deletions": 0,
+    "changes": 1,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/deps%2Fstatus%2Fsrc%2FcheckDepsStatus.ts",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/deps%2Fstatus%2Fsrc%2FcheckDepsStatus.ts",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/deps%2Fstatus%2Fsrc%2FcheckDepsStatus.ts?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -488,6 +488,7 @@ async function assertWantedLockfileUpToDate (\n   ])\n \n   const outdatedLockfileSettingName = getOutdatedLockfileSetting(wantedLockfile, {\n+    catalogs: config.catalogs,\n     autoInstallPeers: config.autoInstallPeers,\n     injectWorkspacePackages: config.injectWorkspacePackages,\n     excludeLinksFromLockfile: config.excludeLinksFromLockfile,"
+  },
+  {
+    "sha": "424c82b18456b4beedc6705238bc830d672ff8ff",
+    "filename": "lockfile/settings-checker/package.json",
+    "status": "modified",
+    "additions": 2,
+    "deletions": 0,
+    "changes": 2,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Fpackage.json",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Fpackage.json",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/lockfile%2Fsettings-checker%2Fpackage.json?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -33,8 +33,10 @@\n     \"compile\": \"tsc --build && pnpm run lint --fix\"\n   },\n   \"dependencies\": {\n+    \"@pnpm/catalogs.types\": \"workspace:*\",\n     \"@pnpm/crypto.hash\": \"workspace:*\",\n     \"@pnpm/lockfile.types\": \"workspace:*\",\n+    \"@pnpm/lockfile.verification\": \"workspace:*\",\n     \"@pnpm/parse-overrides\": \"workspace:*\",\n     \"p-map-values\": \"catalog:\",\n     \"ramda\": \"catalog:\""
+  },
+  {
+    "sha": "825ac8cd8d3196ea8a117c7c2a130718335ad5c5",
+    "filename": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+    "status": "modified",
+    "additions": 8,
+    "deletions": 0,
+    "changes": 8,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Fsrc%2FgetOutdatedLockfileSetting.ts",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Fsrc%2FgetOutdatedLockfileSetting.ts",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/lockfile%2Fsettings-checker%2Fsrc%2FgetOutdatedLockfileSetting.ts?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -1,7 +1,10 @@\n+import { type Catalogs } from '@pnpm/catalogs.types'\n import { type LockfileObject, type PatchFile } from '@pnpm/lockfile.types'\n+import { allCatalogsAreUpToDate } from '@pnpm/lockfile.verification'\n import { equals } from 'ramda'\n \n export type ChangedField =\n+  | 'catalogs'\n   | 'patchedDependencies'\n   | 'overrides'\n   | 'packageExtensionsChecksum'\n@@ -15,6 +18,7 @@ export type ChangedField =\n export function getOutdatedLockfileSetting (\n   lockfile: LockfileObject,\n   {\n+    catalogs,\n     overrides,\n     packageExtensionsChecksum,\n     ignoredOptionalDependencies,\n@@ -25,6 +29,7 @@ export function getOutdatedLockfileSetting (\n     pnpmfileChecksum,\n     injectWorkspacePackages,\n   }: {\n+    catalogs?: Catalogs\n     overrides?: Record<string, string>\n     packageExtensionsChecksum?: string\n     patchedDependencies?: Record<string, PatchFile>\n@@ -36,6 +41,9 @@ export function getOutdatedLockfileSetting (\n     injectWorkspacePackages?: boolean\n   }\n ): ChangedField | null {\n+  if (!allCatalogsAreUpToDate(catalogs ?? {}, lockfile.catalogs)) {\n+    return 'catalogs'\n+  }\n   if (!equals(lockfile.overrides ?? {}, overrides ?? {})) {\n     return 'overrides'\n   }"
+  },
+  {
+    "sha": "71c0277464b5ce0bd1562488387e693c75ad219c",
+    "filename": "lockfile/settings-checker/tsconfig.json",
+    "status": "modified",
+    "additions": 6,
+    "deletions": 0,
+    "changes": 6,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Ftsconfig.json",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fsettings-checker%2Ftsconfig.json",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/lockfile%2Fsettings-checker%2Ftsconfig.json?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -12,6 +12,9 @@\n     {\n       \"path\": \"../../__utils__/prepare\"\n     },\n+    {\n+      \"path\": \"../../catalogs/types\"\n+    },\n     {\n       \"path\": \"../../config/parse-overrides\"\n     },\n@@ -20,6 +23,9 @@\n     },\n     {\n       \"path\": \"../types\"\n+    },\n+    {\n+      \"path\": \"../verification\"\n     }\n   ]\n }"
+  },
+  {
+    "sha": "ef8428c8b074a96cf885e886ebe7b18aec12b504",
+    "filename": "lockfile/verification/src/index.ts",
+    "status": "modified",
+    "additions": 1,
+    "deletions": 0,
+    "changes": 1,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fverification%2Fsrc%2Findex.ts",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/lockfile%2Fverification%2Fsrc%2Findex.ts",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/lockfile%2Fverification%2Fsrc%2Findex.ts?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -1,4 +1,5 @@\n export { allProjectsAreUpToDate } from './allProjectsAreUpToDate.js'\n+export { allCatalogsAreUpToDate } from './allCatalogsAreUpToDate.js'\n export { getWorkspacePackagesByDirectory } from './getWorkspacePackagesByDirectory.js'\n export { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\n export { linkedPackagesAreUpToDate } from './linkedPackagesAreUpToDate.js'"
+  },
+  {
+    "sha": "1fd02f53a346afdda6385db918bce52cb6e9e32f",
+    "filename": "pkg-manager/core/src/install/index.ts",
+    "status": "modified",
+    "additions": 1,
+    "deletions": 0,
+    "changes": 1,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/pkg-manager%2Fcore%2Fsrc%2Finstall%2Findex.ts",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/pkg-manager%2Fcore%2Fsrc%2Finstall%2Findex.ts",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/pkg-manager%2Fcore%2Fsrc%2Finstall%2Findex.ts?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -410,6 +410,7 @@ export async function mutateModules (\n     if (!opts.ignorePackageManifest) {\n       const outdatedLockfileSettingName = getOutdatedLockfileSetting(ctx.wantedLockfile, {\n         autoInstallPeers: opts.autoInstallPeers,\n+        catalogs: opts.catalogs,\n         injectWorkspacePackages: opts.injectWorkspacePackages,\n         excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n         peersSuffixMaxLength: opts.peersSuffixMaxLength,"
+  },
+  {
+    "sha": "5296fb4d15b8b58be40709376b9a3d0ed6138bb2",
+    "filename": "pkg-manager/core/test/catalogs.ts",
+    "status": "modified",
+    "additions": 43,
+    "deletions": 0,
+    "changes": 43,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/pkg-manager%2Fcore%2Ftest%2Fcatalogs.ts",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/pkg-manager%2Fcore%2Ftest%2Fcatalogs.ts",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/pkg-manager%2Fcore%2Ftest%2Fcatalogs.ts?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -256,6 +256,49 @@ test('lockfile is updated if catalog config changes', async () => {\n   })\n })\n \n+test('frozen lockfile error is thrown if catalog config changes', async () => {\n+  const { options, projects, readLockfile } = preparePackagesAndReturnObjects([\n+    {\n+      name: 'project1',\n+      dependencies: {\n+        'is-positive': 'catalog:',\n+      },\n+    },\n+  ])\n+\n+  await mutateModules(installProjects(projects), {\n+    ...options,\n+    lockfileOnly: true,\n+    catalogs: {\n+      default: {\n+        'is-positive': '=1.0.0',\n+      },\n+    },\n+  })\n+\n+  expect(readLockfile().importers['project1' as ProjectId]).toEqual({\n+    dependencies: {\n+      'is-positive': {\n+        specifier: 'catalog:',\n+        version: '1.0.0',\n+      },\n+    },\n+  })\n+\n+  const frozenLockfileMutation = mutateModules(installProjects(projects), {\n+    ...options,\n+    lockfileOnly: true,\n+    frozenLockfile: true,\n+    catalogs: {\n+      default: {\n+        'is-positive': '=3.1.0',\n+      },\n+    },\n+  })\n+\n+  await expect(frozenLockfileMutation).rejects.toThrow('Cannot proceed with the frozen installation. The current \"catalogs\" configuration doesn\\'t match the value found in the lockfile')\n+})\n+\n test('lockfile catalog snapshots retain existing entries on --filter', async () => {\n   const { options, projects, readLockfile } = preparePackagesAndReturnObjects([\n     {"
+  },
+  {
+    "sha": "8c94229123267107ad5c74c4658f7de8e821714a",
+    "filename": "pnpm-lock.yaml",
+    "status": "modified",
+    "additions": 6,
+    "deletions": 0,
+    "changes": 6,
+    "blob_url": "https://github.com/pnpm/pnpm/blob/f4a77be19c64278eecd2b608ac1052883684507a/pnpm-lock.yaml",
+    "raw_url": "https://github.com/pnpm/pnpm/raw/f4a77be19c64278eecd2b608ac1052883684507a/pnpm-lock.yaml",
+    "contents_url": "https://api.github.com/repos/pnpm/pnpm/contents/pnpm-lock.yaml?ref=f4a77be19c64278eecd2b608ac1052883684507a",
+    "patch": "@@ -4012,12 +4012,18 @@ importers:\n \n   lockfile/settings-checker:\n     dependencies:\n+      '@pnpm/catalogs.types':\n+        specifier: workspace:*\n+        version: link:../../catalogs/types\n       '@pnpm/crypto.hash':\n         specifier: workspace:*\n         version: link:../../crypto/hash\n       '@pnpm/lockfile.types':\n         specifier: workspace:*\n         version: link:../types\n+      '@pnpm/lockfile.verification':\n+        specifier: workspace:*\n+        version: link:../verification\n       '@pnpm/parse-overrides':\n         specifier: workspace:*\n         version: link:../../config/parse-overrides"
+  }
+]
