@@ -178,3 +178,35 @@ if (comparisonImage && comparisonButton) {
     if (document.hidden) stopComparison()
   })
 }
+
+const guidedImage = document.querySelector('[data-guided-comparison-image]')
+const guidedButton = document.querySelector('[data-guided-comparison-play]')
+let guidedPlaying = false
+function stopGuidedComparison() {
+  if (!guidedImage || !guidedButton) return
+  guidedImage.src = guidedImage.dataset.poster
+  guidedPlaying = false
+  guidedButton.textContent = 'Play recorded comparison'
+  guidedButton.setAttribute('aria-pressed', 'false')
+  guidedButton.hidden = reducedMotion.matches
+}
+if (guidedImage && guidedButton) {
+  guidedButton.hidden = reducedMotion.matches
+  guidedButton.addEventListener('click', () => {
+    if (guidedPlaying) {
+      stopGuidedComparison()
+      status.textContent = 'Recorded comparison stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    guidedImage.src = guidedImage.dataset.gif
+    guidedPlaying = true
+    guidedButton.textContent = 'Stop replay'
+    guidedButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded public Codex actions with accelerated timing.'
+  })
+  reducedMotion.addEventListener('change', stopGuidedComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopGuidedComparison()
+  })
+}

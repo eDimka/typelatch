@@ -14,6 +14,7 @@ const countNames = ['shellCalls', 'mcpCalls', 'mcpSucceeded', 'mcpFailed', 'file
 const tokenNames = ['inputTokens', 'cachedInputTokens', 'cacheWriteInputTokens', 'outputTokens', 'reasoningOutputTokens', 'totalTokens', 'uncachedInputTokens']
 export const monorepoArmOrder = ['native', 'competitor', 'typelatch', 'packet']
 export const frozenMonorepoDecisionSha256 = '86f57a7fddd8dd1d636b1f6ff1ecc86ca8ea0aeb46cfab21db89edea7517a35c'
+export { verifyRun as verifyAgentRun, verifyPublicRecord as verifyAgentRecord }
 
 function verifyRun(run, task) {
   assert(safeId(run.id), 'Public run identity is a safe file name')

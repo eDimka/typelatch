@@ -73,20 +73,20 @@ npx typelatch@0.3.0 search "Where do we validate incoming requests?" --compact -
 
 ## Codex with and without Typelatch
 
-[![Actual Codex actions with and without Typelatch](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-comparison.gif)](https://edimka.github.io/typelatch/#benchmark)
+[![Recorded Codex actions using native tools and the Typelatch source experiment](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-guided-comparison.gif)](https://edimka.github.io/typelatch/#guided-benchmark)
 
-Accelerated replay of recorded actions from the first matched pair. This comparison ran three tasks twice in each condition with Codex and the unpublished 0.4.0 candidate, using the same workflow prompt. The pair was selected before scoring.
+The source experiment used **11.9% more tokens and 20.6% more time than native tools** on two real pnpm repairs. It did not meet the savings gate. This accelerated action replay uses the first pair, selected before results. The experimental tool is separate from the published package.
 
-| All six sessions per condition | Without Typelatch | With Typelatch |
-| :--- | ---: | ---: |
-| Grep shell calls | 22 | 13 |
-| Total tokens | 954,947 | 1,556,137 |
-| Agent time plus index preparation | 320.0 s | 463.3 s |
-| Correct solutions | 4/6 | 5/6 |
+| Four sessions per condition | Native tools | Serena 2.1.0 | Source experiment |
+| :--- | ---: | ---: | ---: |
+| Grep shell calls | 9 | 6 | 4 |
+| Total tokens | 361,367 | 636,774 | 404,262 |
+| Agent time plus provider setup | 96.9 s | 130.8 s | 116.9 s |
+| Correct solutions | 4/4 | 4/4 | 4/4 |
 
-The candidate used 63.0% more tokens and 44.8% more charged time. It failed the savings gate. Tokens include cached input once; index preparation is included in the time above. These are authored tasks, not a general performance ranking. [Every run and method](docs/BENCHMARKS.md#paired-agent-comparison) · [Earlier 0.3.0 results](docs/benchmarks/typelatch-use/paired-agent.json).
+All conditions received the same tasks and workflow policy, plus an explicit inventory of their available tools. Tokens include cached input once. Both tasks are localized repairs inside an older 198 package pnpm snapshot. This does not establish a scaling advantage or a general ranking. [Every run, returned tool output and method](docs/BENCHMARKS.md#instructed-tool-use).
 
-A separate availability study ran two real pnpm repairs twice with native tools, Serena, Typelatch and a compact source experiment. All 16 fixes passed; every session made zero MCP calls. Neither candidate met the savings gate. This establishes no retrieval benefit or scaling advantage. [All monorepo results](docs/benchmarks/monorepo-agent-study/report.json).
+Earlier evidence remains available: the [0.4.0 package candidate](docs/benchmarks/typelatch-040-candidate/paired-agent.json) used 63.0% more tokens and 44.8% more charged time on three authored tasks. A separate [16 session availability study](docs/benchmarks/monorepo-agent-study/report.json) observed zero MCP use. [Original 0.3.0 results](docs/benchmarks/typelatch-use/paired-agent.json).
 
 ## From a bug to a checked change
 

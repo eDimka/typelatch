@@ -1,5 +1,25 @@
 # Benchmarks
 
+## Instructed tool use
+
+The compact source experiment did not meet the performance gate. Across two real pnpm repairs, repeated twice, it used **11.9% more tokens and 20.6% more charged time than native tools**. All twelve solutions passed independent grading. Compared with Serena, it saved 36.5% of tokens and 10.6% of time, below the required 20% time reduction.
+
+| Four sessions per condition | Total tokens | Charged time | Grep shell calls | Shell calls | MCP calls | Correct |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Native tools | 361,367 | 96.9 s | 9 | 25 | 0 | 4/4 |
+| Serena 2.1.0 | 636,774 | 130.8 s | 6 | 26 | 12 | 4/4 |
+| Typelatch source packet v2 experiment | 404,262 | 116.9 s | 4 | 26 | 4 | 4/4 |
+
+Fewer grep calls did not reduce overall tool use. The experiment made four MCP calls alongside 26 shell calls; native used 25 shell calls. The experiment keeps the exact package candidate backend but changes source selection and response formatting. It is separate from the published package interface.
+
+All arms received the same task and workflow policy, with an explicit inventory naming their configured provider and tools, or none for native. Each exact sent prompt is recorded. The policy requires the supplied failing check, a relevant provider retrieval when available, a minimal repair, and the passing check. After the first investigation, tool choice is free. The separate three arm design and review rules were frozen before these sessions. A retained three session pilot exposed ambiguous provider discovery; its costs remain unchanged and are never pooled into this study.
+
+The frozen gate requires at least 20% lower tokens and charged time against both native tools and Serena, in aggregate and median paired reductions. Both repeat aggregates must improve. All four candidate fixes must pass. Complete capture, cleanup, validation and independent workflow review are required. Cached input is included once; all provider startup, queries, failures, fallbacks and native checks are charged. Common corpus copying and independent grading are separate.
+
+These are two localized repairs in pnpm v10.32.1, with 198 workspace packages. Each needs one implementation file, and failing checks provide useful debugging clues. Public repairs may be in model training data. Two repeats, one repository, warm host caches and a model alias without an immutable served snapshot limit generalization. This is not evidence of scaling, universal superiority or a statistical confidence bound.
+
+[All results](benchmarks/monorepo-guided-study/report.json) · [Frozen protocol](benchmarks/monorepo-guided-study/protocol.json) · [Independent workflow review](benchmarks/monorepo-guided-study/workflow-audit.json) · [Reviewed decision](benchmarks/monorepo-guided-study/adjudication.json) · [Retained pilot](benchmarks/monorepo-guided-study/pilot-001/report.json)
+
 ## Large monorepo availability
 
 Two real, localized repairs in the pinned pnpm repository, with 198 workspace packages. Each condition ran both tasks twice. All 16 solutions passed independent checks, and every session made zero MCP calls. Neither candidate met the frozen savings gate. Differences in these runs do not demonstrate a benefit from retrieval.

@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "kind": "guided-agent-publication",
+  "protocolSha256": "447d41337338c3c5fa684c618b31e7b373bad3272ece809f1eec94eb23693f60",
+  "runCount": 12,
+  "files": [
+    {
+      "path": "adjudicate.mjs",
+      "sha256": "42bad53cdb5f24778893d6bb7c47a421dfa9004908c385c9935e846d508b57b9",
+      "bytes": 3445,
+      "kind": "frozen-source"
+    },
+    {
+      "path": "adjudication.json",
+      "sha256": "5a8d4c1537a6ece35dab9c1aed351f0b8bdb260434c1edcaf0fbef853cc224af",
+      "bytes": 33405,
+      "kind": "reviewed-adjudication"
+    },
+    {
+      "path": "decision.mjs",
+      "sha256": "3efebebc8a4405f544edbcb2f6691745cd9db1c6ba4f88c115a86431aca1b279",
+      "bytes": 9741,
+      "kind": "frozen-source"
+    },
+    {
+      "path": "monorepo-tool-outputs.mjs",
+      "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+      "bytes": 6699,
+      "kind": "frozen-source"
+    },
+    {
+      "path": "normalization.json",
+      "sha256": "2364e56d652d09144372b1ef30cd0b77d45f68a73ac0e6a549a9de9895a775f8",
+      "bytes": 111667,
+      "kind": "normalization-receipt"
+    },
+    {
+      "path": "pilot-001/report.json",
+      "sha256": "19073e9c9be35a6380448ef9bb88575abd1d32011cac9c90dbd0d8417e448c06",
+      "bytes": 11330,
+      "kind": "retained-pilot"
+    },
+    {
+      "path": "pilot-001/runs/pnpm-changed-project-move-r1-competitor.json",
+      "sha256": "521a8b1c907fe41fc0803e19545010dca232aab16a28488b12323e45af7906e7",
+      "bytes": 34642,
+      "kind": "retained-pilot"
+    },
+    {
+      "path": "pilot-001/runs/pnpm-changed-project-move-r1-native.json",
+      "sha256": "2860b9699731be576b1c528daf17dbee1f87d685b4329aad52f5d4e207fdfc67",
+      "bytes": 30856,
+      "kind": "retained-pilot"
+    },
+    {
+      "path": "pilot-001/runs/pnpm-changed-project-move-r1-packet.json",
+      "sha256": "1e3a964b54972c3ac99d6c728c6a22afaf37c0613da4320ab61e99e3b7ae50d0",
+      "bytes": 31280,
+      "kind": "retained-pilot"
+    },
+    {
+      "path": "protocol-001.json",
+      "sha256": "cfe476bf51ba426fd27c28a1fcbdd4e726126ed56be62c37f8e357d6aad97813",
+      "bytes": 46088,
+      "kind": "retained-pilot"
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "ca4de71b54f1f15626d0d97233928b091810139c938149ec565f668fd1c1c701",
+      "bytes": 69457,
+      "kind": "preregistration"
+    },
+    {
+      "path": "report.json",
+      "sha256": "fd4909f14a02812cb0ec6b4961ab572a22bb0bdd0e60d7a3b2dff92ff881228c",
+      "bytes": 134668,
+      "kind": "normalized-report"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-competitor/public-evidence.json",
+      "sha256": "7a42d4985a103159a25a61e10f04dc88dc2864bd0ec40b85d2be45f1df23bd5a",
+      "bytes": 35030,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-competitor/tool-outputs.json",
+      "sha256": "398be97c579c0282999198896f3738b03a7ab8c76744d245e9a698deadcc26bf",
+      "bytes": 43513,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-native/public-evidence.json",
+      "sha256": "2f12eb712f75a4d2574f14fe2b7495f80808de223d370ad044de9f5fd34c0457",
+      "bytes": 30110,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-native/tool-outputs.json",
+      "sha256": "1c07ab26c8c1e0826f23272665de52a18516105a47b4a9f28c92f292bf2e26ba",
+      "bytes": 18085,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-packet/public-evidence.json",
+      "sha256": "e8f5fdf6d4b8c995dc2c774c48417131f64a70b710292a85f1b8dfdaf3b05852",
+      "bytes": 33070,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-packet/tool-outputs.json",
+      "sha256": "5b364cf2f37e4ea4deeaa2bfa02f4c16c54cba5ee3f6c7970c38024ee9c05e3f",
+      "bytes": 32379,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-competitor/public-evidence.json",
+      "sha256": "52ddd5730e53c4a33987c3bbaa6b71826cd7ff6dba152c31c4031062910c76b1",
+      "bytes": 36187,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-competitor/tool-outputs.json",
+      "sha256": "e08117d8507b710720de153d3fc9d2ab940be63affc964d096408959783872b4",
+      "bytes": 41759,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-native/public-evidence.json",
+      "sha256": "478f29d1257585cdf3e2c47d3076736997d6905a6f73dcb20839d3e30053ef2a",
+      "bytes": 30196,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-native/tool-outputs.json",
+      "sha256": "14f63cf2161a52d9847004d8f1fbea384cb18911df0d4215f888b0da0e5f958d",
+      "bytes": 19657,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-packet/public-evidence.json",
+      "sha256": "a1c496e951939b58d83eca1f52160e2314887a83c1a390a036fdfc2e951a6d1a",
+      "bytes": 32576,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-packet/tool-outputs.json",
+      "sha256": "19c80d12f5aed14bbeb43651f892ef4609f8debeb94ffb6c5c58af88484756e8",
+      "bytes": 30236,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-competitor/public-evidence.json",
+      "sha256": "0077c07a85f9a8c1719e97bccf9e8199864bc63ea43fda85843a9544e994078f",
+      "bytes": 26538,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-competitor/tool-outputs.json",
+      "sha256": "9135406ec42ec66dd11f2bba03d9125ea7cff56d2c5d3841b9946e6475d02acf",
+      "bytes": 39012,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-native/public-evidence.json",
+      "sha256": "18293c6f485668773ed973694d6e44725848c325f1fdbd8f450ebce978ba0d31",
+      "bytes": 22063,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-native/tool-outputs.json",
+      "sha256": "51e005a817b43808874f0b4d16a370b33856a922207a2866aa5cbfbc791e9564",
+      "bytes": 15739,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-packet/public-evidence.json",
+      "sha256": "e39f295baef5b73c6f4ebe04c0045ceb70bb0bf376c8dfd20cfc0a9e15663f5e",
+      "bytes": 23626,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-packet/tool-outputs.json",
+      "sha256": "a73f8992adf8d1bfee32284dae602051e546f6167ec22ee04af3acacce0dc112",
+      "bytes": 31329,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-competitor/public-evidence.json",
+      "sha256": "8320b7604f5f79630f19301ea1f02c15101688ea3908ed28b7d2a4f58e6c7697",
+      "bytes": 26409,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-competitor/tool-outputs.json",
+      "sha256": "5b2e8442a880efe4da1d06be2bb3e1a67c5518e87b7b2802c407166d5085aab4",
+      "bytes": 39119,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-native/public-evidence.json",
+      "sha256": "f74f29efa604127361cd2caf2e17535cbd9d9d9421fe6722f3a34b3992b64ccc",
+      "bytes": 21576,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-native/tool-outputs.json",
+      "sha256": "d0c507644cfbd25a994f9d7ee23f955aede9b3c2fa77cb6532d3239dcd422668",
+      "bytes": 15687,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-packet/public-evidence.json",
+      "sha256": "85c3bc7dde07a90a4f1226063c52b62f745e4c9e3af8b892c0eebf4e058dd7de",
+      "bytes": 22734,
+      "kind": "exact-public-evidence"
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-packet/tool-outputs.json",
+      "sha256": "2d32b8b69c644ef2613b92426b6ae00831321f49685e9b0816494c41b21e146b",
+      "bytes": 32366,
+      "kind": "exact-tool-outputs"
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "c4df1d549da45c39482dafefc2fbf87212b0409d69b2289e731c257ae96c8a8a",
+      "bytes": 40332,
+      "kind": "rebound-workflow-audit"
+    },
+    {
+      "path": "workflow-review.mjs",
+      "sha256": "656686c61700f399fb241d892a5f79536e182f76f7cf87f0d7a968d8410a94e1",
+      "bytes": 9916,
+      "kind": "frozen-source"
+    }
+  ],
+  "manifestExcludesItself": true
+}

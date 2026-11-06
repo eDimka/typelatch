@@ -19,6 +19,7 @@ import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmar
 import { summarizePairedRuns } from './paired-agent-evidence.mjs'
 import { advertisedInstallCommand } from './site-releasecheck.mjs'
 import './site-monorepo-benchmark.test.mjs'
+import './site-guided-benchmark.test.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
@@ -63,6 +64,17 @@ test('README includes npm and the actual question, search and symbol requests', 
     const expected = record.mcp.find((call) => call.id === id).request
     assert.deepEqual(requests.find((request) => request.name === expected.name), expected)
   }
+})
+
+test('public onboarding separates the published version from development support', () => {
+  const html = read('site/index.html')
+  assert.match(html, /Give your agent<br \/>context it<br \/><span>can verify\./)
+  assert.doesNotMatch(html, /better first move/i)
+  assert.match(html, /Published 0\.3\.0 reads npm, pnpm, Yarn and text Bun lockfiles/)
+  assert.match(html, /Deno and binary Bun lockfile support are 0\.4\.0 development additions/)
+  assert.match(html, /When a dependency API matters to the change/)
+  assert.match(html, /read more only when evidence is missing or stale/)
+  assert.match(html, /workspace_validate or native project commands/)
 })
 
 test('builds an inspectable static experience from the recorded run', () => {
@@ -136,6 +148,17 @@ test('builds an inspectable static experience from the recorded run', () => {
     const manifest = JSON.parse(read(`${monorepoDirectory}/manifest.json`))
     for (const file of [...manifest.files, { path: 'manifest.json' }]) assert.equal(read(`_site/evidence/monorepo-agent-study/${file.path}`), read(`${monorepoDirectory}/${file.path}`), 'Every public maintenance artifact is packaged unchanged')
   } else assert.doesNotMatch(html, /id="monorepo-benchmark"/, 'No incomplete study or placeholder result is published')
+  const guidedDirectory = 'docs/benchmarks/monorepo-guided-study'
+  if (existsSync(resolve(root, guidedDirectory, 'report.json'))) {
+    assert.match(html, /id="guided-benchmark"/)
+    assert.equal((html.match(/data-guided-run="/g) || []).length, 12, 'Every guided session is visible')
+    assert.deepEqual([...html.matchAll(/data-guided-arm="([^"]+)"/g)].map(match => match[1]), ['native', 'competitor', 'packet'])
+    const manifest = JSON.parse(read(`${guidedDirectory}/manifest.json`))
+    for (const file of [...manifest.files, { path: 'manifest.json' }]) assert.equal(read(`_site/evidence/monorepo-guided-study/${file.path}`), read(`${guidedDirectory}/${file.path}`), 'Every guided evidence artifact is packaged unchanged')
+    assert.equal(read('_site/evidence/guided-animation.json'), read('site/guided-animation.json'))
+    const replay = JSON.parse(read('site/guided-animation.json'))
+    for (const asset of Object.values(replay.assets)) assert.equal(demoHash(readFileSync(resolve(root, '_site', asset.path))), asset.sha256, 'Guided replay bytes match the preselected evidence manifest')
+  } else assert.doesNotMatch(html, /id="guided-benchmark"/, 'No guided outcome is invented before export')
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const link = match[1]
     if (/^(https?:|mailto:|data:)/.test(link)) continue
@@ -205,7 +228,7 @@ test('refuses a failed recording or historical snapshot changed after capture', 
 test('historical evidence builds independently of the maintained example', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-snapshot-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study', 'docs/benchmarks/monorepo-guided-study']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
@@ -229,7 +252,7 @@ test('historical evidence builds independently of the maintained example', () =>
 test('a newer source version preserves published onboarding and the captured walkthrough', () => {
   const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-historical-version-'))
   try {
-    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study']) {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json', 'docs/benchmarks/paired-agent.json', 'docs/benchmarks/paired-agent-protocol.json', 'docs/benchmarks/paired-agent-runs', 'docs/benchmarks/typelatch-use', 'docs/benchmarks/typelatch-040-candidate', 'docs/benchmarks/monorepo-agent-study', 'docs/benchmarks/monorepo-guided-study']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }

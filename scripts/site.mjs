@@ -5,6 +5,8 @@ import { verifySiteDemo } from './site-demo.mjs'
 import { verifyRecordedFixture } from './showcase-fixture.mjs'
 import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmark, verifySiteBenchmarkEvidence, verifySiteBenchmarkAnimation } from './site-benchmark.mjs'
 import { renderMonorepoBenchmark, verifyMonorepoEvidence } from './site-monorepo-benchmark.mjs'
+import { verifyGuidedAnimation, verifyGuidedEvidence } from './site-guided-evidence.mjs'
+import { renderGuidedAnimation, renderGuidedBenchmark } from './site-guided-benchmark.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -147,9 +149,20 @@ const monorepoBenchmark = existsSync(monorepoReportPath) ? await verifyMonorepoE
   readFileSync(resolve(root, monorepoDirectory, 'manifest.json')),
   path => readFileSync(resolve(root, monorepoDirectory, path)),
 ) : null
+const guidedDirectory = 'docs/benchmarks/monorepo-guided-study'
+const guidedBenchmark = existsSync(resolve(root, guidedDirectory, 'report.json'))
+  ? await verifyGuidedEvidence(path => readFileSync(resolve(root, guidedDirectory, path)))
+  : null
+const guidedAnimation = guidedBenchmark ? verifyGuidedAnimation(
+  guidedBenchmark,
+  JSON.parse(read('site/guided-animation.json')),
+  path => readFileSync(resolve(root, 'site', path)),
+  readFileSync(resolve(root, 'scripts/monorepo-guided-gif.py')),
+) : null
 
 const replacements = {
-  benchmarkAnchor: monorepoBenchmark ? '#monorepo-benchmark' : '#benchmark',
+  benchmarkAnchor: guidedBenchmark ? '#guided-benchmark' : monorepoBenchmark ? '#monorepo-benchmark' : '#benchmark',
+  guidedBenchmark: guidedBenchmark ? renderGuidedBenchmark(guidedBenchmark, renderGuidedAnimation(guidedAnimation)) : '',
   monorepoBenchmark: monorepoBenchmark ? renderMonorepoBenchmark(monorepoBenchmark) : '',
   pairedBenchmark: renderSiteBenchmark(pairedBenchmark, pairedAnimation, renderHistoricalBenchmark(historicalBenchmark) + renderAutomaticBenchmark(automaticBenchmark)),
   demoPlayer,
@@ -248,6 +261,11 @@ if (monorepoBenchmark) for (const [path, bytes] of monorepoBenchmark.files) {
   mkdirSync(resolve(output, 'evidence/monorepo-agent-study', path, '..'), { recursive: true })
   writeFileSync(resolve(output, 'evidence/monorepo-agent-study', path), bytes)
 }
+if (guidedBenchmark) for (const [path, bytes] of guidedBenchmark.files) {
+  mkdirSync(resolve(output, 'evidence/monorepo-guided-study', path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence/monorepo-guided-study', path), bytes)
+}
+if (guidedAnimation) cpSync(resolve(root, 'site/guided-animation.json'), resolve(output, 'evidence/guided-animation.json'))
 for (const item of recording.mcp)
   writeFileSync(resolve(output, `evidence/${item.id}.json`), JSON.stringify(item, null, 2) + '\n')
 writeFileSync(

@@ -117,7 +117,7 @@ try {
   assert.equal(await page.locator('[data-demo-scene="3"]').isVisible(), true)
   report.checks.push('All six walkthrough steps, keyboard selection, play, pause and restart')
   const paired = JSON.parse(readFileSync(resolve(root, 'docs/benchmarks/typelatch-040-candidate/paired-agent.json'), 'utf8'))
-  await page.locator('a[href="#benchmark"]').click()
+  await page.locator('a[href="#benchmark"]').first().click()
   assert.equal(await page.locator('#benchmark').isVisible(), true)
   assert.equal(await page.locator('[data-benchmark-run]').count(), paired.runs.length)
   await page.locator('#benchmark .benchmark-details summary').first().focus()
@@ -155,6 +155,26 @@ try {
     await disclosure.locator('summary').click()
     report.checks.push('Four maintenance conditions, all sixteen sessions, keyboard disclosure and exact evidence links')
   }
+  const guidedPath = resolve(root, 'docs/benchmarks/monorepo-guided-study/report.json')
+  const guided = existsSync(guidedPath) ? JSON.parse(readFileSync(guidedPath, 'utf8')) : null
+  if (guided) {
+    await page.locator('.masthead a[href="#guided-benchmark"]').click()
+    assert.deepEqual(await page.locator('[data-guided-arm]').evaluateAll(nodes => nodes.map(node => node.dataset.guidedArm)), ['native', 'competitor', 'packet'])
+    assert.equal(await page.locator('[data-guided-run]').count(), 12)
+    assert.match(await page.locator('#guided-benchmark .benchmark-scope').innerText(), /unpublished Typelatch prototype/)
+    const disclosure = page.locator('#guided-benchmark .guided-runs')
+    await disclosure.locator('summary').focus()
+    await page.keyboard.press('Enter')
+    assert.equal(await disclosure.getAttribute('open'), '')
+    await disclosure.locator('summary').click()
+    assert.equal(await page.locator('[data-guided-comparison-image]').getAttribute('src'), 'assets/codex-guided-comparison.png')
+    await page.locator('[data-guided-comparison-play]').click()
+    assert.equal(await page.locator('[data-guided-comparison-image]').getAttribute('src'), 'assets/codex-guided-comparison.gif')
+    assert.equal(await page.locator('[data-guided-comparison-play]').getAttribute('aria-pressed'), 'true')
+    await page.locator('[data-guided-comparison-play]').click()
+    assert.equal(await page.locator('[data-guided-comparison-image]').getAttribute('src'), 'assets/codex-guided-comparison.png')
+    report.checks.push('Three guided conditions, all twelve sessions, separate reviewed outcome and retained history')
+  }
 
   for (const width of [320, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 844 })
@@ -167,6 +187,35 @@ try {
     assert.ok(commandBottom <= 844, `Install command is in the first viewport at ${width}px`)
     assert.ok(declarationFontSize >= 13, `Declaration stays readable at ${width}px`)
     report.onboarding.push({ width, viewportHeight: 844, commandBottom, declarationFontSize })
+    if ([390, 1440].includes(width)) {
+      await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }))
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+      await page.screenshot({ path: resolve(directory, `${width}-hero.png`) })
+    }
+    if (guided) {
+      const section = page.locator('#guided-benchmark')
+      for (const card of await section.locator('[data-guided-arm]').all()) {
+        assert.equal(await card.locator('dt').count(), 6)
+        assert.equal(await card.evaluate(node => node.scrollWidth <= node.clientWidth), true, `Primary guided metrics fit their card at ${width}px`)
+        for (const value of await card.locator('dd').all()) assert.equal(await value.evaluate(node => { const bounds = node.getBoundingClientRect(); return bounds.left >= 0 && bounds.right <= innerWidth }), true, `Critical guided metrics need no sideways scroll at ${width}px`)
+      }
+      await section.locator('details').evaluateAll(nodes => nodes.forEach(node => { node.open = true }))
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Expanded guided evidence fits ${width}px`)
+      await section.locator('details').evaluateAll(nodes => nodes.forEach(node => { node.open = false }))
+      if ([390, 1440].includes(width)) {
+        await section.evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY, behavior: 'instant' }))
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+        await page.screenshot({ path: resolve(directory, `${width}-guided-heading.png`) })
+        await section.locator('.guided-arm-cards').evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY - 20, behavior: 'instant' }))
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+        await page.screenshot({ path: resolve(directory, `${width}-guided-metrics.png`) })
+        if (width === 390) for (const arm of ['native', 'competitor', 'packet']) {
+          await section.locator(`[data-guided-arm="${arm}"]`).evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY - 20, behavior: 'instant' }))
+          await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+          await page.screenshot({ path: resolve(directory, `${width}-guided-${arm}.png`) })
+        }
+      }
+    }
     if (monorepo) {
       const section = page.locator('#monorepo-benchmark')
       await section.locator('details').evaluateAll(nodes => nodes.forEach(node => { node.open = true }))
@@ -270,6 +319,12 @@ try {
   await reducedPage.locator('[data-comparison-image]').scrollIntoViewIfNeeded()
   await reducedPage.locator('[data-comparison-image]').evaluate(image => image.decode())
   assert.match(await reducedPage.locator('[data-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/codex-comparison\.png$/)
+  if (guided) {
+    assert.equal(await reducedPage.locator('[data-guided-comparison-play]').isVisible(), false)
+    await reducedPage.locator('[data-guided-comparison-image]').scrollIntoViewIfNeeded()
+    await reducedPage.locator('[data-guided-comparison-image]').evaluate(image => image.decode())
+    assert.match(await reducedPage.locator('[data-guided-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/codex-guided-comparison\.png$/)
+  }
   await reducedPage.locator('[data-demo-step="5"]').click()
   assert.equal(await reducedPage.locator('[data-demo-scene="5"]').isVisible(), true)
   await reducedPage.locator('[data-trace]').click()
@@ -301,6 +356,11 @@ try {
   assert.equal(await staticPage.locator('[data-demo-play]').isVisible(), false)
   assert.equal(await staticPage.locator('[data-comparison-play]').isVisible(), false)
   assert.equal(await staticPage.locator('[data-comparison-image]').getAttribute('src'), 'assets/codex-comparison.png')
+  if (guided) {
+    assert.equal(await staticPage.locator('[data-guided-comparison-play]').isVisible(), false)
+    assert.equal(await staticPage.locator('[data-guided-comparison-image]').getAttribute('src'), 'assets/codex-guided-comparison.png')
+    assert.equal(await staticPage.locator('[data-guided-arm]').count(), 3)
+  }
   assert.equal(await staticPage.locator('#lookup').isVisible(), true)
   assert.equal(await staticPage.locator('#use').isVisible(), true)
   assert.equal(await staticPage.locator('[data-trace]').isVisible(), false)
