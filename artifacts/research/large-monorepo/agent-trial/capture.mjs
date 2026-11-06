@@ -16,7 +16,12 @@ export function invocation({ workspace, state, prompt, servers }) {
   for (const [name, frozen] of Object.entries(servers)) {
     assert(/^[a-z][a-z0-9_]*$/u.test(name), 'Safe MCP server name required')
     const server = substitute(frozen, { workspace, state })
-    for (const key of ['command', 'args', 'env', 'cwd', 'startup_timeout_sec', 'tool_timeout_sec']) if (server[key] !== undefined) config[`mcp_servers.${name}.${key}`] = server[key]
+    for (const key of ['command', 'args', 'cwd', 'startup_timeout_sec', 'tool_timeout_sec']) if (server[key] !== undefined) config[`mcp_servers.${name}.${key}`] = server[key]
+    // Codex CLI overrides parse TOML values, so JSON object syntax cannot encode env.
+    for (const [key, value] of Object.entries(server.env ?? {})) {
+      assert(/^[A-Za-z_][A-Za-z0-9_]*$/u.test(key) && typeof value === 'string', 'MCP environment requires named string leaves')
+      config[`mcp_servers.${name}.env.${key}`] = value
+    }
     config[`mcp_servers.${name}.required`] = true
     for (const tool of server.tools) config[`mcp_servers.${name}.tools.${tool}.approval_mode`] = 'approve'
   }

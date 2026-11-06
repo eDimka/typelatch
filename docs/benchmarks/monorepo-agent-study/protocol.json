@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "kind": "public-preregistration",
-  "privateProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
+  "privateProtocolSha256": "e66ab2a3beb21a4fe7e57edc6664a47a73336f58e6e6efb6238d0549ee1cdb9f",
   "normalization": "Repository, home and temporary paths replaced with placeholders. PATH omitted from public environment; exact private protocol hash retained.",
   "protocol": {
     "schemaVersion": 1,
     "study": "real-maintenance-flexible-tools-v1",
-    "createdAt": "2026-11-06T18:39:09.524Z",
+    "createdAt": "2026-11-06T18:48:40.998Z",
     "status": "frozen-before-agent-sessions",
     "runCount": 16,
     "repeats": 2,
@@ -456,6 +456,14 @@
         {
           "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
           "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+          "kind": "file"
         }
       ],
       "preSessionAmendment": {
@@ -469,9 +477,15 @@
         ],
         "agentSessionsBeforeChange": 0,
         "reason": "The user asks about large monorepos and an installed-API edge. Use one genuine monorepo behavior repair and one exact upstream API migration with unchanged other importers. The separately qualified date-fns task is reserved for external replication if an advantage survives."
+      },
+      "infrastructureAmendment": {
+        "priorStudy": "agent-study-001",
+        "priorProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
+        "reason": "Retain the completed native run and three pre-model MCP configuration failures. Correct only CLI environment-map serialization to individual TOML leaf overrides. Tasks, prompts, candidate source, thresholds and16-session schedule unchanged. Run every arm fresh; no valid result is substituted from the earlier attempt.",
+        "startupQualification": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json"
       }
     },
-    "specSha256": "9cb262f128ac06e7a5a2bece20d10399749a9e4bc321f05180db460be0102a86",
+    "specSha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
     "inputs": [
       {
         "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/run.mjs",
@@ -483,8 +497,8 @@
       {
         "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/capture.mjs",
         "kind": "file",
-        "sha256": "5ce2da8d37e1fb17db16fcbeae0d988843659ae282f9c8e358468d7a969b0254",
-        "bytes": 5742,
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
         "entries": null
       },
       {
@@ -558,10 +572,10 @@
         "entries": null
       },
       {
-        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec.json",
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
         "kind": "file",
-        "sha256": "9cb262f128ac06e7a5a2bece20d10399749a9e4bc321f05180db460be0102a86",
-        "bytes": 15050,
+        "sha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+        "bytes": 16066,
         "entries": null
       },
       {
@@ -870,6 +884,20 @@
         "kind": "file",
         "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
         "bytes": 1276,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+        "kind": "file",
+        "sha256": "d20af8a638855188690593fb934a75af5769004526ed1dd7593db9e53a92a61f",
+        "bytes": 5702,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+        "kind": "file",
+        "sha256": "d31599adfad03fa267cf2b290b7bc6cb8d36358349d167d7e60329672de21e33",
+        "bytes": 31719,
         "entries": null
       }
     ],
