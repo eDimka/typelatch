@@ -70,6 +70,7 @@ describe("local brain", () => {
     const path = brainPath("effect", "3.22.1")
     mkdirSync(dirname(path), { recursive: true })
     const db = createBrainDatabase(path, "baseline")
+    db.prepare("INSERT INTO metadata VALUES ('package','effect'),('version','3.22.1'),('integrity','sha512-fixture')").run()
     const insert = db.prepare(`
       INSERT INTO symbols (
         qualified_name, name, kind, module, signature, docs, source_path,

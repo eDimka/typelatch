@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-11-06T11:48:24.149Z",
+  "scope": "Root package and lockfile, including development dependencies",
+  "command": "npm audit --json",
+  "auditReportVersion": 2,
+  "vulnerabilities": {},
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "dependencies": {
+      "prod": 114,
+      "dev": 96,
+      "optional": 53,
+      "peer": 36,
+      "peerOptional": 0,
+      "total": 209
+    }
+  }
+}

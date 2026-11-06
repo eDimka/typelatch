@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Typelatch. Give your agent a better first move. Find the source. Inspect the exact API. Verify the change.">
+  <defs>
+    <linearGradient id="latch" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffa085"/><stop offset="1" stop-color="#ff5636"/></linearGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#726078" stroke-opacity=".14"/></pattern>
+    <radialGradient id="fade"><stop offset=".1" stop-color="white"/><stop offset="1" stop-color="black"/></radialGradient>
+    <mask id="grid-fade"><rect x="640" y="75" width="520" height="455" fill="url(#fade)"/></mask>
+  </defs>
+  <rect width="1200" height="630" fill="#19171c"/>
+  <rect x="640" y="75" width="520" height="455" fill="url(#grid)" mask="url(#grid-fade)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="52" y="68" font-size="30" font-weight="700" letter-spacing="-1.6" fill="#f4f1e8">typelatch<tspan fill="#ff7759">.</tspan></text>
+    <text x="52" y="133" font-family="Andale Mono, monospace" font-size="10" letter-spacing="1.2" fill="#c7b5ed">LOCAL CONTEXT. REAL EVIDENCE.</text>
+    <g font-size="76" font-weight="700" letter-spacing="-4.5" fill="#f4f1e8">
+      <text x="48" y="222">Give your agent</text>
+      <text x="48" y="297">a better</text>
+      <text x="48" y="372" fill="#ff7759">first move.</text>
+    </g>
+    <g font-size="17" fill="#bcb6c3"><text x="52" y="428">Find the source. Inspect the exact API.</text><text x="52" y="455">Verify the change.</text></g>
+  </g>
+  <g transform="translate(851 95) rotate(11 135 135) scale(.9)">
+    <path d="M87 52h156a40 40 0 0 1 40 40v156a40 40 0 0 1-40 40H87a40 40 0 0 1-40-40V92a40 40 0 0 1 40-40Z" fill="#0d0c10" opacity=".55"/>
+    <path d="M72 32h156a40 40 0 0 1 40 40v156a40 40 0 0 1-40 40H72a40 40 0 0 1-40-40V72a40 40 0 0 1 40-40Z" fill="url(#latch)"/>
+    <path d="M98 88H78v124h20M202 88h20v124h-20" fill="none" stroke="#261a23" stroke-width="14"/>
+    <path d="M120 158l24 24 42-62" fill="none" stroke="#261a23" stroke-width="18"/>
+  </g>
+  <g transform="translate(682 301) rotate(-5 200 90)">
+    <rect x="12" y="14" width="407" height="174" rx="5" fill="#0d0c10" opacity=".45"/>
+    <rect width="407" height="174" rx="5" fill="#c7b5ed"/>
+    <text x="26" y="34" font-family="Andale Mono, monospace" font-size="9" letter-spacing=".7" fill="#51425f">EXACT PACKAGE API</text>
+    <text x="26" y="72" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" letter-spacing="-1" fill="#19171c">kysely<tspan font-weight="400">@0.28.8</tspan></text>
+    <text x="26" y="104" font-family="Andale Mono, monospace" font-size="12" fill="#19171c">TransactionBuilder.execute()</text>
+    <path d="M26 124H381" stroke="#9b86b9"/>
+    <text x="26" y="148" font-family="Andale Mono, monospace" font-size="10" fill="#51425f">dist/esm/kysely.d.ts:623</text>
+    <path d="M364 148l8-8m-8 0h8v8" fill="none" stroke="#51425f"/>
+  </g>
+  <g transform="translate(970 465) rotate(8 80 24)">
+    <rect x="4" y="5" width="178" height="44" fill="#0d0c10" opacity=".5"/>
+    <rect width="178" height="44" fill="#d9ee9e"/>
+    <text x="16" y="27" font-family="Andale Mono, monospace" font-size="10" fill="#19171c">Find. Inspect. Verify.</text>
+  </g>
+  <path d="M52 565H1148" stroke="#3c3742"/>
+  <g font-family="Andale Mono, monospace" font-size="10" letter-spacing=".3"><text x="52" y="598" fill="#bcb6c3">LOCAL API EVIDENCE FOR TYPESCRIPT AGENTS</text><text x="1148" y="598" fill="#c7b5ed" text-anchor="end">CLI + MCP · OPEN SOURCE</text></g>
+</svg>

@@ -1,36 +1,41 @@
-# Typelatch 0.3.0 release candidate
+# Typelatch 0.3.0 release candidate verification
 
-Prepared on 6 October 2026 from the completed MCP setup, lockfile, saved scope, and search improvements. The isolated release checkout starts at GitHub commit `8447871` and preserves its website publication gate. Version 0.2.0 was a source milestone and was not published to npm.
+This report records the candidate checked on 6 November 2026. It starts from the merged GitHub main commit `cc041fa` and includes the latest production source and regression tests from the development checkout. Version 0.2.0 remains an unpublished source milestone. This report records local verification; publication and hosted CI results must be verified separately.
 
 ## Included behavior
 
-* Interactive MCP setup for Codex and Claude Code, with the exact npm version as the launcher target.
-* npm, pnpm, Yarn, and Bun text lockfile discovery, ancestor ownership, mixed package managers, aliases, workspace selection, and a dry run plan.
-* Saved monorepo subsets that apply to source search and direct dependency sync, with incremental additions and removals.
-* Smaller indexes, reusable search workers, compact previews, and exact symbol identity.
-* Updated README, usage guide, changelog, and website onboarding.
+* Exact version MCP setup for Codex and Claude Code.
+* npm, pnpm, Yarn and Bun text lockfile discovery, mixed package ownership and saved monorepo scopes.
+* Compact discovery and bounded source context, with source hashes, import candidates and explicit omissions.
+* Installed API evidence using the project compiler, callable signatures, normalized declaration headers and cursor coverage counts.
+* Exact compound API lookup, corrected callable headers, package cache identity checks and explicit recovery commands.
+* Lazy command and parser loading, reusable workers, smaller workspace caches and cleanup on database failures.
+* Updated README, usage guide and website walkthroughs tied to recorded evidence.
 
-The active comparison chat's source context feature, lazy parser experiment, and second agent trial were excluded. Their original files remain in the shared development checkout. The published comparison documents retain their original frozen measurements. Fresh release reruns are retained with local release artifacts.
+Two onboarding failures were reproduced before correction. Archives with a named top directory, including DefinitelyTyped packages, now normalize one safe root into `package`. Mixed roots, traversal, links and extraction limits remain guarded. Sync now reports packages without TypeScript evidence as `unsupported` and continues preparing supported dependencies. Its JSON result separates successful execution from complete preparation. Download, integrity and other operational failures remain errors.
 
-## Local verification
+A separate compatibility regression was reproduced with the official TypeScript 4.7.4 compiler. Older compilers retain installed API type and signature resolution. Normalized headers return an explicit unsupported reason when the compiler lacks the required modifier and factory APIs. Two deterministic regression cases also cover missing modifier APIs and incompatible older factory arguments. This does not introduce a new minimum compiler version for workspace resolution.
 
-* Clean `npm ci`, with zero advisories in the root dependency audit.
-* Static checks and 250 passing tests across 26 test files. One optional test requiring a prebuilt real corpus was skipped; the executable retrieval benchmark passed separately.
-* Installed package checks cover CLI and MCP, all seven tools, both setup registrations through stub clients, mixed lockfile monorepo sync, and saved scope changes in a live MCP session.
-* The package check verifies that the MCP handshake matches package metadata.
-* Retrieval regression gate: 73 discovery hits from 73 questions and 70 strict matches, with the three documented exceptions retained.
-* Workspace discovery regression: eight expected first results from eight authored questions.
-* Support suite: all 24 tasks across 12 package versions, with negative controls.
-* Agent walkthrough: the failing fixture was repaired, compilation and assertions passed, the assertions stayed unchanged, and the index refreshed. Artifact equivalence remains unknown.
-* Storage, package storage, exact symbol usability, and repeated search session reruns passed their assertions.
-* Website static tests and seven publication gate tests passed. The gate now recognizes direct npx commands.
-* Chromium workflows passed at 320, 390, 768, 1024, and 1440 pixels. Automated accessibility checks passed at the tested mobile and desktop widths. Mobile hero and setup screenshots were visually reviewed.
-* Eight accounting extractor tests passed. The separate coding grader requires a prepared candidate and was not used as a release test.
+## Completed local checks
 
-Linux Node 22 CI exposed two integration test startup budgets that were too short under runner load. The multi command scope test now has the same 20 second budget as its sibling, and the worker readiness probe waits up to 10 seconds. The existing compiler reference test also exceeded its combined 20 second budget twice on macOS Node 22; its two validations and live compiler lookup now have a 60 second outer test budget. Behavioral assertions and production timeouts are unchanged.
+The local environment was Node.js 22.23.1 on macOS arm64. Static checking passed. The final source test run passed 514 tests across 40 files; one optional test requiring a prebuilt real corpus was skipped. The executable retrieval benchmark was run separately.
 
-## Publication
+* A clean root `npm ci` completed. The [root dependency audit](dependency-audit-2026-11-06.json) reports zero advisories, including development dependencies.
+* All 19 release policy, workflow isolation and website publication policy tests passed.
+* Packed installation checks passed after the onboarding and compiler compatibility fixes. They exercised CLI and MCP, all seven tools, source and compact discovery, setup registration through both stub clients, monorepo sync, saved scopes, compiler validation and a failing type control. They also checked the MCP package version. The reviewed npm payload contains 132 files and excludes tests, site assets, research artifacts, caches and credentials.
+* A fresh full sync of the SQLite example completed successfully. It prepared both declared `@types` packages, Kysely and TypeScript. The native `better-sqlite3` package was explicitly unsupported because it carries no TypeScript source or declarations, so preparation remained `complete: false`.
+* The [retrieval regression](../benchmarks/retrieval.json) returned an expected symbol for 73 of 73 authored questions and all expected symbols for 70. The three documented strict exceptions remain visible.
+* The [workspace regression](../benchmarks/workspace-search.json) passed all eight authored questions. Expected file ranks, in report order, were `1, 1, 1, 1, 2, 1, 1, 4`. This is not an all first result claim.
+* The [support suite](../benchmarks/support.json) passed 24 scenarios across 12 package versions, including the required negative controls.
+* The [curated agent replay](../showcase/agent-workflow.json) passed. The baseline compiled but failed its rollback assertion; the edited fixture passed compilation, unchanged assertions and input stability. Search refreshed one file. Artifact equivalence remains unknown.
+* An [actual Codex session](../showcase/codex-session.md) used four successful MCP calls, one implementation edit and one shell diff command. Source discovery preceded the failing assertion and exact installed API inspection. Both unchanged assertions passed after the edit and in a separate harness run. No recorded shell command contained `rg` or `grep`. The authored exercise, explicit tool preference and prepared dependency indexes are disclosed; no comparative saving is measured.
 
-npm and public website publication are pending. The earlier local tarball and manual draft are superseded by the tag driven Actions process. Local artifacts must not be published. The saved npm credentials returned HTTP 401, so owner authorization for npm trusted publishing remains necessary. The website waits for its advertised exact version to become npm latest. Local checks do not establish registry publication or a public deployment.
+The historical support fixture deliberately retains its pinned minimatch 10.2.6 corpus. Its separate dependency tree reports two advisories, in minimatch and brace expansion. Those fixtures are not shipped in the npm package. The zero advisory result above applies to the root package and lockfile, not every historical example dependency tree.
 
-The release automation adds canonical SemVer and metadata checks, artifact integrity and retry tests, workflow privilege checks, and website deferral and rollback checks. The release workflow builds its own artifact from the pushed tag and reuses that artifact through verification and publication.
+Historical competitive reports retain their original measurements. They do not establish current superiority over other tools, model token savings or general coding success. The original published `recording.json` capture remains unchanged. The new agent capture is separate evidence. The refreshed site was inspected locally at desktop and mobile sizes, including step controls, clipboard feedback and overflow. Its hosted browser and accessibility suite must also pass on the release commit.
+
+## Publication status
+
+At this verification checkpoint, npm still serves 0.1.1 and the 0.3.0 tag has not been released. Owner authentication and trusted publishing configuration are being completed. Local artifacts must not be published directly.
+
+The annotated tag workflow must build one preserved artifact, pass the Linux and macOS verification matrix, publish through npm trusted publishing, verify the fresh registry installation and integrity, publish the immutable GitHub release, and deploy the website for the verified stable version. Successful local tests do not establish any of those publication outcomes.

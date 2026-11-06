@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { verifySiteDemo } from './site-demo.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -96,7 +97,16 @@ const assertionProofs = testNames
   })
   .join('')
 
+const demo = JSON.parse(read('site/demo.json'))
+const { counts: demoCounts } = verifySiteDemo(read('docs/showcase/codex-session.json'), demo)
+assert.equal(demo.source.packageVersion, JSON.parse(read('package.json')).version, 'Walkthrough package version matches the release')
+const sceneLabels = ['Connect', 'Discover', 'Reproduce', 'Inspect', 'Edit', 'Verify']
+const demoPlayer = `<div class="demo-player" aria-label="${escape(demo.label)}"><div class="demo-sidebar"><p class="small-label">THE AGENT WORKFLOW</p><nav class="demo-steps" aria-label="Walkthrough steps">${demo.scenes.map((scene, index) => `<a class="demo-step" href="#demo-${escape(scene.id)}" data-demo-step="${index}"><span class="demo-number">${String(index + 1).padStart(2, '0')}</span>${sceneLabels[index]}</a>`).join('')}</nav><div class="demo-controls" hidden><button type="button" data-demo-play>Play walkthrough</button><button type="button" data-demo-restart aria-label="Restart walkthrough">↺</button></div></div><div class="demo-stage"><div class="terminal-bar"><span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>typelatch / agent session</span><span>${escape(demo.animationLabel.toUpperCase())}</span></div>${demo.scenes.map((scene, index) => `<article class="demo-scene" id="demo-${escape(scene.id)}" data-demo-scene="${index}" data-duration="${scene.durationMs}" aria-labelledby="demo-title-${index}"><p class="demo-eyebrow">${escape(scene.eyebrow)}</p><h3 id="demo-title-${index}">${escape(scene.title)}</h3><p>${escape(scene.body)}</p>${code(scene.code, `${scene.title} walkthrough excerpt`)}<p class="demo-caption">${escape(scene.caption)}</p></article>`).join('')}</div></div>`
+
 const replacements = {
+  demoPlayer,
+  demoDisclosure: escape(demo.disclosure),
+  demoCounts: `${demoCounts.successfulMcpCalls} successful MCP calls · ${demoCounts.shellCommands} shell command · ${demoCounts.grepCommands} rg or grep commands`,
   recordDate: escape(
     new Intl.DateTimeFormat('en-GB', {
       day: '2-digit',
@@ -165,6 +175,8 @@ for (const asset of ['assets', 'site.css', 'site.js'])
 writeFileSync(resolve(output, 'index.html'), html)
 writeFileSync(resolve(output, '.nojekyll'), '')
 cpSync(resolve(root, 'docs/showcase/recording.json'), resolve(output, 'evidence/recording.json'))
+cpSync(resolve(root, 'docs/showcase/codex-session.json'), resolve(output, 'evidence/codex-session.json'))
+cpSync(resolve(root, 'site/demo.json'), resolve(output, 'evidence/demo.json'))
 for (const item of recording.mcp)
   writeFileSync(resolve(output, `evidence/${item.id}.json`), JSON.stringify(item, null, 2) + '\n')
 writeFileSync(

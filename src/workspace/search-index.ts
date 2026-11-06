@@ -1,9 +1,13 @@
 import Database from "better-sqlite3"
 import { mkdirSync } from "node:fs"
 import { join, relative } from "node:path"
-import ts from "typescript"
+import { createRequire } from "node:module"
+import type * as TypeScript from "typescript"
 import { brainHome } from "../paths.js"
 import { hash, type WorkspaceFile } from "./inventory.js"
+
+const require = createRequire(import.meta.url)
+const { version: typescriptVersion } = require("typescript/package.json") as { version: string }
 
 export type SearchChunk = { source: string; line: number; endLine: number; symbol: string | null; position: number | null; snippet: string }
 type IndexedChunk = SearchChunk & { offset: number; length: number }
@@ -32,13 +36,18 @@ export function searchWorkspaceIndex(root: string, files: WorkspaceFile[], quest
   mkdirSync(directory, { recursive: true })
   const path = join(directory, "search.db")
   const db = new Database(path)
-  db.pragma("busy_timeout = 5000")
-  db.pragma("journal_mode = WAL")
   const schemaVersion = 6
   let updatedFiles = 0
   let removedFiles = 0
   const truncated: string[] = []
   try {
+    // Existing caches keep their page size, including after workspace growth.
+    if (db.pragma("page_count", { simple: true }) === 0) {
+      const searchable = files.filter(file => file.searchable)
+      if (searchable.length <= 32 && searchable.reduce((bytes, file) => bytes + Buffer.byteLength(file.text), 0) <= 64 * 1024) db.pragma("page_size = 1024")
+    }
+    db.pragma("busy_timeout = 5000")
+    db.pragma("journal_mode = WAL")
     db.exec("BEGIN IMMEDIATE")
     const previousVersion = db.pragma("user_version", { simple: true })
     if (previousVersion !== schemaVersion) {
@@ -61,7 +70,7 @@ export function searchWorkspaceIndex(root: string, files: WorkspaceFile[], quest
         signal.throwIfAborted()
         const prior = stored.get(file.path)
         stored.delete(file.path)
-        const inputHash = hash(`${ts.version}:${file.hash}`)
+        const inputHash = hash(`${typescriptVersion}:${file.hash}`)
         if (prior?.hash === inputHash) { if (prior.truncated) truncated.push(file.path); continue }
         const chunks = chunksForFile(file)
         const limited = chunks.length > 500
@@ -100,7 +109,10 @@ export function searchWorkspaceIndex(root: string, files: WorkspaceFile[], quest
       index: { path, updatedFiles, removedFiles, files: files.filter(file => file.searchable).length, snapshot: hash(JSON.stringify(files.map(file => [file.path, file.hash]))) },
       truncated, candidateLimitReached: rows.length > 400
     }
-  } finally { if (db.inTransaction) db.exec("ROLLBACK"); db.close() }
+  } finally {
+    try { if (db.inTransaction) db.exec("ROLLBACK") }
+    finally { db.close() }
+  }
 }
 
 function chunksForFile(file: WorkspaceFile): IndexedChunk[] {
@@ -120,8 +132,9 @@ function chunksForFile(file: WorkspaceFile): IndexedChunk[] {
     }
   }
   if (/\.(?:[cm]?[jt]sx?)$/.test(file.path)) {
+    const ts = require("typescript") as typeof import("typescript")
     const source = ts.createSourceFile(file.path, file.text, ts.ScriptTarget.Latest, true)
-    const visit = (node: ts.Node): void => {
+    const visit = (node: TypeScript.Node): void => {
       if (chunks.length > 500) return
       if ((ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node) || ts.isInterfaceDeclaration(node) || ts.isTypeAliasDeclaration(node) || ts.isEnumDeclaration(node) || ts.isVariableDeclaration(node) || ts.isMethodDeclaration(node)) && node.name && ts.isIdentifier(node.name)) {
         const position = node.name.getStart(source)

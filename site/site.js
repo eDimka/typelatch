@@ -65,3 +65,82 @@ traceButton.addEventListener('click', () => {
   status.textContent =
     'Recorded lookup path: MCP request, local SQLite index, package declaration. No new query was executed.'
 })
+
+
+const demoScenes = [...document.querySelectorAll('[data-demo-scene]')]
+const demoSteps = [...document.querySelectorAll('[data-demo-step]')]
+const demoControls = document.querySelector('.demo-controls')
+const playButton = document.querySelector('[data-demo-play]')
+const restartButton = document.querySelector('[data-demo-restart]')
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)')
+let currentScene = 0
+let playbackTimer
+let isPlaying = false
+
+function showScene(index, announce = false) {
+  currentScene = index
+  for (const scene of demoScenes) scene.hidden = Number(scene.dataset.demoScene) !== index
+  for (const step of demoSteps) {
+    step.setAttribute('aria-current', String(Number(step.dataset.demoStep) === index))
+    step.setAttribute('aria-controls', demoScenes[Number(step.dataset.demoStep)].id)
+  }
+  if (announce) status.textContent = `Walkthrough step ${index + 1} of ${demoScenes.length}: ${demoScenes[index].querySelector('h3').textContent}. This is a recorded illustration; no tools are running.`
+}
+
+function stopPlayback() {
+  clearTimeout(playbackTimer)
+  isPlaying = false
+  playButton.textContent = 'Play walkthrough'
+}
+
+function scheduleScene() {
+  playbackTimer = setTimeout(() => {
+    if (currentScene === demoScenes.length - 1) {
+      stopPlayback()
+      status.textContent = 'Walkthrough complete. Open the recorded requests and results to inspect the evidence.'
+      return
+    }
+    showScene(currentScene + 1)
+    scheduleScene()
+  }, Number(demoScenes[currentScene].dataset.duration))
+}
+
+for (const step of demoSteps) {
+  step.addEventListener('click', (event) => {
+    event.preventDefault()
+    stopPlayback()
+    showScene(Number(step.dataset.demoStep), true)
+  })
+}
+playButton.addEventListener('click', () => {
+  if (isPlaying) {
+    stopPlayback()
+    status.textContent = 'Walkthrough paused.'
+    return
+  }
+  if (reducedMotion.matches) return
+  if (currentScene === demoScenes.length - 1) showScene(0)
+  isPlaying = true
+  playButton.textContent = 'Pause'
+  status.textContent = 'Playing the illustrated recorded workflow. No new query is being executed.'
+  scheduleScene()
+})
+restartButton.addEventListener('click', () => {
+  stopPlayback()
+  showScene(0, true)
+})
+reducedMotion.addEventListener('change', stopPlayback)
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopPlayback()
+})
+function showLinkedScene() {
+  const index = demoScenes.findIndex((scene) => `#${scene.id}` === location.hash)
+  if (index >= 0) {
+    stopPlayback()
+    showScene(index)
+  }
+}
+demoControls.hidden = false
+showScene(0)
+showLinkedScene()
+window.addEventListener('hashchange', showLinkedScene)

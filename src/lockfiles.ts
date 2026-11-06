@@ -1,8 +1,8 @@
-import { parseSyml } from "@yarnpkg/parsers"
-import { parseAllDocuments } from "yaml"
-import ts from "typescript"
+import { createRequire } from "node:module"
 import { basename, dirname, isAbsolute, relative, resolve, sep } from "node:path"
 import { assertExactVersion, assertPackageName } from "./identity.js"
+
+const require = createRequire(import.meta.url)
 
 export const lockfileNames = ["npm-shrinkwrap.json", "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lock", "bun.lockb"] as const
 export type LockedPackage = { name: string; version: string; integrity?: string; locations: string[] }
@@ -102,6 +102,7 @@ export function parseLockfile(path: string, text: string): Lockfile {
       walk(object(lock.dependencies), "")
     }
   } else if (file === "pnpm-lock.yaml") {
+    const { parseAllDocuments } = require("yaml") as typeof import("yaml")
     const documents = parseAllDocuments(text, { uniqueKeys: true })
     for (const document of documents) if (document.errors.length) throw document.errors[0]
     const lock = object(documents.at(-1)?.toJS({ maxAliasCount: 100 }))
@@ -138,6 +139,7 @@ export function parseLockfile(path: string, text: string): Lockfile {
         packages.find(entry => entry.name === id.name && entry.version === id.version)
     }
   } else if (file === "bun.lock") {
+    const ts = require("typescript") as typeof import("typescript")
     const parsed = ts.parseConfigFileTextToJson(path, text)
     if (parsed.error) throw new Error(`Invalid bun.lock: ${ts.flattenDiagnosticMessageText(parsed.error.messageText, " ")}`)
     const lock = object(parsed.config)
@@ -177,6 +179,7 @@ export function parseLockfile(path: string, text: string): Lockfile {
       return local ?? located(project, alias)
     }
   } else if (file === "yarn.lock") {
+    const { parseSyml } = require("@yarnpkg/parsers") as typeof import("@yarnpkg/parsers")
     const lock = object(parseSyml(text))
     result.workspaceRanges = !lock.__metadata
     for (const [key, raw] of Object.entries(lock)) {

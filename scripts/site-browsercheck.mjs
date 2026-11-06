@@ -37,6 +37,7 @@ const server = createServer((request, response) => {
         '.svg': 'image/svg+xml',
         '.webp': 'image/webp',
         '.png': 'image/png',
+        '.gif': 'image/gif',
         '.woff2': 'font/woff2',
       }[extname(file)] || 'text/plain'
     response.writeHead(200, { 'Content-Type': type }).end(readFileSync(file))
@@ -96,6 +97,24 @@ try {
   report.checks.push(
     'Correct Typelatch page, immediate npm command, wordmark without a corner icon, exact recorded signature',
   )
+  assert.equal(await page.locator('[data-demo-scene]').count(), 6)
+  assert.equal(await page.locator('[data-demo-scene]:visible').count(), 1)
+  for (let index = 0; index < 6; index++) {
+    await page.locator(`[data-demo-step="${index}"]`).click()
+    assert.equal(await page.locator(`[data-demo-scene="${index}"]`).isVisible(), true)
+    assert.equal(await page.locator(`[data-demo-step="${index}"]`).getAttribute('aria-current'), 'true')
+  }
+  await page.locator('[data-demo-restart]').click()
+  assert.equal(await page.locator('[data-demo-scene="0"]').isVisible(), true)
+  await page.locator('[data-demo-play]').click()
+  assert.equal(await page.locator('[data-demo-play]').innerText(), 'Pause')
+  await page.locator('[data-demo-play]').click()
+  assert.equal(await page.locator('[data-demo-play]').innerText(), 'Play walkthrough')
+  await page.locator('[data-demo-step="3"]').focus()
+  await page.keyboard.press('Enter')
+  assert.equal(await page.locator('[data-demo-scene="3"]').isVisible(), true)
+  report.checks.push('All six walkthrough steps, keyboard selection, play, pause and restart')
+
   for (const width of [320, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 844 })
     const commandBottom = await page.locator('#hero-install-command').evaluate(
@@ -187,6 +206,9 @@ try {
   })
   const reducedPage = await reduced.newPage()
   await reducedPage.goto(url)
+  assert.equal(await reducedPage.locator('[data-demo-play]').isVisible(), false)
+  await reducedPage.locator('[data-demo-step="5"]').click()
+  assert.equal(await reducedPage.locator('[data-demo-scene="5"]').isVisible(), true)
   await reducedPage.locator('[data-trace]').click()
   assert.equal(
     await reducedPage
@@ -212,6 +234,8 @@ try {
   })
   const staticPage = await staticContext.newPage()
   await staticPage.goto(url)
+  assert.equal(await staticPage.locator('[data-demo-scene]:visible').count(), 6)
+  assert.equal(await staticPage.locator('[data-demo-play]').isVisible(), false)
   assert.equal(await staticPage.locator('#lookup').isVisible(), true)
   assert.equal(await staticPage.locator('#use').isVisible(), true)
   assert.equal(await staticPage.locator('[data-trace]').isVisible(), false)

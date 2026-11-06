@@ -25,6 +25,47 @@ describe("workspace cache storage", () => {
     rmSync(directory, { recursive: true, force: true })
   })
 
+  const pageSize = (path: string) => {
+    const db = new Database(path, { readonly: true })
+    try { return db.pragma("page_size", { simple: true }) } finally { db.close() }
+  }
+
+  it("uses smaller initial pages for a tiny cache and preserves them through growth", () => {
+    const first = file("first.ts", "export const freshMarker = true\n")
+    const small = search([first], "freshMarker")
+    expect(pageSize(small.index.path)).toBe(1024)
+    expect(statSync(small.index.path).size).toBeLessThan(16 * 1024)
+    const grown = [first, ...Array.from({ length: 32 }, (_, i) => file(`more${i}.ts`, `export const other${i} = true\n`))]
+    const after = search(grown, "freshMarker")
+    expect(after.candidates).toEqual(small.candidates)
+    expect(after.index.updatedFiles).toBe(32)
+    expect(pageSize(after.index.path)).toBe(1024)
+  })
+
+  it("keeps an existing large cache page size when the workspace contracts", () => {
+    const files = Array.from({ length: 33 }, (_, i) => file(`file${i}.ts`, `export const marker${i} = true\n`))
+    const large = search(files, "marker0")
+    expect(pageSize(large.index.path)).toBe(4096)
+    const small = search([files[0]!], "marker0")
+    expect(pageSize(small.index.path)).toBe(4096)
+    expect(small.index.updatedFiles).toBe(0)
+    expect(small.index.removedFiles).toBe(32)
+    expect(small.candidates).toEqual(large.candidates)
+  })
+
+  it.each([{ count: 32, bytes: 100, expected: 1024 }, { count: 33, bytes: 100, expected: 4096 },
+    { count: 1, bytes: 65536, expected: 1024 }, { count: 1, bytes: 65537, expected: 4096 }])("selects initial pages from searchable file and UTF8 byte bounds: %j", ({ count, bytes, expected }) => {
+    const files = Array.from({ length: count }, (_, i) => file(`text${i}.md`, "x".repeat(bytes)))
+    files.push({ ...file("excluded.md", "ignored".repeat(10000)), searchable: false })
+    const result = search(files, "x")
+    expect(pageSize(result.index.path)).toBe(expected)
+  })
+
+  it("counts Unicode content in bytes when selecting pages", () => {
+    const result = search([file("unicode.md", "🦊".repeat(17000))], "marker")
+    expect(pageSize(result.index.path)).toBe(4096)
+  })
+
   it("bounds persistent bytes while retaining raw snippets and exact locations", () => {
     const files = Array.from({ length: 20 }, (_, i) => file(`src/service${i}.ts`, Array.from({ length: 40 }, (_, j) =>
       `/** Validate incoming request ${j} and preserve its payload before dispatch. */\nexport function validateRequest${i}_${j}(payload: string): string {\n  return payload.trim()\n}\n`).join("\n")))

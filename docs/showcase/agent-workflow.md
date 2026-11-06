@@ -6,7 +6,7 @@ The agent starts with a question. It does not need the package name, function na
 
 ## Give this to your agent
 
-Install Typelatch 0.2.0 and connect its MCP server as described in [Usage](../USAGE.md). From a trusted source checkout, prepare an isolated exercise:
+Connect the current Typelatch MCP server as described in [Usage](../USAGE.md). The retained capture uses the 0.3.0 source build. From a trusted source checkout, prepare an isolated exercise:
 
 ```sh
 npm ci
@@ -158,8 +158,8 @@ This builds the checkout, creates a fresh isolated fixture, executes the curated
 To exercise a packed or published build instead of the source checkout:
 
 ```sh
-TYPELATCH_PACKAGE=/absolute/path/typelatch-0.2.0.tgz npm run showcase:agent
-TYPELATCH_PACKAGE=typelatch@0.2.0 npm run showcase:agent
+TYPELATCH_PACKAGE=/absolute/path/typelatch-0.3.0.tgz npm run showcase:agent
+TYPELATCH_PACKAGE=typelatch@0.3.0 npm run showcase:agent
 ```
 
-The capture records which package was installed. The full archive is included with the [0.2.0 release assets](https://github.com/eDimka/typelatch/releases/tag/v0.2.0), with its SHA256 checksum in the compact recording and release checksums.
+The capture records which package was installed. A local replay writes the full archive to `artifacts/agent-workflow.json.gz`, with its SHA256 checksum in the compact recording. Check the [release assets](https://github.com/eDimka/typelatch/releases) for published evidence archives.

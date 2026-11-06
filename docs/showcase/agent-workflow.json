@@ -1,6 +1,6 @@
 {
   "provenance": {
-    "capturedAt": "2026-10-06T15:35:57.147Z",
+    "capturedAt": "2026-11-06T11:51:27.648Z",
     "version": "0.3.0",
     "kind": "Curated MCP workflow replay with actual tool responses; not an independent agent session or benchmark",
     "author": "Codex",
@@ -327,8 +327,8 @@
       "kind": "class",
       "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}"
     },
-    "beforeOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 103.022667\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 3.066625\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 238.04675\n",
-    "afterOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.032208\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.272958\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 141.506833\n"
+    "beforeOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 79.696791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.711791\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 228.520417\n",
+    "afterOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.692708\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.313875\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 155.140958\n"
   },
   "fileActions": [
     {
@@ -659,11 +659,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/fa73e45ff5260415e213b983f762aa312d42279bb6119a234d5376954b581bdd/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
           "updatedFiles": 5,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "9da921dbb7a5e3844c01c61b4644a7454afe03f3c2a7628b5e38d88b727939a1"
+          "snapshot": "5eb06bb13200dd0225d5b7787224d9e56ac396466fa00b40854bf1aad72ba578"
         },
         "status": "partial"
       }
@@ -807,11 +807,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/fa73e45ff5260415e213b983f762aa312d42279bb6119a234d5376954b581bdd/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
           "updatedFiles": 0,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "9da921dbb7a5e3844c01c61b4644a7454afe03f3c2a7628b5e38d88b727939a1"
+          "snapshot": "5eb06bb13200dd0225d5b7787224d9e56ac396466fa00b40854bf1aad72ba578"
         },
         "status": "ok"
       }
@@ -860,9 +860,9 @@
           "timedOut": false,
           "cancelled": false,
           "outputLimitExceeded": false,
-          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 103.022667\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 3.066625\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 238.04675\n",
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 79.696791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.711791\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 228.520417\n",
           "stderr": "",
-          "durationMs": 411.2744170000001
+          "durationMs": 383.50145900000007
         }
       }
     },
@@ -1461,11 +1461,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/fa73e45ff5260415e213b983f762aa312d42279bb6119a234d5376954b581bdd/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
           "updatedFiles": 1,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "cf20d467d9b27735d3d85ba582427f1b62a9b7398a0d816b1758e7a43d0cf6bf"
+          "snapshot": "4b4c011b7882c6962650f3bfaf4f93dea7fae167c539e11bb4d5c303ac4a6daf"
         },
         "status": "ok"
       }
@@ -1567,16 +1567,16 @@
           "timedOut": false,
           "cancelled": false,
           "outputLimitExceeded": false,
-          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.032208\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.272958\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 141.506833\n",
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.692708\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.313875\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 155.140958\n",
           "stderr": "",
-          "durationMs": 290.7813750000005
+          "durationMs": 316.6150829999988
         }
       }
     }
   ],
   "rawEvidence": {
     "file": "agent-workflow.json.gz",
-    "sha256": "c602a6ff9a1043a5de64c4633ff46c226a1ffd15e4b7b2f666dbd8677a853b1e",
+    "sha256": "4be0613d1abba93b05a4e148131bf956acf132d11910844a0ad899f48539e1b8",
     "note": "Full MCP envelopes and command output. This JSON retains explicit projections of responses."
   }
 }

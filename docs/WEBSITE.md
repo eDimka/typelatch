@@ -1,6 +1,6 @@
 # Website
 
-The site is static HTML, CSS, and a small progressive enhancement script. It runs no agent and sends no query from the browser. Recorded requests, results, declaration excerpts, and assertion source are generated from [the frozen showcase](showcase/README.md). The build verifies the exact package identities and fixture hashes before rendering.
+The site is static HTML, CSS, and a small progressive enhancement script. It runs no agent and sends no query from the browser. The six scene walkthrough summarizes [an actual Codex session](showcase/codex-session.md), with authored setup instructions and edited playback timing. The deeper evidence section preserves [the original published package showcase](showcase/README.md). The build checks the recorded actions, package identities and fixture hashes before rendering.
 
 ## Build and preview
 
@@ -14,7 +14,7 @@ python3 -m http.server 43821 --bind 127.0.0.1 --directory _site
 
 Open `http://127.0.0.1:43821`. Use an unused port and confirm the page title begins with Typelatch. The preview command uses Python 3 only as a local file server.
 
-`site/` contains the presentation source. `scripts/site.mjs` writes `_site/`, including complete recorded JSON and individual tool payloads. Do not edit generated files. The site works at the GitHub project path `/typelatch/` and without JavaScript. Native disclosures keep the original requests and source accessible. Reduced motion disables the short, user requested diagram animation. The trace control illustrates the recorded path and does not issue a new request.
+`site/` contains the presentation source. `scripts/site.mjs` writes `_site/`, including complete recorded JSON and individual tool payloads. Do not edit generated files. The site works at the GitHub project path `/typelatch/` and without JavaScript. Native disclosures keep the original requests and source accessible. The walkthrough supports step navigation, play, pause and restart. Reduced motion keeps the steps readable without playback. All six scenes remain visible without JavaScript. The separate trace control illustrates the original recorded path and does not issue a new request.
 
 ## Browser verification
 
@@ -32,11 +32,11 @@ The suite serves the built site on a fresh loopback port under `/typelatch/`. It
 
 Results and screenshots go to `_site-qa/`. Set `TYPELATCH_QA_DIR` to store them elsewhere. `TYPELATCH_CHROMIUM` can select an existing Chromium executable. Automated checks are not a substitute for visual review or a complete accessibility audit.
 
-The [recorded delivery verification](verification/website.md) includes the actual checks, independent findings, and release check history. Its [browser report](verification/website-browser.json) records the tested viewports and automated accessibility results.
+The [historical delivery verification](verification/website.md) and its [browser report](verification/website-browser.json) describe the earlier design. Current release verification is recorded in [the 0.3.0 report](verification/release-0.3.0.md) and the GitHub Actions checks on the release commit.
 
-The [requirement acceptance map](verification/requirements.md) ties each deliverable to observed behavior. It includes actual npm installation, Codex registration, Claude Code server connection, GitHub Markdown rendering, and the unresolved public Pages deployment boundary.
+The historical [requirement acceptance map](verification/requirements.md) ties the earlier deliverables to their observed behavior. It does not establish publication or browser verification of the refreshed site.
 
-The checked in README banner is generated from `site/brand-banner.html`. To regenerate it intentionally, pass `--update-banner` to the browser check, inspect the resulting artwork, and rebuild the website. Normal checks write the comparison render only to the QA directory.
+The checked in banner is rendered from `site/assets/readme-banner.svg`; `site/brand-banner.html` displays that vector for browser inspection. The GIF and static poster are rendered from `site/demo.json`. See [asset provenance and regeneration](../site/ASSETS.md). Normal browser checks write comparison renders only to the QA directory.
 
 ## GitHub Pages
 
@@ -55,6 +55,6 @@ Adding this workflow does not itself establish that the public site has been dep
 
 ## Evidence updates
 
-Run [the capture procedure](showcase/README.md) to replace the frozen recording. The website build refuses an incomplete capture or source files that no longer match its hashes. A capture refresh is an explicit network and local execution operation, not part of a page load or website build.
+Run [the Codex capture procedure](showcase/codex-session.md) to record a new independent agent session. It requires an authenticated Codex CLI and executes the authored isolated exercise. Update the narrative and regenerate its assets together. The [original capture procedure](showcase/README.md) applies only to the deeper published package evidence. The website build refuses incomplete or mismatched evidence. A capture refresh is an explicit network and local execution operation, not part of a page load or website build.
 
 The README uses a focused excerpt and links to the complete recording. It is not generated by the website build, so inspect its claims whenever the capture changes. Exact source locations, passing and failing controls, and unknown evidence must remain separate.

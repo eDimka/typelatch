@@ -1,0 +1,172 @@
+{
+  "version": 2,
+  "label": "From setup to a checked change",
+  "animationLabel": "Recorded Codex session",
+  "disclosure": "Setup instructions followed by a visual summary of an actual Codex CLI session. The agent was prompted to use Typelatch and worked in a prepared exercise. Animation timing is edited for readability. This single session does not measure comparative performance, token savings or time saved.",
+  "source": {
+    "path": "docs/showcase/codex-session.json",
+    "sha256": "a0b639ed87890e63fd0dd9928bb4f0e3ee4fb3fbc64aea0bd8f5bbf77e1e26a7",
+    "startedAt": "2026-11-06T12:06:48.806Z",
+    "finishedAt": "2026-11-06T12:07:30.813Z",
+    "packageVersion": "0.3.0",
+    "packageSource": "Built development checkout, not a registry installation"
+  },
+  "scenes": [
+    {
+      "id": "connect",
+      "title": "Connect your agent",
+      "eyebrow": "SETUP",
+      "body": "Run setup, choose your client and confirm. Prepare your dependency APIs, then start a new session in your project.",
+      "code": "$ npx typelatch@0.3.0 setup\n\nChoose Codex or Claude Code and confirm\n$ npx typelatch@0.3.0 sync\n\nStart a new client session in your project",
+      "caption": "Setup instructions. The recorded session used a prepared source checkout.",
+      "durationMs": 4200,
+      "kind": "instructions",
+      "evidence": {
+        "path": "scripts/setup-mcp.sh",
+        "preparation": "The capture harness prepared exact dependency indexes before the agent started."
+      }
+    },
+    {
+      "id": "discover",
+      "title": "Ask about the problem",
+      "eyebrow": "DISCOVER",
+      "body": "One source search returns the implementation, its tests and package configuration. No file or package name was supplied.",
+      "code": "workspace_search  detail: \"source\"\n\"contact import duplicate name batch rollback transaction\"\n\n→ batch.ts:24 · importContacts\n→ batch.test.ts:13 · tests\n→ complete source for both files\n\nCoverage: partial · 3 missing dependency indexes",
+      "caption": "Actual first request. Source mode supplied the code and tests together.",
+      "durationMs": 4400,
+      "kind": "recorded-session",
+      "evidence": {
+        "actionIndex": 0,
+        "request": {
+          "name": "workspace_search",
+          "arguments": {
+            "workspaceRoot": "$WORKSPACE",
+            "question": "contact import duplicate name batch rollback transaction",
+            "detail": "source"
+          }
+        },
+        "sourceFiles": [
+          {
+            "source": "$WORKSPACE/batch.test.ts",
+            "sha256": "bf2c55f63339cc4837532c067614adb81998741a3376ce9e8d62d43bf4db4f57",
+            "complete": true
+          },
+          {
+            "source": "$WORKSPACE/batch.ts",
+            "sha256": "295bbb1c8503fd5f09d70e747d190133deb7916c380a0aea850861b8de73b4bb",
+            "complete": true
+          },
+          {
+            "source": "$WORKSPACE/package.json",
+            "sha256": "71d6569283303c5c85e24fddaada80747b27b3d768c7239f36c2b3233c45ec0c",
+            "complete": true
+          }
+        ],
+        "coverageComplete": false,
+        "missingIndexes": 3
+      }
+    },
+    {
+      "id": "reproduce",
+      "title": "See the failing behavior",
+      "eyebrow": "REPRODUCE",
+      "body": "The code compiles. The existing rollback assertion fails before the agent edits the implementation.",
+      "code": "workspace_validate  testCommand: [\"npm\", \"test\"]\n\nCompilation: pass\n\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n\n# tests 2\n# pass 1\n# fail 1",
+      "caption": "Actual baseline assertion and counts. Parameter binding already passes.",
+      "durationMs": 4300,
+      "kind": "recorded-session",
+      "evidence": {
+        "actionIndex": 1,
+        "request": {
+          "name": "workspace_validate",
+          "arguments": {
+            "config": "$WORKSPACE/tsconfig.json",
+            "workspaceRoot": "$WORKSPACE",
+            "testCommand": [
+              "npm",
+              "test"
+            ]
+          }
+        },
+        "compilation": "pass",
+        "tests": "fail"
+      }
+    },
+    {
+      "id": "inspect",
+      "title": "Use the API that is actually here",
+      "eyebrow": "INSPECT",
+      "body": "The project compiler resolves the installed transaction API. Returned documentation explains callback rollback.",
+      "code": "workspace_context → kysely@0.28.8\nKysely.prototype.transaction\n\n(): TransactionBuilder<any>\n\nVersion match: pass\nDocumentation: callback errors roll back the transaction\nNormalized declaration header: unsupported",
+      "caption": "Actual compiler signature. Installed artifact equivalence remains unknown.",
+      "durationMs": 5000,
+      "kind": "recorded-session",
+      "evidence": {
+        "actionIndex": 2,
+        "request": {
+          "name": "workspace_context",
+          "arguments": {
+            "config": "$WORKSPACE/tsconfig.json",
+            "file": "batch.ts",
+            "importSpecifier": "kysely",
+            "symbol": "Kysely.prototype.transaction",
+            "expectedVersion": "0.28.8"
+          }
+        },
+        "package": "kysely",
+        "version": "0.28.8",
+        "symbol": "Kysely.prototype.transaction",
+        "signature": "(): TransactionBuilder<any>",
+        "versionMatch": "pass",
+        "artifactMatch": "unknown",
+        "declaredHeaderStatus": "unsupported"
+      }
+    },
+    {
+      "id": "edit",
+      "title": "Make a focused edit",
+      "eyebrow": "EDIT",
+      "body": "Codex wraps the parameterized inserts in a transaction callback. Only the implementation changes.",
+      "code": "await db.transaction().execute(async trx => {\n  for (const contact of contacts) {\n    await trx.insertInto('contact')\n      .values(contact).execute()\n  }\n})",
+      "caption": "Formatted excerpt of the actual agent edit. Tests and configuration are unchanged.",
+      "durationMs": 4300,
+      "kind": "recorded-session",
+      "evidence": {
+        "actionIndex": 3,
+        "path": "batch.ts",
+        "actualSource": "export async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  await db.transaction().execute(async trx => {\n    for (const contact of contacts) {\n      await trx.insertInto('contact').values(contact).execute()\n    }\n  })\n}\n",
+        "beforeSha256": "295bbb1c8503fd5f09d70e747d190133deb7916c380a0aea850861b8de73b4bb",
+        "afterSha256": "e9559761f1205cd31e162ddea59643bb2eb199ddb7f0c5a5c1499cf086e37f89",
+        "testsUnchanged": true
+      }
+    },
+    {
+      "id": "verify",
+      "title": "Finish with evidence",
+      "eyebrow": "VERIFY",
+      "body": "The same validation now passes both original tests. A separate harness check confirms the final result.",
+      "code": "workspace_validate  testCommand: [\"npm\", \"test\"]\n\nCompilation: pass\nok 1 - commits the whole valid batch and binds a quote as data\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n\n# tests 2  ·  # pass 2  ·  # fail 0\nRecorded input stability: pass",
+      "caption": "This session: 4 MCP calls, 1 git diff command, no rg or grep commands. No comparative saving is measured.",
+      "durationMs": 4800,
+      "kind": "recorded-session",
+      "evidence": {
+        "actionIndex": 4,
+        "request": {
+          "name": "workspace_validate",
+          "arguments": {
+            "config": "$WORKSPACE/tsconfig.json",
+            "workspaceRoot": "$WORKSPACE",
+            "testCommand": [
+              "npm",
+              "test"
+            ]
+          }
+        },
+        "compilation": "pass",
+        "tests": "pass",
+        "stability": "pass",
+        "independentExitCode": 0
+      }
+    }
+  ]
+}

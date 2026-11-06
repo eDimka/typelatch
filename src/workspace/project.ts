@@ -220,24 +220,40 @@ export class WorkspaceProject {
 
 /** Select the config that owns a file, including a solution's referenced leaves. */
 export function openProjectForFile(config: string, file: string, overlays: Overlay[] = []): WorkspaceProject {
-  const target = resolve(dirname(resolve(config)), file)
+  const caller = resolve(config)
+  const target = resolve(dirname(caller), file)
   const seen = new Set<string>()
-  const visit = (path: string): WorkspaceProject | null => {
-    if (seen.has(path)) return null
+  const projects = new Set<WorkspaceProject>()
+  const owners = new Map<string, WorkspaceProject>()
+  let selected: WorkspaceProject | undefined
+  const visit = (path: string, direct = false): void => {
+    if (seen.has(path)) return
     seen.add(path)
-    const project = new WorkspaceProject(path, overlays)
-    if (project.parsed.fileNames.includes(target)) return project
-    const references = project.parsed.projectReferences ?? []
-    if (!references.length && project.program().getSourceFile(target)) return project
-    project.dispose()
-    for (const reference of references) {
-      const childConfig = project.ts.resolveProjectReferencePath(reference)
-      const child = visit(childConfig)
-      if (child) return child
+    let project: WorkspaceProject
+    try { project = new WorkspaceProject(path, overlays) }
+    catch (error) {
+      if (direct) throw error
+      throw new Error(`Could not inspect referenced config ${path}: ${error instanceof Error ? error.message : String(error)}`)
     }
-    return null
+    projects.add(project)
+    if (direct && project.parsed.fileNames.includes(target)) { selected = project; return }
+    const references = project.parsed.projectReferences ?? []
+    const owns = project.parsed.fileNames.includes(target) || (!references.length && project.program().getSourceFile(target))
+    if (owns) owners.set(path, project)
+    const children = references.map(reference => resolve(project.ts.resolveProjectReferencePath(reference))).sort()
+    if (!owns) { project.dispose(); projects.delete(project) }
+    for (const child of children) {
+      visit(child)
+    }
   }
-  const project = visit(resolve(config))
-  if (!project) throw new Error(`File is not included in this project: ${target}`)
-  return project
+  try {
+    visit(caller, true)
+    if (selected) return selected
+    if (!owners.size) throw new Error(`File is not included in this project: ${target}`)
+    if (owners.size > 1) throw new Error(`Ambiguous project ownership for ${target}. Matching configs: ${[...owners.keys()].sort().join(", ")}. Supply an explicit owning config.`)
+    selected = [...owners.values()][0]!
+    return selected
+  } finally {
+    for (const project of projects) if (project !== selected) project.dispose()
+  }
 }

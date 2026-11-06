@@ -8,11 +8,15 @@ Added `typelatch setup` and `npm run setup:mcp` for interactive Codex and Claude
 
 Added exact dependency discovery from npm package lock and shrinkwrap, pnpm, Yarn Classic and modern Yarn, and Bun text lockfiles. `sync` supports ancestor lockfiles, aliases, mixed package managers, repeated `--project` selection, and `--workspaces`. `--dry-run --json` exposes the complete plan before downloads. Conflicting artifact integrity and unresolved identities stop preparation.
 
+Fixed first use with real dependency sets. Package extraction now accepts one safe named archive root, including older DefinitelyTyped packages. Sync reports dependencies without TypeScript declarations as unsupported and continues supported packages, while keeping incomplete coverage visible and operational errors fatal.
+
 Added saved monorepo subsets through `scope add`, `scope remove`, `scope set`, `scope list`, and `scope clear`. Source search and plain `sync` follow the selection. Later additions reuse unchanged source entries and exact package indexes. Coverage explicitly describes the selected subset.
 
 This release also includes workspace search and the agent workflow introduced in the unreleased 0.2.0 source version.
 
 Reduced workspace cache duplication and made the smaller package index format the default. Existing package indexes remain readable and workspace caches rebuild automatically. Exact library symbol lookup now preserves case and module identity, reports bare name ambiguity, and never substitutes an unrelated declaration for a missing qualified symbol.
+
+Added source mode with bounded file contents and direct relative import candidates, exact multiword API lookup, callable export signatures, lazy parser loading, recoverable package caches and stricter cache identity checks. Workspace queries preserve source hashes, scope boundaries and explicit omission counts. Older workspace compilers retain their existing resolution and signatures; unavailable normalized headers are reported explicitly instead of throwing.
 
 Added optional compact workspace search previews through MCP `detail: "compact"` and CLI `--compact`. Coverage, ranking, source positions and evidence checks remain available, with explicit excerpt omission counts and exact dependency inspection arguments.
 
@@ -20,7 +24,9 @@ Repeated workspace searches reuse a bounded worker process while still checking 
 
 Added reproducible storage measurements and a pinned CodeGraph and Graphify comparison. Recorded response sizes measure bytes, not model token savings or coding success.
 
-Updated five transitive dependencies to compatible patched versions after the dependency audit. The recorded audit found no remaining advisories in this lockfile; this is dependency inventory evidence, not a security assessment of every execution path.
+Refreshed the landing page and npm README with a compact onboarding animation and inspectable agent evidence.
+
+Updated the MCP SDK, minimatch, Zod, Vitest and affected transitive dependencies after the dependency audit. The November 6 lockfile audit found no remaining advisories; this is dependency inventory evidence, not a security assessment of every execution path.
 
 ## 0.2.0
 

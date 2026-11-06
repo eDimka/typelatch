@@ -15,7 +15,7 @@ const server = new McpServer({ name: "typelatch", version })
 
 server.registerTool("workspace_search", {
   title: "Search a whole workspace and its exact dependencies",
-  description: "Start here when the relevant file or package is unknown. Search local source, internal declarations, tests, docs, configuration and exact installed or locked dependency indexes. Supply an absolute workspaceRoot; file is an optional ranking hint. Use detail=compact for bounded previews with explicit omissions and exact dependency inspection arguments. Refreshes a local content index without downloads or executing project code. Inspect coverage gaps and limits. Results are lexical candidates, not compiler resolution or validation. Follow workspace hits with workspace_context, dependency hits with library_symbol using the returned exact version, and edits with workspace_validate.",
+  description: "Start here when the relevant file or package is unknown. Search local source, internal declarations, tests, docs, configuration and exact installed or locked dependency indexes. Supply an absolute workspaceRoot; file is an optional ranking hint. Use detail=source when preparing edits to receive bounded file contents and direct relative import candidates with hashes and explicit omissions. Use detail=compact for short discovery previews. Refreshes a local content index without downloads or executing project code. Inspect coverage gaps and limits. Results are lexical candidates, not compiler resolution or validation. Follow workspace hits with workspace_context, dependency hits with library_symbol using the returned exact version, and edits with workspace_validate.",
   inputSchema: searchSchema.shape
 }, async (input, extra) => {
   const response = await workspaceSearchAsync(input, { signal: extra.signal })
@@ -26,7 +26,7 @@ server.registerTool(
   "library_search",
   {
     title: "Search exact-version library knowledge",
-    description: "Search locally installed library symbols, documentation, relationships, and source evidence. The query is recorded only in the local Typelatch usage database.",
+    description: "Search locally installed library symbols, documentation, relationships, and source evidence. Questions naming multiple qualified APIs prioritize exact case sensitive matches and report requestedSymbols as exact, not-found, or omitted by the result limit. Recognition checks at most 64 distinct ASCII dotted names and excludes prose tokens containing URLs, email or paths; requestedSymbolsTruncated counts additional distinct names. Use library_symbol for strict lookup, paths or names that resemble filenames. The query is recorded only in the local Typelatch usage database.",
     inputSchema: {
       package: z.string().describe("npm package name"),
       version: z.string().optional().describe("Exact version; newest installed brain is used when omitted"),
@@ -108,7 +108,7 @@ server.registerTool(
 
 server.registerTool("workspace_context", {
   title: "Resolve TypeScript workspace context",
-  description: "Inspect the project's installed TypeScript language service, with optional exact-version brain discovery. Positions are zero-based UTF-16 offsets. Does not type-check or run tests; artifact equivalence stays unknown.",
+  description: "Resolve TypeScript evidence with the project's installed compiler. Supply importSpecifier and symbol for a known exported API; omit question and position to inspect installed declarations without preparing a package index. Position enables hover, definitions and references. Question separately searches an existing exact version index. Inspect versionMatch and visible evidence omissions. Compiler formatted types can include inference. Does not typecheck or run tests; installed artifact equivalence stays unknown.",
   inputSchema: contextSchema.shape
 }, async (input, extra) => {
   const response = await workspaceContextAsync(contextSchema.parse(input), { signal: extra.signal })

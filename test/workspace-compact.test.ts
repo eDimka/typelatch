@@ -70,6 +70,11 @@ describe("compact workspace discovery", () => {
     expect(compact.coverage.missingIndexes).toBe(1)
     expect(compact.results[0]).toMatchObject({ package: "codec", version: "1.2.3", integrity: "sha512-fixture", source: "index.d.ts", line: 5,
       inspect: { tool: "library_symbol", arguments: { package: "codec", version: "1.2.3", symbol: "index.validateRequest" } } })
+    const source = await workspaceSearch({ ...input, detail: "source" })
+    expect(source.results).toEqual(compact.results)
+    expect(source.coverage).toEqual(compact.coverage)
+    expect(source.checks).toEqual(compact.checks)
+    expect(source.sourceContext).toMatchObject({ files: [], bytes: 0, unavailableImports: 0, resolution: "not-run" })
   })
 
   it("keeps empty and partial states distinct in compact mode", async () => {

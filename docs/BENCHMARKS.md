@@ -13,7 +13,7 @@ npm run prove:support
 
 The first command builds fresh package indexes and writes [retrieval evidence](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/retrieval.json). The second installs pinned fixtures, validates the workspace scenarios, and writes a [support summary](https://github.com/eDimka/typelatch/blob/main/docs/benchmarks/support.json). The retrieval command requires a discovery hit for every question and permits only the three recorded missing symbol exceptions in `src/benchmark/limitations.json`. The workspace command requires every scenario and negative control. Both return a failure status when a required gate fails.
 
-Full workspace requests and results are preserved in `artifacts/support.json.gz` and attached to the GitHub release. The summary records the archive SHA256 checksum.
+Full workspace requests and results are preserved in `artifacts/support.json.gz` and uploaded in the CI workflow's `benchmark-evidence` artifact. The summary records the archive SHA256 checksum.
 
 ## Evidence boundary
 
