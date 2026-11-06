@@ -113,7 +113,7 @@ export async function collectProbe({provider,probe,session,workspace,native,budg
   limitations.push('Serena REPL reported an error; common native fallback is used and charged. '+textOf(response).slice(0,300))
  }
  const found=await native.search({pattern:plan.pattern,...(directories.length?{directories}:{}),glob:'**/src/**/*.ts',contextLines:plan.imports?8:2})
- const matches=(found.matches??[]).filter(row=>production(pathIn(workspace,row.file))&&inScope(pathIn(workspace,row.file),directories))
+ const matches=(found.matches??[]).filter(row=>(!row.kind||row.kind==='match')&&production(pathIn(workspace,row.file))&&inScope(pathIn(workspace,row.file),directories))
  const unique=new Map()
  for(const row of matches){const file=pathIn(workspace,row.file);if(!unique.has(file))unique.set(file,row)}
  let targets=[...unique.keys()].sort()
@@ -122,13 +122,16 @@ export async function collectProbe({provider,probe,session,workspace,native,budg
  targets=targets.slice(0,plan.limit)
  if(!targets.length){notes.push('No exact pattern occurrence was returned within the requested production-source scope. This does not assert anything about other scopes or unsupported files.');return{limitations,notes}}
  if(!isSerena&&!plan.imports){
-  const requests=targets.slice(0,6).flatMap(file=>[{command:'open',arguments:{file:workspace+'/'+file,projectRootPath:workspace}},{command:'navtree',arguments:{file:workspace+'/'+file}}])
+  const requests=targets.slice(0,6).flatMap(file=>{
+   const hit=unique.get(file),match=hit.text.match(new RegExp(plan.pattern)),position={file:workspace+'/'+file,line:hit.line,offset:(match?.index??0)+1}
+   return [{command:'open',arguments:{file:workspace+'/'+file,projectRootPath:workspace}},{command:'quickinfo',arguments:position},{command:'definitionAndBoundSpan',arguments:position}]
+  })
   await call('tsserver_batch',{requests})
  }
  await native.read({files:targets.map(path=>{
   const hit=unique.get(path);const startLine=Math.max(1,(hit?.line??1)-(plan.imports?12:30))
   return{path,startLine,endLine:startLine+plan.lines}
  })})
- notes.push('Source targets derive only from charged search responses. Native TypeScript batches open/navigation where relevant; native source reads retain implementation evidence.')
+ notes.push('Source targets and positions derive only from charged search responses. Native TypeScript batches targeted hover and definition requests; native source reads retain implementation evidence.')
  return{limitations,notes}
 }

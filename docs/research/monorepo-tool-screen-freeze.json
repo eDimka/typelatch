@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "status": "frozen-before-corpus-responses",
-  "createdAt": "2026-11-06T18:02:06.133Z",
+  "status": "development-requalification-after-retained-setup-failures",
+  "createdAt": "2026-11-06T18:17:23.239Z",
   "files": [
     {
       "path": "package-lock.json",
@@ -65,23 +65,33 @@
     },
     {
       "path": "artifacts/research/large-monorepo/funnel/run.mjs",
-      "bytes": 10138,
-      "sha256": "55ef91ff4fe538cbac452bbd6b3c58c6b80cc3cdf42eadf9b4631fedef6f5216"
+      "bytes": 10377,
+      "sha256": "9b1ee91e94f68216d0b8d75ec53fc96b024e6e6406cf1514db6420502b655d07"
     },
     {
       "path": "artifacts/research/large-monorepo/funnel/freeze.mjs",
-      "bytes": 3911,
-      "sha256": "3083811484b2f94c6572ef1f2086f70e3ade0e4a15a116df179a103d7d649930"
+      "bytes": 4858,
+      "sha256": "e633b365f8e38b29ba5dac35e554ced834b08886d4f589a42ff8c3532ff3abcf"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/isolate-git.mjs",
+      "bytes": 3517,
+      "sha256": "29fa68c5c32916d3a48e6e7eec6d4a005fecfc9e0f73bd06cc50043a947454bf"
     },
     {
       "path": "artifacts/research/competitors/adapter.mjs",
-      "bytes": 10805,
-      "sha256": "3d2840a1f83a1e2d8d6f9de40cab63ef0faffabc66db30610b3324583d0b37c8"
+      "bytes": 13606,
+      "sha256": "746e9be4f8f91a1716eb6745c9a50876721a6bdc1374f023ba263d849439c525"
     },
     {
       "path": "artifacts/research/competitors/adapter-qualified.json",
       "bytes": 598,
       "sha256": "02bd1a30c67c9ead72296b6f9d00a3e12acce2efe47cdb7c058fd457d094ce6c"
+    },
+    {
+      "path": "artifacts/research/competitors/adapter-refresh-qualified.json",
+      "bytes": 3393,
+      "sha256": "95b8e343939887c39ad1c654e2532e5ba6f2ae5b36373597435f7ff4ba7b1746"
     },
     {
       "path": "artifacts/research/competitors/collect.mjs",
@@ -105,8 +115,8 @@
     },
     {
       "path": "artifacts/research/serena-baseline/collect.mjs",
-      "bytes": 9718,
-      "sha256": "315ca50ec78f62a76eeccfef7ffc66348b1c1da5ffd5e0b14f9def1aab3c60c9"
+      "bytes": 9981,
+      "sha256": "d3dd3a688d954ef01bde380a7386858e7361dd3defa518b6319d9308ff06656d"
     },
     {
       "path": "artifacts/research/serena-baseline/runtime-manifest.json",
@@ -122,9 +132,108 @@
       "path": "artifacts/research/serena-baseline/collect-qualified.json",
       "bytes": 2756,
       "sha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/collect-targeted-qualified.json",
+      "bytes": 1297,
+      "sha256": "6df866a589bba9321a04f493ff5795de644612bbfa29a4c2b95023a10bfcddbb"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/native/prepared.json",
+      "bytes": 1024,
+      "sha256": "5582ed198bfda887859295c333ca2156ec5d8b0e25eb59ae608a2f9e60d3bbb0"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/typelatch/prepared.json",
+      "bytes": 1033,
+      "sha256": "fac4a14c92fce211bd6504422ca2aeab33204eb0502b33d7305335f0f296687f"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/typescript/prepared.json",
+      "bytes": 1036,
+      "sha256": "4b8a2697c968df1c0b543a1c4d5f12660191b6d260a3c25e9595fa929ed35bb4"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/serena/prepared.json",
+      "bytes": 1024,
+      "sha256": "a2cb43390040cb778fe5b07d25408649a8d1463247e08b34bdb98904706e04ba"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/codegraph/prepared.json",
+      "bytes": 1304,
+      "sha256": "8ffe9d0b1040356c31ea3fa777593620a92388cb1ca0a73408d18d87c37e2eb5"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-1/graphify/prepared.json",
+      "bytes": 1030,
+      "sha256": "37a9ab7b2612e051f865ecc851f665907298c782cbcaf6e3ad8039bbd98a93d9"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/native/prepared.json",
+      "bytes": 1024,
+      "sha256": "d88c8d4ef65ca0938987f95e797ca80a2dd399b9a5a308d18a4d039073c85213"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/typelatch/prepared.json",
+      "bytes": 1033,
+      "sha256": "a9914d5d120635dea433be1db23c750397201cb914fe8ac1ef0b7deff8fff03d"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/typescript/prepared.json",
+      "bytes": 1036,
+      "sha256": "fb268385a41b20198f6fe7f3a26d2d92f5c2ef836dd5b77cbf24d65eacae3d74"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/serena/prepared.json",
+      "bytes": 1024,
+      "sha256": "b2a7cb6f3897ae46663957c6198d9747f6046fc6cc1daca99bae71ee1fe61869"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/codegraph/prepared.json",
+      "bytes": 1033,
+      "sha256": "99007bef4e0490c9ad99b512e0bdde3113ec945ef412a9fd1a0feddf694e41be"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-2/graphify/prepared.json",
+      "bytes": 1030,
+      "sha256": "fcedd73067020edbc771b38e6f2422c9bd48d7d8485740997c2528236350395b"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/native/prepared.json",
+      "bytes": 1024,
+      "sha256": "c2b554f4f4979a59bfa201faad7b3cc35186d413cf7ac636341ad97fd912ba3f"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/typelatch/prepared.json",
+      "bytes": 1033,
+      "sha256": "c9219f4d076c3c7e8cb936d26396bc9bd38980239ed07ac977c0b9bd24203306"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/typescript/prepared.json",
+      "bytes": 1036,
+      "sha256": "ba54ef7f7f3588b44c9f020d812066fbbdcac74db14dfc8ac225b8f5cc9a8fa8"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/serena/prepared.json",
+      "bytes": 1024,
+      "sha256": "4ebf5feddccb5992b2d67a74a89da8f976adf64d963af43a8d872df7eeeb2d30"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/codegraph/prepared.json",
+      "bytes": 1033,
+      "sha256": "2f714836a37be62326e4270f2d1a0a10f351d82114809af2989bf5313be3f07f"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/screen-004/round-3/graphify/prepared.json",
+      "bytes": 1030,
+      "sha256": "2ec8e6091e1d9d13d853c303a93df84be0c2aea0a1c08286b31b182c0cb991c8"
     }
   ],
   "amendments": [
+    {
+      "priorFreezeSha256": "aadb890c52896b6cf510e3300f0504e62301937bbe4f1e9ac00fabece3981de4",
+      "reason": "Retain ineligible screen003. Independent Git boundaries for all providers; bounded TypeScript hover and definitions replace whole-file trees; supported watcher readiness and explicit Graphify update. Same public questions and source bytes. Subsequent tool observations are development diagnostics, not heldout coding results."
+    },
     {
       "priorFreezeSha256": "4862079713e5698f651c749dd4057c846727121f90733ea7415285c38f6977da",
       "corpusQueriesExecuted": 0,
@@ -157,10 +266,11 @@
     "coldCache": "fresh provider process and state; OS cache not flushed"
   },
   "preparation": {
-    "eligible": "screen-003; exact committed relative source symlink text restored in every copy before source verification",
+    "eligible": "screen-004; reused source bytes reverified, independent Git root and identical tracked-source commit for every provider; old indexes and results retained",
     "retainedIneligible": [
       "screen-001: copied source symlink escaped corpus; no queries",
-      "screen-002: copy interrupted to change copy implementation; no queries"
+      "screen-002: copy interrupted to change copy implementation; no queries",
+      "screen-003: parent Git ignore hides Typelatch source; collector output overflow and provider refresh setup failures; all captures retained"
     ]
   }
 }

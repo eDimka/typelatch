@@ -32,8 +32,8 @@ for(const file of frozen.files)assert.equal(sha(await readFile(join(root,file.pa
 const mutation=JSON.parse(await readFile(join(base,'truth-private/expected.json'))).mutation
 for(const round of rounds)for(const provider of schedules[round-1]) {
  if(onlyProvider&&provider!==onlyProvider)continue
- const {dir,workspace,cacheRoot}=paths(round,provider);await readFile(join(dir,'prepared.json'));await sourceCheck(workspace)
- const record={schemaVersion:1,provider,round,startedAt:new Date().toISOString(),protocolSha256:sha(manifestBytes),frozenSha256:sha(await readFile(join(output,'frozen.json'))),probes:[]}
+ const {dir,cacheRoot}=paths(round,provider);const prepared=JSON.parse(await readFile(join(dir,'prepared.json')));const workspace=prepared.workspace??join(dir,'workspace');await sourceCheck(workspace)
+ const record={schemaVersion:1,provider,round,studyStatus:frozen.status,workspacePreparationSha256:sha(await readFile(join(dir,'prepared.json'))),startedAt:new Date().toISOString(),protocolSha256:sha(manifestBytes),frozenSha256:sha(await readFile(join(output,'frozen.json'))),probes:[]}
  await writeFile(join(dir,'started.json'),json(record),{flag:'wx',mode:0o600})
  const persist=()=>writeFile(join(dir,'result.json'),json(record),{mode:0o600})
  let session,collect,originalMutationBytes,mutationFile,mutationStarted
@@ -42,7 +42,7 @@ for(const round of rounds)for(const provider of schedules[round-1]) {
   if(provider==='native'){session={setupRecord:{provider,elapsedMs:0},close:async()=>{}};collect=collectNative}
   else {
    const module=provider==='typelatch'?await import('./typelatch.mjs'):['serena','typescript'].includes(provider)?await import('../../serena-baseline/providers.mjs'):await import('../../competitors/adapter.mjs')
-   session=await module.openProvider({provider,workspace,cacheRoot,mode:'cold'})
+   session=await module.openProvider({provider,workspace,cacheRoot,mode:'cold',...(provider==='graphify'?{graphifyWatch:'explicit-update'}:{})})
    const collector=provider==='typelatch'?await import('./typelatch.mjs'):['serena','typescript'].includes(provider)?await import('../../serena-baseline/collect.mjs'):await import('../../competitors/collect.mjs');collect=collector.collectProbe
   }
   record.setupWallMs=performance.now()-start;record.setup=session.setupRecord;record.schemas=session.schemas;await persist();if(record.setupWallMs>600000)throw Error('Cold setup deadline exceeded')

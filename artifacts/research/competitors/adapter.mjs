@@ -20,9 +20,22 @@ function isolatedEnv(cacheRoot) {
   return env;
 }
 
-export async function openProvider({provider,workspace,cacheRoot,mode='cold'}) {
+export function codegraphReadiness(status,writerActive) {
+  const reasons=[];
+  if(status?.initialized!==true||!(status?.fileCount>0))reasons.push('Index is not initialized with source files');
+  if(status?.index?.state!=='complete')reasons.push('Index completion is unknown or incomplete');
+  if(status?.index?.pendingRefs!==0)reasons.push('Unresolved references remain or are unknown');
+  if(status?.index?.reindexRecommended!==false)reasons.push('Extraction compatibility is unknown or requires a rebuild');
+  if(status?.worktreeMismatch!==null)reasons.push('Workspace identity is unknown or mismatched');
+  for(const kind of ['added','modified','removed'])if(status?.pendingChanges?.[kind]!==0)reasons.push(`Pending ${kind} files or unknown count`);
+  if(writerActive)reasons.push('Native writer is still active');
+  return {ready:reasons.length===0,reasons};
+}
+
+export async function openProvider({provider,workspace,cacheRoot,mode='cold',graphifyWatch='native'}) {
   if(!['codegraph','graphify'].includes(provider))throw Error(`Unknown provider ${provider}`);
   if(!['cold','warm'].includes(mode))throw Error('mode must be cold or warm');
+  if(!['native','explicit-update'].includes(graphifyWatch))throw Error('graphifyWatch must be native or explicit-update');
   workspace=resolve(workspace);cacheRoot=resolve(cacheRoot);
   const rel=relative(workspace,cacheRoot);
   if(!rel||!(rel==='..'||rel.startsWith('..'+sep)||isAbsolute(rel)))throw Error('cacheRoot must be outside workspace');
@@ -120,7 +133,10 @@ export async function openProvider({provider,workspace,cacheRoot,mode='cold'}) {
       setupRecord.daemon={...daemon,preexisting:priorDaemon?.pid===daemon.pid};
       if(!setupRecord.daemon.preexisting)ownedDaemon=daemon;
     }
-    if(provider==='graphify') {
+    if(provider==='graphify'&&graphifyWatch==='explicit-update') {
+      setupRecord.watcher={mode:'explicit-update',enabled:false,reason:'Graphify 0.9.103 macOS PollingObserver recursively follows ignored dependency symlinks before readiness; dedicated Git-root reproduction retained in watch-cycle-reproducer-001/result.json',supportedRefresh:['update',workspace],clusteringEnabled:true};
+    }
+    if(provider==='graphify'&&graphifyWatch==='native') {
       const watchStart=performance.now();
       watcher=spawn(binary,['watch',workspace],{cwd:workspace,env,stdio:['ignore','pipe','pipe'],detached:true});
       watcher.stdout.on('data',v=>{watcherLog+=v.toString();});watcher.stderr.on('data',v=>{watcherLog+=v.toString();});
@@ -146,7 +162,26 @@ export async function openProvider({provider,workspace,cacheRoot,mode='cold'}) {
       },
       async refresh({timeoutMs=60000}={}) {
         if(closed||poisoned)throw Error('Provider is closed or previous request did not complete');
-        return command('explicit-refresh',provider==='codegraph'?['sync',workspace]:['update',workspace],timeoutMs);
+        const started=performance.now(),refreshRecord={startedAt:new Date().toISOString(),strategy:provider==='codegraph'?'native-watch-status':'native-update',observations:[]};
+        setupRecord.refreshes??=[];setupRecord.refreshes.push(refreshRecord);
+        try {
+          if(provider==='graphify')refreshRecord.command=await command('explicit-refresh',['update',workspace],timeoutMs);
+          else {
+            // The watcher owns writes. A second CLI sync can collide with its lock.
+            while(performance.now()-started<timeoutMs) {
+              const statusCommand=await command('refresh-readiness',['status',workspace,'--json'],Math.max(1,timeoutMs-(performance.now()-started)));
+              const status=JSON.parse(statusCommand.stdout);
+              const writerActive=await exists(join(state,'codegraph.lock'));
+              const readiness=codegraphReadiness(status,writerActive);
+              refreshRecord.observations.push({status,writerActive,...readiness});
+              if(readiness.ready){refreshRecord.ready=true;break;}
+              await save();await sleep(Math.min(500,Math.max(0,timeoutMs-(performance.now()-started))));
+            }
+            if(!refreshRecord.ready)throw Error('CodeGraph native watcher readiness deadline exceeded');
+          }
+          return refreshRecord;
+        }catch(e){refreshRecord.error=String(e);poisoned=true;throw e;}
+        finally{refreshRecord.elapsedMs=performance.now()-started;await save();}
       },
       close,
     };

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-before-corpus-responses",
+  "createdAt": "2026-11-06T18:02:06.133Z",
+  "files": [
+    {
+      "path": "package-lock.json",
+      "bytes": 104242,
+      "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/probes-public.json",
+      "bytes": 10900,
+      "sha256": "299a395497c825251b7017b5af4fe3b2fc578b3695a73919e10fb08b6187280b"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/probes-freeze.json",
+      "bytes": 1297,
+      "sha256": "b3d32f763855db81ed4c4867752b3994e3479f08bbbf233f551232698fe7f865"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/corpus-inventory.json",
+      "bytes": 865020,
+      "sha256": "ba8421bf97c9d7318237070e69f99f2d186585f3da566ff6faf487f2bfc20615"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/installed-qualification.json",
+      "bytes": 4486,
+      "sha256": "d0c2de5248ff191ee601606471541b26a5e4ccd0ad366950507237586d6b7a4d"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/truth-private/expected.json",
+      "bytes": 21070,
+      "sha256": "7b7f246a217f3a68c0b34d496a5f354ba303b23d7f3567dd1cf511c1f6181d38"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/truth-private/rubric.json",
+      "bytes": 8525,
+      "sha256": "b9b858f44267c0e0fcf19e1935548da97ed778092395b0d8f4f7b3a6ccab53a3"
+    },
+    {
+      "path": "artifacts/paired-agent/candidate/artifact.json",
+      "bytes": 381,
+      "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e"
+    },
+    {
+      "path": "artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+      "bytes": 194704,
+      "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/native.mjs",
+      "bytes": 9887,
+      "sha256": "148ba399222d213a9dc99e9fb5eb8b256956394cf2082b2cf171e3dbba6f23ab"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/native.test.mjs",
+      "bytes": 3318,
+      "sha256": "e1cb277915159321b3a7673a4ad32f0a8a0c6f018733b4088ecfe4d7d3dc6aaf"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/typelatch.mjs",
+      "bytes": 3073,
+      "sha256": "fd533fe823804e45905b79c623a82e3caccc426eada60c3f966b7ecc93593daa"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/run.mjs",
+      "bytes": 10138,
+      "sha256": "55ef91ff4fe538cbac452bbd6b3c58c6b80cc3cdf42eadf9b4631fedef6f5216"
+    },
+    {
+      "path": "artifacts/research/large-monorepo/funnel/freeze.mjs",
+      "bytes": 3911,
+      "sha256": "3083811484b2f94c6572ef1f2086f70e3ade0e4a15a116df179a103d7d649930"
+    },
+    {
+      "path": "artifacts/research/competitors/adapter.mjs",
+      "bytes": 10805,
+      "sha256": "3d2840a1f83a1e2d8d6f9de40cab63ef0faffabc66db30610b3324583d0b37c8"
+    },
+    {
+      "path": "artifacts/research/competitors/adapter-qualified.json",
+      "bytes": 598,
+      "sha256": "02bd1a30c67c9ead72296b6f9d00a3e12acce2efe47cdb7c058fd457d094ce6c"
+    },
+    {
+      "path": "artifacts/research/competitors/collect.mjs",
+      "bytes": 13278,
+      "sha256": "a76ae280dafa1ddea899f3627d5f9f9b5642932ddf151a7f778c849ad34edc3e"
+    },
+    {
+      "path": "artifacts/research/competitors/collect-qualified.json",
+      "bytes": 700,
+      "sha256": "f27c3c9accd1759a433a1fa9280a70af06e8bf1ca322cc0bed6840c89291ce7e"
+    },
+    {
+      "path": "artifacts/research/competitors/runtime-manifest.json",
+      "bytes": 92856,
+      "sha256": "96b8ec7ee62cf3c2ec5f7d9208d0e1009f593b3e4c8e9eb0d25d53dc9a03995e"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/providers.mjs",
+      "bytes": 10301,
+      "sha256": "cd6be1546b2c11b483ac02f68db3f5ef0ad9fda17740921fa20505667006cd94"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/collect.mjs",
+      "bytes": 9718,
+      "sha256": "315ca50ec78f62a76eeccfef7ffc66348b1c1da5ffd5e0b14f9def1aab3c60c9"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/runtime-manifest.json",
+      "bytes": 13385,
+      "sha256": "f890d00afd7a17b54d377d288dd7a8b79cea92c93275c595288d6309ecf3b8c3"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/runtime-full-manifest.json",
+      "bytes": 1916578,
+      "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe"
+    },
+    {
+      "path": "artifacts/research/serena-baseline/collect-qualified.json",
+      "bytes": 2756,
+      "sha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b"
+    }
+  ],
+  "amendments": [
+    {
+      "priorFreezeSha256": "4862079713e5698f651c749dd4057c846727121f90733ea7415285c38f6977da",
+      "corpusQueriesExecuted": 0,
+      "reason": "Strengthen shared native transitive API follow-up and late source slices, then add complete supplemental Serena runtime file inventory. Public questions, corpus, budgets, schedule and truth unchanged."
+    }
+  ],
+  "runtime": {
+    "node": {
+      "version": "v22.23.1",
+      "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d"
+    },
+    "ripgrep": {
+      "version": "ripgrep 15.2.0\n\nfeatures:+pcre2\nsimd(compile):+NEON\nsimd(runtime):+NEON\n\nPCRE2 10.45 is available (JIT is available)",
+      "sha256": "1c57905960cd69dbb5b05492560957f4a57cdd4d39137e20de23981c6e1f4423"
+    },
+    "host": {
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu": "Apple M1 Max",
+      "memoryBytes": 34359738368
+    }
+  },
+  "accounting": {
+    "modelTokens": "not measured in this tool screen",
+    "modelVisibleText": "structuredContent when present, otherwise concatenated text content; duplicate compatibility channels counted only in separate rawBytes",
+    "setup": "provider process and cold index readiness, excludes common corpus copying and dependency installation",
+    "actionTime": "full backend execution including native fallback; instrumented probe total includes journal overhead",
+    "budgets": "8 retrieval actions, 65536 bytes per answer;60000ms per probe and one shared60000ms mutation deadline",
+    "nativeBaseline": "Frozen expert-written retrieval recipes. Their source-authoring cost is not measured. Results cannot substitute for autonomous-agent trials.",
+    "coldCache": "fresh provider process and state; OS cache not flushed"
+  },
+  "preparation": {
+    "eligible": "screen-003; exact committed relative source symlink text restored in every copy before source verification",
+    "retainedIneligible": [
+      "screen-001: copied source symlink escaped corpus; no queries",
+      "screen-002: copy interrupted to change copy implementation; no queries"
+    ]
+  }
+}
