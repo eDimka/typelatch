@@ -115,7 +115,8 @@ try {
     const context = await call('resolve-dependency', 'Resolve the actual import with the installed compiler before choosing an index version.', 'workspace_context', { config, file: location.source, importSpecifier: 'kysely', symbol: 'Kysely' })
     assert.equal(context.checks.resolved.status, 'pass')
     assert.equal(context.dependency.name, 'kysely')
-    assert.equal(context.dependency.version, '0.28.8')
+    const fixtureLock = JSON.parse(readFileSync(join(workspace, 'package-lock.json'), 'utf8'))
+    assert.equal(context.dependency.version, fixtureLock.packages['node_modules/kysely'].version)
     const dependency = context.dependency
     command('prepare-exact-index', process.execPath, [cli, 'add', `${dependency.name}@${dependency.version}`])
     const api = await call('discover-transaction', 'Search the workspace dependency indexes for the transaction callback. The request still has no package argument.', 'workspace_search', { workspaceRoot: workspace, question: 'TransactionBuilder execute', scope: 'dependencies', limit: 8 })

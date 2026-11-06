@@ -1,11 +1,11 @@
 {
   "provenance": {
-    "capturedAt": "2026-11-06T11:51:27.648Z",
+    "capturedAt": "2026-11-06T12:22:39.538Z",
     "version": "0.3.0",
     "kind": "Curated MCP workflow replay with actual tool responses; not an independent agent session or benchmark",
     "author": "Codex",
     "client": "@modelcontextprotocol/sdk Client over stdio",
-    "harnessSha256": "1e825146d77710d03bc8383220b30fcdf74d224291a0ab08db502baef412a108",
+    "harnessSha256": "cbb472258587e603b2e133b6a826eaf4dc29fded5a92ee29f29079976a552c1b",
     "fixture": "Isolated copy of examples/sqlite with the transaction deliberately removed from batch.ts",
     "question": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding.",
     "packageSource": "built source checkout",
@@ -92,15 +92,15 @@
         },
         {
           "package": "kysely",
-          "version": "0.28.8",
+          "version": "0.28.19",
           "roots": [
             "$WORKSPACE/node_modules/kysely"
           ],
           "identity": "installed",
           "installed": true,
-          "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+          "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
           "status": "missing-index",
-          "reason": "Prepare with typelatch add kysely@0.28.8",
+          "reason": "Prepare with typelatch add kysely@0.28.19",
           "rootsOmitted": 0
         },
         {
@@ -257,13 +257,13 @@
         },
         {
           "package": "kysely",
-          "version": "0.28.8",
+          "version": "0.28.19",
           "roots": [
             "$WORKSPACE/node_modules/kysely"
           ],
           "identity": "installed",
           "installed": true,
-          "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+          "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
           "status": "searched",
           "rootsOmitted": 0
         }
@@ -305,11 +305,11 @@
     },
     "selectedApi": {
       "source": "dist/esm/kysely.d.ts",
-      "line": 623,
-      "endLine": 623,
+      "line": 642,
+      "endLine": 642,
       "symbol": "esm/kysely.TransactionBuilder",
       "position": null,
-      "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+      "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:649]",
       "score": 124,
       "matchedTerms": [
         "transact",
@@ -318,8 +318,8 @@
       ],
       "origin": "dependency",
       "package": "kysely",
-      "version": "0.28.8",
-      "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+      "version": "0.28.19",
+      "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
       "projectRoot": null,
       "dependencyRoots": [
         "$WORKSPACE/node_modules/kysely"
@@ -327,8 +327,8 @@
       "kind": "class",
       "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}"
     },
-    "beforeOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 79.696791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.711791\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 228.520417\n",
-    "afterOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.692708\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.313875\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 155.140958\n"
+    "beforeOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 72.649791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.074292\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 213.30525\n",
+    "afterOutput": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.767958\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.45825\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 146.769875\n"
   },
   "fileActions": [
     {
@@ -470,7 +470,7 @@
             "endLine": 16,
             "symbol": null,
             "position": null,
-            "snippet": "{\n  \"name\": \"typelatch-sqlite-showcase\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"check\": \"tsc --noEmit\",\n    \"test\": \"node --experimental-strip-types --test --test-reporter=tap batch.test.ts\",\n    \"test:negative\": \"node --experimental-strip-types --test --test-reporter=tap negative.test.ts\"\n  },\n  \"dependencies\": {\n    \"better-sqlite3\": \"13.0.3\",\n    \"kysely\": \"0.28.8\"\n  },\n  \"devDependencies\": {\n    \"@types/better-sqlite3\": \"9.6.0\",\n    \"@types/node\": \"22.20.1\",",
+            "snippet": "{\n  \"name\": \"typelatch-sqlite-showcase\",\n  \"private\": true,\n  \"type\": \"module\",\n  \"scripts\": {\n    \"check\": \"tsc --noEmit\",\n    \"test\": \"node --experimental-strip-types --test --test-reporter=tap batch.test.ts\",\n    \"test:negative\": \"node --experimental-strip-types --test --test-reporter=tap negative.test.ts\"\n  },\n  \"dependencies\": {\n    \"better-sqlite3\": \"13.0.3\",\n    \"kysely\": \"0.28.19\"\n  },\n  \"devDependencies\": {\n    \"@types/better-sqlite3\": \"9.6.0\",\n    \"@types/node\": \"22.20.1\",",
             "score": 13,
             "matchedTerms": [
               "name",
@@ -567,15 +567,15 @@
             },
             {
               "package": "kysely",
-              "version": "0.28.8",
+              "version": "0.28.19",
               "roots": [
                 "$WORKSPACE/node_modules/kysely"
               ],
               "identity": "installed",
               "installed": true,
-              "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+              "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
               "status": "missing-index",
-              "reason": "Prepare with typelatch add kysely@0.28.8",
+              "reason": "Prepare with typelatch add kysely@0.28.19",
               "rootsOmitted": 0
             },
             {
@@ -659,11 +659,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/0a31a7ff6b6d3a5eddf21b5172c6761a0beb8e5cdb6310f9216c4280dc3a4313/search.db",
           "updatedFiles": 5,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "5eb06bb13200dd0225d5b7787224d9e56ac396466fa00b40854bf1aad72ba578"
+          "snapshot": "db66a564d08f46c0c0593cf6bca3435a4edcba124e65daa4e422ce398c4637cc"
         },
         "status": "partial"
       }
@@ -807,11 +807,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/0a31a7ff6b6d3a5eddf21b5172c6761a0beb8e5cdb6310f9216c4280dc3a4313/search.db",
           "updatedFiles": 0,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "5eb06bb13200dd0225d5b7787224d9e56ac396466fa00b40854bf1aad72ba578"
+          "snapshot": "db66a564d08f46c0c0593cf6bca3435a4edcba124e65daa4e422ce398c4637cc"
         },
         "status": "ok"
       }
@@ -860,9 +860,9 @@
           "timedOut": false,
           "cancelled": false,
           "outputLimitExceeded": false,
-          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 79.696791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.711791\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 228.520417\n",
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 72.649791\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.074292\n  type: 'test'\n  location: '$WORKSPACE/batch.test.ts:20:1'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$WORKSPACE/batch.test.ts:26:12)\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 213.30525\n",
           "stderr": "",
-          "durationMs": 383.50145900000007
+          "durationMs": 367.4554999999996
         }
       }
     },
@@ -907,10 +907,10 @@
         },
         "dependency": {
           "name": "kysely",
-          "version": "0.28.8",
+          "version": "0.28.19",
           "root": "$WORKSPACE/node_modules/kysely",
           "manifest": "$WORKSPACE/node_modules/kysely/package.json",
-          "manifestHash": "771e12d0d5f1a92eb77de13c1ff9ecbe4f22ccdb9223b820d69c94955a6f365b"
+          "manifestHash": "cd1672263acb9414a732f157bc75309311fcf011ae604c25d721f2f105e50c4b"
         },
         "hover": null
       }
@@ -931,11 +931,11 @@
         "results": [
           {
             "source": "dist/cjs/kysely.d.ts",
-            "line": 623,
-            "endLine": 623,
+            "line": 642,
+            "endLine": 642,
             "symbol": "cjs/kysely.TransactionBuilder",
             "position": null,
-            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]",
+            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:649]",
             "score": 124,
             "matchedTerms": [
               "transact",
@@ -944,8 +944,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -955,11 +955,11 @@
           },
           {
             "source": "dist/cjs/kysely.d.ts",
-            "line": 634,
-            "endLine": 634,
+            "line": 653,
+            "endLine": 653,
             "symbol": "cjs/kysely.ControlledTransactionBuilder",
             "position": null,
-            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:630]",
+            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/cjs/kysely.d.ts:649]",
             "score": 124,
             "matchedTerms": [
               "transact",
@@ -968,8 +968,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -979,11 +979,11 @@
           },
           {
             "source": "dist/esm/kysely.d.ts",
-            "line": 623,
-            "endLine": 623,
+            "line": 642,
+            "endLine": 642,
             "symbol": "esm/kysely.TransactionBuilder",
             "position": null,
-            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "snippet": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:649]",
             "score": 124,
             "matchedTerms": [
               "transact",
@@ -992,8 +992,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -1003,11 +1003,11 @@
           },
           {
             "source": "dist/esm/kysely.d.ts",
-            "line": 634,
-            "endLine": 634,
+            "line": 653,
+            "endLine": 653,
             "symbol": "esm/kysely.ControlledTransactionBuilder",
             "position": null,
-            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "snippet": "export declare class ControlledTransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): ControlledTransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): ControlledTransactionBuilder<DB>;\n    execute(): Promise<ControlledTransaction<DB>>;\n}\n[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:649]",
             "score": 124,
             "matchedTerms": [
               "transact",
@@ -1016,8 +1016,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -1039,8 +1039,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -1062,8 +1062,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -1077,7 +1077,7 @@
             "endLine": 17,
             "symbol": "cjs/schema/create_table_builder.CreateTableBuilder",
             "position": null,
-            "snippet": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<string, never>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}\nThis builder can be used to create a `create table` query.",
+            "snippet": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<TB, C>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}\nThis builder can be used to create a `create table` query.",
             "score": 79,
             "matchedTerms": [
               "builder",
@@ -1085,14 +1085,14 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
             ],
             "kind": "class",
-            "signature": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<string, never>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}"
+            "signature": "export declare class CreateTableBuilder<TB extends string, C extends string = never> implements OperationNodeSource, Compilable {\n    #private;\n    constructor(props: CreateTableBuilderProps);\n    \n    temporary(): CreateTableBuilder<TB, C>;\n    \n    onCommit(onCommit: OnCommitAction): CreateTableBuilder<TB, C>;\n    \n    ifNotExists(): CreateTableBuilder<TB, C>;\n    \n    addColumn<CN extends string>(columnName: CN, dataType: DataTypeExpression, build?: ColumnBuilderCallback): CreateTableBuilder<TB, C | CN>;\n    \n    addPrimaryKeyConstraint(constraintName: string, columns: C[], build?: PrimaryKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addUniqueConstraint(constraintName: string, columns: C[], build?: UniqueConstraintNodeBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addCheckConstraint(constraintName: string, checkExpression: Expression<any>, build?: CheckConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    addForeignKeyConstraint(constraintName: string, columns: C[], targetTable: string, targetColumns: string[], build?: ForeignKeyConstraintBuilderCallback): CreateTableBuilder<TB, C>;\n    \n    modifyFront(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    modifyEnd(modifier: Expression<any>): CreateTableBuilder<TB, C>;\n    \n    as(expression: Expression<unknown>): CreateTableBuilder<TB, C>;\n    \n    $call<T>(func: (qb: this) => T): T;\n    toOperationNode(): CreateTableNode;\n    compile(): CompiledQuery;\n    execute(): Promise<void>;\n}"
           },
           {
             "source": "dist/esm/query-builder/insert-query-builder.d.ts",
@@ -1108,8 +1108,8 @@
             ],
             "origin": "dependency",
             "package": "kysely",
-            "version": "0.28.8",
-            "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+            "version": "0.28.19",
+            "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
             "projectRoot": null,
             "dependencyRoots": [
               "$WORKSPACE/node_modules/kysely"
@@ -1218,13 +1218,13 @@
             },
             {
               "package": "kysely",
-              "version": "0.28.8",
+              "version": "0.28.19",
               "roots": [
                 "$WORKSPACE/node_modules/kysely"
               ],
               "identity": "installed",
               "installed": true,
-              "integrity": "sha512-QUOgl5ZrS9IRuhq5FvOKFSsD/3+IA6MLE81/bOOTRA/YQpKDza2sFdN5g6JCB9BOpqMJDGefLCQ9F12hRS13TA==",
+              "integrity": "sha512-sXoKWuQjtorwxDLiws0ZSPGGne/hs+fGHIII7vXquSBFgHwLXgFIHN9tTv3kNdVkJ5d3xtXC84GjjWMYLqdFWg==",
               "status": "searched",
               "rootsOmitted": 0
             }
@@ -1280,7 +1280,7 @@
         "name": "library_symbol",
         "arguments": {
           "package": "kysely",
-          "version": "0.28.8",
+          "version": "0.28.19",
           "symbol": "esm/kysely.TransactionBuilder"
         }
       },
@@ -1291,9 +1291,9 @@
             "kind": "class",
             "module": "esm/kysely",
             "signature": "export declare class TransactionBuilder<DB> {\n    #private;\n    constructor(props: TransactionBuilderProps);\n    setAccessMode(accessMode: AccessMode): TransactionBuilder<DB>;\n    setIsolationLevel(isolationLevel: IsolationLevel): TransactionBuilder<DB>;\n    execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;\n}",
-            "summary": "[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:630]",
+            "summary": "[Referenced type TransactionBuilderProps; dist/esm/kysely.d.ts:649]",
             "source": "dist/esm/kysely.d.ts",
-            "line": 623,
+            "line": 642,
             "score": 100,
             "confidence": "high",
             "signals": [
@@ -1461,11 +1461,11 @@
           }
         },
         "index": {
-          "path": "$TYPELATCH_HOME/workspaces/aeb5bddb25681acb8d37829366d77c84b2dca24470cb1dd4f4fe748b14df58a2/search.db",
+          "path": "$TYPELATCH_HOME/workspaces/0a31a7ff6b6d3a5eddf21b5172c6761a0beb8e5cdb6310f9216c4280dc3a4313/search.db",
           "updatedFiles": 1,
           "removedFiles": 0,
           "files": 5,
-          "snapshot": "4b4c011b7882c6962650f3bfaf4f93dea7fae167c539e11bb4d5c303ac4a6daf"
+          "snapshot": "763a166ebef413bc7f10d6bc6348550f5b031dae3d2f9307cc357593049415ff"
         },
         "status": "ok"
       }
@@ -1479,7 +1479,7 @@
           "config": "$WORKSPACE/tsconfig.json",
           "file": "$WORKSPACE/batch.ts",
           "importSpecifier": "kysely",
-          "expectedVersion": "0.28.8",
+          "expectedVersion": "0.28.19",
           "position": 706
         }
       },
@@ -1495,7 +1495,7 @@
           },
           "versionMatch": {
             "status": "pass",
-            "reason": "Resolved kysely@0.28.8; expected 0.28.8"
+            "reason": "Resolved kysely@0.28.19; expected 0.28.19"
           },
           "artifactMatch": {
             "status": "unknown",
@@ -1512,10 +1512,10 @@
         },
         "dependency": {
           "name": "kysely",
-          "version": "0.28.8",
+          "version": "0.28.19",
           "root": "$WORKSPACE/node_modules/kysely",
           "manifest": "$WORKSPACE/node_modules/kysely/package.json",
-          "manifestHash": "771e12d0d5f1a92eb77de13c1ff9ecbe4f22ccdb9223b820d69c94955a6f365b"
+          "manifestHash": "cd1672263acb9414a732f157bc75309311fcf011ae604c25d721f2f105e50c4b"
         },
         "hover": {
           "text": "(method) Kysely<Tables>.transaction(): TransactionBuilder<Tables>",
@@ -1567,16 +1567,16 @@
           "timedOut": false,
           "cancelled": false,
           "outputLimitExceeded": false,
-          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.692708\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.313875\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 155.140958\n",
+          "stdout": "\n> test\n> node --experimental-strip-types --test --test-reporter=tap batch.test.ts\n\nTAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.767958\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.45825\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 146.769875\n",
           "stderr": "",
-          "durationMs": 316.6150829999988
+          "durationMs": 301.80183299999953
         }
       }
     }
   ],
   "rawEvidence": {
     "file": "agent-workflow.json.gz",
-    "sha256": "4be0613d1abba93b05a4e148131bf956acf132d11910844a0ad899f48539e1b8",
+    "sha256": "19189522d4e206fd0ca955c7626cb11a081388ed4a27a5a2731b4ec92da9ffa0",
     "note": "Full MCP envelopes and command output. This JSON retains explicit projections of responses."
   }
 }

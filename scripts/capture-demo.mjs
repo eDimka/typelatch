@@ -22,6 +22,15 @@ const preparedIndex = spawnSync(process.execPath, [join(root, 'dist/cli.js'), 's
 assert.equal(preparedIndex.status, 0, preparedIndex.stderr)
 const preparation = JSON.parse(preparedIndex.stdout)
 assert.equal(preparation.success, true, 'Dependency preparation must finish without an operational error; explicit unsupported packages remain visible')
+const fixtureManifest = JSON.parse(readFileSync(join(workspace, 'package.json'), 'utf8'))
+const fixtureLock = JSON.parse(readFileSync(join(workspace, 'package-lock.json'), 'utf8'))
+const dependencyManifest = readFileSync(join(workspace, 'node_modules/kysely/package.json'))
+const installedDependency = JSON.parse(dependencyManifest)
+const dependency = { name: installedDependency.name, version: installedDependency.version }
+assert.equal(dependency.name, 'kysely', 'The fixture must resolve the intended package identity')
+assert.equal(dependency.version, fixtureLock.packages?.['node_modules/kysely']?.version, 'Installed API identity must match the fixture lockfile')
+assert.equal(dependency.version, fixtureManifest.dependencies?.kysely, 'The fixture must pin the exact installed API version')
+const dependencyManifestSha256 = demoHash(dependencyManifest)
 const fixtureBefore = snapshotDemoFiles(workspace)
 for (const file of ['package.json', 'package-lock.json', 'tsconfig.json', 'batch.test.ts', 'batch.ts']) assert(fixtureBefore.some(entry => entry.path === file && entry.kind === 'file'), `Required fixture file: ${file}`)
 const sourcePath = join(workspace, 'batch.ts')
@@ -65,7 +74,7 @@ writeFileSync(join(output, 'before-session.json'), JSON.stringify({
   packageVersion: JSON.parse(readFileSync(join(root, 'package.json'))).version,
   packageJsonSha256: packageBefore, codexCliVersion: cliVersion.stdout.trim(),
   nodeVersion: process.version, platform: process.platform,
-  originalSource: before, beforeSha256, testsBefore, fixtureBefore, distBefore,
+  originalSource: before, beforeSha256, testsBefore, fixtureBefore, distBefore, dependency, dependencyManifestSha256,
   preparation: { exitCode: preparedIndex.status, result: preparation, stderr: preparedIndex.stderr },
   baselineVerification: { command: ['npm', 'test'], exitCode: initialCheck.status, stdout: initialCheck.stdout, stderr: initialCheck.stderr },
 }, null, 2) + '\n', { mode: 0o600 })
@@ -86,13 +95,14 @@ const after = readFileSync(sourcePath, 'utf8')
 const afterSha256 = demoHash(after)
 const fixtureAfter = snapshotDemoFiles(workspace)
 verifyDemoFiles(fixtureBefore, fixtureAfter)
-const qualified = verifyDemoActions(actions, { workspace, beforeSha256, afterSha256 })
+const qualified = verifyDemoActions(actions, { workspace, beforeSha256, afterSha256, dependency })
 const verification = spawnSync('npm', ['test'], { cwd: workspace, encoding: 'utf8', timeout: 120_000, maxBuffer: 8_000_000 })
 assert.equal(verification.status, 0, verification.stdout + verification.stderr)
 verifyAssertionOutput(verification.stdout, true)
 assert.deepEqual(snapshotDemoFiles(workspace), fixtureAfter, 'Independent final execution must preserve fixture files')
 assert.deepEqual(snapshotDemoFiles(join(root, 'dist'), []), distBefore, 'The executed Typelatch build must not change during capture')
 assert.equal(demoHash(readFileSync(join(root, 'package.json'))), packageBefore, 'Package identity must not change during capture')
+assert.equal(demoHash(readFileSync(join(workspace, 'node_modules/kysely/package.json'))), dependencyManifestSha256, 'Installed dependency identity must not change during capture')
 assert.equal(demoHash(readFileSync(import.meta.filename)), harnessBefore, 'Capture harness must not change during the run')
 assert.equal(demoHash(readFileSync(join(root, 'scripts/demo-evidence.mjs'))), verifierBefore, 'Evidence verifier must not change during the run')
 const normalize = value => normalizeDemo(value, [[workspace, '$WORKSPACE'], [root, '$REPOSITORY'], [homedir(), '$USER_HOME'], [process.execPath, '$NODE']])
@@ -109,6 +119,7 @@ const record = normalize({
     elapsedPlayback: 'Animation timing is edited for readability, not measured task time',
     harnessSha256: harnessBefore, evidenceVerifierSha256: verifierBefore,
     distManifestSha256: demoHash(JSON.stringify(distBefore)), distManifest: distBefore,
+    expectedDependency: dependency, dependencyManifestSha256,
     limitations: ['One prompted session on an authored exercise, with prepared dependency indexes; no comparison or token saving is measured.', 'Fixture file inventory excludes node_modules, .git and .typelatch. Endpoint hashes and completed actions do not prove the absence of all transient or external activity.', 'Exact served model identity and complete process lifecycle are not established by this export.'],
   },
   preparation: { command: ['typelatch', 'sync', '--json'], exitCode: preparedIndex.status, result: preparation, stderr: preparedIndex.stderr },

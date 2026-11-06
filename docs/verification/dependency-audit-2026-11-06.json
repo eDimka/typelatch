@@ -1,25 +1,81 @@
 {
-  "checkedAt": "2026-11-06T11:48:24.149Z",
-  "scope": "Root package and lockfile, including development dependencies",
-  "command": "npm audit --json",
-  "auditReportVersion": 2,
-  "vulnerabilities": {},
-  "metadata": {
-    "vulnerabilities": {
-      "info": 0,
-      "low": 0,
-      "moderate": 0,
-      "high": 0,
-      "critical": 0,
-      "total": 0
+  "checkedAt": "2026-11-06T12:23:29.008Z",
+  "scope": "All active repository package manifests and lockfiles, including development dependencies. Historical capture snapshots and retrieval corpus are retained as evidence, not installed by these manifests.",
+  "audits": [
+    {
+      "directory": ".",
+      "command": "npm audit --json",
+      "exitCode": 0,
+      "auditReportVersion": 2,
+      "vulnerabilities": {},
+      "metadata": {
+        "vulnerabilities": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        },
+        "dependencies": {
+          "prod": 114,
+          "dev": 96,
+          "optional": 53,
+          "peer": 36,
+          "peerOptional": 0,
+          "total": 209
+        }
+      }
     },
-    "dependencies": {
-      "prod": 114,
-      "dev": 96,
-      "optional": 53,
-      "peer": 36,
-      "peerOptional": 0,
-      "total": 209
+    {
+      "directory": "examples/sqlite",
+      "command": "npm audit --json",
+      "exitCode": 0,
+      "auditReportVersion": 2,
+      "vulnerabilities": {},
+      "metadata": {
+        "vulnerabilities": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        },
+        "dependencies": {
+          "prod": 4,
+          "dev": 4,
+          "optional": 0,
+          "peer": 0,
+          "peerOptional": 0,
+          "total": 7
+        }
+      }
+    },
+    {
+      "directory": "examples/support",
+      "command": "npm audit --json",
+      "exitCode": 0,
+      "auditReportVersion": 2,
+      "vulnerabilities": {},
+      "metadata": {
+        "vulnerabilities": {
+          "info": 0,
+          "low": 0,
+          "moderate": 0,
+          "high": 0,
+          "critical": 0,
+          "total": 0
+        },
+        "dependencies": {
+          "prod": 24,
+          "dev": 32,
+          "optional": 36,
+          "peer": 0,
+          "peerOptional": 0,
+          "total": 64
+        }
+      }
     }
-  }
+  ]
 }

@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict'
-import { createHash } from 'node:crypto'
 import { cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { verifySiteDemo } from './site-demo.mjs'
+import { verifyRecordedFixture } from './showcase-fixture.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -40,12 +40,10 @@ assert.equal(
 )
 assert.equal(recording.provenance.publishedPackage, 'typelatch@0.1.1')
 assert.equal(recording.provenance.indexedPackage, 'kysely@0.28.8')
-for (const file of recording.fixture) {
-  const hash = createHash('sha256')
-    .update(readFileSync(resolve(root, file.path)))
-    .digest('hex')
-  assert.equal(hash, file.sha256, `Fixture matches recorded execution: ${file.path}`)
-}
+const recordedSources = verifyRecordedFixture(
+  JSON.parse(read('docs/showcase/recorded-fixture.json')),
+  recording.fixture,
+)
 const transaction = result('transaction-symbol').results.find(
   (item) => item.symbol === 'esm/kysely.TransactionBuilder',
 )
@@ -67,14 +65,14 @@ const testNames = [...positive.execution.stdout.matchAll(/^ok \d+ - (.+)$/gm)].m
   (match) => match[1],
 )
 assert.equal(testNames.length, 2)
-const batch = read('examples/sqlite/batch.ts')
+const batch = recordedSources.get('examples/sqlite/batch.ts')
 const implementation = batch.slice(batch.indexOf('export async function importContacts')).trimEnd()
 assert.ok(implementation.startsWith('export async function importContacts'))
 const store = recording.storeAudit[0]
 const storeLookup = store.queries.find((query) => query.sql.includes('WHERE qualified_name = ?'))
 assert.equal(storeLookup.rows[0].qualified_name, transaction.symbol)
 const initial = result('initial-search')
-const testSource = read('examples/sqlite/batch.test.ts')
+const testSource = recordedSources.get('examples/sqlite/batch.test.ts')
 const assertionProofs = testNames
   .map((name, index) => {
     const start = testSource.indexOf(`test('${name}'`)
@@ -175,6 +173,7 @@ for (const asset of ['assets', 'site.css', 'site.js'])
 writeFileSync(resolve(output, 'index.html'), html)
 writeFileSync(resolve(output, '.nojekyll'), '')
 cpSync(resolve(root, 'docs/showcase/recording.json'), resolve(output, 'evidence/recording.json'))
+cpSync(resolve(root, 'docs/showcase/recorded-fixture.json'), resolve(output, 'evidence/recorded-fixture.json'))
 cpSync(resolve(root, 'docs/showcase/codex-session.json'), resolve(output, 'evidence/codex-session.json'))
 cpSync(resolve(root, 'site/demo.json'), resolve(output, 'evidence/demo.json'))
 for (const item of recording.mcp)

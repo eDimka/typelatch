@@ -28,6 +28,8 @@ Refreshed the landing page and npm README with a compact onboarding animation an
 
 Updated the MCP SDK, minimatch, Zod, Vitest and affected transitive dependencies after the dependency audit. The November 6 lockfile audit found no remaining advisories; this is dependency inventory evidence, not a security assessment of every execution path.
 
+Updated runnable examples to Kysely 0.28.19 and minimatch 11.0.5. All three active dependency trees pass the audit. Original recordings retain their exact identities and hash checked text snapshots independently of maintained examples. Historical retrieval inputs remain unchanged.
+
 ## 0.2.0
 
 Source milestone. This version was not published to npm.

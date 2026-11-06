@@ -33,6 +33,8 @@ These cases were authored during development and are known to the implementation
 
 The manifest in `src/benchmark/corpus.json` records the original package selection and exact integrity pins. It is a fixed corpus, not a live popularity ranking. Expected alternatives remain visible in `src/benchmark/cases`. Controls must fail for their intended reason. Missing evidence never counts as a successful case.
 
+The executable support fixtures use maintained dependency pins. Their minimatch version is 11.0.5, with its exact registry integrity enforced separately from the historical 10.2.6 retrieval input. Updating a runnable fixture does not relabel earlier retrieval results or change their expected symbols.
+
 ## Competitive evidence
 
 The [competitive scorecard](COMPETITIVE.md) compares the pinned public CodeGraph and Graphify products, records the improvements to Typelatch, and lists dimensions where it still loses or lacks evidence. It includes actual MCP captures and a bounded coding pilot. Retrieval hits, index bytes and response bytes remain separate from successful code changes and actual model tokens.

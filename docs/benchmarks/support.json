@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "kind": "development-integration",
-  "generatedAt": "2026-11-06T11:51:50.315Z",
-  "manifestHash": "528a8db672113fbf8338fb6d2bf992a66759db07af733a7891e41939a43a2771",
+  "generatedAt": "2026-11-06T12:27:01.582Z",
+  "manifestHash": "2b2d3a90c42f47c6e250bd9d0cc46e1f2742e0bd4a9270088a3441e40b0c00e1",
   "complete": true,
   "passed": true,
   "navigationPassed": true,
@@ -24,14 +24,14 @@
   ],
   "rawEvidence": {
     "file": "support.json.gz",
-    "sha256": "ed17b9122b493eeee14afd8817852f4612f6048670e4cf8534e4c6a1912222d0",
+    "sha256": "216c964b4fb58f37b18b83943d711dd16c9435598763081d4b9d8c2116fa5bde",
     "format": "gzip compressed JSON",
     "localPath": "artifacts/support.json.gz"
   },
   "packages": [
     {
       "name": "minimatch",
-      "version": "10.2.6",
+      "version": "11.0.5",
       "success": true,
       "error": null,
       "tasks": [
@@ -53,7 +53,7 @@
             },
             "versionMatch": {
               "status": "pass",
-              "reason": "Resolved minimatch@10.2.6; expected 10.2.6"
+              "reason": "Resolved minimatch@11.0.5; expected 11.0.5"
             },
             "artifactMatch": {
               "status": "unknown",
@@ -94,7 +94,7 @@
             },
             "versionMatch": {
               "status": "pass",
-              "reason": "Resolved minimatch@10.2.6; expected 10.2.6"
+              "reason": "Resolved minimatch@11.0.5; expected 11.0.5"
             },
             "artifactMatch": {
               "status": "unknown",

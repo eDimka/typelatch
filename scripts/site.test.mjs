@@ -14,6 +14,7 @@ import { tmpdir } from 'node:os'
 import { test } from 'node:test'
 import { verifySiteDemo } from './site-demo.mjs'
 import { demoHash } from './demo-evidence.mjs'
+import { verifyRecordedFixture } from './showcase-fixture.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
@@ -105,12 +106,12 @@ test('repository links and local social images resolve in the correct checkout',
   }
 })
 
-test('refuses a failed recording or a fixture that changed after capture', () => {
+test('refuses a failed recording or historical snapshot changed after capture', () => {
   const directory = mkdtempSync(
     join(process.env.JCODE_SCRATCH_DIR || tmpdir(), 'typelatch-site-contract-'),
   )
   try {
-    for (const path of ['scripts/site.mjs', 'scripts/site-demo.mjs', 'scripts/demo-evidence.mjs', 'docs/showcase/recording.json', 'examples/sqlite']) {
+    for (const path of ['scripts', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json']) {
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), {
         recursive: true,
@@ -126,13 +127,56 @@ test('refuses a failed recording or a fixture that changed after capture', () =>
     )
     record.assertions.passed = true
     writeFileSync(resolve(directory, 'docs/showcase/recording.json'), JSON.stringify(record))
-    writeFileSync(resolve(directory, 'examples/sqlite/batch.ts'), 'changed after capture\n')
+    const snapshot = JSON.parse(read('docs/showcase/recorded-fixture.json'))
+    snapshot.files.find(file => file.path === 'examples/sqlite/batch.ts').text += '\n// changed after capture\n'
+    writeFileSync(resolve(directory, 'docs/showcase/recorded-fixture.json'), JSON.stringify(snapshot))
     assert.throws(
       () => execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' }),
-      /Fixture matches recorded execution/,
+      /Historical fixture matches recorded execution/,
     )
   } finally {
     rmSync(directory, { recursive: true, force: true })
+  }
+})
+
+test('historical evidence builds independently of the maintained example', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'typelatch-site-snapshot-'))
+  try {
+    for (const path of ['scripts', 'site', 'package.json', 'docs/showcase/recording.json', 'docs/showcase/recorded-fixture.json', 'docs/showcase/codex-session.json']) {
+      mkdirSync(resolve(directory, path, '..'), { recursive: true })
+      cpSync(resolve(root, path), resolve(directory, path), { recursive: true })
+    }
+    mkdirSync(resolve(directory, 'examples/sqlite'), { recursive: true })
+    writeFileSync(resolve(directory, 'examples/sqlite/batch.ts'), 'maintained example changed after historical capture\n')
+    execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' })
+    const html = readFileSync(resolve(directory, '_site/index.html'), 'utf8')
+    assert.doesNotMatch(html, /maintained example changed/)
+    assert.match(html, /export async function importContacts/)
+    assert.match(html, /whole batch rollback/)
+    assert.match(html, /href="evidence\/recorded-fixture.json"/)
+    assert.deepEqual(
+      JSON.parse(readFileSync(resolve(directory, '_site/evidence/recorded-fixture.json'), 'utf8')),
+      JSON.parse(read('docs/showcase/recorded-fixture.json')),
+    )
+  } finally {
+    rmSync(directory, { recursive: true, force: true })
+  }
+})
+
+test('historical snapshot rejects missing, additional or altered captured files', () => {
+  const snapshot = JSON.parse(read('docs/showcase/recorded-fixture.json'))
+  const recording = JSON.parse(read('docs/showcase/recording.json'))
+  assert.equal(verifyRecordedFixture(snapshot, recording.fixture).size, recording.fixture.length)
+  for (const mutation of [
+    value => { value.files.pop() },
+    value => { value.files.push(value.files[0]) },
+    value => { value.files[0].path = 'examples/sqlite/renamed.ts' },
+    value => { value.files[0].text += '\n// altered source' },
+    value => { value.files[0].text += '\n// altered source'; value.files[0].sha256 = demoHash(value.files[0].text) },
+  ]) {
+    const changed = structuredClone(snapshot)
+    mutation(changed)
+    assert.throws(() => verifyRecordedFixture(changed, recording.fixture))
   }
 })
 

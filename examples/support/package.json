@@ -14,7 +14,7 @@
     "effect-v3": "npm:effect@3.22.1",
     "effect-v4": "npm:effect@4.0.0-rc.112",
     "lru-cache": "11.5.2",
-    "minimatch": "10.2.6",
+    "minimatch": "11.0.5",
     "string-width": "8.2.2",
     "strip-ansi": "7.2.0",
     "supports-color": "11.0.0",

@@ -6,7 +6,7 @@ The agent starts with a question. It does not need the package name, function na
 
 ## Give this to your agent
 
-Connect the current Typelatch MCP server as described in [Usage](../USAGE.md). The retained capture uses the 0.3.0 source build. From a trusted source checkout, prepare an isolated exercise:
+Connect the current Typelatch MCP server as described in [Usage](../USAGE.md). The current curated capture uses the 0.3.0 source build and the maintained `kysely@0.28.19` fixture. From a trusted source checkout, prepare an isolated exercise:
 
 ```sh
 npm ci
@@ -39,14 +39,14 @@ anything unknown or not run visible.
 
 ## What the tool calls look like
 
-The [captured requests and result projections](agent-workflow.json) come from actual MCP calls over standard input and output. `$WORKSPACE` below represents the prepared absolute path. The explanations describe the intended agent decisions. The replay is a fixed, curated workflow authored by Codex, not a transcript of independent agent decisions or a coding benchmark.
+The [captured requests and result projections](agent-workflow.json) come from actual MCP calls over standard input and output, refreshed on 6 November 2026 with Kysely 0.28.19. The separate [actual Codex session](codex-session.md) retains its earlier Kysely 0.28.8 evidence. `$WORKSPACE` below represents the prepared absolute path. The explanations describe the intended agent decisions. The replay is a fixed, curated workflow authored by Codex, not a transcript of independent agent decisions or a coding benchmark.
 
 | Step | Agent action | Evidence to inspect |
 | :--- | :--- | :--- |
 | Discover | Call `workspace_search` with the user question and workspace root. | Source and test candidates, plus missing dependency indexes. No compilation has run. |
 | Inspect | Read the tests with normal file tools, then search for `importContacts`. | The rollback assertion and the implementation location. |
 | Reproduce | Call `workspace_validate` with `testCommand: ["npm", "test"]`. | The broken implementation compiles but fails the rollback assertion. |
-| Resolve | Call `workspace_context` for the import found in the source. | The installed compiler identifies `kysely@0.28.8`. |
+| Resolve | Call `workspace_context` for the import found in the source. | The installed compiler identifies `kysely@0.28.19`. |
 | Discover an API | Prepare that exact index, then call `workspace_search` with `scope: "dependencies"` and `TransactionBuilder execute`. | A transaction callback candidate with its package, version and source location. |
 | Inspect the API | Call `library_symbol` using the exact returned identity. | The `TransactionBuilder.execute` callback signature. |
 | Edit | Use normal file editing to wrap the inserts in a transaction callback. | The actual before and after code. The assertions remain unchanged. |
@@ -93,7 +93,7 @@ The compiler context comes from the discovered file:
 }
 ```
 
-The replay prepares the returned exact dependency identity with `typelatch add kysely@0.28.8`. This downloads an API index; it does not install or change the workspace dependency. The next workspace search supplies `scope: "dependencies"` and `question: "TransactionBuilder execute"`, still without a package argument. `library_symbol` then inspects the returned `kysely@0.28.8` symbol `esm/kysely.TransactionBuilder`.
+The replay prepares the returned exact dependency identity with `typelatch add kysely@0.28.19`. This downloads an API index; it does not install or change the workspace dependency. The next workspace search supplies `scope: "dependencies"` and `question: "TransactionBuilder execute"`, still without a package argument. `library_symbol` then inspects the returned `kysely@0.28.19` symbol `esm/kysely.TransactionBuilder`.
 
 The substantive edit is:
 
@@ -139,9 +139,9 @@ An agent with terminal access can use the CLI and parse JSON:
 typelatch search "Contact imports leave partial data after a duplicate name" --json
 typelatch search "importContacts" --scope workspace --json
 typelatch workspace context.json
-typelatch add kysely@0.28.8
+typelatch add kysely@0.28.19
 typelatch search "TransactionBuilder execute" --scope dependencies --json
-typelatch symbol kysely@0.28.8 esm/kysely.TransactionBuilder --json
+typelatch symbol kysely@0.28.19 esm/kysely.TransactionBuilder --json
 typelatch validate validation.json
 ```
 

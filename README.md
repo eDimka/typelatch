@@ -83,6 +83,8 @@ In the [recorded Codex session](docs/showcase/codex-session.md), a failed contac
 
 The agent used **four MCP calls and one shell command**, `git diff -- batch.ts`. No `rg` or `grep` command appeared in its recorded shell actions. This is one prompted session on a prepared exercise. It demonstrates the workflow, not a measured saving against another agent or a guarantee of fewer tokens.
 
+The retained session used `kysely@0.28.8`. The maintained SQLite example now pins `kysely@0.28.19`; a fresh capture uses that updated fixture.
+
 [Inspect the complete public actions](docs/showcase/codex-session.json), or run a fresh Codex capture from a source checkout:
 
 ```sh
@@ -100,7 +102,7 @@ The actual question in the recorded run:
 
 > How can I import a batch of contacts into SQLite atomically, roll back every new row if a UNIQUE name constraint fails, and safely store a name containing a quote?
 
-The [SQLite fixture](examples/sqlite) uses Kysely with `better-sqlite3`. The first search returned transaction, insertion, and constraint APIs. Jcode narrowed the question to the callback API with this actual MCP request against Typelatch's local SQLite index:
+The [historical fixture snapshot](docs/showcase/recorded-fixture.json) preserves the Kysely 0.28.8 and `better-sqlite3` sources and lockfile used in this recording. The [maintained example](examples/sqlite) now uses Kysely 0.28.19. The first search returned transaction, insertion, and constraint APIs. Jcode narrowed the question to the callback API with this actual MCP request against Typelatch's local SQLite index:
 
 ```json
 {
@@ -133,7 +135,7 @@ The returned class begins at `dist/esm/kysely.d.ts:623`. Its signature includes:
 execute<T>(callback: (trx: Transaction<DB>) => Promise<T>): Promise<T>;
 ```
 
-The [implementation](examples/sqlite/batch.ts) lets an insert error escape the callback so the batch rolls back. `workspace_context` resolved `kysely@0.28.8`. `workspace_validate` recorded compilation, assertions, and input stability as `pass`. Selected fields from its recorded `execution` result:
+The recorded implementation lets an insert error escape the callback so the batch rolls back. Its text is preserved in the [historical snapshot](docs/showcase/recorded-fixture.json). In that run, `workspace_context` resolved `kysely@0.28.8`. `workspace_validate` recorded compilation, assertions, and input stability as `pass`. Selected fields from its recorded `execution` result:
 
 ```json
 {

@@ -2,6 +2,8 @@
 
 This is an actual Codex CLI session captured on 6 November 2026. The agent received an authored broken exercise and a prompt to use Typelatch. It chose the requests and implementation edit. The [public record](codex-session.json) contains its completed tool actions, before and after source, fixture hashes, dependency preparation and independent test output.
 
+The retained session used `kysely@0.28.8` before the runnable example was updated to `kysely@0.28.19`. Its original evidence and animation remain unchanged. The current example and future captures use the maintained dependency version.
+
 The website and GIF are visual summaries of this session. Setup is shown as instructions. Playback timing and typing are edited for readability.
 
 ## What happened
@@ -55,7 +57,7 @@ npm run build
 node scripts/capture-demo.mjs
 ```
 
-This creates an isolated broken copy of the SQLite fixture, installs its pinned dependencies, prepares API indexes, and launches a new Codex session. It writes `docs/showcase/codex-session.json` only after the evidence checks pass. A fresh run can choose different queries, tools or code.
+This creates an isolated broken copy of the SQLite fixture, installs its pinned dependencies, prepares API indexes, and launches a new Codex session. It writes `docs/showcase/codex-session.json` only after the evidence checks pass. A fresh run uses the current fixture lockfile and can choose different queries, tools or code. The current harness derives the expected dependency identity from the installed package and lockfile. It has evolved since this retained capture; the historical harness hash still identifies the code used for that original run.
 
 The [capture harness](../../scripts/capture-demo.mjs) saves genuine prelaunch metadata and raw events under ignored `artifacts/demo` directories. Public export excludes private model analysis and native session identifiers, and normalizes personal paths. The [evidence checks](../../scripts/demo-evidence.test.mjs) cover denied tools, missing APIs, wrong validation commands, source identity, ordering, changed configuration and added files.
 

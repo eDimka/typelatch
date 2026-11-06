@@ -1,15 +1,23 @@
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { spawnSync } from 'node:child_process'
-import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir, release } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
+import { verifyRecordedFixture } from './showcase-fixture.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const historicalRecording = JSON.parse(readFileSync(join(root, 'docs/showcase/recording.json'), 'utf8'))
+const historicalFixture = JSON.parse(readFileSync(join(root, 'docs/showcase/recorded-fixture.json'), 'utf8'))
+const historicalSources = verifyRecordedFixture(historicalFixture, historicalRecording.fixture)
+assert.equal(historicalRecording.assertions.passed, true, 'Reproduce only a verified historical capture')
+assert.equal(historicalRecording.provenance.publishedPackage, 'typelatch@0.1.1')
+assert.equal(historicalRecording.provenance.indexedPackage, 'kysely@0.28.8')
+assert.equal(JSON.parse(historicalSources.get('examples/sqlite/package.json')).dependencies.kysely, '0.28.8')
 const sdkVersion = JSON.parse(readFileSync(join(root, 'node_modules/@modelcontextprotocol/sdk/package.json'), 'utf8')).version
 assert(process.env.JCODE_SCRATCH_DIR, 'Set JCODE_SCRATCH_DIR to an absolute writable scratch directory')
 const scratch = resolve(process.env.JCODE_SCRATCH_DIR)
@@ -34,7 +42,7 @@ const recording = {
     runtimePackage: 'better-sqlite3@13.0.3',
     runtimeDeclarations: '@types/better-sqlite3@9.6.0',
     normalization: 'Only private absolute path prefixes are replaced. Durations, IDs, hashes, outputs and evidence states are retained.',
-    pathTokens: { '$WORKSPACE': 'isolated copy of examples/sqlite', '$TYPELATCH_HOME': 'isolated Typelatch data directory', '$PUBLISHED_INSTALL': 'scratch npm install of published typelatch', '$RUN_ROOT': 'fresh capture directory', '$SCRATCH': 'JCODE_SCRATCH_DIR', '$REPOSITORY': 'source checkout', '$NODE': 'Node executable', '$USER_HOME': 'user home' }
+    pathTokens: { '$WORKSPACE': 'isolated copy of recorded-fixture.json historical sources', '$TYPELATCH_HOME': 'isolated Typelatch data directory', '$PUBLISHED_INSTALL': 'scratch npm install of published typelatch', '$RUN_ROOT': 'fresh capture directory', '$SCRATCH': 'JCODE_SCRATCH_DIR', '$REPOSITORY': 'source checkout', '$NODE': 'Node executable', '$USER_HOME': 'user home' }
   },
   authored: {
     label: 'Question and rationale authored by Jcode, not MCP output or a simulated agent transcript',
@@ -76,10 +84,9 @@ function payload(result) {
 }
 let client
 try {
-  for (const file of readdirSync(join(root, 'examples/sqlite')).filter(file => /\.(?:ts|json)$/.test(file))) {
-    const source = join(root, 'examples/sqlite', file)
-    copyFileSync(source, join(workspace, file))
-    recording.fixture.push({ path: `examples/sqlite/${file}`, sha256: createHash('sha256').update(readFileSync(source)).digest('hex') })
+  for (const [path, text] of historicalSources) {
+    writeFileSync(join(workspace, path.slice('examples/sqlite/'.length)), text)
+    recording.fixture.push({ path, sha256: createHash('sha256').update(text).digest('hex') })
   }
   writeFileSync(join(published, 'package.json'), JSON.stringify({ private: true, type: 'module' }))
   command('npm-version', 'npm', ['--version'])
@@ -179,7 +186,16 @@ try {
     assert.equal(db.prepare('SELECT count(*) AS count FROM symbols WHERE qualified_name = ?').get(selected.symbol).count, 1)
   } finally { db.close() }
   recording.assertions = { publishedVersion: manifest.version, sixMcpTools: true, searchReturnedSymbols: true, exactTransactionSymbolReturned: true, workspaceContextCaptured: true, workspaceResolved: context.checks.resolved.status, workspaceVersionMatch: context.checks.versionMatch.status, workspaceArtifactMatch: context.checks.artifactMatch.status, positiveCompilation: positive.checks.typechecked.status, positiveExecution: positive.checks.tested.status, omittedTransactionExecution: negative.checks.tested.status, invalidTypes: invalid.checks.typechecked.status, invalidTypesExecution: invalid.checks.tested.status, sqliteIndexAudited: true, passed: true }
+  const capturedFixture = {
+    description: historicalFixture.description,
+    files: recording.fixture.map(file => ({
+      ...file,
+      text: readFileSync(join(workspace, file.path.slice('examples/sqlite/'.length)), 'utf8'),
+    })),
+  }
+  verifyRecordedFixture(capturedFixture, recording.fixture)
   save(output)
+  writeFileSync(join(dirname(output), 'recorded-fixture.json'), JSON.stringify(capturedFixture, null, 2) + '\n')
   console.log(`Captured published package evidence: ${output}`)
 } finally {
   await client?.close()
