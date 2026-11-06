@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "73337c542c127470f42654358cad96e750ba68358c3253982df4447c75bfe88b",
+  "protocolSha256": "614c4d8487647940809840e0cc1c21b7f797a2e18a5bf98ba86797fcb3cd32f8",
+  "auditSha256": "0a03f794c211ad878c66c8deb7dbbb057ef7309728088424e315d8d4894a5eb4",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "impact": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "Development outcomes cannot establish a held-out edge.",
+            "Each claimed category needs two distinct held-out tasks.",
+            "Two repetitions are required."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 413466,
+                  "candidate": 322097,
+                  "aggregateReductionPercent": 22.098310381022866,
+                  "medianPairedReductionPercent": 22.098310381022866,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 413466,
+                      "candidate": 322097,
+                      "reductionPercent": 22.098310381022866
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "repeat": 1,
+                      "control": 413466,
+                      "candidate": 322097,
+                      "reductionPercent": 22.098310381022866
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 105832.27899899999,
+                  "candidate": 105245.67799899998,
+                  "aggregateReductionPercent": 0.554274183215456,
+                  "medianPairedReductionPercent": 0.554274183215456,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 105832.27899899999,
+                      "candidate": 105245.67799899998,
+                      "reductionPercent": 0.554274183215456
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "repeat": 1,
+                      "control": 105832.27899899999,
+                      "candidate": 105245.67799899998,
+                      "reductionPercent": 0.554274183215456
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-parser-impact-development-grading-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 431031,
+                  "candidate": 322097,
+                  "aggregateReductionPercent": 25.272892204969015,
+                  "medianPairedReductionPercent": 25.272892204969015,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 431031,
+                      "candidate": 322097,
+                      "reductionPercent": 25.272892204969015
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "repeat": 1,
+                      "control": 431031,
+                      "candidate": 322097,
+                      "reductionPercent": 25.272892204969015
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 134382.32575000002,
+                  "candidate": 105245.67799899998,
+                  "aggregateReductionPercent": 21.68190466148413,
+                  "medianPairedReductionPercent": 21.68190466148413,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 134382.32575000002,
+                      "candidate": 105245.67799899998,
+                      "reductionPercent": 21.68190466148413
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "repeat": 1,
+                      "control": 134382.32575000002,
+                      "candidate": 105245.67799899998,
+                      "reductionPercent": 21.68190466148413
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-parser-impact-development-grading-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "impact": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 413466,
+                    "candidate": 322097,
+                    "aggregateReductionPercent": 22.098310381022866,
+                    "medianPairedReductionPercent": 22.098310381022866,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 413466,
+                        "candidate": 322097,
+                        "reductionPercent": 22.098310381022866
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development-grading-v2",
+                        "repeat": 1,
+                        "control": 413466,
+                        "candidate": 322097,
+                        "reductionPercent": 22.098310381022866
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 105832.27899899999,
+                    "candidate": 105245.67799899998,
+                    "aggregateReductionPercent": 0.554274183215456,
+                    "medianPairedReductionPercent": 0.554274183215456,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 105832.27899899999,
+                        "candidate": 105245.67799899998,
+                        "reductionPercent": 0.554274183215456
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development-grading-v2",
+                        "repeat": 1,
+                        "control": 105832.27899899999,
+                        "candidate": 105245.67799899998,
+                        "reductionPercent": 0.554274183215456
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 431031,
+                    "candidate": 322097,
+                    "aggregateReductionPercent": 25.272892204969015,
+                    "medianPairedReductionPercent": 25.272892204969015,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 431031,
+                        "candidate": 322097,
+                        "reductionPercent": 25.272892204969015
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development-grading-v2",
+                        "repeat": 1,
+                        "control": 431031,
+                        "candidate": 322097,
+                        "reductionPercent": 25.272892204969015
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 134382.32575000002,
+                    "candidate": 105245.67799899998,
+                    "aggregateReductionPercent": 21.68190466148413,
+                    "medianPairedReductionPercent": 21.68190466148413,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 134382.32575000002,
+                        "candidate": 105245.67799899998,
+                        "reductionPercent": 21.68190466148413
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development-grading-v2",
+                        "repeat": 1,
+                        "control": 134382.32575000002,
+                        "candidate": 105245.67799899998,
+                        "reductionPercent": 21.68190466148413
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development-grading-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "review": [
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-impact",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    }
+  ]
+}

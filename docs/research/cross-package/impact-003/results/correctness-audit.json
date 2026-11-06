@@ -1,0 +1,4635 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "benchmark_review",
+  "reportSha256": "73337c542c127470f42654358cad96e750ba68358c3253982df4447c75bfe88b",
+  "protocolSha256": "614c4d8487647940809840e0cc1c21b7f797a2e18a5bf98ba86797fcb3cd32f8",
+  "noPrivateReasoningOrMessages": true,
+  "originalGradesUnchanged": true,
+  "conclusion": "All three impact answers satisfy the reviewed frozen development requirements. Each has 14 exact direct entries, 37 valid installed dependency chains and 29 actual scripts-property citations. No recurrence of the previous directory/script collision or false rejection of version-qualified chains/exclusions was found.",
+  "method": "Compare exact direct sets to the frozen oracle; independently hash source files, validate source quotations, parse actual scripts properties through a JSON syntax tree, and resolve every chain through declared manifests and installed workspace links. Manually distinguish plural wrapper exclusions from direct parser uses. This audit does not assert support for arbitrary unqualified targets.",
+  "analyses": [
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-native",
+      "evidenceSha256": "6b15e91ecc452e0cae4dd3d3d98e729b7935b8d780777c42633cddd165ec5888",
+      "answerSha256": "1848c4875710e4d13098c8a4f78a72fbbfb03ab16dd3abe9f1fb4d872afac7b7",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "directSetMatches": true,
+      "directEntries": 14,
+      "quoteChecks": [
+        {
+          "file": "config/deps-installer/src/resolveConfigDeps.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/src/index.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/src/dlx.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/src/createPackageExtender.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getEditDirPath.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/writePackage.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+          "startLine": 9,
+          "endLine": 9,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/src/storeAdd.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 34,
+          "endLine": 34,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 56,
+          "endLine": 56,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 54,
+          "endLine": 54,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 53,
+          "endLine": 53,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        }
+      ],
+      "scriptChecks": [
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "compile",
+          "file": "config/deps-installer/package.json",
+          "line": 34,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "test",
+          "file": "config/deps-installer/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "_test",
+          "file": "config/deps-installer/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "compile",
+          "file": "config/parse-overrides/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "test",
+          "file": "config/parse-overrides/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "_test",
+          "file": "config/parse-overrides/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "compile",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "_test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "compile",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "_test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "compile",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "test",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "compile",
+          "file": "pkg-manager/core/package.json",
+          "line": 56,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "test",
+          "file": "pkg-manager/core/package.json",
+          "line": 54,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "_test",
+          "file": "pkg-manager/core/package.json",
+          "line": 53,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "compile",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "_test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "compile",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "_test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "compile",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "_test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "compile",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "_test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        }
+      ],
+      "chains": [
+        {
+          "package": "@pnpm-private/updater",
+          "versions": [
+            "@pnpm-private/updater@1000.0.22",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm-private/updater",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cache.commands",
+          "versions": [
+            "@pnpm/cache.commands@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cache.commands",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cli-utils",
+          "versions": [
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "versions": [
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/core",
+          "versions": [
+            "@pnpm/core@1016.1.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/core",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/deps.status",
+          "versions": [
+            "@pnpm/deps.status@1003.0.36",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/deps.status",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/exec.build-commands",
+          "versions": [
+            "@pnpm/exec.build-commands@1002.1.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/exec.build-commands",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/filter-workspace-packages",
+          "versions": [
+            "@pnpm/filter-workspace-packages@1000.1.5",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/filter-workspace-packages",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "versions": [
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/lockfile.settings-checker",
+          "versions": [
+            "@pnpm/lockfile.settings-checker@1001.0.30",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/lockfile.settings-checker",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/outdated",
+          "versions": [
+            "@pnpm/outdated@1001.1.20",
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/outdated",
+              "to": "@pnpm/hooks.read-package-hook",
+              "alias": "@pnpm/hooks.read-package-hook",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "versions": [
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-audit",
+          "versions": [
+            "@pnpm/plugin-commands-audit@1002.2.8",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-audit",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-completion",
+          "versions": [
+            "@pnpm/plugin-commands-completion@1000.0.34",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-completion",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-config",
+          "versions": [
+            "@pnpm/plugin-commands-config@1000.3.21",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-config",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-deploy",
+          "versions": [
+            "@pnpm/plugin-commands-deploy@1002.0.36",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-deploy",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-doctor",
+          "versions": [
+            "@pnpm/plugin-commands-doctor@1000.1.63",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-doctor",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-env",
+          "versions": [
+            "@pnpm/plugin-commands-env@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-env",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-init",
+          "versions": [
+            "@pnpm/plugin-commands-init@1000.3.16",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-init",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "versions": [
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-licenses",
+          "versions": [
+            "@pnpm/plugin-commands-licenses@1000.0.66",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-licenses",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-listing",
+          "versions": [
+            "@pnpm/plugin-commands-listing@1000.3.4",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-listing",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-outdated",
+          "versions": [
+            "@pnpm/plugin-commands-outdated@1000.0.67",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-outdated",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "versions": [
+            "@pnpm/plugin-commands-patching@1000.3.43",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-patching",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-publishing",
+          "versions": [
+            "@pnpm/plugin-commands-publishing@1000.3.15",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-publishing",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-rebuild",
+          "versions": [
+            "@pnpm/plugin-commands-rebuild@1008.0.12",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-rebuild",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "versions": [
+            "@pnpm/plugin-commands-script-runners@1001.2.8",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-script-runners",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-server",
+          "versions": [
+            "@pnpm/plugin-commands-server@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-server",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-setup",
+          "versions": [
+            "@pnpm/plugin-commands-setup@1000.1.41",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-setup",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "versions": [
+            "@pnpm/plugin-commands-store-inspecting@1000.0.60",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store-inspecting",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "versions": [
+            "@pnpm/plugin-commands-store@1000.0.66",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/tools.plugin-commands-self-updater",
+          "versions": [
+            "@pnpm/tools.plugin-commands-self-updater@1000.1.53",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/tools.plugin-commands-self-updater",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.filter-packages-from-dir",
+          "versions": [
+            "@pnpm/workspace.filter-packages-from-dir@1000.0.64",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.filter-packages-from-dir",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.find-packages",
+          "versions": [
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.injected-deps-syncer",
+          "versions": [
+            "@pnpm/workspace.injected-deps-syncer@1000.0.38",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.injected-deps-syncer",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pd",
+          "versions": [
+            "pd@1000.0.32",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pd",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pnpm",
+          "versions": [
+            "pnpm@10.32.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pnpm",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        }
+      ],
+      "exclusions": [
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "symbol": "parseWantedDependencies",
+          "valid": true,
+          "meaning": "The local plural wrapper/import binding differs from the target singular parser; its declaration file remains included for the actual target call."
+        }
+      ],
+      "uncertainties": [
+        {
+          "code": "external-consumers",
+          "state": "unknown"
+        },
+        {
+          "code": "dynamic-loading",
+          "state": "unknown"
+        },
+        {
+          "code": "package-reachability-not-symbol-use",
+          "state": "conservative"
+        },
+        {
+          "code": "unexecuted-validation",
+          "state": "not-proven"
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-impact",
+      "evidenceSha256": "e1a28fd45168969d5060343a754fd95b2476a64706ccf3e5ccfb5c7fcf5e1ae0",
+      "answerSha256": "2459ebb84b2b8a60883eee5e4dd9276e2b6facebceb9507ff2d42ba4644ae8f7",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "directSetMatches": true,
+      "directEntries": 14,
+      "quoteChecks": [
+        {
+          "file": "config/deps-installer/src/resolveConfigDeps.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/src/index.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/src/dlx.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/src/createPackageExtender.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getEditDirPath.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/writePackage.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+          "startLine": 9,
+          "endLine": 9,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/src/storeAdd.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 34,
+          "endLine": 34,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 56,
+          "endLine": 56,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 54,
+          "endLine": 54,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 53,
+          "endLine": 53,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        }
+      ],
+      "scriptChecks": [
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "compile",
+          "file": "config/deps-installer/package.json",
+          "line": 34,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "test",
+          "file": "config/deps-installer/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "_test",
+          "file": "config/deps-installer/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "compile",
+          "file": "pkg-manager/core/package.json",
+          "line": 56,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "test",
+          "file": "pkg-manager/core/package.json",
+          "line": 54,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "_test",
+          "file": "pkg-manager/core/package.json",
+          "line": 53,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "compile",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "_test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "compile",
+          "file": "config/parse-overrides/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "test",
+          "file": "config/parse-overrides/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "_test",
+          "file": "config/parse-overrides/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "compile",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "test",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "compile",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "_test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "compile",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "_test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "compile",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "_test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "compile",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "_test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "compile",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "_test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        }
+      ],
+      "chains": [
+        {
+          "package": "@pnpm-private/updater",
+          "versions": [
+            "@pnpm-private/updater@1000.0.22",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm-private/updater",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cache.commands",
+          "versions": [
+            "@pnpm/cache.commands@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cache.commands",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cli-utils",
+          "versions": [
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "versions": [
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/core",
+          "versions": [
+            "@pnpm/core@1016.1.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/core",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/deps.status",
+          "versions": [
+            "@pnpm/deps.status@1003.0.36",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/deps.status",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/exec.build-commands",
+          "versions": [
+            "@pnpm/exec.build-commands@1002.1.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/exec.build-commands",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/filter-workspace-packages",
+          "versions": [
+            "@pnpm/filter-workspace-packages@1000.1.5",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/filter-workspace-packages",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "versions": [
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/lockfile.settings-checker",
+          "versions": [
+            "@pnpm/lockfile.settings-checker@1001.0.30",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/lockfile.settings-checker",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/outdated",
+          "versions": [
+            "@pnpm/outdated@1001.1.20",
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/outdated",
+              "to": "@pnpm/hooks.read-package-hook",
+              "alias": "@pnpm/hooks.read-package-hook",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "versions": [
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-audit",
+          "versions": [
+            "@pnpm/plugin-commands-audit@1002.2.8",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-audit",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-completion",
+          "versions": [
+            "@pnpm/plugin-commands-completion@1000.0.34",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-completion",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-config",
+          "versions": [
+            "@pnpm/plugin-commands-config@1000.3.21",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-config",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-deploy",
+          "versions": [
+            "@pnpm/plugin-commands-deploy@1002.0.36",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-deploy",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-doctor",
+          "versions": [
+            "@pnpm/plugin-commands-doctor@1000.1.63",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-doctor",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-env",
+          "versions": [
+            "@pnpm/plugin-commands-env@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-env",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-init",
+          "versions": [
+            "@pnpm/plugin-commands-init@1000.3.16",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-init",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "versions": [
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-licenses",
+          "versions": [
+            "@pnpm/plugin-commands-licenses@1000.0.66",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-licenses",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-listing",
+          "versions": [
+            "@pnpm/plugin-commands-listing@1000.3.4",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-listing",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-outdated",
+          "versions": [
+            "@pnpm/plugin-commands-outdated@1000.0.67",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-outdated",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "versions": [
+            "@pnpm/plugin-commands-patching@1000.3.43",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-patching",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-publishing",
+          "versions": [
+            "@pnpm/plugin-commands-publishing@1000.3.15",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-publishing",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-rebuild",
+          "versions": [
+            "@pnpm/plugin-commands-rebuild@1008.0.12",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-rebuild",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "versions": [
+            "@pnpm/plugin-commands-script-runners@1001.2.8",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-script-runners",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-server",
+          "versions": [
+            "@pnpm/plugin-commands-server@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-server",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-setup",
+          "versions": [
+            "@pnpm/plugin-commands-setup@1000.1.41",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-setup",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "versions": [
+            "@pnpm/plugin-commands-store@1000.0.66",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "versions": [
+            "@pnpm/plugin-commands-store-inspecting@1000.0.60",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store-inspecting",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/tools.plugin-commands-self-updater",
+          "versions": [
+            "@pnpm/tools.plugin-commands-self-updater@1000.1.53",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/tools.plugin-commands-self-updater",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.filter-packages-from-dir",
+          "versions": [
+            "@pnpm/workspace.filter-packages-from-dir@1000.0.64",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.filter-packages-from-dir",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.find-packages",
+          "versions": [
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.injected-deps-syncer",
+          "versions": [
+            "@pnpm/workspace.injected-deps-syncer@1000.0.38",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.injected-deps-syncer",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pd",
+          "versions": [
+            "pd@1000.0.32",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pd",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pnpm",
+          "versions": [
+            "pnpm@10.32.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pnpm",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        }
+      ],
+      "exclusions": [
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "symbol": "parseWantedDependencies",
+          "valid": true,
+          "meaning": "The local plural wrapper/import binding differs from the target singular parser; its declaration file remains included for the actual target call."
+        }
+      ],
+      "uncertainties": [
+        {
+          "code": "external-consumers",
+          "state": "unknown"
+        },
+        {
+          "code": "dynamic-loading",
+          "state": "unknown"
+        },
+        {
+          "code": "package-reachability-not-symbol-use",
+          "state": "conservative"
+        },
+        {
+          "code": "unexecuted-validation",
+          "state": "not-proven"
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-competitor",
+      "evidenceSha256": "ed6b4bbd3f42d26311604f8f8ca342543d49fe355dc8e3a32efe11b7b042d0fd",
+      "answerSha256": "1176d126cf8e2d9e164416445f7ec4fca9da77a81bc398c3c543c501559dd57f",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "directSetMatches": true,
+      "directEntries": 14,
+      "quoteChecks": [
+        {
+          "file": "config/deps-installer/src/resolveConfigDeps.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/src/index.ts",
+          "startLine": 63,
+          "endLine": 63,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/src/dlx.ts",
+          "startLine": 123,
+          "endLine": 123,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/src/createPackageExtender.ts",
+          "startLine": 18,
+          "endLine": 18,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getEditDirPath.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 19,
+          "endLine": 19,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 84,
+          "endLine": 84,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/src/writePackage.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 25,
+          "endLine": 25,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts",
+          "startLine": 23,
+          "endLine": 23,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+          "startLine": 56,
+          "endLine": 56,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/src/storeAdd.ts",
+          "startLine": 23,
+          "endLine": 23,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 34,
+          "endLine": 34,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "config/deps-installer/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 56,
+          "endLine": 56,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 54,
+          "endLine": 54,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/package.json",
+          "startLine": 53,
+          "endLine": 53,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "hooks/read-package-hook/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "config/parse-overrides/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "packages/parse-wanted-dependency/package.json",
+          "startLine": 27,
+          "endLine": 27,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "patching/plugin-commands-patching/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 33,
+          "endLine": 33,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 32,
+          "endLine": 32,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 30,
+          "endLine": 30,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 31,
+          "endLine": 31,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 29,
+          "endLine": 29,
+          "exact": true
+        },
+        {
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "startLine": 28,
+          "endLine": 28,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "exact": true
+        },
+        {
+          "file": "pkg-manager/core/src/install/index.ts",
+          "startLine": 85,
+          "endLine": 85,
+          "exact": true
+        }
+      ],
+      "scriptChecks": [
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "compile",
+          "file": "config/deps-installer/package.json",
+          "line": 34,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "test",
+          "file": "config/deps-installer/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "script": "_test",
+          "file": "config/deps-installer/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "compile",
+          "file": "pkg-manager/core/package.json",
+          "line": 56,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "test",
+          "file": "pkg-manager/core/package.json",
+          "line": 54,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/core",
+          "script": "_test",
+          "file": "pkg-manager/core/package.json",
+          "line": 53,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "compile",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "script": "_test",
+          "file": "hooks/read-package-hook/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "compile",
+          "file": "config/parse-overrides/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "test",
+          "file": "config/parse-overrides/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "script": "_test",
+          "file": "config/parse-overrides/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "compile",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/parse-wanted-dependency",
+          "script": "test",
+          "file": "packages/parse-wanted-dependency/package.json",
+          "line": 27,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "compile",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "script": "_test",
+          "file": "pkg-manager/plugin-commands-installation/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "compile",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "script": "_test",
+          "file": "patching/plugin-commands-patching/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "compile",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 33,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "script": "_test",
+          "file": "exec/plugin-commands-script-runners/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "compile",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 32,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 30,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "script": "_test",
+          "file": "store/plugin-commands-store/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "compile",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 31,
+          "jsonPointer": "/scripts/compile",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 29,
+          "jsonPointer": "/scripts/test",
+          "correctScriptProperty": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "script": "_test",
+          "file": "store/plugin-commands-store-inspecting/package.json",
+          "line": 28,
+          "jsonPointer": "/scripts/_test",
+          "correctScriptProperty": true
+        }
+      ],
+      "chains": [
+        {
+          "package": "@pnpm-private/updater",
+          "versions": [
+            "@pnpm-private/updater@1000.0.22",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm-private/updater",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cache.commands",
+          "versions": [
+            "@pnpm/cache.commands@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cache.commands",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/cli-utils",
+          "versions": [
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/config.deps-installer",
+          "versions": [
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/core",
+          "versions": [
+            "@pnpm/core@1016.1.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/core",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/deps.status",
+          "versions": [
+            "@pnpm/deps.status@1003.0.36",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/deps.status",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/exec.build-commands",
+          "versions": [
+            "@pnpm/exec.build-commands@1002.1.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/exec.build-commands",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/filter-workspace-packages",
+          "versions": [
+            "@pnpm/filter-workspace-packages@1000.1.5",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/filter-workspace-packages",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/hooks.read-package-hook",
+          "versions": [
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/lockfile.settings-checker",
+          "versions": [
+            "@pnpm/lockfile.settings-checker@1001.0.30",
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/lockfile.settings-checker",
+              "to": "@pnpm/parse-overrides",
+              "alias": "@pnpm/parse-overrides",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/outdated",
+          "versions": [
+            "@pnpm/outdated@1001.1.20",
+            "@pnpm/hooks.read-package-hook@1000.0.20",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/outdated",
+              "to": "@pnpm/hooks.read-package-hook",
+              "alias": "@pnpm/hooks.read-package-hook",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/hooks.read-package-hook",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/parse-overrides",
+          "versions": [
+            "@pnpm/parse-overrides@1001.0.3",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/parse-overrides",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-audit",
+          "versions": [
+            "@pnpm/plugin-commands-audit@1002.2.8",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-audit",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-completion",
+          "versions": [
+            "@pnpm/plugin-commands-completion@1000.0.34",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-completion",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-config",
+          "versions": [
+            "@pnpm/plugin-commands-config@1000.3.21",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-config",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-deploy",
+          "versions": [
+            "@pnpm/plugin-commands-deploy@1002.0.36",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-deploy",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-doctor",
+          "versions": [
+            "@pnpm/plugin-commands-doctor@1000.1.63",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-doctor",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-env",
+          "versions": [
+            "@pnpm/plugin-commands-env@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-env",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-init",
+          "versions": [
+            "@pnpm/plugin-commands-init@1000.3.16",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-init",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-installation",
+          "versions": [
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-licenses",
+          "versions": [
+            "@pnpm/plugin-commands-licenses@1000.0.66",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-licenses",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-listing",
+          "versions": [
+            "@pnpm/plugin-commands-listing@1000.3.4",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-listing",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-outdated",
+          "versions": [
+            "@pnpm/plugin-commands-outdated@1000.0.67",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-outdated",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-patching",
+          "versions": [
+            "@pnpm/plugin-commands-patching@1000.3.43",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-patching",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-publishing",
+          "versions": [
+            "@pnpm/plugin-commands-publishing@1000.3.15",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-publishing",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-rebuild",
+          "versions": [
+            "@pnpm/plugin-commands-rebuild@1008.0.12",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-rebuild",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-script-runners",
+          "versions": [
+            "@pnpm/plugin-commands-script-runners@1001.2.8",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-script-runners",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-server",
+          "versions": [
+            "@pnpm/plugin-commands-server@1000.0.65",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-server",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-setup",
+          "versions": [
+            "@pnpm/plugin-commands-setup@1000.1.41",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-setup",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store",
+          "versions": [
+            "@pnpm/plugin-commands-store@1000.0.66",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/plugin-commands-store-inspecting",
+          "versions": [
+            "@pnpm/plugin-commands-store-inspecting@1000.0.60",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/plugin-commands-store-inspecting",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/tools.plugin-commands-self-updater",
+          "versions": [
+            "@pnpm/tools.plugin-commands-self-updater@1000.1.53",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/tools.plugin-commands-self-updater",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.filter-packages-from-dir",
+          "versions": [
+            "@pnpm/workspace.filter-packages-from-dir@1000.0.64",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.filter-packages-from-dir",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.find-packages",
+          "versions": [
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "@pnpm/workspace.injected-deps-syncer",
+          "versions": [
+            "@pnpm/workspace.injected-deps-syncer@1000.0.38",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "@pnpm/workspace.injected-deps-syncer",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pd",
+          "versions": [
+            "pd@1000.0.32",
+            "@pnpm/workspace.find-packages@1000.0.64",
+            "@pnpm/cli-utils@1001.3.9",
+            "@pnpm/config.deps-installer@1000.1.4",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pd",
+              "to": "@pnpm/workspace.find-packages",
+              "alias": "@pnpm/workspace.find-packages",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/workspace.find-packages",
+              "to": "@pnpm/cli-utils",
+              "alias": "@pnpm/cli-utils",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/cli-utils",
+              "to": "@pnpm/config.deps-installer",
+              "alias": "@pnpm/config.deps-installer",
+              "kind": "dependencies"
+            },
+            {
+              "from": "@pnpm/config.deps-installer",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        },
+        {
+          "package": "pnpm",
+          "versions": [
+            "pnpm@10.32.1",
+            "@pnpm/plugin-commands-installation@1004.9.12",
+            "@pnpm/parse-wanted-dependency@1001.0.0"
+          ],
+          "edges": [
+            {
+              "from": "pnpm",
+              "to": "@pnpm/plugin-commands-installation",
+              "alias": "@pnpm/plugin-commands-installation",
+              "kind": "devDependencies"
+            },
+            {
+              "from": "@pnpm/plugin-commands-installation",
+              "to": "@pnpm/parse-wanted-dependency",
+              "alias": "@pnpm/parse-wanted-dependency",
+              "kind": "dependencies"
+            }
+          ],
+          "valid": true
+        }
+      ],
+      "exclusions": [
+        {
+          "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+          "symbol": "parseWantedDependencies",
+          "valid": true,
+          "meaning": "The local plural wrapper/import binding differs from the target singular parser; its declaration file remains included for the actual target call."
+        },
+        {
+          "file": "pkg-manager/core/src/install/index.ts",
+          "symbol": "parseWantedDependencies",
+          "valid": true,
+          "meaning": "The local plural wrapper/import binding differs from the target singular parser; its declaration file remains included for the actual target call."
+        }
+      ],
+      "uncertainties": [
+        {
+          "code": "external-consumers",
+          "state": "unknown"
+        },
+        {
+          "code": "dynamic-loading",
+          "state": "unknown"
+        },
+        {
+          "code": "package-reachability-not-symbol-use",
+          "state": "conservative"
+        },
+        {
+          "code": "unexecuted-validation",
+          "state": "not-proven"
+        }
+      ]
+    }
+  ],
+  "sourceBindings": [
+    {
+      "path": ".meta-updater/package.json",
+      "sha256": "744c842741dfd04a2e4e1cf179fa9bbcf1d9d5669eaf734abce06f56bb8ffc11"
+    },
+    {
+      "path": "cache/commands/package.json",
+      "sha256": "9debe53a59a580b02d618388f316bbd97027d339275d3f854c0e26aa012c613e"
+    },
+    {
+      "path": "cli/cli-utils/package.json",
+      "sha256": "a75ac2f56b27c097999c32c2e30d1eeec9735e76aa5de91f2d3c5fc59c63497e"
+    },
+    {
+      "path": "completion/plugin-commands-completion/package.json",
+      "sha256": "b1bc6cfd878aeeb66776bde4fd38544ac8bc43ede3638a0bae84678e4e13077f"
+    },
+    {
+      "path": "config/deps-installer/package.json",
+      "sha256": "6072d53546c6064198092283bf2b966de46ba4300651a2f43b83d964cbce52e4"
+    },
+    {
+      "path": "config/deps-installer/src/resolveConfigDeps.ts",
+      "sha256": "a97e978d12ba6e0f49ba696696758959109fc9de4f9c3f9da4d4c8842223b22b"
+    },
+    {
+      "path": "config/parse-overrides/package.json",
+      "sha256": "44d5badee6090ac7955f5cc9c1992fdcb01548cd822b2cad1f322a7e2d22d986"
+    },
+    {
+      "path": "config/parse-overrides/src/index.ts",
+      "sha256": "826a62615ab7017904b8cdcfeedafedbcafd9f0fd8f06db1b60da3411f223325"
+    },
+    {
+      "path": "config/plugin-commands-config/package.json",
+      "sha256": "21bf882f8cfba3d3042441c777249875ad25280d6cbaccb4ea3ff80262c54ad2"
+    },
+    {
+      "path": "deps/status/package.json",
+      "sha256": "64cef91e90890477bcba3b3c0c5ff334c855cac066a4e085a946162b05cb002e"
+    },
+    {
+      "path": "env/plugin-commands-env/package.json",
+      "sha256": "349b13163947ce7cc88b9d835cc465b0d394c109bb3c1e435c98a79f64922145"
+    },
+    {
+      "path": "exec/build-commands/package.json",
+      "sha256": "902b413ab886ea089f9a731561ac6ad23f667740618c784202d555d1f48badae"
+    },
+    {
+      "path": "exec/plugin-commands-rebuild/package.json",
+      "sha256": "c6323814b46c8d98816ac3dd0e13547f0c7d1ca6e759655191015637af365f1e"
+    },
+    {
+      "path": "exec/plugin-commands-script-runners/package.json",
+      "sha256": "13459d03597b959d3c6b7eaea3991b229c4984d510b5d4a9ac4cf196ddb342a6"
+    },
+    {
+      "path": "exec/plugin-commands-script-runners/src/dlx.ts",
+      "sha256": "eab192a29cba7f07e9be68104cccceaea1d3540e8b7a4e8461e7486bffd44159"
+    },
+    {
+      "path": "hooks/read-package-hook/package.json",
+      "sha256": "89f216ad0c4b50418697898d63aa141a6ced67507ced85eb1ea6164999519927"
+    },
+    {
+      "path": "hooks/read-package-hook/src/createPackageExtender.ts",
+      "sha256": "2627781f69fa6b6b7d12198df1174a4985c9315361b6bc1198d342c4ae503bf0"
+    },
+    {
+      "path": "lockfile/plugin-commands-audit/package.json",
+      "sha256": "8179f0d2f31688b8745477b56feb6841cca61abe9fc8346c50cf679513a07b52"
+    },
+    {
+      "path": "lockfile/settings-checker/package.json",
+      "sha256": "377aea0a855322ffabc2fcbb22ac8303a4063ab5e4bfa68e4f06c729785b2a4f"
+    },
+    {
+      "path": "packages/parse-wanted-dependency/package.json",
+      "sha256": "8f4032272f09d1d32ee565822924f585eb8b4ed464d192ef24a8cc8313f4b231"
+    },
+    {
+      "path": "packages/plugin-commands-doctor/package.json",
+      "sha256": "b8f884efcfa3944303ce57405367d540a6a90a19718eab497a4f2a854627a1b0"
+    },
+    {
+      "path": "packages/plugin-commands-init/package.json",
+      "sha256": "e8f7ced5e020e6a697adf000d3e0a15ddcd52cb3f37bffc9a49855fa1d67ce99"
+    },
+    {
+      "path": "packages/plugin-commands-setup/package.json",
+      "sha256": "95236fd1eb1c40841d97a3413ca6403187078477ceb3db4e74765a4bdf355009"
+    },
+    {
+      "path": "patching/plugin-commands-patching/package.json",
+      "sha256": "687e236ab81b4ad932c86bca98d35d332d6e1c585128bc5121ac648c4d413ca1"
+    },
+    {
+      "path": "patching/plugin-commands-patching/src/getEditDirPath.ts",
+      "sha256": "fd6f5f3812808997eef37e674105fd8848831a865b72a5b7516148f4820d082c"
+    },
+    {
+      "path": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+      "sha256": "b20b9e6bf4b2723f84ceb30b64a81be24eb32087daf4b134360862538a339995"
+    },
+    {
+      "path": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "sha256": "96baaf9a0630d57b35918ba95ec4dc35a69c528ebe13f316fcb1ea446a28d4bc"
+    },
+    {
+      "path": "patching/plugin-commands-patching/src/writePackage.ts",
+      "sha256": "701c16999c5bacfc5788e404b4255db9a07e61780dacdbcedd989d7d1f47ca82"
+    },
+    {
+      "path": "pkg-manager/core/package.json",
+      "sha256": "29d42714a5c285019cbfa1c876d09869bbb230fa4881bb7a29d6fdbbf86b1407"
+    },
+    {
+      "path": "pkg-manager/core/src/install/index.ts",
+      "sha256": "0ea5a2dfad0049ebf9357422fe9dc296fe75da6f47801694c4fd00942b8c7fa6"
+    },
+    {
+      "path": "pkg-manager/core/src/parseWantedDependencies.ts",
+      "sha256": "cd6517633e09f5c9b6a3b30c5526ca7bba107bbb383a59e58f07889912824a27"
+    },
+    {
+      "path": "pkg-manager/plugin-commands-installation/package.json",
+      "sha256": "5097a45e3b634bdc622b405a7df52e046b3df8e0f41361e0463e7c72f352d86c"
+    },
+    {
+      "path": "pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts",
+      "sha256": "65efd657fb7cabb3161eeb63dcc86b8622f6aba657533dae58e194651e00b037"
+    },
+    {
+      "path": "pnpm/dev/package.json",
+      "sha256": "b0122da86f50d4a44fc3ffd17d1148da18715643a0b69bc4ab5b73889df24f8d"
+    },
+    {
+      "path": "pnpm/package.json",
+      "sha256": "814dca8e5e7db81f3e75498cd5e0308533664fbad2f18fd88c6e1fe763a03a4c"
+    },
+    {
+      "path": "releasing/plugin-commands-deploy/package.json",
+      "sha256": "30d857775d012484df2cb0fd2e247874e1cca3aca4e0fbc5c0dcb5c746ad49fa"
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/package.json",
+      "sha256": "3883b528ce162f282aa7c7d629f1505baa7b9d0ba21cafdaa14da48b545f2d71"
+    },
+    {
+      "path": "reviewing/outdated/package.json",
+      "sha256": "bf7c4bc2b49d5b538a197d763ef33a6309b8f596a1bff53ab79fb49001b8e93c"
+    },
+    {
+      "path": "reviewing/plugin-commands-licenses/package.json",
+      "sha256": "38747778a45825f05622cb41c120d2e0df0ed6c5a2cf32081da26686a01da62e"
+    },
+    {
+      "path": "reviewing/plugin-commands-listing/package.json",
+      "sha256": "cbffd4e41b6a200cedc90f20c4f4fd217164a6b012e4c5cc3f1a660084a7ea1e"
+    },
+    {
+      "path": "reviewing/plugin-commands-outdated/package.json",
+      "sha256": "97d5c7aba6c69008336e92d1b511c5900ba46d55f0b9e927da9ec9926d6e02fe"
+    },
+    {
+      "path": "store/plugin-commands-server/package.json",
+      "sha256": "61b545af3c298dc836de577d50d0cb55ab9f7fa3e0545c18138b3784b8d1a29f"
+    },
+    {
+      "path": "store/plugin-commands-store-inspecting/package.json",
+      "sha256": "a8727b89f6645593fba52a845eac5438685623ed4dd1f7c755b6df5d553bf5c8"
+    },
+    {
+      "path": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+      "sha256": "1d92d7a5d134a062dbfd8d50d67144ec9d3a0d4fa48219aed85424ae84766109"
+    },
+    {
+      "path": "store/plugin-commands-store/package.json",
+      "sha256": "298f5462542b2accbd59aa8b6d943107b79c7498275c7809a3a49569f9932e12"
+    },
+    {
+      "path": "store/plugin-commands-store/src/storeAdd.ts",
+      "sha256": "db24b2a29cae95b9d09249b0930b5f9d1b4a74f111e3b35b735aae9e2195951b"
+    },
+    {
+      "path": "tools/plugin-commands-self-updater/package.json",
+      "sha256": "e45d54091f76adfea8df71101b595bafb01ee9478f61f0c9d21ca62f42c06392"
+    },
+    {
+      "path": "workspace/filter-packages-from-dir/package.json",
+      "sha256": "8e98eae6233b9708263e59a994b3b41be449f735e6628b20430b9189557c88bd"
+    },
+    {
+      "path": "workspace/filter-workspace-packages/package.json",
+      "sha256": "6c6af78485009cfb26da1f399a44b0444409e26cbd9f928e1ca04b7ba41ae654"
+    },
+    {
+      "path": "workspace/find-packages/package.json",
+      "sha256": "2d9abb447f6ba1bca0e508b7dfefd9216f0df4fe47527c7b9a8ddc7cdd24759f"
+    },
+    {
+      "path": "workspace/injected-deps-syncer/package.json",
+      "sha256": "b0e14fd7a0a3f96a34abcbde17cd142806977131500a6e56ab663a700e9e82e7"
+    }
+  ],
+  "frozenBindings": [
+    {
+      "path": "impact/development-v2/truth.json",
+      "sha256": "0f1d74a2a2fb69f87bdbf898395f03476c8ab0119775789131e95b9b31ed4710"
+    },
+    {
+      "path": "impact/development/initial-manifest.json",
+      "sha256": "73bf25c14e5ef362640633a78a4052b138801423b12ed54ebaf4fb99095cbf0c"
+    }
+  ]
+}

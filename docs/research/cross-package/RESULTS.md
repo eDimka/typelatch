@@ -35,6 +35,20 @@ A fresh development comparison used the corrected grader and a focused compiler 
 
 The prototype collected the same 14 direct facts, 37 conservative dependents and 29 validation targets. Its source scope is configured package src directories and explicit compiler import and export paths. It does not prove arbitrary value propagation or dynamic runtime impact. The model still made eight shell calls and assembled the answer manually. A failed oversized request remains included in its costs. See the [frozen protocol](impact-002/protocol.json), [recorded results](impact-002/results/report.json), [correctness audit](impact-002/results/correctness-audit.md) and [export manifest](impact-002/results/manifest.json).
 
+## Dedicated report writer
+
+A separate experiment required the same evidence engine to write a file and return a compact summary. All three answers and workflows passed review. The writer reduced total tokens by 22 percent against native, but charged time improved by only 0.55 percent. It fails the joint savings gate. Against Serena the reductions were 25 percent in tokens and 22 percent in time. These results remain separate from the earlier prototype trial.
+
+| Condition | Total tokens | Charged seconds | Grep calls | Correctness | Workflow review |
+| :--- | ---: | ---: | ---: | :--- | :--- |
+| Native | 413,466 | 105.83 | 4 | Passed | Passed |
+| Report writer prototype | 322,097 | 105.25 | 4 | Passed | Passed |
+| Serena | 431,031 | 134.38 | 4 | Passed | Passed |
+
+The writer made 12 shell calls. It printed almost the entire saved report, including 815 issues, then rebuilt dependency chains, checked source ownership and regenerated validation citations. The bounded tool response did not eliminate verification or answer assembly. Exact token and time contributions of individual steps are unavailable. See the [protocol](impact-003/protocol.json), [results](impact-003/results/report.json), [correctness audit](impact-003/results/correctness-audit.md) and [manifest](impact-003/results/manifest.json).
+
+The earlier interface is [fixed for confirmation](confirmation-candidate.json). Its implementation, description and settings cannot be tuned using the two previously hidden tasks. This selection is a development decision; the variation between native runs is another reason confirmation is required.
+
 ## Cross package maintenance
 
 A catalog consistency repair requires behavior changes in three pnpm packages and a shared interface change. All three submitted repairs passed the separate 23 check grader, including the upstream regression. However, each final public check failed because the agent environment could not open the local test registry. These attempts do not establish a complete workflow cost comparison. Their measurements remain available without a savings claim.
