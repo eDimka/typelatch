@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "cc74e7c6a3e85824ffc60dbcdf84ab3ca9618bbf3a4c50f9922ace8503118c7f",
+  "protocolSha256": "dc47ce701edffc0738d7322291087dafa10d22b01ade0a777802a4bb859d5591",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "method": "Review every completed public command and tool argument plus relevant exact returned outputs and explicit answer artifacts. Bind complete record/supplement hashes; inspect monotonic action order and shell-internal execution. No raw captures, reasoning or assistant message bodies were read. Original reports and grades remain unchanged.",
+  "runs": [
+    {
+      "id": "pnpm-catalog-consistency-r1-native",
+      "evidenceSha256": "f71c8f9960030c7ea21d9392f36ed1e1be10894af0186048bc07dee42795d6c4",
+      "toolOutputsSha256": "e7b305ffbcd2fdfa2e65577000c15fb8a209e72db8b9ed09496a16f90866f677",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "The initial native command completed with intended semantic failures and a local-listener EPERM before source investigation. Four permitted production files were edited, followed by the same native command. Compilation and nine semantic checks then passed, but the required native registry test still failed EPERM. Supplemental assertions passed and did not replace that failure. Source boundaries and before/after command execution comply; the separate passing-validation gate remains unsatisfied.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 26643.562249999995,
+        "completedMs": 26643.562249999995
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": []
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-typelatch",
+      "evidenceSha256": "dc3925a8cae5f98be6ad03f2473ef425674a9710c2322af62009aa6383f1205a",
+      "toolOutputsSha256": "2733727a47526d503be5664fa61f47ca9d188c5b2090a2610aaa5429fca9d704",
+      "workflow": "fail",
+      "providerEvidence": "usable",
+      "notes": "Relevant provider search followed the completed baseline check and returned catalog-verification and status source. Context resolved the installed workspace settings-checker signature before edits. Four permitted production files changed. The final native command exited 1 with all nine semantic checks passing and the registry test blocked by EPERM. Its output was redirected to external $TEMP and read back, a concrete deviation from the frozen stay-inside/no-external-files instruction, although it was self-created validation output rather than outside source. A later workspace_validate timed out after 30 seconds and did not establish successful validation. The final attempt is missing from the automatic observer because stdout was redirected and the later pretty summary omitted cases.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d"
+      ],
+      "providerActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 22599.966333999997,
+        "completedMs": 26043.673875000008
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "tool": "workspace_search",
+          "resultSha256": "83cac97a741958e83d4752a5e09c52c151e88351e2ccee2b13d371fe5206bc1c",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"catalog specifiers frozen lockfile up to date dependency status\",\"scope\":\"workspace\",\"detail\":\"compact\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/deps/status/src/checkDepsStatus.ts\",\"line\":439,\"endLine\":450,\"symbol\":\"AssertWantedLockfileUpToDateContext\",\"position\":16540,\"kind\":\"declaration\",\"score\":111,\"matchedTerms\":[\"lockfil\",\"up\",\"date\",\"dependency\",\"statu\"],\"snippet\":\"interface AssertWantedLockfileUpToDateContext {\\n  autoInstallPeers?: boolean\\n  config: CheckDepsStatusOptions\\n  excludeLinksFromLockfile?: boolean\\n  injectWorkspacePackages?: boolean\\n  linkWorkspacePackages: boolean | 'deep'\\n  getManifestsByDir: "
+        },
+        {
+          "actionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+          "tool": "workspace_context",
+          "resultSha256": "bb4f722bc390eac29e1c2f459793c92e9fa7a31d9bd296fcb81a8b23450b7039",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"api\":{\"name\":\"getOutdatedLockfileSetting\",\"type\":\"(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: { overrides?: Record<string, string>; packageExtensionsChecksum?: string; patchedDependencies?: Record<string, PatchFile>; ignoredOptionalDependencies?: string[]; autoInstallPeers?: boolean; excludeLinksFromLockfile?: boolean; peersSuffixMaxLength?: number; pnpmfileChecksum?: string; injectWorkspacePackages?: boolean; }) => ChangedField | null\",\"documentation\":\"\",\"signatures\":[\"(lockfile: LockfileObject, { overrides"
+        }
+      ]
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-competitor",
+      "evidenceSha256": "89a0a1dd229640071f2a655956a2da47a8da5e15ca998c8d48fd03a381f84b94",
+      "toolOutputsSha256": "ca5fd665a1da03e9b0104c93c25368ffb7f33873c94cbd135407a40a6ef5fbf0",
+      "workflow": "fail",
+      "providerEvidence": "usable",
+      "notes": "Serena startup/help ran while the baseline native command was executing. The first task search started at 20690.743541 ms and finished at 21046.864500 ms, before that native check completed at 23654.696250 ms. This violates the frozen requirement that task investigation follow the required check. The over-budget search returned relevant file/line locations, including catalog verification, but no full source bodies; classify this only as usable location discovery. Four permitted production files changed. The final native command again failed the registry test with EPERM despite nine passing semantic cases; extra native assertions and a temporary in-workspace validation directory did not replace that required check.",
+      "basisActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7",
+        "be69c5a839df95e18f4fbffcdc98f41117e8be6e993382144ea1d4447f798cfd",
+        "2c5045d5190611b3eb37d5d5ea449eef8440f3cb6f9ba7af2a65d80605854006",
+        "921057339c51aef35e50f5a32a577a1b477ac102257fda1fa0297aee12224e84",
+        "5d1318a2390ba826af509c2385d872cd70a48eac7808e7efc4fc0d5fe549b057"
+      ],
+      "providerActionIds": [
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "startedMs": 20690.743541000003,
+        "completedMs": 21046.864500000025
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+          "tool": "serena_repl",
+          "resultSha256": "e36c210e41dce6bc6f5570c8678a6f3d29f293e61e30668c76482a194bb0acc3",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "The answer is too long (36613 characters). You can adjust your query or raise the max_answer_chars parameter.\nMatch lines per file:\n{\"config/config/src/configFileKey.ts\": [59, 116], \"config/config/src/types.ts\": [8, 99], \"config/config/src/index.ts\": [5, 137, 195, 679], \"config/config/src/Config.ts\": [0, 155, 156], \"config/parse-overrides/src/index.ts\": [2, 3, 21, 23, 34], \"workspace/manifest-writer/src/index.ts\": [2, 69, 77, 78, 79, 79, 80, 80, 83, 97, 98, 100, 101, 101, 112, 112, 138, 139, 140, 144, 148, 149, 154, 155, 157, 157, 157, 158, 160, 162, 162, 162, 166, 170, 171, 171, 176, 176, 177, 177, 180, 181], \"workspace/state/src/types.ts\": [19], \"workspace/state/src/createWorkspaceState.ts"
+        }
+      ]
+    }
+  ]
+}

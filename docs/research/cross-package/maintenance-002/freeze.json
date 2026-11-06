@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-before-agent-sessions",
+  "createdAt": "2026-11-06T23:16:04.670Z",
+  "privateProtocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "publicProtocolSha256": "85feb2502f876bea6592356ebd7ffbd84580e2302334bb892ebe268cae40fed3",
+  "normalization": "Absolute repository, home and temporary paths replaced by named placeholders. Private original remains immutable; content hashes bind original bytes. No agent outcomes exist at this publication step.",
+  "taskIds": [
+    "pnpm-catalog-consistency-v2"
+  ],
+  "runCount": 3
+}

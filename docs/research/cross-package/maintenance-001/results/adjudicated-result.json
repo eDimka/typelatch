@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "cc74e7c6a3e85824ffc60dbcdf84ab3ca9618bbf3a4c50f9922ace8503118c7f",
+  "protocolSha256": "dc47ce701edffc0738d7322291087dafa10d22b01ade0a777802a4bb859d5591",
+  "auditSha256": "d9bfb32fcbb73c332121d672880666ceab723c18657a7411a9a0d39e416273a3",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "decision": {
+    "measurable": false,
+    "anyQualifiedEdge": false,
+    "reasons": [
+      "Required native validation is incomplete: pnpm-catalog-consistency-r1-native.",
+      "Required native validation is incomplete: pnpm-catalog-consistency-r1-typelatch.",
+      "Required native validation is incomplete: pnpm-catalog-consistency-r1-competitor."
+    ]
+  },
+  "review": [
+    {
+      "id": "pnpm-catalog-consistency-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-typelatch",
+      "workflowReviewed": false,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-competitor",
+      "workflowReviewed": false,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    }
+  ]
+}

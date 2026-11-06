@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "4c9bb18832180986448425d9efb11adcc0ad5d8e7ffff6e8fd09b268a1cae814",
+  "protocolSha256": "b3c568605fc7228a72c3982a0a12b300ebcce0e9cc6043f2e66f84ccaf233672",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "method": "Review every completed public command and tool argument plus relevant exact returned outputs and explicit answer artifacts. Bind complete record/supplement hashes; inspect monotonic action order and shell-internal execution. No raw captures, reasoning or assistant message bodies were read. Original reports and grades remain unchanged.",
+  "runs": [
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-native",
+      "evidenceSha256": "2596ebf606d4fbcabf451ce631a4053b51c9d528b61d866b5038b6c9d56a00aa",
+      "toolOutputsSha256": "b234ef2ee5a8509015b010e2c39bf6a6577d513fc49ac4a0912b03117dfddda7",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "Native file/source discovery was the first investigation. All inspected commands stayed within the workspace, used native compiler/configuration and installed package-link analysis, and wrote only impact-answer.json. No tests were requested for this analysis task. Exact answer quotations, scripts properties and dependency chains are independently checked in correctness-audit.json.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 5444.310875000003,
+        "completedMs": 5444.505042000004
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": []
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-impact",
+      "evidenceSha256": "ff27b28742ab96ecce65531c4a1de1427ac9215ee60e5b5f9aaa91d9a2ce401b",
+      "toolOutputsSha256": "180de81bdb2dc46209c4da9e48162fc42265cf8c63867b4918f72221c388338b",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation was package_evidence with maxBytes 120000, rejected by the declared 60000 maximum. The retained retry returned relevant 14 direct source/export rows, 37 dependency chains and 29 script entries with explicit partial status and omission metadata. The optional report writer was not requested. Native source/configuration/module checks followed, then only impact-answer.json was written. The response is usable collected evidence, not proof of complete absence or a passing build. Both attempts remain charged.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ],
+      "providerActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 7081.2255000000005,
+        "completedMs": 7083.9675419999985
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "tool": "package_evidence",
+          "resultSha256": "7bec110e8a55ff3a566deeed8b614eaae663a182806349d2af1a5d2ffb52b160",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@pnpm/parse-wanted-dependency\",\"version\":\"1001.0.0\",\"root\":\"packages/parse-wanted-dependency\",\"exports\":[\"ParseWantedDependencyResult\",\"ParsedWantedDependency\",\"parseWantedDependency\"],\"entries\":[\"packages/parse-wanted-dependency/lib/index.d.ts\"]},\"direct\":[{\"file\":\"config/deps-installer/src/resolveConfigDeps.ts\",\"package\":\"@pnpm/config.deps-installer\",\"version\":\"1000.1.4\",\"symbol\":\"parseWantedDependency\",\"role\":\"runtime\",\"evidence\":{\"startLine\":7,\"endLine\":7,\"quote\":\"import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\"},\"occurrenceCount\":2},{\"file\":\"config/parse-overrides/src/index.ts\",\"package\":\"@pnpm/parse-overri"
+        }
+      ]
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-competitor",
+      "evidenceSha256": "67819cade99ebd259c5163f5b93ca6e7df754b73169cb509a39ebfb4de352d80",
+      "toolOutputsSha256": "50568b6dc5377167fa95709895ef6bdb738e1f09495befe84af351a2d3dff488",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Serena startup instructions and REPL API help preceded its task search. The first investigation returned actual import/call/type source lines for the parser and relevant consumers. Native compiler scans, configured source checks, installed dependency traversal and answer assembly followed. Only impact-answer.json changed. This proves usable source discovery, not that Serena performed the full compiler/impact analysis.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "e241483af4c21cbfcc6e68aebae085c699bf4f57a3af50be0eb0e5bb2d8b0b3e",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d"
+      ],
+      "providerActionIds": [
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "startedMs": 13588.18429200002,
+        "completedMs": 14011.541167000018
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+          "tool": "serena_repl",
+          "resultSha256": "7161975bf57a8d3d566bd5539f375d9e9f8db79c231a22d33f44ec4e62e909c0",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"config/deps-installer/src/resolveConfigDeps.ts\": [\"  >   6:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  23:    const wantedDep = parseWantedDependency(configDep)\"], \"config/parse-overrides/src/index.ts\": [\"  >   1:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  62:  const wantedDep = parseWantedDependency(selector)\"], \"pkg-manager/core/src/parseWantedDependencies.ts\": [\"  >   0:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\", \"  >  24:      const parsed = parseWantedDependency(rawWantedDependency)\"], \"pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts\": [\"  >   1:import { parseWan"
+        }
+      ]
+    }
+  ]
+}

@@ -23,4 +23,28 @@ Charged time includes provider preparation and agent wall time, including startu
 
 The [protocol](development-001/protocol.json) and [freeze record](development-001/freeze.json) were published before model sessions in commit 6704d4a. The [export manifest](development-001/results/manifest.json) binds all completed action records, exact returned tool outputs, requested report artifacts, independent grades and audits. It excludes model reasoning and assistant message bodies. All attempts remain retained. No earlier study was replaced or pooled into these results.
 
-A focused package impact prototype and a separate necessary cross package maintenance task are under investigation. No prototype performance or held out advantage is claimed here. Any qualifying category claim requires both cost savings and correctness against native tools and Serena on two distinct held out tasks with two repetitions. A broader comparative claim also requires a CodeGraph challenge.
+## Focused impact prototype
+
+A fresh development comparison used the corrected grader and a focused compiler evidence prototype. All three reports passed independent correctness and workflow review. The prototype used 21 percent fewer tokens and 35 percent less charged time than native tools, and 27 percent fewer tokens and 40 percent less time than Serena. This is one development case with one repetition. It is a lead for confirmation, not an established category advantage. The prototype is not the published npm package.
+
+| Condition | Total tokens | Charged seconds | Grep calls | Correctness | Workflow review |
+| :--- | ---: | ---: | ---: | :--- | :--- |
+| Native | 510,021 | 153.23 | 5 | Passed | Passed |
+| Impact prototype | 400,446 | 99.26 | 4 | Passed | Passed |
+| Serena | 549,572 | 166.37 | 5 | Passed | Passed |
+
+The prototype collected the same 14 direct facts, 37 conservative dependents and 29 validation targets. Its source scope is configured package src directories and explicit compiler import and export paths. It does not prove arbitrary value propagation or dynamic runtime impact. The model still made eight shell calls and assembled the answer manually. A failed oversized request remains included in its costs. See the [frozen protocol](impact-002/protocol.json), [recorded results](impact-002/results/report.json), [correctness audit](impact-002/results/correctness-audit.md) and [export manifest](impact-002/results/manifest.json).
+
+## Cross package maintenance
+
+A catalog consistency repair requires behavior changes in three pnpm packages and a shared interface change. All three submitted repairs passed the separate 23 check grader, including the upstream regression. However, each final public check failed because the agent environment could not open the local test registry. These attempts do not establish a complete workflow cost comparison. Their measurements remain available without a savings claim.
+
+| Condition | Total tokens | Charged seconds | Grep calls | Independent repair checks | Final public check | Workflow review |
+| :--- | ---: | ---: | ---: | :--- | :--- | :--- |
+| Native | 186,472 | 76.90 | 3 | 23 of 23 | Registry unavailable | Passed policy review |
+| Typelatch | 314,544 | 124.43 | 3 | 23 of 23 | Registry unavailable | Failed external temporary file policy |
+| Serena | 622,715 | 129.83 | 6 | 23 of 23 | Registry unavailable | Investigation started before baseline completion |
+
+The [validation audit](maintenance-001/results/native-validation-audit.md), [recorded results](maintenance-001/results/report.json) and [export manifest](maintenance-001/results/manifest.json) retain this failure and all costs. A fresh setup must pass the baseline and repaired public commands in the actual agent environment before another measured batch. The original attempts remain unchanged.
+
+Any qualifying category claim requires both cost savings and correctness against native tools and Serena on two distinct held out tasks with two repetitions. A broader comparative claim also requires a CodeGraph challenge.
