@@ -1,0 +1,564 @@
+{
+  "schemaVersion": 1,
+  "corpusCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+  "definitions": {
+    "findWorkspacePackages": {
+      "path": "workspace/find-packages/src/index.ts",
+      "symbol": "findWorkspacePackages",
+      "startLine": 29,
+      "endLine": 50,
+      "sourceSha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b"
+    },
+    "findWorkspacePackagesNoCheck": {
+      "path": "workspace/find-packages/src/index.ts",
+      "symbol": "findWorkspacePackagesNoCheck",
+      "startLine": 52,
+      "endLine": 63,
+      "sourceSha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b"
+    },
+    "parsePackageSelector": {
+      "path": "workspace/filter-workspace-packages/src/parsePackageSelector.ts",
+      "symbol": "parsePackageSelector",
+      "startLine": 14,
+      "endLine": 61,
+      "sourceSha256": "1d1c9e1f1ac6976104a1c9799dc209fa5c10d0640d7107cc598f47413e459424"
+    }
+  },
+  "expected": {
+    "discovery-workspace-scan": {
+      "requiredFacts": [
+        "findWorkspacePackages delegates to findWorkspacePackagesNoCheck and checks package installability.",
+        "Unchecked scan includes the root, excludes node_modules and bower_components, and sorts roots with lexCompare."
+      ],
+      "paths": [
+        "workspace/find-packages/src/index.ts"
+      ]
+    },
+    "owning-configs": {
+      "files": [
+        {
+          "file": "workspace/find-packages/src/index.ts",
+          "config": "workspace/find-packages/tsconfig.json"
+        },
+        {
+          "file": "workspace/find-packages/test/index.ts",
+          "config": "workspace/find-packages/test/tsconfig.json"
+        }
+      ],
+      "requiredFacts": [
+        "Source and tests use distinct configured projects.",
+        "Inherited compiler settings and actual references must be shown, not inferred from directory names."
+      ]
+    },
+    "alias-api-old": {
+      "packageName": "safe-execa",
+      "version": "0.1.2",
+      "importName": "execa",
+      "namedTypeExeca": false,
+      "requiredFacts": [
+        "Installed identity and declaration provenance",
+        "sync accepts a string command, optional readonly string arguments and execa.SyncOptions; result is execa.ExecaSyncReturnValue."
+      ]
+    },
+    "alias-api-new": {
+      "packageName": "safe-execa",
+      "version": "0.1.4",
+      "importName": "safe-execa",
+      "namedTypeExeca": true,
+      "requiredFacts": [
+        "Installed identity and declaration provenance",
+        "sync accepts a string command, optional readonly string arguments and execa.SyncOptions; result is execa.ExecaSyncReturnValue."
+      ]
+    },
+    "transitive-cache-api": {
+      "direct": {
+        "consumer": "resolving/npm-resolver/src/index.ts",
+        "name": "lru-cache",
+        "version": "10.4.3",
+        "constructor": "named LRUCache",
+        "expiryOption": "ttl"
+      },
+      "transitive": {
+        "consumer": "resolving/git-resolver/src/parseBareSpecifier.ts",
+        "viaImport": "hosted-git-info",
+        "viaPackage": "@pnpm/hosted-git-info",
+        "viaVersion": "1.0.0",
+        "name": "lru-cache",
+        "version": "6.0.0",
+        "constructor": "CommonJS exported constructor",
+        "expiryOption": "maxAge"
+      },
+      "requiredFacts": [
+        "Follow both actual installed resolution edges.",
+        "Do not call the old cache a second direct workspace import."
+      ]
+    },
+    "scoped-selector-parser": {
+      "path": "workspace/filter-workspace-packages/src/parsePackageSelector.ts",
+      "symbol": "parsePackageSelector",
+      "requiredFields": [
+        "excludeSelf",
+        "includeDependencies",
+        "includeDependents",
+        "parentDir",
+        "namePattern"
+      ]
+    },
+    "direct-workspace-imports": {
+      "imports": [
+        {
+          "path": "__utils__/scripts/src/typecheck-only.ts",
+          "line": 2,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "ed32fad682a2a7cbe6f2ba057b76ef911d8c7a66debef7ac09dd69a905d8aa0e"
+        },
+        {
+          "path": "completion/plugin-commands-completion/src/complete.ts",
+          "line": 4,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "fd04767125b14ce3a08904dee5e4097e2cae314b0517f3f576fca0e2aa3876b6"
+        },
+        {
+          "path": "deps/status/src/checkDepsStatus.ts",
+          "line": 38,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "611398d78e33ec2664d5e074e70ad2a7253fcf8a65cfcf9b6ef7575ab95aaf07"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/import/index.ts",
+          "line": 14,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "4aa1a9c2807d5b622d190677f04f8ea85cb0a2dc30d9525b2f26f4ce5b6bcc29"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/installDeps.ts",
+          "line": 12,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "0f0f3530a708b179c03e977e92f606885a69c34d2d333e1c18c61231e5cb84ba"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/link.ts",
+          "line": 12,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "a8f569072665f9c0ae71e04348c9b11c4df17b32e900506c92d5ff455ee39199"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/remove.ts",
+          "line": 11,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "60eab3b26fc75bfcd3439bddf63ac0053fe3c7b883399bad152e8493dca200e3"
+        },
+        {
+          "path": "workspace/filter-packages-from-dir/src/index.ts",
+          "line": 2,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "d49c6450f85ab8316f4875c45475a36a62e090b8eccbbfaa00f4b9374f1245a6"
+        },
+        {
+          "path": "workspace/filter-workspace-packages/src/index.ts",
+          "line": 3,
+          "localName": "findWorkspacePackages",
+          "sourceSha256": "4fbab60228ed8133c9c24575010364dc4b53f87b85390cfa6b50376cee7f944b"
+        }
+      ]
+    },
+    "declared-dependent-impact": {
+      "directDependents": [
+        {
+          "path": "config/package-is-installable",
+          "name": "@pnpm/package-is-installable"
+        },
+        {
+          "path": "env/plugin-commands-env",
+          "name": "@pnpm/plugin-commands-env"
+        }
+      ]
+    },
+    "scope-negative": {
+      "matches": [],
+      "outOfScopeDefinition": "network/auth-header/src/getAuthHeadersFromConfig.ts"
+    },
+    "missing-symbol": {
+      "matches": []
+    },
+    "ambiguous-handler": {
+      "ambiguous": true,
+      "minimumDistinctDefinitions": 2,
+      "definitions": [
+        {
+          "path": "cache/commands/src/cache.cmd.ts",
+          "symbol": "handler",
+          "startLine": 63,
+          "endLine": 108,
+          "sourceSha256": "8f53ea4c35e5a6a7846e446e22bfc78bc4fc6e5d32c1618b134b82c044180cb6"
+        },
+        {
+          "path": "config/plugin-commands-config/src/config.ts",
+          "symbol": "handler",
+          "startLine": 80,
+          "endLine": 123,
+          "sourceSha256": "e2d2eca5a7e0c10daa5ab6be00d88a6076cf9751d0db2a9560fa37e6ec31572b"
+        },
+        {
+          "path": "config/plugin-commands-config/src/get.ts",
+          "symbol": "handler",
+          "startLine": 10,
+          "endLine": 12,
+          "sourceSha256": "f8dec81b5655e8e11dbe609bcff38e5422bd07dd6f143c51e24bb9e1d336e243"
+        },
+        {
+          "path": "config/plugin-commands-config/src/set.ts",
+          "symbol": "handler",
+          "startLine": 10,
+          "endLine": 12,
+          "sourceSha256": "8542e8ec7a2a95d250e51698f3bef335addf64493322ef66da7dd62f5791d9d1"
+        },
+        {
+          "path": "env/plugin-commands-env/src/env.ts",
+          "symbol": "handler",
+          "startLine": 92,
+          "endLine": 124,
+          "sourceSha256": "d6813d60e1006eb96a10a57d4dd0875d5e008217cb10aefe96051dfb88df76c7"
+        },
+        {
+          "path": "exec/build-commands/src/approveBuilds.ts",
+          "symbol": "handler",
+          "startLine": 52,
+          "endLine": 156,
+          "sourceSha256": "fd6c31cc566520ac5270a20dad3da0e9952caa047b394e1714c87de3d629f024"
+        },
+        {
+          "path": "exec/build-commands/src/ignoredBuilds.ts",
+          "symbol": "handler",
+          "startLine": 24,
+          "endLine": 46,
+          "sourceSha256": "6c4b09ec514e4a91e2abbd47ed19458547ce8e30d3c1e26a3587088b4b8dff47"
+        },
+        {
+          "path": "exec/plugin-commands-rebuild/src/rebuild.ts",
+          "symbol": "handler",
+          "startLine": 103,
+          "endLine": 143,
+          "sourceSha256": "32d7b95537074e7347d5180b4dd93769e075fb24d08bfe89b2f668187bb68f4a"
+        },
+        {
+          "path": "exec/plugin-commands-script-runners/src/create.ts",
+          "symbol": "handler",
+          "startLine": 10,
+          "endLine": 28,
+          "sourceSha256": "3adb91d0bbcbdeaf76669b78199adf698900cfad26cf440c53e6d821677e7f25"
+        },
+        {
+          "path": "exec/plugin-commands-script-runners/src/dlx.ts",
+          "symbol": "handler",
+          "startLine": 88,
+          "endLine": 199,
+          "sourceSha256": "eab192a29cba7f07e9be68104cccceaea1d3540e8b7a4e8461e7486bffd44159"
+        },
+        {
+          "path": "exec/plugin-commands-script-runners/src/exec.ts",
+          "symbol": "handler",
+          "startLine": 167,
+          "endLine": 354,
+          "sourceSha256": "5ef9ac31bb622c7e7f47b31b687e1e3a203e5043ee093c44201776c673042948"
+        },
+        {
+          "path": "exec/plugin-commands-script-runners/src/restart.ts",
+          "symbol": "handler",
+          "startLine": 41,
+          "endLine": 48,
+          "sourceSha256": "d0c2e867d83cb482556665f22818b5eb2972417e7ab0e083a875581a81e34453"
+        },
+        {
+          "path": "exec/plugin-commands-script-runners/src/run.ts",
+          "symbol": "handler",
+          "startLine": 193,
+          "endLine": 312,
+          "sourceSha256": "b70814bbebbe53862984cc2342ee194833cf269449a541a6236138fae7d1802f"
+        },
+        {
+          "path": "lockfile/plugin-commands-audit/src/audit.ts",
+          "symbol": "handler",
+          "startLine": 163,
+          "endLine": 320,
+          "sourceSha256": "4ffcdb82db503b3dfcf12e767a73428dc7680a4e3c3ace5d0530871e9560fa81"
+        },
+        {
+          "path": "packages/plugin-commands-doctor/src/doctor.ts",
+          "symbol": "handler",
+          "startLine": 24,
+          "endLine": 35,
+          "sourceSha256": "e7cf6ee8da4b642461c3004d07860c5093e1f17b5eea9d637a11814ba64c3361"
+        },
+        {
+          "path": "packages/plugin-commands-init/src/init.ts",
+          "symbol": "handler",
+          "startLine": 65,
+          "endLine": 121,
+          "sourceSha256": "70a5f40b120ca0f7e7b93aad2c8602374c83cba70105f6bfaeb949485fccf6bd"
+        },
+        {
+          "path": "packages/plugin-commands-setup/src/setup.ts",
+          "symbol": "handler",
+          "startLine": 107,
+          "endLine": 137,
+          "sourceSha256": "310ad212da4d7efe61bacb1f7d4d9af4f809747ef5225617acf8125ce9652c73"
+        },
+        {
+          "path": "patching/plugin-commands-patching/src/patch.ts",
+          "symbol": "handler",
+          "startLine": 73,
+          "endLine": 128,
+          "sourceSha256": "f37aa0becc929129ae31cad868dadfdb5f4c629ab4c9003826f407a1ea684694"
+        },
+        {
+          "path": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "symbol": "handler",
+          "startLine": 54,
+          "endLine": 120,
+          "sourceSha256": "96baaf9a0630d57b35918ba95ec4dc35a69c528ebe13f316fcb1ea446a28d4bc"
+        },
+        {
+          "path": "patching/plugin-commands-patching/src/patchRemove.ts",
+          "symbol": "handler",
+          "startLine": 32,
+          "endLine": 87,
+          "sourceSha256": "8df3ef3fb1e37a79fc4b6fc9f9808af9167cc22b7eda3912376ad61bbc076e77"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/add.ts",
+          "symbol": "handler",
+          "startLine": 209,
+          "endLine": 293,
+          "sourceSha256": "1e1721024b0f1d2538c8d4a80f3bd415f201ca0411b2adebe3184783d6852981"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/ci.ts",
+          "symbol": "handler",
+          "startLine": 23,
+          "endLine": 25,
+          "sourceSha256": "d1f8bdc5a32c0e3f3fa3d70842fd752f31437551afb9d841f74dd6d078dcaa76"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/dedupe.ts",
+          "symbol": "handler",
+          "startLine": 55,
+          "endLine": 69,
+          "sourceSha256": "3b59b9d68ec6a541a3d7e35b828ac881f2b8f74c6b5b26e8c64cd70a01cbb4b7"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/fetch.ts",
+          "symbol": "handler",
+          "startLine": 50,
+          "endLine": 79,
+          "sourceSha256": "7627a4e099d61a36130c512a1649ec99bcbbdfe09bdaa94246cb3820ad3e7334"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/import/index.ts",
+          "symbol": "handler",
+          "startLine": 107,
+          "endLine": 186,
+          "sourceSha256": "4aa1a9c2807d5b622d190677f04f8ea85cb0a2dc30d9525b2f26f4ce5b6bcc29"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/install.ts",
+          "symbol": "handler",
+          "startLine": 360,
+          "endLine": 383,
+          "sourceSha256": "e9659d6c6aa85fa824e6812db5556bcde5862c6444dc7c738c52c80c400f38cc"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/link.ts",
+          "symbol": "handler",
+          "startLine": 105,
+          "endLine": 173,
+          "sourceSha256": "a8f569072665f9c0ae71e04348c9b11c4df17b32e900506c92d5ff455ee39199"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/prune.ts",
+          "symbol": "handler",
+          "startLine": 47,
+          "endLine": 56,
+          "sourceSha256": "2208614d74863e96d46c6cfc7876b0f6c205ba12ea45bc776c89d5f4d5e46110"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/remove.ts",
+          "symbol": "handler",
+          "startLine": 127,
+          "endLine": 243,
+          "sourceSha256": "60eab3b26fc75bfcd3439bddf63ac0053fe3c7b883399bad152e8493dca200e3"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/unlink.ts",
+          "symbol": "handler",
+          "startLine": 41,
+          "endLine": 64,
+          "sourceSha256": "dc339741f582bc056c6e5805291fd6cf77104b65156b9c60e49eba004e3bd942"
+        },
+        {
+          "path": "pkg-manager/plugin-commands-installation/src/update/index.ts",
+          "symbol": "handler",
+          "startLine": 171,
+          "endLine": 182,
+          "sourceSha256": "1e6beea4103c1f1679c4c14ff50a129cba7aeac611ac76141b0929728493cd39"
+        },
+        {
+          "path": "pnpm/src/cmd/bin.ts",
+          "symbol": "handler",
+          "startLine": 37,
+          "endLine": 43,
+          "sourceSha256": "f6a483509f316d30d315507a7f07d9c05d06855241ce9f45e40c14ee4643ef72"
+        },
+        {
+          "path": "pnpm/src/cmd/help.ts",
+          "symbol": "handler",
+          "startLine": 43,
+          "endLine": 55,
+          "sourceSha256": "2c86ce5408aa85907d15ab88b096db4fca61ef59122c82fe275e228e6110aeeb"
+        },
+        {
+          "path": "pnpm/src/cmd/installTest.ts",
+          "symbol": "handler",
+          "startLine": 22,
+          "endLine": 25,
+          "sourceSha256": "ef49b363c167aa449b4dafa473f149ec647095bfcb4098c6e09babb472ad0543"
+        },
+        {
+          "path": "pnpm/src/cmd/recursive.ts",
+          "symbol": "handler",
+          "startLine": 127,
+          "endLine": 130,
+          "sourceSha256": "30a841ff1f84ff0ad07b092d1ae34f3d3d8f198c8fffd54283ed6d673fb24d68"
+        },
+        {
+          "path": "pnpm/src/cmd/root.ts",
+          "symbol": "handler",
+          "startLine": 38,
+          "endLine": 44,
+          "sourceSha256": "6127d63af30cfdafd95f20d09fc8132ed4406d8321a3fbe6dd754d4e711ac95b"
+        },
+        {
+          "path": "releasing/plugin-commands-deploy/src/deploy.ts",
+          "symbol": "handler",
+          "startLine": 83,
+          "endLine": 197,
+          "sourceSha256": "b0b5fd2f57897d96300d15a674a8a4a4b47424bddbc9c2d0352072dfa130b8cb"
+        },
+        {
+          "path": "releasing/plugin-commands-publishing/src/pack.ts",
+          "symbol": "handler",
+          "startLine": 126,
+          "endLine": 187,
+          "sourceSha256": "5463d38e879317c6eb11e312e488985ea2364dcf187bbc09adc610e98da3c10b"
+        },
+        {
+          "path": "releasing/plugin-commands-publishing/src/publish.ts",
+          "symbol": "handler",
+          "startLine": 155,
+          "endLine": 169,
+          "sourceSha256": "8ad946706b64d3565d6d9e27492a1226dd117531e8002ee1c26527544bb7c047"
+        },
+        {
+          "path": "reviewing/plugin-commands-licenses/src/licenses.ts",
+          "symbol": "handler",
+          "startLine": 87,
+          "endLine": 104,
+          "sourceSha256": "aab71d82214d833e85c2b459442db70d72d0137a46d1034564a4da49265c79a6"
+        },
+        {
+          "path": "reviewing/plugin-commands-listing/src/list.ts",
+          "symbol": "handler",
+          "startLine": 106,
+          "endLine": 123,
+          "sourceSha256": "3f48531cb1028200c7818ca79c8ae4ecc54e8454e00f9ec793fc8bac69db0a8b"
+        },
+        {
+          "path": "reviewing/plugin-commands-listing/src/ll.ts",
+          "symbol": "handler",
+          "startLine": 14,
+          "endLine": 19,
+          "sourceSha256": "141a636a0efc1a6fa6f28823d554336b6850ea3be7ea606c18ea7cde244a8e12"
+        },
+        {
+          "path": "reviewing/plugin-commands-listing/src/why.ts",
+          "symbol": "handler",
+          "startLine": 54,
+          "endLine": 82,
+          "sourceSha256": "253e2227372f2ffedcfc3205e2f6334b8a9d69c8a507d3b0e40490dd7bb16d6c"
+        },
+        {
+          "path": "reviewing/plugin-commands-outdated/src/outdated.ts",
+          "symbol": "handler",
+          "startLine": 175,
+          "endLine": 233,
+          "sourceSha256": "cb118730148d9542ae2c115994ce6eaa2379c6ed7bbb2cd967f005ae292f8441"
+        },
+        {
+          "path": "store/plugin-commands-server/src/server.ts",
+          "symbol": "handler",
+          "startLine": 98,
+          "endLine": 122,
+          "sourceSha256": "66d7e9cc7e826da93e1787b5ff2c7c73251ac632d408481c128351c01b967c04"
+        },
+        {
+          "path": "store/plugin-commands-store/src/store.ts",
+          "symbol": "handler",
+          "startLine": 81,
+          "endLine": 114,
+          "sourceSha256": "038629b3bbdee29c676001d73722a6a9f01b659a08accaaa4b7dd3aed1e8567b"
+        },
+        {
+          "path": "store/plugin-commands-store-inspecting/src/catFile.ts",
+          "symbol": "handler",
+          "startLine": 35,
+          "endLine": 61,
+          "sourceSha256": "62662ac6d08294be863e04b6ca2471f1daa03a2425250e546be571c01750eb0d"
+        },
+        {
+          "path": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+          "symbol": "handler",
+          "startLine": 44,
+          "endLine": 97,
+          "sourceSha256": "1d92d7a5d134a062dbfd8d50d67144ec9d3a0d4fa48219aed85424ae84766109"
+        },
+        {
+          "path": "store/plugin-commands-store-inspecting/src/findHash.ts",
+          "symbol": "handler",
+          "startLine": 42,
+          "endLine": 105,
+          "sourceSha256": "83f97515fb1d4f89482d0a5f78c74fb3ed3d0b76799873933bcba7720f703216"
+        },
+        {
+          "path": "tools/plugin-commands-self-updater/src/selfUpdate.ts",
+          "symbol": "handler",
+          "startLine": 53,
+          "endLine": 95,
+          "sourceSha256": "7520efbe181086e93a9718754ca27f85c026e0d5e07f63057bff9cfe5a4f4f72"
+        }
+      ]
+    },
+    "freshness-concurrency": {
+      "path": "config/config/src/concurrency.ts",
+      "initialCap": 4,
+      "changedCap": 7,
+      "requiredFormula": "Math.min(MaxDefaultWorkspaceConcurrency, getAvailableParallelism(cache))"
+    }
+  },
+  "mutation": {
+    "path": "config/config/src/concurrency.ts",
+    "beforeSha256": "b1f44a22641d8b93da65267240ee0a644489b88cf671413250db7a9c21c49d20",
+    "afterSha256": "061cbc5b0a00a41059403a15f1cbbfc19ec733ad361537248b66c83a12105d97",
+    "needle": "const MaxDefaultWorkspaceConcurrency: number = 4",
+    "replacement": "const MaxDefaultWorkspaceConcurrency: number = 7",
+    "restoration": "Original bytes only; no inferred reverse patch."
+  },
+  "grading": {
+    "unit": "Every required fact with supporting correct current source or installed declaration provenance.",
+    "pathMentionAlonePasses": false,
+    "providerSpecificFieldNamesRequired": false,
+    "unknownIsSuccess": false,
+    "completeSetRequiredForDirectImportsAndDependents": true,
+    "negativeEvidenceNeedsScopeAndExactSymbol": true,
+    "accuracyAndLatencySeparate": true
+  }
+}

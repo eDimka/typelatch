@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "pnpm-changed-project-move-r2-competitor",
+    "task": "pnpm-changed-project-move",
+    "repeat": 2,
+    "arm": "competitor",
+    "status": "completed",
+    "startedAt": "2026-11-06T19:50:48.475Z",
+    "finishedAt": "2026-11-06T19:51:24.080Z",
+    "fixtureSetupMs": 15390.120041999966,
+    "providerSetupMs": 1.7614579999353737,
+    "elapsedMs": 35603.94033299992,
+    "teardownMs": 0.3522499999962747,
+    "gradingMs": 8524.315708000096,
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": true,
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": 170303,
+      "cachedInputTokens": 146688,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 779,
+      "reasoningOutputTokens": 65,
+      "totalTokens": 171082,
+      "uncachedInputTokens": 23615
+    },
+    "counts": {
+      "shellCalls": 8,
+      "mcpCalls": 3,
+      "mcpSucceeded": 3,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 1,
+      "contentSearchShellCalls": 0,
+      "fileListingShellCalls": 1,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+    "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+    "promptSha256": "8967939c75f02d254325f05a50d09ca1022cc7af668649a9f9024ac41a828d42",
+    "recordingError": null,
+    "rawSha256": "248a0c5176eed178906b1642ed3e97ac1b682c2e23618e3044312ae585f56b8c",
+    "nativeValidation": {
+      "checks": [
+        {
+          "line": 6,
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "commandExitCode": 1,
+          "individualCheckExitCode": null,
+          "resultIndex": 0,
+          "passed": false,
+          "cases": 3,
+          "outputSha256": "7d9d9bae852a1d94da79718c6e4fe34b4ebf5c8fb1ec5fe5df1b90f511c2f928"
+        },
+        {
+          "line": 25,
+          "actionIdSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+          "commandExitCode": 0,
+          "individualCheckExitCode": null,
+          "resultIndex": 0,
+          "passed": true,
+          "cases": 3,
+          "outputSha256": "7e702b1096b347d93253fa8ae0359c1bb39ba8c426b862a3add8aa79d9e2c9bf"
+        }
+      ],
+      "failingThenLaterCheckObserved": true,
+      "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+    }
+  },
+  "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+      "outputBytes": 1142,
+      "outputSha256": "7d9d9bae852a1d94da79718c6e4fe34b4ebf5c8fb1ec5fe5df1b90f511c2f928",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 6728.082499999902,
+      "completedMs": 7210.964040999999
+    },
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "server": "serena",
+      "tool": "initial_instructions",
+      "arguments": {},
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 18422,
+      "resultSha256": "ca5eaa1553bacc71d94b5ebd13095990d34abc5d21b2b2fe3994dd49de7fef4f",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 9119.053374999901,
+      "completedMs": 9242.204333000001
+    },
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "server": "serena",
+      "tool": "serena_repl",
+      "arguments": {
+        "session": "8c5d01f8",
+        "code": "s.info(\"fs.find_file\", \"fs.search_for_pattern\")"
+      },
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 4370,
+      "resultSha256": "32a5fecfe33c070383931b9d1094ddcc102e6724f14cfcbb4202389d8ed9d6f2",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 11686.908666000003,
+      "completedMs": 11790.548874999979
+    },
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "completed",
+      "server": "serena",
+      "tool": "serena_repl",
+      "arguments": {
+        "session": "8c5d01f8",
+        "code": "s.fs.search_for_pattern('changed.?projects|changedProjects|--name-only', paths_include_glob='**/*.ts', max_answer_chars=14000)"
+      },
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 1486,
+      "resultSha256": "ea9ea6873aa6b303b6d25f8e38ddfa72b5894950f6e4ebb020906220f95fd5ed",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 14750.206749999896,
+      "completedMs": 15211.236290999921
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "completed",
+      "command": "/bin/zsh -c \"sed -n '1,240p' workspace/filter-workspace-packages/src/getChangedPackages.ts\"",
+      "outputBytes": 3584,
+      "outputSha256": "d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 17789.469790999894,
+      "completedMs": 17789.469790999894
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "completed",
+      "command": "/bin/zsh -c 'git status --short'",
+      "outputBytes": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 17894.596374999965,
+      "completedMs": 17894.596374999965
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"rg --files -g AGENTS.md -g '\"'!node_modules'\"' -g '\"'!vendor'\"'\"",
+      "outputBytes": 10,
+      "outputSha256": "954ec5dad7eaf581ad4bfa090369b244ac0120b43722ef2efff5ba89fc52046f",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 22894.77754099993,
+      "completedMs": 22894.77754099993
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "command": "/bin/zsh -c 'cat AGENTS.md'",
+      "outputBytes": 5296,
+      "outputSha256": "c5e2413f308b24ccab3edd157ff03daa80b9db3e040c6d57f6c496b99c66c405",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 24990.877082999912,
+      "completedMs": 24990.877082999912
+    },
+    {
+      "type": "file_change",
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/workspace/filter-workspace-packages/src/getChangedPackages.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 30207.543499999912,
+      "completedMs": 30230.30854099989
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+      "outputBytes": 1157,
+      "outputSha256": "7e702b1096b347d93253fa8ae0359c1bb39ba8c426b862a3add8aa79d9e2c9bf",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 30388.18941599992,
+      "completedMs": 30787.40499999991
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+      "status": "completed",
+      "command": "/bin/zsh -c 'git diff --check'",
+      "outputBytes": 0,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 30841.610915999976,
+      "completedMs": 30841.610915999976
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+      "status": "completed",
+      "command": "/bin/zsh -c 'git diff --stat'",
+      "outputBytes": 101,
+      "outputSha256": "f8b846ed03e0fdad376ccb78405ace5ac4f54d5a45bba2f7ba3129bcde5023b2",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 30895.76870799996,
+      "completedMs": 30895.76870799996
+    }
+  ],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.serena.command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+    "mcp_servers.serena.args": [
+      "start-mcp-server",
+      "--project",
+      "$WORKSPACE",
+      "--agent-interface",
+      "REPL",
+      "--transport",
+      "stdio",
+      "--enable-web-dashboard",
+      "false",
+      "--enable-gui-log-window",
+      "false",
+      "--open-web-dashboard",
+      "false",
+      "--log-level",
+      "INFO"
+    ],
+    "mcp_servers.serena.cwd": "$WORKSPACE",
+    "mcp_servers.serena.startup_timeout_sec": 600,
+    "mcp_servers.serena.tool_timeout_sec": 180,
+    "mcp_servers.serena.env.PATH": "$USER_HOME/.hermes/node/bin:$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+    "mcp_servers.serena.env.TMPDIR": "$TEMP",
+    "mcp_servers.serena.env.LANG": "C.UTF-8",
+    "mcp_servers.serena.env.LC_ALL": "C.UTF-8",
+    "mcp_servers.serena.env.SERENA_HOME": "$PROVIDER_STATE/serena-home",
+    "mcp_servers.serena.env.XDG_CACHE_HOME": "$PROVIDER_STATE/xdg-cache",
+    "mcp_servers.serena.env.XDG_CONFIG_HOME": "$PROVIDER_STATE/xdg-config",
+    "mcp_servers.serena.env.PYTHONNOUSERSITE": "1",
+    "mcp_servers.serena.env.PYTHONUNBUFFERED": "1",
+    "mcp_servers.serena.env.npm_config_cache": "$PROVIDER_STATE/npm-cache",
+    "mcp_servers.serena.env.npm_config_offline": "true",
+    "mcp_servers.serena.env.PYTHONDONTWRITEBYTECODE": "1",
+    "mcp_servers.serena.required": true,
+    "mcp_servers.serena.tools.activate_project.approval_mode": "approve",
+    "mcp_servers.serena.tools.initial_instructions.approval_mode": "approve",
+    "mcp_servers.serena.tools.serena_repl.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": true,
+    "integrity": {
+      "passed": true,
+      "changed": [
+        "workspace/filter-workspace-packages/src/getChangedPackages.ts"
+      ],
+      "forbidden": []
+    },
+    "stable": true,
+    "checks": {
+      "elapsedMs": 1565.7105839999858,
+      "command": "$USER_HOME/.hermes/node/bin/node",
+      "args": [
+        "--import",
+        "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+        "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs"
+      ],
+      "cwd": "$WORKSPACE",
+      "exitCode": 0,
+      "signal": null,
+      "stdout": "{\"passed\":true,\"cases\":15,\"failed\":0,\"results\":[{\"id\":\"cross-project-forward\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"cross-project-reverse\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/beta/src/a.ts\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"cross-project-new-filename\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/renamed.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"staged-uncommitted\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"nested-and-spaced-path\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/deeper/file name.ts\\tpackages/beta/lib/inner/file name.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"same-project\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/alpha/src/renamed.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"test-only-move\",\"passed\":true,\"expected\":[[],[\"packages/alpha\",\"packages/beta\"]],\"actual\":[[],[\"packages/alpha\",\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/test/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"source-to-test\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[\"packages/beta\"]],\"actual\":[[\"packages/alpha\"],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"fully-ignored\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/ignored/a.ts\\tpackages/beta/ignored/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ignored-origin\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"rename-disabled-control\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\\nA\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/gamma\"],[]],\"actual\":[[\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/gamma/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-deletion\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-addition\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"A\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP\"}]}\n",
+      "stderr": "",
+      "result": {
+        "passed": true,
+        "cases": 15,
+        "failed": 0,
+        "results": [
+          {
+            "id": "cross-project-forward",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "cross-project-reverse",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/beta/src/a.ts\tpackages/alpha/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "cross-project-new-filename",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/renamed.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "staged-uncommitted",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "nested-and-spaced-path",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/deeper/file name.ts\tpackages/beta/lib/inner/file name.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "same-project",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/alpha/src/renamed.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "test-only-move",
+            "passed": true,
+            "expected": [
+              [],
+              [
+                "packages/alpha",
+                "packages/beta"
+              ]
+            ],
+            "actual": [
+              [],
+              [
+                "packages/alpha",
+                "packages/beta"
+              ]
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/test/a.ts\tpackages/beta/test/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "source-to-test",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              [
+                "packages/beta"
+              ]
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              [
+                "packages/beta"
+              ]
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/test/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "fully-ignored",
+            "passed": true,
+            "expected": [
+              [],
+              []
+            ],
+            "actual": [
+              [],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/ignored/a.ts\tpackages/beta/ignored/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ignored-origin",
+            "passed": true,
+            "expected": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "rename-disabled-control",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "D\tpackages/alpha/src/a.ts\nA\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-edit",
+            "passed": true,
+            "expected": [
+              [
+                "packages/gamma"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/gamma"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "M\tpackages/gamma/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-deletion",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "D\tpackages/alpha/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-addition",
+            "passed": true,
+            "expected": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "A\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "unchanged",
+            "passed": true,
+            "expected": [
+              [],
+              []
+            ],
+            "actual": [
+              [],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "",
+            "gitFixture": "$TEMP"
+          }
+        ]
+      }
+    },
+    "fixtureGitUnchanged": true
+  },
+  "changes": [
+    {
+      "path": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+      "beforeSha256": "d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e",
+      "afterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+      "before": "import assert from 'assert'\nimport path from 'path'\nimport util from 'util'\nimport { PnpmError } from '@pnpm/error'\nimport * as micromatch from 'micromatch'\nimport execa from 'execa'\nimport findUp from 'find-up'\nimport { type ProjectRootDir } from '@pnpm/types'\n\ntype ChangeType = 'source' | 'test'\n\ninterface ChangedDir { dir: string, changeType: ChangeType }\n\nexport async function getChangedPackages (\n  packageDirs: ProjectRootDir[],\n  commit: string,\n  opts: { workspaceDir: string, testPattern?: string[], changedFilesIgnorePattern?: string[] }\n): Promise<[ProjectRootDir[], ProjectRootDir[]]> {\n  // .git is a directory in regular repos, but a file in worktrees\n  const gitPath = await findUp('.git', { cwd: opts.workspaceDir, type: 'directory' }) ??\n                  await findUp('.git', { cwd: opts.workspaceDir, type: 'file' })\n\n  const repoRoot = path.resolve(gitPath ?? opts.workspaceDir, '..')\n\n  const changedDirs = (await getChangedDirsSinceCommit(commit, opts.workspaceDir, opts.testPattern ?? [], opts.changedFilesIgnorePattern ?? []))\n    .map(changedDir => ({ ...changedDir, dir: path.join(repoRoot, changedDir.dir) }))\n  const pkgChangeTypes = new Map<ProjectRootDir, ChangeType | undefined>()\n  for (const pkgDir of packageDirs) {\n    pkgChangeTypes.set(pkgDir, undefined)\n  }\n  for (const changedDir of changedDirs) {\n    let currentDir = changedDir.dir\n    while (!pkgChangeTypes.has(currentDir as ProjectRootDir)) {\n      const nextDir = path.dirname(currentDir)\n      if (nextDir === currentDir) break\n      currentDir = nextDir\n    }\n    if (pkgChangeTypes.get(currentDir as ProjectRootDir) === 'source') continue\n    pkgChangeTypes.set(currentDir as ProjectRootDir, changedDir.changeType)\n  }\n\n  const changedPkgs = [] as ProjectRootDir[]\n  const ignoreDependentForPkgs = [] as ProjectRootDir[]\n  for (const [changedDir, changeType] of pkgChangeTypes.entries()) {\n    switch (changeType) {\n    case 'source':\n      changedPkgs.push(changedDir)\n      break\n    case 'test':\n      ignoreDependentForPkgs.push(changedDir)\n      break\n    }\n  }\n  return [changedPkgs, ignoreDependentForPkgs]\n}\n\nasync function getChangedDirsSinceCommit (commit: string, workingDir: string, testPattern: string[], changedFilesIgnorePattern: string[]): Promise<ChangedDir[]> {\n  let diff!: string\n  try {\n    diff = (\n      await execa('git', [\n        'diff',\n        '--name-only',\n        commit,\n        '--',\n        workingDir,\n      ], { cwd: workingDir })\n    ).stdout\n  } catch (err: unknown) {\n    assert(util.types.isNativeError(err))\n    throw new PnpmError('FILTER_CHANGED', `Filtering by changed packages failed. ${'stderr' in err ? err.stderr as string : ''}`)\n  }\n  const changedDirs = new Map<string, ChangeType>()\n\n  if (!diff) {\n    return []\n  }\n\n  const allChangedFiles = diff.split('\\n')\n    // The prefix and suffix '\"' are appended to the Korean path\n    .map(line => line.replace(/^\"/, '').replace(/\"$/, ''))\n  const patterns = changedFilesIgnorePattern.filter(\n    (pattern) => pattern.length\n  )\n  const changedFiles = (patterns.length > 0)\n    ? micromatch.not(allChangedFiles, patterns, {\n      dot: true,\n    })\n    : allChangedFiles\n\n  for (const changedFile of changedFiles) {\n    const dir = path.dirname(changedFile)\n\n    if (changedDirs.get(dir) === 'source') continue\n\n    const changeType: ChangeType = testPattern.some(pattern => micromatch.isMatch(changedFile, pattern))\n      ? 'test'\n      : 'source'\n    changedDirs.set(dir, changeType)\n  }\n\n  return Array.from(changedDirs.entries()).map(([dir, changeType]) => ({ dir, changeType }))\n}\n",
+      "after": "import assert from 'assert'\nimport path from 'path'\nimport util from 'util'\nimport { PnpmError } from '@pnpm/error'\nimport * as micromatch from 'micromatch'\nimport execa from 'execa'\nimport findUp from 'find-up'\nimport { type ProjectRootDir } from '@pnpm/types'\n\ntype ChangeType = 'source' | 'test'\n\ninterface ChangedDir { dir: string, changeType: ChangeType }\n\nexport async function getChangedPackages (\n  packageDirs: ProjectRootDir[],\n  commit: string,\n  opts: { workspaceDir: string, testPattern?: string[], changedFilesIgnorePattern?: string[] }\n): Promise<[ProjectRootDir[], ProjectRootDir[]]> {\n  // .git is a directory in regular repos, but a file in worktrees\n  const gitPath = await findUp('.git', { cwd: opts.workspaceDir, type: 'directory' }) ??\n                  await findUp('.git', { cwd: opts.workspaceDir, type: 'file' })\n\n  const repoRoot = path.resolve(gitPath ?? opts.workspaceDir, '..')\n\n  const changedDirs = (await getChangedDirsSinceCommit(commit, opts.workspaceDir, opts.testPattern ?? [], opts.changedFilesIgnorePattern ?? []))\n    .map(changedDir => ({ ...changedDir, dir: path.join(repoRoot, changedDir.dir) }))\n  const pkgChangeTypes = new Map<ProjectRootDir, ChangeType | undefined>()\n  for (const pkgDir of packageDirs) {\n    pkgChangeTypes.set(pkgDir, undefined)\n  }\n  for (const changedDir of changedDirs) {\n    let currentDir = changedDir.dir\n    while (!pkgChangeTypes.has(currentDir as ProjectRootDir)) {\n      const nextDir = path.dirname(currentDir)\n      if (nextDir === currentDir) break\n      currentDir = nextDir\n    }\n    if (pkgChangeTypes.get(currentDir as ProjectRootDir) === 'source') continue\n    pkgChangeTypes.set(currentDir as ProjectRootDir, changedDir.changeType)\n  }\n\n  const changedPkgs = [] as ProjectRootDir[]\n  const ignoreDependentForPkgs = [] as ProjectRootDir[]\n  for (const [changedDir, changeType] of pkgChangeTypes.entries()) {\n    switch (changeType) {\n    case 'source':\n      changedPkgs.push(changedDir)\n      break\n    case 'test':\n      ignoreDependentForPkgs.push(changedDir)\n      break\n    }\n  }\n  return [changedPkgs, ignoreDependentForPkgs]\n}\n\nasync function getChangedDirsSinceCommit (commit: string, workingDir: string, testPattern: string[], changedFilesIgnorePattern: string[]): Promise<ChangedDir[]> {\n  let diff!: string\n  try {\n    diff = (\n      await execa('git', [\n        'diff',\n        '--name-only',\n        '--no-renames',\n        commit,\n        '--',\n        workingDir,\n      ], { cwd: workingDir })\n    ).stdout\n  } catch (err: unknown) {\n    assert(util.types.isNativeError(err))\n    throw new PnpmError('FILTER_CHANGED', `Filtering by changed packages failed. ${'stderr' in err ? err.stderr as string : ''}`)\n  }\n  const changedDirs = new Map<string, ChangeType>()\n\n  if (!diff) {\n    return []\n  }\n\n  const allChangedFiles = diff.split('\\n')\n    // The prefix and suffix '\"' are appended to the Korean path\n    .map(line => line.replace(/^\"/, '').replace(/\"$/, ''))\n  const patterns = changedFilesIgnorePattern.filter(\n    (pattern) => pattern.length\n  )\n  const changedFiles = (patterns.length > 0)\n    ? micromatch.not(allChangedFiles, patterns, {\n      dot: true,\n    })\n    : allChangedFiles\n\n  for (const changedFile of changedFiles) {\n    const dir = path.dirname(changedFile)\n\n    if (changedDirs.get(dir) === 'source') continue\n\n    const changeType: ChangeType = testPattern.some(pattern => micromatch.isMatch(changedFile, pattern))\n      ? 'test'\n      : 'source'\n    changedDirs.set(dir, changeType)\n  }\n\n  return Array.from(changedDirs.entries()).map(([dir, changeType]) => ({ dir, changeType }))\n}\n"
+    }
+  ],
+  "recording": "Allowlisted completed public actions, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

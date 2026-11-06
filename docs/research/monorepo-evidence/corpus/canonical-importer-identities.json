@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "commit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+  "kind": "locked-canonical-importer-identities",
+  "distinct": [
+    {
+      "name": "safe-execa",
+      "entries": [
+        {
+          "project": "__utils__/scripts",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "__utils__/test-ipc-server",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "cache/commands",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "config/package-is-installable",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "env/plugin-commands-env",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "env/system-node-version",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "exec/plugin-commands-rebuild",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "exec/plugin-commands-script-runners",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "exec/pnpm-cli-runner",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "exec/prepare-package",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "fetching/git-fetcher",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "packages/git-utils",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "packages/make-dedicated-lockfile",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "patching/plugin-commands-patching",
+          "importName": "safe-execa",
+          "section": "dependencies",
+          "version": "0.1.4",
+          "lockReference": "0.1.4"
+        },
+        {
+          "project": "pkg-manager/core",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "pnpm",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "pnpm/artifacts/exe",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "releasing/plugin-commands-publishing",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "reviewing/plugin-commands-listing",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "store/plugin-commands-store",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "store/plugin-commands-store-inspecting",
+          "importName": "execa",
+          "section": "devDependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        },
+        {
+          "project": "workspace/filter-workspace-packages",
+          "importName": "execa",
+          "section": "dependencies",
+          "version": "0.1.2",
+          "lockReference": "safe-execa@0.1.2"
+        }
+      ]
+    }
+  ],
+  "limitation": "Identity derived from committed lockfile. Installed compiler and runtime resolution must be checked after dependency preparation."
+}

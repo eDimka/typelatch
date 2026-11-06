@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-read-only-version-api-review",
+  "observedAt": "2026-11-06T17:30:50.415Z",
+  "repository": "pnpm/pnpm",
+  "commit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+  "providerQueriesRun": 0,
+  "behaviorExecuted": false,
+  "sourceModified": false,
+  "evidence": [
+    {
+      "root": "source",
+      "path": "env/system-node-version/src/index.ts",
+      "sha256": "dc6f7ac94d0ca3df9e81fea91027a3a90291f2fe426a3a90e80f5bfc4eae2d31",
+      "bytes": 500
+    },
+    {
+      "root": "source",
+      "path": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "sha256": "96baaf9a0630d57b35918ba95ec4dc35a69c528ebe13f316fcb1ea446a28d4bc",
+      "bytes": 9949
+    },
+    {
+      "root": "source",
+      "path": "resolving/npm-resolver/src/index.ts",
+      "sha256": "c4d64ed0b8d0f708e84ffbbd626412e67726c97ccfda938ea25873e759c94945",
+      "bytes": 25122
+    },
+    {
+      "root": "source",
+      "path": "resolving/git-resolver/src/parseBareSpecifier.ts",
+      "sha256": "86d6f717f80fd1b5ac45c23cafcecf02656c8fcb4940f17fc866d5deeca608f2",
+      "bytes": 5993
+    },
+    {
+      "root": "source",
+      "path": "pnpm-lock.yaml",
+      "sha256": "87e0f4e47bf162918c984e8589c18073dc3beaa0b9267e2a7b22dc91199d60a0",
+      "bytes": 788112
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/safe-execa@0.1.2/node_modules/safe-execa/lib/index.d.ts",
+      "sha256": "d0b473a48bbcc2fc0d17bf21e47e024eef6ddad5b5965d850aebcb23540c9102",
+      "bytes": 281
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/safe-execa@0.1.4/node_modules/safe-execa/lib/index.d.ts",
+      "sha256": "7944e378b1e06814ddcaebdb5370473320603381bd1684a7e8f0255d9f9a0ba3",
+      "bytes": 301
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/safe-execa@0.1.2/node_modules/safe-execa/lib/index.js",
+      "sha256": "c9351a3c3da419eb0fa015d690fc7588ac6fd6dabc66cbe35f17b83cc539fe6c",
+      "bytes": 2697
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/safe-execa@0.1.4/node_modules/safe-execa/lib/index.js",
+      "sha256": "0fd9d057200123f38116bdd8d39a6c7e914d7a62b44289069935f2261dd54649",
+      "bytes": 2643
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/@pnpm+hosted-git-info@1.0.0/node_modules/@pnpm/hosted-git-info/index.js",
+      "sha256": "125003ab4cf3983376f8b93a36e6dbba881f34ea1c10f9a64b19792f8c54f1ed",
+      "bytes": 7380
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/lru-cache@6.0.0/node_modules/lru-cache/index.js",
+      "sha256": "f527d2386a6266b9bf67d264194948cf741b12daa19fea19e3537414ee31f9a7",
+      "bytes": 8186
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/lru-cache@10.4.3/node_modules/lru-cache/dist/commonjs/index.d.ts",
+      "sha256": "4129cc8c72b940eaff900a986581b5ab5a13b37d635cbec60f600554268a04ed",
+      "bytes": 54533
+    },
+    {
+      "root": "installed",
+      "path": "node_modules/.pnpm/lru-cache@10.4.3/node_modules/lru-cache/dist/commonjs/index.js",
+      "sha256": "75dd41905c662621d02fc6f3f6c6d678342fdfd87d32d6cabd0afab1b1793a3e",
+      "bytes": 55020
+    }
+  ],
+  "safeExeca": {
+    "older": {
+      "importer": "env/system-node-version",
+      "importSpecifier": "execa",
+      "canonicalName": "safe-execa",
+      "version": "0.1.2",
+      "sourceImport": "src/index.ts:3",
+      "sourceUse": "src/index.ts:8"
+    },
+    "newer": {
+      "importer": "patching/plugin-commands-patching",
+      "importSpecifier": "safe-execa",
+      "canonicalName": "safe-execa",
+      "version": "0.1.4",
+      "sourceImport": "src/patchCommit.ts:17",
+      "sourceUse": "src/patchCommit.ts:154"
+    },
+    "declarationDifference": "0.1.4 additionally exports the execa type; default and sync signatures otherwise match",
+    "declarationDifferenceVerified": true,
+    "sourceDifference": "The two fallback process.cwd references become process.cwd() in 0.1.4",
+    "sourceDifferenceVerified": true,
+    "practicalBoundary": "Existing observed consumers use default or sync APIs, not the added type export. This is exact identity/API availability evidence, not a version-caused coding failure."
+  },
+  "lruCache": {
+    "direct": {
+      "importer": "resolving/npm-resolver",
+      "source": "src/index.ts:29",
+      "use": "src/index.ts:172",
+      "version": "10.4.3",
+      "sourceImport": "import { LRUCache } from lru-cache",
+      "observedOptions": [
+        "max",
+        "ttl"
+      ],
+      "installedExport": "exports.LRUCache = LRUCache"
+    },
+    "transitive": {
+      "importer": "resolving/git-resolver",
+      "source": "src/parseBareSpecifier.ts:7",
+      "importSpecifier": "hosted-git-info",
+      "canonicalName": "@pnpm/hosted-git-info",
+      "version": "1.0.0",
+      "dependency": "lru-cache@6.0.0",
+      "installedSource": "index.js:5-6",
+      "observedImportAndUse": "const LRU = require(lru-cache); new LRU({max:1000})",
+      "installedExport": "module.exports = LRUCache",
+      "expirationOption": "maxAge"
+    },
+    "practicalBoundary": "Only one workspace directly imports lru-cache. The older constructor export is used inside an actual transitive dependency. Do not label this as two workspace direct imports or invent an affected source edit."
+  },
+  "recommendation": "Retain exact identity controls. Require an actual cross-package consumer repair or freshness/scope workflow to demonstrate practical coding benefit. Do not add batched-context features until provider comparison exposes an unmet workflow."
+}

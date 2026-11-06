@@ -28,6 +28,12 @@ export function collectInstallPins(sources) {
   return pins
 }
 
+export function advertisedInstallCommand(html) {
+  const versions = [...new Set(collectInstallPins([{ path: 'site/index.html', text: html }]).map(pin => pin.version))]
+  if (versions.length !== 1) throw new Error('Website onboarding must advertise one consistent exact Typelatch version')
+  return `npx typelatch@${versions[0]} setup`
+}
+
 export async function verifyPublishedPins(pins, { fetchImpl = fetch, deferUnpublished = false } = {}) {
   const versions = [...new Set(pins.map((pin) => pin.version))]
   if (!versions.length) throw new Error('No installation pins to verify')

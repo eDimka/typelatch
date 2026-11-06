@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-11-06T17:17:58.466Z",
+  "kind": "development-pools-and-diagnostics",
+  "note": "No scored coding model runs. Shared rankingCandidates projection was added after retrieval diagnostics without changing candidate generation. Missing facts remain absent.",
+  "files": [
+    {
+      "path": "observed/qualification.json",
+      "sha256": "763fea349c2f7ff124413dcbe1154070ce9f2a20272b360f1f894600df6d4c48",
+      "bytes": 15453
+    },
+    {
+      "path": "observed/root-glob.json",
+      "sha256": "0131e0dfe7cd0cf93a01b701490dd87a5fcdfb5ffac1def6563c333d50311ac6",
+      "bytes": 127553
+    },
+    {
+      "path": "observed/yaml-settings.json",
+      "sha256": "a0d89b2c95cefe856732bcd6d90da559a538b9af64d1b070b100f39e7c8fe189",
+      "bytes": 123780
+    },
+    {
+      "path": "observed/transport-smoke.json",
+      "sha256": "26ef12cb72395c148f29d284fe57e8cf339c0ab8635e68d9d55af030c689f6d1",
+      "bytes": 2802
+    },
+    {
+      "path": "observed/diagnostic-summary.json",
+      "sha256": "acd2459a8f1b395db5a2610d8d506eee72987c0ede43f3b35652d1f57190e25f",
+      "bytes": 25990
+    },
+    {
+      "path": "ranker-cases.json",
+      "sha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+      "bytes": 75790
+    },
+    {
+      "path": "semantic-evidence-review.json",
+      "sha256": "12b310ca7315888c511b7bd8b46e06a17aaf07046acf335cc0978183ba1702c6",
+      "bytes": 6576
+    },
+    {
+      "path": "prototype.mjs",
+      "sha256": "ab2db9e9092f960603c31fc6882c06b6bb1b1942fe97148a35df026d5d04c957",
+      "bytes": 15467
+    },
+    {
+      "path": "native-reference.mjs",
+      "sha256": "526c253377503f7636066145d1e47491445da0544bde5869db0a55ba60b2661a",
+      "bytes": 6266
+    },
+    {
+      "path": "adapter.mjs",
+      "sha256": "7f5769b5c91eee670ae978dac754493f9b74d194a28aecf382ce4e27e05a54bb",
+      "bytes": 3994
+    },
+    {
+      "path": "cli.mjs",
+      "sha256": "269ded4fd8af6a7e5d8a8b46a7f8d73a0caec98b1f6e4543b388a18de3f61625",
+      "bytes": 987
+    },
+    {
+      "path": "mcp.mjs",
+      "sha256": "213025421c68adf7692b6c3ec4d9393764c1b9b6bb0234a62c147c3972b1fbb1",
+      "bytes": 1140
+    }
+  ]
+}

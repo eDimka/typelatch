@@ -1,0 +1,9 @@
+{
+  "name": "typelatch",
+  "version": "0.4.0",
+  "source": "packed checkout candidate",
+  "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+  "tarball": "typelatch-0.4.0.tgz",
+  "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+  "integrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg=="
+}

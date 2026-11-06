@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "rawCaptureSha256": "508ece121c067314a47e0756a1165e785d2308ae81e12287f9485cfcc2e44c50",
+  "publicRecordSha256": "18293c6f485668773ed973694d6e44725848c325f1fdbd8f450ebce978ba0d31",
+  "runId": "pnpm-global-bin-api-migration-r1-native",
+  "identicalCompletedDuplicates": 0,
+  "normalization": {
+    "rule": "Longest explicit absolute prefixes first, applied to all JSON keys and string values after original payload binding. Uncovered private machine paths fail closed.",
+    "prefixes": [
+      {
+        "prefixSha256": "2c443af80429d4b180d24aba406469bb0e6842ae52f4d75f5674db78b8110b6b",
+        "replacement": "$PROVIDER_STATE"
+      },
+      {
+        "prefixSha256": "3e57080fbb9d721ad784b6a3c7bda2a859d019ea09e079fc7aa0b6b498a7f63b",
+        "replacement": "$WORKSPACE"
+      },
+      {
+        "prefixSha256": "514d562510e28d6e6253e4bbeafa3f412d21fa2d0b985c8c8b00f0a4e994b3f4",
+        "replacement": "$STUDY"
+      },
+      {
+        "prefixSha256": "768a63684ee857a90d0c5e1aac2d644942946e9d0e89296a385f90a539686b00",
+        "replacement": "$REPOSITORY"
+      },
+      {
+        "prefixSha256": "25595d2cdeb1f5f36533058dd527c5d63be24ac139bd3226307a6d8eb4fb391f",
+        "replacement": "$TEMP_ROOT"
+      },
+      {
+        "prefixSha256": "ebfbce7eba786938bcd88fce3ee47df82501feb7171536e7afe200d36647bbb7",
+        "replacement": "$TEMP_ROOT"
+      },
+      {
+        "prefixSha256": "bb83c0ccb509c1931abaeb39d1a86a485d224480125b8ad357e10e9457d10aaf",
+        "replacement": "$TEMP_ROOT"
+      },
+      {
+        "prefixSha256": "76d509b275fdc76041a48f4ed3789b73a1588b1b6c472dff3507750705b8256f",
+        "replacement": "$TEMP_ROOT"
+      },
+      {
+        "prefixSha256": "e4693ec98d2762b9a5b34fc9dd8c540384a2a5fb719f88d14d760230b3990fc9",
+        "replacement": "$USER_HOME"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 6,
+      "outputSha256": "6aba9f70299f395acf00ab7471bc9e7a9e487d01873b9a841c514bc9a9d7fafb",
+      "outputBytes": 1234,
+      "exitCode": 1,
+      "stdout": "\n> test:typelatch-benchmark\n> TZ=UTC TSX_DISABLE_CACHE=1 node --import '$REPOSITORY/node_modules/tsx/dist/loader.mjs' '$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs'\n\n{\"passed\":false,\"cases\":3,\"failed\":1,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-KlJuJs\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-asu4tj\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-TQ12TS\"}]}\n"
+    },
+    {
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 8,
+      "outputSha256": "0539c1c9077c316f3322462dee740d458187022c6aea305ad37f739a0731394c",
+      "outputBytes": 303,
+      "exitCode": 0,
+      "stdout": "config/config/src/checkGlobalBinDir.ts:5:import { sync as canWriteToDir } from 'can-write-to-dir'\nconfig/config/src/checkGlobalBinDir.ts:13:    throw new PnpmError('NO_PATH_ENV',\nconfig/config/package.json:52:    \"can-write-to-dir\": \"2.0.0\",\npnpm-workspace.yaml:163:  can-write-to-dir: ^1.1.1\nAGENTS.md\n"
+    },
+    {
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 10,
+      "outputSha256": "a6ba3d0a8ff0a7e7102b74b06de1160f6a5b0d7aefeeb6430de7cae06e674af0",
+      "outputBytes": 7035,
+      "exitCode": 2,
+      "stdout": "# Agent Guide to pnpm Repository\n\nThis document provides context and instructions for AI agents working on the pnpm codebase.\n\n## Repository Structure\n\nThe pnpm codebase is a monorepo managed by pnpm itself. The root contains functional directories organized by domain:\n\n### Core Directories\n\n-   `pnpm/`: The CLI entry point and main package.\n-   `pkg-manager/`: Core package management logic (installation, linking, etc.).\n-   `resolving/`: Dependency resolution logic (resolvers for npm, tarballs, git, etc.).\n-   `fetching/`: Package fetching logic.\n-   `store/`: Store management logic (content-addressable storage).\n-   `lockfile/`: Lockfile handling, parsing, and utilities.\n\n### CLI & Configuration\n\n-   `cli/`: CLI command implementations and infrastructure.\n-   `config/`: Configuration management and parsing.\n-   `hooks/`: pnpm hooks (readPackage, etc.).\n-   `completion/`: Shell completion support.\n\n### Other Functional Directories\n\n-   `network/`: Network-related utilities (proxy, fetch, auth).\n-   `workspace/`: Workspace-related utilities.\n-   `exec/`: Execution-related commands (run, exec, dlx).\n-   `env/`: Node.js environment management.\n-   `cache/`: Cache-related commands and utilities.\n-   `patching/`: Package patching functionality.\n-   `reviewing/`: License and dependency review tools.\n-   `releasing/`: Release and publishing utilities.\n\n### Shared Utilities\n\n-   `packages/`: Shared utility packages (constants, error handling, logger, types, etc.).\n-   `fs/`: Filesystem utilities.\n-   `crypto/`: Cryptographic utilities.\n-   `text/`: Text processing utilities.\n\n## Setup & Build\n\nTo set up the environment and build the project:\n\n```bash\npnpm install\npnpm run compile\n```\n\n## Testing\n\nNever run all tests in the repository as it takes a lot of time.\n\nRun tests for a specific project instead:\n\n```bash\n# From the project directory\npnpm test\n\n# From the root, filtering by package name\npnpm --filter <package_name> test\n```\n\nOr better yet, run tests for a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path>\n```\n\nOr a specific test case in a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path> -t <test_name_pattern>\n```\n\n## Linting\n\nTo run all linting checks:\n\n```bash\npnpm run lint\n```\n\n## Contribution Workflow\n\n### Changesets\n\nIf your changes affect published packages, you MUST create a changeset file in the `.changeset` directory. The changeset file should describe the change and specify the packages that are affected with the pending version bump types: patch, minor, or major.\n\n**IMPORTANT: Always explicitly include `\"pnpm\"` in the changeset** with the appropriate version bump (patch, minor, or major). The pnpm CLI will only receive automatic patch bumps from its dependencies, so if your change warrants a minor or major version bump for the CLI, you must specify it explicitly. The changeset description will appear on the release notes page.\n\nExample:\n\n```\n---\n\"@pnpm/core\": minor\n\"pnpm\": minor\n---\n\nAdded a new setting `blockExoticSubdeps` that prevents the resolution of exotic protocols in transitive dependencies [#10352](https://github.com/pnpm/pnpm/issues/10352).\n```\n\n**Versioning Guidelines for pnpm CLI:**\n- **patch**: Bug fixes, internal refactors, and changes that don't require documentation updates\n- **minor**: New features, settings, or commands that should be documented (anything users should know about)\n- **major**: Breaking changes\n\n### Commit Messages\n\nFollow the [Conventional Commits](https://www.conventionalcommits.org/) specification.\n    -   `feat`: a new feature\n    -   `fix`: a bug fix\n    -   `docs`: documentation only changes\n    -   `style`: formatting, missing semi-colons, etc.\n    -   `refactor`: code change that neither fixes a bug nor adds a feature\n    -   `perf`: a code change that improves performance\n    -   `test`: adding missing tests\n    -   `chore`: changes to build process or auxiliary tools\n\n## Code Style\n\nThis repository uses [Standard Style](https://github.com/standard/standard) with a few modifications:\n-   **Trailing commas** are used.\n-   **Functions are preferred** over classes.\n-   **Functions are declared after they are used** (hoisting is relied upon).\n-   **Import Order**:\n    1.  Standard libraries (e.g., `fs`, `path`).\n    2.  External dependencies (sorted alphabetically).\n    3.  Relative imports.\n\nTo ensure your code adheres to the style guide, run:\n\n```bash\npnpm run lint\n```\n\n## Common Gotchas\n\n### Error Type Checking in Jest\n\nWhen checking if a caught error is an `Error` object, **do not use `instanceof Error`**. Jest runs tests in a VM context where `instanceof` checks can fail across realms.\n\nInstead, use `util.types.isNativeError()`:\n\n```typescript\nimport util from 'util'\n\ntry {\n  // ... some operation\n} catch (err: unknown) {\n  // ❌ Wrong - may fail in Jest\n  if (err instanceof Error && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  \n  // ✅ Correct - works across realms\n  if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  throw err\n}\n```\n\n## Key Configuration Files\n\n-   `pnpm-workspace.yaml`: Defines the workspace structure.\n-   `package.json` (root): Root scripts and devDependencies.\n-   `CONTRIBUTING.md`: Detailed contribution guidelines.\nimport { promises as fs } from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { PnpmError } from '@pnpm/error'\nimport { sync as canWriteToDir } from 'can-write-to-dir'\nimport PATH from 'path-name'\n\nexport async function checkGlobalBinDir (\n  globalBinDir: string,\n  { env, shouldAllowWrite }: { env: Record<string, string | undefined>, shouldAllowWrite?: boolean }\n): Promise<void> {\n  if (!env[PATH]) {\n    throw new PnpmError('NO_PATH_ENV',\n      `Couldn't find a global directory for executables because the \"${PATH}\" environment variable is not set.`)\n  }\n  if (!await globalBinDirIsInPath(globalBinDir, env)) {\n    throw new PnpmError('GLOBAL_BIN_DIR_NOT_IN_PATH', `The configured global bin directory \"${globalBinDir}\" is not in PATH`)\n  }\n  if (shouldAllowWrite && !canWriteToDirAndExists(globalBinDir)) {\n    throw new PnpmError('PNPM_DIR_NOT_WRITABLE', `The CLI has no write access to the pnpm home directory at ${globalBinDir}`)\n  }\n}\n\nasync function globalBinDirIsInPath (globalBinDir: string, env: Record<string, string | undefined>): Promise<boolean> {\n  const dirs = env[PATH]?.split(path.delimiter) ?? []\n  if (dirs.some((dir) => areDirsEqual(globalBinDir, dir))) return true\n  const realGlobalBinDir = await fs.realpath(globalBinDir)\n  return dirs.some((dir) => areDirsEqual(realGlobalBinDir, dir))\n}\n\nconst areDirsEqual = (dir1: string, dir2: string): boolean =>\n  path.relative(dir1, dir2) === ''\n\nfunction canWriteToDirAndExists (dir: string): boolean {\n  try {\n    return canWriteToDir(dir)\n  } catch (err: unknown) {\n    if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') return false\n    throw err\n  }\n}\nrg: node_modules/can-write-to-dir: No such file or directory (os error 2)\n"
+    },
+    {
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 12,
+      "outputSha256": "a1148793060217b7ff931d481938d1322f174e39109b571319f260509bf8f851",
+      "outputBytes": 442,
+      "exitCode": 0,
+      "stdout": "lrwxr-xr-x@ 1 dima  staff  80 Nov  6 20:45 config/config/node_modules/can-write-to-dir -> ../../../node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir\nconfig/config/node_modules/can-write-to-dir/index.d.ts\nconfig/config/node_modules/can-write-to-dir/package.json\nconfig/config/node_modules/can-write-to-dir/README.md\nconfig/config/node_modules/can-write-to-dir/index.js\nconfig/config/node_modules/can-write-to-dir/LICENSE\n"
+    },
+    {
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 14,
+      "outputSha256": "587e56bc2abbfa1ed396aa2a047a4f97a71506eecafc3ef5b6ec8e39f3ab21e6",
+      "outputBytes": 942,
+      "exitCode": 0,
+      "stdout": "export function canWriteToDir (dir: string): Promise<boolean>\nexport function canWriteToDirSync (dir: string): boolean\nimport defaultFS from 'node:fs'\nimport { pathTemp } from 'path-temp'\n\nexport async function canWriteToDir (dir, customFS) {\n  const fs = customFS || defaultFS\n  const tempFile = pathTemp(dir)\n  try {\n    await fs.promises.writeFile(tempFile, '', 'utf8')\n    fs.promises.unlink(tempFile).catch(() => {})\n    return true\n  } catch (err) {\n    if (err.code === 'EACCES' || err.code === 'EPERM' || err.code === 'EROFS') {\n      return false\n    }\n    throw err\n  }\n}\n\nexport function canWriteToDirSync (dir, customFS) {\n  const fs = customFS || defaultFS\n  const tempFile = pathTemp(dir)\n  try {\n    fs.writeFileSync(tempFile, '', 'utf8')\n    fs.unlinkSync(tempFile)\n    return true\n  } catch (err) {\n    if (err.code === 'EACCES' || err.code === 'EPERM' || err.code === 'EROFS') {\n      return false\n    }\n    throw err\n  }\n}\n"
+    },
+    {
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 19,
+      "outputSha256": "8a07fc82490bae01f26aa329f926b1cb3db1d1ca6573e9e69dc727b48ac65c8d",
+      "outputBytes": 1135,
+      "exitCode": 0,
+      "stdout": "\n> test:typelatch-benchmark\n> TZ=UTC TSX_DISABLE_CACHE=1 node --import '$REPOSITORY/node_modules/tsx/dist/loader.mjs' '$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs'\n\n{\"passed\":true,\"cases\":3,\"failed\":0,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-IjAIT1\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-aSObcz\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOTtypelatch-bin-migration-fP9j92\"}]}\n"
+    },
+    {
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 21,
+      "outputSha256": "9f93e9003c6668c91cfe8ab547c3129958f01a833779ee2aa83a2095e910c592",
+      "outputBytes": 94,
+      "exitCode": 0,
+      "stdout": " config/config/src/checkGlobalBinDir.ts | 2 +-\n 1 file changed, 1 insertion(+), 1 deletion(-)\n"
+    }
+  ],
+  "evidenceBoundary": "Only item.completed command_execution stdout and mcp_tool_call result/error payloads. No agent reasoning, assistant messages, command input, unrelated item fields or file edit bodies. Tool-returned message fields remain tool evidence."
+}

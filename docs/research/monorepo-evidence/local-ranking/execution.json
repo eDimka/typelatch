@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "kind": "development-local-selector-screen",
+  "frozenAt": "2026-11-06T17:18:30Z",
+  "casesSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+  "screenScriptSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+  "runnerSha256": "e57015c5a93bc395b139c453cbfd84c457d138058f852b2617be2dfd86c6e99d",
+  "topK": 2,
+  "repeatsPerBackend": 2,
+  "ollamaDigest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "order": [
+    "mlx-1",
+    "mlx-2",
+    "ollama-1",
+    "ollama-2"
+  ],
+  "caseOrder": "file order",
+  "noSelectiveReruns": true,
+  "timing": "Each measured command runs alone after fixture qualification; external process wall time includes interpreter startup and final serialization.",
+  "results": [
+    {
+      "id": "mlx-1",
+      "status": "finished",
+      "exitCode": 0,
+      "processWallMs": 9817.599665999296,
+      "reportStatus": "complete",
+      "reportSha256": "8ab3374dff2afa326748df48027a94dcce11c73596ff75e42219c3dce7c55a28"
+    },
+    {
+      "id": "mlx-2",
+      "status": "finished",
+      "exitCode": 0,
+      "processWallMs": 8241.604792001453,
+      "reportStatus": "complete",
+      "reportSha256": "16e7b94638622de794e36f408d6be6395522fc464385ab6ee551f804271458ba"
+    },
+    {
+      "id": "ollama-1",
+      "status": "finished",
+      "exitCode": 0,
+      "processWallMs": 16260.888083001191,
+      "reportStatus": "complete",
+      "reportSha256": "b359fd54d94c6a3787dc57e652706f1964dc348748b7792d9305566d410782df"
+    },
+    {
+      "id": "ollama-2",
+      "status": "finished",
+      "exitCode": 0,
+      "processWallMs": 15774.94191599908,
+      "reportStatus": "complete",
+      "reportSha256": "68640cd7e52c5f89b035bc2fecbceebf10ccc2de6ddcbf785dbb876e83225d40"
+    }
+  ]
+}

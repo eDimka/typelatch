@@ -20,6 +20,8 @@ Requires Node.js 22.12 or newer, npm, Bash, and the Codex or Claude Code CLI.
 npx typelatch@0.3.0 setup
 ```
 
+These commands install the published 0.3.0 release. [Unreleased development](https://github.com/eDimka/typelatch/pull/3) is tracked separately.
+
 Choose your client and confirm registration. Start a new client session in your project, then ask:
 
 ```text
@@ -43,7 +45,7 @@ npx typelatch@0.3.0 scope add apps/web packages/ui
 npx typelatch@0.3.0 sync
 ```
 
-Supports npm, pnpm, Yarn and Bun text lockfiles. [Choose projects and manage scopes](docs/USAGE.md#keep-a-monorepo-subset).
+The published package supports npm package locks and shrinkwrap, pnpm, Yarn Classic and modern Yarn, and Bun text locks. Binary Bun and Deno npm support are [unreleased additions](https://github.com/eDimka/typelatch/pull/3). [Supported formats and limits](docs/USAGE.md#library-discovery) · [Project scopes](docs/USAGE.md#keep-a-monorepo-subset).
 
 ## Start with a question
 
@@ -68,6 +70,23 @@ Prefer the terminal?
 ```sh
 npx typelatch@0.3.0 search "Where do we validate incoming requests?" --compact --json
 ```
+
+## Codex with and without Typelatch
+
+[![Recorded Codex actions using native tools and the Typelatch source experiment](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-guided-comparison.gif)](https://edimka.github.io/typelatch/#guided-benchmark)
+
+The source experiment used **11.9% more tokens and 20.6% more time than native tools** on two real pnpm repairs. It did not meet the savings gate. This accelerated action replay uses the first pair, selected before results. The experimental tool is separate from the published package.
+
+| Four sessions per condition | Native tools | Serena 2.1.0 | Source experiment |
+| :--- | ---: | ---: | ---: |
+| Grep shell calls | 9 | 6 | 4 |
+| Total tokens | 361,367 | 636,774 | 404,262 |
+| Agent time plus provider setup | 96.9 s | 130.8 s | 116.9 s |
+| Correct solutions | 4/4 | 4/4 | 4/4 |
+
+All conditions received the same tasks and workflow policy, plus an explicit inventory of their available tools. Tokens include cached input once. Both tasks are localized repairs inside an older 198 package pnpm snapshot. This does not establish a scaling advantage or a general ranking. [Every run, returned tool output and method](docs/BENCHMARKS.md#instructed-tool-use).
+
+Earlier evidence remains available: the [0.4.0 package candidate](docs/benchmarks/typelatch-040-candidate/paired-agent.json) used 63.0% more tokens and 44.8% more charged time on three authored tasks. A separate [16 session availability study](docs/benchmarks/monorepo-agent-study/report.json) observed zero MCP use. [Original 0.3.0 results](docs/benchmarks/typelatch-use/paired-agent.json).
 
 ## From a bug to a checked change
 
@@ -174,6 +193,8 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 | `library_stats` | Inspect local usage and outcome aggregates |
 
 Search, compiler resolution, compilation and execution have separate evidence states. Missing evidence stays visible. [Tool reference](docs/USAGE.md#mcp-tool-reference).
+
+Validation returns checks, diagnostics, test output and input manifests. Use `record: false` or `TYPELATCH_USAGE=off` to disable saving.
 
 ## Your code stays local
 

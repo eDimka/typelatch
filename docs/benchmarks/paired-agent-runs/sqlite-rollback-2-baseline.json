@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "sqlite-rollback-2-baseline",
+    "task": "sqlite-rollback",
+    "repeat": 2,
+    "arm": "baseline",
+    "startedAt": "2026-11-06T15:17:05.076Z",
+    "finishedAt": "2026-11-06T15:17:28.474Z",
+    "elapsedMs": 23397.569790999987,
+    "setupMs": 3550,
+    "indexSetupMs": 0,
+    "gradingMs": 2240.8587080000434,
+    "status": "completed",
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "correct": true,
+    "usage": {
+      "inputTokens": 75370,
+      "cachedInputTokens": 66560,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 653,
+      "reasoningOutputTokens": 36,
+      "totalTokens": 76023,
+      "uncachedInputTokens": 8810
+    },
+    "counts": {
+      "shellCalls": 6,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 3,
+      "contentSearchShellCalls": 2,
+      "fileListingShellCalls": 2,
+      "ambiguousSearchShellCalls": 0
+    },
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "fixtureSha256": "c256a5f5608d06a58fa3c4ba6006b64e754e7f76b9e33907b55a87771c007f7c",
+    "promptSha256": "b070d64fa663c50290258763c111b3cd1efbe6bcb52b085e9dd20fd72775a19c",
+    "rawSha256": "23b02841d7c9fe30312c7a14c6c11e96726f7e284b50d8622a6a487f669ddfd3",
+    "evidence": "paired-agent-runs/sqlite-rollback-2-baseline.json",
+    "recordingError": null
+  },
+  "prompt": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding. Valid batches must commit completely, failed batches must leave all earlier database rows intact and no new batch rows, and constraint errors must propagate to the caller. Empty batches must leave the database unchanged. Preserve the existing exported functions and types.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.",
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg --files -g '\"'!node_modules'\"' -g '\"'!package-lock.json'\"' -g '\"'!yarn.lock'\"' -g '\"'!pnpm-lock.yaml'\"'\"",
+      "outputBytes": 131,
+      "outputSha256": "83a857327d1053262a31f7f6666d464295fce009265388cc0c990b306f00d227",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 4763.308415999985,
+      "completedMs": 4763.308415999985
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "command": "/bin/zsh -c \"cat batch.ts batch.test.ts package.json; rg --files --hidden -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!.git'\"'; rg --files node_modules | rg '(sqlite|transaction)'\"",
+      "outputBytes": 9022,
+      "outputSha256": "33506eb0bd18337002cb8107db73d1571008fa3ff2ca0cab12786165626e9b8d",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 7311.657082999998,
+      "completedMs": 7311.894333000004
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "command": "/bin/zsh -c \"rg -n -A 58 'async execute\\\\(callback\\\\)' node_modules/kysely/dist/esm/kysely.js; rg -n -A 24 'transaction\\\\(\\\\)' node_modules/kysely/dist/esm/kysely.d.ts | head -70\"",
+      "outputBytes": 6312,
+      "outputSha256": "ebeea2dda6bdf7ce35ae9af6de68eaee374a36615c98fd07a2393e4d63f84e6b",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 10949.862874999992,
+      "completedMs": 10949.862874999992
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 1729,
+      "outputSha256": "8e063e011784b28c3dad8b554d605ff3824e6b43f848b2a72adc3112bdc765a2",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 11053.346790999989,
+      "completedMs": 11289.750041000021
+    },
+    {
+      "type": "file_change",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "/private$WORKSPACE/batch.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 17274.95199999999,
+      "completedMs": 17300.891915999993
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 936,
+      "outputSha256": "c7b8641072975f590c4f08301dbb411e7cd06f70f009cb84d2a29ec947d4ebf4",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 17457.601375000027,
+      "completedMs": 17597.48629099998
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run build'",
+      "outputBytes": 302,
+      "outputSha256": "414c3a1f61ae21616e25da5cbb01053fa7e0bb57476358bacde736e7e19c80e3",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 17727.48541600001,
+      "completedMs": 17727.48541600001
+    }
+  ],
+  "baseline": {
+    "taskId": "sqlite-rollback",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1794,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": null,
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--experimental-strip-types",
+        "--test",
+        "--test-reporter=tap",
+        "batch.test.ts"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 190,
+      "stdout": "TAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 4.916917\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nnot ok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 2.308375\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 1,\n          name: 'existing'\n        },\n    +   {\n    +     id: 2,\n    +     name: 'must roll back'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'existing'\n  actual:\n    0:\n      id: 1\n      name: 'existing'\n    1:\n      id: 2\n      name: 'must roll back'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 1\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 149.092792\n",
+      "stderr": "",
+      "tests": 2,
+      "pass": 1,
+      "fail": 1,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--experimental-strip-types",
+        "--test",
+        "--test-reporter=tap",
+        "hidden.test.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 178,
+      "stdout": "TAP version 13\n# Subtest: valid batches bind unusual names as data\nok 1 - valid batches bind unusual names as data\n  ---\n  duration_ms: 4.29325\n  type: 'test'\n  ...\n# Subtest: conflict with an existing name preserves all earlier rows\nnot ok 2 - conflict with an existing name preserves all earlier rows\n  ---\n  duration_ms: 2.557084\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      [\n        {\n          id: 1,\n          name: 'old one'\n        },\n    ...\n        },\n    +   {\n    +     id: 3,\n    +     name: 'new one'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 1\n      name: 'old one'\n    1:\n      id: 2\n      name: 'old two'\n  actual:\n    0:\n      id: 1\n      name: 'old one'\n    1:\n      id: 2\n      name: 'old two'\n    2:\n      id: 3\n      name: 'new one'\n  operator: 'deepStrictEqual'\n  stack: |-\n    file://$TEMP\n    async TestContext.<anonymous> (file://$TEMP\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: duplicate names inside the same new batch roll back all inserts\nnot ok 3 - duplicate names inside the same new batch roll back all inserts\n  ---\n  duration_ms: 1.07125\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n    + [\n    +   {\n    +     id: 10,\n    +     name: 'a'\n    +   },\n    +   {\n    +     id: 20,\n    +     name: 'b'\n    +   }\n    + ]\n    - []\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n  actual:\n    0:\n      id: 10\n      name: 'a'\n    1:\n      id: 20\n      name: 'b'\n  operator: 'deepStrictEqual'\n  stack: |-\n    file://$TEMP\n    async TestContext.<anonymous> (file://$TEMP\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: primary key conflicts also roll back and propagate their original error\nnot ok 4 - primary key conflicts also roll back and propagate their original error\n  ---\n  duration_ms: 0.722208\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      [\n        {\n          id: 2,\n          name: 'already here'\n        },\n    +   {\n    +     id: 5,\n    +     name: 'must disappear'\n    +   }\n      ]\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    0:\n      id: 2\n      name: 'already here'\n  actual:\n    0:\n      id: 2\n      name: 'already here'\n    1:\n      id: 5\n      name: 'must disappear'\n  operator: 'deepStrictEqual'\n  stack: |-\n    file://$TEMP\n    async TestContext.<anonymous> (file://$TEMP\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: empty batches preserve existing rows\nok 5 - empty batches preserve existing rows\n  ---\n  duration_ms: 0.434\n  type: 'test'\n  ...\n# Subtest: failure on the first row performs no partial deletion or insert\nok 6 - failure on the first row performs no partial deletion or insert\n  ---\n  duration_ms: 0.392666\n  type: 'test'\n  ...\n# Subtest: frozen input remains unchanged\nok 7 - frozen input remains unchanged\n  ---\n  duration_ms: 0.379625\n  type: 'test'\n  ...\n# Subtest: the database accepts another complete batch after rollback\nnot ok 8 - the database accepts another complete batch after rollback\n  ---\n  duration_ms: 0.393083\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: 'UNIQUE constraint failed: contact.id'\n  code: 'SQLITE_CONSTRAINT_PRIMARYKEY'\n  name: 'SqliteError'\n  stack: |-\n    SqliteConnection.executeQuery (file://$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/kysely/dist/esm/dialect/sqlite/sqlite-driver.js:68:51)\n    file://$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/kysely/dist/esm/query-executor/query-executor-base.js:35:45\n    DefaultConnectionProvider.provideConnection (file://$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/kysely/dist/esm/driver/default-connection-provider.js:10:26)\n    async DefaultQueryExecutor.executeQuery (file://$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/kysely/dist/esm/query-executor/query-executor-base.js:34:16)\n    async InsertQueryBuilder.execute (file://$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/kysely/dist/esm/query-builder/insert-query-builder.js:1106:24)\n    async importContacts (file://$TEMP\n    async file://$TEMP\n    async TestContext.<anonymous> (file://$TEMP\n    async Test.run (node:internal/test_runner/test:1054:7)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..8\n# tests 8\n# suites 0\n# pass 4\n# fail 4\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 142.96025\n",
+      "stderr": "",
+      "tests": 8,
+      "pass": 4,
+      "fail": 4,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": false
+  },
+  "preparation": null,
+  "grading": {
+    "taskId": "sqlite-rollback",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/sqlite/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1756,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": null,
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--experimental-strip-types",
+        "--test",
+        "--test-reporter=tap",
+        "batch.test.ts"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 184,
+      "stdout": "TAP version 13\n# {\"assertion\":\"parameter binding and exact round trip\",\"sql\":\"insert into \\\\\"contact\\\\\" (\\\\\"id\\\\\", \\\\\"name\\\\\") values (?, ?)\",\"parameters\":[1,\"O'Reilly\"],\"rows\":[{\"id\":1,\"name\":\"O'Reilly\"},{\"id\":2,\"name\":\"Robert'); DROP TABLE contact;--\"}]}\n# {\"assertion\":\"whole batch rollback\",\"rejectedCode\":\"SQLITE_CONSTRAINT_UNIQUE\",\"rows\":[{\"id\":1,\"name\":\"existing\"}]}\n# Subtest: commits the whole valid batch and binds a quote as data\nok 1 - commits the whole valid batch and binds a quote as data\n  ---\n  duration_ms: 5.24775\n  type: 'test'\n  ...\n# Subtest: UNIQUE failure rolls back an earlier insert in the same batch\nok 2 - UNIQUE failure rolls back an earlier insert in the same batch\n  ---\n  duration_ms: 1.971875\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 143.645125\n",
+      "stderr": "",
+      "tests": 2,
+      "pass": 2,
+      "fail": 0,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--experimental-strip-types",
+        "--test",
+        "--test-reporter=tap",
+        "hidden.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 180,
+      "stdout": "TAP version 13\n# Subtest: valid batches bind unusual names as data\nok 1 - valid batches bind unusual names as data\n  ---\n  duration_ms: 4.639833\n  type: 'test'\n  ...\n# Subtest: conflict with an existing name preserves all earlier rows\nok 2 - conflict with an existing name preserves all earlier rows\n  ---\n  duration_ms: 1.987708\n  type: 'test'\n  ...\n# Subtest: duplicate names inside the same new batch roll back all inserts\nok 3 - duplicate names inside the same new batch roll back all inserts\n  ---\n  duration_ms: 0.912833\n  type: 'test'\n  ...\n# Subtest: primary key conflicts also roll back and propagate their original error\nok 4 - primary key conflicts also roll back and propagate their original error\n  ---\n  duration_ms: 0.769958\n  type: 'test'\n  ...\n# Subtest: empty batches preserve existing rows\nok 5 - empty batches preserve existing rows\n  ---\n  duration_ms: 0.574833\n  type: 'test'\n  ...\n# Subtest: failure on the first row performs no partial deletion or insert\nok 6 - failure on the first row performs no partial deletion or insert\n  ---\n  duration_ms: 0.687375\n  type: 'test'\n  ...\n# Subtest: frozen input remains unchanged\nok 7 - frozen input remains unchanged\n  ---\n  duration_ms: 0.532917\n  type: 'test'\n  ...\n# Subtest: the database accepts another complete batch after rollback\nok 8 - the database accepts another complete batch after rollback\n  ---\n  duration_ms: 0.6495\n  type: 'test'\n  ...\n1..8\n# tests 8\n# suites 0\n# pass 8\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 145.752042\n",
+      "stderr": "",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [
+        "batch.ts"
+      ],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": true
+  },
+  "changes": [
+    {
+      "path": "batch.ts",
+      "before": "import Database from 'better-sqlite3'\nimport { Kysely, SqliteDialect } from 'kysely'\n\nexport interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })\n  })\n  await db.schema.createTable('contact')\n    .addColumn('id', 'integer', column => column.primaryKey())\n    .addColumn('name', 'text', column => column.notNull().unique())\n    .execute()\n  return db\n}\n\nexport async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  for (const contact of contacts) {\n    await db.insertInto('contact').values(contact).execute()\n  }\n}\n",
+      "after": "import Database from 'better-sqlite3'\nimport { Kysely, SqliteDialect } from 'kysely'\n\nexport interface Contact {\n  id: number\n  name: string\n}\n\ninterface Tables {\n  contact: Contact\n}\n\nexport async function createDatabase() {\n  const db = new Kysely<Tables>({\n    dialect: new SqliteDialect({ database: new Database(':memory:') })\n  })\n  await db.schema.createTable('contact')\n    .addColumn('id', 'integer', column => column.primaryKey())\n    .addColumn('name', 'text', column => column.notNull().unique())\n    .execute()\n  return db\n}\n\nexport async function importContacts(db: Kysely<Tables>, contacts: Contact[]) {\n  await db.transaction().execute(async trx => {\n    for (const contact of contacts) {\n      await trx.insertInto('contact').values(contact).execute()\n    }\n  })\n}\n"
+    }
+  ],
+  "fixture": {
+    "fileCount": 1498,
+    "manifestSha256": "c256a5f5608d06a58fa3c4ba6006b64e754e7f76b9e33907b55a87771c007f7c",
+    "dependencies": [
+      {
+        "path": "node_modules/typescript/package.json",
+        "name": "typescript",
+        "version": "6.0.3",
+        "sha256": "9332e97c30d3e53ed54910b89207ed657fb444066484df6e5b6965bf130865e9"
+      },
+      {
+        "path": "node_modules/kysely/package.json",
+        "name": "kysely",
+        "version": "0.28.19",
+        "sha256": "cd1672263acb9414a732f157bc75309311fcf011ae604c25d721f2f105e50c4b"
+      },
+      {
+        "path": "node_modules/better-sqlite3/package.json",
+        "name": "better-sqlite3",
+        "version": "13.0.3",
+        "sha256": "6c9ea355190dfce3646ad4d2a31c9506de36d884a6461b3655a2a0c4ba3d1695"
+      }
+    ]
+  },
+  "recording": "Allowlisted completed public tool actions, final source changes, independent test output, and measured usage only. Model reasoning and message bodies are not exported. Full initial file inventory is retained locally; its digest includes installed dependencies."
+}

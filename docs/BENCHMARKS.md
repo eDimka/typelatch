@@ -1,5 +1,83 @@
 # Benchmarks
 
+## Instructed tool use
+
+The compact source experiment did not meet the performance gate. Across two real pnpm repairs, repeated twice, it used **11.9% more tokens and 20.6% more charged time than native tools**. All twelve solutions passed independent grading. Compared with Serena, it saved 36.5% of tokens and 10.6% of time, below the required 20% time reduction.
+
+| Four sessions per condition | Total tokens | Charged time | Grep shell calls | Shell calls | MCP calls | Correct |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Native tools | 361,367 | 96.9 s | 9 | 25 | 0 | 4/4 |
+| Serena 2.1.0 | 636,774 | 130.8 s | 6 | 26 | 12 | 4/4 |
+| Typelatch source packet v2 experiment | 404,262 | 116.9 s | 4 | 26 | 4 | 4/4 |
+
+Fewer grep calls did not reduce overall tool use. The experiment made four MCP calls alongside 26 shell calls; native used 25 shell calls. The experiment keeps the exact package candidate backend but changes source selection and response formatting. It is separate from the published package interface.
+
+All arms received the same task and workflow policy, with an explicit inventory naming their configured provider and tools, or none for native. Each exact sent prompt is recorded. The policy requires the supplied failing check, a relevant provider retrieval when available, a minimal repair, and the passing check. After the first investigation, tool choice is free. The separate three arm design and review rules were frozen before these sessions. A retained three session pilot exposed ambiguous provider discovery; its costs remain unchanged and are never pooled into this study.
+
+The frozen gate requires at least 20% lower tokens and charged time against both native tools and Serena, in aggregate and median paired reductions. Both repeat aggregates must improve. All four candidate fixes must pass. Complete capture, cleanup, validation and independent workflow review are required. Cached input is included once; all provider startup, queries, failures, fallbacks and native checks are charged. Common corpus copying and independent grading are separate.
+
+These are two localized repairs in pnpm v10.32.1, with 198 workspace packages. Each needs one implementation file, and failing checks provide useful debugging clues. Public repairs may be in model training data. Two repeats, one repository, warm host caches and a model alias without an immutable served snapshot limit generalization. This is not evidence of scaling, universal superiority or a statistical confidence bound.
+
+[All results](benchmarks/monorepo-guided-study/report.json) · [Frozen protocol](benchmarks/monorepo-guided-study/protocol.json) · [Independent workflow review](benchmarks/monorepo-guided-study/workflow-audit.json) · [Reviewed decision](benchmarks/monorepo-guided-study/adjudication.json) · [Retained pilot](benchmarks/monorepo-guided-study/pilot-001/report.json)
+
+## Large monorepo availability
+
+Two real, localized repairs in the pinned pnpm repository, with 198 workspace packages. Each condition ran both tasks twice. All 16 solutions passed independent checks, and every session made zero MCP calls. Neither candidate met the frozen savings gate. Differences in these runs do not demonstrate a benefit from retrieval.
+
+| Four sessions per condition | Total tokens | Charged time | Grep shell calls | MCP calls | Correct |
+| :--- | ---: | ---: | ---: | ---: | ---: |
+| Native tools | 361,174 | 106.7 s | 10 | 0 | 4/4 |
+| Serena 2.1.0 available | 378,639 | 103.3 s | 11 | 0 | 4/4 |
+| Typelatch 0.4.0 candidate available | 407,578 | 100.2 s | 12 | 0 | 4/4 |
+| Compact source experiment available | 393,729 | 104.3 s | 12 | 0 | 4/4 |
+
+Tokens include cached input and output once. Charged time includes provider setup and the complete agent session. Shared fixture copying and independent grading remain separate. The gate requires at least 20% aggregate and median paired savings in both metrics against native tools and Serena, improvement in each repeat, and preserved correctness. Each task needs one implementation file, and the failing checks provide useful debugging clues. This is not a scaling study.
+
+[All runs](benchmarks/monorepo-agent-study/report.json) · [Frozen protocol](benchmarks/monorepo-agent-study/protocol.json) · [Independent review](benchmarks/monorepo-agent-study/independent-review.json) · [Retained launch failures](benchmarks/monorepo-agent-study/infrastructure-attempt-001/report.json) · [Reproduction and six tool comparisons](research/monorepo-evidence/README.md)
+
+## Paired agent comparison
+
+[Results](https://edimka.github.io/typelatch/#benchmark) · [Current candidate evidence](benchmarks/typelatch-040-candidate/paired-agent.json) · [Candidate protocol](benchmarks/typelatch-040-candidate/paired-agent-protocol.json) · [Original 0.3.0 evidence](benchmarks/typelatch-use/paired-agent.json)
+
+The latest recorded candidate uses compact MCP validation responses. It did not meet the performance gate: total model tokens increased 63.0%, and agent time plus index preparation increased 44.8%. Correctness was five of six sessions with Typelatch and four of six without it. This is the packed `typelatch@0.4.0` checkout candidate identified by the report's archive digest, not evidence about an npm release.
+
+| Latest candidate totals | Without Typelatch | With Typelatch |
+| :--- | ---: | ---: |
+| Grep shell calls | 22 | 13 |
+| Input plus output tokens | 954,947 | 1,556,137 |
+| Agent time | 320.0 s | 430.9 s |
+| Index preparation | 0.0 s | 32.4 s |
+| Agent time plus indexing | 320.0 s | 463.3 s |
+| Correct solutions | 4 / 6 | 5 / 6 |
+
+The frozen gate required at least 10% improvement in both total tokens and charged time, in aggregate and median paired reductions, improvement in both repeats, and no correctness decline overall or per task. All twelve sessions remain included. Common fixture preparation, final independent grading and installation of the shared benchmark runtime are outside this gate and remain separately disclosed. Candidate results and the original 0.3.0 study are not pooled.
+
+Three authored TypeScript tasks, two repetitions per condition, twelve fresh Codex sessions. Tasks cover SQLite rollback, cart preview correctness, and an Effect manifest validator. The latter two share a 57 source file project.
+
+Both studies use Codex CLI 0.166.0, requested model `gpt-6.1-sol`, medium reasoning, identical task and workflow prompts within each pair, starting source, dependencies, native tools and permissions. The shared prompt requires source discovery, installed API inspection and tests before and after editing. It directs the agent to Typelatch when available and native equivalents otherwise. The original study provides published `typelatch@0.3.0` MCP tools; the current study uses the captured 0.4.0 candidate. Runs are sequential, with condition order reversed for the second repetition. All attempts remain in the results. Only workspace paths in two generated native build files are normalized when comparing initial inventories; original hashes are retained.
+
+| Metric | Definition |
+| :--- | :--- |
+| Grep calls | Completed shell call groups invoking `rg`, `grep`, `egrep` or `fgrep`. Compound calls count once. Content search and file listing are separate. |
+| Tokens | Terminal CLI input plus output. Cached input and reasoning output are included subsets, never added twice. Missing usage stays unknown. |
+| Agent time | Process launch to exit, including MCP startup and tool execution. |
+| Preparation | Fixture installation and baseline checks, plus separate Typelatch dependency indexing. Excluded from agent time. Source search starts with an empty cache. |
+| Correctness | Independent compilation, public tests, held out assertions, API contracts and protected file checks after the agent exits. |
+
+All shell and MCP calls are reported. Search counts do not cover searches hidden in scripts, aliases or other tools. Token accounting follows the [CLI JSON events](https://learn.chatgpt.com/docs/non-interactive-mode), not a billing estimate. Provider caching remains enabled. The model alias is pinned; a provider snapshot and sampling seed are unavailable.
+
+Each broken fixture must compile and fail its intended regression; reference fixes must pass. Grading copies the final implementation into a fresh directory with trusted tests, configuration and dependencies. It ignores the agent's generated build output. File integrity checks include installed dependencies and reject changes outside existing implementation files. Public evidence includes commands, final source changes, test results and hashes; model reasoning and authentication data are excluded.
+
+A separate [automatic choice study](benchmarks/paired-agent.json) retained twelve runs with neutral tool instructions. None of its six sessions with Typelatch enabled called MCP. Its results remain separate from the explicit tool use comparison.
+
+### Reproduce
+
+Use an authenticated Codex CLI and the recorded lockfiles. Use npm 10.9.8 for the captured Typelatch 0.3.0 runtime; npm 12 response compatibility starts in Typelatch 0.4.0. Install `typelatch@0.3.0` in `artifacts/paired-agent/runtime`. Run `node --test scripts/paired-agent*.test.mjs`. For a new study, run `node scripts/paired-agent-use.mjs --freeze --output-directory artifacts/paired-agent/new-study`, then the same command with `--run` instead of `--freeze`. The runner refuses to overwrite existing evidence. Fixtures and independent assertions are in `scripts/fixtures/paired-agent`.
+
+The candidate capture uses `scripts/paired-agent-candidate.mjs`, the archive identity and frozen inputs in its protocol. Rebuilding a different checkout with the same version number does not reproduce that artifact. The candidate runner retains every preparation and launch attempt and refuses replacement runs. Its first SQLite pair was selected for the action replay before scoring, regardless of outcome.
+
+These are known development exercises, not unseen production tasks. Two repetitions do not add task diversity. Machine load, network latency, provider caching and sampling affect measurements. Starting from an empty machine also incurs the separately reported preparation costs. Results describe this sample and do not establish a general performance guarantee.
+
 ## Method
 
 The retrieval suite contains 73 authored questions across ten pinned npm packages. Each case preserves its expected API symbols. The strict case score passes when every expected symbol appears in the first five results. Recall measures the fraction of expected symbols returned. Mean reciprocal rank averages reciprocal positions across all expected symbols, including zero for missing symbols. A separate discovery hit records whether at least one expected symbol appeared.

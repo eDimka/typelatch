@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "status": "behavior-qualified-setup-ineligible",
+  "reason": "Prepared source inherited seven rewritten absolute committed symlinks. Behavioral results remain valid as captured; this corpus is ineligible for scored agent use. A fresh attempt will restore exact committed targets before freeze.",
+  "qualificationSha256": "f2316dba409bbcb3f4a64c4a8a148a50b38ec9ed8dbb02a2ab4439a7d60c2132",
+  "createdAt": "2026-11-06T17:51:13.903Z"
+}

@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 1,
+  "status": "qualification-failed",
+  "startedAt": "2026-11-06T18:29:30.544Z",
+  "source": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "baselineCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "upstreamMigration": "3a5bfaa94fdf28db21cae8d6a86bd8d76ab70a84",
+    "upstreamParent": "56b065dd47e71c79aa748c81d76369deef95a529",
+    "pullRequest": "https://github.com/pnpm/pnpm/pull/10930",
+    "adaptation": "Isolate one genuine upstream API migration: @pnpm/config changes its direct can-write-to-dir dependency to2.0.0, while the rest of the older monorepo retains its dependency declarations. This is an explicit upgrade fixture, not an existing defect in the untouched old lockfile."
+  },
+  "results": {
+    "baseline": {
+      "public": {
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs"
+        ],
+        "exitCode": 1,
+        "signal": null,
+        "elapsedMs": 162.95812499999738,
+        "stdout": "{\"passed\":false,\"cases\":3,\"failed\":1,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-f9M9zO\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-eI6WiN\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-lvrT4C\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": false,
+          "cases": 3,
+          "failed": 1,
+          "results": [
+            {
+              "id": "writable-global-directory",
+              "passed": false,
+              "expectedError": null,
+              "actual": {
+                "ok": false,
+                "name": "TypeError",
+                "code": null,
+                "message": "(0 , import_can_write_to_dir.sync) is not a function"
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-f9M9zO"
+            },
+            {
+              "id": "write-check-disabled",
+              "passed": true,
+              "expectedError": null,
+              "actual": {
+                "ok": true
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-eI6WiN"
+            },
+            {
+              "id": "missing-path-setting",
+              "passed": true,
+              "expectedError": "ERR_PNPM_NO_PATH_ENV",
+              "actual": {
+                "ok": false,
+                "name": "Error",
+                "code": "ERR_PNPM_NO_PATH_ENV",
+                "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-lvrT4C"
+            }
+          ]
+        },
+        "error": null
+      },
+      "private": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs"
+          ],
+          "exitCode": 1,
+          "signal": null,
+          "elapsedMs": 124.8554590000058,
+          "stdout": "{\"passed\":false,\"cases\":11,\"failed\":6,\"results\":[{\"id\":\"writable-directory\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-FN1vvi\"},{\"id\":\"writable-spaced-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-8K9Pif\"},{\"id\":\"writable-multiple-path-entries\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-zGPICr\"},{\"id\":\"symlink-matches-real-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-gKeb1z/linked-bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-gKeb1z\"},{\"id\":\"missing-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-AaoMeu\"},{\"id\":\"readonly-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-7tBhU2\"},{\"id\":\"missing-directory-without-write-check\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-D2tXd6\"},{\"id\":\"directory-prefix-is-not-path-membership\",\"passed\":true,\"expectedError\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-TSJPUB/bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-TSJPUB\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-on0nEJ\"},{\"id\":\"empty-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-9bBWeu\"},{\"id\":\"optional-write-check-omitted\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-aYiAAq\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": false,
+            "cases": 11,
+            "failed": 6,
+            "results": [
+              {
+                "id": "writable-directory",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "TypeError",
+                  "code": null,
+                  "message": "(0 , import_can_write_to_dir.sync) is not a function"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-FN1vvi"
+              },
+              {
+                "id": "writable-spaced-path",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "TypeError",
+                  "code": null,
+                  "message": "(0 , import_can_write_to_dir.sync) is not a function"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-8K9Pif"
+              },
+              {
+                "id": "writable-multiple-path-entries",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "TypeError",
+                  "code": null,
+                  "message": "(0 , import_can_write_to_dir.sync) is not a function"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-zGPICr"
+              },
+              {
+                "id": "symlink-matches-real-path",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-gKeb1z/linked-bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-gKeb1z"
+              },
+              {
+                "id": "missing-directory-rejected",
+                "passed": false,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": false,
+                  "name": "TypeError",
+                  "code": null,
+                  "message": "(0 , import_can_write_to_dir.sync) is not a function"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-AaoMeu"
+              },
+              {
+                "id": "readonly-directory-rejected",
+                "passed": false,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": false,
+                  "name": "TypeError",
+                  "code": null,
+                  "message": "(0 , import_can_write_to_dir.sync) is not a function"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-7tBhU2"
+              },
+              {
+                "id": "missing-directory-without-write-check",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-D2tXd6"
+              },
+              {
+                "id": "directory-prefix-is-not-path-membership",
+                "passed": true,
+                "expectedError": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-TSJPUB/bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-TSJPUB"
+              },
+              {
+                "id": "missing-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-on0nEJ"
+              },
+              {
+                "id": "empty-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-9bBWeu"
+              },
+              {
+                "id": "optional-write-check-omitted",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-aYiAAq"
+              }
+            ]
+          },
+          "error": null
+        }
+      }
+    },
+    "reference": {
+      "public": {
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "elapsedMs": 126.61362499999814,
+        "stdout": "{\"passed\":true,\"cases\":3,\"failed\":0,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-aJypXq\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-uaGwD9\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-cRLtpw\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": true,
+          "cases": 3,
+          "failed": 0,
+          "results": [
+            {
+              "id": "writable-global-directory",
+              "passed": true,
+              "expectedError": null,
+              "actual": {
+                "ok": true
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-aJypXq"
+            },
+            {
+              "id": "write-check-disabled",
+              "passed": true,
+              "expectedError": null,
+              "actual": {
+                "ok": true
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-uaGwD9"
+            },
+            {
+              "id": "missing-path-setting",
+              "passed": true,
+              "expectedError": "ERR_PNPM_NO_PATH_ENV",
+              "actual": {
+                "ok": false,
+                "name": "Error",
+                "code": "ERR_PNPM_NO_PATH_ENV",
+                "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-cRLtpw"
+            }
+          ]
+        },
+        "error": null
+      },
+      "private": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [
+            "config/config/src/checkGlobalBinDir.ts"
+          ],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs"
+          ],
+          "exitCode": 1,
+          "signal": null,
+          "elapsedMs": 129.27529199999844,
+          "stdout": "{\"passed\":false,\"cases\":11,\"failed\":1,\"results\":[{\"id\":\"writable-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-EeizMt\"},{\"id\":\"writable-spaced-path\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-RenJyd\"},{\"id\":\"writable-multiple-path-entries\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-U3vX7Q\"},{\"id\":\"symlink-matches-real-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-ywwUfe/linked-bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-ywwUfe\"},{\"id\":\"missing-directory-rejected\",\"passed\":true,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"message\":\"The CLI has no write access to the pnpm home directory at $TEMP_ROOT/typelatch-bin-migration-MMYzGm/bin\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-MMYzGm\"},{\"id\":\"readonly-directory-rejected\",\"passed\":true,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"message\":\"The CLI has no write access to the pnpm home directory at $TEMP_ROOT/typelatch-bin-migration-obVsI7/bin\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-obVsI7\"},{\"id\":\"missing-directory-without-write-check\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-fbgpJz\"},{\"id\":\"directory-prefix-is-not-path-membership\",\"passed\":true,\"expectedError\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-xq1QOA/bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-xq1QOA\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-9afSzs\"},{\"id\":\"empty-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-veoohp\"},{\"id\":\"optional-write-check-omitted\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-eNpv3A\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": false,
+            "cases": 11,
+            "failed": 1,
+            "results": [
+              {
+                "id": "writable-directory",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-EeizMt"
+              },
+              {
+                "id": "writable-spaced-path",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-RenJyd"
+              },
+              {
+                "id": "writable-multiple-path-entries",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-U3vX7Q"
+              },
+              {
+                "id": "symlink-matches-real-path",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-ywwUfe/linked-bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-ywwUfe"
+              },
+              {
+                "id": "missing-directory-rejected",
+                "passed": true,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                  "message": "The CLI has no write access to the pnpm home directory at $TEMP_ROOT/typelatch-bin-migration-MMYzGm/bin"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-MMYzGm"
+              },
+              {
+                "id": "readonly-directory-rejected",
+                "passed": true,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                  "message": "The CLI has no write access to the pnpm home directory at $TEMP_ROOT/typelatch-bin-migration-obVsI7/bin"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-obVsI7"
+              },
+              {
+                "id": "missing-directory-without-write-check",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-fbgpJz"
+              },
+              {
+                "id": "directory-prefix-is-not-path-membership",
+                "passed": true,
+                "expectedError": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-xq1QOA/bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-xq1QOA"
+              },
+              {
+                "id": "missing-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-9afSzs"
+              },
+              {
+                "id": "empty-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-veoohp"
+              },
+              {
+                "id": "optional-write-check-omitted",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-eNpv3A"
+              }
+            ]
+          },
+          "error": null
+        }
+      }
+    },
+    "async-control": {
+      "public": {
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs"
+        ],
+        "exitCode": 0,
+        "signal": null,
+        "elapsedMs": 124.90579099999741,
+        "stdout": "{\"passed\":true,\"cases\":3,\"failed\":0,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-4FNmEV\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-Vn2JrP\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-NiW6Mw\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": true,
+          "cases": 3,
+          "failed": 0,
+          "results": [
+            {
+              "id": "writable-global-directory",
+              "passed": true,
+              "expectedError": null,
+              "actual": {
+                "ok": true
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-4FNmEV"
+            },
+            {
+              "id": "write-check-disabled",
+              "passed": true,
+              "expectedError": null,
+              "actual": {
+                "ok": true
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-Vn2JrP"
+            },
+            {
+              "id": "missing-path-setting",
+              "passed": true,
+              "expectedError": "ERR_PNPM_NO_PATH_ENV",
+              "actual": {
+                "ok": false,
+                "name": "Error",
+                "code": "ERR_PNPM_NO_PATH_ENV",
+                "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+              },
+              "unhandled": [],
+              "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-NiW6Mw"
+            }
+          ]
+        },
+        "error": null
+      },
+      "private": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [
+            "config/config/src/checkGlobalBinDir.ts"
+          ],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs"
+          ],
+          "exitCode": 1,
+          "signal": null,
+          "elapsedMs": 126.17862500000047,
+          "stdout": "{\"passed\":false,\"cases\":11,\"failed\":3,\"results\":[{\"id\":\"writable-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-XfPrHH\"},{\"id\":\"writable-spaced-path\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-7gnnJf\"},{\"id\":\"writable-multiple-path-entries\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-lmTP9z\"},{\"id\":\"symlink-matches-real-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-frR9DT/linked-bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-frR9DT\"},{\"id\":\"missing-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-MkaWYJ\"},{\"id\":\"readonly-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":true},\"unhandled\":[{\"name\":\"Error\",\"message\":\"ENOENT: no such file or directory, open '$TEMP_ROOT/typelatch-bin-migration-MkaWYJ/bin/_tmp_43370_4a639a20ba1fd43a8b9071e67a3e423b'\"}],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-EgtLUs\"},{\"id\":\"missing-directory-without-write-check\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-b0bUNE\"},{\"id\":\"directory-prefix-is-not-path-membership\",\"passed\":true,\"expectedError\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP_ROOT/typelatch-bin-migration-cMr2Tw/bin\\\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-cMr2Tw\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-JPdzl0\"},{\"id\":\"empty-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-UAWxBk\"},{\"id\":\"optional-write-check-omitted\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-hJIsO8\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": false,
+            "cases": 11,
+            "failed": 3,
+            "results": [
+              {
+                "id": "writable-directory",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-XfPrHH"
+              },
+              {
+                "id": "writable-spaced-path",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-7gnnJf"
+              },
+              {
+                "id": "writable-multiple-path-entries",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-lmTP9z"
+              },
+              {
+                "id": "symlink-matches-real-path",
+                "passed": false,
+                "expectedError": null,
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-frR9DT/linked-bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-frR9DT"
+              },
+              {
+                "id": "missing-directory-rejected",
+                "passed": false,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-MkaWYJ"
+              },
+              {
+                "id": "readonly-directory-rejected",
+                "passed": false,
+                "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [
+                  {
+                    "name": "Error",
+                    "message": "ENOENT: no such file or directory, open '$TEMP_ROOT/typelatch-bin-migration-MkaWYJ/bin/_tmp_43370_4a639a20ba1fd43a8b9071e67a3e423b'"
+                  }
+                ],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-EgtLUs"
+              },
+              {
+                "id": "missing-directory-without-write-check",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-b0bUNE"
+              },
+              {
+                "id": "directory-prefix-is-not-path-membership",
+                "passed": true,
+                "expectedError": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+                  "message": "The configured global bin directory \"$TEMP_ROOT/typelatch-bin-migration-cMr2Tw/bin\" is not in PATH"
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-cMr2Tw"
+              },
+              {
+                "id": "missing-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-JPdzl0"
+              },
+              {
+                "id": "empty-path-setting",
+                "passed": true,
+                "expectedError": "ERR_PNPM_NO_PATH_ENV",
+                "actual": {
+                  "ok": false,
+                  "name": "Error",
+                  "code": "ERR_PNPM_NO_PATH_ENV",
+                  "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-UAWxBk"
+              },
+              {
+                "id": "optional-write-check-omitted",
+                "passed": true,
+                "expectedError": null,
+                "actual": {
+                  "ok": true
+                },
+                "unhandled": [],
+                "temporaryDirectory": "$TEMP_ROOT/typelatch-bin-migration-hJIsO8"
+              }
+            ]
+          },
+          "error": null
+        }
+      }
+    }
+  },
+  "lockAdaptation": {
+    "upstreamLockSha256": "d76eed3ca0a8ebce7bd7939c9d6b1a61bd0fa3c764bd77c740b72f34edf7bc3e",
+    "upgradedClosure": [
+      "can-write-to-dir@2.0.0",
+      "path-temp@3.0.0",
+      "unique-string@3.0.0",
+      "crypto-random-string@4.0.0",
+      "type-fest@1.4.0"
+    ],
+    "policy": "Keep every original importer and package/snapshot entry; change only the selected direct edge and add the exact five-package upstream closure. YAML formatting is regenerated. Then require a frozen install; no unrelated resolver changes are accepted."
+  },
+  "install": {
+    "command": "$USER_HOME/.hermes/node/bin/node",
+    "args": [
+      "$REPOSITORY/artifacts/research/large-monorepo/tools/pnpm/node_modules/pnpm/bin/pnpm.cjs",
+      "install",
+      "--frozen-lockfile",
+      "--ignore-scripts",
+      "--store-dir",
+      "$REPOSITORY/artifacts/research/large-monorepo/pnpm-store",
+      "--config.enableGlobalVirtualStore=false",
+      "--config.managePackageManagerVersions=false",
+      "--config.cleanupUnusedCatalogs=false",
+      "--filter=monorepo-root",
+      "--filter=@pnpm/env.system-node-version...",
+      "--filter=@pnpm/filter-workspace-packages...",
+      "--filter=@pnpm/plugin-commands-patching...",
+      "--filter=@pnpm/config...",
+      "--reporter=append-only"
+    ],
+    "exitCode": 0,
+    "signal": null,
+    "elapsedMs": 812.9117500000011,
+    "stdout": "pnpm                                     |  WARN  The field \"pnpm.overrides\" was found in $REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-003/baseline/pnpm/package.json. This will not take effect. You should configure \"pnpm.overrides\" at the root of the workspace instead.\nScope: 147 of 199 workspace projects\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\n.                                        |   +5 +\nProgress: resolved 5, reused 5, downloaded 0, added 5, done\nDone in 778ms using pnpm v10.32.0\n",
+    "stderr": "",
+    "result": null,
+    "error": null
+  },
+  "upgrade": {
+    "importer": "config/config",
+    "beforeManifestSha256": "95f04e1170ce7d030eb618f5cbc2a71c822e5c1bcf44a0608bd64f1a0e3e16d3",
+    "afterManifestSha256": "3097234c80edd8b16861acff5f3dae4cb2e258328029941d93033f554e42c7d5",
+    "beforeLockSha256": "87e0f4e47bf162918c984e8589c18073dc3beaa0b9267e2a7b22dc91199d60a0",
+    "afterLockSha256": "a81d801bad4e6b114edcaf390e0775da2ccfc29ba009e4afc3d16eccd0688254",
+    "package": {
+      "name": "can-write-to-dir",
+      "version": "2.0.0",
+      "root": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-003/baseline/node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir",
+      "treeSha256": "6164de960fc9389eb2f3c41177293f9f23dd0ccd495047362207d976b4ba68da",
+      "declarationSha256": "958d76d6af8bc2ee857411d3eca27600850b956655d9612648e6c99ce35bcc22",
+      "integrity": "sha512-4wXLh+SqvKDzWND9SGE8cWllVMc65LxHVrCePc56IbfrtORUyxTWCVMI8rbGIVRBSNf5C+zbfaken7Abs34AEQ==",
+      "transitive": {
+        "name": "path-temp",
+        "version": "3.0.0",
+        "integrity": "sha512-5lJ7KUrynYR0TTTiU9SELstnX2fhz8qJ1rBfsEaI1IT3WDWcVkrg8T3lTUSJ/LJkIvrolbF0cFcq9shBC0jzxQ=="
+      }
+    },
+    "unrelatedImportersUnchanged": true,
+    "changedSource": [
+      "config/config/package.json",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "baselineTreeSha256": "0dcb5f41ef2925d134308839fbc7c4c16e61ac045f7a42abf36c0d5bc768b76b",
+  "reference": {
+    "path": "config/config/src/checkGlobalBinDir.ts",
+    "beforeSha256": "8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660",
+    "afterSha256": "b80ec8ab729bff595b86bc09511a4c064f7f51e278cfbad1b2ae0a99d0132fca",
+    "mapping": "The exact upstream import and call-site API substitutions, applied to the older unchanged consumer."
+  },
+  "fixtureAdaptations": [
+    "Full corpus from the qualified pnpm task, including its two prerequisite builds and exact committed symlink restoration.",
+    "One direct dependency declaration and explicit lockfile upgrade using the exact upstream five-package closure; every unrelated importer and original package/snapshot entry is preserved. YAML formatting regenerated. Frozen install with lifecycle scripts disabled; original committed metadata hook retained. Override cleanupUnusedCatalogs:false for this install so the original workspace config stays byte-identical.",
+    "Root native test script points to the supplied public upgrade checks. Only the real global-bin validator subsystem executes; no full CLI build/test claim."
+  ],
+  "harness": [
+    {
+      "path": "qualify.mjs",
+      "sha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd"
+    },
+    {
+      "path": "case-engine.mjs",
+      "sha256": "18fce4a4b8d4476326ecbfcab6bdbc93673385b5d2689fecb14dacf9a0ac5466"
+    },
+    {
+      "path": "public-check.mjs",
+      "sha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f"
+    }
+  ],
+  "privateHarness": {
+    "path": "final-check.mjs",
+    "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459"
+  },
+  "publicCommand": {
+    "command": "npm",
+    "args": [
+      "run",
+      "test:typelatch-benchmark"
+    ],
+    "exitCode": 1,
+    "signal": null,
+    "elapsedMs": 240.31541600000492,
+    "stdout": "\n> test:typelatch-benchmark\n> TZ=UTC TSX_DISABLE_CACHE=1 node --import '$REPOSITORY/node_modules/tsx/dist/loader.mjs' '$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs'\n\n{\"passed\":false,\"cases\":3,\"failed\":1,\"results\":[{\"id\":\"writable-global-directory\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-mjM6wP\"},{\"id\":\"write-check-disabled\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-NDZLiQ\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP_ROOT/typelatch-bin-migration-54syBN\"}]}\n",
+    "stderr": "",
+    "result": null,
+    "error": null
+  },
+  "checks": {
+    "baselineFailsIntendedCase": true,
+    "baselineLoadedAndAllCasesExecuted": true,
+    "referencePasses": false,
+    "asyncControlFails": true,
+    "publicCommandFailsAsExpected": true,
+    "originalPreparedCorpusUnchanged": true
+  },
+  "completedAt": "2026-11-06T18:30:41.565Z",
+  "error": {
+    "name": "AssertionError",
+    "message": "Inspect retained failed qualification; do not run a coding agent\n+ actual - expected\n\n+ 'qualification-failed'\n- 'qualified'\n          ^\n"
+  }
+}

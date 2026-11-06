@@ -1,0 +1,2260 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-11-06T15:23:03.198Z",
+  "capturedAt": "2026-11-06T15:38:24.117Z",
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "explicit-tool-use",
+    "frozenAt": "2026-11-06T15:22:52.941Z",
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "medium",
+    "repeats": 2,
+    "taskCount": 3,
+    "runCount": 12,
+    "toolPackage": "typelatch@0.3.0",
+    "timeoutMs": 600000,
+    "conditions": {
+      "baseline": "Native Codex tools without any MCP server",
+      "typelatch": "The same native tools plus all seven Typelatch MCP tools; source discovery, API inspection and validation use MCP when available"
+    },
+    "promptPolicy": "Identical task and workflow prompt in both conditions. Both discover source, inspect installed APIs, and run tests before and after editing. The prompt requires Typelatch tools when available and native equivalents otherwise. It does not discourage grep or prescribe the code solution.",
+    "tasks": [
+      {
+        "id": "sqlite-rollback",
+        "title": "SQLite batch rollback",
+        "prompt": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding. Valid batches must commit completely, failed batches must leave all earlier database rows intact and no new batch rows, and constraint errors must propagate to the caller. Empty batches must leave the database unchanged. Preserve the existing exported functions and types.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+        "allowedFiles": [
+          "batch.ts"
+        ],
+        "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2"
+      },
+      {
+        "id": "preview-accuracy",
+        "prompt": "Customers report that after previewing a cart, changing its quantities or delivery region sometimes leaves the displayed quote unchanged. Split rows for the same SKU can also undercharge shipping, and a region with a configured zero base charge incorrectly gets the fallback charge. Fix preview correctness for repeated calls on one application instance. Merchandise and grams must count every unit of every row. Shipping is zero for an empty cart; otherwise it is the exact configured region base, or the wildcard base when that region has no own configured value, or zero when neither exists, plus the configured amount per started kilogram. Zero is a real configured price. Existing invalid quantity, missing region, and unknown SKU errors must still occur after earlier successful previews. Do not mutate caller data, and mutation of a returned quote must not corrupt later results.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+        "title": "Cart preview correctness",
+        "allowedFiles": [
+          "src/**/*.ts"
+        ],
+        "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf"
+      },
+      {
+        "id": "partner-boundary",
+        "prompt": "The partner manifest boundary currently trusts arbitrary input. Implement the production Effect runtime schema and importer so both expose the same validation and normalized data. A manifest is an object containing a partner string and at least one parcel. Trim partner and parcel reference strings and reject blank results. Every parcel must contain a trimmed nonblank reference, a finite positive integer grams value supplied as a number, and service equal to standard or express. Parcel references must be unique after trimming. Reject missing fields, wrong types, unknown service values, and invalid manifests with the existing invalid-manifest result, without throwing. Strip unrecognized object fields from accepted output, retain parcel order, and do not mutate input or retain mutable references to it in imported results. The exported schema must itself perform the complete validation and normalization through the production dependency's decoder; a manual-only importer with a permissive schema does not meet the contract. Inputs are ordinary data values, including primitives, arrays, null, and undefined, without accessors, proxies, or cyclic references.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+        "title": "Partner manifest validation",
+        "allowedFiles": [
+          "src/**/*.ts"
+        ],
+        "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79"
+      }
+    ],
+    "schedule": [
+      {
+        "id": "sqlite-rollback-1-baseline",
+        "task": "sqlite-rollback",
+        "repeat": 1,
+        "arm": "baseline"
+      },
+      {
+        "id": "sqlite-rollback-1-typelatch",
+        "task": "sqlite-rollback",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "preview-accuracy-1-typelatch",
+        "task": "preview-accuracy",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "preview-accuracy-1-baseline",
+        "task": "preview-accuracy",
+        "repeat": 1,
+        "arm": "baseline"
+      },
+      {
+        "id": "partner-boundary-1-baseline",
+        "task": "partner-boundary",
+        "repeat": 1,
+        "arm": "baseline"
+      },
+      {
+        "id": "partner-boundary-1-typelatch",
+        "task": "partner-boundary",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "sqlite-rollback-2-typelatch",
+        "task": "sqlite-rollback",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "sqlite-rollback-2-baseline",
+        "task": "sqlite-rollback",
+        "repeat": 2,
+        "arm": "baseline"
+      },
+      {
+        "id": "preview-accuracy-2-baseline",
+        "task": "preview-accuracy",
+        "repeat": 2,
+        "arm": "baseline"
+      },
+      {
+        "id": "preview-accuracy-2-typelatch",
+        "task": "preview-accuracy",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "partner-boundary-2-typelatch",
+        "task": "partner-boundary",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "partner-boundary-2-baseline",
+        "task": "partner-boundary",
+        "repeat": 2,
+        "arm": "baseline"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "timing": "Sequential sessions on one machine. Monotonic time from spawning Codex to process close, including MCP startup and tool execution. Fixture installation, baseline qualification, Typelatch sync, and independent grading are outside task time and reported separately.",
+    "preparation": "Fresh workspace and own installed dependencies each run. Fresh Typelatch home and package indexes prepared with sync only for the Typelatch condition. Source search cache starts cold. Dependency download and OS caches may be warm. Provider prompt caching is not disabled; cached input is reported.",
+    "fixtureComparison": "Normalize only exact workspace paths in the two generated better-sqlite3 build metadata files. Preserve original inventory digests and require every other source and dependency byte to match.",
+    "correctness": "Independent grader after the agent exits, using protected fixture checks and trusted tests outside the agent workspace. A self reported success does not count as correctness.",
+    "selection": "Three authored, known exercises selected before any scored run: the existing SQLite showcase plus two larger Parcel Desk tasks. Two repeats per condition. Fixed counterbalanced order, no session reuse. No run is removed for a poor result or failure to follow the tool policy. No performance tuning after scored runs begin.",
+    "failurePolicy": "Every scheduled launch is retained. No automatic replacement or selective rerun. Missing usage is unknown, not zero. Infrastructure preflights contain no benchmark task and are excluded. A run interrupted before metrics complete remains visible.",
+    "limits": [
+      "A small authored local sample, not an unseen production benchmark or a causal estimate for all coding work.",
+      "Requested model alias and reasoning setting are pinned; an immutable served model snapshot and sampling seed are not available.",
+      "Input tokens include cached input and repeated context. Total tokens are input plus output; cached and reasoning tokens are subsets, not extra tokens.",
+      "Search counts describe recorded native shell tool calls, not every operating system process or every form of text search. MCP calls are reported separately.",
+      "Workspace instructions and file hashes are integrity controls, not proof of complete operating system isolation."
+    ],
+    "accountingSource": "Codex CLI turn.completed usage; https://learn.chatgpt.com/docs/non-interactive-mode",
+    "animation": "Replay the first SQLite pair, selected before scoring, regardless of outcome. Show actual public actions at recorded JSONL receipt times. Separate sessions align at their start and playback is accelerated. This is a rendered action replay, not a screen recording.",
+    "frozenInputsDigest": "d35b39d90a30d2d49a4d668d3b92231957077e08bf7d7730e38b4ec454ba65e8"
+  },
+  "protocolSha256": "c6f7f1d24ad8ea6a65763c385c27d2f646db89bd5262daf4e14959fe32ae4b8a",
+  "sourceCommit": "fbe7297edeae1fa35a3bce63670d71aa8870d162",
+  "cliVersion": "codex-cli 0.166.0",
+  "toolPolicy": "MCP when available; native equivalents otherwise",
+  "package": {
+    "identity": "typelatch@0.3.0",
+    "manifestSha256": "a03e6b1a76c80fb1d43417da26e93deacd1561fc042355b0ed17f00ef59e71a3",
+    "dist": {
+      "shasum": "d5dd5bf568716a4700280c656019353477f0c0b4",
+      "tarball": "https://registry.npmjs.org/typelatch/-/typelatch-0.3.0.tgz",
+      "fileCount": 132,
+      "integrity": "sha512-fHnoncHLs9SCSPBokrbaKcs5sS7j+M9SG9h9cSFJtSVN5km8O7OnhGjj6+Mw6AddtCE57vQrqPh7CBtQB5Xvfg==",
+      "signatures": [
+        {
+          "sig": "MEUCIE2zroxBFxeh21GPcs9lLoeiJsZpsy0sfMRcEF8Sk7MYAiEA83Hkv9y6KiagudooeJPpGvmVpjwF0fPjVeAP2b8uiUc=",
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+        },
+        {
+          "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+          "sig": "MEUCIQCgVpSqikFfMvBOGUokImwrTxNDMoMFFwacw1OblNOAoQIgM21ql/9sv4JvKSke4YQM5UVyAJae3041bDtdPg6FnI8="
+        }
+      ],
+      "attestations": {
+        "url": "https://registry.npmjs.org/-/npm/v1/attestations/typelatch@0.3.0",
+        "provenance": {
+          "predicateType": "https://slsa.dev/provenance/v1"
+        }
+      },
+      "unpackedSize": 846962
+    }
+  },
+  "machine": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "nodeVersion": "v22.23.1",
+    "processor": "Apple M1 Max",
+    "logicalProcessors": 10,
+    "memoryBytes": 34359738368
+  },
+  "harness": [
+    {
+      "path": "scripts/paired-agent-use.mjs",
+      "sha256": "e5dc4a5c3c882762348879282b65ca036443588362b167af5254da4502a8392b"
+    },
+    {
+      "path": "scripts/paired-agent.mjs",
+      "sha256": "a4fc4bd03eb3514c05dece2ce10ff7e92fb2a87cba9c6b5a51373dbd3f219dbf"
+    },
+    {
+      "path": "scripts/paired-agent-runner.mjs",
+      "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2"
+    },
+    {
+      "path": "scripts/paired-agent-evidence.mjs",
+      "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954"
+    },
+    {
+      "path": "scripts/paired-agent-fixtures.mjs",
+      "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923"
+    },
+    {
+      "path": "scripts/paired-agent-integrity.mjs",
+      "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a"
+    },
+    {
+      "path": "scripts/paired-agent-comparison.mjs",
+      "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf"
+    }
+  ],
+  "frozenInputs": {
+    "digest": "d35b39d90a30d2d49a4d668d3b92231957077e08bf7d7730e38b4ec454ba65e8",
+    "manifests": [
+      {
+        "name": "fixtureSourcesAndGraders",
+        "sha256": "66c502cf25a857fc862e2668a8b4e8ed69d973685b47ed1e29e5b35a4d7abb4a",
+        "entries": 118
+      },
+      {
+        "name": "installedTypelatchAndDependencies",
+        "sha256": "2d071cfd9c10bfa5f40346450e7a82d73c194d7fcbc4972593829d09b400f77b",
+        "entries": 5488
+      },
+      {
+        "name": "trustedDependencies:parcel-desk/node_modules",
+        "sha256": "e76701aa0921eada5209fc1c59caad423bf6d188ed88e106a43485c38212e2cf",
+        "entries": 4369
+      },
+      {
+        "name": "trustedDependencies:parcel-desk/packages/preview/node_modules",
+        "sha256": "0eee92c5f85a2a0072ebd679907d693c41eecdb2edacc212c4a0de588a07871e",
+        "entries": 2536
+      },
+      {
+        "name": "trustedDependencies:sqlite/node_modules",
+        "sha256": "ace86a92aa8177c1fce8d54cf6ade5b7c8590b23c11dee45a35a50669091db1b",
+        "entries": 1595
+      }
+    ],
+    "files": [
+      {
+        "name": "harness:paired-agent.mjs",
+        "sha256": "a4fc4bd03eb3514c05dece2ce10ff7e92fb2a87cba9c6b5a51373dbd3f219dbf",
+        "bytes": 18172
+      },
+      {
+        "name": "harness:paired-agent-runner.mjs",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847
+      },
+      {
+        "name": "harness:paired-agent-evidence.mjs",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713
+      },
+      {
+        "name": "harness:paired-agent-fixtures.mjs",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019
+      },
+      {
+        "name": "harness:paired-agent-integrity.mjs",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178
+      },
+      {
+        "name": "harness:paired-agent-comparison.mjs",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693
+      },
+      {
+        "name": "harness:demo-evidence.mjs",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837
+      },
+      {
+        "name": "codexBinary",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064
+      },
+      {
+        "name": "nodeBinary",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848
+      },
+      {
+        "name": "harness:paired-agent-use.mjs",
+        "sha256": "e5dc4a5c3c882762348879282b65ca036443588362b167af5254da4502a8392b",
+        "bytes": 20026
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "sqlite-rollback",
+      "title": "SQLite batch rollback"
+    },
+    {
+      "id": "preview-accuracy",
+      "title": "Cart preview correctness"
+    },
+    {
+      "id": "partner-boundary",
+      "title": "Partner manifest validation"
+    }
+  ],
+  "runs": [
+    {
+      "id": "sqlite-rollback-1-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:23:06.913Z",
+      "finishedAt": "2026-11-06T15:23:39.769Z",
+      "elapsedMs": 32855.633792,
+      "setupMs": 3705,
+      "indexSetupMs": 0,
+      "gradingMs": 2518.3511660000004,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 94973,
+        "cachedInputTokens": 81536,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 906,
+        "reasoningOutputTokens": 68,
+        "totalTokens": 95879,
+        "uncachedInputTokens": 13437
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "e87447779c0ccf15849d49cd99721fa6f554e21121a3514a86bae6c25818511f",
+      "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2",
+      "rawSha256": "c0a69098e61f7a7a8526e2bd130628d63e2d8c5e24bb357218849cdb2d34657a",
+      "evidence": "paired-agent-runs/sqlite-rollback-1-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "0b4f82ef88e277e1ebd8173bd467a754b707b2cb1264e2fcee2f1065c86c0807"
+    },
+    {
+      "id": "sqlite-rollback-1-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:23:54.323Z",
+      "finishedAt": "2026-11-06T15:24:40.429Z",
+      "elapsedMs": 46105.0055,
+      "setupMs": 3557,
+      "indexSetupMs": 6163.947124999999,
+      "gradingMs": 2007.614625000002,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 166948,
+        "cachedInputTokens": 123136,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1058,
+        "reasoningOutputTokens": 33,
+        "totalTokens": 168006,
+        "uncachedInputTokens": 43812
+      },
+      "counts": {
+        "shellCalls": 2,
+        "mcpCalls": 5,
+        "mcpSucceeded": 5,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "ff8123e6b68e150eca5d81cef0d5c2368fc30269c43871ba967f1e29f0141f10",
+      "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2",
+      "rawSha256": "c72859b36d9563e45ee405eed5a8aa7c228a17f4281e9a45d6da761c4467a0ae",
+      "evidence": "paired-agent-runs/sqlite-rollback-1-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "df6dbfa9e3203e47d4a620b9884eb1a63be2782df25cd3837855cd74b09d1149"
+    },
+    {
+      "id": "preview-accuracy-1-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:24:53.778Z",
+      "finishedAt": "2026-11-06T15:26:17.044Z",
+      "elapsedMs": 83265.04695799999,
+      "setupMs": 5662,
+      "indexSetupMs": 4670.545624999999,
+      "gradingMs": 4349.476332999999,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 280486,
+        "cachedInputTokens": 239232,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2137,
+        "reasoningOutputTokens": 313,
+        "totalTokens": 282623,
+        "uncachedInputTokens": 41254
+      },
+      "counts": {
+        "shellCalls": 5,
+        "mcpCalls": 7,
+        "mcpSucceeded": 7,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf",
+      "rawSha256": "4609f9171d8b335495e4cfc948fbc14fb62ee41680ba89303462927cd0838e6c",
+      "evidence": "paired-agent-runs/preview-accuracy-1-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "7b3df916d893f4287109fab267bb565cce05bb98082215bd93806d092c162b96"
+    },
+    {
+      "id": "preview-accuracy-1-baseline",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:26:28.354Z",
+      "finishedAt": "2026-11-06T15:27:29.235Z",
+      "elapsedMs": 60880.53066700001,
+      "setupMs": 5928,
+      "indexSetupMs": 0,
+      "gradingMs": 4179.569791999995,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 154002,
+        "cachedInputTokens": 136960,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1575,
+        "reasoningOutputTokens": 277,
+        "totalTokens": 155577,
+        "uncachedInputTokens": 17042
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf",
+      "rawSha256": "5beb58e6c37e883c6e73ef2b8728f305afd604d85dd7fc227380a5364ff29a1d",
+      "evidence": "paired-agent-runs/preview-accuracy-1-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "b2a5d94312759a7352c22bfdf78f0bfedeaa50b77307fd007a1d97fac7e48555"
+    },
+    {
+      "id": "partner-boundary-1-baseline",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:27:40.264Z",
+      "finishedAt": "2026-11-06T15:28:37.075Z",
+      "elapsedMs": 56810.82125000004,
+      "setupMs": 5835,
+      "indexSetupMs": 0,
+      "gradingMs": 4282.1713750000345,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": false,
+      "usage": {
+        "inputTokens": 176719,
+        "cachedInputTokens": 145408,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1326,
+        "reasoningOutputTokens": 52,
+        "totalTokens": 178045,
+        "uncachedInputTokens": 31311
+      },
+      "counts": {
+        "shellCalls": 12,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 3,
+        "grepShellCalls": 5,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79",
+      "rawSha256": "7b888df4cdd1e3ccf145557f79295764f843731bbd4fb3609a7a2e90c807007e",
+      "evidence": "paired-agent-runs/partner-boundary-1-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "ee810f038b4182f2115fbb0ad56edda6098fc7920bf9ca593dc7584f2af55d47"
+    },
+    {
+      "id": "partner-boundary-1-typelatch",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:28:53.028Z",
+      "finishedAt": "2026-11-06T15:30:34.187Z",
+      "elapsedMs": 101157.40008299996,
+      "setupMs": 5948,
+      "indexSetupMs": 4703.481291999982,
+      "gradingMs": 4161.586666999967,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": false,
+      "usage": {
+        "inputTokens": 501944,
+        "cachedInputTokens": 451840,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2428,
+        "reasoningOutputTokens": 353,
+        "totalTokens": 504372,
+        "uncachedInputTokens": 50104
+      },
+      "counts": {
+        "shellCalls": 9,
+        "mcpCalls": 13,
+        "mcpSucceeded": 13,
+        "mcpFailed": 0,
+        "fileEdits": 3,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79",
+      "rawSha256": "517c11b1100cea7c018834f77b088c4b28bac6d8cbe608ca5caf17a7b9445fc9",
+      "evidence": "paired-agent-runs/partner-boundary-1-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "c5cae34b91828b6e4c7df47eaed55a179a35c0911b7640b5c5ae1940c5755942"
+    },
+    {
+      "id": "sqlite-rollback-2-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:30:48.522Z",
+      "finishedAt": "2026-11-06T15:31:39.623Z",
+      "elapsedMs": 51100.23637499998,
+      "setupMs": 3267,
+      "indexSetupMs": 5884.232583000034,
+      "gradingMs": 2030.0695830000332,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 251277,
+        "cachedInputTokens": 217856,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1061,
+        "reasoningOutputTokens": 75,
+        "totalTokens": 252338,
+        "uncachedInputTokens": 33421
+      },
+      "counts": {
+        "shellCalls": 3,
+        "mcpCalls": 4,
+        "mcpSucceeded": 4,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 0,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "9d0088ff925851daf5ee4f5c0099d1fb0b18f2e3fc8a63de43a1d2acbe649ebc",
+      "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2",
+      "rawSha256": "0edc79ecc6908c4a19ae85b91dead77391743cb975652b07fe33b3006f342446",
+      "evidence": "paired-agent-runs/sqlite-rollback-2-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "a1470f9786f0f5e41ad1d919158bc27994557db73032ed583474eb8108172fa1"
+    },
+    {
+      "id": "sqlite-rollback-2-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:31:45.826Z",
+      "finishedAt": "2026-11-06T15:32:15.438Z",
+      "elapsedMs": 29612.115458999993,
+      "setupMs": 3157,
+      "indexSetupMs": 0,
+      "gradingMs": 1995.746124999947,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 116167,
+        "cachedInputTokens": 98688,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 760,
+        "reasoningOutputTokens": 85,
+        "totalTokens": 116927,
+        "uncachedInputTokens": 17479
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "19722031f36748f89f50dd2a6b4b058bb2b3cf6695bdfed595a9098c07ea4df4",
+      "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2",
+      "rawSha256": "ebe4c41c3005989f0e9f145c7b7583f35201781c583aefd599a4a35e30834476",
+      "evidence": "paired-agent-runs/sqlite-rollback-2-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "fc38e31870285eb7669416a40d4cc3703d7fc437794abd0f481105b9a3f64469"
+    },
+    {
+      "id": "preview-accuracy-2-baseline",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:32:24.405Z",
+      "finishedAt": "2026-11-06T15:33:22.002Z",
+      "elapsedMs": 57596.23233300005,
+      "setupMs": 5956,
+      "indexSetupMs": 0,
+      "gradingMs": 4185.674417000031,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 141120,
+        "cachedInputTokens": 121984,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1561,
+        "reasoningOutputTokens": 168,
+        "totalTokens": 142681,
+        "uncachedInputTokens": 19136
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf",
+      "rawSha256": "5b3fb1d19599ebd662f5bb890a91cf42386a493d304c80b1ae4f9e626fb85bca",
+      "evidence": "paired-agent-runs/preview-accuracy-2-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "386db661e15c5650f1e8d42bc95ba7b5652c1d68f32b13b54a2d2d760a92edbd"
+    },
+    {
+      "id": "preview-accuracy-2-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:33:37.984Z",
+      "finishedAt": "2026-11-06T15:34:59.058Z",
+      "elapsedMs": 81072.41024999996,
+      "setupMs": 5895,
+      "indexSetupMs": 4889.915500000003,
+      "gradingMs": 4296.672292000032,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 280076,
+        "cachedInputTokens": 237056,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2014,
+        "reasoningOutputTokens": 388,
+        "totalTokens": 282090,
+        "uncachedInputTokens": 43020
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 5,
+        "mcpSucceeded": 5,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf",
+      "rawSha256": "9b62917ea750f6f6a3e1bfbe6b181c997c8a6247dd09458160ed0e056da1076f",
+      "evidence": "paired-agent-runs/preview-accuracy-2-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "5e6fbd6f6d47c914d31160c7729a1f2a8255930a8fae3ba9cd0c5deb320dae19"
+    },
+    {
+      "id": "partner-boundary-2-typelatch",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "typelatch",
+      "startedAt": "2026-11-06T15:35:15.392Z",
+      "finishedAt": "2026-11-06T15:36:45.357Z",
+      "elapsedMs": 89963.92554199998,
+      "setupMs": 6149,
+      "indexSetupMs": 4826.86258299998,
+      "gradingMs": 4460.245916999993,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": true,
+      "usage": {
+        "inputTokens": 370469,
+        "cachedInputTokens": 315136,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1768,
+        "reasoningOutputTokens": 413,
+        "totalTokens": 372237,
+        "uncachedInputTokens": 55333
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 7,
+        "mcpSucceeded": 7,
+        "mcpFailed": 0,
+        "fileEdits": 2,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79",
+      "rawSha256": "b3c8d6eb14b1378265e3550248020801ea4074927f3b29b22ea3251b93a2747b",
+      "evidence": "paired-agent-runs/partner-boundary-2-typelatch.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "a14fafa2d71aa9076478e349acedd1cb3b4f276369b803f94ab7dee51c39e25a"
+    },
+    {
+      "id": "partner-boundary-2-baseline",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "baseline",
+      "startedAt": "2026-11-06T15:36:56.899Z",
+      "finishedAt": "2026-11-06T15:38:16.928Z",
+      "elapsedMs": 80028.07283399999,
+      "setupMs": 6037,
+      "indexSetupMs": 0,
+      "gradingMs": 4930.920207999996,
+      "status": "completed",
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "correct": false,
+      "usage": {
+        "inputTokens": 245311,
+        "cachedInputTokens": 228480,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 2263,
+        "reasoningOutputTokens": 131,
+        "totalTokens": 247574,
+        "uncachedInputTokens": 16831
+      },
+      "counts": {
+        "shellCalls": 12,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 3,
+        "grepShellCalls": 5,
+        "contentSearchShellCalls": 4,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "fixtureSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79",
+      "rawSha256": "6c8fc23e84b80d8ec9795e313f603521d227fd362cbc53df354a883d1753e3af",
+      "evidence": "paired-agent-runs/partner-boundary-2-baseline.json",
+      "recordingError": null,
+      "toolPolicyFollowed": true,
+      "evidenceSha256": "c03ec8ae4d028ac9bbc294eba02967d5c7af6edc7956e9c99defc29edc1d5bcc"
+    }
+  ],
+  "summary": {
+    "runCount": 12,
+    "arms": {
+      "baseline": {
+        "runs": 6,
+        "correct": 4,
+        "incorrect": 2,
+        "unknownCorrectness": 0,
+        "metrics": {
+          "elapsedMs": {
+            "n": 6,
+            "missing": 0,
+            "sum": 317783.40633500007,
+            "observedSum": 317783.40633500007,
+            "mean": 52963.90105583335,
+            "median": 57203.526791500044,
+            "min": 29612.115458999993,
+            "max": 80028.07283399999
+          },
+          "inputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 928292,
+            "observedSum": 928292,
+            "mean": 154715.33333333334,
+            "median": 147561,
+            "min": 94973,
+            "max": 245311
+          },
+          "cachedInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 813056,
+            "observedSum": 813056,
+            "mean": 135509.33333333334,
+            "median": 129472,
+            "min": 81536,
+            "max": 228480
+          },
+          "cacheWriteInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "outputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 8391,
+            "observedSum": 8391,
+            "mean": 1398.5,
+            "median": 1443.5,
+            "min": 760,
+            "max": 2263
+          },
+          "reasoningOutputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 781,
+            "observedSum": 781,
+            "mean": 130.16666666666666,
+            "median": 108,
+            "min": 52,
+            "max": 277
+          },
+          "totalTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 936683,
+            "observedSum": 936683,
+            "mean": 156113.83333333334,
+            "median": 149129,
+            "min": 95879,
+            "max": 247574
+          },
+          "uncachedInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 115236,
+            "observedSum": 115236,
+            "mean": 19206,
+            "median": 17260.5,
+            "min": 13437,
+            "max": 31311
+          },
+          "shellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 53,
+            "observedSum": 53,
+            "mean": 8.833333333333334,
+            "median": 8,
+            "min": 6,
+            "max": 12
+          },
+          "mcpCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "mcpSucceeded": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "mcpFailed": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "fileEdits": {
+            "n": 6,
+            "missing": 0,
+            "sum": 10,
+            "observedSum": 10,
+            "mean": 1.6666666666666667,
+            "median": 1,
+            "min": 1,
+            "max": 3
+          },
+          "grepShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 22,
+            "observedSum": 22,
+            "mean": 3.6666666666666665,
+            "median": 3,
+            "min": 3,
+            "max": 5
+          },
+          "contentSearchShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 13,
+            "observedSum": 13,
+            "mean": 2.1666666666666665,
+            "median": 2,
+            "min": 1,
+            "max": 4
+          },
+          "fileListingShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 11,
+            "observedSum": 11,
+            "mean": 1.8333333333333333,
+            "median": 2,
+            "min": 1,
+            "max": 2
+          },
+          "ambiguousSearchShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      },
+      "typelatch": {
+        "runs": 6,
+        "correct": 5,
+        "incorrect": 1,
+        "unknownCorrectness": 0,
+        "metrics": {
+          "elapsedMs": {
+            "n": 6,
+            "missing": 0,
+            "sum": 452664.0247079999,
+            "observedSum": 452664.0247079999,
+            "mean": 75444.00411799998,
+            "median": 82168.72860399997,
+            "min": 46105.0055,
+            "max": 101157.40008299996
+          },
+          "inputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 1851200,
+            "observedSum": 1851200,
+            "mean": 308533.3333333333,
+            "median": 280281,
+            "min": 166948,
+            "max": 501944
+          },
+          "cachedInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 1584256,
+            "observedSum": 1584256,
+            "mean": 264042.6666666667,
+            "median": 238144,
+            "min": 123136,
+            "max": 451840
+          },
+          "cacheWriteInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "outputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 10466,
+            "observedSum": 10466,
+            "mean": 1744.3333333333333,
+            "median": 1891,
+            "min": 1058,
+            "max": 2428
+          },
+          "reasoningOutputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 1575,
+            "observedSum": 1575,
+            "mean": 262.5,
+            "median": 333,
+            "min": 33,
+            "max": 413
+          },
+          "totalTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 1861666,
+            "observedSum": 1861666,
+            "mean": 310277.6666666667,
+            "median": 282356.5,
+            "min": 168006,
+            "max": 504372
+          },
+          "uncachedInputTokens": {
+            "n": 6,
+            "missing": 0,
+            "sum": 266944,
+            "observedSum": 266944,
+            "mean": 44490.666666666664,
+            "median": 43416,
+            "min": 33421,
+            "max": 55333
+          },
+          "shellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 31,
+            "observedSum": 31,
+            "mean": 5.166666666666667,
+            "median": 5.5,
+            "min": 2,
+            "max": 9
+          },
+          "mcpCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 41,
+            "observedSum": 41,
+            "mean": 6.833333333333333,
+            "median": 6,
+            "min": 4,
+            "max": 13
+          },
+          "mcpSucceeded": {
+            "n": 6,
+            "missing": 0,
+            "sum": 41,
+            "observedSum": 41,
+            "mean": 6.833333333333333,
+            "median": 6,
+            "min": 4,
+            "max": 13
+          },
+          "mcpFailed": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "fileEdits": {
+            "n": 6,
+            "missing": 0,
+            "sum": 9,
+            "observedSum": 9,
+            "mean": 1.5,
+            "median": 1,
+            "min": 1,
+            "max": 3
+          },
+          "grepShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 10,
+            "observedSum": 10,
+            "mean": 1.6666666666666667,
+            "median": 2,
+            "min": 1,
+            "max": 2
+          },
+          "contentSearchShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 5,
+            "observedSum": 5,
+            "mean": 0.8333333333333334,
+            "median": 1,
+            "min": 0,
+            "max": 1
+          },
+          "fileListingShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 5,
+            "observedSum": 5,
+            "mean": 0.8333333333333334,
+            "median": 1,
+            "min": 0,
+            "max": 1
+          },
+          "ambiguousSearchShellCalls": {
+            "n": 6,
+            "missing": 0,
+            "sum": 0,
+            "observedSum": 0,
+            "mean": 0,
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      }
+    },
+    "pairs": [
+      {
+        "task": "sqlite-rollback",
+        "repeat": 1,
+        "baselineId": "sqlite-rollback-1-baseline",
+        "typelatchId": "sqlite-rollback-1-typelatch",
+        "complete": true,
+        "bothCorrect": true,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 32855.633792,
+            "typelatch": 46105.0055,
+            "delta": 13249.371707999999,
+            "percentChange": 40.326026860045175
+          },
+          "inputTokens": {
+            "baseline": 94973,
+            "typelatch": 166948,
+            "delta": 71975,
+            "percentChange": 75.78469670327355
+          },
+          "cachedInputTokens": {
+            "baseline": 81536,
+            "typelatch": 123136,
+            "delta": 41600,
+            "percentChange": 51.02040816326531
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 906,
+            "typelatch": 1058,
+            "delta": 152,
+            "percentChange": 16.777041942604857
+          },
+          "reasoningOutputTokens": {
+            "baseline": 68,
+            "typelatch": 33,
+            "delta": -35,
+            "percentChange": -51.470588235294116
+          },
+          "totalTokens": {
+            "baseline": 95879,
+            "typelatch": 168006,
+            "delta": 72127,
+            "percentChange": 75.22710916884824
+          },
+          "uncachedInputTokens": {
+            "baseline": 13437,
+            "typelatch": 43812,
+            "delta": 30375,
+            "percentChange": 226.0549229738781
+          },
+          "shellCalls": {
+            "baseline": 7,
+            "typelatch": 2,
+            "delta": -5,
+            "percentChange": -71.42857142857143
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 5,
+            "delta": 5,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 5,
+            "delta": 5,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "grepShellCalls": {
+            "baseline": 3,
+            "typelatch": 2,
+            "delta": -1,
+            "percentChange": -33.33333333333333
+          },
+          "contentSearchShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "fileListingShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      },
+      {
+        "task": "preview-accuracy",
+        "repeat": 1,
+        "baselineId": "preview-accuracy-1-baseline",
+        "typelatchId": "preview-accuracy-1-typelatch",
+        "complete": true,
+        "bothCorrect": true,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 60880.53066700001,
+            "typelatch": 83265.04695799999,
+            "delta": 22384.516290999978,
+            "percentChange": 36.76793885624488
+          },
+          "inputTokens": {
+            "baseline": 154002,
+            "typelatch": 280486,
+            "delta": 126484,
+            "percentChange": 82.13140089089752
+          },
+          "cachedInputTokens": {
+            "baseline": 136960,
+            "typelatch": 239232,
+            "delta": 102272,
+            "percentChange": 74.67289719626167
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 1575,
+            "typelatch": 2137,
+            "delta": 562,
+            "percentChange": 35.682539682539684
+          },
+          "reasoningOutputTokens": {
+            "baseline": 277,
+            "typelatch": 313,
+            "delta": 36,
+            "percentChange": 12.996389891696749
+          },
+          "totalTokens": {
+            "baseline": 155577,
+            "typelatch": 282623,
+            "delta": 127046,
+            "percentChange": 81.66117099571272
+          },
+          "uncachedInputTokens": {
+            "baseline": 17042,
+            "typelatch": 41254,
+            "delta": 24212,
+            "percentChange": 142.0725266987443
+          },
+          "shellCalls": {
+            "baseline": 8,
+            "typelatch": 5,
+            "delta": -3,
+            "percentChange": -37.5
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 7,
+            "delta": 7,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 7,
+            "delta": 7,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "grepShellCalls": {
+            "baseline": 3,
+            "typelatch": 1,
+            "delta": -2,
+            "percentChange": -66.66666666666666
+          },
+          "contentSearchShellCalls": {
+            "baseline": 1,
+            "typelatch": 0,
+            "delta": -1,
+            "percentChange": -100
+          },
+          "fileListingShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      },
+      {
+        "task": "partner-boundary",
+        "repeat": 1,
+        "baselineId": "partner-boundary-1-baseline",
+        "typelatchId": "partner-boundary-1-typelatch",
+        "complete": true,
+        "bothCorrect": false,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 56810.82125000004,
+            "typelatch": 101157.40008299996,
+            "delta": 44346.57883299992,
+            "percentChange": 78.06009111864385
+          },
+          "inputTokens": {
+            "baseline": 176719,
+            "typelatch": 501944,
+            "delta": 325225,
+            "percentChange": 184.03510658163523
+          },
+          "cachedInputTokens": {
+            "baseline": 145408,
+            "typelatch": 451840,
+            "delta": 306432,
+            "percentChange": 210.7394366197183
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 1326,
+            "typelatch": 2428,
+            "delta": 1102,
+            "percentChange": 83.10708898944193
+          },
+          "reasoningOutputTokens": {
+            "baseline": 52,
+            "typelatch": 353,
+            "delta": 301,
+            "percentChange": 578.8461538461538
+          },
+          "totalTokens": {
+            "baseline": 178045,
+            "typelatch": 504372,
+            "delta": 326327,
+            "percentChange": 183.2834395798815
+          },
+          "uncachedInputTokens": {
+            "baseline": 31311,
+            "typelatch": 50104,
+            "delta": 18793,
+            "percentChange": 60.020440100923
+          },
+          "shellCalls": {
+            "baseline": 12,
+            "typelatch": 9,
+            "delta": -3,
+            "percentChange": -25
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 13,
+            "delta": 13,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 13,
+            "delta": 13,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 3,
+            "typelatch": 3,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "grepShellCalls": {
+            "baseline": 5,
+            "typelatch": 2,
+            "delta": -3,
+            "percentChange": -60
+          },
+          "contentSearchShellCalls": {
+            "baseline": 3,
+            "typelatch": 1,
+            "delta": -2,
+            "percentChange": -66.66666666666666
+          },
+          "fileListingShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      },
+      {
+        "task": "sqlite-rollback",
+        "repeat": 2,
+        "baselineId": "sqlite-rollback-2-baseline",
+        "typelatchId": "sqlite-rollback-2-typelatch",
+        "complete": true,
+        "bothCorrect": true,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 29612.115458999993,
+            "typelatch": 51100.23637499998,
+            "delta": 21488.120915999985,
+            "percentChange": 72.5653016777939
+          },
+          "inputTokens": {
+            "baseline": 116167,
+            "typelatch": 251277,
+            "delta": 135110,
+            "percentChange": 116.30669639398452
+          },
+          "cachedInputTokens": {
+            "baseline": 98688,
+            "typelatch": 217856,
+            "delta": 119168,
+            "percentChange": 120.75226977950713
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 760,
+            "typelatch": 1061,
+            "delta": 301,
+            "percentChange": 39.60526315789474
+          },
+          "reasoningOutputTokens": {
+            "baseline": 85,
+            "typelatch": 75,
+            "delta": -10,
+            "percentChange": -11.76470588235294
+          },
+          "totalTokens": {
+            "baseline": 116927,
+            "typelatch": 252338,
+            "delta": 135411,
+            "percentChange": 115.80815380536573
+          },
+          "uncachedInputTokens": {
+            "baseline": 17479,
+            "typelatch": 33421,
+            "delta": 15942,
+            "percentChange": 91.20659076606213
+          },
+          "shellCalls": {
+            "baseline": 6,
+            "typelatch": 3,
+            "delta": -3,
+            "percentChange": -50
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 4,
+            "delta": 4,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 4,
+            "delta": 4,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "grepShellCalls": {
+            "baseline": 3,
+            "typelatch": 1,
+            "delta": -2,
+            "percentChange": -66.66666666666666
+          },
+          "contentSearchShellCalls": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "fileListingShellCalls": {
+            "baseline": 2,
+            "typelatch": 0,
+            "delta": -2,
+            "percentChange": -100
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      },
+      {
+        "task": "preview-accuracy",
+        "repeat": 2,
+        "baselineId": "preview-accuracy-2-baseline",
+        "typelatchId": "preview-accuracy-2-typelatch",
+        "complete": true,
+        "bothCorrect": true,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 57596.23233300005,
+            "typelatch": 81072.41024999996,
+            "delta": 23476.177916999906,
+            "percentChange": 40.759919470546876
+          },
+          "inputTokens": {
+            "baseline": 141120,
+            "typelatch": 280076,
+            "delta": 138956,
+            "percentChange": 98.46655328798187
+          },
+          "cachedInputTokens": {
+            "baseline": 121984,
+            "typelatch": 237056,
+            "delta": 115072,
+            "percentChange": 94.33368310598111
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 1561,
+            "typelatch": 2014,
+            "delta": 453,
+            "percentChange": 29.019859064702114
+          },
+          "reasoningOutputTokens": {
+            "baseline": 168,
+            "typelatch": 388,
+            "delta": 220,
+            "percentChange": 130.95238095238096
+          },
+          "totalTokens": {
+            "baseline": 142681,
+            "typelatch": 282090,
+            "delta": 139409,
+            "percentChange": 97.70677245043137
+          },
+          "uncachedInputTokens": {
+            "baseline": 19136,
+            "typelatch": 43020,
+            "delta": 23884,
+            "percentChange": 124.81187290969899
+          },
+          "shellCalls": {
+            "baseline": 8,
+            "typelatch": 6,
+            "delta": -2,
+            "percentChange": -25
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 5,
+            "delta": 5,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 5,
+            "delta": 5,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "grepShellCalls": {
+            "baseline": 3,
+            "typelatch": 2,
+            "delta": -1,
+            "percentChange": -33.33333333333333
+          },
+          "contentSearchShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "fileListingShellCalls": {
+            "baseline": 1,
+            "typelatch": 1,
+            "delta": 0,
+            "percentChange": 0
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      },
+      {
+        "task": "partner-boundary",
+        "repeat": 2,
+        "baselineId": "partner-boundary-2-baseline",
+        "typelatchId": "partner-boundary-2-typelatch",
+        "complete": true,
+        "bothCorrect": false,
+        "metrics": {
+          "elapsedMs": {
+            "baseline": 80028.07283399999,
+            "typelatch": 89963.92554199998,
+            "delta": 9935.852707999991,
+            "percentChange": 12.415459170945743
+          },
+          "inputTokens": {
+            "baseline": 245311,
+            "typelatch": 370469,
+            "delta": 125158,
+            "percentChange": 51.020133626294786
+          },
+          "cachedInputTokens": {
+            "baseline": 228480,
+            "typelatch": 315136,
+            "delta": 86656,
+            "percentChange": 37.92717086834734
+          },
+          "cacheWriteInputTokens": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "outputTokens": {
+            "baseline": 2263,
+            "typelatch": 1768,
+            "delta": -495,
+            "percentChange": -21.873619089703933
+          },
+          "reasoningOutputTokens": {
+            "baseline": 131,
+            "typelatch": 413,
+            "delta": 282,
+            "percentChange": 215.26717557251908
+          },
+          "totalTokens": {
+            "baseline": 247574,
+            "typelatch": 372237,
+            "delta": 124663,
+            "percentChange": 50.35383360126669
+          },
+          "uncachedInputTokens": {
+            "baseline": 16831,
+            "typelatch": 55333,
+            "delta": 38502,
+            "percentChange": 228.7564612916642
+          },
+          "shellCalls": {
+            "baseline": 12,
+            "typelatch": 6,
+            "delta": -6,
+            "percentChange": -50
+          },
+          "mcpCalls": {
+            "baseline": 0,
+            "typelatch": 7,
+            "delta": 7,
+            "percentChange": null
+          },
+          "mcpSucceeded": {
+            "baseline": 0,
+            "typelatch": 7,
+            "delta": 7,
+            "percentChange": null
+          },
+          "mcpFailed": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          },
+          "fileEdits": {
+            "baseline": 3,
+            "typelatch": 2,
+            "delta": -1,
+            "percentChange": -33.33333333333333
+          },
+          "grepShellCalls": {
+            "baseline": 5,
+            "typelatch": 2,
+            "delta": -3,
+            "percentChange": -60
+          },
+          "contentSearchShellCalls": {
+            "baseline": 4,
+            "typelatch": 1,
+            "delta": -3,
+            "percentChange": -75
+          },
+          "fileListingShellCalls": {
+            "baseline": 2,
+            "typelatch": 1,
+            "delta": -1,
+            "percentChange": -50
+          },
+          "ambiguousSearchShellCalls": {
+            "baseline": 0,
+            "typelatch": 0,
+            "delta": 0,
+            "percentChange": null
+          }
+        }
+      }
+    ],
+    "limitations": [
+      "All attempted runs remain in the report. Metrics are not filtered by correctness.",
+      "Input tokens include cached input. Reasoning output is included in output tokens. Total tokens equal input plus output, without adding component fields again.",
+      "Usage is terminal Codex CLI accounting, not a provider invoice or independently verified model snapshot. Unknown fields remain null.",
+      "Search counts are completed shell call groups containing recognized rg, grep, egrep or fgrep commands. A compound call counts once, even if it launches several searches. File listing and content search can overlap within one call.",
+      "Shell parsing does not observe every operating system process. Dynamic evaluation is flagged; searches inside scripts, other languages, aliases or tools can escape this narrow metric. Other shell calls and MCP calls remain visible.",
+      "Incomplete capture counts are lower bounds in each raw run and are excluded from complete aggregate metrics. Missing metrics never become zero.",
+      "Paired differences are Typelatch minus baseline. Negative time and token differences mean lower observed use. Percent changes with a zero baseline are undefined.",
+      "Repeated runs on the same authored tasks are not independent task diversity or a general performance estimate."
+    ]
+  },
+  "complete": true,
+  "fixtureComparisons": {
+    "sqlite-rollback-1-baseline": {
+      "rawManifestSha256": "e87447779c0ccf15849d49cd99721fa6f554e21121a3514a86bae6c25818511f",
+      "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
+      "normalizations": [
+        {
+          "path": "node_modules/better-sqlite3/build/Makefile",
+          "rawSha256": "54daef7be8c2b6339d9661016a1a583d973e61b924c5161a8cd8b3602c6bdf4b",
+          "comparisonSha256": "6b2b12846bedbcee3eb44c0033f4a939836a776eaa75d6bdf2d6bc181c1ae7e1",
+          "rawBytes": 14211,
+          "comparisonBytes": 14071,
+          "replacements": 2,
+          "aliasReplacementCounts": [
+            2
+          ]
+        },
+        {
+          "path": "node_modules/better-sqlite3/build/config.gypi",
+          "rawSha256": "20bda760e36596a98b870ca3d245b4da99d02733e4c06dfc2fb1ae1087017bb7",
+          "comparisonSha256": "c6dbb027584a17bcd2ee8005059f5b152847c8c2db963ef826fe1a909dc0738f",
+          "rawBytes": 19360,
+          "comparisonBytes": 19290,
+          "replacements": 1,
+          "aliasReplacementCounts": [
+            1
+          ]
+        }
+      ]
+    },
+    "sqlite-rollback-1-typelatch": {
+      "rawManifestSha256": "ff8123e6b68e150eca5d81cef0d5c2368fc30269c43871ba967f1e29f0141f10",
+      "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
+      "normalizations": [
+        {
+          "path": "node_modules/better-sqlite3/build/Makefile",
+          "rawSha256": "c3c161fe212f7c9913d551784984be51165174864faf61415f2bfccf0d02e2e2",
+          "comparisonSha256": "6b2b12846bedbcee3eb44c0033f4a939836a776eaa75d6bdf2d6bc181c1ae7e1",
+          "rawBytes": 14211,
+          "comparisonBytes": 14071,
+          "replacements": 2,
+          "aliasReplacementCounts": [
+            2
+          ]
+        },
+        {
+          "path": "node_modules/better-sqlite3/build/config.gypi",
+          "rawSha256": "efebcaecee59332f8d5cf1bdaee7e253001899ea7d1292b4479a158960f581be",
+          "comparisonSha256": "c6dbb027584a17bcd2ee8005059f5b152847c8c2db963ef826fe1a909dc0738f",
+          "rawBytes": 19360,
+          "comparisonBytes": 19290,
+          "replacements": 1,
+          "aliasReplacementCounts": [
+            1
+          ]
+        }
+      ]
+    },
+    "preview-accuracy-1-typelatch": {
+      "rawManifestSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "comparisonSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "normalizations": []
+    },
+    "preview-accuracy-1-baseline": {
+      "rawManifestSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "comparisonSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "normalizations": []
+    },
+    "partner-boundary-1-baseline": {
+      "rawManifestSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "comparisonSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "normalizations": []
+    },
+    "partner-boundary-1-typelatch": {
+      "rawManifestSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "comparisonSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "normalizations": []
+    },
+    "sqlite-rollback-2-typelatch": {
+      "rawManifestSha256": "9d0088ff925851daf5ee4f5c0099d1fb0b18f2e3fc8a63de43a1d2acbe649ebc",
+      "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
+      "normalizations": [
+        {
+          "path": "node_modules/better-sqlite3/build/Makefile",
+          "rawSha256": "9974294b2c32adc21726431cea579c80e9cdae7ea2ee94a5607b9e10618ee257",
+          "comparisonSha256": "6b2b12846bedbcee3eb44c0033f4a939836a776eaa75d6bdf2d6bc181c1ae7e1",
+          "rawBytes": 14211,
+          "comparisonBytes": 14071,
+          "replacements": 2,
+          "aliasReplacementCounts": [
+            2
+          ]
+        },
+        {
+          "path": "node_modules/better-sqlite3/build/config.gypi",
+          "rawSha256": "6c9a0393869767ef989b2eeca82d40f4b75b74e0955168ebe616aa7063433112",
+          "comparisonSha256": "c6dbb027584a17bcd2ee8005059f5b152847c8c2db963ef826fe1a909dc0738f",
+          "rawBytes": 19360,
+          "comparisonBytes": 19290,
+          "replacements": 1,
+          "aliasReplacementCounts": [
+            1
+          ]
+        }
+      ]
+    },
+    "sqlite-rollback-2-baseline": {
+      "rawManifestSha256": "19722031f36748f89f50dd2a6b4b058bb2b3cf6695bdfed595a9098c07ea4df4",
+      "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
+      "normalizations": [
+        {
+          "path": "node_modules/better-sqlite3/build/Makefile",
+          "rawSha256": "6a1ca0ec75dfe07434c3afc1cf66457cc6c3870e8f59a38587f48d4ba9d1cbdf",
+          "comparisonSha256": "6b2b12846bedbcee3eb44c0033f4a939836a776eaa75d6bdf2d6bc181c1ae7e1",
+          "rawBytes": 14211,
+          "comparisonBytes": 14071,
+          "replacements": 2,
+          "aliasReplacementCounts": [
+            2
+          ]
+        },
+        {
+          "path": "node_modules/better-sqlite3/build/config.gypi",
+          "rawSha256": "e095e1dfbafc70902c1bc294e727d8c8915a2aeec61dcff2ef1003d7e23b3a65",
+          "comparisonSha256": "c6dbb027584a17bcd2ee8005059f5b152847c8c2db963ef826fe1a909dc0738f",
+          "rawBytes": 19360,
+          "comparisonBytes": 19290,
+          "replacements": 1,
+          "aliasReplacementCounts": [
+            1
+          ]
+        }
+      ]
+    },
+    "preview-accuracy-2-baseline": {
+      "rawManifestSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "comparisonSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "normalizations": []
+    },
+    "preview-accuracy-2-typelatch": {
+      "rawManifestSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "comparisonSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+      "normalizations": []
+    },
+    "partner-boundary-2-typelatch": {
+      "rawManifestSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "comparisonSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "normalizations": []
+    },
+    "partner-boundary-2-baseline": {
+      "rawManifestSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "comparisonSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+      "normalizations": []
+    }
+  },
+  "finishedAt": "2026-11-06T15:38:24.117Z",
+  "hostActivity": [
+    {
+      "reportedLocalStart": "2026-11-06T16:26:11+01:00",
+      "reportedUtcStart": "2026-11-06T15:26:11Z",
+      "durationMs": 362,
+      "outerCommandWallMs": 531,
+      "activity": "One worker ran focused lockfile regression tests on the same host. No build or full suite ran. Measurements are unadjusted.",
+      "overlappingRunIds": [
+        "preview-accuracy-1-typelatch"
+      ]
+    }
+  ]
+}

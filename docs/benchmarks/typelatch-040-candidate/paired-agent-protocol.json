@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "study": "explicit-tool-use",
+  "frozenAt": "2026-11-06T16:52:17.821Z",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "medium",
+  "repeats": 2,
+  "taskCount": 3,
+  "runCount": 12,
+  "toolPackage": "typelatch@0.4.0",
+  "candidate": {
+    "name": "typelatch",
+    "version": "0.4.0",
+    "source": "packed checkout candidate",
+    "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+    "tarball": "typelatch-0.4.0.tgz",
+    "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+    "integrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg=="
+  },
+  "previousProtocolSha256": "c6f7f1d24ad8ea6a65763c385c27d2f646db89bd5262daf4e14959fe32ae4b8a",
+  "timeoutMs": 600000,
+  "conditions": {
+    "baseline": "Native Codex tools without any MCP server",
+    "typelatch": "The same native tools plus all seven Typelatch MCP tools; source discovery, API inspection and validation use MCP when available"
+  },
+  "promptPolicy": "Identical task and workflow prompt in both conditions. Both discover source, inspect installed APIs, and run tests before and after editing. The prompt requires Typelatch tools when available and native equivalents otherwise. It does not discourage grep or prescribe the code solution.",
+  "tasks": [
+    {
+      "id": "sqlite-rollback",
+      "title": "SQLite batch rollback",
+      "prompt": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding. Valid batches must commit completely, failed batches must leave all earlier database rows intact and no new batch rows, and constraint errors must propagate to the caller. Empty batches must leave the database unchanged. Preserve the existing exported functions and types.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+      "allowedFiles": [
+        "batch.ts"
+      ],
+      "promptSha256": "14d225fbc24ebc64e114161d2ba09c65d449b4d035dbda6563b2f4c6fd00f6b2"
+    },
+    {
+      "id": "preview-accuracy",
+      "prompt": "Customers report that after previewing a cart, changing its quantities or delivery region sometimes leaves the displayed quote unchanged. Split rows for the same SKU can also undercharge shipping, and a region with a configured zero base charge incorrectly gets the fallback charge. Fix preview correctness for repeated calls on one application instance. Merchandise and grams must count every unit of every row. Shipping is zero for an empty cart; otherwise it is the exact configured region base, or the wildcard base when that region has no own configured value, or zero when neither exists, plus the configured amount per started kilogram. Zero is a real configured price. Existing invalid quantity, missing region, and unknown SKU errors must still occur after earlier successful previews. Do not mutate caller data, and mutation of a returned quote must not corrupt later results.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+      "title": "Cart preview correctness",
+      "allowedFiles": [
+        "src/**/*.ts"
+      ],
+      "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf"
+    },
+    {
+      "id": "partner-boundary",
+      "prompt": "The partner manifest boundary currently trusts arbitrary input. Implement the production Effect runtime schema and importer so both expose the same validation and normalized data. A manifest is an object containing a partner string and at least one parcel. Trim partner and parcel reference strings and reject blank results. Every parcel must contain a trimmed nonblank reference, a finite positive integer grams value supplied as a number, and service equal to standard or express. Parcel references must be unique after trimming. Reject missing fields, wrong types, unknown service values, and invalid manifests with the existing invalid-manifest result, without throwing. Strip unrecognized object fields from accepted output, retain parcel order, and do not mutate input or retain mutable references to it in imported results. The exported schema must itself perform the complete validation and normalization through the production dependency's decoder; a manual-only importer with a permissive schema does not meet the contract. Inputs are ordinary data values, including primitives, arrays, null, and undefined, without accessors, proxies, or cyclic references.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+      "title": "Partner manifest validation",
+      "allowedFiles": [
+        "src/**/*.ts"
+      ],
+      "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "sqlite-rollback-1-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "sqlite-rollback-1-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "preview-accuracy-1-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "preview-accuracy-1-baseline",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "partner-boundary-1-baseline",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "partner-boundary-1-typelatch",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "sqlite-rollback-2-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "sqlite-rollback-2-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "baseline"
+    },
+    {
+      "id": "preview-accuracy-2-baseline",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "baseline"
+    },
+    {
+      "id": "preview-accuracy-2-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "partner-boundary-2-typelatch",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "partner-boundary-2-baseline",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "baseline"
+    }
+  ],
+  "config": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "decisionGate": {
+    "minimumReductionPercent": 10,
+    "tokenMetric": "inputTokens + outputTokens, including cached input",
+    "timeMetric": "elapsedMs + indexSetupMs; common fixture preparation and independent grading excluded",
+    "rule": "Both metrics must improve by at least 10% in aggregate and in the median of six paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task. All twelve scheduled captures and grades must complete. No replacement runs.",
+    "scope": "A decision on these three known tasks with two repeats, not a general performance claim or a statistical confidence interval."
+  },
+  "timing": "Sequential sessions on one machine. Agent time is monotonic time from spawning Codex to process close, including MCP startup and tool execution. The decision gate charges agent time plus Typelatch index setup time. Common fixture preparation and independent grading are excluded. Each time component is reported separately. Package installation into the shared benchmark runtime is outside the gate.",
+  "preparation": "Fresh workspace and own installed dependencies each run. Fresh Typelatch home and package indexes prepared with sync only for the Typelatch condition. Source search cache starts cold. Dependency download and OS caches may be warm. Provider prompt caching is not disabled; cached input is reported.",
+  "fixtureComparison": "Normalize only exact workspace paths in the two generated better-sqlite3 build metadata files. Preserve original inventory digests and require every other source and dependency byte to match.",
+  "correctness": "Independent grader after the agent exits, using protected fixture checks and trusted tests outside the agent workspace. A self reported success does not count as correctness.",
+  "selection": "Three authored, known exercises selected before any scored run: the existing SQLite showcase plus two larger Parcel Desk tasks. Two repeats per condition. Fixed counterbalanced order, no session reuse. No run is removed for a poor result or failure to follow the tool policy. No performance tuning after scored runs begin.",
+  "failurePolicy": "Every preparation attempt and scheduled launch is retained. Failed or interrupted preparation cannot be retried in the same study. No automatic replacement or selective rerun. Missing usage is unknown, not zero. Infrastructure preflights contain no benchmark task and are excluded. A run interrupted before metrics complete remains visible.",
+  "limits": [
+    "A small authored local sample, not an unseen production benchmark or a causal estimate for all coding work.",
+    "Requested model alias and reasoning setting are pinned; an immutable served model snapshot and sampling seed are not available.",
+    "Input tokens include cached input and repeated context. Total tokens are input plus output; cached and reasoning tokens are subsets, not extra tokens.",
+    "Search counts describe recorded native shell tool calls, not every operating system process or every form of text search. MCP calls are reported separately.",
+    "Workspace instructions and file hashes are integrity controls, not proof of complete operating system isolation."
+  ],
+  "accountingSource": "Codex CLI turn.completed usage; https://learn.chatgpt.com/docs/non-interactive-mode",
+  "animation": "Replay the first SQLite pair, selected before scoring, regardless of outcome. Show actual public actions at recorded JSONL receipt times. Separate sessions align at their start and playback is accelerated. This is a rendered action replay, not a screen recording.",
+  "archiveBinding": {
+    "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+    "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+    "packageFileCount": 138,
+    "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1"
+  },
+  "restorationDifferences": [
+    {
+      "name": "trustedDependencies:sqlite/node_modules",
+      "originalSha256": "ace86a92aa8177c1fce8d54cf6ade5b7c8590b23c11dee45a35a50669091db1b",
+      "restoredSha256": "5f12a9177d48af0b50407cb9a5621f396bdf3d5e18cfe938f99429ce6c04fc40",
+      "reconstructedOriginalSha256": "ace86a92aa8177c1fce8d54cf6ade5b7c8590b23c11dee45a35a50669091db1b",
+      "rule": "The restored checkout moved from release-030 to typelatch-research. An in-memory replacement of that exact checkout prefix in only these two generated files reproduced the original full tree digest. No dependency files were modified. Current bytes are frozen separately and no other restoration difference is allowed.",
+      "files": [
+        {
+          "path": "better-sqlite3/build/Makefile",
+          "replacements": 2,
+          "restoredSha256": "8a4b9683320581c3859d581df934b8f757b34da6d94941bbd1c2becfeb76fd43",
+          "reconstructedOriginalSha256": "17be17205d35997ec0b9d539dc360b82efadc108ec9233afab8fe10c17ec271c"
+        },
+        {
+          "path": "better-sqlite3/build/config.gypi",
+          "replacements": 1,
+          "restoredSha256": "04168bb5fde448c13963f95d466ee64b0f8493f03f52d89daca3a007ba350570",
+          "reconstructedOriginalSha256": "26af977ad0c3bf2c06e2777bfa0cfaf15fb1d11a8d799f2a3425bd2cc9543535"
+        }
+      ]
+    }
+  ],
+  "frozenInputsDigest": "2b8f11c7afbb941773012ca0597daeab805fd98f47e77d7e20e54ed92516db9d"
+}

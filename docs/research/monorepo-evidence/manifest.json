@@ -1,0 +1,1005 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T19:21:26.615Z",
+  "scope": "Post-study002 public source and diagnostic evidence export. No original frozen file changed.",
+  "placeholders": {
+    "$REPOSITORY": "original Typelatch checkout root",
+    "$USER_HOME": "original user home",
+    "$TEMP_ROOT": "original per-user temporary root"
+  },
+  "files": [
+    {
+      "path": "source/artifacts/research/large-monorepo/qualify-corpus.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/qualify-corpus.mjs",
+      "originalSha256": "dc8d661d9a3b95e903f2a7c5e5df08f417357362683e8cf8ba6df2c31cf4b0f8",
+      "sha256": "dc8d661d9a3b95e903f2a7c5e5df08f417357362683e8cf8ba6df2c31cf4b0f8",
+      "bytes": 5829,
+      "decodedSha256": "dc8d661d9a3b95e903f2a7c5e5df08f417357362683e8cf8ba6df2c31cf4b0f8",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/prepare-dependencies.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/prepare-dependencies.mjs",
+      "originalSha256": "89d7395d1c2444f8ac8e40f79fe1fe65cb51ae1355f25fd9a17f376cd6083813",
+      "sha256": "89d7395d1c2444f8ac8e40f79fe1fe65cb51ae1355f25fd9a17f376cd6083813",
+      "bytes": 3762,
+      "decodedSha256": "89d7395d1c2444f8ac8e40f79fe1fe65cb51ae1355f25fd9a17f376cd6083813",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/qualify-installed.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/qualify-installed.mjs",
+      "originalSha256": "fc16f3fb20d08bb17325639009b05e9d97b83d69f37dd2d4d62a6efbb7edcac1",
+      "sha256": "fc16f3fb20d08bb17325639009b05e9d97b83d69f37dd2d4d62a6efbb7edcac1",
+      "bytes": 4581,
+      "decodedSha256": "fc16f3fb20d08bb17325639009b05e9d97b83d69f37dd2d4d62a6efbb7edcac1",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/maintenance/qualify.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs",
+      "originalSha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+      "sha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+      "bytes": 11700,
+      "decodedSha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+      "originalSha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+      "sha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+      "bytes": 3988,
+      "decodedSha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+      "originalSha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+      "sha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+      "bytes": 742,
+      "decodedSha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/api-migration/qualify.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs",
+      "originalSha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+      "sha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+      "bytes": 14832,
+      "decodedSha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+      "originalSha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+      "sha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+      "bytes": 2628,
+      "decodedSha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+      "originalSha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+      "sha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+      "bytes": 390,
+      "decodedSha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+      "originalSha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+      "sha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+      "bytes": 2381,
+      "decodedSha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+      "originalSha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+      "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+      "bytes": 1276,
+      "decodedSha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/tools/pnpm/package.json",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/tools/pnpm/package.json",
+      "originalSha256": "7044535f5c737f315bf5922ae4d8bbbb1a340e8e13a0625d6f98ae4616782cdf",
+      "sha256": "7044535f5c737f315bf5922ae4d8bbbb1a340e8e13a0625d6f98ae4616782cdf",
+      "bytes": 50,
+      "decodedSha256": "7044535f5c737f315bf5922ae4d8bbbb1a340e8e13a0625d6f98ae4616782cdf",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/large-monorepo/tools/pnpm/package-lock.json",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/tools/pnpm/package-lock.json",
+      "originalSha256": "72309e9d3f7f0c281f2e01c9d6f23965d70cbb8605df52c292328dfda7632d51",
+      "sha256": "72309e9d3f7f0c281f2e01c9d6f23965d70cbb8605df52c292328dfda7632d51",
+      "bytes": 653,
+      "decodedSha256": "72309e9d3f7f0c281f2e01c9d6f23965d70cbb8605df52c292328dfda7632d51",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/serena-baseline/ls-runtime/package.json",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/package.json",
+      "originalSha256": "9704b9c900b7cd6d1dc80e87168748f58c0e3fa84b82e4878daf9c362aa2508f",
+      "sha256": "9704b9c900b7cd6d1dc80e87168748f58c0e3fa84b82e4878daf9c362aa2508f",
+      "bytes": 157,
+      "decodedSha256": "9704b9c900b7cd6d1dc80e87168748f58c0e3fa84b82e4878daf9c362aa2508f",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/serena-baseline/ls-runtime/package-lock.json",
+      "kind": "preparation-or-grader-source",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/package-lock.json",
+      "originalSha256": "6e2a285a9faa72a89c4df05eb8a4edee6861b166e8698d27364ab8c3da22db17",
+      "sha256": "6e2a285a9faa72a89c4df05eb8a4edee6861b166e8698d27364ab8c3da22db17",
+      "bytes": 1185,
+      "decodedSha256": "6e2a285a9faa72a89c4df05eb8a4edee6861b166e8698d27364ab8c3da22db17",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/local-ranker/screen.py",
+      "kind": "local-ranking-source",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screen.py",
+      "originalSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+      "sha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+      "bytes": 24112,
+      "decodedSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/local-ranker/test_screen.py",
+      "kind": "local-ranking-source",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/test_screen.py",
+      "originalSha256": "c1ec07c61cebe25043c8dec88650c6f9454f1d65c4fd2b6a5d7956636de63b87",
+      "sha256": "c1ec07c61cebe25043c8dec88650c6f9454f1d65c4fd2b6a5d7956636de63b87",
+      "bytes": 5033,
+      "decodedSha256": "c1ec07c61cebe25043c8dec88650c6f9454f1d65c4fd2b6a5d7956636de63b87",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/local-ranker/run_schedule.py",
+      "kind": "local-ranking-source",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/run_schedule.py",
+      "originalSha256": "e57015c5a93bc395b139c453cbfd84c457d138058f852b2617be2dfd86c6e99d",
+      "sha256": "e57015c5a93bc395b139c453cbfd84c457d138058f852b2617be2dfd86c6e99d",
+      "bytes": 4060,
+      "decodedSha256": "e57015c5a93bc395b139c453cbfd84c457d138058f852b2617be2dfd86c6e99d",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/typelatch-package.json",
+      "kind": "dependency-lock",
+      "originalPath": "$REPOSITORY/package.json",
+      "originalSha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+      "sha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+      "bytes": 3106,
+      "decodedSha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/typelatch-package-lock.json",
+      "kind": "dependency-lock",
+      "originalPath": "$REPOSITORY/package-lock.json",
+      "originalSha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+      "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+      "bytes": 104242,
+      "decodedSha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/serena-uv.lock",
+      "kind": "dependency-lock",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/source/uv.lock",
+      "originalSha256": "24bbc88ca06a3b1bb84635829b9571a1132ee0d78d5ef5f45a673d9ae4d65837",
+      "sha256": "24bbc88ca06a3b1bb84635829b9571a1132ee0d78d5ef5f45a673d9ae4d65837",
+      "bytes": 527311,
+      "decodedSha256": "24bbc88ca06a3b1bb84635829b9571a1132ee0d78d5ef5f45a673d9ae4d65837",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/serena-pyproject.toml",
+      "kind": "dependency-lock",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/source/pyproject.toml",
+      "originalSha256": "ed88a9ce7dee9e006b72d46d971a9cfd8de349409fa0dfd4293bb7ea11b11711",
+      "sha256": "ed88a9ce7dee9e006b72d46d971a9cfd8de349409fa0dfd4293bb7ea11b11711",
+      "bytes": 14122,
+      "decodedSha256": "ed88a9ce7dee9e006b72d46d971a9cfd8de349409fa0dfd4293bb7ea11b11711",
+      "normalization": "none"
+    },
+    {
+      "path": "licenses/serena/LICENSE",
+      "kind": "license",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/source/LICENSE",
+      "originalSha256": "6239f4be78ccff409aedfbce88ac89b26f488f76aac7ab199fb6876dc7fdeb4c",
+      "sha256": "6239f4be78ccff409aedfbce88ac89b26f488f76aac7ab199fb6876dc7fdeb4c",
+      "bytes": 3470,
+      "decodedSha256": "6239f4be78ccff409aedfbce88ac89b26f488f76aac7ab199fb6876dc7fdeb4c",
+      "normalization": "none"
+    },
+    {
+      "path": "licenses/serena/LICENSES/GPL-3.0-or-later.txt",
+      "kind": "license",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/source/LICENSES/GPL-3.0-or-later.txt",
+      "originalSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "bytes": 35149,
+      "decodedSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "normalization": "none"
+    },
+    {
+      "path": "licenses/serena/LICENSES/MIT.txt",
+      "kind": "license",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/source/LICENSES/MIT.txt",
+      "originalSha256": "16017e50562bb112006f6f32d17ca989e0e573b011bd6790b642018b1c195b0c",
+      "sha256": "16017e50562bb112006f6f32d17ca989e0e573b011bd6790b642018b1c195b0c",
+      "bytes": 1066,
+      "decodedSha256": "16017e50562bb112006f6f32d17ca989e0e573b011bd6790b642018b1c195b0c",
+      "normalization": "none"
+    },
+    {
+      "path": "licenses/pnpm-LICENSE",
+      "kind": "license",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/LICENSE",
+      "originalSha256": "4b8e2a57502758b2d034ece9cabf19dd098c5609003ed8dbdafd085274f25bd9",
+      "sha256": "4b8e2a57502758b2d034ece9cabf19dd098c5609003ed8dbdafd085274f25bd9",
+      "bytes": 1170,
+      "decodedSha256": "4b8e2a57502758b2d034ece9cabf19dd098c5609003ed8dbdafd085274f25bd9",
+      "normalization": "none"
+    },
+    {
+      "path": "licenses/typelatch-LICENSE",
+      "kind": "license",
+      "originalPath": "$REPOSITORY/LICENSE",
+      "originalSha256": "3d39a97f1c3e76423610e477bd723c3dda7d79c83271d67ca902ae8db6c7b6fe",
+      "sha256": "3d39a97f1c3e76423610e477bd723c3dda7d79c83271d67ca902ae8db6c7b6fe",
+      "bytes": 1063,
+      "decodedSha256": "3d39a97f1c3e76423610e477bd723c3dda7d79c83271d67ca902ae8db6c7b6fe",
+      "normalization": "none"
+    },
+    {
+      "path": "screen004/native.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/native/result.json",
+      "originalSha256": "b37b1daf2b8d0f6b24adfedfff177e8af6087e2297aad4b5a148501629fe0b7a",
+      "sha256": "5c7ba4dce1a00d71e45820978e7f9a79bbaa890d046d30fce61db3e9848e92c9",
+      "bytes": 166901,
+      "decodedSha256": "a276dea5f7063f88f57402bc13c2de432910eaae354cf8783b85d692fde8ed8c",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/typelatch.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/typelatch/result.json",
+      "originalSha256": "e521ac8043ca4e2fe0237f26463cdcc45befdfb6fa90b5007453823825a083ee",
+      "sha256": "60c0ac079ee8417946acd94e60fec42b6eb4e52b321e8141e6ef5c95fc26bd7f",
+      "bytes": 234535,
+      "decodedSha256": "0c9232f9fb4c7ac2c42bbcc230dc3c171bc0923a66f180fc306892788a9e6555",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/typescript.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/typescript/result.json",
+      "originalSha256": "329d90b69e64ecd07b5c505bcda100f70a63d497619d2dae788ebdac12d2c8d9",
+      "sha256": "97d3a15714a65bf17739246848f2bad786301bb0b0724251ced0a5b411738a3a",
+      "bytes": 107063,
+      "decodedSha256": "6cbdb6dbab65ff30ce752da01d2cfd7c100e47055146888126b517935ab9b23e",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/serena.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/serena/result.json",
+      "originalSha256": "289650183dd75f54635687c39fdcff4aec67c72bc9c4de6af9dcd8003fc16db1",
+      "sha256": "d857b0ba20694e8f0723d5e898ed601234976859e055275faf9319a1d40678b3",
+      "bytes": 53648,
+      "decodedSha256": "93f3a59bd58783660fd780f264aa01fac9dde573ebeeed7ca2c49b49eece6c12",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/codegraph.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/codegraph/result.json",
+      "originalSha256": "fdcbdc17140c2a0a5a0840c03021431969e2f3155d3366852db687feee2d9e69",
+      "sha256": "84ec630015bdd9467f9831a4e458beed6d088f64e03887242deebf7af8e4d021",
+      "bytes": 290582,
+      "decodedSha256": "3eb8e845b27ebb5bed99dbbc623689dfda42cc9f2702f3b26b400c1c05db937f",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/graphify.json.gz",
+      "kind": "public-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/round-1/graphify/result.json",
+      "originalSha256": "8f7a9a5fed310d6a26fe953707cadf5702d9f5877f245defb03646304253c953",
+      "sha256": "108fae3930fbf543a97dbff57b385595a0f6fb2b13ed3d5d6de6b66e244bb13f",
+      "bytes": 180416,
+      "decodedSha256": "89535b370da00d3aa376023845d14abe47d6d1cfece49d18e0a12563cd8cb0f0",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/benchmark-tasks-competitors-round1.json",
+      "kind": "semantic-fact-ledger",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+      "originalSha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+      "sha256": "7d289ce4c0ac3902569faa517240bd867e771228f962efca35b6682db91f3c36",
+      "bytes": 508520,
+      "decodedSha256": "7d289ce4c0ac3902569faa517240bd867e771228f962efca35b6682db91f3c36",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/benchmark-tasks-core-round1.json",
+      "kind": "semantic-fact-ledger",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-core-round1.json",
+      "originalSha256": "51afdc4ee8699db67d26946c559be87c7aeff9983e3335d6a0bc7e04c575617a",
+      "sha256": "8e3d6bed003586bdf53d168a77556d9954f4678483a44a2eeb7f66f2a3eff17d",
+      "bytes": 385698,
+      "decodedSha256": "8e3d6bed003586bdf53d168a77556d9954f4678483a44a2eeb7f66f2a3eff17d",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen004/rubric.json",
+      "kind": "released-tool-probe-grader",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/rubric.json",
+      "originalSha256": "b9b858f44267c0e0fcf19e1935548da97ed778092395b0d8f4f7b3a6ccab53a3",
+      "sha256": "b9b858f44267c0e0fcf19e1935548da97ed778092395b0d8f4f7b3a6ccab53a3",
+      "bytes": 8525,
+      "decodedSha256": "b9b858f44267c0e0fcf19e1935548da97ed778092395b0d8f4f7b3a6ccab53a3",
+      "normalization": "none"
+    },
+    {
+      "path": "screen004/expected.json",
+      "kind": "released-tool-probe-grader",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/expected.json",
+      "originalSha256": "7b7f246a217f3a68c0b34d496a5f354ba303b23d7f3567dd1cf511c1f6181d38",
+      "sha256": "7b7f246a217f3a68c0b34d496a5f354ba303b23d7f3567dd1cf511c1f6181d38",
+      "bytes": 21070,
+      "decodedSha256": "7b7f246a217f3a68c0b34d496a5f354ba303b23d7f3567dd1cf511c1f6181d38",
+      "normalization": "none"
+    },
+    {
+      "path": "screen004/probes-public.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/probes-public.json",
+      "originalSha256": "299a395497c825251b7017b5af4fe3b2fc578b3695a73919e10fb08b6187280b",
+      "sha256": "299a395497c825251b7017b5af4fe3b2fc578b3695a73919e10fb08b6187280b",
+      "bytes": 10900,
+      "decodedSha256": "299a395497c825251b7017b5af4fe3b2fc578b3695a73919e10fb08b6187280b",
+      "normalization": "none"
+    },
+    {
+      "path": "screen003/ineligibility.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-003/screen-review.json",
+      "originalSha256": "ec2bdcb268242319258a97addc4a2521ae808e8c688dc7ab4cb847b76832176d",
+      "sha256": "ec2bdcb268242319258a97addc4a2521ae808e8c688dc7ab4cb847b76832176d",
+      "bytes": 440,
+      "decodedSha256": "ec2bdcb268242319258a97addc4a2521ae808e8c688dc7ab4cb847b76832176d",
+      "normalization": "none"
+    },
+    {
+      "path": "screen003/diagnostic-ledger.json.gz",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-003/independent-assessment/benchmark-tasks-round1.json",
+      "originalSha256": "6fe0f5c481814f842ad694025f68b8f71fc7b55543846e1764899bf797982ef8",
+      "sha256": "31d27fd3898579e0683b57af60c81551326fd6b2f3660b2a8d24ecd16d7d448f",
+      "bytes": 29121,
+      "decodedSha256": "c7d30c3edd9bc3fc34254035a7724d89e221b107da2308208047ceb374af5edd",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen003/native.json.gz",
+      "kind": "ineligible-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-003/round-1/native/result.json",
+      "originalSha256": "2552dece2da9393e43020f6b1989def144c2249c8e289529274c9a6729b43486",
+      "sha256": "8f775dacdac7a64a053fded684cd20ff1fa307222de8a9828e9f1b46dfde91d4",
+      "bytes": 167536,
+      "decodedSha256": "b4c1739ef6a0724d91f490234161f2b8f8ab0f5a9b3a4413a585afbeb3082415",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen003/typelatch.json.gz",
+      "kind": "ineligible-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-003/round-1/typelatch/result.json",
+      "originalSha256": "844ffedf632b82f8113874639ebd78a0299eb3fb6baf92c4342ea84e2cdefec4",
+      "sha256": "b94ccb96721e98943bfb0c343ef917384340c53ac59d226d1d2d712898a9e40a",
+      "bytes": 61575,
+      "decodedSha256": "2cbbeb09be1efebb31871171575efd9a43c0ed8d961d64ac379b7c9609f5b5b4",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "screen003/typescript.json.gz",
+      "kind": "ineligible-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/screen-003/round-1/typescript/result.json",
+      "originalSha256": "69f1bb1a92ee79d84a8d609657bac7645538da94d884bb134b76c39b95a9736e",
+      "sha256": "2eaacb6ce005da5a508c608bf8b274c85a1148de26d2ac9c5da075c21db585bb",
+      "bytes": 338148,
+      "decodedSha256": "747ae10b6a7ab9008d0219ca2203b277fa8511cc144eee7dda49aba490d299ae",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "corpus/corpus-qualification.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/corpus-qualification.json",
+      "originalSha256": "c0372b67bb149022f502407b822a70f009aeaf9ef31fda23c4caf10c67b94612",
+      "sha256": "c0372b67bb149022f502407b822a70f009aeaf9ef31fda23c4caf10c67b94612",
+      "bytes": 642973,
+      "decodedSha256": "c0372b67bb149022f502407b822a70f009aeaf9ef31fda23c4caf10c67b94612",
+      "normalization": "none"
+    },
+    {
+      "path": "corpus/corpus-inventory.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+      "originalSha256": "ba8421bf97c9d7318237070e69f99f2d186585f3da566ff6faf487f2bfc20615",
+      "sha256": "d7ad254041172febf6357da1e4df92c5dc9f8c39d960b9bd71f872dda7b5dd48",
+      "bytes": 864974,
+      "decodedSha256": "d7ad254041172febf6357da1e4df92c5dc9f8c39d960b9bd71f872dda7b5dd48",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "corpus/canonical-importer-identities.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/canonical-importer-identities.json",
+      "originalSha256": "82ab882f46133dc7d655658e48fbe02bc0aa32a1ac0de48b6f37520fd41a5e4a",
+      "sha256": "82ab882f46133dc7d655658e48fbe02bc0aa32a1ac0de48b6f37520fd41a5e4a",
+      "bytes": 5162,
+      "decodedSha256": "82ab882f46133dc7d655658e48fbe02bc0aa32a1ac0de48b6f37520fd41a5e4a",
+      "normalization": "none"
+    },
+    {
+      "path": "corpus/independent-version-api-review.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/independent-version-api-review.json",
+      "originalSha256": "4fb778acdfc9e85c04884f794a7fc1da10f7f8be8c23f4f78df3e04e66d9db3e",
+      "sha256": "4fb778acdfc9e85c04884f794a7fc1da10f7f8be8c23f4f78df3e04e66d9db3e",
+      "bytes": 5575,
+      "decodedSha256": "4fb778acdfc9e85c04884f794a7fc1da10f7f8be8c23f4f78df3e04e66d9db3e",
+      "normalization": "none"
+    },
+    {
+      "path": "corpus/dependency-install-001.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/dependency-install-001.json",
+      "originalSha256": "f0d78f3e60c2b7bba5b5b27b3fe67ffdca84a59e5c6e99de9a1c9e61a5ce384d",
+      "sha256": "51b07e064d596e5b8fe44db7935de9c2797e754867f2fd879ee0d7f7ab92276e",
+      "bytes": 2173,
+      "decodedSha256": "51b07e064d596e5b8fe44db7935de9c2797e754867f2fd879ee0d7f7ab92276e",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "corpus/dependency-install-002.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/dependency-install-002.json",
+      "originalSha256": "a8c2e3d8b723f680e0abb4dfc5aafb3a62d0e283bb9aaa8b3e407bc73b4858b5",
+      "sha256": "ce4bf573905ad0f0f251c96529444812ed3b466a1e82cf0e236432736c8a89e1",
+      "bytes": 2310,
+      "decodedSha256": "ce4bf573905ad0f0f251c96529444812ed3b466a1e82cf0e236432736c8a89e1",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "corpus/installed-qualification.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/installed-qualification.json",
+      "originalSha256": "d0c2de5248ff191ee601606471541b26a5e4ccd0ad366950507237586d6b7a4d",
+      "sha256": "f415a5bd0f0f14d348867861cdeb2fccec2c4bef5d5da86c4e051b4674e258da",
+      "bytes": 4164,
+      "decodedSha256": "f415a5bd0f0f14d348867861cdeb2fccec2c4bef5d5da86c4e051b4674e258da",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/pnpm-changed-project-move.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+      "originalSha256": "1eb4e359c6009ee4fbedd6c8cb8f3eb3354ccaa6cb9d86259ffbc87dcc917dae",
+      "sha256": "a499724f7055c39467792d67e29655549c2d7abef2f0b498346fa3067643e28d",
+      "bytes": 62455,
+      "decodedSha256": "a499724f7055c39467792d67e29655549c2d7abef2f0b498346fa3067643e28d",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/pnpm-changed-project-move-inventory-receipt.json",
+      "kind": "derived-inventory-receipt",
+      "sha256": "aee556e6e93d7b48dfb3392e08a6d6b26821de2eb02f80e55a01a860461b8d92",
+      "bytes": 769
+    },
+    {
+      "path": "qualification/pnpm-global-bin-api-migration.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+      "originalSha256": "bd8cf8d57b79af75c3d8ceab370095d888bfecc1d9e61d21d15c08dcfb5c4406",
+      "sha256": "d3c597fbd245e7f45bcdf1532aa96e2e2369c943f6d1a52926f4df2a9e4c2bd1",
+      "bytes": 43491,
+      "decodedSha256": "d3c597fbd245e7f45bcdf1532aa96e2e2369c943f6d1a52926f4df2a9e4c2bd1",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/pnpm-global-bin-api-migration-inventory-receipt.json",
+      "kind": "derived-inventory-receipt",
+      "sha256": "709a7e432b24c2e08464e1cac202948158b6f0c8503af32d0afef960ce898f89",
+      "bytes": 771
+    },
+    {
+      "path": "qualification/api-link-audit.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/link-audit.json",
+      "originalSha256": "c9076c2beae381772659e5aa98d54367ab135cbff7c546931d25ffc6cca06991",
+      "sha256": "c9076c2beae381772659e5aa98d54367ab135cbff7c546931d25ffc6cca06991",
+      "bytes": 1069,
+      "decodedSha256": "c9076c2beae381772659e5aa98d54367ab135cbff7c546931d25ffc6cca06991",
+      "normalization": "none"
+    },
+    {
+      "path": "qualification/maintenance-README.md",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/README.md",
+      "originalSha256": "b9073aa671cd1ae28e60c43bd8083e8fe67d7b310e17c83dc7f8af428b6ef764",
+      "sha256": "b9073aa671cd1ae28e60c43bd8083e8fe67d7b310e17c83dc7f8af428b6ef764",
+      "bytes": 3676,
+      "decodedSha256": "b9073aa671cd1ae28e60c43bd8083e8fe67d7b310e17c83dc7f8af428b6ef764",
+      "normalization": "none"
+    },
+    {
+      "path": "qualification/api-migration-README.md",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/README.md",
+      "originalSha256": "4ab569be3d8118eb64bdf9c6464ae008b68090626631fd306614342636522ef5",
+      "sha256": "4ab569be3d8118eb64bdf9c6464ae008b68090626631fd306614342636522ef5",
+      "bytes": 3167,
+      "decodedSha256": "4ab569be3d8118eb64bdf9c6464ae008b68090626631fd306614342636522ef5",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/api-upstream-lock-provenance.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/upstream-lock.yaml.provenance.json",
+      "originalSha256": "b6bef4361d4ca5a2b6830d363741e17cb74bab2dbd87f8a323a25b2fe060f327",
+      "sha256": "b6bef4361d4ca5a2b6830d363741e17cb74bab2dbd87f8a323a25b2fe060f327",
+      "bytes": 257,
+      "decodedSha256": "b6bef4361d4ca5a2b6830d363741e17cb74bab2dbd87f8a323a25b2fe060f327",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/api-upstream-lock.yaml.gz",
+      "kind": "upstream-lock",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/upstream-lock.yaml",
+      "originalSha256": "d76eed3ca0a8ebce7bd7939c9d6b1a61bd0fa3c764bd77c740b72f34edf7bc3e",
+      "sha256": "440a91e5a7c8886d4c17e68dfe5324099246e8067ac22108b4466f0190468736",
+      "bytes": 209429,
+      "decodedSha256": "d76eed3ca0a8ebce7bd7939c9d6b1a61bd0fa3c764bd77c740b72f34edf7bc3e",
+      "normalization": "none"
+    },
+    {
+      "path": "runtime/typelatch-candidate.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+      "originalSha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+      "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+      "bytes": 381,
+      "decodedSha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+      "normalization": "none"
+    },
+    {
+      "path": "locks/candidate-package-lock.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/../package-lock.json",
+      "originalSha256": "ef20143165171b3f1192084bc69f2df7bb17cc8b28da62a3b7775dcd78495292",
+      "sha256": "ef20143165171b3f1192084bc69f2df7bb17cc8b28da62a3b7775dcd78495292",
+      "bytes": 51492,
+      "decodedSha256": "ef20143165171b3f1192084bc69f2df7bb17cc8b28da62a3b7775dcd78495292",
+      "normalization": "none"
+    },
+    {
+      "path": "runtime/serena-runtime-manifest.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/runtime-manifest.json",
+      "originalSha256": "f890d00afd7a17b54d377d288dd7a8b79cea92c93275c595288d6309ecf3b8c3",
+      "sha256": "4b7a58c23f1013abdc3d2b4e9e1b875cfc45d8638b272aedec886a23207b5039",
+      "bytes": 12694,
+      "decodedSha256": "4b7a58c23f1013abdc3d2b4e9e1b875cfc45d8638b272aedec886a23207b5039",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "runtime/serena-runtime-full-manifest.json.gz",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+      "originalSha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+      "sha256": "d2d97fe8c5025bb368e0310bbec6110b9b5af8e121bf753af45fca59d105802d",
+      "bytes": 350629,
+      "decodedSha256": "6586998af1996c1ab88d3f740f4bf198b42e36027cd4ed8084ca43d46db3af72",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "runtime/serena-collect-qualified.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/collect-qualified.json",
+      "originalSha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b",
+      "sha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b",
+      "bytes": 2756,
+      "decodedSha256": "79bbbca301061be02f574d5e85bebd9dd868915cbf9a56fbd8b10bc9a372724b",
+      "normalization": "none"
+    },
+    {
+      "path": "runtime/serena-collect-targeted-qualified.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/serena-baseline/collect-targeted-qualified.json",
+      "originalSha256": "6df866a589bba9321a04f493ff5795de644612bbfa29a4c2b95023a10bfcddbb",
+      "sha256": "6df866a589bba9321a04f493ff5795de644612bbfa29a4c2b95023a10bfcddbb",
+      "bytes": 1297,
+      "decodedSha256": "6df866a589bba9321a04f493ff5795de644612bbfa29a4c2b95023a10bfcddbb",
+      "normalization": "none"
+    },
+    {
+      "path": "packet-v1/qualified.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/qualified.json",
+      "originalSha256": "d396f862c8cd2a03208841d35afea803ad9ec929f1c1645464bdd213c2e19520",
+      "sha256": "d396f862c8cd2a03208841d35afea803ad9ec929f1c1645464bdd213c2e19520",
+      "bytes": 3716,
+      "decodedSha256": "d396f862c8cd2a03208841d35afea803ad9ec929f1c1645464bdd213c2e19520",
+      "normalization": "none"
+    },
+    {
+      "path": "packet-v1/runtime-boundary.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/runtime-boundary.json",
+      "originalSha256": "0644582d0c6742cc99cef8391f5c29795ac9485cbbc5bea80463a017495a3a17",
+      "sha256": "b9b0d86b01e3acd6f5fd1582b4d3ef4ec5235dd4cd9eeb3d64f685071d020aee",
+      "bytes": 2935,
+      "decodedSha256": "b9b0d86b01e3acd6f5fd1582b4d3ef4ec5235dd4cd9eeb3d64f685071d020aee",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "packet-v1/public-discovery.json.gz",
+      "kind": "public-development-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/qualification/public-discovery/result.json",
+      "originalSha256": "142441b7e1e8965613bda73d33e3633b9efc2e1d935ffefb3ee7c0477012b927",
+      "sha256": "4eccc103cd8c0c91e0e9fd4f4714eadbcf58406a33069c2a4118485c11c13e24",
+      "bytes": 3862,
+      "decodedSha256": "7efc3b4b87c4f1f97efae080a658f78abb5bd886047191c8b46444351a3d25bc",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "packet-v1/assessment.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/qualification/public-discovery/assessment.json",
+      "originalSha256": "424f37bf129263ad59dcebe3676555b9cb39a0db49cc3232424530f283f7efc4",
+      "sha256": "2ab8f4ab9e9ddf5893e780ca04502c3de78e90c9380a6dc9407ec5cf8c509367",
+      "bytes": 3236,
+      "decodedSha256": "2ab8f4ab9e9ddf5893e780ca04502c3de78e90c9380a6dc9407ec5cf8c509367",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "packet-v2/qualified.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+      "originalSha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+      "sha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+      "bytes": 2176,
+      "decodedSha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+      "normalization": "none"
+    },
+    {
+      "path": "packet-v2/runtime-boundary.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+      "originalSha256": "7baeec16ebfc601c176bd5490ab90e2c05d778523990aaa76f171fe306ef8346",
+      "sha256": "61ac2cd93428804af634367670ef0d6f6975115a0f966f1877548db78e982de4",
+      "bytes": 3342,
+      "decodedSha256": "61ac2cd93428804af634367670ef0d6f6975115a0f966f1877548db78e982de4",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "packet-v2/public-discovery.json.gz",
+      "kind": "public-development-tool-capture",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/result.json",
+      "originalSha256": "9a53e17e299ec78c2c6d22a8a7498e4b5af2af801b79e5d7ba35a55b603b2340",
+      "sha256": "81fe43aab01e737a7727058192fadd00665de9882383462ace8d6938b276e6f8",
+      "bytes": 3903,
+      "decodedSha256": "a70275b9bbfe199e62c258205355dfb64340ecc5e7b88029ff7e2dc20d09366e",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "packet-v2/assessment.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+      "originalSha256": "8aed4edea6b22ebc5674b1a77941a44cd2a87cef7c3fe4e3e967ce842c92e49e",
+      "sha256": "0e4a36ea3cec8b01a3eee2f3db697c6a27a6b13fb7148572514e703cfa54f46f",
+      "bytes": 3988,
+      "decodedSha256": "0e4a36ea3cec8b01a3eee2f3db697c6a27a6b13fb7148572514e703cfa54f46f",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "runtime/current-tool-metadata.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/current-tool-metadata.json",
+      "originalSha256": "fd1a32d2a5d97d1620885f86927d5a506a741cd5b17097d647105ca4ccae3bfa",
+      "sha256": "fd1a32d2a5d97d1620885f86927d5a506a741cd5b17097d647105ca4ccae3bfa",
+      "bytes": 1539,
+      "decodedSha256": "fd1a32d2a5d97d1620885f86927d5a506a741cd5b17097d647105ca4ccae3bfa",
+      "normalization": "none"
+    },
+    {
+      "path": "qualification/prior/maintenance-attempt001.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-001/qualification.json",
+      "originalSha256": "f2316dba409bbcb3f4a64c4a8a148a50b38ec9ed8dbb02a2ab4439a7d60c2132",
+      "sha256": "5938dbf981c4bb00e46f15c3db9fe82b6e2b5ef9e1df1b5e8f753d300ca3e34b",
+      "bytes": 59404,
+      "decodedSha256": "5938dbf981c4bb00e46f15c3db9fe82b6e2b5ef9e1df1b5e8f753d300ca3e34b",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/prior/maintenance-attempt001-ineligible.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-001/setup-review.json",
+      "originalSha256": "9669682a67a9689da1601fa05e79a1334729443487a5281b9855025c4be893db",
+      "sha256": "9669682a67a9689da1601fa05e79a1334729443487a5281b9855025c4be893db",
+      "bytes": 459,
+      "decodedSha256": "9669682a67a9689da1601fa05e79a1334729443487a5281b9855025c4be893db",
+      "normalization": "none"
+    },
+    {
+      "path": "qualification/prior/api-attempt001.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-001/qualification.json",
+      "originalSha256": "20386550c058fa6aeaa94357b949a12770c5e62f8dbf2b3f6aa969de2995f63b",
+      "sha256": "8b65b8dbbc064e3747416026a714179a66c50924f2d9ab5a4e4dd39ec9009701",
+      "bytes": 3748,
+      "decodedSha256": "8b65b8dbbc064e3747416026a714179a66c50924f2d9ab5a4e4dd39ec9009701",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/prior/api-attempt002.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-002/qualification.json",
+      "originalSha256": "0b9df8802285a702e34c72d8698e09d8605c24e12a89aed3554fc48497b1bb80",
+      "sha256": "6d2c7b1bff5ed9362746164d7b8364a58ceb32183e78748fbc4564d089cd6d60",
+      "bytes": 3056,
+      "decodedSha256": "6d2c7b1bff5ed9362746164d7b8364a58ceb32183e78748fbc4564d089cd6d60",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "qualification/prior/api-attempt003-ineligible.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-003/qualification.json",
+      "originalSha256": "c9c76fd8ee4a9b8ed28a0c23836b174502cb7a2bd535b55b140a6e0e6011ca48",
+      "sha256": "432674c5a4dfbef4f7ab2e0a191ef85eeec66c8a24c882f86d86da402dd6959d",
+      "bytes": 44772,
+      "decodedSha256": "432674c5a4dfbef4f7ab2e0a191ef85eeec66c8a24c882f86d86da402dd6959d",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "local-ranking/ranker-cases.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/ranker-cases.json",
+      "originalSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+      "sha256": "82a1bef61b2cd808bcadb24fbfb9d0e30b2c71a0bff07ab66d61eb91d6c7b95d",
+      "bytes": 72248,
+      "decodedSha256": "82a1bef61b2cd808bcadb24fbfb9d0e30b2c71a0bff07ab66d61eb91d6c7b95d",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "local-ranking/semantic-evidence-review.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/semantic-evidence-review.json",
+      "originalSha256": "12b310ca7315888c511b7bd8b46e06a17aaf07046acf335cc0978183ba1702c6",
+      "sha256": "12b310ca7315888c511b7bd8b46e06a17aaf07046acf335cc0978183ba1702c6",
+      "bytes": 6576,
+      "decodedSha256": "12b310ca7315888c511b7bd8b46e06a17aaf07046acf335cc0978183ba1702c6",
+      "normalization": "none"
+    },
+    {
+      "path": "local-ranking/v1-freeze.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/v1-freeze.json",
+      "originalSha256": "b6691171569bfd297b576ae38586d48785b0482dc1e67c3dd1e0e9b412bac6ca",
+      "sha256": "b6691171569bfd297b576ae38586d48785b0482dc1e67c3dd1e0e9b412bac6ca",
+      "bytes": 2184,
+      "decodedSha256": "b6691171569bfd297b576ae38586d48785b0482dc1e67c3dd1e0e9b412bac6ca",
+      "normalization": "none"
+    },
+    {
+      "path": "local-ranking/summary.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/summary.json",
+      "originalSha256": "b42bfdc39098ebd2bee0f4bb8e8ab32aefe647877ef76b50013d3f72492dd3be",
+      "sha256": "b42bfdc39098ebd2bee0f4bb8e8ab32aefe647877ef76b50013d3f72492dd3be",
+      "bytes": 6616,
+      "decodedSha256": "b42bfdc39098ebd2bee0f4bb8e8ab32aefe647877ef76b50013d3f72492dd3be",
+      "normalization": "none"
+    },
+    {
+      "path": "local-ranking/schedule.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/schedule.json",
+      "originalSha256": "d0466194223a149cd3a955e36190fdb953e9aa50caee88e9e7a2fa9332882ed7",
+      "sha256": "d0466194223a149cd3a955e36190fdb953e9aa50caee88e9e7a2fa9332882ed7",
+      "bytes": 1054,
+      "decodedSha256": "d0466194223a149cd3a955e36190fdb953e9aa50caee88e9e7a2fa9332882ed7",
+      "normalization": "none"
+    },
+    {
+      "path": "local-ranking/execution.json",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/execution.json",
+      "originalSha256": "19187fe25de6df3b53747e786bf82608240a5c9acc9202c228dd7a50678efdcb",
+      "sha256": "19187fe25de6df3b53747e786bf82608240a5c9acc9202c228dd7a50678efdcb",
+      "bytes": 1807,
+      "decodedSha256": "19187fe25de6df3b53747e786bf82608240a5c9acc9202c228dd7a50678efdcb",
+      "normalization": "none"
+    },
+    {
+      "path": "local-ranking/mlx-1.json",
+      "kind": "allowlisted-derived-receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/mlx-1.json",
+      "originalSha256": "8ab3374dff2afa326748df48027a94dcce11c73596ff75e42219c3dce7c55a28",
+      "sha256": "26af5901487e5316cb597366698ee51f2318ad484f3bd2e1caca43007e943a73",
+      "decodedSha256": "26af5901487e5316cb597366698ee51f2318ad484f3bd2e1caca43007e943a73",
+      "bytes": 55207,
+      "normalization": "Allowlisted ranking IDs, scores, input truncation, metric and runtime fields. Raw generated selection text omitted. Absolute machine prefixes normalized."
+    },
+    {
+      "path": "local-ranking/mlx-2.json",
+      "kind": "allowlisted-derived-receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/mlx-2.json",
+      "originalSha256": "16e7b94638622de794e36f408d6be6395522fc464385ab6ee551f804271458ba",
+      "sha256": "47a75d0a5121381a726935081eef2b9d5812f01de326c44dbdb9c41b11ef3237",
+      "decodedSha256": "47a75d0a5121381a726935081eef2b9d5812f01de326c44dbdb9c41b11ef3237",
+      "bytes": 55191,
+      "normalization": "Allowlisted ranking IDs, scores, input truncation, metric and runtime fields. Raw generated selection text omitted. Absolute machine prefixes normalized."
+    },
+    {
+      "path": "local-ranking/ollama-1.json",
+      "kind": "allowlisted-derived-receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/ollama-1.json",
+      "originalSha256": "b359fd54d94c6a3787dc57e652706f1964dc348748b7792d9305566d410782df",
+      "sha256": "484d52c849fac737ae3d7f9f1f16a0769bf5fccaf4fd28a63d5ee99abcf5cd3a",
+      "decodedSha256": "484d52c849fac737ae3d7f9f1f16a0769bf5fccaf4fd28a63d5ee99abcf5cd3a",
+      "bytes": 54547,
+      "normalization": "Allowlisted ranking IDs, scores, input truncation, metric and runtime fields. Raw generated selection text omitted. Absolute machine prefixes normalized."
+    },
+    {
+      "path": "local-ranking/ollama-2.json",
+      "kind": "allowlisted-derived-receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/local-ranker/screening-v1/ollama-2.json",
+      "originalSha256": "68640cd7e52c5f89b035bc2fecbceebf10ccc2de6ddcbf785dbb876e83225d40",
+      "sha256": "119650c4e156cb2a02ea5203e3cee15549e0a8ef8e3025cec6cba332f72031f4",
+      "decodedSha256": "119650c4e156cb2a02ea5203e3cee15549e0a8ef8e3025cec6cba332f72031f4",
+      "bytes": 54542,
+      "normalization": "Allowlisted ranking IDs, scores, input truncation, metric and runtime fields. Raw generated selection text omitted. Absolute machine prefixes normalized."
+    },
+    {
+      "path": "verify.mjs",
+      "kind": "offline-verifier",
+      "sha256": "b383a130389612724eb9be57bcf4708346f73003907255fa6a2e06e456fce9dc",
+      "bytes": 3861
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v1/mcp.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/mcp.mjs",
+      "originalSha256": "1230b65edf6ec6e743458f1322686972471cef3b7399c0c029f22ca475847c63",
+      "sha256": "1230b65edf6ec6e743458f1322686972471cef3b7399c0c029f22ca475847c63",
+      "bytes": 972,
+      "decodedSha256": "1230b65edf6ec6e743458f1322686972471cef3b7399c0c029f22ca475847c63",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v1/cli.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/cli.mjs",
+      "originalSha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "sha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "bytes": 443,
+      "decodedSha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v1/projection.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/projection.mjs",
+      "originalSha256": "73e27c051c2d4e0e97463c1d3edda047e2f99d869614b9cfb7713b416bdca88a",
+      "sha256": "73e27c051c2d4e0e97463c1d3edda047e2f99d869614b9cfb7713b416bdca88a",
+      "bytes": 5994,
+      "decodedSha256": "73e27c051c2d4e0e97463c1d3edda047e2f99d869614b9cfb7713b416bdca88a",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v1/service.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v1/service.mjs",
+      "originalSha256": "522018c101929ba460bd09d767a956b0dbf11eed8fc9960bde110ce33ce7d2a5",
+      "sha256": "522018c101929ba460bd09d767a956b0dbf11eed8fc9960bde110ce33ce7d2a5",
+      "bytes": 3326,
+      "decodedSha256": "522018c101929ba460bd09d767a956b0dbf11eed8fc9960bde110ce33ce7d2a5",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+      "originalSha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+      "sha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+      "bytes": 972,
+      "decodedSha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v2/cli.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/cli.mjs",
+      "originalSha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "sha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "bytes": 443,
+      "decodedSha256": "ad32be68135458f722076e8c6a977a85f3c82ea448b469eb30319a0c3242351c",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+      "originalSha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+      "sha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+      "bytes": 9911,
+      "decodedSha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+      "normalization": "none"
+    },
+    {
+      "path": "source/artifacts/research/task-packet/source-arm-v2/service.mjs",
+      "kind": "experimental-packet-source",
+      "originalPath": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+      "originalSha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+      "sha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+      "bytes": 4040,
+      "decodedSha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+      "normalization": "none"
+    },
+    {
+      "path": "corpus/dependency-install-002.log.gz",
+      "kind": "receipt",
+      "originalPath": "$REPOSITORY/artifacts/research/large-monorepo/dependency-install-002.log",
+      "originalSha256": "9960ba765935d291d09e15eae411287fbccea94d30089e95bb814572d817a5d8",
+      "sha256": "65b7657fd851209e1d13dc7231a2528183f02b2c8d5bacf6564d4e9e19f412b8",
+      "bytes": 416,
+      "decodedSha256": "e782b0bd9878114a769fd975316882a727dbdda90e97f7a3fe1211c79680def3",
+      "normalization": "Absolute checkout, user-home and temporary-root prefixes replaced with declared placeholders; all other text retained."
+    },
+    {
+      "path": "runtime/typelatch-0.4.0.tgz",
+      "kind": "exact-candidate-archive",
+      "originalPath": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+      "originalSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "bytes": 194704,
+      "normalization": "none"
+    },
+    {
+      "path": "README.md",
+      "kind": "results-and-reproduction-note",
+      "sha256": "f0d307e8cc69961b2a4cba503b67c51b81afc175f4ffae089bb12b4746c10b40",
+      "bytes": 9039
+    }
+  ]
+}

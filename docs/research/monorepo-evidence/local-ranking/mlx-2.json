@@ -1,0 +1,1626 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-selector-screen",
+  "backend": "mlx",
+  "status": "complete",
+  "startedAt": "2026-11-06T17:18:40Z",
+  "scriptSha256": "8105a175191540f2472bc1ec3272ed37b7e9847f22f847a86ea565cdec5be89c",
+  "python": "3.12.16 (main, Oct 25 2026, 18:24:37) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "settings": {
+    "pairMaxTokens": 512,
+    "queryMaxTokens": 128,
+    "topK": 2,
+    "instruction": "Given a software maintenance task, retrieve source code or API evidence needed to understand and correctly implement the requested change.",
+    "candidateBatchSize": 1,
+    "ollamaContextTokens": 32768,
+    "ollamaOutputTokenLimit": 512,
+    "ordering": "input order; score ties sort by candidate ID"
+  },
+  "limitations": [
+    "Retrieval screening, not coding correctness or cloud token savings",
+    "MLX scores pairs; Ollama selects a list; same source windows, different prompt tokenizers",
+    "MLX has no calibrated no-match threshold",
+    "Download time is external and retained from the model manifest",
+    "RSS covers this Python process, not the separate Ollama server",
+    "Cold Ollama means absent from /api/ps; filesystem and server caches may be warm",
+    "No hidden reasoning or full model response bodies are exported"
+  ],
+  "elapsedMs": 8060.109250000096,
+  "casesSha256": "b834b5012c0079a992d2df601e5368c92ef3a0c81a44ecc068274169aa0e0ee1",
+  "modelManifest": {
+    "manifestSha256": "2162af6538d00e6f823c7479f9e50734da2bb35f311f4c45fc4e496364b1e038",
+    "repository": "mlx-community/Qwen3-Reranker-0.6B-4bit",
+    "revision": "5f324548f1d20c2b5a450f126fc6ef2fb1126524",
+    "files": [
+      {
+        "path": "README.md",
+        "bytes": 1890,
+        "sha256": "e560db1813f60798fbbf0e38b34aaf581efcca70ef5b620f2eb31032304f4b7e"
+      },
+      {
+        "path": "config.json",
+        "bytes": 1021,
+        "sha256": "09adff58b65e9305009c9caa4923b3365b18dd2f84135b44168aaf869278bea4"
+      },
+      {
+        "path": "generation_config.json",
+        "bytes": 214,
+        "sha256": "81051cd3f6e77013827148d0b8a6ead93f8ac390d5ab805f849199f0af6a08db"
+      },
+      {
+        "path": "model.safetensors",
+        "bytes": 335296756,
+        "sha256": "1d212560a5b1c36186787fdae19f11f20fecfc29bef91522e12a8e0d118f4545"
+      },
+      {
+        "path": "model.safetensors.index.json",
+        "bytes": 49770,
+        "sha256": "90d82744cdb6b7d093f0b812fc21a49b6ffa9d0084a45428f0cfd01eb4adbe12"
+      },
+      {
+        "path": "tokenizer.json",
+        "bytes": 11422650,
+        "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+      },
+      {
+        "path": "tokenizer_config.json",
+        "bytes": 377,
+        "sha256": "1689852cc9c45010de040c8302a8acdc0d2c4c6c740dd7e9dd0a8c704e16eada"
+      }
+    ],
+    "reportedDownloadMs": 11530.87995900205,
+    "verificationMs": 183.2364999972924
+  },
+  "libraries": {
+    "transformers": "5.22.2",
+    "mlx": "0.32.4",
+    "mlx-lm": "0.31.3"
+  },
+  "modelLoadMs": 556.0587079999095,
+  "tokenizerLoadMs": 1120.453166000516,
+  "peakProcessRssBytes": 861044736,
+  "cases": [
+    {
+      "id": "root-glob:source-cause",
+      "status": "ok",
+      "rankedIds": [
+        "6af5c08240bc73bd",
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "263d030f5e9ee87f",
+        "f3d126a98eaa8daa"
+      ],
+      "preparation": {
+        "id": "root-glob:source-cause",
+        "queryOriginalTokens": 17,
+        "queryUsedTokens": 17,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 19.147458002407802,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 461,
+            "untruncatedPairTokens": 461,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 237,
+            "untruncatedPairTokens": 237,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 889,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "9f5228c591473dde8c084e345c90997047278f4cdaab5542eccc5bf39a1a00bb",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1262,
+            "omittedCharacters": 1102
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 630,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "5f7c56440fc7d7ff586ea77a93295f69d001382985a8f94ae327116ed4c89c62",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1126,
+            "omittedCharacters": 426
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 214,
+            "untruncatedPairTokens": 214,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "263d030f5e9ee87f",
+          "inputTokens": 461,
+          "status": "ok",
+          "score": 0.006744384765625,
+          "noLogit": 15.3125,
+          "yesLogit": 10.3125,
+          "scoringMs": 149.205334000726
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "inputTokens": 237,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 14.4375,
+          "yesLogit": 20,
+          "scoringMs": 69.2016249995504
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.60546875,
+          "noLogit": 15.5,
+          "yesLogit": 16,
+          "scoringMs": 131.1844999981986
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.10546875,
+          "noLogit": 16.375,
+          "yesLogit": 14.25,
+          "scoringMs": 128.80520799808437
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "inputTokens": 214,
+          "status": "ok",
+          "score": 0.000553131103515625,
+          "noLogit": 15.125,
+          "yesLogit": 7.625,
+          "scoringMs": 62.34112500169431
+        }
+      ],
+      "scoringMs": 540.7745830016211,
+      "inputTokens": 1936,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "6af5c08240bc73bd"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 559.961666000163,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 400179214,
+        "get_cache_memory": 2301086080
+      }
+    },
+    {
+      "id": "root-glob:public-contract",
+      "status": "ok",
+      "rankedIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd",
+        "f3d126a98eaa8daa",
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f"
+      ],
+      "preparation": {
+        "id": "root-glob:public-contract",
+        "queryOriginalTokens": 20,
+        "queryUsedTokens": 20,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 15.714290999312652,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 464,
+            "untruncatedPairTokens": 464,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 240,
+            "untruncatedPairTokens": 240,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 892,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "a32249e53b695aeb0829ce79fca821930ac766e489f07b5c90ab8bb53b738221",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1258,
+            "omittedCharacters": 1106
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 633,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "d78ac2694a8d8c4d13b67626271f90a848e72b6523e3172df90fb0682122431d",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1115,
+            "omittedCharacters": 437
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 217,
+            "untruncatedPairTokens": 217,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "263d030f5e9ee87f",
+          "inputTokens": 464,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 13.5625,
+          "yesLogit": 19.75,
+          "scoringMs": 120.76804100070149
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "inputTokens": 240,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 15.4375,
+          "yesLogit": 19.875,
+          "scoringMs": 67.85350000063772
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.32421875,
+          "noLogit": 16.25,
+          "yesLogit": 15.5,
+          "scoringMs": 135.6164169992553
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.006744384765625,
+          "noLogit": 16,
+          "yesLogit": 11,
+          "scoringMs": 132.77212500179303
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "inputTokens": 217,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 16.125,
+          "yesLogit": 19.5,
+          "scoringMs": 65.83695800145506
+        }
+      ],
+      "scoringMs": 522.955083000852,
+      "inputTokens": 1945,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "263d030f5e9ee87f"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 538.7268750018848,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 401080340,
+        "get_cache_memory": 3432088350
+      }
+    },
+    {
+      "id": "root-glob:call-contract",
+      "status": "ok",
+      "rankedIds": [
+        "6af5c08240bc73bd",
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "263d030f5e9ee87f",
+        "f3d126a98eaa8daa"
+      ],
+      "preparation": {
+        "id": "root-glob:call-contract",
+        "queryOriginalTokens": 19,
+        "queryUsedTokens": 19,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 35.96050000123796,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 463,
+            "untruncatedPairTokens": 463,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 239,
+            "untruncatedPairTokens": 239,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 891,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "9451f67c1c83df735f7f6ec4d12139f8af43414a0530abe8e902b52220a5dd6f",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1260,
+            "omittedCharacters": 1104
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 632,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "873d5daa3ce420a2642c0318832610011231f366af911c8bea3273d10d36f09c",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1120,
+            "omittedCharacters": 432
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 216,
+            "untruncatedPairTokens": 216,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "263d030f5e9ee87f",
+          "inputTokens": 463,
+          "status": "ok",
+          "score": 0.006317138671875,
+          "noLogit": 15.1875,
+          "yesLogit": 10.125,
+          "scoringMs": 123.7228749996575
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "inputTokens": 239,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 15.75,
+          "yesLogit": 19.25,
+          "scoringMs": 69.1783750007744
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 15.1875,
+          "yesLogit": 19.125,
+          "scoringMs": 130.84733299911022
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.6875,
+          "noLogit": 16.375,
+          "yesLogit": 17.375,
+          "scoringMs": 132.6355000019248
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "inputTokens": 216,
+          "status": "ok",
+          "score": 0.005950927734375,
+          "noLogit": 15.1875,
+          "yesLogit": 10.0625,
+          "scoringMs": 61.74808300056611
+        }
+      ],
+      "scoringMs": 518.2331659998454,
+      "inputTokens": 1942,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "a0f8a3d51614ac3a"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 0.5,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 554.242707999947,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 400785428,
+        "get_cache_memory": 3719725854
+      }
+    },
+    {
+      "id": "root-glob:basename-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "6af5c08240bc73bd",
+        "263d030f5e9ee87f",
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "preparation": {
+        "id": "root-glob:basename-semantics-absent",
+        "queryOriginalTokens": 14,
+        "queryUsedTokens": 14,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 16.136542002641363,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 458,
+            "untruncatedPairTokens": 458,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 234,
+            "untruncatedPairTokens": 234,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 886,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "1a5e3431814fefaa52dfcd0801800905a179a9d824a4df735bbb362ce1dc3a9d",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1265,
+            "omittedCharacters": 1099
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 627,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "de0fd4d0babbeb51064e3b399d77e245764500a87caeec165960a5b78da499e7",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1135,
+            "omittedCharacters": 417
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 211,
+            "untruncatedPairTokens": 211,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "263d030f5e9ee87f",
+          "inputTokens": 458,
+          "status": "ok",
+          "score": 0.00982666015625,
+          "noLogit": 15.1875,
+          "yesLogit": 10.5625,
+          "scoringMs": 122.58758299867623
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "inputTokens": 234,
+          "status": "ok",
+          "score": 0.60546875,
+          "noLogit": 16.5,
+          "yesLogit": 17,
+          "scoringMs": 68.37245900169364
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.00921630859375,
+          "noLogit": 14.875,
+          "yesLogit": 10.1875,
+          "scoringMs": 131.6002080020553
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.003387451171875,
+          "noLogit": 15.0625,
+          "yesLogit": 9.375,
+          "scoringMs": 130.46341700101038
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "inputTokens": 211,
+          "status": "ok",
+          "score": 0.0023345947265625,
+          "noLogit": 14.8125,
+          "yesLogit": 8.75,
+          "scoringMs": 61.03362499925424
+        }
+      ],
+      "scoringMs": 514.088375002757,
+      "inputTokens": 1927,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 530.2715419966262,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 399261716,
+        "get_cache_memory": 4200301342
+      }
+    },
+    {
+      "id": "root-glob:dot-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd",
+        "a0f8a3d51614ac3a",
+        "f3d126a98eaa8daa",
+        "c5e1971a4913f70f"
+      ],
+      "preparation": {
+        "id": "root-glob:dot-semantics-absent",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 19.160208998073358,
+        "candidates": [
+          {
+            "id": "263d030f5e9ee87f",
+            "inputTokens": 462,
+            "untruncatedPairTokens": 462,
+            "originalTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "visibleTextSha256": "acdfe1844e0a7c3bbd5101d81b9688c63c4eb6355a4abcf0cc96544fbefae466",
+            "originalCharacters": 1224,
+            "visibleCharacters": 1224,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "6af5c08240bc73bd",
+            "inputTokens": 238,
+            "untruncatedPairTokens": 238,
+            "originalTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "visibleTextSha256": "b8f3cc83114827bf1e0e528289be39ab9b67ee3219e9eca00f054ad77357f463",
+            "originalCharacters": 476,
+            "visibleCharacters": 476,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "a0f8a3d51614ac3a",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 890,
+            "originalTextSha256": "0daaa774c54169d3ee4485251616c4227978ddd5d5d8ab856fecd3ebd559e88b",
+            "visibleTextSha256": "df2e50635c6ec23d422a61cec1201d5dea7100c030949a03a14eb515d18630dd",
+            "originalCharacters": 2364,
+            "visibleCharacters": 1261,
+            "omittedCharacters": 1103
+          },
+          {
+            "id": "c5e1971a4913f70f",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 631,
+            "originalTextSha256": "4de68f3ea7da67bde53a91cc92b6c5fe8292930a7bb63726fd212da8cf1e46d8",
+            "visibleTextSha256": "33a0ae5d1fe0da87687c21736e34abe5fe5e8c7078c7fd2ad719391fa9765180",
+            "originalCharacters": 1552,
+            "visibleCharacters": 1125,
+            "omittedCharacters": 427
+          },
+          {
+            "id": "f3d126a98eaa8daa",
+            "inputTokens": 215,
+            "untruncatedPairTokens": 215,
+            "originalTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "visibleTextSha256": "cad669f7ee67fedcf8f88e225e216b81b20bbfefb5777e5795cd7ec7c3128989",
+            "originalCharacters": 378,
+            "visibleCharacters": 378,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "263d030f5e9ee87f",
+          "inputTokens": 462,
+          "status": "ok",
+          "score": 0.60546875,
+          "noLogit": 16.125,
+          "yesLogit": 16.625,
+          "scoringMs": 122.23054200148908
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "inputTokens": 238,
+          "status": "ok",
+          "score": 0.072265625,
+          "noLogit": 16.125,
+          "yesLogit": 13.625,
+          "scoringMs": 68.1614159984747
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0118408203125,
+          "noLogit": 15.4375,
+          "yesLogit": 11,
+          "scoringMs": 132.91974999810918
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.00141143798828125,
+          "noLogit": 15.25,
+          "yesLogit": 8.6875,
+          "scoringMs": 133.59095800115028
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "inputTokens": 215,
+          "status": "ok",
+          "score": 0.005950927734375,
+          "noLogit": 15.25,
+          "yesLogit": 10.125,
+          "scoringMs": 62.064749999990454
+        }
+      ],
+      "scoringMs": 518.9989169994078,
+      "inputTokens": 1939,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 538.2271250018675,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 400474128,
+        "get_cache_memory": 4476666660
+      }
+    },
+    {
+      "id": "yaml-settings:source-cause",
+      "status": "ok",
+      "rankedIds": [
+        "4c7985a65be86c3e",
+        "f8c4b6a08e13fb50",
+        "be49ef649000560d",
+        "8a9c2684066a1a07",
+        "7fb735e463024462"
+      ],
+      "preparation": {
+        "id": "yaml-settings:source-cause",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 17.931040998519165,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 434,
+            "untruncatedPairTokens": 434,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 299,
+            "untruncatedPairTokens": 299,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 516,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "f059fca7cc9290c11b6df9e749e57fe11a007ef163cab1fea7b73d04937e6201",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1134,
+            "omittedCharacters": 7
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 675,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "782ba757649eb19849be757475caf79bb0c39804377ae7276bb7724c1106cc8f",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1354,
+            "omittedCharacters": 489
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 189,
+            "untruncatedPairTokens": 189,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 434,
+          "status": "ok",
+          "score": 0.2373046875,
+          "noLogit": 15.6875,
+          "yesLogit": 14.5,
+          "scoringMs": 123.51474999741185
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 299,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 14.375,
+          "yesLogit": 20.625,
+          "scoringMs": 86.65354100230616
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0498046875,
+          "noLogit": 15.75,
+          "yesLogit": 12.8125,
+          "scoringMs": 133.39325000197277
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.416015625,
+          "noLogit": 16.125,
+          "yesLogit": 15.75,
+          "scoringMs": 133.25933400119538
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 189,
+          "status": "ok",
+          "score": 0.0220947265625,
+          "noLogit": 15.875,
+          "yesLogit": 12.0625,
+          "scoringMs": 54.59049999990384
+        }
+      ],
+      "scoringMs": 531.4407080004457,
+      "inputTokens": 1946,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "4c7985a65be86c3e"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 549.4193330014241,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 392593422,
+        "get_cache_memory": 5685609252
+      }
+    },
+    {
+      "id": "yaml-settings:public-contract",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "f8c4b6a08e13fb50",
+        "4c7985a65be86c3e",
+        "8a9c2684066a1a07",
+        "7fb735e463024462"
+      ],
+      "preparation": {
+        "id": "yaml-settings:public-contract",
+        "queryOriginalTokens": 25,
+        "queryUsedTokens": 25,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 15.25266699900385,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 441,
+            "untruncatedPairTokens": 441,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 306,
+            "untruncatedPairTokens": 306,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 523,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "2c9f7ead11f9c2741a94c03244683395c010003b1b34fe995dd16abfa9b04804",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1117,
+            "omittedCharacters": 24
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 682,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "f57e6d66ced5b1ad4283061ce77ce2a649ff64a25351fdf42caad78610a277ed",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1340,
+            "omittedCharacters": 503
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 196,
+            "untruncatedPairTokens": 196,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 441,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 13.9375,
+          "yesLogit": 19.125,
+          "scoringMs": 118.19433400160051
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 306,
+          "status": "ok",
+          "score": 0.77734375,
+          "noLogit": 16.375,
+          "yesLogit": 17.625,
+          "scoringMs": 84.41504200163763
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.01611328125,
+          "noLogit": 15.5625,
+          "yesLogit": 11.4375,
+          "scoringMs": 131.40179199763224
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.8828125,
+          "noLogit": 16,
+          "yesLogit": 17.625,
+          "scoringMs": 131.8800419976469
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 196,
+          "status": "ok",
+          "score": 0.00811767578125,
+          "noLogit": 15.6875,
+          "yesLogit": 10.875,
+          "scoringMs": 62.48250000135158
+        }
+      ],
+      "scoringMs": 528.40145799928,
+      "inputTokens": 1967,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "be49ef649000560d"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 1,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 543.709375000617,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 394706958,
+        "get_cache_memory": 7001473828
+      }
+    },
+    {
+      "id": "yaml-settings:stream-contract",
+      "status": "ok",
+      "rankedIds": [
+        "4c7985a65be86c3e",
+        "f8c4b6a08e13fb50",
+        "be49ef649000560d",
+        "8a9c2684066a1a07",
+        "7fb735e463024462"
+      ],
+      "preparation": {
+        "id": "yaml-settings:stream-contract",
+        "queryOriginalTokens": 24,
+        "queryUsedTokens": 24,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 15.071958001499297,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 440,
+            "untruncatedPairTokens": 440,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 305,
+            "untruncatedPairTokens": 305,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 522,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "9692f0b083a02e663acae0263586315cf3c5c814b53189b51a9e6916eb2755a9",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1118,
+            "omittedCharacters": 23
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 681,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "e17caa992229c9a88ffa230a33a4e00c8d96a74e48ed1d54ee1ea36f10458fd8",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1341,
+            "omittedCharacters": 502
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 195,
+            "untruncatedPairTokens": 195,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 440,
+          "status": "ok",
+          "score": 0.06005859375,
+          "noLogit": 15.5,
+          "yesLogit": 12.75,
+          "scoringMs": 118.96054099997855
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 305,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 14.375,
+          "yesLogit": 19.875,
+          "scoringMs": 84.48912500170991
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0283203125,
+          "noLogit": 15.5,
+          "yesLogit": 11.9375,
+          "scoringMs": 133.44674999825656
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 1,
+          "noLogit": 13.875,
+          "yesLogit": 20.375,
+          "scoringMs": 133.71454200023436
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 195,
+          "status": "ok",
+          "score": 0.0086669921875,
+          "noLogit": 15.5,
+          "yesLogit": 10.75,
+          "scoringMs": 64.41841700143414
+        }
+      ],
+      "scoringMs": 535.077332999208,
+      "inputTokens": 1964,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [
+          "f8c4b6a08e13fb50"
+        ],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 1,
+          "hitsAtK": 1,
+          "recallAtK": 1,
+          "allRelevantAtK": true,
+          "reciprocalRankAtK": 0.5,
+          "emptySelectionCorrect": null
+        }
+      },
+      "caseWallMs": 550.2289159994689,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 394412046,
+        "get_cache_memory": 7286932260
+      }
+    },
+    {
+      "id": "yaml-settings:uniqueness-semantics-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e",
+        "8a9c2684066a1a07",
+        "7fb735e463024462",
+        "f8c4b6a08e13fb50"
+      ],
+      "preparation": {
+        "id": "yaml-settings:uniqueness-semantics-absent",
+        "queryOriginalTokens": 18,
+        "queryUsedTokens": 18,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 24.477041999489302,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 434,
+            "untruncatedPairTokens": 434,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 299,
+            "untruncatedPairTokens": 299,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 516,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "f059fca7cc9290c11b6df9e749e57fe11a007ef163cab1fea7b73d04937e6201",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1134,
+            "omittedCharacters": 7
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 675,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "782ba757649eb19849be757475caf79bb0c39804377ae7276bb7724c1106cc8f",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1354,
+            "omittedCharacters": 489
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 189,
+            "untruncatedPairTokens": 189,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 434,
+          "status": "ok",
+          "score": 0.0235595703125,
+          "noLogit": 15.6875,
+          "yesLogit": 11.9375,
+          "scoringMs": 117.19283400088898
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 299,
+          "status": "ok",
+          "score": 0.01953125,
+          "noLogit": 16,
+          "yesLogit": 12.0625,
+          "scoringMs": 84.43458300098428
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0052490234375,
+          "noLogit": 16,
+          "yesLogit": 10.75,
+          "scoringMs": 132.80912499976694
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.00003123283386230469,
+          "noLogit": 15.125,
+          "yesLogit": 4.75,
+          "scoringMs": 132.98458400095114
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 189,
+          "status": "ok",
+          "score": 0.00141143798828125,
+          "noLogit": 15.125,
+          "yesLogit": 8.5625,
+          "scoringMs": 54.94995799745084
+        }
+      ],
+      "scoringMs": 522.4002920003841,
+      "inputTokens": 1946,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 546.930667002016,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 392593428,
+        "get_cache_memory": 7307215646
+      }
+    },
+    {
+      "id": "yaml-settings:document-errors-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e",
+        "f8c4b6a08e13fb50",
+        "8a9c2684066a1a07",
+        "7fb735e463024462"
+      ],
+      "preparation": {
+        "id": "yaml-settings:document-errors-absent",
+        "queryOriginalTokens": 19,
+        "queryUsedTokens": 19,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 14.100041997153312,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 435,
+            "untruncatedPairTokens": 435,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 300,
+            "untruncatedPairTokens": 300,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 517,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "a3fec92f2506a822c5142cddab45d17e702e72e470ae48dc911d46b987d87976",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1129,
+            "omittedCharacters": 12
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 676,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "8a7ce24224ee80d9881f223138fb9f748db5460fdc1248fdfd68dd1046312251",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1353,
+            "omittedCharacters": 490
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 190,
+            "untruncatedPairTokens": 190,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 435,
+          "status": "ok",
+          "score": 0.8828125,
+          "noLogit": 15.25,
+          "yesLogit": 17.625,
+          "scoringMs": 117.0473749989469
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 300,
+          "status": "ok",
+          "score": 0.77734375,
+          "noLogit": 15.8125,
+          "yesLogit": 16.875,
+          "scoringMs": 83.96637500118231
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0341796875,
+          "noLogit": 15.625,
+          "yesLogit": 12.3125,
+          "scoringMs": 132.8155000010156
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.53515625,
+          "noLogit": 16.5,
+          "yesLogit": 16.625,
+          "scoringMs": 132.89112500206102
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 190,
+          "status": "ok",
+          "score": 0.0250244140625,
+          "noLogit": 15.8125,
+          "yesLogit": 12.125,
+          "scoringMs": 56.29695899915532
+        }
+      ],
+      "scoringMs": 523.0492499977117,
+      "inputTokens": 1949,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 537.1923339989735,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 392888334,
+        "get_cache_memory": 7799341860
+      }
+    },
+    {
+      "id": "yaml-settings:mapping-root-absent",
+      "status": "ok",
+      "rankedIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e",
+        "f8c4b6a08e13fb50",
+        "8a9c2684066a1a07",
+        "7fb735e463024462"
+      ],
+      "preparation": {
+        "id": "yaml-settings:mapping-root-absent",
+        "queryOriginalTokens": 21,
+        "queryUsedTokens": 21,
+        "queryOmittedCharacters": 0,
+        "preparationMs": 15.189249999821186,
+        "candidates": [
+          {
+            "id": "be49ef649000560d",
+            "inputTokens": 437,
+            "untruncatedPairTokens": 437,
+            "originalTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "visibleTextSha256": "913a871a9c2a7ca65f9ac5d0923a0f5510cc6de152f58df6dfeda2f1a381fdee",
+            "originalCharacters": 1140,
+            "visibleCharacters": 1140,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "4c7985a65be86c3e",
+            "inputTokens": 302,
+            "untruncatedPairTokens": 302,
+            "originalTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "visibleTextSha256": "91a2629afb5b06fdc62ae37dc03e8340024a7cb6b910844955a90f7854555d44",
+            "originalCharacters": 692,
+            "visibleCharacters": 692,
+            "omittedCharacters": 0
+          },
+          {
+            "id": "8a9c2684066a1a07",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 519,
+            "originalTextSha256": "5372ad1ea752900c4876ac181021aa98aa30e096e5ebb07ae9db991d15712be5",
+            "visibleTextSha256": "35b0c4b5580cf53e1ae3004de11e030e258b7b0a792936190d22f3241b406614",
+            "originalCharacters": 1141,
+            "visibleCharacters": 1122,
+            "omittedCharacters": 19
+          },
+          {
+            "id": "f8c4b6a08e13fb50",
+            "inputTokens": 512,
+            "untruncatedPairTokens": 678,
+            "originalTextSha256": "96972abef1a8bc09fedcaedb3a7bc9d5894c430b47858471354bb5ece7766196",
+            "visibleTextSha256": "74759bf60185392f2ee03102195f13b32f8e8cdfbf42d3eeaa4b8d5c39a57712",
+            "originalCharacters": 1843,
+            "visibleCharacters": 1350,
+            "omittedCharacters": 493
+          },
+          {
+            "id": "7fb735e463024462",
+            "inputTokens": 192,
+            "untruncatedPairTokens": 192,
+            "originalTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "visibleTextSha256": "2a792c0f2db7e835f2342dd2118600f4aaefd53c31518f332e9de3934e23224c",
+            "originalCharacters": 284,
+            "visibleCharacters": 284,
+            "omittedCharacters": 0
+          }
+        ]
+      },
+      "scores": [
+        {
+          "id": "be49ef649000560d",
+          "inputTokens": 437,
+          "status": "ok",
+          "score": 0.3671875,
+          "noLogit": 15.9375,
+          "yesLogit": 15.375,
+          "scoringMs": 116.25262500092504
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "inputTokens": 302,
+          "status": "ok",
+          "score": 0.041259765625,
+          "noLogit": 15.3125,
+          "yesLogit": 12.1875,
+          "scoringMs": 86.08662500046194
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.01519775390625,
+          "noLogit": 15.1875,
+          "yesLogit": 11,
+          "scoringMs": 131.90374999976484
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "inputTokens": 512,
+          "status": "ok",
+          "score": 0.0301513671875,
+          "noLogit": 15.75,
+          "yesLogit": 12.25,
+          "scoringMs": 131.8863330016029
+        },
+        {
+          "id": "7fb735e463024462",
+          "inputTokens": 192,
+          "status": "ok",
+          "score": 0.0086669921875,
+          "noLogit": 15.625,
+          "yesLogit": 10.875,
+          "scoringMs": 60.698833000060404
+        }
+      ],
+      "scoringMs": 526.8552499983343,
+      "inputTokens": 1955,
+      "outputTokens": 0,
+      "evaluation": {
+        "relevantIds": [],
+        "metrics": {
+          "topK": 2,
+          "relevantCount": 0,
+          "hitsAtK": 0,
+          "recallAtK": null,
+          "allRelevantAtK": null,
+          "reciprocalRankAtK": null,
+          "emptySelectionCorrect": false
+        }
+      },
+      "caseWallMs": 542.0840000006137,
+      "usageMeaning": "Encoded tokens submitted per attempted pair forward pass; no decoded output",
+      "memoryBytes": {
+        "get_peak_memory": 1049757944,
+        "get_active_memory": 393494542,
+        "get_cache_memory": 8354054948
+      }
+    }
+  ]
+}

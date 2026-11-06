@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "pnpm-global-bin-api-migration-r1-typelatch",
+    "task": "pnpm-global-bin-api-migration",
+    "repeat": 1,
+    "arm": "typelatch",
+    "status": "completed",
+    "startedAt": "2026-11-06T18:59:01.064Z",
+    "finishedAt": "2026-11-06T18:59:30.766Z",
+    "fixtureSetupMs": 15044.355625000026,
+    "providerSetupMs": 0.0021670000278390944,
+    "elapsedMs": 29701.124374999956,
+    "teardownMs": 0.09600000001955777,
+    "gradingMs": 7069.31041700003,
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": true,
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": 125910,
+      "cachedInputTokens": 111872,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 849,
+      "reasoningOutputTokens": 10,
+      "totalTokens": 126759,
+      "uncachedInputTokens": 14038
+    },
+    "counts": {
+      "shellCalls": 8,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 4,
+      "contentSearchShellCalls": 2,
+      "fileListingShellCalls": 4,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+    "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+    "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+    "recordingError": null,
+    "rawSha256": "8010ca3ac85c289fd66320434be03711ab12f39b340b0f0ebf1db7483b6bed39",
+    "nativeValidation": {
+      "checks": [
+        {
+          "line": 8,
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "commandExitCode": 1,
+          "individualCheckExitCode": null,
+          "resultIndex": 0,
+          "passed": false,
+          "cases": 3,
+          "outputSha256": "5c78b7ef71a524028a80218562e4d8a695d8ac57e066137c88ac1520cb70280e"
+        },
+        {
+          "line": 21,
+          "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+          "commandExitCode": 0,
+          "individualCheckExitCode": null,
+          "resultIndex": 0,
+          "passed": true,
+          "cases": 3,
+          "outputSha256": "7aa9c7ce8c3fd50ba2f1c3fc2ad5670251f1fe255db292ea259428062b01a06a"
+        }
+      ],
+      "failingThenLaterCheckObserved": true,
+      "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+    }
+  },
+  "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg --files -g AGENTS.md -g '*global*bin*' -g package.json -g '*writ*' -g '*path*'\"",
+      "outputBytes": 23865,
+      "outputSha256": "1380e18070e9553abd0aa0ea3930c757aefbef80118693a855690780311d89e9",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 5707.536166999955,
+      "completedMs": 5707.536166999955
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+      "outputBytes": 1234,
+      "outputSha256": "5c78b7ef71a524028a80218562e4d8a695d8ac57e066137c88ac1520cb70280e",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 5864.980249999964,
+      "completedMs": 5984.792499999981
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "failed",
+      "command": "/bin/zsh -c \"cat AGENTS.md; rg -n 'can-write-to-dir|checkGlobalBinDir' config packages; rg --files -g AGENTS.md config; rg --files --hidden node_modules/can-write-to-dir config/config/node_modules/can-write-to-dir\"",
+      "outputBytes": 5839,
+      "outputSha256": "b84b61b9773a4276a6678d72497d9e919ae79ecff6da8d07a91e3cb7ebb09d0f",
+      "exitCode": 2,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 8796.261999999988,
+      "completedMs": 8796.261999999988
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "completed",
+      "command": "/bin/zsh -c \"cat config/config/src/checkGlobalBinDir.ts; rg --files --hidden config/config/node_modules/can-write-to-dir/; ls -ld config/config/node_modules/can-write-to-dir node_modules; rg -n 'canWriteToDir|can-write-to-dir' --glob '*.ts' --glob '\"'!**/test/**'\"'\"",
+      "outputBytes": 2274,
+      "outputSha256": "15e34b2b1441aaceb792adb1bfce8ede47c7ff030c11c0ac96dce03623769f47",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 11832.296333999955,
+      "completedMs": 11832.296333999955
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "failed",
+      "command": "/bin/zsh -c 'ls -l node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir; cat node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir/package.json; rg --files -L node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir'",
+      "outputBytes": 1146,
+      "outputSha256": "b976552253c58079b7fc44303af98a12b08c9a277f05ccdbd5c1562ee3e2f219",
+      "exitCode": 1,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 15361.817041999951,
+      "completedMs": 15361.817041999951
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "completed",
+      "command": "/bin/zsh -c 'cat node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir/index.d.ts node_modules/.pnpm/can-write-to-dir@2.0.0/node_modules/can-write-to-dir/index.js'",
+      "outputBytes": 942,
+      "outputSha256": "587e56bc2abbfa1ed396aa2a047a4f97a71506eecafc3ef5b6ec8e39f3ab21e6",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 18367.093541999988,
+      "completedMs": 18367.093541999988
+    },
+    {
+      "type": "file_change",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/config/config/src/checkGlobalBinDir.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 24846.736291999987,
+      "completedMs": 24864.895291999972
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm run test:typelatch-benchmark'",
+      "outputBytes": 1135,
+      "outputSha256": "7aa9c7ce8c3fd50ba2f1c3fc2ad5670251f1fe255db292ea259428062b01a06a",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 25022.832958999963,
+      "completedMs": 25095.420667
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "status": "completed",
+      "command": "/bin/zsh -c 'git diff -- config/config/src/checkGlobalBinDir.ts; git status --short'",
+      "outputBytes": 602,
+      "outputSha256": "1b4843ececd4c0ba4b73a1cfaadb07ab583d5c20fc9ca733677c7d1d7e5c116d",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 25205.54029199999,
+      "completedMs": 25205.54029199999
+    }
+  ],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.typelatch.command": "$USER_HOME/.hermes/node/bin/node",
+    "mcp_servers.typelatch.args": [
+      "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+    ],
+    "mcp_servers.typelatch.cwd": "$WORKSPACE",
+    "mcp_servers.typelatch.startup_timeout_sec": 60,
+    "mcp_servers.typelatch.tool_timeout_sec": 180,
+    "mcp_servers.typelatch.env.TYPELATCH_HOME": "$PROVIDER_STATE/typelatch",
+    "mcp_servers.typelatch.env.TYPELATCH_USAGE": "off",
+    "mcp_servers.typelatch.required": true,
+    "mcp_servers.typelatch.tools.workspace_search.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.workspace_context.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.workspace_validate.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_search.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_symbol.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_feedback.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_stats.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": true,
+    "integrity": {
+      "passed": true,
+      "changed": [
+        "config/config/src/checkGlobalBinDir.ts"
+      ],
+      "forbidden": []
+    },
+    "stable": true,
+    "checks": {
+      "command": "$USER_HOME/.hermes/node/bin/node",
+      "args": [
+        "--import",
+        "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+        "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "elapsedMs": 120.14229200000409,
+      "stdout": "{\"passed\":true,\"cases\":11,\"failed\":0,\"results\":[{\"id\":\"writable-directory\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"writable-spaced-path\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"writable-multiple-path-entries\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"symlink-matches-real-path\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-directory-rejected\",\"passed\":true,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"message\":\"The CLI has no write access to the pnpm home directory at $TEMP\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"readonly-directory-rejected\",\"passed\":true,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"message\":\"The CLI has no write access to the pnpm home directory at $TEMP\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-directory-without-write-check\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"directory-prefix-is-not-path-membership\",\"passed\":true,\"expectedError\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"empty-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"optional-write-check-omitted\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"}]}\n",
+      "stderr": "",
+      "result": {
+        "passed": true,
+        "cases": 11,
+        "failed": 0,
+        "results": [
+          {
+            "id": "writable-directory",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "writable-spaced-path",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "writable-multiple-path-entries",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "symlink-matches-real-path",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-directory-rejected",
+            "passed": true,
+            "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+              "message": "The CLI has no write access to the pnpm home directory at $TEMP"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "readonly-directory-rejected",
+            "passed": true,
+            "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+              "message": "The CLI has no write access to the pnpm home directory at $TEMP"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-directory-without-write-check",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "directory-prefix-is-not-path-membership",
+            "passed": true,
+            "expectedError": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+              "message": "The configured global bin directory \"$TEMP\" is not in PATH"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-path-setting",
+            "passed": true,
+            "expectedError": "ERR_PNPM_NO_PATH_ENV",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_NO_PATH_ENV",
+              "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "empty-path-setting",
+            "passed": true,
+            "expectedError": "ERR_PNPM_NO_PATH_ENV",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_NO_PATH_ENV",
+              "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "optional-write-check-omitted",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          }
+        ]
+      },
+      "error": null
+    },
+    "fixtureGitUnchanged": true
+  },
+  "changes": [
+    {
+      "path": "config/config/src/checkGlobalBinDir.ts",
+      "beforeSha256": "8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660",
+      "afterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+      "before": "import { promises as fs } from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { PnpmError } from '@pnpm/error'\nimport { sync as canWriteToDir } from 'can-write-to-dir'\nimport PATH from 'path-name'\n\nexport async function checkGlobalBinDir (\n  globalBinDir: string,\n  { env, shouldAllowWrite }: { env: Record<string, string | undefined>, shouldAllowWrite?: boolean }\n): Promise<void> {\n  if (!env[PATH]) {\n    throw new PnpmError('NO_PATH_ENV',\n      `Couldn't find a global directory for executables because the \"${PATH}\" environment variable is not set.`)\n  }\n  if (!await globalBinDirIsInPath(globalBinDir, env)) {\n    throw new PnpmError('GLOBAL_BIN_DIR_NOT_IN_PATH', `The configured global bin directory \"${globalBinDir}\" is not in PATH`)\n  }\n  if (shouldAllowWrite && !canWriteToDirAndExists(globalBinDir)) {\n    throw new PnpmError('PNPM_DIR_NOT_WRITABLE', `The CLI has no write access to the pnpm home directory at ${globalBinDir}`)\n  }\n}\n\nasync function globalBinDirIsInPath (globalBinDir: string, env: Record<string, string | undefined>): Promise<boolean> {\n  const dirs = env[PATH]?.split(path.delimiter) ?? []\n  if (dirs.some((dir) => areDirsEqual(globalBinDir, dir))) return true\n  const realGlobalBinDir = await fs.realpath(globalBinDir)\n  return dirs.some((dir) => areDirsEqual(realGlobalBinDir, dir))\n}\n\nconst areDirsEqual = (dir1: string, dir2: string): boolean =>\n  path.relative(dir1, dir2) === ''\n\nfunction canWriteToDirAndExists (dir: string): boolean {\n  try {\n    return canWriteToDir(dir)\n  } catch (err: unknown) {\n    if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') return false\n    throw err\n  }\n}\n",
+      "after": "import { promises as fs } from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { PnpmError } from '@pnpm/error'\nimport { canWriteToDirSync as canWriteToDir } from 'can-write-to-dir'\nimport PATH from 'path-name'\n\nexport async function checkGlobalBinDir (\n  globalBinDir: string,\n  { env, shouldAllowWrite }: { env: Record<string, string | undefined>, shouldAllowWrite?: boolean }\n): Promise<void> {\n  if (!env[PATH]) {\n    throw new PnpmError('NO_PATH_ENV',\n      `Couldn't find a global directory for executables because the \"${PATH}\" environment variable is not set.`)\n  }\n  if (!await globalBinDirIsInPath(globalBinDir, env)) {\n    throw new PnpmError('GLOBAL_BIN_DIR_NOT_IN_PATH', `The configured global bin directory \"${globalBinDir}\" is not in PATH`)\n  }\n  if (shouldAllowWrite && !canWriteToDirAndExists(globalBinDir)) {\n    throw new PnpmError('PNPM_DIR_NOT_WRITABLE', `The CLI has no write access to the pnpm home directory at ${globalBinDir}`)\n  }\n}\n\nasync function globalBinDirIsInPath (globalBinDir: string, env: Record<string, string | undefined>): Promise<boolean> {\n  const dirs = env[PATH]?.split(path.delimiter) ?? []\n  if (dirs.some((dir) => areDirsEqual(globalBinDir, dir))) return true\n  const realGlobalBinDir = await fs.realpath(globalBinDir)\n  return dirs.some((dir) => areDirsEqual(realGlobalBinDir, dir))\n}\n\nconst areDirsEqual = (dir1: string, dir2: string): boolean =>\n  path.relative(dir1, dir2) === ''\n\nfunction canWriteToDirAndExists (dir: string): boolean {\n  try {\n    return canWriteToDir(dir)\n  } catch (err: unknown) {\n    if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') return false\n    throw err\n  }\n}\n"
+    }
+  ],
+  "recording": "Allowlisted completed public actions, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

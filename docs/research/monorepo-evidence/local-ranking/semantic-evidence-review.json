@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-development-evidence-review",
+  "createdAt": "2026-11-06T17:16:17.823Z",
+  "inputs": {
+    "root-glob": {
+      "path": "observed/root-glob.json",
+      "sha256": "0131e0dfe7cd0cf93a01b701490dd87a5fcdfb5ffac1def6563c333d50311ac6"
+    },
+    "yaml-settings": {
+      "path": "observed/yaml-settings.json",
+      "sha256": "a0d89b2c95cefe856732bcd6d90da559a538b9af64d1b070b100f39e7c8fe189"
+    }
+  },
+  "scope": "Human review of the exact five candidate payloads per authored development case. No model execution, performance claim or external-case evidence is included.",
+  "rules": [
+    "Credit only facts present in returned candidate bytes, not facts in omitted declaration text or evaluator knowledge.",
+    "Separate implementation evidence, public test contract and installed dependency behavior.",
+    "Accept equivalent grounded API behavior evidence; an exact symbol name is not mandatory.",
+    "Absence from the pool is a candidate generation gap, not a ranking error.",
+    "These labels measure evidence coverage, not task correctness. Native code execution independently determines correctness.",
+    "Labels and reference explanations must stay outside local ranker input."
+  ],
+  "cases": {
+    "root-glob": {
+      "candidateCount": 5,
+      "allCandidatesFitBudget": true,
+      "labels": [
+        {
+          "id": "glob-source-options",
+          "category": "implementation",
+          "status": "present",
+          "candidateIds": [
+            "6af5c08240bc73bd"
+          ],
+          "evidence": "The source passes matchBase:true and dot:true while forwarding each full file value to minimatch."
+        },
+        {
+          "id": "glob-source-data-preservation",
+          "category": "implementation",
+          "status": "present",
+          "candidateIds": [
+            "6af5c08240bc73bd"
+          ],
+          "evidence": "Array.filter returns the selected original values in input order."
+        },
+        {
+          "id": "glob-public-contract",
+          "category": "public-tests",
+          "status": "present",
+          "candidateIds": [
+            "263d030f5e9ee87f"
+          ],
+          "evidence": "Public tests show root-only, globstar, hidden segment, brace, explicit dot, ordering and duplicate cases."
+        },
+        {
+          "id": "glob-api-call-shape",
+          "category": "dependency-api",
+          "status": "present",
+          "candidateIds": [
+            "a0f8a3d51614ac3a",
+            "c5e1971a4913f70f"
+          ],
+          "evidence": "The declaration shows path, pattern and optional MinimatchOptions, including the named boolean properties."
+        },
+        {
+          "id": "glob-matchbase-behavior",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "When enabled, a slashless pattern matches the basename even for a supplied path with slashes; false or default preserves full path matching."
+        },
+        {
+          "id": "glob-dot-behavior",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "Enabling dot admits leading dot path segments without an explicit dot at that pattern position; the default excludes them while explicit dot patterns remain valid."
+        }
+      ]
+    },
+    "yaml-settings": {
+      "candidateCount": 5,
+      "allCandidatesFitBudget": true,
+      "labels": [
+        {
+          "id": "yaml-source-validation-gaps",
+          "category": "implementation",
+          "status": "present",
+          "candidateIds": [
+            "4c7985a65be86c3e"
+          ],
+          "evidence": "Source disables unique keys, takes only documents[0], converts through toJS and substitutes an empty object; catch only handles thrown exceptions."
+        },
+        {
+          "id": "yaml-public-contract",
+          "category": "public-tests",
+          "status": "present",
+          "candidateIds": [
+            "be49ef649000560d"
+          ],
+          "evidence": "Public tests require one mapping, preserved values, rejection of duplicates, multiple or empty documents, scalar or sequence roots, and syntax errors."
+        },
+        {
+          "id": "yaml-api-stream-array",
+          "category": "dependency-api",
+          "status": "present",
+          "candidateIds": [
+            "f8c4b6a08e13fb50"
+          ],
+          "evidence": "parseAllDocuments documentation describes a stream of separated documents; the return signature contains an array or EmptyStream."
+        },
+        {
+          "id": "yaml-empty-stream-shape",
+          "category": "dependency-api",
+          "status": "partial",
+          "candidateIds": [
+            "f8c4b6a08e13fb50"
+          ],
+          "evidence": "EmptyStream is named, but its zero-length array behavior and any extra stream fields are not included."
+        },
+        {
+          "id": "yaml-uniqueness-policy",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "uniqueKeys validates duplicate mapping keys by default; false disables the check, and parser errors must be observed."
+        },
+        {
+          "id": "yaml-document-error-state",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "A parsed Document exposes parsing errors separately from thrown exceptions, allowing rejection before conversion."
+        },
+        {
+          "id": "yaml-mapping-discriminator",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "A supported discriminator or equivalent grounded procedure distinguishes a mapping root from null, scalar and sequence nodes before accepting it."
+        },
+        {
+          "id": "yaml-conversion-semantics",
+          "category": "dependency-api",
+          "status": "absent",
+          "candidateIds": [],
+          "requiredFact": "Evidence establishes how a valid mapping is converted to JavaScript values and relevant conversion failures; the source calling toJS alone does not document its behavior."
+        }
+      ]
+    }
+  },
+  "conclusion": "Reordering the current pools cannot add missing facts because every candidate already fits the output budget. Missing option comments and related type behavior require candidate generation or projection work. These gaps do not by themselves prove that a coding model will fail."
+}

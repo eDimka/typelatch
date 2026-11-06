@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "role": "Independent evidence grading; never expose this file to provider adapters or coding agents",
+  "expectedSha256": "7b7f246a217f3a68c0b34d496a5f354ba303b23d7f3567dd1cf511c1f6181d38",
+  "grading": {
+    "factStates": ["supported", "absent", "unknown", "contradicted"],
+    "supported": "An independent reviewer must cite the exact returned evidence and check it against expected.json and the pinned source. A path or symbol name alone does not establish semantics. Structured and prose evidence receive identical treatment.",
+    "complete": "Every fact below is supported, no disqualifying contradiction remains, output is not clipped, and collection stayed within the frozen common budgets.",
+    "negative": "A complete exact-symbol search or equivalent provider result within the entire requested scope supports absence. A failed tool call, empty heuristic top-k, or unrelated positive result does not.",
+    "provenance": "Use declared source paths and lines, actual installed resolution paths plus package manifests/declarations, or complete raw source excerpts. A hash is useful but not mandatory if returned exact bytes match the pinned corpus.",
+    "counts": "Retrieval actions, bytes and backend latency remain separate from correctness. They are not actual agent tokens or task completion time.",
+    "reviewLedger": "For every fact record state, concise reason, raw artifact SHA256, response index or JSON pointer, and an exact evidence quote. Missing citations cannot be supported. Preserve contradictions even if a later fallback repairs them."
+  },
+  "probes": {
+    "discovery-workspace-scan": [
+      {"id": "definition", "requirement": "Identify findWorkspacePackages in workspace/find-packages/src/index.ts with implementation evidence."},
+      {"id": "delegation-installability", "requirement": "Show delegation to findWorkspacePackagesNoCheck and packageIsInstallable checks on each returned project, using supplied options plus default supported architectures."},
+      {"id": "scan-root-exclusions", "requirement": "Show unchecked includeRoot:true and exclusions **/node_modules/** and **/bower_components/**."},
+      {"id": "sort", "requirement": "Show project roots sorted using lexCompare, not guessed filesystem order."}
+    ],
+    "owning-configs": [
+      {"id": "source-owner", "requirement": "Source belongs to workspace/find-packages/tsconfig.json; rootDir src, outDir lib, matching src inclusion."},
+      {"id": "test-owner", "requirement": "Test belongs to workspace/find-packages/test/tsconfig.json; rootDir dot, outDir ../test.lib, noEmit false, matching test inclusion."},
+      {"id": "inherited-options", "requirement": "Resolve extends through @pnpm/tsconfig and show composite true, declaration true, commonjs, node resolution, es2022 and strict true. Showing the full config chain also qualifies."},
+      {"id": "references", "requirement": "Source references cli/cli-utils, fs/find-packages, packages/constants, packages/logger, packages/types, workspace/read-manifest. Test references its parent source project. Equivalent normalized paths qualify."}
+    ],
+    "alias-api-old": [
+      {"id": "resolution", "requirement": "The supplied consumer's execa import resolves to safe-execa 0.1.2; distinguish alias from installed identity and provide actual declaration provenance."},
+      {"id": "sync-signature", "requirement": "sync(file:string,args?:readonly string[],options?:execa.SyncOptions):execa.ExecaSyncReturnValue. Equivalent checker-rendered signature qualifies."},
+      {"id": "named-type", "requirement": "No named type export execa exists. Complete module exports or complete declaration file supports absence; an unrelated package export does not."}
+    ],
+    "alias-api-new": [
+      {"id": "resolution", "requirement": "The supplied consumer's safe-execa import resolves to safe-execa 0.1.4 with actual declaration provenance."},
+      {"id": "sync-signature", "requirement": "sync(file:string,args?:readonly string[],options?:execa.SyncOptions):execa.ExecaSyncReturnValue. Equivalent checker-rendered signature qualifies."},
+      {"id": "named-type", "requirement": "Named type export execa exists, supported by export type { execa } or the equivalent checked symbol."}
+    ],
+    "transitive-cache-api": [
+      {"id": "direct-resolution", "requirement": "npm-resolver's direct lru-cache import resolves to 10.4.3; show its actual installed edge."},
+      {"id": "direct-shape", "requirement": "10.4.3 has named LRUCache constructor and ttl expiry option, with API/source evidence."},
+      {"id": "nested-resolution", "requirement": "Git resolver imports hosted-git-info alias to @pnpm/hosted-git-info 1.0.0, whose internal require resolves lru-cache 6.0.0. Show both actual installed edges."},
+      {"id": "nested-shape", "requirement": "6.0.0 exports a CommonJS constructor and supports maxAge; do not claim it is a second direct workspace import."}
+    ],
+    "scoped-selector-parser": [
+      {"id": "definition-scope", "requirement": "Locate parsePackageSelector in workspace/filter-workspace-packages/src/parsePackageSelector.ts within workspace scope."},
+      {"id": "direction-self", "requirement": "Show trailing ... means dependencies, leading ... means dependents, adjacent ^ sets excludeSelf, and returned includeDependencies/includeDependents/excludeSelf fields."},
+      {"id": "directory-name", "requirement": "Show parentDir derived from prefix plus selected directory and namePattern returned separately. Plain relative location and brace location handling must be visible; parser is distinct from graph expansion."}
+    ],
+    "direct-workspace-imports": [
+      {"id": "complete-sites", "requirement": "Exactly the nine production import sites in expected.json, with the named export and local alias. All happen to retain localName findWorkspacePackages. No tests, declarations, transitive or other-package names counted."},
+      {"id": "site-evidence", "requirement": "Each site has an import statement excerpt or equivalent checked import binding evidence, not nine path mentions alone."}
+    ],
+    "declared-dependent-impact": [
+      {"id": "complete-dependents", "requirement": "Exactly @pnpm/package-is-installable and @pnpm/plugin-commands-env; locations config/package-is-installable and env/plugin-commands-env."},
+      {"id": "declarations", "requirement": "Show each package.json production dependency declaration on @pnpm/env.system-node-version and establish a complete manifest-scope scan, excluding development and transitive relations."}
+    ],
+    "scope-negative": [
+      {"id": "absence", "requirement": "No production definition of exact getAuthHeadersFromConfig within workspace. Complete scoped source evidence required."},
+      {"id": "scope", "requirement": "Do not count network/auth-header/src/getAuthHeadersFromConfig.ts as satisfying workspace scope; mentioning it explicitly as out of scope is allowed."}
+    ],
+    "missing-symbol": [
+      {"id": "absence", "requirement": "No exact production export findWorkspacePackagesRecursive in repository scope, supported by complete scoped evidence."},
+      {"id": "no-substitution", "requirement": "Any similarly named findWorkspacePackages suggestion remains clearly separate from an exact match."}
+    ],
+    "ambiguous-handler": [
+      {"id": "ambiguity", "requirement": "Explicitly retain ambiguity; the unqualified name does not identify one definition."},
+      {"id": "multiple-packages", "requirement": "Show at least two genuine handler production definitions from different packages, drawn from expected.json, with implementation/definition evidence."},
+      {"id": "disambiguation", "requirement": "Indicate needed package/file/command context or present candidates for selection; do not silently choose one."}
+    ],
+    "freshness-concurrency": [
+      {"id": "initial-and-warm", "requirement": "Initial and both warm queries show cap4 and Math.min(MaxDefaultWorkspaceConcurrency,getAvailableParallelism(cache)) in the current production source."},
+      {"id": "changed", "requirement": "After coordinator mutation, final usable answer shows cap7 with unchanged formula and current source provenance within deadline. Report stale/pending interim results explicitly."},
+      {"id": "refresh-accounting", "requirement": "Charge time from mutation completion, including500ms common grace, refresh, wait and usable query. Do not substitute an unmeasured reindex or drop failed refresh attempts."}
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-11-06T14:59:12.247Z",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "medium",
+  "repeats": 2,
+  "taskCount": 3,
+  "runCount": 12,
+  "toolPackage": "typelatch@0.3.0",
+  "timeoutMs": 600000,
+  "conditions": {
+    "baseline": "Native Codex tools without any MCP server",
+    "typelatch": "The same native tools plus all seven Typelatch MCP tools; use is optional"
+  },
+  "promptPolicy": "Identical task prompt in both conditions. No instruction to use Typelatch, avoid grep, or prefer a particular tool.",
+  "tasks": [
+    {
+      "id": "sqlite-rollback",
+      "title": "SQLite batch rollback",
+      "prompt": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding. Valid batches must commit completely, failed batches must leave all earlier database rows intact and no new batch rows, and constraint errors must propagate to the caller. Empty batches must leave the database unchanged. Preserve the existing exported functions and types.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.",
+      "allowedFiles": [
+        "batch.ts"
+      ],
+      "promptSha256": "b070d64fa663c50290258763c111b3cd1efbe6bcb52b085e9dd20fd72775a19c"
+    },
+    {
+      "id": "preview-accuracy",
+      "prompt": "Customers report that after previewing a cart, changing its quantities or delivery region sometimes leaves the displayed quote unchanged. Split rows for the same SKU can also undercharge shipping, and a region with a configured zero base charge incorrectly gets the fallback charge. Fix preview correctness for repeated calls on one application instance. Merchandise and grams must count every unit of every row. Shipping is zero for an empty cart; otherwise it is the exact configured region base, or the wildcard base when that region has no own configured value, or zero when neither exists, plus the configured amount per started kilogram. Zero is a real configured price. Existing invalid quantity, missing region, and unknown SKU errors must still occur after earlier successful previews. Do not mutate caller data, and mutation of a returned quote must not corrupt later results.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.",
+      "title": "Cart preview correctness",
+      "allowedFiles": [
+        "src/**/*.ts"
+      ],
+      "promptSha256": "9d90c3bd76597eea1257004bcf29613be0226205cdf377d08bee77ff734f4d13"
+    },
+    {
+      "id": "partner-boundary",
+      "prompt": "The partner manifest boundary currently trusts arbitrary input. Implement the production Effect runtime schema and importer so both expose the same validation and normalized data. A manifest is an object containing a partner string and at least one parcel. Trim partner and parcel reference strings and reject blank results. Every parcel must contain a trimmed nonblank reference, a finite positive integer grams value supplied as a number, and service equal to standard or express. Parcel references must be unique after trimming. Reject missing fields, wrong types, unknown service values, and invalid manifests with the existing invalid-manifest result, without throwing. Strip unrecognized object fields from accepted output, retain parcel order, and do not mutate input or retain mutable references to it in imported results. The exported schema must itself perform the complete validation and normalization through the production dependency's decoder; a manual-only importer with a permissive schema does not meet the contract. Inputs are ordinary data values, including primitives, arrays, null, and undefined, without accessors, proxies, or cyclic references.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.",
+      "title": "Partner manifest validation",
+      "allowedFiles": [
+        "src/**/*.ts"
+      ],
+      "promptSha256": "c65e0509798c04213ea82d2f124902d4eb9b20cf18735ef6939be937eb98e0c5"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "sqlite-rollback-1-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "sqlite-rollback-1-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "preview-accuracy-1-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "preview-accuracy-1-baseline",
+      "task": "preview-accuracy",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "partner-boundary-1-baseline",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "baseline"
+    },
+    {
+      "id": "partner-boundary-1-typelatch",
+      "task": "partner-boundary",
+      "repeat": 1,
+      "arm": "typelatch"
+    },
+    {
+      "id": "sqlite-rollback-2-typelatch",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "sqlite-rollback-2-baseline",
+      "task": "sqlite-rollback",
+      "repeat": 2,
+      "arm": "baseline"
+    },
+    {
+      "id": "preview-accuracy-2-baseline",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "baseline"
+    },
+    {
+      "id": "preview-accuracy-2-typelatch",
+      "task": "preview-accuracy",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "partner-boundary-2-typelatch",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "typelatch"
+    },
+    {
+      "id": "partner-boundary-2-baseline",
+      "task": "partner-boundary",
+      "repeat": 2,
+      "arm": "baseline"
+    }
+  ],
+  "config": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "timing": "Sequential sessions on one machine. Monotonic time from spawning Codex to process close, including MCP startup and tool execution. Fixture installation, baseline qualification, Typelatch sync, and independent grading are outside task time and reported separately.",
+  "preparation": "Fresh workspace and own installed dependencies each run. Fresh Typelatch home and package indexes prepared with sync only for the Typelatch condition. Source search cache starts cold. Dependency download and OS caches may be warm. Provider prompt caching is not disabled; cached input is reported.",
+  "correctness": "Independent grader after the agent exits, using protected fixture checks and trusted tests outside the agent workspace. A self reported success does not count as correctness.",
+  "selection": "Three authored, known exercises selected before any scored run: the existing SQLite showcase plus two larger Parcel Desk tasks. Two repeats per condition. Fixed counterbalanced order, no session reuse. No run is removed for a poor result or lack of MCP adoption. No performance tuning after scored runs begin.",
+  "failurePolicy": "Every scheduled launch is retained. No automatic replacement or selective rerun. Missing usage is unknown, not zero. Infrastructure preflights contain no benchmark task and are excluded. A run interrupted before metrics complete remains visible.",
+  "limits": [
+    "A small authored local sample, not an unseen production benchmark or a causal estimate for all coding work.",
+    "Requested model alias and reasoning setting are pinned; an immutable served model snapshot and sampling seed are not available.",
+    "Input tokens include cached input and repeated context. Total tokens are input plus output; cached and reasoning tokens are subsets, not extra tokens.",
+    "Search counts describe recorded native shell tool calls, not every operating system process or every form of text search. MCP calls are reported separately.",
+    "Workspace instructions and file hashes are integrity controls, not proof of complete operating system isolation."
+  ],
+  "accountingSource": "Codex CLI turn.completed usage; https://learn.chatgpt.com/docs/non-interactive-mode",
+  "animation": "Replay the first SQLite pair, selected before scoring, regardless of outcome. Show actual public actions at recorded JSONL receipt times. Separate sessions align at their start and playback is accelerated. This is a rendered action replay, not a screen recording.",
+  "frozenInputsDigest": "6dfb39d77df1ac34a407f70817bc369a822936f9ec65f3bdeffce7a5be8abf7d",
+  "amendments": [
+    {
+      "recordedAt": "2026-11-06T15:10:10.343Z",
+      "afterRunIds": [
+        "sqlite-rollback-1-baseline"
+      ],
+      "originalProtocolSha256": "51cdaf7625a04198c91579575610619aa43a961b9baadf28059d4ad9ec42709e",
+      "originalProtocol": "https://github.com/eDimka/typelatch/blob/e881cf8/docs/benchmarks/paired-agent-protocol.json",
+      "originalFrozenInputsDigest": "7caa0a696f8713831c96a8a48ad4cfc2d7774f990195a1ff32ba86527fdf7bf4",
+      "reason": "Preparation stopped before the second launch because two generated native build files contain workspace paths. The completed run is retained unchanged. No prompt, model, tool, fixture source, runtime code, grader, schedule or scored metric changed.",
+      "change": "Pairing normalizes only exact workspace paths in node_modules/better-sqlite3/build/Makefile and build/config.gypi. Original and normalized inventory digests are recorded separately. All other bytes remain strict. Resume continues the original schedule without repeating completed runs."
+    }
+  ]
+}

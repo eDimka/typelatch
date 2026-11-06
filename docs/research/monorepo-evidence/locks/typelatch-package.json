@@ -1,0 +1,92 @@
+{
+  "name": "typelatch",
+  "version": "0.4.0",
+  "description": "Local workspace search and exact package APIs for TypeScript agents",
+  "type": "module",
+  "bin": {
+    "typelatch": "dist/cli.js",
+    "typelatch-mcp": "dist/mcp.js"
+  },
+  "files": [
+    "dist",
+    "scripts/setup-mcp.sh",
+    "docs/*.md",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "setup:mcp": "bash scripts/setup-mcp.sh",
+    "build": "tsc -p tsconfig.json && node scripts/assets.mjs",
+    "site:build": "node scripts/site.mjs",
+    "site:check": "node --test scripts/site.test.mjs scripts/demo-evidence.test.mjs",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "verify": "npm run check && npm test",
+    "prove:support": "npm run build && npm ci --prefix examples/support --ignore-scripts && node scripts/support.mjs",
+    "benchmark": "npm run build && node scripts/benchmark.mjs",
+    "benchmark:workspace": "npm run build && node scripts/benchmark-workspace.mjs",
+    "benchmark:storage": "npm run build && node scripts/benchmark-storage.mjs",
+    "benchmark:package-storage": "npm run build && node scripts/benchmark-package-storage.mjs",
+    "benchmark:competitive": "npm run build && node scripts/competitive-proof.mjs",
+    "benchmark:competitive:repository": "npm run build && node scripts/competitive-repository.mjs",
+    "prove:usability": "npm run build && node scripts/benchmark-usability.mjs",
+    "prove:search-session": "npm run build && node scripts/benchmark-search-session.mjs",
+    "showcase:agent": "npm run build && node scripts/showcase-agent.mjs",
+    "showcase:agent:prepare": "node scripts/showcase-agent.mjs --prepare-only",
+    "release:check": "npm run verify && node scripts/packagecheck.mjs",
+    "prepack": "npm run build",
+    "pretest": "npm run build",
+    "test:release": "node --test scripts/release.test.mjs scripts/release-workflow.test.mjs scripts/site-releasecheck.test.mjs",
+    "showcase:codex": "npm run build && node scripts/capture-demo.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@yarnpkg/parsers": "3.1.0",
+    "better-sqlite3": "13.0.3",
+    "minimatch": "11.0.5",
+    "semver": "7.8.5",
+    "tar": "7.5.22",
+    "typescript": "6.0.3",
+    "yaml": "2.9.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "22.20.1",
+    "@types/semver": "7.8.0",
+    "effect": "3.22.1",
+    "tsx": "4.23.13",
+    "vitest": "5.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eDimka/typelatch.git"
+  },
+  "homepage": "https://edimka.github.io/typelatch/",
+  "bugs": {
+    "url": "https://github.com/eDimka/typelatch/issues"
+  },
+  "keywords": [
+    "typescript",
+    "mcp",
+    "agents",
+    "codex",
+    "claude-code",
+    "code-search",
+    "api",
+    "verification",
+    "sqlite"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

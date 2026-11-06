@@ -1,0 +1,927 @@
+{
+  "schemaVersion": 1,
+  "kind": "public-preregistration",
+  "privateProtocolSha256": "e66ab2a3beb21a4fe7e57edc6664a47a73336f58e6e6efb6238d0549ee1cdb9f",
+  "normalization": "Repository, home and temporary paths replaced with placeholders. PATH omitted from public environment; exact private protocol hash retained.",
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "real-maintenance-flexible-tools-v1",
+    "createdAt": "2026-11-06T18:48:40.998Z",
+    "status": "frozen-before-agent-sessions",
+    "runCount": 16,
+    "repeats": 2,
+    "candidates": [
+      "typelatch",
+      "packet"
+    ],
+    "timeoutMs": 600000,
+    "tasks": [
+      {
+        "id": "pnpm-changed-project-move",
+        "title": "pnpm changed-project selection after a file move",
+        "publicCases": 3,
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration",
+        "title": "pnpm global executable-directory API migration",
+        "publicCases": 3,
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b"
+      }
+    ],
+    "schedule": [
+      {
+        "id": "pnpm-changed-project-move-r1-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-typelatch",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-typelatch",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-typelatch",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-typelatch",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "native"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "cliVersion": "codex-cli 0.166.0",
+    "codexBinary": {
+      "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "bytes": 268972064,
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+    },
+    "decisionGate": {
+      "minimumReductionPercent": 20,
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and each candidate must solve each task at least once. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires all four candidate runs correct.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "Tool use is optional. Zero Typelatch calls remains an observed condition; it is not a failed tool policy and is never removed.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "spec": {
+      "schemaVersion": 1,
+      "candidates": [
+        "typelatch",
+        "packet"
+      ],
+      "status": "selected-and-ready",
+      "competitorSelection": {
+        "name": "Serena",
+        "version": "2.1.0",
+        "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+        "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+      },
+      "typelatchArtifact": {
+        "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+      },
+      "fixtures": {
+        "pnpm-changed-project-move": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs"
+        },
+        "pnpm-global-bin-api-migration": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs"
+        }
+      },
+      "arms": {
+        "native": {
+          "servers": {},
+          "setupCommands": [],
+          "frozenInputs": [],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "typelatch": {
+          "servers": {
+            "typelatch": {
+              "command": "$HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_search",
+                "workspace_context",
+                "workspace_validate",
+                "library_search",
+                "library_symbol",
+                "library_feedback",
+                "library_stats"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+              "kind": "tree"
+            }
+          ],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "competitor": {
+          "servers": {
+            "serena": {
+              "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+              "args": [
+                "start-mcp-server",
+                "--project",
+                "{workspace}",
+                "--agent-interface",
+                "REPL",
+                "--transport",
+                "stdio",
+                "--enable-web-dashboard",
+                "false",
+                "--enable-gui-log-window",
+                "false",
+                "--open-web-dashboard",
+                "false",
+                "--log-level",
+                "INFO"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TMPDIR": "$TEMP/",
+                "LANG": "C.UTF-8",
+                "LC_ALL": "C.UTF-8",
+                "SERENA_HOME": "{state}/serena-home",
+                "XDG_CACHE_HOME": "{state}/xdg-cache",
+                "XDG_CONFIG_HOME": "{state}/xdg-config",
+                "PYTHONNOUSERSITE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "npm_config_cache": "{state}/npm-cache",
+                "npm_config_offline": "true",
+                "PYTHONDONTWRITEBYTECODE": "1"
+              },
+              "startup_timeout_sec": 600,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "activate_project",
+                "initial_instructions",
+                "serena_repl"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "lifecycle",
+          "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+              "kind": "file"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+            },
+            {
+              "kind": "tree",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+            },
+            {
+              "kind": "file",
+              "path": "$HOME/.hermes/node/bin/node"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+              "kind": "file"
+            }
+          ]
+        },
+        "packet": {
+          "servers": {
+            "typelatch_packet": {
+              "command": "$HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_PACKET_WORKSPACE_ROOT": "{workspace}",
+                "TYPELATCH_PACKET_BYTES": "8192",
+                "TYPELATCH_PACKET_RUNTIME_ROOT": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+                "TYPELATCH_PACKET_DIAGNOSTICS": "{state}/packet-diagnostics",
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_evidence"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "process-group",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+              "kind": "file"
+            }
+          ]
+        }
+      },
+      "sharedFrozenInputs": [
+        {
+          "path": "$REPOSITORY/node_modules",
+          "kind": "tree"
+        },
+        {
+          "path": "$REPOSITORY/package.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/package-lock.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+          "kind": "file"
+        }
+      ],
+      "preSessionAmendment": {
+        "previousTaskSet": [
+          "pnpm-changed-project-move",
+          "datefns-chinese-months"
+        ],
+        "taskSet": [
+          "pnpm-changed-project-move",
+          "pnpm-global-bin-api-migration"
+        ],
+        "agentSessionsBeforeChange": 0,
+        "reason": "The user asks about large monorepos and an installed-API edge. Use one genuine monorepo behavior repair and one exact upstream API migration with unchanged other importers. The separately qualified date-fns task is reserved for external replication if an advantage survives."
+      },
+      "infrastructureAmendment": {
+        "priorStudy": "agent-study-001",
+        "priorProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
+        "reason": "Retain the completed native run and three pre-model MCP configuration failures. Correct only CLI environment-map serialization to individual TOML leaf overrides. Tasks, prompts, candidate source, thresholds and16-session schedule unchanged. Run every arm fresh; no valid result is substituted from the earlier attempt.",
+        "startupQualification": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json"
+      }
+    },
+    "specSha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+    "inputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/run.mjs",
+        "kind": "file",
+        "sha256": "ee87993f111d241f9ddae309ef9d3632339b3636fddfd398f71209b8b7cd06b4",
+        "bytes": 24251,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/decision.mjs",
+        "kind": "file",
+        "sha256": "86f57a7fddd8dd1d636b1f6ff1ecc86ca8ea0aeb46cfab21db89edea7517a35c",
+        "bytes": 9349,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+        "kind": "file",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+        "kind": "file",
+        "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+        "bytes": 30979,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+        "kind": "file",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+        "kind": "file",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+        "kind": "file",
+        "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+        "bytes": 7159,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+        "kind": "file",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+        "kind": "file",
+        "sha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+        "bytes": 16066,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "kind": "file",
+        "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+        "bytes": 381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+        "kind": "file",
+        "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+        "bytes": 523240,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+        "kind": "file",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.hermes/node/bin/node",
+        "kind": "file",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848,
+        "entries": null
+      },
+      {
+        "path": "/usr/bin/git",
+        "kind": "file",
+        "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+        "bytes": 200560,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+        "kind": "file",
+        "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+        "bytes": 194704,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+        "kind": "tree",
+        "sha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+        "bytes": null,
+        "entries": 72643
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "9127eab43ae774aa69534fecb037ea563689f65bb91a0050aea21ae3c0c5ff93",
+        "bytes": 18835906,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+        "kind": "file",
+        "sha256": "1eb4e359c6009ee4fbedd6c8cb8f3eb3354ccaa6cb9d86259ffbc87dcc917dae",
+        "bytes": 68060,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs",
+        "kind": "file",
+        "sha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+        "bytes": 11700,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+        "kind": "file",
+        "sha256": "ba8421bf97c9d7318237070e69f99f2d186585f3da566ff6faf487f2bfc20615",
+        "bytes": 865020,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+        "kind": "tree",
+        "sha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+        "bytes": null,
+        "entries": 72747
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "e8486d6687edbb5cd17c180bf52f94f01779ff31fce63fc131b12253c8d70d28",
+        "bytes": 18861998,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+        "kind": "file",
+        "sha256": "bd8cf8d57b79af75c3d8ceab370095d888bfecc1d9e61d21d15c08dcfb5c4406",
+        "bytes": 48088,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs",
+        "kind": "file",
+        "sha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+        "bytes": 14832,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+        "kind": "tree",
+        "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+        "bytes": null,
+        "entries": 5497
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+        "kind": "file",
+        "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+        "bytes": 2681,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/node_modules",
+        "kind": "tree",
+        "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+        "bytes": null,
+        "entries": 10457
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+        "kind": "file",
+        "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+        "bytes": 1916578,
+        "entries": null
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+        "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+        "bytes": null,
+        "entries": 4754
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+        "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+        "bytes": null,
+        "entries": 1702
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+        "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+        "bytes": null,
+        "entries": 149
+      },
+      {
+        "kind": "tree",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+        "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+        "bytes": null,
+        "entries": 3050
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+        "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+        "bytes": 34640,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+        "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+        "bytes": 5985120,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+        "kind": "file",
+        "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+        "bytes": 4601,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+        "kind": "file",
+        "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+        "bytes": 2346,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "kind": "file",
+        "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+        "bytes": 3926,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "kind": "file",
+        "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+        "bytes": 311,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+        "kind": "tree",
+        "sha256": "1ea26ca0993d1fc8d00cae0c0b6f3747e8a543b350021a04c6f06a8f10c83b15",
+        "bytes": null,
+        "entries": 5494
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+        "kind": "file",
+        "sha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+        "bytes": 972,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+        "kind": "file",
+        "sha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+        "bytes": 9911,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+        "kind": "file",
+        "sha256": "7baeec16ebfc601c176bd5490ab90e2c05d778523990aaa76f171fe306ef8346",
+        "bytes": 3987,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+        "kind": "file",
+        "sha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+        "bytes": 2176,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+        "kind": "file",
+        "sha256": "8aed4edea6b22ebc5674b1a77941a44cd2a87cef7c3fe4e3e967ce842c92e49e",
+        "bytes": 4034,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+        "kind": "file",
+        "sha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+        "bytes": 4040,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package.json",
+        "kind": "file",
+        "sha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+        "bytes": 3106,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package-lock.json",
+        "kind": "file",
+        "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+        "bytes": 104242,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+        "kind": "file",
+        "sha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+        "bytes": 3988,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+        "kind": "file",
+        "sha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+        "bytes": 742,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+        "bytes": 2381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+        "kind": "file",
+        "sha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+        "bytes": 2628,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+        "kind": "file",
+        "sha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+        "bytes": 390,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+        "bytes": 1276,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+        "kind": "file",
+        "sha256": "d20af8a638855188690593fb934a75af5769004526ed1dd7593db9e53a92a61f",
+        "bytes": 5702,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+        "kind": "file",
+        "sha256": "d31599adfad03fa267cf2b290b7bc6cb8d36358349d167d7e60329672de21e33",
+        "bytes": 31719,
+        "entries": null
+      }
+    ],
+    "typelatchArchiveBinding": {
+      "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+      "packageFileCount": 138,
+      "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+      "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+      "name": "typelatch",
+      "version": "0.4.0"
+    },
+    "treatment": "Same prompt and native tools in all arms; additional provider tools are available but optional. No forced API inspection or workspace_validate calls.",
+    "timing": "Fresh corpus copies and independent grading excluded. Provider-specific setup is charged once, plus agent wall time including MCP startup, query work and native validation. Teardown measured separately. No prepared package index is required for Typelatch; any indexing it performs during use is already inside agent time.",
+    "selection": "Two real upstream pnpm maintenance cases selected before these agent sessions, including one explicitly isolated dependency upgrade. The initial date-fns template is retained as pre-session amendment evidence, and date-fns remains reserved for external replication. Identical prompts across all frozen arms; fixed task order ABBA and reversed provider order per task across repeats. With four arms each occupies every ordinal position once. No tasks, runs or candidates removed after results; each candidate decision is separate.",
+    "failurePolicy": "Persist preparation before work and run before launch. Preserve every attempt. Failed or interrupted preparation cannot be retried; interrupted or incomplete launches remain visible. Resume only a completed prefix. No replacements.",
+    "evidencePolicy": "Private raw JSONL retained. Only completed public actions, source changes, independent test results, usage and timestamp metadata are eligible for export. No reasoning or assistant message bodies.",
+    "limits": [
+      "One task tests a real installed-API migration and one tests source workflow in the same pnpm snapshot. This narrow sample does not establish general API or monorepo superiority.",
+      "A two-task sample with two repeats is not universal superiority or a statistical confidence bound.",
+      "The public upstream repairs may occur in model training data.",
+      "No immutable served model snapshot or sampling seed is available.",
+      "OS file caches and provider prompt caching may be warm; cached tokens remain included.",
+      "Fixture and prompt boundaries are procedural; no OS isolation claim is made."
+    ]
+  }
+}

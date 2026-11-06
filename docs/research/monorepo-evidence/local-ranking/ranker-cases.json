@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 1,
+  "kind": "authored-development-fact-ranking-screen",
+  "scope": "Fact-specific questions reuse two actual task retrieval pools. No new retrieval occurred for these questions. Empty relevantIds means the required fact is absent, not merely low ranked.",
+  "boundary": "This is an offline ranking diagnostic, not a coding-agent benchmark. At 12 KiB all candidates fit. Ranking cannot recover missing facts.",
+  "candidateText": "The shared rankingCandidates helper preserves observed source and API text. Runner token windows and their omissions are an additional boundary.",
+  "pools": [
+    {
+      "taskId": "root-glob",
+      "observedSha256": "0131e0dfe7cd0cf93a01b701490dd87a5fcdfb5ffac1def6563c333d50311ac6",
+      "candidateIds": [
+        "263d030f5e9ee87f",
+        "6af5c08240bc73bd",
+        "a0f8a3d51614ac3a",
+        "c5e1971a4913f70f",
+        "f3d126a98eaa8daa"
+      ],
+      "retrievalQuestion": "Asset selection unexpectedly includes nested files for a root-only glob and includes hidden files for ordinary wildcard patterns. Fix selectPaths so matching uses each full supplied root-relative POSIX path. A pattern without a slash must not implicitly match a nested basename. Hidden path segments must be excluded unless the corresponding pattern explicitly names the dot. Preserve supported globstar, brace, and explicit dot patterns, input order, duplicates, and caller data.",
+      "packetBytes": 11172,
+      "candidatePoolBytes": 9196,
+      "allFitAt12KiB": true,
+      "retrievalElapsedMs": 878.0502080000001,
+      "backendCalls": {
+        "search": 1,
+        "context": 2,
+        "fileReads": 3
+      }
+    },
+    {
+      "taskId": "yaml-settings",
+      "observedSha256": "a0d89b2c95cefe856732bcd6d90da559a538b9af64d1b070b100f39e7c8fe189",
+      "candidateIds": [
+        "be49ef649000560d",
+        "4c7985a65be86c3e",
+        "8a9c2684066a1a07",
+        "f8c4b6a08e13fb50",
+        "7fb735e463024462"
+      ],
+      "retrievalQuestion": "The settings reader silently accepts multiple YAML documents and duplicate mapping keys. Fix readSettings to accept exactly one nonempty YAML document whose root is a mapping. Reject an empty stream, multiple documents, duplicate keys, syntax errors, scalars and sequences with {ok:false,error:'invalid-settings'} without throwing. Accepted mappings must preserve their parsed values. Keep the exported result shape and function name.",
+      "packetBytes": 10237,
+      "candidatePoolBytes": 8307,
+      "allFitAt12KiB": true,
+      "retrievalElapsedMs": 766.4765,
+      "backendCalls": {
+        "search": 1,
+        "context": 2,
+        "fileReads": 3
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "root-glob:source-cause",
+      "taskId": "root-glob",
+      "query": "Which implementation passes the supplied full path into minimatch with matchBase and dot enabled?",
+      "candidates": [
+        {
+          "id": "263d030f5e9ee87f",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/test/selection.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { selectPaths } from '../src/file-selector.ts'\\n\\ntest('root patterns do not match nested basenames or hidden files', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.private.ts', 'readme.md'], '*.ts'), ['main.ts'])\\n})\\ntest('globstar includes nested source but excludes hidden segments', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.cache/item.ts', 'src/.private.ts'], '**/*.ts'), ['main.ts', 'src/main.ts'])\\n})\\ntest('brace and explicit dot patterns remain supported', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.js', 'style.css'], '**/*.{ts,js}'), ['main.ts', 'src/main.js'])\\n  assert.deepEqual(selectPaths(['.private.ts', 'main.ts', 'src/.private.ts'], '.*.ts'), ['.private.ts'])\\n})\\ntest('order, duplicates and input remain unchanged', () => {\\n  const input = ['z.ts', 'a.ts', 'z.ts']\\n  assert.deepEqual(selectPaths(input, '*.ts'), input)\\n  assert.deepEqual(input, ['z.ts', 'a.ts', 'z.ts'])\\n})\\n\"}"
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\",\"startLine\":1,\"text\":\"import { minimatch, type MinimatchOptions } from 'minimatch'\\n\\nconst selectionOptions: MinimatchOptions = { matchBase: true, dot: true }\\n\\nexport function selectPaths(paths: readonly string[], pattern: string): string[] {\\n  return paths.filter(file => minimatch(file, pattern, selectionOptions))\\n}\\n\"}"
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"minimatch\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: typeof GLOBSTAR; filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean; defaults: (def: MinimatchOptions) => typeof minimatch; braceExpand: (pattern: string, options?: MinimatchOptions) => string[]; match: (list: string[], pattern: string, options?: MinimatchOptions) => string[]; Minimatch: typeof Minimatch; escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string; unescape: (s: string, { windowsPath\",\"bytes\":600,\"omittedBytes\":108},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[{\"text\":\"(p: string, pattern: string, options?: MinimatchOptions | undefined): boolean\",\"bytes\":77,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":3668,\"length\":759,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"const minimatch: {\\n    (p: string, pattern: string, options?: MinimatchOptions): boolean;\\n    sep: Sep;\\n    GLOBSTAR: typeof GLOBSTAR;\\n    filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean;\\n    defaults: (def: MinimatchOptions) => typeof minimatch;\\n    braceExpand: (pattern: string, options?: MinimatchOptions) => string[];\\n    match: (list: string[], pattern: string, options?: MinimatchOptions) => string[];\\n    Minimatch: typeof Minimatch;\\n    escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n    unescape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n}\",\"bytes\":765,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"MinimatchOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"MinimatchOptions\",\"bytes\":16,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":209,\"length\":3437,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export interface MinimatchOptions {\\n    nobrace?: boolean;\\n    nocomment?: boolean;\\n    nonegate?: boolean;\\n    noglobstar?: boolean;\\n    noext?: boolean;\\n    nonull?: boolean;\\n    windowsPathsNoEscape?: boolean;\\n    allowWindowsEscape?: boolean;\\n    partial?: boolean;\\n    dot?: boolean;\\n    nocase?: boolean;\\n    nocaseMagicOnly?: boolean;\\n    normalize?: boolean | Form;\\n    magicalBraces?: boolean;\\n    matchBase?: boolean;\\n    flipNegate?: boolean;\\n    preserveMultipleSlashes?: boolean;\\n    optimizationLevel?: number;\\n    platform?: Platform;\\n    windowsNoMagicRoot?: boolean;\\n    braceExpandMax?: number;\\n    maxGlobstarRecursion?: number;\\n}\",\"bytes\":649,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/asset-index.ts\",\"startLine\":1,\"text\":\"import { selectPaths } from './file-selector.js'\\n\\nexport function indexAssets(paths: readonly string[], pattern: string) {\\n  return selectPaths(paths, pattern).map((file, index) => ({ file, index }))\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "6af5c08240bc73bd"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "root-glob:public-contract",
+      "taskId": "root-glob",
+      "query": "Which existing tests specify nested paths, explicit dot patterns, braces, order and duplicates for selectPaths?",
+      "candidates": [
+        {
+          "id": "263d030f5e9ee87f",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/test/selection.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { selectPaths } from '../src/file-selector.ts'\\n\\ntest('root patterns do not match nested basenames or hidden files', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.private.ts', 'readme.md'], '*.ts'), ['main.ts'])\\n})\\ntest('globstar includes nested source but excludes hidden segments', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.cache/item.ts', 'src/.private.ts'], '**/*.ts'), ['main.ts', 'src/main.ts'])\\n})\\ntest('brace and explicit dot patterns remain supported', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.js', 'style.css'], '**/*.{ts,js}'), ['main.ts', 'src/main.js'])\\n  assert.deepEqual(selectPaths(['.private.ts', 'main.ts', 'src/.private.ts'], '.*.ts'), ['.private.ts'])\\n})\\ntest('order, duplicates and input remain unchanged', () => {\\n  const input = ['z.ts', 'a.ts', 'z.ts']\\n  assert.deepEqual(selectPaths(input, '*.ts'), input)\\n  assert.deepEqual(input, ['z.ts', 'a.ts', 'z.ts'])\\n})\\n\"}"
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\",\"startLine\":1,\"text\":\"import { minimatch, type MinimatchOptions } from 'minimatch'\\n\\nconst selectionOptions: MinimatchOptions = { matchBase: true, dot: true }\\n\\nexport function selectPaths(paths: readonly string[], pattern: string): string[] {\\n  return paths.filter(file => minimatch(file, pattern, selectionOptions))\\n}\\n\"}"
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"minimatch\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: typeof GLOBSTAR; filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean; defaults: (def: MinimatchOptions) => typeof minimatch; braceExpand: (pattern: string, options?: MinimatchOptions) => string[]; match: (list: string[], pattern: string, options?: MinimatchOptions) => string[]; Minimatch: typeof Minimatch; escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string; unescape: (s: string, { windowsPath\",\"bytes\":600,\"omittedBytes\":108},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[{\"text\":\"(p: string, pattern: string, options?: MinimatchOptions | undefined): boolean\",\"bytes\":77,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":3668,\"length\":759,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"const minimatch: {\\n    (p: string, pattern: string, options?: MinimatchOptions): boolean;\\n    sep: Sep;\\n    GLOBSTAR: typeof GLOBSTAR;\\n    filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean;\\n    defaults: (def: MinimatchOptions) => typeof minimatch;\\n    braceExpand: (pattern: string, options?: MinimatchOptions) => string[];\\n    match: (list: string[], pattern: string, options?: MinimatchOptions) => string[];\\n    Minimatch: typeof Minimatch;\\n    escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n    unescape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n}\",\"bytes\":765,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"MinimatchOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"MinimatchOptions\",\"bytes\":16,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":209,\"length\":3437,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export interface MinimatchOptions {\\n    nobrace?: boolean;\\n    nocomment?: boolean;\\n    nonegate?: boolean;\\n    noglobstar?: boolean;\\n    noext?: boolean;\\n    nonull?: boolean;\\n    windowsPathsNoEscape?: boolean;\\n    allowWindowsEscape?: boolean;\\n    partial?: boolean;\\n    dot?: boolean;\\n    nocase?: boolean;\\n    nocaseMagicOnly?: boolean;\\n    normalize?: boolean | Form;\\n    magicalBraces?: boolean;\\n    matchBase?: boolean;\\n    flipNegate?: boolean;\\n    preserveMultipleSlashes?: boolean;\\n    optimizationLevel?: number;\\n    platform?: Platform;\\n    windowsNoMagicRoot?: boolean;\\n    braceExpandMax?: number;\\n    maxGlobstarRecursion?: number;\\n}\",\"bytes\":649,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/asset-index.ts\",\"startLine\":1,\"text\":\"import { selectPaths } from './file-selector.js'\\n\\nexport function indexAssets(paths: readonly string[], pattern: string) {\\n  return selectPaths(paths, pattern).map((file, index) => ({ file, index }))\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "263d030f5e9ee87f"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "root-glob:call-contract",
+      "taskId": "root-glob",
+      "query": "Which installed API declaration shows minimatch accepting a path, pattern and options and returning a boolean?",
+      "candidates": [
+        {
+          "id": "263d030f5e9ee87f",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/test/selection.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { selectPaths } from '../src/file-selector.ts'\\n\\ntest('root patterns do not match nested basenames or hidden files', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.private.ts', 'readme.md'], '*.ts'), ['main.ts'])\\n})\\ntest('globstar includes nested source but excludes hidden segments', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.cache/item.ts', 'src/.private.ts'], '**/*.ts'), ['main.ts', 'src/main.ts'])\\n})\\ntest('brace and explicit dot patterns remain supported', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.js', 'style.css'], '**/*.{ts,js}'), ['main.ts', 'src/main.js'])\\n  assert.deepEqual(selectPaths(['.private.ts', 'main.ts', 'src/.private.ts'], '.*.ts'), ['.private.ts'])\\n})\\ntest('order, duplicates and input remain unchanged', () => {\\n  const input = ['z.ts', 'a.ts', 'z.ts']\\n  assert.deepEqual(selectPaths(input, '*.ts'), input)\\n  assert.deepEqual(input, ['z.ts', 'a.ts', 'z.ts'])\\n})\\n\"}"
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\",\"startLine\":1,\"text\":\"import { minimatch, type MinimatchOptions } from 'minimatch'\\n\\nconst selectionOptions: MinimatchOptions = { matchBase: true, dot: true }\\n\\nexport function selectPaths(paths: readonly string[], pattern: string): string[] {\\n  return paths.filter(file => minimatch(file, pattern, selectionOptions))\\n}\\n\"}"
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"minimatch\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: typeof GLOBSTAR; filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean; defaults: (def: MinimatchOptions) => typeof minimatch; braceExpand: (pattern: string, options?: MinimatchOptions) => string[]; match: (list: string[], pattern: string, options?: MinimatchOptions) => string[]; Minimatch: typeof Minimatch; escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string; unescape: (s: string, { windowsPath\",\"bytes\":600,\"omittedBytes\":108},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[{\"text\":\"(p: string, pattern: string, options?: MinimatchOptions | undefined): boolean\",\"bytes\":77,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":3668,\"length\":759,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"const minimatch: {\\n    (p: string, pattern: string, options?: MinimatchOptions): boolean;\\n    sep: Sep;\\n    GLOBSTAR: typeof GLOBSTAR;\\n    filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean;\\n    defaults: (def: MinimatchOptions) => typeof minimatch;\\n    braceExpand: (pattern: string, options?: MinimatchOptions) => string[];\\n    match: (list: string[], pattern: string, options?: MinimatchOptions) => string[];\\n    Minimatch: typeof Minimatch;\\n    escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n    unescape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n}\",\"bytes\":765,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"MinimatchOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"MinimatchOptions\",\"bytes\":16,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":209,\"length\":3437,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export interface MinimatchOptions {\\n    nobrace?: boolean;\\n    nocomment?: boolean;\\n    nonegate?: boolean;\\n    noglobstar?: boolean;\\n    noext?: boolean;\\n    nonull?: boolean;\\n    windowsPathsNoEscape?: boolean;\\n    allowWindowsEscape?: boolean;\\n    partial?: boolean;\\n    dot?: boolean;\\n    nocase?: boolean;\\n    nocaseMagicOnly?: boolean;\\n    normalize?: boolean | Form;\\n    magicalBraces?: boolean;\\n    matchBase?: boolean;\\n    flipNegate?: boolean;\\n    preserveMultipleSlashes?: boolean;\\n    optimizationLevel?: number;\\n    platform?: Platform;\\n    windowsNoMagicRoot?: boolean;\\n    braceExpandMax?: number;\\n    maxGlobstarRecursion?: number;\\n}\",\"bytes\":649,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/asset-index.ts\",\"startLine\":1,\"text\":\"import { selectPaths } from './file-selector.js'\\n\\nexport function indexAssets(paths: readonly string[], pattern: string) {\\n  return selectPaths(paths, pattern).map((file, index) => ({ file, index }))\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "a0f8a3d51614ac3a"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "root-glob:basename-semantics-absent",
+      "taskId": "root-glob",
+      "query": "Which evidence explains how matchBase changes slashless patterns to basename matching?",
+      "candidates": [
+        {
+          "id": "263d030f5e9ee87f",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/test/selection.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { selectPaths } from '../src/file-selector.ts'\\n\\ntest('root patterns do not match nested basenames or hidden files', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.private.ts', 'readme.md'], '*.ts'), ['main.ts'])\\n})\\ntest('globstar includes nested source but excludes hidden segments', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.cache/item.ts', 'src/.private.ts'], '**/*.ts'), ['main.ts', 'src/main.ts'])\\n})\\ntest('brace and explicit dot patterns remain supported', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.js', 'style.css'], '**/*.{ts,js}'), ['main.ts', 'src/main.js'])\\n  assert.deepEqual(selectPaths(['.private.ts', 'main.ts', 'src/.private.ts'], '.*.ts'), ['.private.ts'])\\n})\\ntest('order, duplicates and input remain unchanged', () => {\\n  const input = ['z.ts', 'a.ts', 'z.ts']\\n  assert.deepEqual(selectPaths(input, '*.ts'), input)\\n  assert.deepEqual(input, ['z.ts', 'a.ts', 'z.ts'])\\n})\\n\"}"
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\",\"startLine\":1,\"text\":\"import { minimatch, type MinimatchOptions } from 'minimatch'\\n\\nconst selectionOptions: MinimatchOptions = { matchBase: true, dot: true }\\n\\nexport function selectPaths(paths: readonly string[], pattern: string): string[] {\\n  return paths.filter(file => minimatch(file, pattern, selectionOptions))\\n}\\n\"}"
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"minimatch\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: typeof GLOBSTAR; filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean; defaults: (def: MinimatchOptions) => typeof minimatch; braceExpand: (pattern: string, options?: MinimatchOptions) => string[]; match: (list: string[], pattern: string, options?: MinimatchOptions) => string[]; Minimatch: typeof Minimatch; escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string; unescape: (s: string, { windowsPath\",\"bytes\":600,\"omittedBytes\":108},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[{\"text\":\"(p: string, pattern: string, options?: MinimatchOptions | undefined): boolean\",\"bytes\":77,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":3668,\"length\":759,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"const minimatch: {\\n    (p: string, pattern: string, options?: MinimatchOptions): boolean;\\n    sep: Sep;\\n    GLOBSTAR: typeof GLOBSTAR;\\n    filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean;\\n    defaults: (def: MinimatchOptions) => typeof minimatch;\\n    braceExpand: (pattern: string, options?: MinimatchOptions) => string[];\\n    match: (list: string[], pattern: string, options?: MinimatchOptions) => string[];\\n    Minimatch: typeof Minimatch;\\n    escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n    unescape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n}\",\"bytes\":765,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"MinimatchOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"MinimatchOptions\",\"bytes\":16,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":209,\"length\":3437,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export interface MinimatchOptions {\\n    nobrace?: boolean;\\n    nocomment?: boolean;\\n    nonegate?: boolean;\\n    noglobstar?: boolean;\\n    noext?: boolean;\\n    nonull?: boolean;\\n    windowsPathsNoEscape?: boolean;\\n    allowWindowsEscape?: boolean;\\n    partial?: boolean;\\n    dot?: boolean;\\n    nocase?: boolean;\\n    nocaseMagicOnly?: boolean;\\n    normalize?: boolean | Form;\\n    magicalBraces?: boolean;\\n    matchBase?: boolean;\\n    flipNegate?: boolean;\\n    preserveMultipleSlashes?: boolean;\\n    optimizationLevel?: number;\\n    platform?: Platform;\\n    windowsNoMagicRoot?: boolean;\\n    braceExpandMax?: number;\\n    maxGlobstarRecursion?: number;\\n}\",\"bytes\":649,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/asset-index.ts\",\"startLine\":1,\"text\":\"import { selectPaths } from './file-selector.js'\\n\\nexport function indexAssets(paths: readonly string[], pattern: string) {\\n  return selectPaths(paths, pattern).map((file, index) => ({ file, index }))\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": true
+    },
+    {
+      "id": "root-glob:dot-semantics-absent",
+      "taskId": "root-glob",
+      "query": "Which evidence explains the default handling of hidden path segments and how the dot option changes it?",
+      "candidates": [
+        {
+          "id": "263d030f5e9ee87f",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/test/selection.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { selectPaths } from '../src/file-selector.ts'\\n\\ntest('root patterns do not match nested basenames or hidden files', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.private.ts', 'readme.md'], '*.ts'), ['main.ts'])\\n})\\ntest('globstar includes nested source but excludes hidden segments', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.ts', '.cache/item.ts', 'src/.private.ts'], '**/*.ts'), ['main.ts', 'src/main.ts'])\\n})\\ntest('brace and explicit dot patterns remain supported', () => {\\n  assert.deepEqual(selectPaths(['main.ts', 'src/main.js', 'style.css'], '**/*.{ts,js}'), ['main.ts', 'src/main.js'])\\n  assert.deepEqual(selectPaths(['.private.ts', 'main.ts', 'src/.private.ts'], '.*.ts'), ['.private.ts'])\\n})\\ntest('order, duplicates and input remain unchanged', () => {\\n  const input = ['z.ts', 'a.ts', 'z.ts']\\n  assert.deepEqual(selectPaths(input, '*.ts'), input)\\n  assert.deepEqual(input, ['z.ts', 'a.ts', 'z.ts'])\\n})\\n\"}"
+        },
+        {
+          "id": "6af5c08240bc73bd",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\",\"startLine\":1,\"text\":\"import { minimatch, type MinimatchOptions } from 'minimatch'\\n\\nconst selectionOptions: MinimatchOptions = { matchBase: true, dot: true }\\n\\nexport function selectPaths(paths: readonly string[], pattern: string): string[] {\\n  return paths.filter(file => minimatch(file, pattern, selectionOptions))\\n}\\n\"}"
+        },
+        {
+          "id": "a0f8a3d51614ac3a",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"minimatch\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"{ (p: string, pattern: string, options?: MinimatchOptions): boolean; sep: Sep; GLOBSTAR: typeof GLOBSTAR; filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean; defaults: (def: MinimatchOptions) => typeof minimatch; braceExpand: (pattern: string, options?: MinimatchOptions) => string[]; match: (list: string[], pattern: string, options?: MinimatchOptions) => string[]; Minimatch: typeof Minimatch; escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string; unescape: (s: string, { windowsPath\",\"bytes\":600,\"omittedBytes\":108},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[{\"text\":\"(p: string, pattern: string, options?: MinimatchOptions | undefined): boolean\",\"bytes\":77,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":3668,\"length\":759,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"const minimatch: {\\n    (p: string, pattern: string, options?: MinimatchOptions): boolean;\\n    sep: Sep;\\n    GLOBSTAR: typeof GLOBSTAR;\\n    filter: (pattern: string, options?: MinimatchOptions) => (p: string) => boolean;\\n    defaults: (def: MinimatchOptions) => typeof minimatch;\\n    braceExpand: (pattern: string, options?: MinimatchOptions) => string[];\\n    match: (list: string[], pattern: string, options?: MinimatchOptions) => string[];\\n    Minimatch: typeof Minimatch;\\n    escape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n    unescape: (s: string, { windowsPathsNoEscape, magicalBraces, }?: Pick<MinimatchOptions, \\\"windowsPathsNoEscape\\\" | \\\"magicalBraces\\\">) => string;\\n}\",\"bytes\":765,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "c5e1971a4913f70f",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"minimatch\",\"symbol\":\"MinimatchOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/file-selector.ts\"},\"dependency\":{\"name\":\"minimatch\",\"version\":\"11.0.5\",\"manifestHash\":\"0b5a1fdcbd7aa6905e5c56d1c50de03d52fa1dbd1ed48d62d4c2eb0675b4d43b\"},\"type\":{\"text\":\"MinimatchOptions\",\"bytes\":16,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/node_modules/minimatch/dist/esm/index.d.ts\",\"start\":209,\"length\":3437,\"sha256\":\"60d6bfd4f12c853ca58e0d1c7ff586a1e98cf999923c6bab006a4a376585fea1\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export interface MinimatchOptions {\\n    nobrace?: boolean;\\n    nocomment?: boolean;\\n    nonegate?: boolean;\\n    noglobstar?: boolean;\\n    noext?: boolean;\\n    nonull?: boolean;\\n    windowsPathsNoEscape?: boolean;\\n    allowWindowsEscape?: boolean;\\n    partial?: boolean;\\n    dot?: boolean;\\n    nocase?: boolean;\\n    nocaseMagicOnly?: boolean;\\n    normalize?: boolean | Form;\\n    magicalBraces?: boolean;\\n    matchBase?: boolean;\\n    flipNegate?: boolean;\\n    preserveMultipleSlashes?: boolean;\\n    optimizationLevel?: number;\\n    platform?: Platform;\\n    windowsNoMagicRoot?: boolean;\\n    braceExpandMax?: number;\\n    maxGlobstarRecursion?: number;\\n}\",\"bytes\":649,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f3d126a98eaa8daa",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/root-glob/src/asset-index.ts\",\"startLine\":1,\"text\":\"import { selectPaths } from './file-selector.js'\\n\\nexport function indexAssets(paths: readonly string[], pattern: string) {\\n  return selectPaths(paths, pattern).map((file, index) => ({ file, index }))\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": true
+    },
+    {
+      "id": "yaml-settings:source-cause",
+      "taskId": "yaml-settings",
+      "query": "Which implementation disables YAML unique key checking and returns only the first document converted with toJS?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "4c7985a65be86c3e"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "yaml-settings:public-contract",
+      "taskId": "yaml-settings",
+      "query": "Which tests specify that duplicate YAML keys, multiple documents, empty input, scalar roots, sequences and syntax errors must be rejected?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "be49ef649000560d"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "yaml-settings:stream-contract",
+      "taskId": "yaml-settings",
+      "query": "Which installed API evidence states that parseAllDocuments reads a YAML stream and returns an array of documents or an empty stream?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [
+        "f8c4b6a08e13fb50"
+      ],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": false
+    },
+    {
+      "id": "yaml-settings:uniqueness-semantics-absent",
+      "taskId": "yaml-settings",
+      "query": "Which evidence explains the default duplicate mapping key check and the behavior when uniqueKeys is false?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": true
+    },
+    {
+      "id": "yaml-settings:document-errors-absent",
+      "taskId": "yaml-settings",
+      "query": "Which evidence explains how a parsed YAML document exposes syntax or duplicate key errors for callers to check?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": true
+    },
+    {
+      "id": "yaml-settings:mapping-root-absent",
+      "taskId": "yaml-settings",
+      "query": "Which evidence establishes a reliable way to distinguish a YAML mapping root from a scalar, sequence or empty document?",
+      "candidates": [
+        {
+          "id": "be49ef649000560d",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/test/settings.test.mjs\",\"startLine\":1,\"text\":\"import test from 'node:test'\\nimport assert from 'node:assert/strict'\\nimport { readSettings } from '../src/settings-reader.ts'\\n\\nconst invalid = { ok: false, error: 'invalid-settings' }\\ntest('accepts one mapping and preserves values', () => {\\n  assert.deepEqual(readSettings('enabled: true\\\\nretries: 0\\\\nname: demo\\\\n'), { ok: true, value: { enabled: true, retries: 0, name: 'demo' } })\\n})\\ntest('rejects duplicate keys and multiple documents', () => {\\n  assert.deepEqual(readSettings('name: first\\\\nname: second\\\\n'), invalid)\\n  assert.deepEqual(readSettings('name: first\\\\n---\\\\nname: second\\\\n'), invalid)\\n})\\ntest('rejects empty streams, scalar roots and sequences', () => {\\n  for (const input of ['', '# only a comment\\\\n', '---\\\\n', 'hello\\\\n', '- one\\\\n- two\\\\n']) assert.deepEqual(readSettings(input), invalid)\\n})\\ntest('rejects syntax errors without throwing', () => {\\n  assert.deepEqual(readSettings('values: [one, two\\\\n'), invalid)\\n})\\n\"}"
+        },
+        {
+          "id": "4c7985a65be86c3e",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\",\"startLine\":1,\"text\":\"import { parseAllDocuments, type ParseOptions } from 'yaml'\\n\\nexport type SettingsResult = { ok: true; value: Record<string, unknown> } | { ok: false; error: 'invalid-settings' }\\nconst parsingOptions: ParseOptions = { uniqueKeys: false }\\n\\nexport function readSettings(input: string): SettingsResult {\\n  try {\\n    const documents = parseAllDocuments(input, parsingOptions)\\n    return { ok: true, value: documents[0]?.toJS() ?? {} }\\n  } catch {\\n    return { ok: false, error: 'invalid-settings' }\\n  }\\n}\\n\"}"
+        },
+        {
+          "id": "8a9c2684066a1a07",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"ParseOptions\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"ParseOptions\",\"bytes\":12,\"omittedBytes\":0},\"documentation\":{\"text\":\"\",\"bytes\":0,\"omittedBytes\":0},\"signatures\":[],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/options.d.ts\",\"start\":491,\"length\":1772,\"sha256\":\"1720be851bdb7cdbff68061522a71d9ddaa69db1fe90c6819a26953da05942f2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export type ParseOptions = {\\n    intAsBigInt?: boolean;\\n    keepSourceTokens?: boolean;\\n    lineCounter?: LineCounter;\\n    prettyErrors?: boolean;\\n    strict?: boolean;\\n    stringKeys?: boolean;\\n    uniqueKeys?: boolean | ((a: ParsedNode, b: ParsedNode) => boolean);\\n};\",\"bytes\":269,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "f8c4b6a08e13fb50",
+          "text": "{\"kind\":\"dependency-api\",\"requested\":{\"importSpecifier\":\"yaml\",\"symbol\":\"parseAllDocuments\",\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/settings-reader.ts\"},\"dependency\":{\"name\":\"yaml\",\"version\":\"2.9.1\",\"manifestHash\":\"1c6441703d8204a23ded0d37ddf57c3b69d821dc392f20852d1f605bb9b8861c\"},\"type\":{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions) => Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream\",\"bytes\":258,\"omittedBytes\":0},\"documentation\":{\"text\":\"Parse the input as a stream of YAML documents.\\n\\nDocuments should be separated from each other by `...` or `---` marker lines.\",\"bytes\":125,\"omittedBytes\":0},\"signatures\":[{\"text\":\"<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: (ParseOptions & DocumentOptions & SchemaOptions) | undefined): (Contents extends ParsedNode ? Parsed<Contents, Strict> : Document<Contents, Strict>)[] | EmptyStream\",\"bytes\":258,\"omittedBytes\":0}],\"declarations\":[{\"file\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/node_modules/yaml/dist/public-api.d.ts\",\"start\":839,\"length\":298,\"sha256\":\"810f0d14ce416a343dcdd0d3074c38c094505e664c90636b113d048471c292e2\",\"sourceKind\":\"declaration\",\"status\":\"complete\",\"elisions\":[],\"header\":{\"text\":\"export declare function parseAllDocuments<Contents extends Node = ParsedNode, Strict extends boolean = true>(source: string, options?: ParseOptions & DocumentOptions & SchemaOptions): Array<Contents extends ParsedNode ? Document.Parsed<Contents, Strict> : Document<Contents, Strict>> | EmptyStream;\",\"bytes\":298,\"omittedBytes\":0}}]}"
+        },
+        {
+          "id": "7fb735e463024462",
+          "text": "{\"kind\":\"source\",\"source\":\"$TEMP_ROOT/typelatch-task-packet-dev-xQKAqF/yaml-settings/src/telemetry.ts\",\"startLine\":1,\"text\":\"export function settingsEvent(documentCount: number) {\\n  return { event: 'settings-read', documentCount }\\n}\\n\"}"
+        }
+      ],
+      "relevantIds": [],
+      "labelScope": "Required fact in the original full candidate; tokenizer window loss must be reported separately",
+      "negativeControl": true
+    }
+  ]
+}

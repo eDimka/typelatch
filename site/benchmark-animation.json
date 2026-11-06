@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "task": "sqlite-rollback",
+  "repeat": 1,
+  "kind": "explicit-tool-use-benchmark",
+  "study": "explicit-tool-use",
+  "runs": [
+    {
+      "id": "sqlite-rollback-1-baseline",
+      "evidenceSha256": "34d3927f2c95fd76f4786d7bd8d71a776d87a51464287f280c844b80083f92bc"
+    },
+    {
+      "id": "sqlite-rollback-1-typelatch",
+      "evidenceSha256": "cc03e216fc72b33f20768c4ccdd38c9aa03f15b654d44a12d4565bd614feeed8"
+    }
+  ],
+  "assets": {
+    "gif": {
+      "path": "assets/codex-comparison.gif",
+      "sha256": "4c41793fe5b4b1d9d8ad304142080f15a2d70117e864ccc49679a8375a93f8eb"
+    },
+    "poster": {
+      "path": "assets/codex-comparison.png",
+      "sha256": "ffa856dda5999ae4fc7c386f68ec01b49f59cb730084a4f5a0638317680ec44a"
+    }
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 680
+  },
+  "playback": {
+    "durationMs": 32000,
+    "eventPlaybackMs": 24000,
+    "label": "Actual Codex CLI public action replay. Accelerated playback, not a screen recording.",
+    "timing": "Both sessions align at their own process start. Completed actions appear at observed event receipt times on one shared accelerated clock. Final metrics include complete measured session time. Independent grading is shown after the session.",
+    "commands": "Exact public command and argument excerpts with whitespace condensed and visible truncation. No model messages, reasoning or fabricated tool output.",
+    "selection": "SQLite repeat 1 was selected before observing the outcome. Both conditions use the same task prompt and starting fixture."
+  },
+  "fixtureComparison": {
+    "comparisonSha256": "c716320e30eb961ced6896db3b48477b404b7dcc9284852c87af666216d1d134",
+    "policy": "Only exact workspace paths in the two recorded better-sqlite3 generated metadata files are normalized. All other source and dependency bytes match."
+  },
+  "reportSha256": "498060f732858ea4f55085c2ae102d2e63435df7f3cdc402fc8a4c856180d239",
+  "rendererSha256": "e9f584f193e4d48bbc6623064f9cc85e713764eee95af91e826957fbf21f3dea"
+}

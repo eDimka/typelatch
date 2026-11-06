@@ -1,0 +1,6 @@
+{
+  "status": "ineligible-infrastructure-failure",
+  "reason": "Generic recorder serializes MCP env as JSON object in a TOML CLI setting. Codex rejects map as string before model work. Native completed run and all launch failures retained. Coordinator stops at next frozen-input verification boundary because original spec was retained under selected-spec-001.json.",
+  "changedTasksOrCandidateCode": false,
+  "recordedAt": "2026-11-06T18:44:11.943857+00:00"
+}

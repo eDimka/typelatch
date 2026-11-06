@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "pnpm-changed-project-move-r1-packet",
+    "task": "pnpm-changed-project-move",
+    "repeat": 1,
+    "arm": "packet",
+    "status": "failed",
+    "startedAt": "2026-11-06T18:43:44.837Z",
+    "finishedAt": "2026-11-06T18:43:44.859Z",
+    "fixtureSetupMs": 16793.601124999986,
+    "providerSetupMs": 0.0014159999846015126,
+    "elapsedMs": 21.38404099998297,
+    "teardownMs": 0.10874999998486601,
+    "gradingMs": 8494.784374999988,
+    "exitCode": 1,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": false,
+    "capture": {
+      "complete": false,
+      "issues": [
+        {
+          "code": "expected-one-turn-start",
+          "observed": 0
+        },
+        {
+          "code": "missing-turn-completion"
+        },
+        {
+          "code": "missing-required-usage"
+        }
+      ],
+      "startupWarnings": [],
+      "turnStarts": 0,
+      "turnCompletions": 0,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": null,
+      "cachedInputTokens": null,
+      "cacheWriteInputTokens": null,
+      "outputTokens": null,
+      "reasoningOutputTokens": null,
+      "totalTokens": null,
+      "uncachedInputTokens": null
+    },
+    "counts": {
+      "shellCalls": 0,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 0,
+      "grepShellCalls": 0,
+      "contentSearchShellCalls": 0,
+      "fileListingShellCalls": 0,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+    "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+    "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+    "recordingError": null,
+    "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nativeValidation": {
+      "checks": [],
+      "failingThenLaterCheckObserved": false,
+      "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+    }
+  },
+  "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+  "actions": [],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.typelatch_packet.command": "$USER_HOME/.hermes/node/bin/node",
+    "mcp_servers.typelatch_packet.args": [
+      "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs"
+    ],
+    "mcp_servers.typelatch_packet.env": {
+      "TYPELATCH_PACKET_WORKSPACE_ROOT": "$WORKSPACE",
+      "TYPELATCH_PACKET_BYTES": "8192",
+      "TYPELATCH_PACKET_RUNTIME_ROOT": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+      "TYPELATCH_PACKET_DIAGNOSTICS": "$PROVIDER_STATE/packet-diagnostics",
+      "TYPELATCH_HOME": "$PROVIDER_STATE/typelatch",
+      "TYPELATCH_USAGE": "off"
+    },
+    "mcp_servers.typelatch_packet.cwd": "$WORKSPACE",
+    "mcp_servers.typelatch_packet.startup_timeout_sec": 60,
+    "mcp_servers.typelatch_packet.tool_timeout_sec": 180,
+    "mcp_servers.typelatch_packet.required": true,
+    "mcp_servers.typelatch_packet.tools.workspace_evidence.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": false,
+    "integrity": {
+      "passed": true,
+      "changed": [],
+      "forbidden": []
+    },
+    "stable": true,
+    "checks": {
+      "elapsedMs": 1563.435541999992,
+      "command": "$USER_HOME/.hermes/node/bin/node",
+      "args": [
+        "--import",
+        "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+        "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs"
+      ],
+      "cwd": "$WORKSPACE",
+      "exitCode": 1,
+      "signal": null,
+      "stdout": "{\"passed\":false,\"cases\":15,\"failed\":7,\"results\":[{\"id\":\"cross-project-forward\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"cross-project-reverse\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/beta/src/a.ts\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"cross-project-new-filename\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/renamed.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"staged-uncommitted\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"nested-and-spaced-path\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/deeper/file name.ts\\tpackages/beta/lib/inner/file name.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"same-project\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/alpha/src/renamed.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"test-only-move\",\"passed\":false,\"expected\":[[],[\"packages/alpha\",\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/test/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"source-to-test\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"fully-ignored\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/ignored/a.ts\\tpackages/beta/ignored/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ignored-origin\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"rename-disabled-control\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\\nA\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/gamma\"],[]],\"actual\":[[\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/gamma/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-deletion\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"ordinary-addition\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"A\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP\"}]}\n",
+      "stderr": "",
+      "result": {
+        "passed": false,
+        "cases": 15,
+        "failed": 7,
+        "results": [
+          {
+            "id": "cross-project-forward",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "cross-project-reverse",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/beta/src/a.ts\tpackages/alpha/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "cross-project-new-filename",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/renamed.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "staged-uncommitted",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "nested-and-spaced-path",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/deeper/file name.ts\tpackages/beta/lib/inner/file name.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "same-project",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/alpha/src/renamed.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "test-only-move",
+            "passed": false,
+            "expected": [
+              [],
+              [
+                "packages/alpha",
+                "packages/beta"
+              ]
+            ],
+            "actual": [
+              [],
+              [
+                "packages/beta"
+              ]
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/test/a.ts\tpackages/beta/test/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "source-to-test",
+            "passed": false,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              [
+                "packages/beta"
+              ]
+            ],
+            "actual": [
+              [],
+              [
+                "packages/beta"
+              ]
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/test/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "fully-ignored",
+            "passed": true,
+            "expected": [
+              [],
+              []
+            ],
+            "actual": [
+              [],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/ignored/a.ts\tpackages/beta/ignored/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ignored-origin",
+            "passed": true,
+            "expected": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": true,
+            "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "rename-disabled-control",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha",
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "D\tpackages/alpha/src/a.ts\nA\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-edit",
+            "passed": true,
+            "expected": [
+              [
+                "packages/gamma"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/gamma"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "M\tpackages/gamma/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-deletion",
+            "passed": true,
+            "expected": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/alpha"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "D\tpackages/alpha/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "ordinary-addition",
+            "passed": true,
+            "expected": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "actual": [
+              [
+                "packages/beta"
+              ],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "A\tpackages/beta/src/a.ts",
+            "gitFixture": "$TEMP"
+          },
+          {
+            "id": "unchanged",
+            "passed": true,
+            "expected": [
+              [],
+              []
+            ],
+            "actual": [
+              [],
+              []
+            ],
+            "renameDetected": false,
+            "diffStatus": "",
+            "gitFixture": "$TEMP"
+          }
+        ]
+      }
+    },
+    "fixtureGitUnchanged": true
+  },
+  "changes": [],
+  "recording": "Allowlisted completed public actions, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

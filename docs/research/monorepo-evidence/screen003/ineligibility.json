@@ -1,0 +1,7 @@
+{
+  "status": "ineligible-for-comparative-performance",
+  "queriesRetained": true,
+  "reason": "Corpus nested under ignored parent Git repository hides all Typelatch source. TypeScript collector exceeds byte budget. CodeGraph refresh and Graphify watch readiness failed. Stop at next prepared-session boundary, preserve every started attempt.",
+  "cancelledBefore": "round-2/codegraph",
+  "recordedAt": "2026-11-06T18:04:29.085062+00:00"
+}

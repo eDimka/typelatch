@@ -1,0 +1,1362 @@
+{
+  "schemaVersion": 1,
+  "status": "qualified",
+  "startedAt": "2026-11-06T17:51:18.751Z",
+  "source": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "baselineCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "upstreamRepair": "b809cfdd75145edf12dc56332752946b4b7fb4e1",
+    "upstreamParent": "b34ab3f7e16c99b9064f6a7edc99c7a78b4ba1fe",
+    "issue": "https://github.com/pnpm/pnpm/issues/15481",
+    "pullRequest": "https://github.com/pnpm/pnpm/pull/15493",
+    "adaptation": "Backport the identical --no-renames Git option to the old TypeScript module path. The selected older TS monorepo is not the direct parent of the upstream repair."
+  },
+  "results": {
+    "baseline": {
+      "public": {
+        "elapsedMs": 497.35462499999994,
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs"
+        ],
+        "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "{\"passed\":false,\"cases\":3,\"failed\":1,\"results\":[{\"id\":\"move-between-projects\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/value.ts\\tpackages/beta/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-WYlYcb\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/alpha/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-MKGJoK\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-FdMJPc\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": false,
+          "cases": 3,
+          "failed": 1,
+          "results": [
+            {
+              "id": "move-between-projects",
+              "passed": false,
+              "expected": [
+                [
+                  "packages/alpha",
+                  "packages/beta"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/beta"
+                ],
+                []
+              ],
+              "renameDetected": true,
+              "diffStatus": "R100\tpackages/alpha/src/value.ts\tpackages/beta/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-WYlYcb"
+            },
+            {
+              "id": "ordinary-edit",
+              "passed": true,
+              "expected": [
+                [
+                  "packages/alpha"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/alpha"
+                ],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "M\tpackages/alpha/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-MKGJoK"
+            },
+            {
+              "id": "unchanged",
+              "passed": true,
+              "expected": [
+                [],
+                []
+              ],
+              "actual": [
+                [],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-FdMJPc"
+            }
+          ]
+        }
+      },
+      "private": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "elapsedMs": 1712.9265000000014,
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs"
+          ],
+          "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "{\"passed\":false,\"cases\":15,\"failed\":7,\"results\":[{\"id\":\"cross-project-forward\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-bwiDUB\"},{\"id\":\"cross-project-reverse\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/beta/src/a.ts\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-8vTVAJ\"},{\"id\":\"cross-project-new-filename\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-36Aq70\"},{\"id\":\"staged-uncommitted\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-qTmbja\"},{\"id\":\"nested-and-spaced-path\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/deeper/file name.ts\\tpackages/beta/lib/inner/file name.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-aYwugA\"},{\"id\":\"same-project\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/alpha/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-Z1ukRu\"},{\"id\":\"test-only-move\",\"passed\":false,\"expected\":[[],[\"packages/alpha\",\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/test/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-3zC2Sa\"},{\"id\":\"source-to-test\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-DQ0MXB\"},{\"id\":\"fully-ignored\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/ignored/a.ts\\tpackages/beta/ignored/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-bTGaH8\"},{\"id\":\"ignored-origin\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-Qyi1UP\"},{\"id\":\"rename-disabled-control\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\\nA\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-iIQ0UI\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/gamma\"],[]],\"actual\":[[\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/gamma/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-UoVZcb\"},{\"id\":\"ordinary-deletion\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-6pAV2w\"},{\"id\":\"ordinary-addition\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"A\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-1VdCAr\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-UsNgJG\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": false,
+            "cases": 15,
+            "failed": 7,
+            "results": [
+              {
+                "id": "cross-project-forward",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-bwiDUB"
+              },
+              {
+                "id": "cross-project-reverse",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/beta/src/a.ts\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-8vTVAJ"
+              },
+              {
+                "id": "cross-project-new-filename",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-36Aq70"
+              },
+              {
+                "id": "staged-uncommitted",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-qTmbja"
+              },
+              {
+                "id": "nested-and-spaced-path",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/deeper/file name.ts\tpackages/beta/lib/inner/file name.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-aYwugA"
+              },
+              {
+                "id": "same-project",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/alpha/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-Z1ukRu"
+              },
+              {
+                "id": "test-only-move",
+                "passed": false,
+                "expected": [
+                  [],
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/test/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-3zC2Sa"
+              },
+              {
+                "id": "source-to-test",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-DQ0MXB"
+              },
+              {
+                "id": "fully-ignored",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/ignored/a.ts\tpackages/beta/ignored/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-bTGaH8"
+              },
+              {
+                "id": "ignored-origin",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-Qyi1UP"
+              },
+              {
+                "id": "rename-disabled-control",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts\nA\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-iIQ0UI"
+              },
+              {
+                "id": "ordinary-edit",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "M\tpackages/gamma/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-UoVZcb"
+              },
+              {
+                "id": "ordinary-deletion",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-6pAV2w"
+              },
+              {
+                "id": "ordinary-addition",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "A\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-1VdCAr"
+              },
+              {
+                "id": "unchanged",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-UsNgJG"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "reference": {
+      "public": {
+        "elapsedMs": 468.3858330000003,
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs"
+        ],
+        "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/reference",
+        "exitCode": 0,
+        "signal": null,
+        "stdout": "{\"passed\":true,\"cases\":3,\"failed\":0,\"results\":[{\"id\":\"move-between-projects\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/value.ts\\tpackages/beta/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-uFlnfd\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/alpha/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-K2bgNH\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-RzB8ez\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": true,
+          "cases": 3,
+          "failed": 0,
+          "results": [
+            {
+              "id": "move-between-projects",
+              "passed": true,
+              "expected": [
+                [
+                  "packages/alpha",
+                  "packages/beta"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/alpha",
+                  "packages/beta"
+                ],
+                []
+              ],
+              "renameDetected": true,
+              "diffStatus": "R100\tpackages/alpha/src/value.ts\tpackages/beta/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-uFlnfd"
+            },
+            {
+              "id": "ordinary-edit",
+              "passed": true,
+              "expected": [
+                [
+                  "packages/alpha"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/alpha"
+                ],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "M\tpackages/alpha/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-K2bgNH"
+            },
+            {
+              "id": "unchanged",
+              "passed": true,
+              "expected": [
+                [],
+                []
+              ],
+              "actual": [
+                [],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-RzB8ez"
+            }
+          ]
+        }
+      },
+      "private": {
+        "passed": true,
+        "integrity": {
+          "passed": true,
+          "changed": [
+            "workspace/filter-workspace-packages/src/getChangedPackages.ts"
+          ],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "elapsedMs": 1712.9667920000065,
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs"
+          ],
+          "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/reference",
+          "exitCode": 0,
+          "signal": null,
+          "stdout": "{\"passed\":true,\"cases\":15,\"failed\":0,\"results\":[{\"id\":\"cross-project-forward\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-Y7BU2l\"},{\"id\":\"cross-project-reverse\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/beta/src/a.ts\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-u0UnEV\"},{\"id\":\"cross-project-new-filename\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-bG8igY\"},{\"id\":\"staged-uncommitted\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-24vcfv\"},{\"id\":\"nested-and-spaced-path\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/deeper/file name.ts\\tpackages/beta/lib/inner/file name.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-JG90KX\"},{\"id\":\"same-project\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/alpha/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-XDgRQo\"},{\"id\":\"test-only-move\",\"passed\":true,\"expected\":[[],[\"packages/alpha\",\"packages/beta\"]],\"actual\":[[],[\"packages/alpha\",\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/test/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-OGZ4dV\"},{\"id\":\"source-to-test\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[\"packages/beta\"]],\"actual\":[[\"packages/alpha\"],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-L7JNNK\"},{\"id\":\"fully-ignored\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/ignored/a.ts\\tpackages/beta/ignored/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-8UhTEL\"},{\"id\":\"ignored-origin\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-kEPjTt\"},{\"id\":\"rename-disabled-control\",\"passed\":true,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\\nA\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-ly9az7\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/gamma\"],[]],\"actual\":[[\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/gamma/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-8MPeh3\"},{\"id\":\"ordinary-deletion\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-237H0p\"},{\"id\":\"ordinary-addition\",\"passed\":true,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":false,\"diffStatus\":\"A\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-YloyHt\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-x0ElEm\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": true,
+            "cases": 15,
+            "failed": 0,
+            "results": [
+              {
+                "id": "cross-project-forward",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-Y7BU2l"
+              },
+              {
+                "id": "cross-project-reverse",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/beta/src/a.ts\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-u0UnEV"
+              },
+              {
+                "id": "cross-project-new-filename",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-bG8igY"
+              },
+              {
+                "id": "staged-uncommitted",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-24vcfv"
+              },
+              {
+                "id": "nested-and-spaced-path",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/deeper/file name.ts\tpackages/beta/lib/inner/file name.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-JG90KX"
+              },
+              {
+                "id": "same-project",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/alpha/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-XDgRQo"
+              },
+              {
+                "id": "test-only-move",
+                "passed": true,
+                "expected": [
+                  [],
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [],
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/test/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-OGZ4dV"
+              },
+              {
+                "id": "source-to-test",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-L7JNNK"
+              },
+              {
+                "id": "fully-ignored",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/ignored/a.ts\tpackages/beta/ignored/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-8UhTEL"
+              },
+              {
+                "id": "ignored-origin",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-kEPjTt"
+              },
+              {
+                "id": "rename-disabled-control",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts\nA\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-ly9az7"
+              },
+              {
+                "id": "ordinary-edit",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "M\tpackages/gamma/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-8MPeh3"
+              },
+              {
+                "id": "ordinary-deletion",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-237H0p"
+              },
+              {
+                "id": "ordinary-addition",
+                "passed": true,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "A\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-YloyHt"
+              },
+              {
+                "id": "unchanged",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-x0ElEm"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "overbroad-control": {
+      "public": {
+        "elapsedMs": 466.04499999999825,
+        "command": "$USER_HOME/.hermes/node/bin/node",
+        "args": [
+          "--import",
+          "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+          "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs"
+        ],
+        "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/overbroad-control",
+        "exitCode": 1,
+        "signal": null,
+        "stdout": "{\"passed\":false,\"cases\":3,\"failed\":2,\"results\":[{\"id\":\"move-between-projects\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/value.ts\\tpackages/beta/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-YQHjMr\"},{\"id\":\"ordinary-edit\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/alpha/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-NwCdJw\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-wF9GAL\"}]}\n",
+        "stderr": "",
+        "result": {
+          "passed": false,
+          "cases": 3,
+          "failed": 2,
+          "results": [
+            {
+              "id": "move-between-projects",
+              "passed": false,
+              "expected": [
+                [
+                  "packages/alpha",
+                  "packages/beta"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/alpha",
+                  "packages/beta",
+                  "packages/gamma"
+                ],
+                []
+              ],
+              "renameDetected": true,
+              "diffStatus": "R100\tpackages/alpha/src/value.ts\tpackages/beta/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-YQHjMr"
+            },
+            {
+              "id": "ordinary-edit",
+              "passed": false,
+              "expected": [
+                [
+                  "packages/alpha"
+                ],
+                []
+              ],
+              "actual": [
+                [
+                  "packages/alpha",
+                  "packages/beta",
+                  "packages/gamma"
+                ],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "M\tpackages/alpha/src/value.ts",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-NwCdJw"
+            },
+            {
+              "id": "unchanged",
+              "passed": true,
+              "expected": [
+                [],
+                []
+              ],
+              "actual": [
+                [],
+                []
+              ],
+              "renameDetected": false,
+              "diffStatus": "",
+              "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-wF9GAL"
+            }
+          ]
+        }
+      },
+      "private": {
+        "passed": false,
+        "integrity": {
+          "passed": true,
+          "changed": [
+            "workspace/filter-workspace-packages/src/getChangedPackages.ts"
+          ],
+          "forbidden": []
+        },
+        "stable": true,
+        "checks": {
+          "elapsedMs": 1772.5515840000007,
+          "command": "$USER_HOME/.hermes/node/bin/node",
+          "args": [
+            "--import",
+            "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+            "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs"
+          ],
+          "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/overbroad-control",
+          "exitCode": 1,
+          "signal": null,
+          "stdout": "{\"passed\":false,\"cases\":15,\"failed\":13,\"results\":[{\"id\":\"cross-project-forward\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-AtjACY\"},{\"id\":\"cross-project-reverse\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/beta/src/a.ts\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-3x6LZg\"},{\"id\":\"cross-project-new-filename\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-FOu4Bo\"},{\"id\":\"staged-uncommitted\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-l1q95d\"},{\"id\":\"nested-and-spaced-path\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/deeper/file name.ts\\tpackages/beta/lib/inner/file name.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-Q2f2lY\"},{\"id\":\"same-project\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/alpha/src/renamed.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-UFIpOp\"},{\"id\":\"test-only-move\",\"passed\":false,\"expected\":[[],[\"packages/alpha\",\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/test/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-7krQCj\"},{\"id\":\"source-to-test\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[\"packages/beta\"]],\"actual\":[[],[\"packages/beta\"]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/test/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-TJ3eXM\"},{\"id\":\"fully-ignored\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/ignored/a.ts\\tpackages/beta/ignored/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-RO6372\"},{\"id\":\"ignored-origin\",\"passed\":false,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/a.ts\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-WoGvMl\"},{\"id\":\"rename-disabled-control\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\\nA\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-dB3pe0\"},{\"id\":\"ordinary-edit\",\"passed\":false,\"expected\":[[\"packages/gamma\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/gamma/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-HSi4Dv\"},{\"id\":\"ordinary-deletion\",\"passed\":false,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"D\\tpackages/alpha/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-KSDE2z\"},{\"id\":\"ordinary-addition\",\"passed\":false,\"expected\":[[\"packages/beta\"],[]],\"actual\":[[\"packages/alpha\",\"packages/beta\",\"packages/gamma\"],[]],\"renameDetected\":false,\"diffStatus\":\"A\\tpackages/beta/src/a.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-QsBMxl\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-HGDK7L\"}]}\n",
+          "stderr": "",
+          "result": {
+            "passed": false,
+            "cases": 15,
+            "failed": 13,
+            "results": [
+              {
+                "id": "cross-project-forward",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-AtjACY"
+              },
+              {
+                "id": "cross-project-reverse",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/beta/src/a.ts\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-3x6LZg"
+              },
+              {
+                "id": "cross-project-new-filename",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-FOu4Bo"
+              },
+              {
+                "id": "staged-uncommitted",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-l1q95d"
+              },
+              {
+                "id": "nested-and-spaced-path",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/deeper/file name.ts\tpackages/beta/lib/inner/file name.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-Q2f2lY"
+              },
+              {
+                "id": "same-project",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/alpha/src/renamed.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-UFIpOp"
+              },
+              {
+                "id": "test-only-move",
+                "passed": false,
+                "expected": [
+                  [],
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/test/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-7krQCj"
+              },
+              {
+                "id": "source-to-test",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "actual": [
+                  [],
+                  [
+                    "packages/beta"
+                  ]
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/test/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-TJ3eXM"
+              },
+              {
+                "id": "fully-ignored",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/ignored/a.ts\tpackages/beta/ignored/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-RO6372"
+              },
+              {
+                "id": "ignored-origin",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": true,
+                "diffStatus": "R100\tpackages/alpha/src/a.ts\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-WoGvMl"
+              },
+              {
+                "id": "rename-disabled-control",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha",
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts\nA\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-dB3pe0"
+              },
+              {
+                "id": "ordinary-edit",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "M\tpackages/gamma/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-HSi4Dv"
+              },
+              {
+                "id": "ordinary-deletion",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/alpha"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "D\tpackages/alpha/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-KSDE2z"
+              },
+              {
+                "id": "ordinary-addition",
+                "passed": false,
+                "expected": [
+                  [
+                    "packages/beta"
+                  ],
+                  []
+                ],
+                "actual": [
+                  [
+                    "packages/alpha",
+                    "packages/beta",
+                    "packages/gamma"
+                  ],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "A\tpackages/beta/src/a.ts",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-QsBMxl"
+              },
+              {
+                "id": "unchanged",
+                "passed": true,
+                "expected": [
+                  [],
+                  []
+                ],
+                "actual": [
+                  [],
+                  []
+                ],
+                "renameDetected": false,
+                "diffStatus": "",
+                "gitFixture": "$TEMP_ROOT/typelatch-pnpm-maintenance-HGDK7L"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "committedSymlinkNormalization": [
+    {
+      "path": "CLAUDE.md",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/AGENTS.md",
+      "after": "AGENTS.md",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-not-outdated-deps/node_modules/.pnpm/is-negative@2.1.0/node_modules/is-negative",
+      "after": ".pnpm/is-negative@2.1.0/node_modules/is-negative",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-not-outdated-deps/node_modules/.pnpm/is-positive@3.1.0/node_modules/is-positive",
+      "after": ".pnpm/is-positive@3.1.0/node_modules/is-positive",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/is-negative",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative",
+      "after": ".pnpm/is-negative@1.0.0/node_modules/is-negative",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "__fixtures__/has-outdated-deps-using-npm-alias/node_modules/is-negative-alias",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/__fixtures__/has-outdated-deps-using-npm-alias/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative",
+      "after": ".pnpm/is-negative@1.0.0/node_modules/is-negative",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "fetching/directory-fetcher/test/fixtures/pkg-with-broken-symlink/not-exists",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/fetching/directory-fetcher/test/fixtures/pkg-with-broken-symlink/broken-symlink",
+      "after": "broken-symlink",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    },
+    {
+      "path": "store/cafs/test/fixtures/broken-symlink/doesnt-exist",
+      "before": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-source/store/cafs/test/fixtures/doesnt-exist",
+      "after": "../doesnt-exist",
+      "reason": "Restore exact committed link text; initial prepared corpus had rewritten absolute links."
+    }
+  ],
+  "build": {
+    "elapsedMs": 686.6361249999991,
+    "command": "$USER_HOME/.hermes/node/bin/node",
+    "args": [
+      "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline/node_modules/typescript/bin/tsc",
+      "--build",
+      "packages/error"
+    ],
+    "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+    "exitCode": 0,
+    "signal": null,
+    "stdout": "",
+    "stderr": "",
+    "result": null
+  },
+  "fixtureAdaptations": [
+    "Full source corpus and identical filtered installed dependencies copied with preserved relative symlinks.",
+    "Restore seven committed symlink targets to exact source inventory text; preserve the normalization ledger. No provider copy may link outside its corpus.",
+    "Build only packages/constants and packages/error with repository TypeScript5.5.4 project references. No lint, lifecycle hooks or full monorepo build.",
+    "Add one root validation script invoking external pinned tsx4.23.13 and the public native check. Actual changed-package source executes directly.",
+    "Tests create real temporary Git repositories outside the corpus and retain them as qualification evidence.",
+    "Private evaluator and reference remain outside the agent workspace; isolation is procedural, not an OS access-control claim."
+  ],
+  "externalSymlinks": [],
+  "baselineTreeSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+  "reference": {
+    "path": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+    "beforeSha256": "d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e",
+    "afterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+    "sourceLinesAdded": [
+      "        '--no-renames',"
+    ]
+  },
+  "toolchain": {
+    "nodeVersion": "v22.23.1",
+    "nodeSha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+    "typescript": "5.5.4",
+    "tsx": "4.23.13",
+    "tsxTreeSha256": "f8e6bad80f2c7461cdd3c5a1089f8909a11a8c403771c26113942c551f26fd03",
+    "git": "git version 2.56.0"
+  },
+  "harness": [
+    {
+      "path": "case-engine.mjs",
+      "sha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6"
+    },
+    {
+      "path": "public-check.mjs",
+      "sha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69"
+    },
+    {
+      "path": "qualify.mjs",
+      "sha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6"
+    }
+  ],
+  "privateHarness": {
+    "path": "final-check.mjs",
+    "sha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226"
+  },
+  "publicCommand": {
+    "elapsedMs": 654.211083000002,
+    "command": "npm",
+    "args": [
+      "run",
+      "test:typelatch-benchmark"
+    ],
+    "cwd": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+    "exitCode": 1,
+    "signal": null,
+    "stdout": "\n> test:typelatch-benchmark\n> TZ=UTC TSX_DISABLE_CACHE=1 node --import '$REPOSITORY/node_modules/tsx/dist/loader.mjs' '$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs'\n\n{\"passed\":false,\"cases\":3,\"failed\":1,\"results\":[{\"id\":\"move-between-projects\",\"passed\":false,\"expected\":[[\"packages/alpha\",\"packages/beta\"],[]],\"actual\":[[\"packages/beta\"],[]],\"renameDetected\":true,\"diffStatus\":\"R100\\tpackages/alpha/src/value.ts\\tpackages/beta/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-c05ndt\"},{\"id\":\"ordinary-edit\",\"passed\":true,\"expected\":[[\"packages/alpha\"],[]],\"actual\":[[\"packages/alpha\"],[]],\"renameDetected\":false,\"diffStatus\":\"M\\tpackages/alpha/src/value.ts\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-rQJQyR\"},{\"id\":\"unchanged\",\"passed\":true,\"expected\":[[],[]],\"actual\":[[],[]],\"renameDetected\":false,\"diffStatus\":\"\",\"gitFixture\":\"$TEMP_ROOT/typelatch-pnpm-maintenance-meyvQZ\"}]}\n",
+    "stderr": "",
+    "result": null
+  },
+  "checks": {
+    "baselineFailsIntendedCase": true,
+    "baselineHasNoLoadError": true,
+    "referencePasses": true,
+    "overbroadFails": true,
+    "publicCommandFailsAsExpected": true,
+    "sourceCorpusUnchanged": true
+  },
+  "completedAt": "2026-11-06T17:52:49.217Z"
+}

@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#19171c" />
-  <title>Typelatch | Give your agent a better first move.</title>
+  <title>Typelatch | Give your agent context it can verify.</title>
   <meta name="description" content="Local workspace search and exact dependency APIs for TypeScript coding agents. Find the source, inspect the API, and verify the change with Typelatch." />
   <link rel="canonical" href="https://edimka.github.io/typelatch/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Typelatch. Give your agent a better first move." />
-  <meta property="og:description" content="Your source. Your dependency versions. A useful first stop for your coding agent." />
+  <meta property="og:title" content="Typelatch. Give your agent context it can verify." />
+  <meta property="og:description" content="Local source, exact dependency APIs and explicit validation evidence for your coding agent." />
   <meta property="og:url" content="https://edimka.github.io/typelatch/" />
   <meta property="og:image" content="https://edimka.github.io/typelatch/assets/readme-banner.png" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -25,7 +25,8 @@
     <nav aria-label="Main navigation">
       <a href="#walkthrough">The walkthrough</a>
       <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md">Docs <span aria-hidden="true">↗</span></a>
-      <a href="https://github.com/eDimka/typelatch">GitHub <span aria-hidden="true">↗</span></a>
+      <a href="{{benchmarkAnchor}}">Benchmark</a>
+      <a class="nav-github" href="https://github.com/eDimka/typelatch">GitHub <span aria-hidden="true">↗</span></a>
       <a class="nav-setup" href="#setup">Get started <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -33,8 +34,8 @@
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="release-label"><span class="status-dot" aria-hidden="true"></span> LOCAL CONTEXT. REAL EVIDENCE.</p>
-        <h1 id="hero-title">Give your agent<br />a better<br /><span>first move.</span></h1>
-        <p class="hero-description">Your source. Your dependency versions. <strong>Typelatch gives coding agents a focused place to start</strong> and the tools to check what comes next.</p>
+        <h1 id="hero-title">Give your agent<br />context it<br /><span>can verify.</span></h1>
+        <p class="hero-description">Your source. Your dependency versions. <strong>Typelatch returns local source and exact package APIs</strong> with tools to check a change.</p>
         <div class="hero-install">
           <p class="small-label">CONNECT CODEX OR CLAUDE CODE</p>
           <div class="command-line"><span class="shell-dollar" aria-hidden="true">$</span><pre tabindex="0" aria-label="Connect your coding agent"><code id="hero-install-command">npx typelatch@0.3.0 setup</code></pre><button type="button" data-copy="hero-install-command" hidden>Copy</button></div>
@@ -49,7 +50,7 @@
         <svg class="latch-mark" viewBox="0 0 300 300" aria-hidden="true"><defs><linearGradient id="latch-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffa085"/><stop offset="1" stop-color="#ff5636"/></linearGradient></defs><path d="M72 32h156a40 40 0 0 1 40 40v156a40 40 0 0 1-40 40H72a40 40 0 0 1-40-40V72a40 40 0 0 1 40-40Z" fill="url(#latch-fill)"/><path d="M98 88H78v124h20M202 88h20v124h-20" fill="none" stroke="#261a23" stroke-width="14" stroke-linecap="square"/><path d="M120 158l24 24 42-62" fill="none" stroke="#261a23" stroke-width="18" stroke-linecap="square" stroke-linejoin="miter"/></svg>
         <div class="api-slip"><span class="slip-label">EXACT PACKAGE API</span><strong>kysely<span>@0.28.8</span></strong><code>TransactionBuilder.execute()</code><span class="slip-path">dist/esm/kysely.d.ts:623 <span aria-hidden="true">↗</span></span></div>
         <div class="verification-stamp"><span aria-hidden="true">✳</span><div>Find. Inspect.<br /><strong>Then verify.</strong></div></div>
-        <span class="art-caption">A little context goes a long way.</span>
+        <span class="art-caption">Source. API. Evidence.</span>
       </div>
       <div class="hero-foot"><span>BUILT FOR THE WAY AGENTS WORK</span><div><span>CLI + MCP</span><span>EXACT VERSIONS</span><span>LOCAL BY DESIGN</span></div></div>
     </section>
@@ -63,6 +64,10 @@
       </div>
     </section>
 
+    {{guidedBenchmark}}
+    {{monorepoBenchmark}}
+    {{pairedBenchmark}}
+
     <section class="approach-section wrap" aria-labelledby="approach-title">
       <div class="approach-intro"><p class="eyebrow">A USEFUL FIRST STOP</p><h2 id="approach-title">Start with the question.<br /><span>Follow the evidence.</span></h2><p>When you do not know the file or package, a text search can turn into another search. Give your agent source locations and dependency APIs in the same workflow.</p><p class="approach-note">Keep grep for exact text. Use Typelatch to discover context, inspect exact APIs, and check a change. Fewer tool calls or tokens are not guaranteed.</p></div>
       <div class="approach-steps">
@@ -74,12 +79,11 @@
       <section class="setup-section wrap" id="setup" aria-labelledby="setup-title">
         <div class="setup-intro">
           <p class="eyebrow">MAKE IT PART OF THE WORKFLOW</p>
-          <h2 id="setup-title">Your agent.<br /><span>Better equipped.</span></h2>
+          <h2 id="setup-title">Your agent.<br /><span>Connected locally.</span></h2>
           <p>
             Run setup, choose your client,<br class="desktop-break" />
             and confirm. No repository clone or global installation.
           </p>
-          <p>New in 0.3.0: interactive setup, exact locked dependencies, and saved monorepo scopes. <a href="https://github.com/eDimka/typelatch/blob/main/CHANGELOG.md#030">Release notes ↗</a></p>
           <a class="npm-link" href="https://www.npmjs.com/package/typelatch"
             >typelatch on npm <span aria-hidden="true">↗</span></a
           >
@@ -104,10 +108,11 @@
             </div>
             <pre tabindex="0" aria-label="Prepare dependency indexes"><code id="index-command">npx typelatch@0.3.0 sync</code></pre>
             <p>
-              Read exact direct dependencies from npm, pnpm, Yarn, or Bun text lockfiles.
+              Published 0.3.0 reads npm, pnpm, Yarn and text Bun lockfiles.
               Preview the plan with <code>sync --dry-run --json</code>, then build reusable local indexes.
               Indexing needs npm access. Indexed search works offline.
             </p>
+            <p>Deno and binary Bun lockfile support are 0.4.0 development additions and currently require the <a href="https://github.com/eDimka/typelatch/pull/3">development checkout in PR 3</a>.</p>
           </div>
           <div class="setup-command">
             <div class="code-heading">
@@ -150,11 +155,12 @@
               ><button type="button" data-copy="agent-prompt" hidden>Copy prompt</button>
             </div>
             <p id="agent-prompt">
-              Start with workspace_search and my repository root when the relevant file or package is
-              unknown. Inspect coverage gaps and returned source locations. Resolve the actual use
-              with workspace_context and inspect exact dependency APIs with library_symbol. After
-              editing, use workspace_validate with authorized assertions. Report retrieval,
-              resolution, compilation and tests separately, including anything unknown or not run.
+              Use workspace_search with my repository root when the relevant file or package is unknown.
+              Use the returned source and coverage information; read more only when evidence is missing or stale.
+              When a dependency API matters to the change, resolve it with workspace_context and inspect
+              the needed declaration with library_symbol. After editing, run the required compiler and
+              authorized tests once through workspace_validate or native project commands.
+              Report what was retrieved, resolved, compiled and tested, including anything unknown or not run.
             </p>
             <a href="https://github.com/eDimka/typelatch/blob/main/docs/USAGE.md"
               >More workflows and all seven tools <span aria-hidden="true">↗</span></a
@@ -402,7 +408,7 @@
       <div><p>Indexes and query history stay on your machine. Package preparation downloads npm artifacts and verifies registry integrity without running their lifecycle scripts. Indexed search works offline.</p><p>Workspace checks use your installed compiler. Explicit test commands run local code with your permissions. Evidence covers the recorded inputs and assertions, not general coding success.</p><div class="boundary-links"><a href="https://github.com/eDimka/typelatch/blob/main/SECURITY.md">Trust and local data ↗</a><a href="https://github.com/eDimka/typelatch/blob/main/docs/BENCHMARKS.md">Benchmarks and limits ↗</a></div></div>
     </aside>
   </main>
-  <footer class="footer wrap"><a class="brand" href="./">typelatch<span class="brand-stop">.</span></a><p>A better first move.<br />An inspectable next step.</p><div><a href="https://github.com/eDimka/typelatch">GitHub ↗</a><a href="https://www.npmjs.com/package/typelatch">npm ↗</a><a href="https://github.com/eDimka/typelatch/blob/main/LICENSE">MIT license ↗</a></div><a class="back-top" href="#main" aria-label="Back to top">↑</a></footer>
+  <footer class="footer wrap"><a class="brand" href="./">typelatch<span class="brand-stop">.</span></a><p>Context you can inspect.<br />Checks you can verify.</p><div><a href="https://github.com/eDimka/typelatch">GitHub ↗</a><a href="https://www.npmjs.com/package/typelatch">npm ↗</a><a href="https://github.com/eDimka/typelatch/blob/main/LICENSE">MIT license ↗</a></div><a class="back-top" href="#main" aria-label="Back to top">↑</a></footer>
   <p class="sr-only" id="action-status" role="status" aria-live="polite"></p>
 </body>
 </html>

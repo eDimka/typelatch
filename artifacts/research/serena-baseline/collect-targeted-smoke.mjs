@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict'
+import {mkdir,writeFile,symlink,readFile} from 'node:fs/promises'
+import {resolve,join} from 'node:path'
+import {createHash} from 'node:crypto'
+import {openProvider} from './providers.mjs'
+import {collectProbe} from './collect.mjs'
+import {createNative} from '../large-monorepo/funnel/native.mjs'
+const base=resolve('artifacts/research/serena-baseline/targeted-smoke-001'),workspace=join(base,'workspace'),cacheRoot=join(base,'state')
+await mkdir(join(workspace,'src'),{recursive:true});await mkdir(join(workspace,'node_modules'),{recursive:true});await writeFile(join(workspace,'package.json'),JSON.stringify({name:'large-symbol-scratch',version:'1.0.0'}));await writeFile(join(workspace,'tsconfig.json'),JSON.stringify({compilerOptions:{target:'es2022'},include:['src']}));await symlink(resolve('artifacts/research/serena-baseline/ls-runtime/node_modules/typescript'),join(workspace,'node_modules/typescript'),'dir')
+await writeFile(join(workspace,'src/main.ts'),Array.from({length:1800},(_,i)=>`export const filler${i} = ${i}`).join('\n')+'\nexport function handler(): number { return 7 }\n');
+const actions=[],session=await openProvider({provider:'typescript',workspace,cacheRoot});const charge=async(name,args,fn)=>{const raw=await fn();const visible=raw.structuredContent??raw;actions.push({name,args,raw,textBytes:Buffer.byteLength(JSON.stringify(visible))});return raw};
+try{const native=await createNative(workspace,charge);const wrapped={...session,call:(name,args,opts)=>charge(name,args,()=>session.call(name,args,opts))};await collectProbe({provider:'typescript',probe:{id:'ambiguous-handler',family:'ambiguity',context:{symbol:'handler'}},session:wrapped,workspace,native});const bytes=actions.reduce((n,x)=>n+x.textBytes,0);assert(bytes<65536);assert(actions.find(x=>x.name==='tsserver_batch').raw.structuredContent.responses.some(x=>x.command==='quickinfo'&&x.response.body?.displayString?.includes('handler')));assert(actions.some(x=>JSON.stringify(x.raw).includes('return 7')));await writeFile(join(base,'result.json'),JSON.stringify({status:'passed',kind:'scratch-only',sourceLines:1802,textBytes:bytes,actions,collectorSha256:createHash('sha256').update(await readFile(new URL('./collect.mjs',import.meta.url))).digest('hex')},null,2)+'\n');console.log(JSON.stringify({status:'passed',textBytes:bytes,actions:actions.length}))}finally{await session.close()}

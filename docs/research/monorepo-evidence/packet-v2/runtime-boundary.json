@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T18:33:40.291Z",
+  "type": "v2 runtime paths with unchanged backend and native syntax parser",
+  "runtimeVersion": "0.4.0",
+  "usesWorkingDist": false,
+  "backendRoot": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+  "backendDependencyRoot": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+  "wrapperDependencyRoot": "$REPOSITORY/node_modules",
+  "runtimeClosureResponsibility": "The coordinator must freeze both dependency roots or reuse its existing complete runtime fingerprint. This supplemental file hashes only explicitly listed entrypoints and locks, not all dependency bytes.",
+  "files": [
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/package.json",
+      "sha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+      "bytes": 3106
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/workspace/runtime.js",
+      "sha256": "b9368b3606d76689f90af79c953e12ee8d20d0c4d4b2787e5b4ee7562188b2ba",
+      "bytes": 4387
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/workspace/schema.js",
+      "sha256": "721830f951269fe1d368d91a8e63e6e51cd96cff5d855e5eb4499e54edb74caa",
+      "bytes": 3086
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/package-lock.json",
+      "sha256": "ef20143165171b3f1192084bc69f2df7bb17cc8b28da62a3b7775dcd78495292",
+      "bytes": 51492
+    },
+    {
+      "path": "$REPOSITORY/package-lock.json",
+      "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+      "bytes": 104242
+    },
+    {
+      "path": "$REPOSITORY/node_modules/@modelcontextprotocol/sdk/package.json",
+      "sha256": "7a8d6f79ee52e2bf7cfe23f2d79f7e3c0ab6a3912a340ec345d6ff014534d59d",
+      "bytes": 6511
+    },
+    {
+      "path": "$REPOSITORY/node_modules/zod/package.json",
+      "sha256": "c2d190d9ee4e0bdb60332aaa2130a6a98d65ddb903fe1d29248b15de57832c45",
+      "bytes": 4142
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typescript/lib/typescript.js",
+      "sha256": "569177652966bd528c319171c7dd22860dbf72bde116cbc4f644f1d02bb12e39",
+      "bytes": 9144216
+    },
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typescript/package.json",
+      "sha256": "9332e97c30d3e53ed54910b89207ed657fb444066484df6e5b6965bf130865e9",
+      "bytes": 3527
+    }
+  ],
+  "launch": {
+    "command": "$USER_HOME/.hermes/node/bin/node",
+    "args": [
+      "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs"
+    ],
+    "cwd": "{workspace}",
+    "env": {
+      "TYPELATCH_PACKET_WORKSPACE_ROOT": "{workspace}",
+      "TYPELATCH_PACKET_BYTES": "8192",
+      "TYPELATCH_PACKET_RUNTIME_ROOT": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+      "TYPELATCH_PACKET_DIAGNOSTICS": "{state}/packet-diagnostics",
+      "TYPELATCH_HOME": "{state}/typelatch",
+      "TYPELATCH_USAGE": "off"
+    }
+  },
+  "tool": {
+    "name": "workspace_evidence",
+    "input": {
+      "question": "string, 1 to 2000 characters",
+      "file": "optional existing workspace path"
+    }
+  }
+}
