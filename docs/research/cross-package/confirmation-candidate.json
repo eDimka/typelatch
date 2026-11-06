@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "status": "candidate-fixed-before-heldout-disclosure",
+  "createdAt": "2026-11-06T23:25:26.610Z",
+  "candidate": "impact",
+  "name": "Package impact evidence prototype",
+  "interface": "package_evidence with optional artifact writer",
+  "publishedPackage": false,
+  "providerSpecSha256": "162c0fd03702a3230fb24a5782078e3098abed53a7b8be3f22494a5353e90b0a",
+  "armSha256": "5064a0b436fc907e58c54cc881d847004b294398b1ec0170ad4249b0675833b4",
+  "sourceProtocolSha256": "b3c568605fc7228a72c3982a0a12b300ebcce0e9cc6043f2e66f84ccaf233672",
+  "developmentReportSha256": "4c9bb18832180986448425d9efb11adcc0ad5d8e7ffff6e8fd09b268a1cae814",
+  "developmentAdjudicationSha256": "af36496b618eebc5b7bce85a5b232e91db65bdb63df1e2e079ed0aed0dd22827",
+  "candidateInputs": [
+    {
+      "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+      "kind": "tree",
+      "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+      "bytes": null,
+      "entries": 5497
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.mjs",
+      "kind": "file",
+      "sha256": "11a0bcd515bda9825f6b67a2382b4c9b594c2fa858dc6a92ce2624ea3d3176fe",
+      "bytes": 24483,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.mjs",
+      "kind": "file",
+      "sha256": "90b2aec255826f0d1796a1a6f2c159c2154b3a6b8be952d7f1347ad6459bcefc",
+      "bytes": 2604,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/service.mjs",
+      "kind": "file",
+      "sha256": "2d923531423a12912a7f7247e439cefdf07d5631b2457a1922827a33066a5608",
+      "bytes": 828,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs",
+      "kind": "file",
+      "sha256": "54e025e1399af277e416b398fe46e4b0a89e00a8d27fa6911f63160454342add",
+      "bytes": 1439,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/cli.mjs",
+      "kind": "file",
+      "sha256": "8e5c7c7751e99dc78b9dc61d7c9404c1b5d7b88681f6f9fc6ec42db71ef99c4c",
+      "bytes": 407,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/evidence.test.mjs",
+      "kind": "file",
+      "sha256": "cf3ca7f428dafd3861b9477dcd60371672de627a85dd9acb3715003db6c968c6",
+      "bytes": 4277,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/projection.test.mjs",
+      "kind": "file",
+      "sha256": "1019ff8dca61e8e51dc6601e2dda79faa5528f9ce9cce4d76b2bd30bf9be32ba",
+      "bytes": 2206,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/review.test.mjs",
+      "kind": "file",
+      "sha256": "e01fbb54bc99ef99d32ca1f9b664d4a7a781cb41090018cf8fb302a2891167ee",
+      "bytes": 12213,
+      "entries": null
+    },
+    {
+      "path": "$REPOSITORY/node_modules",
+      "kind": "tree",
+      "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+      "bytes": null,
+      "entries": 10457
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact-prototype/transport.test.mjs",
+      "kind": "file",
+      "sha256": "b8275d8fecdc2b68fd776722a001e62cb41a12077a22fe4a2fc9a47014a761d8",
+      "bytes": 3343,
+      "entries": null
+    }
+  ],
+  "selection": "Select the unchanged interface from impact002 because it is the only completed development treatment that met the joint20percent token and time threshold against both native and Serena. The separate mandatory writer trial003 reduced tokens but saved only0.55percent charged time against its native run, so it does not replace this candidate. Every attempt remains retained. Single development results are noisy and do not establish a category edge.",
+  "blindness": "Neither the candidate implementation nor this selection used the two private confirmation task targets, source facts, expected answers or graders. No further candidate source, tool description, default budget or configuration tuning is allowed after their disclosure.",
+  "confirmation": "Two distinct previously prepared impact tasks, two repetitions, native tools, unchanged candidate, Serena and CodeGraph. The original gate remains intact, with an additional prespecified comparison against CodeGraph. Freeze complete provider transport qualifications and exact task inputs before sessions. CodeGraph is an additional control even though the existing harness records it in its candidates array.",
+  "scope": "Configured TypeScript package src trees and explicit import and export routes. This is a proposed narrow capability, not a general replacement for text search, arbitrary value propagation or dynamic runtime analysis."
+}
