@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-before-agent-sessions",
+  "createdAt": "2026-11-06T23:56:30.778Z",
+  "privateProtocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "publicProtocolSha256": "2464bdb2404b1247d4aeea9aecec5b24e9b8702fffd709cda00eb3afb8262e8c",
+  "normalization": "Absolute repository, home and temporary paths replaced by named placeholders. Private original remains immutable; content hashes bind original bytes. No agent outcomes exist at this publication step.",
+  "taskIds": [
+    "vue-type-impact-heldout-grading-v2",
+    "vue-runtime-impact-heldout-grading-v2"
+  ],
+  "runCount": 16
+}

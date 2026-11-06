@@ -1,0 +1,7 @@
+{
+  "executable": "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/bin/python3.9",
+  "version": "3.9.7 (default, Oct 13 2021, 06:45:31) \n[Clang 13.0.0 (clang-1300.0.29.3)]",
+  "sha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+  "requestedCommand": "python3",
+  "resolvedFromSameProcessEnvironment": true
+}

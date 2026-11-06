@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "helper": "$REPOSITORY/artifacts/research/cross-package/trial/clone-tree.py",
+  "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+  "cases": [
+    {
+      "name": "type",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-clean-v4/descriptor.json",
+      "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/canonical-type/workspace",
+      "snapshotSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "copiedRegularFiles": 18328,
+      "copiedSymlinks": 1576,
+      "git": {
+        "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+        "trackedFiles": 700,
+        "root": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/canonical-type/workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "independentCommitCount": 1,
+      "sourceAndDependenciesUnchanged": true
+    },
+    {
+      "name": "runtime",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-clean-v4/descriptor.json",
+      "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/canonical-runtime/workspace",
+      "snapshotSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "copiedRegularFiles": 18328,
+      "copiedSymlinks": 1576,
+      "git": {
+        "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+        "trackedFiles": 700,
+        "root": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/canonical-runtime/workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "independentCommitCount": 1,
+      "sourceAndDependenciesUnchanged": true
+    }
+  ]
+}
