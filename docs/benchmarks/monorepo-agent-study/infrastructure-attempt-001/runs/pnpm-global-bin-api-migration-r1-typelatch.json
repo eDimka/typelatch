@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "pnpm-global-bin-api-migration-r1-typelatch",
+    "task": "pnpm-global-bin-api-migration",
+    "repeat": 1,
+    "arm": "typelatch",
+    "status": "failed",
+    "startedAt": "2026-11-06T18:44:37.810Z",
+    "finishedAt": "2026-11-06T18:44:37.830Z",
+    "fixtureSetupMs": 15030.234959000023,
+    "providerSetupMs": 0.0021249999990686774,
+    "elapsedMs": 19.21799999999348,
+    "teardownMs": 0.0867500000167638,
+    "gradingMs": 7149.975749999983,
+    "exitCode": 1,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": false,
+    "capture": {
+      "complete": false,
+      "issues": [
+        {
+          "code": "expected-one-turn-start",
+          "observed": 0
+        },
+        {
+          "code": "missing-turn-completion"
+        },
+        {
+          "code": "missing-required-usage"
+        }
+      ],
+      "startupWarnings": [],
+      "turnStarts": 0,
+      "turnCompletions": 0,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": null,
+      "cachedInputTokens": null,
+      "cacheWriteInputTokens": null,
+      "outputTokens": null,
+      "reasoningOutputTokens": null,
+      "totalTokens": null,
+      "uncachedInputTokens": null
+    },
+    "counts": {
+      "shellCalls": 0,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 0,
+      "grepShellCalls": 0,
+      "contentSearchShellCalls": 0,
+      "fileListingShellCalls": 0,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+    "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+    "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+    "recordingError": null,
+    "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "nativeValidation": {
+      "checks": [],
+      "failingThenLaterCheckObserved": false,
+      "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+    }
+  },
+  "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+  "actions": [],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.typelatch.command": "$USER_HOME/.hermes/node/bin/node",
+    "mcp_servers.typelatch.args": [
+      "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+    ],
+    "mcp_servers.typelatch.env": {
+      "TYPELATCH_HOME": "$PROVIDER_STATE/typelatch",
+      "TYPELATCH_USAGE": "off"
+    },
+    "mcp_servers.typelatch.cwd": "$WORKSPACE",
+    "mcp_servers.typelatch.startup_timeout_sec": 60,
+    "mcp_servers.typelatch.tool_timeout_sec": 180,
+    "mcp_servers.typelatch.required": true,
+    "mcp_servers.typelatch.tools.workspace_search.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.workspace_context.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.workspace_validate.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_search.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_symbol.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_feedback.approval_mode": "approve",
+    "mcp_servers.typelatch.tools.library_stats.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": false,
+    "integrity": {
+      "passed": true,
+      "changed": [],
+      "forbidden": []
+    },
+    "stable": true,
+    "checks": {
+      "command": "$USER_HOME/.hermes/node/bin/node",
+      "args": [
+        "--import",
+        "$REPOSITORY/node_modules/tsx/dist/loader.mjs",
+        "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "elapsedMs": 131.1074999999837,
+      "stdout": "{\"passed\":false,\"cases\":11,\"failed\":6,\"results\":[{\"id\":\"writable-directory\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"writable-spaced-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"writable-multiple-path-entries\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"symlink-matches-real-path\",\"passed\":false,\"expectedError\":null,\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"readonly-directory-rejected\",\"passed\":false,\"expectedError\":\"ERR_PNPM_PNPM_DIR_NOT_WRITABLE\",\"actual\":{\"ok\":false,\"name\":\"TypeError\",\"code\":null,\"message\":\"(0 , import_can_write_to_dir.sync) is not a function\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-directory-without-write-check\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"directory-prefix-is-not-path-membership\",\"passed\":true,\"expectedError\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH\",\"message\":\"The configured global bin directory \\\"$TEMP\" is not in PATH\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"missing-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"empty-path-setting\",\"passed\":true,\"expectedError\":\"ERR_PNPM_NO_PATH_ENV\",\"actual\":{\"ok\":false,\"name\":\"Error\",\"code\":\"ERR_PNPM_NO_PATH_ENV\",\"message\":\"Couldn't find a global directory for executables because the \\\"PATH\\\" environment variable is not set.\"},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"},{\"id\":\"optional-write-check-omitted\",\"passed\":true,\"expectedError\":null,\"actual\":{\"ok\":true},\"unhandled\":[],\"temporaryDirectory\":\"$TEMP\"}]}\n",
+      "stderr": "",
+      "result": {
+        "passed": false,
+        "cases": 11,
+        "failed": 6,
+        "results": [
+          {
+            "id": "writable-directory",
+            "passed": false,
+            "expectedError": null,
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "writable-spaced-path",
+            "passed": false,
+            "expectedError": null,
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "writable-multiple-path-entries",
+            "passed": false,
+            "expectedError": null,
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "symlink-matches-real-path",
+            "passed": false,
+            "expectedError": null,
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-directory-rejected",
+            "passed": false,
+            "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "readonly-directory-rejected",
+            "passed": false,
+            "expectedError": "ERR_PNPM_PNPM_DIR_NOT_WRITABLE",
+            "actual": {
+              "ok": false,
+              "name": "TypeError",
+              "code": null,
+              "message": "(0 , import_can_write_to_dir.sync) is not a function"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-directory-without-write-check",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "directory-prefix-is-not-path-membership",
+            "passed": true,
+            "expectedError": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_GLOBAL_BIN_DIR_NOT_IN_PATH",
+              "message": "The configured global bin directory \"$TEMP\" is not in PATH"
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "missing-path-setting",
+            "passed": true,
+            "expectedError": "ERR_PNPM_NO_PATH_ENV",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_NO_PATH_ENV",
+              "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "empty-path-setting",
+            "passed": true,
+            "expectedError": "ERR_PNPM_NO_PATH_ENV",
+            "actual": {
+              "ok": false,
+              "name": "Error",
+              "code": "ERR_PNPM_NO_PATH_ENV",
+              "message": "Couldn't find a global directory for executables because the \"PATH\" environment variable is not set."
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          },
+          {
+            "id": "optional-write-check-omitted",
+            "passed": true,
+            "expectedError": null,
+            "actual": {
+              "ok": true
+            },
+            "unhandled": [],
+            "temporaryDirectory": "$TEMP"
+          }
+        ]
+      },
+      "error": null
+    },
+    "fixtureGitUnchanged": true
+  },
+  "changes": [],
+  "recording": "Allowlisted completed public actions, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}
