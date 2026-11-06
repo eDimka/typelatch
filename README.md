@@ -190,6 +190,8 @@ typelatch query kysely@0.28.8 "TransactionBuilder execute" --json --limit 5
 
 Search, compiler resolution, compilation and execution have separate evidence states. Missing evidence stays visible. [Tool reference](docs/USAGE.md#mcp-tool-reference).
 
+MCP validation summarizes input manifests by default and preserves checks, diagnostics and test output. Request `detail: "full"` for every input row. CLI output and saved evidence retain full manifests. Use `record: false` or `TYPELATCH_USAGE=off` to disable saving.
+
 ## Your code stays local
 
 Search runs locally. Prepared package indexes work offline. Downloads verify registry integrity and do not run package lifecycle scripts. Indexes and usage records live in `~/.typelatch`; use `TYPELATCH_HOME` to choose another directory or `TYPELATCH_USAGE=off` to disable usage recording.

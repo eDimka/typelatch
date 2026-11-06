@@ -405,6 +405,10 @@ Results keep `pass`, `fail`, `unknown`, and `not-run` distinct. A command return
 
 Validation's overall `success` is true only when compilation, assertion execution, and input stability all pass. A compilation only request can therefore have `checks.typechecked.status` equal to `pass`, `checks.tested.status` equal to `not-run`, and `success` equal to `false`. Read the individual checks rather than interpreting that as a compiler failure. The CLI uses status 2 when required checks fail and status 1 for command errors.
 
+`workspace_validate` defaults to `detail: "compact"`. Checks, diagnostics, test output and snapshot IDs are preserved. The `snapshot` and `runtimeSnapshot` summaries report `inputCount` and `inputsOmitted` instead of listing individual input rows. Add `"detail": "full"` to an MCP request to include every row.
+
+CLI output and saved validation evidence retain full input manifests. `record: false` or `TYPELATCH_USAGE=off` disables saving and leaves `evidencePath` null. Selecting full detail does not enable recording.
+
 Validation records compiler inputs and, when execution is requested, the runtime file scope before and after the command. `runtimeInputs` extends that scope. `snapshotExclude` excludes known generated outputs. `workspaceRoot` bounds snapshot collection. Excluded files, remote services, and environmental state are outside the recorded evidence boundary.
 
 ## MCP tool reference
@@ -415,11 +419,11 @@ Validation records compiler inputs and, when execution is requested, the runtime
 | `library_search` | `package`, `question`; optional `version`, `limit` from 1 to 20 | Search results from an installed index |
 | `library_symbol` | `package`, `symbol`; optional `version` | Exact symbol lookup and relationships |
 | `workspace_context` | `config`, `file`; optional `importSpecifier`, `symbol`, `position`, `question`, `expectedVersion`, `overlays`, `limit`, `timeoutMs` | Workspace definitions, types, identity, and optional discovery |
-| `workspace_validate` | `config`; optional `testCommand`, `queryId`, `record`, `overlays`, `timeoutMs`, `runtimeInputs`, `snapshotExclude`, `workspaceRoot` | Compiler, execution, and input stability evidence |
+| `workspace_validate` | `config`; optional `detail` (`compact` or `full`), `testCommand`, `queryId`, `record`, `overlays`, `timeoutMs`, `runtimeInputs`, `snapshotExclude`, `workspaceRoot` | Compiler, execution, and input stability evidence with compact input summaries by default |
 | `library_feedback` | `queryId` UUID; optional `accepted`, `compilePassed`, `testsPassed`, `notes` up to 1000 characters | Agent reported outcome stored against a prior query |
 | `library_stats` | `{}` | Local query, latency, hit rate, context size, and outcome aggregates |
 
-Workspace tools accept the same fields as the corresponding CLI request files. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
+Workspace tools accept the same execution fields as the corresponding CLI request files. Validation `detail` selects the MCP response view; CLI validation output remains full. Feedback is an agent report, not a compiler or test run. It remains separate from tool executed validation records. Index preparation uses the CLI. There is no MCP install tool or arbitrary SQL query tool.
 
 ## Local data and source setup
 
