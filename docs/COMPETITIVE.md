@@ -1,5 +1,7 @@
 # Competitive evidence
 
+This is the historical comparator review. Later [measured agent studies](BENCHMARKS.md#instructed-tool-use) include actual tokens, time and independent correctness checks. The latest source experiment used 11.9% more tokens and 20.6% more charged time than native tools; the savings gate failed. The acceptance gates below record the earlier research plan.
+
 Measured on 6 October 2026. Typelatch has verified improvements in storage, repeated search latency and exact API lookup. The evidence does not establish that it surpasses CodeGraph and Graphify in every aspect.
 
 The competitors are [colbymchenry/codegraph](https://github.com/colbymchenry/codegraph), executed as `@colbymchenry/codegraph@1.6.2`, and [Graphify](https://github.com/Graphify-Labs/graphify), executed as `graphifyy==0.9.77`. This excludes the unrelated local LibBrain project. [Research and pinned identities](research/competitive-baseline.md).

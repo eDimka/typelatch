@@ -1,0 +1,2708 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "real-maintenance-inventory-guided-retrieval-v1",
+    "createdAt": "2026-11-06T19:36:29.391Z",
+    "status": "frozen-before-agent-sessions",
+    "runCount": 12,
+    "repeats": 2,
+    "candidates": [
+      "packet"
+    ],
+    "timeoutMs": 600000,
+    "tasks": [
+      {
+        "id": "pnpm-changed-project-move",
+        "title": "pnpm changed-project selection after a file move",
+        "publicCases": 3,
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "85ac8a95782d688a5c722ff272788a6ad8a643bd336d72ab0445ae31947c83e2"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration",
+        "title": "pnpm global executable-directory API migration",
+        "publicCases": 3,
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "4db0afcdec9a32c0770e39c3cfd6e02315ec6d276db323c705f659d56fe2f233"
+      }
+    ],
+    "prompts": [
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "6f4c531f03c2ab2072d4feef9d391b246f59a8cc5a420a7a8016f22c7f88c57a"
+      },
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "8967939c75f02d254325f05a50d09ca1022cc7af668649a9f9024ac41a828d42"
+      },
+      {
+        "task": "pnpm-changed-project-move",
+        "arm": "packet",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "15c645a4ce136d42fb9cf73dada3497fc4291049166531c8afacca83a6f0fbd4"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "b4ce49f475a28d4429a27478de96eb77b7579450cb6b9e676afda06374cf3f5b"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "1afbb1dc4bca466007a51902a23341a4af23fc6898eaf92c0f8a998683515cee"
+      },
+      {
+        "task": "pnpm-global-bin-api-migration",
+        "arm": "packet",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Run the supplied failing check before investigating the implementation. First investigation means a task-directed source or path search, source read, or targeted dependency/configuration inspection. Harmless working-directory checks, generic top-level project metadata, the supplied check itself, and required provider startup instructions are separate. For your first investigation, use a task-relevant repository discovery or source-inspection call through a connected repository retrieval provider when one is available; otherwise use the native tools. Read any provider startup instructions required to make that call. Then choose freely among the available tools, make the minimal repair, and run the same native check again. The supplied native validation command is npm run test:typelatch-benchmark, the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch_packet\nTools: mcp__typelatch_packet__workspace_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "986d7ca3049468665e24fe0a66f794a2f97234f6aa879770936f114f723527f2"
+      }
+    ],
+    "promptPolicy": "Task and guided instructions are identical. An equal-format declaration names the actually enabled provider/tools for each arm, or none for native. Each exact sent prompt is separately hash-bound. No task query recipe is supplied.",
+    "toolUseQualification": {
+      "receiptSha256": "55c7c27b9b7e17eca7a935805eb2a670c51680fb979fb2502a4b4163774ffb7b",
+      "captureSha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+      "arms": [
+        {
+          "arm": "packet",
+          "status": "passed",
+          "proof": [
+            {
+              "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+              "server": "typelatch_packet",
+              "tool": "workspace_evidence",
+              "resultSha256": "2bd004660f38dff3da247fb5c04a8eabc1caf712426459ba802efe5d9e525ba9",
+              "markerObserved": true
+            }
+          ]
+        },
+        {
+          "arm": "competitor",
+          "status": "passed",
+          "proof": [
+            {
+              "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+              "server": "serena",
+              "tool": "serena_repl",
+              "resultSha256": "2eb7f0acfc325ea780aa37fd6f698aaf998ba4604eb293c221b541352de11c88",
+              "markerObserved": true
+            }
+          ]
+        }
+      ]
+    },
+    "schedule": [
+      {
+        "id": "pnpm-changed-project-move-r1-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "native"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "cliVersion": "codex-cli 0.166.0",
+    "codexBinary": {
+      "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "bytes": 268972064,
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+    },
+    "decisionGate": {
+      "minimumReductionPercent": 20,
+      "workflowReviewRules": {
+        "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
+        "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
+        "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
+        "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
+        "providerStartup": "Required provider activation and startup instructions do not themselves qualify as relevant retrieval. A serena_repl call that only lists tools, configuration or memories does not qualify.",
+        "relevance": "A qualifying retrieval attempt must address the reported task behavior or implementation. Usable evidence, empty results and tool errors remain distinct; failure costs are retained. No forced additional API or validation call.",
+        "shellOrdering": "The independent reviewer must assess ordering inside compound shell commands and identify task-directed shell reads or edits. If public command/action evidence cannot establish the order or relevance, record unknown. Aggregate shell exit codes and total tool counts do not prove compliance.",
+        "evidenceBoundary": "Review only hash-bound public actions, source changes, native-check observations and grades. Never inspect private reasoning or assistant message bodies. Preserve every run and every failed attempt."
+      },
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and all four candidate runs must be correct. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires independent hash-bound review of first-investigation compliance for every run and a task-relevant provider retrieval attempt in every packet and Serena run.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "A task-relevant first provider retrieval attempt is required for packet and Serena; native uses its native first investigation. Startup instructions or tool listings do not qualify. Unknown or failed compliance blocks a qualified win, while all costs and failures remain included. Human review uses only public actions and never private reasoning or assistant messages.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "workflowReviewRules": {
+      "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
+      "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
+      "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
+      "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
+      "providerStartup": "Required provider activation and startup instructions do not themselves qualify as relevant retrieval. A serena_repl call that only lists tools, configuration or memories does not qualify.",
+      "relevance": "A qualifying retrieval attempt must address the reported task behavior or implementation. Usable evidence, empty results and tool errors remain distinct; failure costs are retained. No forced additional API or validation call.",
+      "shellOrdering": "The independent reviewer must assess ordering inside compound shell commands and identify task-directed shell reads or edits. If public command/action evidence cannot establish the order or relevance, record unknown. Aggregate shell exit codes and total tool counts do not prove compliance.",
+      "evidenceBoundary": "Review only hash-bound public actions, source changes, native-check observations and grades. Never inspect private reasoning or assistant message bodies. Preserve every run and every failed attempt."
+    },
+    "replaySelection": {
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arms": [
+        "native",
+        "packet"
+      ],
+      "runIds": [
+        "pnpm-changed-project-move-r1-native",
+        "pnpm-changed-project-move-r1-packet"
+      ],
+      "rule": "Preselect the first task and first repeat before guided outcomes. Retain failures and zero/failed retrieval without substituting a later pair. Use measured public-action receipt timestamps; any display-time compression must be disclosed."
+    },
+    "supplementalOutputs": {
+      "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "fileName": "tool-outputs.json",
+      "policy": "After all timed sessions, export only completed native command outputs and MCP results/errors. Verify raw and public action hashes before machine-path normalization. Retain original/normalized hashes. Exclude reasoning and assistant messages.",
+      "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575"
+    },
+    "spec": {
+      "schemaVersion": 1,
+      "candidates": [
+        "packet"
+      ],
+      "status": "selected-and-ready",
+      "competitorSelection": {
+        "name": "Serena",
+        "version": "2.1.0",
+        "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+        "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+      },
+      "typelatchArtifact": {
+        "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+      },
+      "fixtures": {
+        "pnpm-changed-project-move": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs"
+        },
+        "pnpm-global-bin-api-migration": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs"
+        }
+      },
+      "arms": {
+        "native": {
+          "servers": {},
+          "setupCommands": [],
+          "frozenInputs": [],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "competitor": {
+          "servers": {
+            "serena": {
+              "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+              "args": [
+                "start-mcp-server",
+                "--project",
+                "{workspace}",
+                "--agent-interface",
+                "REPL",
+                "--transport",
+                "stdio",
+                "--enable-web-dashboard",
+                "false",
+                "--enable-gui-log-window",
+                "false",
+                "--open-web-dashboard",
+                "false",
+                "--log-level",
+                "INFO"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TMPDIR": "$TEMP/",
+                "LANG": "C.UTF-8",
+                "LC_ALL": "C.UTF-8",
+                "SERENA_HOME": "{state}/serena-home",
+                "XDG_CACHE_HOME": "{state}/xdg-cache",
+                "XDG_CONFIG_HOME": "{state}/xdg-config",
+                "PYTHONNOUSERSITE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "npm_config_cache": "{state}/npm-cache",
+                "npm_config_offline": "true",
+                "PYTHONDONTWRITEBYTECODE": "1"
+              },
+              "startup_timeout_sec": 600,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "activate_project",
+                "initial_instructions",
+                "serena_repl"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "lifecycle",
+          "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+              "kind": "file"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+            },
+            {
+              "kind": "tree",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+            },
+            {
+              "kind": "file",
+              "path": "$HOME/.hermes/node/bin/node"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+              "kind": "file"
+            }
+          ]
+        },
+        "packet": {
+          "servers": {
+            "typelatch_packet": {
+              "command": "$HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_PACKET_WORKSPACE_ROOT": "{workspace}",
+                "TYPELATCH_PACKET_BYTES": "8192",
+                "TYPELATCH_PACKET_RUNTIME_ROOT": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+                "TYPELATCH_PACKET_DIAGNOSTICS": "{state}/packet-diagnostics",
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_evidence"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "process-group",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+              "kind": "file"
+            }
+          ]
+        }
+      },
+      "sharedFrozenInputs": [
+        {
+          "path": "$REPOSITORY/node_modules",
+          "kind": "tree"
+        },
+        {
+          "path": "$REPOSITORY/package.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/package-lock.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/run.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/packet/invocation.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/competitor/invocation.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/protocol.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/methodology-review.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/independent-review.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/tool-output-export-qualification-001/report.json",
+          "kind": "file"
+        }
+      ],
+      "preSessionAmendment": {
+        "reason": "The retained three-session guided001 pilot exposed ambiguous provider discovery. Explicit same-format inventory tells native no provider and names enabled tools for Serena/packet. This makes the strong native control concrete and does not replace any earlier result. Task prompts, candidate/runtime and20percent thresholds are otherwise retained.",
+        "retainedAvailabilityStudy": "agent-study-002",
+        "retainedGuidedPilot": "guided-study-001",
+        "status": "Independently reviewed;26 offline harness tests pass. Both actual Codex provider calls qualified on independent scratch source. Supplemental extractor independently qualified. Authorized to freeze; root publishes before model launch."
+      },
+      "infrastructureAmendment": {
+        "priorStudy": "agent-study-001",
+        "priorProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
+        "reason": "Retain the completed native run and three pre-model MCP configuration failures. Correct only CLI environment-map serialization to individual TOML leaf overrides. Tasks, prompts, candidate source, thresholds and16-session schedule unchanged. Run every arm fresh; no valid result is substituted from the earlier attempt.",
+        "startupQualification": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json"
+      },
+      "toolUseQualification": {
+        "receipt": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
+        "sourceSpec": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json"
+      },
+      "supplementalOutputs": {
+        "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "fileName": "tool-outputs.json",
+        "policy": "After all timed sessions, export only completed native command outputs and MCP results/errors. Verify raw and public action hashes before machine-path normalization. Retain original/normalized hashes. Exclude reasoning and assistant messages.",
+        "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575"
+      }
+    },
+    "specSha256": "fb19b6a617de5efc4c8d63ccb224f3ca530926045869aff41a6ee8fb66e3215b",
+    "inputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/run.mjs",
+        "kind": "file",
+        "sha256": "70f4c6177197f0ca0f1dc13174dfe0876ea45e87e01b81e2bfd2f962090d3efa",
+        "bytes": 30206,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/decision.mjs",
+        "kind": "file",
+        "sha256": "3efebebc8a4405f544edbcb2f6691745cd9db1c6ba4f88c115a86431aca1b279",
+        "bytes": 9741,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/workflow-review.mjs",
+        "kind": "file",
+        "sha256": "656686c61700f399fb241d892a5f79536e182f76f7cf87f0d7a968d8410a94e1",
+        "bytes": 9916,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/adjudicate.mjs",
+        "kind": "file",
+        "sha256": "42bad53cdb5f24778893d6bb7c47a421dfa9004908c385c9935e846d508b57b9",
+        "bytes": 3445,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+        "kind": "file",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+        "kind": "file",
+        "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+        "bytes": 30979,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+        "kind": "file",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+        "kind": "file",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+        "kind": "file",
+        "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+        "bytes": 7159,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+        "kind": "file",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/selected-spec-001.json",
+        "kind": "file",
+        "sha256": "fb19b6a617de5efc4c8d63ccb224f3ca530926045869aff41a6ee8fb66e3215b",
+        "bytes": 17772,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "kind": "file",
+        "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+        "bytes": 381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+        "kind": "file",
+        "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+        "bytes": 523240,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+        "kind": "file",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.hermes/node/bin/node",
+        "kind": "file",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848,
+        "entries": null
+      },
+      {
+        "path": "/usr/bin/git",
+        "kind": "file",
+        "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+        "bytes": 200560,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+        "kind": "file",
+        "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+        "bytes": 194704,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+        "kind": "tree",
+        "sha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+        "bytes": null,
+        "entries": 72643
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "9127eab43ae774aa69534fecb037ea563689f65bb91a0050aea21ae3c0c5ff93",
+        "bytes": 18835906,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+        "kind": "file",
+        "sha256": "1eb4e359c6009ee4fbedd6c8cb8f3eb3354ccaa6cb9d86259ffbc87dcc917dae",
+        "bytes": 68060,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs",
+        "kind": "file",
+        "sha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+        "bytes": 11700,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+        "kind": "file",
+        "sha256": "ba8421bf97c9d7318237070e69f99f2d186585f3da566ff6faf487f2bfc20615",
+        "bytes": 865020,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+        "kind": "tree",
+        "sha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+        "bytes": null,
+        "entries": 72747
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "e8486d6687edbb5cd17c180bf52f94f01779ff31fce63fc131b12253c8d70d28",
+        "bytes": 18861998,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+        "kind": "file",
+        "sha256": "bd8cf8d57b79af75c3d8ceab370095d888bfecc1d9e61d21d15c08dcfb5c4406",
+        "bytes": 48088,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs",
+        "kind": "file",
+        "sha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+        "bytes": 14832,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+        "kind": "file",
+        "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+        "bytes": 2681,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/node_modules",
+        "kind": "tree",
+        "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+        "bytes": null,
+        "entries": 10457
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+        "kind": "file",
+        "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+        "bytes": 1916578,
+        "entries": null
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+        "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+        "bytes": null,
+        "entries": 4754
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+        "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+        "bytes": null,
+        "entries": 1702
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+        "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+        "bytes": null,
+        "entries": 149
+      },
+      {
+        "kind": "tree",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+        "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+        "bytes": null,
+        "entries": 3050
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+        "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+        "bytes": 34640,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+        "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+        "bytes": 5985120,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+        "kind": "file",
+        "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+        "bytes": 4601,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+        "kind": "file",
+        "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+        "bytes": 2346,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "kind": "file",
+        "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+        "bytes": 3926,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "kind": "file",
+        "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+        "bytes": 311,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+        "kind": "tree",
+        "sha256": "1ea26ca0993d1fc8d00cae0c0b6f3747e8a543b350021a04c6f06a8f10c83b15",
+        "bytes": null,
+        "entries": 5494
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+        "kind": "file",
+        "sha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+        "bytes": 972,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+        "kind": "file",
+        "sha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+        "bytes": 9911,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+        "kind": "file",
+        "sha256": "7baeec16ebfc601c176bd5490ab90e2c05d778523990aaa76f171fe306ef8346",
+        "bytes": 3987,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+        "kind": "file",
+        "sha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+        "bytes": 2176,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+        "kind": "file",
+        "sha256": "8aed4edea6b22ebc5674b1a77941a44cd2a87cef7c3fe4e3e967ce842c92e49e",
+        "bytes": 4034,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+        "kind": "file",
+        "sha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+        "bytes": 4040,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package.json",
+        "kind": "file",
+        "sha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+        "bytes": 3106,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package-lock.json",
+        "kind": "file",
+        "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+        "bytes": 104242,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+        "kind": "file",
+        "sha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+        "bytes": 3988,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+        "kind": "file",
+        "sha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+        "bytes": 742,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+        "bytes": 2381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+        "kind": "file",
+        "sha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+        "bytes": 2628,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+        "kind": "file",
+        "sha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+        "bytes": 390,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+        "bytes": 1276,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+        "kind": "file",
+        "sha256": "d20af8a638855188690593fb934a75af5769004526ed1dd7593db9e53a92a61f",
+        "bytes": 5702,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+        "kind": "file",
+        "sha256": "d31599adfad03fa267cf2b290b7bc6cb8d36358349d167d7e60329672de21e33",
+        "bytes": 31719,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/report.json",
+        "kind": "file",
+        "sha256": "55c7c27b9b7e17eca7a935805eb2a670c51680fb979fb2502a4b4163774ffb7b",
+        "bytes": 8054,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/run.mjs",
+        "kind": "file",
+        "sha256": "aae2779a1b86321763e9db542d16ee75e87ee20a4057d87e900b195acc273d5e",
+        "bytes": 6176,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/packet/invocation.json",
+        "kind": "file",
+        "sha256": "465c9f4b55869494dd66cd327004c79d04af9a6d7c60977cdd268004d8ad7023",
+        "bytes": 6037,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/competitor/invocation.json",
+        "kind": "file",
+        "sha256": "550b3c8b37c3b987184b909d27ccb93f338754d6944a52402242bc5550fc8b5f",
+        "bytes": 11098,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+        "kind": "file",
+        "sha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+        "bytes": 16066,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/protocol.json",
+        "kind": "file",
+        "sha256": "540a7abf0cc328323f39e7f99ff5c4fd032e02faa2d3bcee67ff39c9937a7a3f",
+        "bytes": 50804,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/guided-study-001/methodology-review.json",
+        "kind": "file",
+        "sha256": "3764d58a098fabf463528a4f26bd70b420c1d3da29de9c6e811b7845b84977da",
+        "bytes": 718,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "kind": "file",
+        "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "bytes": 6699,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-tool-use-001/independent-review.json",
+        "kind": "file",
+        "sha256": "ddf47c5d49ade0cedc08d83320c5a0e59d48258dc3ef818791376d4e7dcd8299",
+        "bytes": 1459,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/tool-output-export-qualification-001/report.json",
+        "kind": "file",
+        "sha256": "61ff5ac7a05e0171f6840c7816269864beb936d2fff445cb063c02f97430528d",
+        "bytes": 2430,
+        "entries": null
+      }
+    ],
+    "typelatchArchiveBinding": {
+      "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+      "packageFileCount": 138,
+      "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+      "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+      "name": "typelatch",
+      "version": "0.4.0"
+    },
+    "treatment": "Same conditional first-investigation instruction and equal-format explicit capability inventory in all arms. Native uses native retrieval; packet and Serena must attempt one task-relevant provider retrieval before choosing freely. Startup instructions do not count as retrieval. No forced API inspection or provider validation. Independent public-action review is required before a qualified win.",
+    "timing": "Fresh corpus copies and independent grading excluded. Provider-specific setup is charged once, plus agent wall time including MCP startup, query work and native validation. Teardown measured separately. No prepared package index is required for Typelatch; any indexing it performs during use is already inside agent time.",
+    "selection": "Separate inventory-explicit instructed-use study. Availability study002 completed with zero provider use. Guided pilot001 retained three completed sessions before stopping at a frozen boundary because its conditional prompt caused unnecessary resource-catalog discovery in native and packet arms. This is an observed methodology correction, not an infrastructure failure or discarded losing run. The same qualified tasks, candidate runtime, controls and20percent thresholds remain unchanged. No prior outcomes are replaced or pooled. Two repeats use ABBA task order and reverse arm order per task; with three arms ordinal positions cannot balance exactly across four blocks.",
+    "failurePolicy": "Persist preparation before work and run before launch. Preserve every attempt. Failed or interrupted preparation cannot be retried; interrupted or incomplete launches remain visible. Resume only a completed prefix. No replacements.",
+    "evidencePolicy": "Private raw JSONL retained. Completed public-action metadata, source changes, independent grades, usage and timestamp metadata are eligible for export. The frozen supplemental extractor may publish full completed native command output and MCP results/errors, after verifying raw/public-action hashes and normalizing machine paths. Each supplement retains original and normalized content identities. No reasoning or assistant message bodies are exported. Output extraction runs after timed sessions; human usable-evidence judgments cite hash-bound supplements.",
+    "limits": [
+      "Instructed use cannot establish automatic adoption or an availability benefit.",
+      "This protocol follows an observed, retained guided pilot that exposed provider-discovery ambiguity. Capability declarations differ by treatment; task and policy text do not.",
+      "One task tests a real installed-API migration and one tests source workflow in the same pnpm snapshot. This narrow sample does not establish general API or monorepo superiority.",
+      "A two-task sample with two repeats is not universal superiority or a statistical confidence bound.",
+      "The public upstream repairs may occur in model training data.",
+      "No immutable served model snapshot or sampling seed is available.",
+      "OS file caches and provider prompt caching may be warm; cached tokens remain included.",
+      "Fixture and prompt boundaries are procedural; no OS isolation claim is made."
+    ]
+  },
+  "protocolSha256": "447d41337338c3c5fa684c618b31e7b373bad3272ece809f1eec94eb23693f60",
+  "startedAt": "2026-11-06T19:38:00.098Z",
+  "complete": true,
+  "runs": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:38:28.454Z",
+      "finishedAt": "2026-11-06T19:38:51.447Z",
+      "fixtureSetupMs": 15379.468041,
+      "providerSetupMs": 0.0018749999944702722,
+      "elapsedMs": 22992.670667,
+      "teardownMs": 0.1123749999969732,
+      "gradingMs": 8600.407292000004,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 86587,
+        "cachedInputTokens": 78720,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 524,
+        "reasoningOutputTokens": 18,
+        "totalTokens": 87111,
+        "uncachedInputTokens": 7867
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "6f4c531f03c2ab2072d4feef9d391b246f59a8cc5a420a7a8016f22c7f88c57a",
+      "recordingError": null,
+      "rawSha256": "83321c5c0a445fa5b71f18cf91069c9f2f44993422eab44c4b676f03893b9579",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "b94f8bec69f376bb0c6242b6413e81393fc24e58a71ecdb2c3d52ab491c44f9a"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "441b93ad399e0334f618a4451f770393fb88cbc27680e66e2a8964b6fc5fa7a6"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "2f12eb712f75a4d2574f14fe2b7495f80808de223d370ad044de9f5fd34c0457",
+      "evidence": "runs/pnpm-changed-project-move-r1-native/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r1-native/tool-outputs.json",
+      "toolOutputsSha256": "1c07ab26c8c1e0826f23272665de52a18516105a47b4a9f28c92f292bf2e26ba"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:39:45.187Z",
+      "finishedAt": "2026-11-06T19:40:14.566Z",
+      "fixtureSetupMs": 18332.178499999995,
+      "providerSetupMs": 0.0015829999902052805,
+      "elapsedMs": 29379.16875000001,
+      "teardownMs": 0.13645799999358132,
+      "gradingMs": 8527.770625000005,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 93797,
+        "cachedInputTokens": 84480,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 705,
+        "reasoningOutputTokens": 56,
+        "totalTokens": 94502,
+        "uncachedInputTokens": 9317
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 1,
+        "mcpSucceeded": 1,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "15c645a4ce136d42fb9cf73dada3497fc4291049166531c8afacca83a6f0fbd4",
+      "recordingError": null,
+      "rawSha256": "a14dc449ba1f9f888332dbb3722057362ceaa8a6c427a43ff8f12935cc2fd8da",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "ee9e9dec78b47869a8648fee91989c7c3cad1d023144e22b1fe905a9ab43e896"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "658e5d88454242def8d723b99391cdbcb669d20530a75f915825b7494de8ceca"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "e8f5fdf6d4b8c995dc2c774c48417131f64a70b710292a85f1b8dfdaf3b05852",
+      "evidence": "runs/pnpm-changed-project-move-r1-packet/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r1-packet/tool-outputs.json",
+      "toolOutputsSha256": "5b364cf2f37e4ea4deeaa2bfa02f4c16c54cba5ee3f6c7970c38024ee9c05e3f"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:41:09.195Z",
+      "finishedAt": "2026-11-06T19:41:38.933Z",
+      "fixtureSetupMs": 16361.928625,
+      "providerSetupMs": 3.4650840000249445,
+      "elapsedMs": 29737.87054199999,
+      "teardownMs": 1.1202089999860618,
+      "gradingMs": 8571.587542000023,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 149136,
+        "cachedInputTokens": 134528,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 689,
+        "reasoningOutputTokens": 12,
+        "totalTokens": 149825,
+        "uncachedInputTokens": 14608
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "8967939c75f02d254325f05a50d09ca1022cc7af668649a9f9024ac41a828d42",
+      "recordingError": null,
+      "rawSha256": "1fa5139d69170cc6fdba9a27c7a29b466e41711f1077fd4b71b2bd1090962b93",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "0cf610bacbfed2e4145862ebaffae7024e92a03581bff6ed1ff631a698d0ab40"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "f825490705ab95819bf816157403b4545e83ec51ed93a9b5cc930a625e8eaf1c"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "7a42d4985a103159a25a61e10f04dc88dc2864bd0ec40b85d2be45f1df23bd5a",
+      "evidence": "runs/pnpm-changed-project-move-r1-competitor/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r1-competitor/tool-outputs.json",
+      "toolOutputsSha256": "398be97c579c0282999198896f3738b03a7ab8c76744d245e9a698deadcc26bf"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:42:32.073Z",
+      "finishedAt": "2026-11-06T19:43:03.594Z",
+      "fixtureSetupMs": 14826.23416599998,
+      "providerSetupMs": 0.0013339999713934958,
+      "elapsedMs": 31520.066292000003,
+      "teardownMs": 0.09687499998835847,
+      "gradingMs": 7094.757541999978,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 122875,
+        "cachedInputTokens": 107648,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 763,
+        "reasoningOutputTokens": 7,
+        "totalTokens": 123638,
+        "uncachedInputTokens": 15227
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 1,
+        "mcpSucceeded": 1,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "986d7ca3049468665e24fe0a66f794a2f97234f6aa879770936f114f723527f2",
+      "recordingError": null,
+      "rawSha256": "08a75f4246af5f0507bc6ddf1a1b801b1df2451882b218d412f0c7b4dd570290",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "509e42691499e47a188934af59007553deb4fc896d4fd6336b2e4c4079a7035c"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "b57b68e071ff5220309d5199d67398c3f2b2908f2a1194e57acd96e8c1b84d44"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "e39f295baef5b73c6f4ebe04c0045ceb70bb0bf376c8dfd20cfc0a9e15663f5e",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-packet/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r1-packet/tool-outputs.json",
+      "toolOutputsSha256": "a73f8992adf8d1bfee32284dae602051e546f6167ec22ee04af3acacce0dc112"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:43:57.006Z",
+      "finishedAt": "2026-11-06T19:44:31.801Z",
+      "fixtureSetupMs": 14779.095207999984,
+      "providerSetupMs": 1.846207999973558,
+      "elapsedMs": 34795.033125000016,
+      "teardownMs": 0.8288330000359565,
+      "gradingMs": 7156.474500000011,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 167653,
+        "cachedInputTokens": 149760,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 788,
+        "reasoningOutputTokens": 28,
+        "totalTokens": 168441,
+        "uncachedInputTokens": 17893
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "1afbb1dc4bca466007a51902a23341a4af23fc6898eaf92c0f8a998683515cee",
+      "recordingError": null,
+      "rawSha256": "4583e26de49c7f25aa66c1eb145524a7f831b6923d87f73d9cc0894a3d93a667",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "19a846587506d877c5efb904972a805a5355cfc8edaef8b05bca96456ecfa6fe"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "771c59eae502efd0c20f44ce6616f6b10182d32b7eaa83cb62132855489deedb"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "0077c07a85f9a8c1719e97bccf9e8199864bc63ea43fda85843a9544e994078f",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-competitor/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r1-competitor/tool-outputs.json",
+      "toolOutputsSha256": "9135406ec42ec66dd11f2bba03d9125ea7cff56d2c5d3841b9946e6475d02acf"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:45:25.377Z",
+      "finishedAt": "2026-11-06T19:45:50.204Z",
+      "fixtureSetupMs": 14842.783125000016,
+      "providerSetupMs": 0.0020830000285059214,
+      "elapsedMs": 24826.516042000032,
+      "teardownMs": 0.17254200001480058,
+      "gradingMs": 7104.621874999953,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 100682,
+        "cachedInputTokens": 93312,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 630,
+        "reasoningOutputTokens": 17,
+        "totalTokens": 101312,
+        "uncachedInputTokens": 7370
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 3,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b4ce49f475a28d4429a27478de96eb77b7579450cb6b9e676afda06374cf3f5b",
+      "recordingError": null,
+      "rawSha256": "508ece121c067314a47e0756a1165e785d2308ae81e12287f9485cfcc2e44c50",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "6aba9f70299f395acf00ab7471bc9e7a9e487d01873b9a841c514bc9a9d7fafb"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "8a07fc82490bae01f26aa329f926b1cb3db1d1ca6573e9e69dc727b48ac65c8d"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "18293c6f485668773ed973694d6e44725848c325f1fdbd8f450ebce978ba0d31",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-native/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r1-native/tool-outputs.json",
+      "toolOutputsSha256": "51e005a817b43808874f0b4d16a370b33856a922207a2866aa5cbfbc791e9564"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:46:43.940Z",
+      "finishedAt": "2026-11-06T19:47:07.529Z",
+      "fixtureSetupMs": 14975.024959000002,
+      "providerSetupMs": 0.00229199999012053,
+      "elapsedMs": 23588.037750000018,
+      "teardownMs": 0.1058750000083819,
+      "gradingMs": 7108.161207999918,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 83982,
+        "cachedInputTokens": 76800,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 650,
+        "reasoningOutputTokens": 37,
+        "totalTokens": 84632,
+        "uncachedInputTokens": 7182
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b4ce49f475a28d4429a27478de96eb77b7579450cb6b9e676afda06374cf3f5b",
+      "recordingError": null,
+      "rawSha256": "5546b0390d3e5b2c6de19ae8f5565a841cd8f572425df1617c33b2bc43a7a0d7",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "9d7f79e0ee1dbf380195e75dbc75d2c577dc255030e4dab8c998aae5cac06798"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "d1494e4abe101b3dddc77660ff91a762cc38a5b590133af0d19715f26a75af26"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "f74f29efa604127361cd2caf2e17535cbd9d9d9421fe6722f3a34b3992b64ccc",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-native/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r2-native/tool-outputs.json",
+      "toolOutputsSha256": "d0c507644cfbd25a994f9d7ee23f955aede9b3c2fa77cb6532d3239dcd422668"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:48:01.110Z",
+      "finishedAt": "2026-11-06T19:48:31.774Z",
+      "fixtureSetupMs": 14937.002542000031,
+      "providerSetupMs": 1.8833749999757856,
+      "elapsedMs": 30663.789457999985,
+      "teardownMs": 0.36025000002700835,
+      "gradingMs": 7087.959374999977,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 146646,
+        "cachedInputTokens": 132992,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 780,
+        "reasoningOutputTokens": 66,
+        "totalTokens": 147426,
+        "uncachedInputTokens": 13654
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "1afbb1dc4bca466007a51902a23341a4af23fc6898eaf92c0f8a998683515cee",
+      "recordingError": null,
+      "rawSha256": "ecd2aed52b6cc726b07ad86bcaefbbeb7d21285539ef9af59be11dce27308c1c",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "e65dec07b81f2bba136f58d7a22f22dfb4e89c55dc3ada78ca08da7a53e5ffe9"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "d6999dcc1021c8103500e49a213ebc77c824095a9c8dc7d7788c30a441350f37"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "8320b7604f5f79630f19301ea1f02c15101688ea3908ed28b7d2a4f58e6c7697",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-competitor/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r2-competitor/tool-outputs.json",
+      "toolOutputsSha256": "5b2e8442a880efe4da1d06be2bb3e1a67c5518e87b7b2802c407166d5085aab4"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:49:25.208Z",
+      "finishedAt": "2026-11-06T19:49:54.265Z",
+      "fixtureSetupMs": 14810.668874999974,
+      "providerSetupMs": 0.0021669999696314335,
+      "elapsedMs": 29056.80208299996,
+      "teardownMs": 0.2350830000359565,
+      "gradingMs": 7105.790500000003,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 93408,
+        "cachedInputTokens": 83584,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 649,
+        "reasoningOutputTokens": 30,
+        "totalTokens": 94057,
+        "uncachedInputTokens": 9824
+      },
+      "counts": {
+        "shellCalls": 5,
+        "mcpCalls": 1,
+        "mcpSucceeded": 1,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "986d7ca3049468665e24fe0a66f794a2f97234f6aa879770936f114f723527f2",
+      "recordingError": null,
+      "rawSha256": "3a41f32f336c3efe8992977b1a4b5a65aa3399c2fa281e61c9fd5d92c7a25f06",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "42c45fbc57310bfdda831830e1ad53e10cbdef10b9061bf8b4c8bc2c0941d8f8"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "cd0b833337d1f06b86475c5ca640a22a09c877d5419127a0b76be99e53cc86e4"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "85c3bc7dde07a90a4f1226063c52b62f745e4c9e3af8b892c0eebf4e058dd7de",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-packet/public-evidence.json",
+      "toolOutputs": "runs/pnpm-global-bin-api-migration-r2-packet/tool-outputs.json",
+      "toolOutputsSha256": "2d32b8b69c644ef2613b92426b6ae00831321f49685e9b0816494c41b21e146b"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:50:48.475Z",
+      "finishedAt": "2026-11-06T19:51:24.080Z",
+      "fixtureSetupMs": 15390.120041999966,
+      "providerSetupMs": 1.7614579999353737,
+      "elapsedMs": 35603.94033299992,
+      "teardownMs": 0.3522499999962747,
+      "gradingMs": 8524.315708000096,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 170303,
+        "cachedInputTokens": 146688,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 779,
+        "reasoningOutputTokens": 65,
+        "totalTokens": 171082,
+        "uncachedInputTokens": 23615
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "8967939c75f02d254325f05a50d09ca1022cc7af668649a9f9024ac41a828d42",
+      "recordingError": null,
+      "rawSha256": "248a0c5176eed178906b1642ed3e97ac1b682c2e23618e3044312ae585f56b8c",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "7d9d9bae852a1d94da79718c6e4fe34b4ebf5c8fb1ec5fe5df1b90f511c2f928"
+          },
+          {
+            "line": 25,
+            "actionIdSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "7e702b1096b347d93253fa8ae0359c1bb39ba8c426b862a3add8aa79d9e2c9bf"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "52ddd5730e53c4a33987c3bbaa6b71826cd7ff6dba152c31c4031062910c76b1",
+      "evidence": "runs/pnpm-changed-project-move-r2-competitor/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r2-competitor/tool-outputs.json",
+      "toolOutputsSha256": "e08117d8507b710720de153d3fc9d2ab940be63affc964d096408959783872b4"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:52:18.916Z",
+      "finishedAt": "2026-11-06T19:52:45.847Z",
+      "fixtureSetupMs": 15392.957083000103,
+      "providerSetupMs": 0.002083999919705093,
+      "elapsedMs": 26931.159084000043,
+      "teardownMs": 0.13800000003539026,
+      "gradingMs": 8518.113041999983,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 91442,
+        "cachedInputTokens": 74240,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 623,
+        "reasoningOutputTokens": 18,
+        "totalTokens": 92065,
+        "uncachedInputTokens": 17202
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 1,
+        "mcpSucceeded": 1,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "15c645a4ce136d42fb9cf73dada3497fc4291049166531c8afacca83a6f0fbd4",
+      "recordingError": null,
+      "rawSha256": "e68f82179651625b86a480e3a86e89c218773cd1c745d1df540a7d352a157bb8",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "4c14ff9f77660801bb8cdd0ca47d71e1ede9865a9264ee05d01392d660b4082b"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "f89c73ac5581220217428cb130a0202b1be2a89d78d18d9703995d8123b7b163"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "a1c496e951939b58d83eca1f52160e2314887a83c1a390a036fdfc2e951a6d1a",
+      "evidence": "runs/pnpm-changed-project-move-r2-packet/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r2-packet/tool-outputs.json",
+      "toolOutputsSha256": "19c80d12f5aed14bbeb43651f892ef4609f8debeb94ffb6c5c58af88484756e8"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:53:40.674Z",
+      "finishedAt": "2026-11-06T19:54:06.190Z",
+      "fixtureSetupMs": 15324.922791999998,
+      "providerSetupMs": 0.00229199999012053,
+      "elapsedMs": 25514.922374999966,
+      "teardownMs": 0.1642920000012964,
+      "gradingMs": 8522.253250000067,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 87767,
+        "cachedInputTokens": 74240,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 545,
+        "reasoningOutputTokens": 18,
+        "totalTokens": 88312,
+        "uncachedInputTokens": 13527
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "6f4c531f03c2ab2072d4feef9d391b246f59a8cc5a420a7a8016f22c7f88c57a",
+      "recordingError": null,
+      "rawSha256": "96d6bf8664226f49f003cbb2250af463c995f8dcfc24cd7cbdf1e1f9cbb2bf30",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "2b75be76f63f90b1d8a613ca1b379e4fdd6f3698a824fd6f0f4493187a81435d"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "485263a0c278a4fd981061d3a0885097399b8b6dff7224fa479b95dce934dfd9"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "478f29d1257585cdf3e2c47d3076736997d6905a6f73dcb20839d3e30053ef2a",
+      "evidence": "runs/pnpm-changed-project-move-r2-native/public-evidence.json",
+      "toolOutputs": "runs/pnpm-changed-project-move-r2-native/tool-outputs.json",
+      "toolOutputsSha256": "14f63cf2161a52d9847004d8f1fbea384cb18911df0d4215f888b0da0e5f958d"
+    }
+  ],
+  "preparationAttempts": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:38:00.099Z",
+      "providerSetupMs": 0.0018749999944702722,
+      "finishedAt": "2026-11-06T19:38:28.302Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:39:10.770Z",
+      "providerSetupMs": 0.0015829999902052805,
+      "finishedAt": "2026-11-06T19:39:45.041Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:40:37.887Z",
+      "providerSetupMs": 3.4650840000249445,
+      "finishedAt": "2026-11-06T19:41:09.046Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:42:02.325Z",
+      "providerSetupMs": 0.0013339999713934958,
+      "finishedAt": "2026-11-06T19:42:31.923Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:43:27.326Z",
+      "providerSetupMs": 1.846207999973558,
+      "finishedAt": "2026-11-06T19:43:56.859Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:44:55.629Z",
+      "providerSetupMs": 0.0020830000285059214,
+      "finishedAt": "2026-11-06T19:45:25.228Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:46:14.070Z",
+      "providerSetupMs": 0.00229199999012053,
+      "finishedAt": "2026-11-06T19:46:43.794Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:47:31.284Z",
+      "providerSetupMs": 1.8833749999757856,
+      "finishedAt": "2026-11-06T19:48:00.955Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:48:55.489Z",
+      "providerSetupMs": 0.0021669999696314335,
+      "finishedAt": "2026-11-06T19:49:25.057Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:50:18.110Z",
+      "providerSetupMs": 1.7614579999353737,
+      "finishedAt": "2026-11-06T19:50:48.328Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:51:48.528Z",
+      "providerSetupMs": 0.002083999919705093,
+      "finishedAt": "2026-11-06T19:52:18.765Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:53:10.377Z",
+      "providerSetupMs": 0.00229199999012053,
+      "finishedAt": "2026-11-06T19:53:40.521Z"
+    }
+  ],
+  "machine": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "nodeVersion": "v22.23.1",
+    "processor": "Apple M1 Max",
+    "logicalProcessors": 10,
+    "memoryBytes": 34359738368
+  },
+  "updatedAt": "2026-11-06T19:54:30.603Z",
+  "decision": {
+    "anyCandidatePassed": false,
+    "anyQualifiedWin": false,
+    "measurable": true,
+    "gate": {
+      "minimumReductionPercent": 20,
+      "workflowReviewRules": {
+        "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
+        "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
+        "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
+        "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
+        "providerStartup": "Required provider activation and startup instructions do not themselves qualify as relevant retrieval. A serena_repl call that only lists tools, configuration or memories does not qualify.",
+        "relevance": "A qualifying retrieval attempt must address the reported task behavior or implementation. Usable evidence, empty results and tool errors remain distinct; failure costs are retained. No forced additional API or validation call.",
+        "shellOrdering": "The independent reviewer must assess ordering inside compound shell commands and identify task-directed shell reads or edits. If public command/action evidence cannot establish the order or relevance, record unknown. Aggregate shell exit codes and total tool counts do not prove compliance.",
+        "evidenceBoundary": "Review only hash-bound public actions, source changes, native-check observations and grades. Never inspect private reasoning or assistant message bodies. Preserve every run and every failed attempt."
+      },
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and all four candidate runs must be correct. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires independent hash-bound review of first-investigation compliance for every run and a task-relevant provider retrieval attempt in every packet and Serena run.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "A task-relevant first provider retrieval attempt is required for packet and Serena; native uses its native first investigation. Startup instructions or tool listings do not qualify. Unknown or failed compliance blocks a qualified win, while all costs and failures remain included. Human review uses only public actions and never private reasoning or assistant messages.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "reasons": [],
+    "workflowReview": {
+      "complete": false,
+      "passed": false,
+      "issues": [
+        "Independent public-action review is pending."
+      ],
+      "runs": []
+    },
+    "candidateDecisions": {
+      "packet": {
+        "passed": false,
+        "economicGatePassed": false,
+        "allCorrect": true,
+        "qualifiedWin": false,
+        "reasons": [
+          "native/totalTokens: aggregate or median reduction is below20%.",
+          "native/totalTokens: a repeat fails to improve.",
+          "native/chargedTimeMs: aggregate or median reduction is below20%.",
+          "native/chargedTimeMs: a repeat fails to improve.",
+          "competitor/chargedTimeMs: aggregate or median reduction is below20%.",
+          "Independent first-investigation and provider-adoption review is pending or failed."
+        ],
+        "comparisons": {
+          "native": {
+            "metrics": {
+              "totalTokens": {
+                "control": 361367,
+                "candidate": 404262,
+                "aggregateReductionPercent": -11.870203975459852,
+                "medianPairedReductionPercent": -9.81051335929899,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 188423,
+                    "candidate": 218140,
+                    "reductionPercent": -15.771429177966596
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 172944,
+                    "candidate": 186122,
+                    "reductionPercent": -7.619807567767601
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 87111,
+                    "candidate": 94502,
+                    "reductionPercent": -8.484577148695342
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 88312,
+                    "candidate": 92065,
+                    "reductionPercent": -4.249705589274391
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 101312,
+                    "candidate": 123638,
+                    "reductionPercent": -22.036876184459885
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 84632,
+                    "candidate": 94057,
+                    "reductionPercent": -11.136449569902638
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 96922.15537600001,
+                "candidate": 116887.20337699987,
+                "aggregateReductionPercent": -20.59905490498783,
+                "medianPairedReductionPercent": -25.072884442217877,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 47819.19066700005,
+                    "candidate": 60899.23795899998,
+                    "reductionPercent": -27.353133981471675
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 49102.96470899996,
+                    "candidate": 55987.96541799989,
+                    "reductionPercent": -14.021558066407326
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22992.672541999993,
+                    "candidate": 29379.170333000002,
+                    "reductionPercent": -27.776230794110575
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 25514.924666999956,
+                    "candidate": 26931.161167999962,
+                    "reductionPercent": -5.550619958646061
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 24826.51812500006,
+                    "candidate": 31520.067625999975,
+                    "reductionPercent": -26.96128980833432
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 23588.040042000008,
+                    "candidate": 29056.80424999993,
+                    "reductionPercent": -23.184479076101436
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          },
+          "competitor": {
+            "metrics": {
+              "totalTokens": {
+                "control": 636774,
+                "candidate": 404262,
+                "aggregateReductionPercent": 36.51405365168804,
+                "medianPairedReductionPercent": 36.56280688229123,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 318266,
+                    "candidate": 218140,
+                    "reductionPercent": 31.45984805162977
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 318508,
+                    "candidate": 186122,
+                    "reductionPercent": 41.56441910407274
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 149825,
+                    "candidate": 94502,
+                    "reductionPercent": 36.92507925913566
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 171082,
+                    "candidate": 92065,
+                    "reductionPercent": 46.18662395810196
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 168441,
+                    "candidate": 123638,
+                    "reductionPercent": 26.59863097464394
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 147426,
+                    "candidate": 94057,
+                    "reductionPercent": 36.200534505446804
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 130809.58958299982,
+                "candidate": 116887.20337699987,
+                "aggregateReductionPercent": 10.643245843353156,
+                "medianPairedReductionPercent": 7.331725339040405,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 64538.214959000004,
+                    "candidate": 60899.23795899998,
+                    "reductionPercent": 5.6384841172192415
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 66271.37462399981,
+                    "candidate": 55987.96541799989,
+                    "reductionPercent": 15.517120724210606
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 29741.335626000015,
+                    "candidate": 29379.170333000002,
+                    "reductionPercent": 1.2177169766491798
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 35605.701790999854,
+                    "candidate": 26931.161167999962,
+                    "reductionPercent": 24.36278513457802
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 34796.87933299999,
+                    "candidate": 31520.067625999975,
+                    "reductionPercent": 9.416970055393492
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 30665.67283299996,
+                    "candidate": 29056.80424999993,
+                    "reductionPercent": 5.246480622687319
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          }
+        },
+        "adoption": [
+          {
+            "id": "pnpm-changed-project-move-r1-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-changed-project-move-r1-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r1-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          }
+        ]
+      }
+    }
+  },
+  "finishedAt": "2026-11-06T19:54:30.603Z",
+  "publication": {
+    "originalPrivateReportSha256": "10b8182023401fe67e38941acfd80b28326ab2e9d18e009c0e52e07f6b632b22",
+    "originalPrivateAuditSha256": "ab8a5208e80c8cd8304f841106a32e6b5d2672acd7991762d3f2ac79030cde03",
+    "protocol": "protocol.json",
+    "workflowAudit": "workflow-audit.json",
+    "adjudication": "adjudication.json",
+    "normalization": "normalization.json",
+    "retainedPilot": "pilot-001/report.json",
+    "originalDecisionUnchanged": true,
+    "originalPrivateFilesUnchanged": true,
+    "evidenceBoundary": "Every scheduled run is retained. Original public action records and normalized tool-output supplements are copied exactly. No model reasoning or assistant message bodies are exported. The report decision remains the original automatic decision; independent workflow review is applied only in adjudication.json."
+  }
+}

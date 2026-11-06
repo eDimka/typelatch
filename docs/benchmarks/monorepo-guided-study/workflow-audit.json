@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "fd4909f14a02812cb0ec6b4961ab572a22bb0bdd0e60d7a3b2dff92ff881228c",
+  "protocolSha256": "447d41337338c3c5fa684c618b31e7b373bad3272ece809f1eec94eb23693f60",
+  "reviewer": "benchmark_tasks",
+  "createdAt": "2026-11-06T19:59:12.057Z",
+  "noPrivateReasoningOrMessages": true,
+  "reviewBoundary": "Manual review of all completed public action commands, MCP arguments, normalized full tool outputs, native-check results and final grades. No model reasoning or assistant message bodies inspected. Reviewer authored the supplemental exporter and some earlier research tooling; this is independent of the timing capture and decision arithmetic, not a blinded experiment.",
+  "runs": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "evidenceSha256": "2f12eb712f75a4d2574f14fe2b7495f80808de223d370ad044de9f5fd34c0457",
+      "toolOutputsSha256": "1c07ab26c8c1e0826f23272665de52a18516105a47b4a9f28c92f292bf2e26ba",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": null,
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The native pattern search returns the changed-package implementation and its git diff name-only option. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "22ca693ec1b3607502cb6eb88b007ea3272b5ddc87e61c1a7317e9207fb2b6a0",
+        "returnedExcerpts": [
+          "workspace/filter-workspace-packages/src/getChangedPackages.ts:63:        '--name-only',"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "b94f8bec69f376bb0c6242b6413e81393fc24e58a71ecdb2c3d52ab491c44f9a"
+        },
+        "lastCheck": {
+          "action": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "441b93ad399e0334f618a4451f770393fb88cbc27680e66e2a8964b6fc5fa7a6"
+        },
+        "firstExplicitEditActionIndex": 4,
+        "firstExplicitEditActionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "ordering": {
+          "checkCompletedMs": 5348.776207999996,
+          "investigationStartedMs": 7749.906958,
+          "investigationCompletedMs": 7749.906958,
+          "firstExplicitEditStartedMs": 18440.086457999998
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "evidenceSha256": "e8f5fdf6d4b8c995dc2c774c48417131f64a70b710292a85f1b8dfdaf3b05852",
+      "toolOutputsSha256": "5b364cf2f37e4ea4deeaa2bfa02f4c16c54cba5ee3f6c7970c38024ee9c05e3f",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet query asks about changed-project selection and returns the complete getChangedPackages module, including the git diff and classification logic. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "a79edd84cd4161c0990cf87a0a12412a3662845f7b9215e0a2be850df49cf901",
+        "returnedExcerpts": [
+          "CANDIDATE 1 {\"path\":\"workspace/filter-workspace-packages/src/getChangedPackages.ts\",\"lines\":[1,103],\"columns\":[1,3],\"offsets\":[0,3584],\"lexicalScore\":86,\"fileSha256\":\"d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e\",\"excerptSha256\":\"d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e\",\"complete\":true,\"declarationComplete\":false,\"selection\":\"complete-module\",\"omittedBytes\":0}",
+          "export async function getChangedPackages (",
+          "        '--name-only',"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "ee9e9dec78b47869a8648fee91989c7c3cad1d023144e22b1fe905a9ab43e896"
+        },
+        "lastCheck": {
+          "action": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "658e5d88454242def8d723b99391cdbcb669d20530a75f915825b7494de8ceca"
+        },
+        "firstExplicitEditActionIndex": 6,
+        "firstExplicitEditActionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "ordering": {
+          "checkCompletedMs": 5743.449333000011,
+          "investigationStartedMs": 8531.624167000002,
+          "investigationCompletedMs": 11984.712250000011,
+          "firstExplicitEditStartedMs": 24550.762208
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "evidenceSha256": "7a42d4985a103159a25a61e10f04dc88dc2864bd0ec40b85d2be45f1df23bd5a",
+      "toolOutputsSha256": "398be97c579c0282999198896f3738b03a7ab8c76744d245e9a698deadcc26bf",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "providerRetrievalActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "taskRelevant": true,
+      "returnedEvidence": "empty",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed call searches for changed filenames. It returns an empty array; the later native search is a fallback and is not relabeled as provider evidence. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time.",
+        "The empty filename result is a compliant relevant attempt, not successful retrieval. Native fallback supplies the later implementation evidence."
+      ],
+      "citations": {
+        "publicActionIndex": 3,
+        "toolOutputActionIndex": 3,
+        "originalPayloadSha256": "c1f820b283f8a3bc96274f66d2f6d4bdabe7b3a1794f4845e0fddf5ddae64dda",
+        "returnedExcerpts": [
+          "[]"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "0cf610bacbfed2e4145862ebaffae7024e92a03581bff6ed1ff631a698d0ab40"
+        },
+        "lastCheck": {
+          "action": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "f825490705ab95819bf816157403b4545e83ec51ed93a9b5cc930a625e8eaf1c"
+        },
+        "firstExplicitEditActionIndex": 7,
+        "firstExplicitEditActionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "ordering": {
+          "checkCompletedMs": 7451.884416999994,
+          "investigationStartedMs": 14352.917124999978,
+          "investigationCompletedMs": 14555.952791999996,
+          "firstExplicitEditStartedMs": 25641.08595799998
+        },
+        "startupActionIndexes": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-packet",
+      "evidenceSha256": "e39f295baef5b73c6f4ebe04c0045ceb70bb0bf376c8dfd20cfc0a9e15663f5e",
+      "toolOutputsSha256": "a73f8992adf8d1bfee32284dae602051e546f6167ec22ee04af3acacce0dc112",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet asks about global executable directory validation and returns the complete checkGlobalBinDir implementation, including the old can-write-to-dir import and PATH and write checks. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "82b393156ef29f31cf68e3ffb1335272850bba887495a28b1838b2764c46b2b4",
+        "returnedExcerpts": [
+          "CANDIDATE 1 {\"path\":\"config/config/src/checkGlobalBinDir.ts\",\"lines\":[1,41],\"columns\":[1,3],\"offsets\":[0,1665],\"lexicalScore\":104,\"fileSha256\":\"8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660\",\"excerptSha256\":\"8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660\",\"complete\":true,\"declarationComplete\":false,\"selection\":\"complete-module\",\"omittedBytes\":0}",
+          "import { sync as canWriteToDir } from 'can-write-to-dir'",
+          "export async function checkGlobalBinDir ("
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "509e42691499e47a188934af59007553deb4fc896d4fd6336b2e4c4079a7035c"
+        },
+        "lastCheck": {
+          "action": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "b57b68e071ff5220309d5199d67398c3f2b2908f2a1194e57acd96e8c1b84d44"
+        },
+        "firstExplicitEditActionIndex": 5,
+        "firstExplicitEditActionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "ordering": {
+          "checkCompletedMs": 5450.071499999962,
+          "investigationStartedMs": 8408.240791999968,
+          "investigationCompletedMs": 11811.368041999987,
+          "firstExplicitEditStartedMs": 27521.644499999995
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-competitor",
+      "evidenceSha256": "0077c07a85f9a8c1719e97bccf9e8199864bc63ea43fda85843a9544e994078f",
+      "toolOutputsSha256": "9135406ec42ec66dd11f2bba03d9125ea7cff56d2c5d3841b9946e6475d02acf",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "providerRetrievalActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena search returns the can-write-to-dir import in checkGlobalBinDir.ts. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+      ],
+      "citations": {
+        "publicActionIndex": 3,
+        "toolOutputActionIndex": 3,
+        "originalPayloadSha256": "b2aba7a55b4ec45541d77e8f86b2a08f90d3c38980cd942008e1934b1dd18e99",
+        "returnedExcerpts": [
+          "{\"config/config/src/checkGlobalBinDir.ts\": [\"  >   4:import { sync as canWriteToDir } from 'can-write-to-dir'\"]}"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "19a846587506d877c5efb904972a805a5355cfc8edaef8b05bca96456ecfa6fe"
+        },
+        "lastCheck": {
+          "action": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "771c59eae502efd0c20f44ce6616f6b10182d32b7eaa83cb62132855489deedb"
+        },
+        "firstExplicitEditActionIndex": 7,
+        "firstExplicitEditActionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "ordering": {
+          "checkCompletedMs": 6692.641417000035,
+          "investigationStartedMs": 14948.863583000028,
+          "investigationCompletedMs": 15404.228208000015,
+          "firstExplicitEditStartedMs": 30798.59808299999
+        },
+        "startupActionIndexes": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-native",
+      "evidenceSha256": "18293c6f485668773ed973694d6e44725848c325f1fdbd8f450ebce978ba0d31",
+      "toolOutputsSha256": "51e005a817b43808874f0b4d16a370b33856a922207a2866aa5cbfbc791e9564",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": null,
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns the old can-write-to-dir import, the missing PATH error site and the exact config package dependency declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "0539c1c9077c316f3322462dee740d458187022c6aea305ad37f739a0731394c",
+        "returnedExcerpts": [
+          "config/config/src/checkGlobalBinDir.ts:5:import { sync as canWriteToDir } from 'can-write-to-dir'",
+          "config/config/src/checkGlobalBinDir.ts:13:    throw new PnpmError('NO_PATH_ENV',",
+          "config/config/package.json:52:    \"can-write-to-dir\": \"2.0.0\","
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "6aba9f70299f395acf00ab7471bc9e7a9e487d01873b9a841c514bc9a9d7fafb"
+        },
+        "lastCheck": {
+          "action": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "8a07fc82490bae01f26aa329f926b1cb3db1d1ca6573e9e69dc727b48ac65c8d"
+        },
+        "firstExplicitEditActionIndex": 5,
+        "firstExplicitEditActionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "ordering": {
+          "checkCompletedMs": 4842.322583000001,
+          "investigationStartedMs": 7743.9587920000195,
+          "investigationCompletedMs": 7762.206208000018,
+          "firstExplicitEditStartedMs": 20765.829792000004
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-native",
+      "evidenceSha256": "f74f29efa604127361cd2caf2e17535cbd9d9d9421fe6722f3a34b3992b64ccc",
+      "toolOutputsSha256": "d0c507644cfbd25a994f9d7ee23f955aede9b3c2fa77cb6532d3239dcd422668",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": null,
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns the old can-write-to-dir import, missing PATH error site and config package dependency declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "7bee7e4926cbd50f457413821c21cbdf794886f6e3d604219f695f7516a81322",
+        "returnedExcerpts": [
+          "./config/config/src/checkGlobalBinDir.ts:5:import { sync as canWriteToDir } from 'can-write-to-dir'",
+          "./config/config/src/checkGlobalBinDir.ts:13:    throw new PnpmError('NO_PATH_ENV',",
+          "./config/config/package.json:52:    \"can-write-to-dir\": \"2.0.0\","
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "9d7f79e0ee1dbf380195e75dbc75d2c577dc255030e4dab8c998aae5cac06798"
+        },
+        "lastCheck": {
+          "action": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "d1494e4abe101b3dddc77660ff91a762cc38a5b590133af0d19715f26a75af26"
+        },
+        "firstExplicitEditActionIndex": 4,
+        "firstExplicitEditActionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "ordering": {
+          "checkCompletedMs": 5054.510332999984,
+          "investigationStartedMs": 7401.383417000063,
+          "investigationCompletedMs": 7406.078582999995,
+          "firstExplicitEditStartedMs": 19643.95816700009
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-competitor",
+      "evidenceSha256": "8320b7604f5f79630f19301ea1f02c15101688ea3908ed28b7d2a4f58e6c7697",
+      "toolOutputsSha256": "5b2e8442a880efe4da1d06be2bb3e1a67c5518e87b7b2802c407166d5085aab4",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "providerRetrievalActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena search returns the can-write-to-dir import with its surrounding checkGlobalBinDir declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+      ],
+      "citations": {
+        "publicActionIndex": 3,
+        "toolOutputActionIndex": 3,
+        "originalPayloadSha256": "4d27afa6a47cb993d85e06c820c5824c274a0e3f0f67bbdde4584efa4aa92b76",
+        "returnedExcerpts": [
+          "{\"config/config/src/checkGlobalBinDir.ts\": [\"...   2:import util from 'util'\\n...   3:import { PnpmError } from '@pnpm/error'\\n  >   4:import { sync as canWriteToDir } from 'can-write-to-dir'\\n...   5:import PATH from 'path-name'\\n...   6:\\n...   7:export async function checkGlobalBinDir (\"]}"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "e65dec07b81f2bba136f58d7a22f22dfb4e89c55dc3ada78ca08da7a53e5ffe9"
+        },
+        "lastCheck": {
+          "action": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "d6999dcc1021c8103500e49a213ebc77c824095a9c8dc7d7788c30a441350f37"
+        },
+        "firstExplicitEditActionIndex": 7,
+        "firstExplicitEditActionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "ordering": {
+          "checkCompletedMs": 6998.987416999997,
+          "investigationStartedMs": 13170.49141700007,
+          "investigationCompletedMs": 13668.282041999977,
+          "firstExplicitEditStartedMs": 26356.549457999994
+        },
+        "startupActionIndexes": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-packet",
+      "evidenceSha256": "85c3bc7dde07a90a4f1226063c52b62f745e4c9e3af8b892c0eebf4e058dd7de",
+      "toolOutputsSha256": "2d32b8b69c644ef2613b92426b6ae00831321f49685e9b0816494c41b21e146b",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet query concerns global executable directory validation and returns the complete checkGlobalBinDir source with the old import, PATH guard and optional write guard. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "d46abf154e8cbdabb0a998513c251b6d114e967089ead934a8c5b4b5096afc74",
+        "returnedExcerpts": [
+          "CANDIDATE 1 {\"path\":\"config/config/src/checkGlobalBinDir.ts\",\"lines\":[1,41],\"columns\":[1,3],\"offsets\":[0,1665],\"lexicalScore\":98,\"fileSha256\":\"8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660\",\"excerptSha256\":\"8dbcb5b2792dabb53ee76fc4952f2bad682b039188641975e1ce62b424a3d660\",\"complete\":true,\"declarationComplete\":false,\"selection\":\"complete-module\",\"omittedBytes\":0}",
+          "import { sync as canWriteToDir } from 'can-write-to-dir'",
+          "export async function checkGlobalBinDir ("
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "42c45fbc57310bfdda831830e1ad53e10cbdef10b9061bf8b4c8bc2c0941d8f8"
+        },
+        "lastCheck": {
+          "action": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "cd0b833337d1f06b86475c5ca640a22a09c877d5419127a0b76be99e53cc86e4"
+        },
+        "firstExplicitEditActionIndex": 4,
+        "firstExplicitEditActionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "ordering": {
+          "checkCompletedMs": 6234.339999999967,
+          "investigationStartedMs": 9431.258125000051,
+          "investigationCompletedMs": 12798.155750000034,
+          "firstExplicitEditStartedMs": 25003.646792000043
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-competitor",
+      "evidenceSha256": "52ddd5730e53c4a33987c3bbaa6b71826cd7ff6dba152c31c4031062910c76b1",
+      "toolOutputsSha256": "e08117d8507b710720de153d3fc9d2ab940be63affc964d096408959783872b4",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "providerRetrievalActionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena pattern search returns the changed-package git diff name-only option and related filtering documentation. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+      ],
+      "citations": {
+        "publicActionIndex": 3,
+        "toolOutputActionIndex": 3,
+        "originalPayloadSha256": "ea9ea6873aa6b303b6d25f8e38ddfa72b5894950f6e4ebb020906220f95fd5ed",
+        "returnedExcerpts": [
+          "{\"workspace/filter-workspace-packages/src/getChangedPackages.ts\": [\"  >  62:        '--name-only',\"], \"cli/common-cli-options-help/src/index.ts\": [\"  >  96:      description: 'Includes all projects that are under the specified directory. It may be used with \\\"...\\\" to select dependents/dependencies as well. It also may be combined with \\\"[<since>]\\\". For instance, all changed projects inside a directory: \\\"{packages}[origin/master]\\\"',\", \"  > 112:      description: 'Defines files to ignore when filtering for changed projects since the specified commit/branch. Usage example: pnpm --filter=\\\"...[origin/master]\\\" --changed-files-ignore-pattern=\\\"**/README.md\\\" build',\"]}"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "7d9d9bae852a1d94da79718c6e4fe34b4ebf5c8fb1ec5fe5df1b90f511c2f928"
+        },
+        "lastCheck": {
+          "action": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "7e702b1096b347d93253fa8ae0359c1bb39ba8c426b862a3add8aa79d9e2c9bf"
+        },
+        "firstExplicitEditActionIndex": 8,
+        "firstExplicitEditActionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "ordering": {
+          "checkCompletedMs": 7210.964040999999,
+          "investigationStartedMs": 14750.206749999896,
+          "investigationCompletedMs": 15211.236290999921,
+          "firstExplicitEditStartedMs": 30207.543499999912
+        },
+        "startupActionIndexes": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-packet",
+      "evidenceSha256": "a1c496e951939b58d83eca1f52160e2314887a83c1a390a036fdfc2e951a6d1a",
+      "toolOutputsSha256": "19c80d12f5aed14bbeb43651f892ef4609f8debeb94ffb6c5c58af88484756e8",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet asks about tracked-file changes and project moves, and returns the complete getChangedPackages source with git diff and classification logic. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+        "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "b6e07eca3f7306b9633141f4429982e5df554058e5f2f63c41d44090870ad858",
+        "returnedExcerpts": [
+          "CANDIDATE 1 {\"path\":\"workspace/filter-workspace-packages/src/getChangedPackages.ts\",\"lines\":[1,103],\"columns\":[1,3],\"offsets\":[0,3584],\"lexicalScore\":74,\"fileSha256\":\"d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e\",\"excerptSha256\":\"d9457500e9be42f72ef83fde68890ba08617bcd4489478615d6c2e95421f408e\",\"complete\":true,\"declarationComplete\":false,\"selection\":\"complete-module\",\"omittedBytes\":0}",
+          "export async function getChangedPackages (",
+          "        '--name-only',"
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "4c14ff9f77660801bb8cdd0ca47d71e1ede9865a9264ee05d01392d660b4082b"
+        },
+        "lastCheck": {
+          "action": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "f89c73ac5581220217428cb130a0202b1be2a89d78d18d9703995d8123b7b163"
+        },
+        "firstExplicitEditActionIndex": 6,
+        "firstExplicitEditActionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "ordering": {
+          "checkCompletedMs": 5290.325124999974,
+          "investigationStartedMs": 7987.587917000055,
+          "investigationCompletedMs": 11281.432625000016,
+          "firstExplicitEditStartedMs": 22899.173416999984
+        },
+        "startupActionIndexes": []
+      }
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-native",
+      "evidenceSha256": "478f29d1257585cdf3e2c47d3076736997d6905a6f73dcb20839d3e30053ef2a",
+      "toolOutputsSha256": "14f63cf2161a52d9847004d8f1fbea384cb18911df0d4215f888b0da0e5f958d",
+      "instructionFollowed": "pass",
+      "firstNativeCheckActionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "firstInvestigationActionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "providerRetrievalActionIdSha256": null,
+      "taskRelevant": true,
+      "returnedEvidence": "usable",
+      "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns source occurrences in getChangedPackages and its caller, including the ignored-file classification path. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+      "limitations": [
+        "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+      ],
+      "citations": {
+        "publicActionIndex": 1,
+        "toolOutputActionIndex": 1,
+        "originalPayloadSha256": "f3a3a336ff443f0ac4099512d95949601a06723223639556918981b848818d52",
+        "returnedExcerpts": [
+          "./workspace/filter-workspace-packages/src/getChangedPackages.ts:17:  opts: { workspaceDir: string, testPattern?: string[], changedFilesIgnorePattern?: string[] }",
+          "./workspace/filter-workspace-packages/src/getChangedPackages.ts:25:  const changedDirs = (await getChangedDirsSinceCommit(commit, opts.workspaceDir, opts.testPattern ?? [], opts.changedFilesIgnorePattern ?? []))",
+          "./workspace/filter-workspace-packages/src/getChangedPackages.ts:57:async function getChangedDirsSinceCommit (commit: string, workingDir: string, testPattern: string[], changedFilesIgnorePattern: string[]): Promise<ChangedDir[]> {",
+          "./workspace/filter-workspace-packages/src/getChangedPackages.ts:82:  const patterns = changedFilesIgnorePattern.filter("
+        ],
+        "firstCheck": {
+          "action": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "observed": false,
+          "cases": 3,
+          "failed": 1,
+          "outputHash": "2b75be76f63f90b1d8a613ca1b379e4fdd6f3698a824fd6f0f4493187a81435d"
+        },
+        "lastCheck": {
+          "action": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "observed": true,
+          "cases": 3,
+          "failed": 0,
+          "outputHash": "485263a0c278a4fd981061d3a0885097399b8b6dff7224fa479b95dce934dfd9"
+        },
+        "firstExplicitEditActionIndex": 4,
+        "firstExplicitEditActionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "ordering": {
+          "checkCompletedMs": 5894.316041999962,
+          "investigationStartedMs": 8610.425667000003,
+          "investigationCompletedMs": 8610.425667000003,
+          "firstExplicitEditStartedMs": 20256.43516699993
+        },
+        "startupActionIndexes": []
+      }
+    }
+  ],
+  "publicationBinding": {
+    "originalPrivateReportSha256": "10b8182023401fe67e38941acfd80b28326ab2e9d18e009c0e52e07f6b632b22",
+    "originalPrivateAuditSha256": "ab8a5208e80c8cd8304f841106a32e6b5d2672acd7991762d3f2ac79030cde03",
+    "publicReportSha256": "fd4909f14a02812cb0ec6b4961ab572a22bb0bdd0e60d7a3b2dff92ff881228c",
+    "normalization": "normalization.json",
+    "judgmentsAndActionIdsUnchanged": true
+  }
+}

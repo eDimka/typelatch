@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-public-development-discovery-review",
+  "createdAt": "2026-11-06T18:34:28.647Z",
+  "candidate": "source-arm-v2",
+  "probeId": "discovery-workspace-scan",
+  "modelCalls": 0,
+  "record": {
+    "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/result.json",
+    "sha256": "9a53e17e299ec78c2c6d22a8a7498e4b5af2af801b79e5d7ba35a55b603b2340"
+  },
+  "source": {
+    "path": "workspace/find-packages/src/index.ts",
+    "sha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b",
+    "bytes": 3016,
+    "exactFullModuleMatchedPinnedCorpus": true,
+    "header": {
+      "path": "workspace/find-packages/src/index.ts",
+      "lines": [
+        1,
+        89
+      ],
+      "columns": [
+        1,
+        3
+      ],
+      "offsets": [
+        0,
+        3016
+      ],
+      "lexicalScore": 104,
+      "fileSha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b",
+      "excerptSha256": "24676889f571cad6162641746cd66c3d2df03007f0f4c089d19d404936a7a74b",
+      "complete": true,
+      "declarationComplete": false,
+      "selection": "complete-module",
+      "omittedBytes": 0
+    }
+  },
+  "result": {
+    "supportedFacts": 4,
+    "totalFacts": 4,
+    "modelVisibleBytes": 7895,
+    "wireBytes": 15839,
+    "callMs": 3365.570334,
+    "startupAndCallMs": 3624.737291
+  },
+  "facts": [
+    {
+      "id": "definition",
+      "state": "supported",
+      "requirement": "Identify findWorkspacePackages in workspace/find-packages/src/index.ts with implementation evidence.",
+      "citation": {
+        "jsonPointer": "/response/structuredContent/text",
+        "exactQuote": "export async function findWorkspacePackages (\n  workspaceRoot: string,\n  opts?: FindWorkspacePackagesOpts\n): Promise<Project[]> {\n"
+      }
+    },
+    {
+      "id": "delegation-installability",
+      "state": "supported",
+      "requirement": "Show delegation to findWorkspacePackagesNoCheck and packageIsInstallable checks on each returned project, using supplied options plus default supported architectures.",
+      "citation": {
+        "jsonPointer": "/response/structuredContent/text",
+        "exactQuote": "  const pkgs = await findWorkspacePackagesNoCheck(workspaceRoot, opts)\n  for (const pkg of pkgs) {\n    packageIsInstallable(pkg.rootDir, pkg.manifest, {\n      ...opts,\n      supportedArchitectures: opts?.supportedArchitectures ?? {\n        os: ['current'],\n        cpu: ['current'],\n        libc: ['current'],\n      },\n    })\n"
+      }
+    },
+    {
+      "id": "scan-root-exclusions",
+      "state": "supported",
+      "requirement": "Show unchecked includeRoot:true and exclusions **/node_modules/** and **/bower_components/**.",
+      "citation": {
+        "jsonPointer": "/response/structuredContent/text",
+        "exactQuote": "export async function findWorkspacePackagesNoCheck (workspaceRoot: string, opts?: { patterns?: string[] }): Promise<Project[]> {\n  const pkgs = await findPackages(workspaceRoot, {\n    ignore: [\n      '**/node_modules/**',\n      '**/bower_components/**',\n    ],\n    includeRoot: true,\n    patterns: opts?.patterns,\n  })\n"
+      }
+    },
+    {
+      "id": "sort",
+      "state": "supported",
+      "requirement": "Show project roots sorted using lexCompare, not guessed filesystem order.",
+      "citation": {
+        "jsonPointer": "/response/structuredContent/text",
+        "exactQuote": "  pkgs.sort((pkg1: { rootDir: string }, pkg2: { rootDir: string }) => lexCompare(pkg1.rootDir, pkg2.rootDir))"
+      }
+    }
+  ],
+  "limitations": [
+    "This previously observed public development question motivated a generic projection redesign. It is not held-out evidence.",
+    "Four supported retrieval facts do not demonstrate agent completion, lower model tokens or lower time.",
+    "V1 failed public discovery remains retained with0/4. Candidate identity and all additional source read work must be charged separately."
+  ]
+}

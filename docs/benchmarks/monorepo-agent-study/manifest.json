@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "decision.mjs",
+      "sha256": "86f57a7fddd8dd1d636b1f6ff1ecc86ca8ea0aeb46cfab21db89edea7517a35c",
+      "bytes": 9349
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-native.json",
+      "sha256": "b7946cb6678fc04f4b2a18459bb3eaeb8b151ccf49a021517a71097b37275b88",
+      "bytes": 29177
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-typelatch.json",
+      "sha256": "f6727ba8d292b41ed8fbdce8ec0fb8a223d6f7922cd4141e91335c2b8b312f21",
+      "bytes": 29081
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-competitor.json",
+      "sha256": "9985b6904e5619a7342aa7d5879dcbb47abbc14533bcd99268c886b77c92f2a9",
+      "bytes": 31703
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r1-packet.json",
+      "sha256": "a6caec479658e16d722f7a5219c0ab809106ca8ca7355c9fa26abee916d2aa70",
+      "bytes": 28969
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-typelatch.json",
+      "sha256": "91030d2be426733c732e5149102eb4e5d0f7699223ebd07a9700554e800ef9df",
+      "bytes": 23131
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-native.json",
+      "sha256": "a47aa65bdfef0687f131e120f9434edee2ee90e0b835e5cf5f4dff4a1d616a64",
+      "bytes": 21893
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-packet.json",
+      "sha256": "71398735b147bb13c49b0542fe5c7c3ccef5c18ea5ae2b19512762667b30e6d7",
+      "bytes": 23083
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r1-competitor.json",
+      "sha256": "378095f5ea1f69a15f6ff19cafc46118ba5653c857593509f9fe9f78a51e7ded",
+      "bytes": 23673
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-competitor.json",
+      "sha256": "735480b1ff8bec963ffc579e0e9ec7f0b6d458319fd54d2beba8f6da11266597",
+      "bytes": 25015
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-packet.json",
+      "sha256": "2504b7a328e258ea047629eeea78edf732c1bb55d3e6a0eae34171e2fc1a987d",
+      "bytes": 22362
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-native.json",
+      "sha256": "8cad1ae12959421314508037995480378f102dcccac0236e5df0b2149df4020a",
+      "bytes": 21309
+    },
+    {
+      "path": "runs/pnpm-global-bin-api-migration-r2-typelatch.json",
+      "sha256": "434110cbe59a55cb624068061b7115385817eefc216d397e9a078b379498608b",
+      "bytes": 21871
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-packet.json",
+      "sha256": "7595ebe2ec589f68cc32449c35f3dc9e1d9ab56e35922ae4ca7bf220ac5336b4",
+      "bytes": 30948
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-competitor.json",
+      "sha256": "8e32aa1a78f8aa966bb37fc925c8deba36b05068c7383a3cfab6b78a046b5a60",
+      "bytes": 32344
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-typelatch.json",
+      "sha256": "280882c518ff45a3c43d2c7d22a57d44878386abf0fe8bba84ea9b6cec66d8e2",
+      "bytes": 30504
+    },
+    {
+      "path": "runs/pnpm-changed-project-move-r2-native.json",
+      "sha256": "5ea1b53b4e2e2ad23b24ce8764c97b0c004a30de19a250b99c4942d336983476",
+      "bytes": 29209
+    },
+    {
+      "path": "report.json",
+      "sha256": "1d79b9448138b7358a56edeb156ed6ea0d4a1022065d7b43b73865f04ad83c6a",
+      "bytes": 123625
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "49014d08e94555584879f235258e11ceda385cc41d478413dbfd00a98b11cc26",
+      "bytes": 39913
+    },
+    {
+      "path": "protocol-001.json",
+      "sha256": "32dd7c5caa0c1299fb55a98701e6828732ea6bd64f6d6eb0817686c6a6d2c697",
+      "bytes": 38428
+    },
+    {
+      "path": "infrastructure-attempt-001.json",
+      "sha256": "88a76a6121e76dbe481146a8ac4a9f468bcabe012e61f2efcab9ab19c7e921bc",
+      "bytes": 461
+    },
+    {
+      "path": "infrastructure-attempt-001/report.json",
+      "sha256": "01bf2eb5b1655d60bbd932cc18d22dfa8f2a5262e36f7685e36b24f0c9bf7b0e",
+      "bytes": 14749
+    },
+    {
+      "path": "infrastructure-attempt-001/runs/pnpm-changed-project-move-r1-native.json",
+      "sha256": "90224a45d6ecb787525ec9d09e75d6ae13beaba0bacb2567fe6cd9bdb7806e87",
+      "bytes": 29367
+    },
+    {
+      "path": "infrastructure-attempt-001/runs/pnpm-changed-project-move-r1-typelatch.json",
+      "sha256": "088bff5d16b4b4dae315aff63c3334e52d0a693c5b128258b9decc3dc33e6499",
+      "bytes": 17180
+    },
+    {
+      "path": "infrastructure-attempt-001/runs/pnpm-changed-project-move-r1-competitor.json",
+      "sha256": "b188f6edd86fd84921870d2c3323c5ca46d246e1e7ed87d3a89fb9406d288788",
+      "bytes": 18937
+    },
+    {
+      "path": "infrastructure-attempt-001/runs/pnpm-changed-project-move-r1-packet.json",
+      "sha256": "2cafa8e92ced4a306a0e98470451dd0490ef99281cc63e254529bd408e8ac764",
+      "bytes": 17045
+    },
+    {
+      "path": "infrastructure-attempt-001/runs/pnpm-global-bin-api-migration-r1-typelatch.json",
+      "sha256": "0f698bae1f275f50bcef1dfb1ea0a7e66d9eabd811916741b8d675dda2d2ede3",
+      "bytes": 13596
+    }
+  ]
+}

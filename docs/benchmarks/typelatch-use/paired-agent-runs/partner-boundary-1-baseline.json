@@ -1,0 +1,524 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "partner-boundary-1-baseline",
+    "task": "partner-boundary",
+    "repeat": 1,
+    "arm": "baseline",
+    "startedAt": "2026-11-06T15:27:40.264Z",
+    "finishedAt": "2026-11-06T15:28:37.075Z",
+    "elapsedMs": 56810.82125000004,
+    "setupMs": 5835,
+    "indexSetupMs": 0,
+    "gradingMs": 4282.1713750000345,
+    "status": "completed",
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "correct": false,
+    "usage": {
+      "inputTokens": 176719,
+      "cachedInputTokens": 145408,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 1326,
+      "reasoningOutputTokens": 52,
+      "totalTokens": 178045,
+      "uncachedInputTokens": 31311
+    },
+    "counts": {
+      "shellCalls": 12,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 3,
+      "grepShellCalls": 5,
+      "contentSearchShellCalls": 3,
+      "fileListingShellCalls": 2,
+      "ambiguousSearchShellCalls": 0
+    },
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "fixtureSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+    "promptSha256": "ed544f86eec004acc8b998baaf7d22ee1dbd654d9fe9c435a96e11e9f383ea79",
+    "rawSha256": "7b888df4cdd1e3ccf145557f79295764f843731bbd4fb3609a7a2e90c807007e",
+    "evidence": "paired-agent-runs/partner-boundary-1-baseline.json",
+    "recordingError": null,
+    "toolPolicyFollowed": true
+  },
+  "prompt": "The partner manifest boundary currently trusts arbitrary input. Implement the production Effect runtime schema and importer so both expose the same validation and normalized data. A manifest is an object containing a partner string and at least one parcel. Trim partner and parcel reference strings and reject blank results. Every parcel must contain a trimmed nonblank reference, a finite positive integer grams value supplied as a number, and service equal to standard or express. Parcel references must be unique after trimming. Reject missing fields, wrong types, unknown service values, and invalid manifests with the existing invalid-manifest result, without throwing. Strip unrecognized object fields from accepted output, retain parcel order, and do not mutate input or retain mutable references to it in imported results. The exported schema must itself perform the complete validation and normalization through the production dependency's decoder; a manual-only importer with a permissive schema does not meet the contract. Inputs are ordinary data values, including primitives, arrays, null, and undefined, without accessors, proxies, or cyclic references.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg --files -g '\"'!node_modules'\"' -g '\"'!package-lock.json'\"' -g '\"'!yarn.lock'\"'\"",
+      "outputBytes": 1552,
+      "outputSha256": "e4930747403535b99a0b8b026a33eb461e44c632c735db87bbe5737b3c7abc93",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 5306.453583000053,
+      "completedMs": 5306.453583000053
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "command": "/bin/zsh -c \"cat src/partners/schema.ts src/partners/decode.ts src/partners/types.ts package.json; rg --files -g AGENTS.md -g '*Schema*.d.ts' -g '*schema*.d.ts' --hidden node_modules | head -50\"",
+      "outputBytes": 1491,
+      "outputSha256": "fa34012d46fe47b8950cbc9de2e7ba8a0c2443000fc1842726ea67697d185369",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 8619.212542000052,
+      "completedMs": 8619.212542000052
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 4362,
+      "outputSha256": "fdccc4d02d342c4446c8055f4c53a3f7109161712b1b5315b2f77e6c674a7646",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 8774.839625000022,
+      "completedMs": 8801.957250000036
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "failed",
+      "command": "/bin/zsh -c \"rg -n 'Trim|nonEmptyString|positive|finite|int\\\\(|minItems|NonEmptyArray|filter\\\\(|filter:|Struct|decodeUnknownEither' node_modules/effect/dist/dts/Schema.d.ts | head -85; cat tsconfig.json; rg -n 'manifest|partner|schema' test/task.test.mjs test/public.test.mjs; cat src/partners/legacy.ts; git status --short\"",
+      "outputBytes": 10104,
+      "outputSha256": "8a2e59a46e120192b2589aaaeb21b5edf157af3402529989dfa82bb3d83f31a5",
+      "exitCode": 128,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 13735.47787500004,
+      "completedMs": 13735.632958000002
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm run build'",
+      "outputBytes": 51,
+      "outputSha256": "4c8e763422127def2e449ee34900154273dd09954ffff7ecd1ac756753db5bd4",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 13894.040583000053,
+      "completedMs": 15713.123208000034
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "failed",
+      "command": "/bin/zsh -c \"sed -n '1910,1958p' node_modules/effect/dist/dts/Schema.d.ts; sed -n '2524,2536p' node_modules/effect/dist/dts/Schema.d.ts; sed -n '2690,2725p' node_modules/effect/dist/dts/Schema.d.ts; rg -n 'onExcessProperty|output\\\\[|const output =|let output =' node_modules/effect/dist/esm/ParseResult.js | head -35; npm test\"",
+      "outputBytes": 8954,
+      "outputSha256": "55c56da6018a058b67a169ede54903fc9317a1aed069ff58eb4ea847fcadf9ac",
+      "exitCode": 1,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 20031.79683300003,
+      "completedMs": 20295.688500000047
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"sed -n '1880,1912p' node_modules/effect/dist/dts/Schema.d.ts; rg -n 'export declare const int|export declare function Literal' node_modules/effect/dist/dts/Schema.d.ts\"",
+      "outputBytes": 2061,
+      "outputSha256": "dcf76a2ad2abf9c9eaebb122257a07c38cf4f81c4ea0386937ad7e3eeacbbf05",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 31466.55587500002,
+      "completedMs": 31466.55587500002
+    },
+    {
+      "type": "file_change",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/src/partners/schema.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 31467.40062500001,
+      "completedMs": 31491.958000000042
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run build'",
+      "outputBytes": 2602,
+      "outputSha256": "085c00ce2d51d6444cb6d6895e3c8a94152ee55236862a934fc20ab5ba11c9da",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 31647.711792000046,
+      "completedMs": 33296.289750000054
+    },
+    {
+      "type": "file_change",
+      "idSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/src/partners/schema.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 37893.76875000005,
+      "completedMs": 37922.49145800003
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run build'",
+      "outputBytes": 939,
+      "outputSha256": "a657e1fbcd942e46724e753b97e60b679f3d56a312b4b1beeef2a35f27018a11",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 38078.31391700002,
+      "completedMs": 39719.988167
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 4582,
+      "outputSha256": "9b6903ca9fdd9173f21633d74bdb9442cd90f579cb9da4fd3c681d3740d7e42a",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 39875.108542,
+      "completedMs": 40133.49554200005
+    },
+    {
+      "type": "file_change",
+      "idSha256": "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/src/partners/schema.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 46498.921250000014,
+      "completedMs": 46522.86541700002
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "e241483af4c21cbfcc6e68aebae085c699bf4f57a3af50be0eb0e5bb2d8b0b3e",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm run build'",
+      "outputBytes": 51,
+      "outputSha256": "4c8e763422127def2e449ee34900154273dd09954ffff7ecd1ac756753db5bd4",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 46677.83558300004,
+      "completedMs": 48434.54445800005
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 3574,
+      "outputSha256": "6bebdf2391b2142d4c0ccaf344fedbb5a2071bde71faac8034beba11df0b3f6e",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 51424.285292000044,
+      "completedMs": 51667.21354200004
+    }
+  ],
+  "baseline": {
+    "taskId": "partner-boundary",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1731,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "contract.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1528,
+      "stdout": "",
+      "stderr": ""
+    },
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/public.test.mjs",
+        "test/operations.test.mjs",
+        "test/task.test.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 271,
+      "stdout": "TAP version 13\n# Subtest: catalog import reports row errors while normalizing valid inventory\nok 1 - catalog import reports row errors while normalizing valid inventory\n  ---\n  duration_ms: 8.484708\n  type: 'test'\n  ...\n# Subtest: catalog revisions are atomic and feed production checkout snapshots\nok 2 - catalog revisions are atomic and feed production checkout snapshots\n  ---\n  duration_ms: 0.509917\n  type: 'test'\n  ...\n# Subtest: carrier rates explain eligibility, rounded surcharges and deterministic choices\nok 3 - carrier rates explain eligibility, rounded surcharges and deterministic choices\n  ---\n  duration_ms: 0.655916\n  type: 'test'\n  ...\n# Subtest: rate replacement validates every band before changing the active book\nok 4 - rate replacement validates every band before changing the active book\n  ---\n  duration_ms: 0.31175\n  type: 'test'\n  ...\n# Subtest: cart adjustments allocate exact cents and preserve return credit conservation\nok 5 - cart adjustments allocate exact cents and preserve return credit conservation\n  ---\n  duration_ms: 0.497\n  type: 'test'\n  ...\n# Subtest: promotion eligibility, exclusivity and tax rounding remain deterministic\nok 6 - promotion eligibility, exclusivity and tax rounding remain deterministic\n  ---\n  duration_ms: 0.58025\n  type: 'test'\n  ...\n# Subtest: stock reservations split across locations without overselling or partial holds\nok 7 - stock reservations split across locations without overselling or partial holds\n  ---\n  duration_ms: 0.634042\n  type: 'test'\n  ...\n# Subtest: stock releases, restocks and expiry rules keep operational inventory coherent\nok 8 - stock releases, restocks and expiry rules keep operational inventory coherent\n  ---\n  duration_ms: 0.289292\n  type: 'test'\n  ...\n# Subtest: dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\nok 9 - dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\n  ---\n  duration_ms: 1.270042\n  type: 'test'\n  ...\n# Subtest: dispatch cancellation and failed preparation release held stock with audit evidence\nok 10 - dispatch cancellation and failed preparation release held stock with audit evidence\n  ---\n  duration_ms: 0.713666\n  type: 'test'\n  ...\n# Subtest: dashboard projections expose drift, filter orders and report structural corruption\nok 11 - dashboard projections expose drift, filter orders and report structural corruption\n  ---\n  duration_ms: 0.584791\n  type: 'test'\n  ...\n# Subtest: a single cart preview includes merchandise and shipping\nok 12 - a single cart preview includes merchandise and shipping\n  ---\n  duration_ms: 0.921917\n  type: 'test'\n  ...\n# Subtest: an empty cart is free\nok 13 - an empty cart is free\n  ---\n  duration_ms: 0.084291\n  type: 'test'\n  ...\n# Subtest: a valid partner manifest is accepted\nok 14 - a valid partner manifest is accepted\n  ---\n  duration_ms: 0.126541\n  type: 'test'\n  ...\n# Subtest: an unknown order cannot be rescheduled\nok 15 - an unknown order cannot be rescheduled\n  ---\n  duration_ms: 0.109834\n  type: 'test'\n  ...\n# Subtest: rescheduling updates an open order\nok 16 - rescheduling updates an open order\n  ---\n  duration_ms: 0.199958\n  type: 'test'\n  ...\n# Subtest: invalid partner data is rejected by the manifest boundary\nnot ok 17 - invalid partner data is rejected by the manifest boundary\n  ---\n  duration_ms: 1.337458\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [],\n    +     partner: ' '\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: ' '\n      parcels:\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n1..17\n# tests 17\n# suites 0\n# pass 16\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 236.422875\n",
+      "stderr": "",
+      "tests": 17,
+      "pass": 16,
+      "fail": 1,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/hidden.test.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 247,
+      "stdout": "TAP version 13\n# Subtest: partner-boundary: normalizes partner and parcel reference whitespace\nnot ok 1 - partner-boundary: normalizes partner and parcel reference whitespace\n  ---\n  duration_ms: 2.075709\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      {\n        manifest: {\n          parcels: [\n            {\n              grams: 500,\n    +         reference: '\\ta\\n',\n    -         reference: 'a',\n              service: 'standard'\n            },\n            {\n              grams: 1200,\n              reference: 'b',\n    ...\n          ],\n    +     partner: ' vendor '\n    -     partner: 'vendor'\n        },\n        ok: true\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  actual:\n    ok: true\n    manifest:\n      partner: ' vendor '\n      parcels:\n        0:\n          reference: |-\n            \ta\n            \n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: partner-boundary: rejects empty or blank partner names\nnot ok 2 - partner-boundary: rejects empty or blank partner names\n  ---\n  duration_ms: 0.280958\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 500,\n    +         reference: 'a',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: ''\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: ''\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: partner-boundary: rejects empty or blank parcel references\nnot ok 3 - partner-boundary: rejects empty or blank parcel references\n  ---\n  duration_ms: 0.196125\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 500,\n    +         reference: '',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: ''\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: rejects duplicate references after trimming\nnot ok 4 - partner-boundary: rejects duplicate references after trimming\n  ---\n  duration_ms: 0.120666\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 500,\n    +         reference: 'a',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: ' a ',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: ' a '\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: requires finite positive integer grams\nnot ok 5 - partner-boundary: requires finite positive integer grams\n  ---\n  duration_ms: 0.198459\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 0,\n    +         reference: 'a',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 0\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: does not coerce nonnumeric grams\nnot ok 6 - partner-boundary: does not coerce nonnumeric grams\n  ---\n  duration_ms: 0.118458\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: '500',\n    +         reference: 'a',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: '500'\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: restricts delivery service literals\nnot ok 7 - partner-boundary: restricts delivery service literals\n  ---\n  duration_ms: 0.104459\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 500,\n    +         reference: 'a',\n    +         service: 'overnight'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'overnight'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: rejects missing required fields\nnot ok 8 - partner-boundary: rejects missing required fields\n  ---\n  duration_ms: 0.160417\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [\n    +       {\n    +         grams: 500,\n    +         reference: 'a',\n    +         service: 'standard'\n    +       },\n    +       {\n    +         grams: 1200,\n    +         reference: 'b',\n    +         service: 'express'\n    +       }\n    +     ]\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: rejects wrong outer and nested containers\nnot ok 9 - partner-boundary: rejects wrong outer and nested containers\n  ---\n  duration_ms: 0.54675\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: null,\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest: ~\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: requires at least one parcel\nnot ok 10 - partner-boundary: requires at least one parcel\n  ---\n  duration_ms: 0.322875\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   manifest: {\n    +     parcels: [],\n    +     partner: 'vendor'\n    +   },\n    +   ok: true\n    -   ok: false,\n    -   reason: 'invalid-manifest'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: false\n    reason: 'invalid-manifest'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n  operator: 'deepStrictEqual'\n  stack: |-\n    rejected (file://$TEMP\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: retains valid parcel order and distinct case\nok 11 - partner-boundary: retains valid parcel order and distinct case\n  ---\n  duration_ms: 0.149041\n  type: 'test'\n  ...\n# Subtest: partner-boundary: strips unknown outer and parcel fields\nnot ok 12 - partner-boundary: strips unknown outer and parcel fields\n  ---\n  duration_ms: 0.114125\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      {\n        manifest: {\n          parcels: [\n            {\n    +         debug: true,\n              grams: 500,\n              reference: 'a',\n              service: 'standard'\n            },\n            {\n    ...\n          partner: 'vendor',\n    +     secret: 'remove'\n        },\n        ok: true\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  actual:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n          debug: true\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n      secret: 'remove'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: accepted importer output does not retain input aliases\nnot ok 13 - partner-boundary: accepted importer output does not retain input aliases\n  ---\n  duration_ms: 0.122417\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n        parcels: [\n          {\n            grams: 500,\n    +       reference: 'changed',\n    -       reference: 'a',\n            service: 'standard'\n          },\n          {\n            grams: 1200,\n            reference: 'b',\n            service: 'express'\n          },\n    +     {\n    +       grams: 5,\n    +       reference: 'c',\n    +       service: 'standard'\n    +     }\n        ],\n        partner: 'vendor'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    partner: 'vendor'\n    parcels:\n      0:\n        reference: 'a'\n        grams: 500\n        service: 'standard'\n      1:\n        reference: 'b'\n        grams: 1200\n        service: 'express'\n  actual:\n    partner: 'vendor'\n    parcels:\n      0:\n        reference: 'changed'\n        grams: 500\n        service: 'standard'\n      1:\n        reference: 'b'\n        grams: 1200\n        service: 'express'\n      2:\n        reference: 'c'\n        grams: 5\n        service: 'standard'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: exported production schema normalizes and strips fields\nnot ok 14 - partner-boundary: exported production schema normalizes and strips fields\n  ---\n  duration_ms: 0.103958\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   extra: 1,\n        parcels: [\n          {\n    +       extra: 2,\n            grams: 500,\n            reference: 'a',\n            service: 'standard'\n          },\n          {\n            grams: 1200,\n    +       reference: ' b ',\n    -       reference: 'b',\n            service: 'express'\n          }\n        ],\n    +   partner: ' vendor '\n    -   partner: 'vendor'\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    partner: 'vendor'\n    parcels:\n      0:\n        reference: 'a'\n        grams: 500\n        service: 'standard'\n      1:\n        reference: 'b'\n        grams: 1200\n        service: 'express'\n  actual:\n    partner: ' vendor '\n    parcels:\n      0:\n        reference: 'a'\n        grams: 500\n        service: 'standard'\n        extra: 2\n      1:\n        reference: ' b '\n        grams: 1200\n        service: 'express'\n    extra: 1\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: exported production schema rejects the same invalid data\nnot ok 15 - partner-boundary: exported production schema rejects the same invalid data\n  ---\n  duration_ms: 0.142125\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly equal:\n    \n    false !== true\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected: true\n  actual: false\n  operator: 'strictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: partner-boundary: frozen partner input is never mutated\nnot ok 16 - partner-boundary: frozen partner input is never mutated\n  ---\n  duration_ms: 0.112958\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    ... Skipped lines\n    \n      {\n        manifest: {\n          parcels: [\n            {\n              grams: 500,\n    +         reference: ' a ',\n    -         reference: 'a',\n              service: 'standard'\n            },\n            {\n              grams: 1200,\n              reference: 'b',\n    ...\n          ],\n    +     partner: ' vendor '\n    -     partner: 'vendor'\n        },\n        ok: true\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    ok: true\n    manifest:\n      partner: 'vendor'\n      parcels:\n        0:\n          reference: 'a'\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  actual:\n    ok: true\n    manifest:\n      partner: ' vendor '\n      parcels:\n        0:\n          reference: ' a '\n          grams: 500\n          service: 'standard'\n        1:\n          reference: 'b'\n          grams: 1200\n          service: 'express'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..16\n# tests 16\n# suites 0\n# pass 1\n# fail 15\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 215.717334\n",
+      "stderr": "",
+      "tests": 16,
+      "pass": 1,
+      "fail": 15,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": false
+  },
+  "preparation": null,
+  "grading": {
+    "taskId": "partner-boundary",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1837,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "contract.json"
+      ],
+      "exitCode": 2,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1526,
+      "stdout": "api-contract.ts(21,8): error TS2344: Type 'false' does not satisfy the constraint 'true'.\n",
+      "stderr": ""
+    },
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/public.test.mjs",
+        "test/operations.test.mjs",
+        "test/task.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 276,
+      "stdout": "TAP version 13\n# Subtest: catalog import reports row errors while normalizing valid inventory\nok 1 - catalog import reports row errors while normalizing valid inventory\n  ---\n  duration_ms: 8.371708\n  type: 'test'\n  ...\n# Subtest: catalog revisions are atomic and feed production checkout snapshots\nok 2 - catalog revisions are atomic and feed production checkout snapshots\n  ---\n  duration_ms: 0.540334\n  type: 'test'\n  ...\n# Subtest: carrier rates explain eligibility, rounded surcharges and deterministic choices\nok 3 - carrier rates explain eligibility, rounded surcharges and deterministic choices\n  ---\n  duration_ms: 0.673083\n  type: 'test'\n  ...\n# Subtest: rate replacement validates every band before changing the active book\nok 4 - rate replacement validates every band before changing the active book\n  ---\n  duration_ms: 0.292667\n  type: 'test'\n  ...\n# Subtest: cart adjustments allocate exact cents and preserve return credit conservation\nok 5 - cart adjustments allocate exact cents and preserve return credit conservation\n  ---\n  duration_ms: 0.482708\n  type: 'test'\n  ...\n# Subtest: promotion eligibility, exclusivity and tax rounding remain deterministic\nok 6 - promotion eligibility, exclusivity and tax rounding remain deterministic\n  ---\n  duration_ms: 0.441292\n  type: 'test'\n  ...\n# Subtest: stock reservations split across locations without overselling or partial holds\nok 7 - stock reservations split across locations without overselling or partial holds\n  ---\n  duration_ms: 0.737292\n  type: 'test'\n  ...\n# Subtest: stock releases, restocks and expiry rules keep operational inventory coherent\nok 8 - stock releases, restocks and expiry rules keep operational inventory coherent\n  ---\n  duration_ms: 0.384208\n  type: 'test'\n  ...\n# Subtest: dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\nok 9 - dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\n  ---\n  duration_ms: 2.350125\n  type: 'test'\n  ...\n# Subtest: dispatch cancellation and failed preparation release held stock with audit evidence\nok 10 - dispatch cancellation and failed preparation release held stock with audit evidence\n  ---\n  duration_ms: 1.027708\n  type: 'test'\n  ...\n# Subtest: dashboard projections expose drift, filter orders and report structural corruption\nok 11 - dashboard projections expose drift, filter orders and report structural corruption\n  ---\n  duration_ms: 0.690209\n  type: 'test'\n  ...\n# Subtest: a single cart preview includes merchandise and shipping\nok 12 - a single cart preview includes merchandise and shipping\n  ---\n  duration_ms: 0.847917\n  type: 'test'\n  ...\n# Subtest: an empty cart is free\nok 13 - an empty cart is free\n  ---\n  duration_ms: 0.083167\n  type: 'test'\n  ...\n# Subtest: a valid partner manifest is accepted\nok 14 - a valid partner manifest is accepted\n  ---\n  duration_ms: 1.0125\n  type: 'test'\n  ...\n# Subtest: an unknown order cannot be rescheduled\nok 15 - an unknown order cannot be rescheduled\n  ---\n  duration_ms: 0.10475\n  type: 'test'\n  ...\n# Subtest: rescheduling updates an open order\nok 16 - rescheduling updates an open order\n  ---\n  duration_ms: 0.1455\n  type: 'test'\n  ...\n# Subtest: invalid partner data is rejected by the manifest boundary\nok 17 - invalid partner data is rejected by the manifest boundary\n  ---\n  duration_ms: 1.3125\n  type: 'test'\n  ...\n1..17\n# tests 17\n# suites 0\n# pass 17\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 241.876667\n",
+      "stderr": "",
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/hidden.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 240,
+      "stdout": "TAP version 13\n# Subtest: partner-boundary: normalizes partner and parcel reference whitespace\nok 1 - partner-boundary: normalizes partner and parcel reference whitespace\n  ---\n  duration_ms: 1.888416\n  type: 'test'\n  ...\n# Subtest: partner-boundary: rejects empty or blank partner names\nok 2 - partner-boundary: rejects empty or blank partner names\n  ---\n  duration_ms: 0.282833\n  type: 'test'\n  ...\n# Subtest: partner-boundary: rejects empty or blank parcel references\nok 3 - partner-boundary: rejects empty or blank parcel references\n  ---\n  duration_ms: 0.276125\n  type: 'test'\n  ...\n# Subtest: partner-boundary: rejects duplicate references after trimming\nok 4 - partner-boundary: rejects duplicate references after trimming\n  ---\n  duration_ms: 0.138625\n  type: 'test'\n  ...\n# Subtest: partner-boundary: requires finite positive integer grams\nok 5 - partner-boundary: requires finite positive integer grams\n  ---\n  duration_ms: 0.38475\n  type: 'test'\n  ...\n# Subtest: partner-boundary: does not coerce nonnumeric grams\nok 6 - partner-boundary: does not coerce nonnumeric grams\n  ---\n  duration_ms: 0.120458\n  type: 'test'\n  ...\n# Subtest: partner-boundary: restricts delivery service literals\nok 7 - partner-boundary: restricts delivery service literals\n  ---\n  duration_ms: 0.42825\n  type: 'test'\n  ...\n# Subtest: partner-boundary: rejects missing required fields\nok 8 - partner-boundary: rejects missing required fields\n  ---\n  duration_ms: 1.505417\n  type: 'test'\n  ...\n# Subtest: partner-boundary: rejects wrong outer and nested containers\nok 9 - partner-boundary: rejects wrong outer and nested containers\n  ---\n  duration_ms: 0.505334\n  type: 'test'\n  ...\n# Subtest: partner-boundary: requires at least one parcel\nok 10 - partner-boundary: requires at least one parcel\n  ---\n  duration_ms: 0.385625\n  type: 'test'\n  ...\n# Subtest: partner-boundary: retains valid parcel order and distinct case\nok 11 - partner-boundary: retains valid parcel order and distinct case\n  ---\n  duration_ms: 0.274625\n  type: 'test'\n  ...\n# Subtest: partner-boundary: strips unknown outer and parcel fields\nok 12 - partner-boundary: strips unknown outer and parcel fields\n  ---\n  duration_ms: 0.07575\n  type: 'test'\n  ...\n# Subtest: partner-boundary: accepted importer output does not retain input aliases\nok 13 - partner-boundary: accepted importer output does not retain input aliases\n  ---\n  duration_ms: 0.097083\n  type: 'test'\n  ...\n# Subtest: partner-boundary: exported production schema normalizes and strips fields\nok 14 - partner-boundary: exported production schema normalizes and strips fields\n  ---\n  duration_ms: 0.079875\n  type: 'test'\n  ...\n# Subtest: partner-boundary: exported production schema rejects the same invalid data\nok 15 - partner-boundary: exported production schema rejects the same invalid data\n  ---\n  duration_ms: 0.140541\n  type: 'test'\n  ...\n# Subtest: partner-boundary: frozen partner input is never mutated\nok 16 - partner-boundary: frozen partner input is never mutated\n  ---\n  duration_ms: 0.089167\n  type: 'test'\n  ...\n1..16\n# tests 16\n# suites 0\n# pass 16\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 208.087416\n",
+      "stderr": "",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [
+        "src/partners/schema.ts"
+      ],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": false
+  },
+  "changes": [
+    {
+      "path": "src/partners/schema.ts",
+      "before": "import { Schema } from \"effect\";\nimport type { PartnerManifest } from \"./types.js\";\nexport const manifestSchema: Schema.Schema<PartnerManifest, unknown> = Schema.Unknown as Schema.Schema<PartnerManifest, unknown>;\n",
+      "after": "import { Schema } from \"effect\";\nimport type { PartnerManifest } from \"./types.js\";\n\nconst nonblankString = Schema.Trim.pipe(Schema.nonEmptyString());\nconst parcelSchema = Schema.Struct({\n  reference: nonblankString,\n  grams: Schema.Number.pipe(Schema.finite(), Schema.int(), Schema.positive()),\n  service: Schema.Literal(\"standard\", \"express\"),\n});\n\nexport const manifestSchema: Schema.Schema<PartnerManifest> = Schema.Struct({\n  partner: nonblankString,\n  parcels: Schema.Array(parcelSchema).pipe(Schema.minItems(1)),\n}).pipe(\n  Schema.filter(({ parcels }) =>\n    new Set(parcels.map(({ reference }) => reference)).size === parcels.length\n  ),\n);\n"
+    }
+  ],
+  "fixture": {
+    "fileCount": 6428,
+    "manifestSha256": "c748eabe4eb24a5a0af8eb00341b628dea706fe4bf216de00a7d321b4103a423",
+    "dependencies": [
+      {
+        "path": "node_modules/typescript/package.json",
+        "name": "typescript",
+        "version": "6.0.3",
+        "sha256": "9332e97c30d3e53ed54910b89207ed657fb444066484df6e5b6965bf130865e9"
+      },
+      {
+        "path": "node_modules/effect/package.json",
+        "name": "effect",
+        "version": "3.22.1",
+        "sha256": "d5aa70267dcb4947c0aef06182e95251a721fd7ce4b5e8fd183676c92d0efea2"
+      },
+      {
+        "path": "packages/preview/node_modules/effect/package.json",
+        "name": "effect",
+        "version": "4.0.0-rc.112",
+        "sha256": "0ad20c73dfbe482996f046a0c1170b1a08d6fea7effeb6767fd247cdad53a56d"
+      }
+    ]
+  },
+  "recording": "Allowlisted completed public tool actions, final source changes, independent test output, and measured usage only. Model reasoning and message bodies are not exported. Full initial file inventory is retained locally; its digest includes installed dependencies."
+}

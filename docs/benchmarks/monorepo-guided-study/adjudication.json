@@ -1,0 +1,591 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-06T20:01:31.363Z",
+  "reportSha256": "fd4909f14a02812cb0ec6b4961ab572a22bb0bdd0e60d7a3b2dff92ff881228c",
+  "workflowAuditSha256": "c4df1d549da45c39482dafefc2fbf87212b0409d69b2289e731c257ae96c8a8a",
+  "protocolSha256": "447d41337338c3c5fa684c618b31e7b373bad3272ece809f1eec94eb23693f60",
+  "originalReportUnchanged": true,
+  "decision": {
+    "anyCandidatePassed": false,
+    "anyQualifiedWin": false,
+    "measurable": true,
+    "gate": {
+      "minimumReductionPercent": 20,
+      "workflowReviewRules": {
+        "providerInventory": "Each arm receives the same-format explicit inventory of its actual enabled repository provider and tool names, with none for native. Built-in MCP resource and resource-template catalogs are not repository retrieval providers and must not be called to discover providers. Tool search may load deferred definitions of the declared tools; all its costs remain charged.",
+        "firstInvestigation": "The first task-directed source or path search, source read, or targeted dependency/configuration inspection undertaken to investigate the implementation.",
+        "separatePreliminaryActions": "Harmless working-directory checks and generic top-level project metadata, the mandatory supplied native check, and provider startup instructions are distinct from source investigation. A targeted source-path search or task-specific dependency/configuration read counts even if it uses a listing or manifest.",
+        "symmetry": "Apply the same interpretation to native, Serena and packet. The first investigation must follow the supplied failing check. Native uses native tools; a provider arm attempts its first investigation through the designated provider, then chooses freely.",
+        "providerStartup": "Required provider activation and startup instructions do not themselves qualify as relevant retrieval. A serena_repl call that only lists tools, configuration or memories does not qualify.",
+        "relevance": "A qualifying retrieval attempt must address the reported task behavior or implementation. Usable evidence, empty results and tool errors remain distinct; failure costs are retained. No forced additional API or validation call.",
+        "shellOrdering": "The independent reviewer must assess ordering inside compound shell commands and identify task-directed shell reads or edits. If public command/action evidence cannot establish the order or relevance, record unknown. Aggregate shell exit codes and total tool counts do not prove compliance.",
+        "evidenceBoundary": "Review only hash-bound public actions, source changes, native-check observations and grades. Never inspect private reasoning or assistant message bodies. Preserve every run and every failed attempt."
+      },
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and all four candidate runs must be correct. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires independent hash-bound review of first-investigation compliance for every run and a task-relevant provider retrieval attempt in every packet and Serena run.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "A task-relevant first provider retrieval attempt is required for packet and Serena; native uses its native first investigation. Startup instructions or tool listings do not qualify. Unknown or failed compliance blocks a qualified win, while all costs and failures remain included. Human review uses only public actions and never private reasoning or assistant messages.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "reasons": [],
+    "workflowReview": {
+      "complete": true,
+      "passed": true,
+      "reviewer": "benchmark_tasks",
+      "auditReportSha256": "fd4909f14a02812cb0ec6b4961ab572a22bb0bdd0e60d7a3b2dff92ff881228c",
+      "issues": [],
+      "runs": [
+        {
+          "id": "pnpm-changed-project-move-r1-native",
+          "arm": "native",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": false,
+            "attempted": false,
+            "returnedUsableEvidence": null
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The native pattern search returns the changed-package implementation and its git diff name-only option. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-changed-project-move-r1-packet",
+          "arm": "packet",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet query asks about changed-project selection and returns the complete getChangedPackages module, including the git diff and classification logic. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-changed-project-move-r1-competitor",
+          "arm": "competitor",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+            "returnedUsableEvidence": "empty",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed call searches for changed filenames. It returns an empty array; the later native search is a fallback and is not relabeled as provider evidence. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time.",
+            "The empty filename result is a compliant relevant attempt, not successful retrieval. Native fallback supplies the later implementation evidence."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r1-packet",
+          "arm": "packet",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet asks about global executable directory validation and returns the complete checkGlobalBinDir implementation, including the old can-write-to-dir import and PATH and write checks. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r1-competitor",
+          "arm": "competitor",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena search returns the can-write-to-dir import in checkGlobalBinDir.ts. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r1-native",
+          "arm": "native",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": false,
+            "attempted": false,
+            "returnedUsableEvidence": null
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns the old can-write-to-dir import, the missing PATH error site and the exact config package dependency declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r2-native",
+          "arm": "native",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": false,
+            "attempted": false,
+            "returnedUsableEvidence": null
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns the old can-write-to-dir import, missing PATH error site and config package dependency declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r2-competitor",
+          "arm": "competitor",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena search returns the can-write-to-dir import with its surrounding checkGlobalBinDir declaration. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-global-bin-api-migration-r2-packet",
+          "arm": "packet",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet query concerns global executable directory validation and returns the complete checkGlobalBinDir source with the old import, PATH guard and optional write guard. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-changed-project-move-r2-competitor",
+          "arm": "competitor",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. After initial_instructions and s.info method documentation, the first task-directed Serena pattern search returns the changed-package git diff name-only option and related filtering documentation. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "initial_instructions and s.info are setup or method documentation, not qualifying task retrieval. Their costs remain in measured agent time."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-changed-project-move-r2-packet",
+          "arm": "packet",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": true,
+            "attempted": true,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "returnedUsableEvidence": "usable",
+            "providerError": false
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The packet asks about tracked-file changes and project moves, and returns the complete getChangedPackages source with git diff and classification logic. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged.",
+            "Packet explicitly reports partial overall coverage, lexical candidates and omitted files; complete returned target module does not establish exhaustive repository coverage or compiler/API resolution."
+          ],
+          "issues": []
+        },
+        {
+          "id": "pnpm-changed-project-move-r2-native",
+          "arm": "native",
+          "passed": true,
+          "instructionFollowed": "pass",
+          "adoption": {
+            "required": false,
+            "attempted": false,
+            "returnedUsableEvidence": null
+          },
+          "rationale": "The first action runs only the supplied native check and fails one of three cases. The native search returns source occurrences in getChangedPackages and its caller, including the ignored-file classification path. Its observed start is after that check completes. All implementation edits occur later as explicit file-change events, and the later standalone native check passes all three cases. Compound shell commands contain reads, listings or status/diff checks; no shell-embedded implementation write precedes the first investigation.",
+          "limitations": [
+            "Usable means relevant discovery or source evidence, not that this single result was sufficient to solve the task. The later native reads and all failures remain charged."
+          ],
+          "issues": []
+        }
+      ],
+      "limitation": "Manual review must identify task relevance and ordering hidden within shell commands. Matching action IDs and hashes do not independently prove those semantic judgments. Failed retrieval attempts remain included and can be compliant; their costs and outcomes are not removed."
+    },
+    "candidateDecisions": {
+      "packet": {
+        "passed": false,
+        "economicGatePassed": false,
+        "allCorrect": true,
+        "qualifiedWin": false,
+        "reasons": [
+          "native/totalTokens: aggregate or median reduction is below20%.",
+          "native/totalTokens: a repeat fails to improve.",
+          "native/chargedTimeMs: aggregate or median reduction is below20%.",
+          "native/chargedTimeMs: a repeat fails to improve.",
+          "competitor/chargedTimeMs: aggregate or median reduction is below20%."
+        ],
+        "comparisons": {
+          "native": {
+            "metrics": {
+              "totalTokens": {
+                "control": 361367,
+                "candidate": 404262,
+                "aggregateReductionPercent": -11.870203975459852,
+                "medianPairedReductionPercent": -9.81051335929899,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 188423,
+                    "candidate": 218140,
+                    "reductionPercent": -15.771429177966596
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 172944,
+                    "candidate": 186122,
+                    "reductionPercent": -7.619807567767601
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 87111,
+                    "candidate": 94502,
+                    "reductionPercent": -8.484577148695342
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 88312,
+                    "candidate": 92065,
+                    "reductionPercent": -4.249705589274391
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 101312,
+                    "candidate": 123638,
+                    "reductionPercent": -22.036876184459885
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 84632,
+                    "candidate": 94057,
+                    "reductionPercent": -11.136449569902638
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 96922.15537600001,
+                "candidate": 116887.20337699987,
+                "aggregateReductionPercent": -20.59905490498783,
+                "medianPairedReductionPercent": -25.072884442217877,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 47819.19066700005,
+                    "candidate": 60899.23795899998,
+                    "reductionPercent": -27.353133981471675
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 49102.96470899996,
+                    "candidate": 55987.96541799989,
+                    "reductionPercent": -14.021558066407326
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22992.672541999993,
+                    "candidate": 29379.170333000002,
+                    "reductionPercent": -27.776230794110575
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 25514.924666999956,
+                    "candidate": 26931.161167999962,
+                    "reductionPercent": -5.550619958646061
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 24826.51812500006,
+                    "candidate": 31520.067625999975,
+                    "reductionPercent": -26.96128980833432
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 23588.040042000008,
+                    "candidate": 29056.80424999993,
+                    "reductionPercent": -23.184479076101436
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          },
+          "competitor": {
+            "metrics": {
+              "totalTokens": {
+                "control": 636774,
+                "candidate": 404262,
+                "aggregateReductionPercent": 36.51405365168804,
+                "medianPairedReductionPercent": 36.56280688229123,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 318266,
+                    "candidate": 218140,
+                    "reductionPercent": 31.45984805162977
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 318508,
+                    "candidate": 186122,
+                    "reductionPercent": 41.56441910407274
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 149825,
+                    "candidate": 94502,
+                    "reductionPercent": 36.92507925913566
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 171082,
+                    "candidate": 92065,
+                    "reductionPercent": 46.18662395810196
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 168441,
+                    "candidate": 123638,
+                    "reductionPercent": 26.59863097464394
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 147426,
+                    "candidate": 94057,
+                    "reductionPercent": 36.200534505446804
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 130809.58958299982,
+                "candidate": 116887.20337699987,
+                "aggregateReductionPercent": 10.643245843353156,
+                "medianPairedReductionPercent": 7.331725339040405,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 64538.214959000004,
+                    "candidate": 60899.23795899998,
+                    "reductionPercent": 5.6384841172192415
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 66271.37462399981,
+                    "candidate": 55987.96541799989,
+                    "reductionPercent": 15.517120724210606
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 29741.335626000015,
+                    "candidate": 29379.170333000002,
+                    "reductionPercent": 1.2177169766491798
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 35605.701790999854,
+                    "candidate": 26931.161167999962,
+                    "reductionPercent": 24.36278513457802
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 34796.87933299999,
+                    "candidate": 31520.067625999975,
+                    "reductionPercent": 9.416970055393492
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 30665.67283299996,
+                    "candidate": 29056.80424999993,
+                    "reductionPercent": 5.246480622687319
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          }
+        },
+        "adoption": [
+          {
+            "id": "pnpm-changed-project-move-r1-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-changed-project-move-r1-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r1-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-competitor",
+            "arm": "competitor",
+            "mcpCalls": 3,
+            "mcpSucceeded": 3
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-packet",
+            "arm": "packet",
+            "mcpCalls": 1,
+            "mcpSucceeded": 1
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-native",
+            "arm": "native",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          }
+        ]
+      }
+    }
+  }
+}

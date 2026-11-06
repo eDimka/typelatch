@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "serena-qualified-ls-runtime",
+  "dependencies": {
+    "typescript": "5.5.4",
+    "typescript-language-server": "5.1.3"
+  }
+}

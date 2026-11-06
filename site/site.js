@@ -144,3 +144,69 @@ demoControls.hidden = false
 showScene(0)
 showLinkedScene()
 window.addEventListener('hashchange', showLinkedScene)
+
+const comparisonImage = document.querySelector('[data-comparison-image]')
+const comparisonButton = document.querySelector('[data-comparison-play]')
+let comparisonPlaying = false
+
+function stopComparison() {
+  if (!comparisonImage || !comparisonButton) return
+  comparisonImage.src = comparisonImage.dataset.poster
+  comparisonPlaying = false
+  comparisonButton.textContent = 'Play comparison'
+  comparisonButton.setAttribute('aria-pressed', 'false')
+  comparisonButton.hidden = reducedMotion.matches
+}
+
+if (comparisonImage && comparisonButton) {
+  comparisonButton.hidden = reducedMotion.matches
+  comparisonButton.addEventListener('click', () => {
+    if (comparisonPlaying) {
+      stopComparison()
+      status.textContent = 'Comparison replay stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    comparisonImage.src = comparisonImage.dataset.gif
+    comparisonPlaying = true
+    comparisonButton.textContent = 'Stop replay'
+    comparisonButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded Codex actions with accelerated timing. No new agent session is running.'
+  })
+  reducedMotion.addEventListener('change', stopComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopComparison()
+  })
+}
+
+const guidedImage = document.querySelector('[data-guided-comparison-image]')
+const guidedButton = document.querySelector('[data-guided-comparison-play]')
+let guidedPlaying = false
+function stopGuidedComparison() {
+  if (!guidedImage || !guidedButton) return
+  guidedImage.src = guidedImage.dataset.poster
+  guidedPlaying = false
+  guidedButton.textContent = 'Play recorded comparison'
+  guidedButton.setAttribute('aria-pressed', 'false')
+  guidedButton.hidden = reducedMotion.matches
+}
+if (guidedImage && guidedButton) {
+  guidedButton.hidden = reducedMotion.matches
+  guidedButton.addEventListener('click', () => {
+    if (guidedPlaying) {
+      stopGuidedComparison()
+      status.textContent = 'Recorded comparison stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    guidedImage.src = guidedImage.dataset.gif
+    guidedPlaying = true
+    guidedButton.textContent = 'Stop replay'
+    guidedButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded public Codex actions with accelerated timing.'
+  })
+  reducedMotion.addEventListener('change', stopGuidedComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopGuidedComparison()
+  })
+}

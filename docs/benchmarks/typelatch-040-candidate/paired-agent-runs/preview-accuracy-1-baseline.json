@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "preview-accuracy-1-baseline",
+    "task": "preview-accuracy",
+    "repeat": 1,
+    "arm": "baseline",
+    "startedAt": "2026-11-06T16:56:11.597Z",
+    "finishedAt": "2026-11-06T16:57:14.753Z",
+    "elapsedMs": 63156.34599999999,
+    "setupMs": 5925,
+    "indexSetupMs": 0,
+    "gradingMs": 4301.590124999988,
+    "status": "completed",
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "correct": true,
+    "usage": {
+      "inputTokens": 150301,
+      "cachedInputTokens": 129536,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 1791,
+      "reasoningOutputTokens": 295,
+      "totalTokens": 152092,
+      "uncachedInputTokens": 20765
+    },
+    "counts": {
+      "shellCalls": 8,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 4,
+      "contentSearchShellCalls": 3,
+      "fileListingShellCalls": 2,
+      "ambiguousSearchShellCalls": 0
+    },
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "fixtureSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+    "promptSha256": "2fb41f35623f53de35d06bc6dca912f4736226e8f9dcf73b8109ec54e47517bf",
+    "rawSha256": "0fdb665b526e347a819e0f27b286de6ca443571b411b51d23d51963aa3b312f8",
+    "evidence": "paired-agent-runs/preview-accuracy-1-baseline.json",
+    "recordingError": null,
+    "toolPolicyFollowed": true
+  },
+  "prompt": "Customers report that after previewing a cart, changing its quantities or delivery region sometimes leaves the displayed quote unchanged. Split rows for the same SKU can also undercharge shipping, and a region with a configured zero base charge incorrectly gets the fallback charge. Fix preview correctness for repeated calls on one application instance. Merchandise and grams must count every unit of every row. Shipping is zero for an empty cart; otherwise it is the exact configured region base, or the wildcard base when that region has no own configured value, or zero when neither exists, plus the configured amount per started kilogram. Zero is a real configured price. Existing invalid quantity, missing region, and unknown SKU errors must still occur after earlier successful previews. Do not mutate caller data, and mutation of a returned quote must not corrupt later results.\n\nWork only in this isolated project. Inspect the available source and dependency APIs using whichever available tools you judge useful. Make a minimal fix in existing implementation source files. Do not change tests, dependencies, package files, configuration, or documentation, and do not add files. You may run the existing npm test and npm run build commands. Check the result with the existing tests. Do not access files outside this project, use the network, install packages, make commits, or delegate work. Report the fix and any remaining failures.\n\nFollow this workflow in either condition: first discover relevant source with workspace_search using detail source when that tool is available, otherwise use native file and search tools. Before editing, inspect relevant installed dependency APIs with workspace_context or library_symbol when available, otherwise read installed declarations. Run the existing tests before and after the fix using workspace_validate when available, otherwise use the native shell. If a Typelatch tool fails, you may fall back to native tools and report that failure.",
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd && rg --files -g '\"'!node_modules'\"' -g '\"'!package-lock.json'\"' -g '\"'!yarn.lock'\"' -g '\"'!pnpm-lock.yaml'\"' -g '\"'! .git'\"'\"",
+      "outputBytes": 1552,
+      "outputSha256": "c3dc1be8ca475a8ec2308f4a052e901cfb979501dc79deb6972703f21f37cfcd",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 12779.236708000011,
+      "completedMs": 12779.236708000011
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "failed",
+      "command": "/bin/zsh -c \"cat package.json && rg --files -g AGENTS.md -g '\"'!node_modules'\"' && rg -n 'preview|memo|cache|shipping' src\"",
+      "outputBytes": 398,
+      "outputSha256": "a582a70c3c67b4ecce1a47b5e5809491891815c94f027e4f105b45a6ce07472f",
+      "exitCode": 1,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 15999.159875000012,
+      "completedMs": 15999.159875000012
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "command": "/bin/zsh -c \"rg -n 'preview|memo|cache|shipping' src && cat src/quotes/*.ts src/cart/*.ts src/index.ts\"",
+      "outputBytes": 22106,
+      "outputSha256": "b99e3b71d072e661ea97b8e998cf729b948ad2deaa71228b118e939f29e128c7",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 19265.208667,
+      "completedMs": 19265.208667
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm test'",
+      "outputBytes": 4363,
+      "outputSha256": "7e804265bc87bde1ee7fd235c64be7afdaec758c1457851b8ca25c1d4d81975a",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 19364.855375000014,
+      "completedMs": 19406.733000000007
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "completed",
+      "command": "/bin/zsh -c \"cat test/task.test.mjs test/public.test.mjs src/catalog/types.ts src/catalog/read.ts && rg -n 'copyCatalog|effect' src/catalog/service.ts src/partners/schema.ts && cat tsconfig.json && rg -n 'hasOwn\\\\(|stringify\\\\(' node_modules/typescript/lib/lib.es2022.object.d.ts node_modules/typescript/lib/lib.es5.d.ts && rg -n 'export declare (const|function) (Struct|String|Number|Array)' node_modules/effect/dist/dts/Schema.d.ts\"",
+      "outputBytes": 4314,
+      "outputSha256": "c3386659ad746f4b0216fe10dc84753e684c6fdbfa81deab4cdcc103345621c2",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 25422.506458000018,
+      "completedMs": 25422.506458000018
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "failed",
+      "command": "/bin/zsh -c 'npm run build && npm test'",
+      "outputBytes": 4758,
+      "outputSha256": "b4c72cc083dcaefee541b5847dbc592582d5109b3b7a9ee4c52f34c0b7d8a89f",
+      "exitCode": 1,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 25513.223417,
+      "completedMs": 27759.795417000016
+    },
+    {
+      "type": "file_change",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/src/cart/weight.ts",
+          "kind": "update"
+        },
+        {
+          "path": "$WORKSPACE/src/quotes/calculate.ts",
+          "kind": "update"
+        },
+        {
+          "path": "$WORKSPACE/src/quotes/preview.ts",
+          "kind": "update"
+        },
+        {
+          "path": "$WORKSPACE/src/quotes/region.ts",
+          "kind": "update"
+        },
+        {
+          "path": "$WORKSPACE/src/quotes/shipping.ts",
+          "kind": "update"
+        }
+      ],
+      "startedMs": 50085.22983300002,
+      "completedMs": 50209.626917000016
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "command": "/bin/zsh -c 'npm run build && npm test'",
+      "outputBytes": 3628,
+      "outputSha256": "e674d9c66c0446402432d598e5ad995b6f90ed19214fecb679044a8c57ede714",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 50365.58345800001,
+      "completedMs": 52510.33595800001
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "status": "failed",
+      "command": "/bin/zsh -c 'git diff --check && git diff --stat && git diff -- src/quotes/preview.ts src/cart/weight.ts src/quotes/region.ts src/quotes/calculate.ts src/quotes/shipping.ts && git status --short'",
+      "outputBytes": 7443,
+      "outputSha256": "b36846cd27f936f669e95e14a9f8f4607fdb8f69e20b0e2db39be822e81d1b00",
+      "exitCode": 129,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 57195.38145800002,
+      "completedMs": 57195.573208000016
+    }
+  ],
+  "baseline": {
+    "taskId": "preview-accuracy",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1796,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "contract.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1575,
+      "stdout": "",
+      "stderr": ""
+    },
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/public.test.mjs",
+        "test/operations.test.mjs",
+        "test/task.test.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 273,
+      "stdout": "TAP version 13\n# Subtest: catalog import reports row errors while normalizing valid inventory\nok 1 - catalog import reports row errors while normalizing valid inventory\n  ---\n  duration_ms: 8.437458\n  type: 'test'\n  ...\n# Subtest: catalog revisions are atomic and feed production checkout snapshots\nok 2 - catalog revisions are atomic and feed production checkout snapshots\n  ---\n  duration_ms: 0.540625\n  type: 'test'\n  ...\n# Subtest: carrier rates explain eligibility, rounded surcharges and deterministic choices\nok 3 - carrier rates explain eligibility, rounded surcharges and deterministic choices\n  ---\n  duration_ms: 0.703292\n  type: 'test'\n  ...\n# Subtest: rate replacement validates every band before changing the active book\nok 4 - rate replacement validates every band before changing the active book\n  ---\n  duration_ms: 0.309917\n  type: 'test'\n  ...\n# Subtest: cart adjustments allocate exact cents and preserve return credit conservation\nok 5 - cart adjustments allocate exact cents and preserve return credit conservation\n  ---\n  duration_ms: 0.508709\n  type: 'test'\n  ...\n# Subtest: promotion eligibility, exclusivity and tax rounding remain deterministic\nok 6 - promotion eligibility, exclusivity and tax rounding remain deterministic\n  ---\n  duration_ms: 0.467334\n  type: 'test'\n  ...\n# Subtest: stock reservations split across locations without overselling or partial holds\nok 7 - stock reservations split across locations without overselling or partial holds\n  ---\n  duration_ms: 0.599542\n  type: 'test'\n  ...\n# Subtest: stock releases, restocks and expiry rules keep operational inventory coherent\nok 8 - stock releases, restocks and expiry rules keep operational inventory coherent\n  ---\n  duration_ms: 0.472042\n  type: 'test'\n  ...\n# Subtest: dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\nok 9 - dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\n  ---\n  duration_ms: 1.472625\n  type: 'test'\n  ...\n# Subtest: dispatch cancellation and failed preparation release held stock with audit evidence\nok 10 - dispatch cancellation and failed preparation release held stock with audit evidence\n  ---\n  duration_ms: 0.76675\n  type: 'test'\n  ...\n# Subtest: dashboard projections expose drift, filter orders and report structural corruption\nok 11 - dashboard projections expose drift, filter orders and report structural corruption\n  ---\n  duration_ms: 0.616541\n  type: 'test'\n  ...\n# Subtest: a single cart preview includes merchandise and shipping\nok 12 - a single cart preview includes merchandise and shipping\n  ---\n  duration_ms: 0.815209\n  type: 'test'\n  ...\n# Subtest: an empty cart is free\nok 13 - an empty cart is free\n  ---\n  duration_ms: 0.077417\n  type: 'test'\n  ...\n# Subtest: a valid partner manifest is accepted\nok 14 - a valid partner manifest is accepted\n  ---\n  duration_ms: 0.109458\n  type: 'test'\n  ...\n# Subtest: an unknown order cannot be rescheduled\nok 15 - an unknown order cannot be rescheduled\n  ---\n  duration_ms: 0.093833\n  type: 'test'\n  ...\n# Subtest: rescheduling updates an open order\nok 16 - rescheduling updates an open order\n  ---\n  duration_ms: 0.179833\n  type: 'test'\n  ...\n# Subtest: changing quantity after a preview updates price and weight\nnot ok 17 - changing quantity after a preview updates price and weight\n  ---\n  duration_ms: 1.322584\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 300,\n    +   merchandiseCents: 500,\n    +   shippingCents: 140,\n    +   totalCents: 640\n    -   grams: 1200,\n    -   merchandiseCents: 2000,\n    -   shippingCents: 180,\n    -   totalCents: 2180\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 2000\n    grams: 1200\n    shippingCents: 180\n    totalCents: 2180\n  actual:\n    merchandiseCents: 500\n    grams: 300\n    shippingCents: 140\n    totalCents: 640\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n1..17\n# tests 17\n# suites 0\n# pass 16\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 240.940042\n",
+      "stderr": "",
+      "tests": 17,
+      "pass": 16,
+      "fail": 1,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/hidden.test.mjs"
+      ],
+      "exitCode": 1,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 252,
+      "stdout": "TAP version 13\n# Subtest: preview-accuracy: quantity changes within one browser session\nnot ok 1 - preview-accuracy: quantity changes within one browser session\n  ---\n  duration_ms: 1.748708\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 600,\n    +   merchandiseCents: 700,\n    +   shippingCents: 475,\n    +   totalCents: 1175\n    -   grams: 1800,\n    -   merchandiseCents: 2100,\n    -   shippingCents: 550,\n    -   totalCents: 2650\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 2100\n    grams: 1800\n    shippingCents: 550\n    totalCents: 2650\n  actual:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 475\n    totalCents: 1175\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.start (node:internal/test_runner/test:944:17)\n    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)\n  ...\n# Subtest: preview-accuracy: destination changes within one browser session\nnot ok 2 - preview-accuracy: destination changes within one browser session\n  ---\n  duration_ms: 0.309042\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n        grams: 600,\n        merchandiseCents: 700,\n    +   shippingCents: 475,\n    +   totalCents: 1175\n    -   shippingCents: 325,\n    -   totalCents: 1025\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 325\n    totalCents: 1025\n  actual:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 475\n    totalCents: 1175\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)\n  ...\n# Subtest: preview-accuracy: same count of different products\nnot ok 3 - preview-accuracy: same count of different products\n  ---\n  duration_ms: 0.169833\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 600,\n    +   merchandiseCents: 700,\n    -   grams: 450,\n    -   merchandiseCents: 900,\n        shippingCents: 475,\n    +   totalCents: 1175\n    -   totalCents: 1375\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 900\n    grams: 450\n    shippingCents: 475\n    totalCents: 1375\n  actual:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 475\n    totalCents: 1175\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: split SKU rows count all units\nnot ok 4 - preview-accuracy: split SKU rows count all units\n  ---\n  duration_ms: 0.384958\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 1500,\n    -   grams: 3300,\n        merchandiseCents: 4600,\n    +   shippingCents: 550,\n    +   totalCents: 5150\n    -   shippingCents: 700,\n    -   totalCents: 5300\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 4600\n    grams: 3300\n    shippingCents: 700\n    totalCents: 5300\n  actual:\n    merchandiseCents: 4600\n    grams: 1500\n    shippingCents: 550\n    totalCents: 5150\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: explicit zero regional tariff is retained\nnot ok 5 - preview-accuracy: explicit zero regional tariff is retained\n  ---\n  duration_ms: 0.272209\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n        grams: 600,\n        merchandiseCents: 700,\n    +   shippingCents: 325,\n    +   totalCents: 1025\n    -   shippingCents: 75,\n    -   totalCents: 775\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 75\n    totalCents: 775\n  actual:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 325\n    totalCents: 1025\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: inherited region names do not become prices\nnot ok 6 - preview-accuracy: inherited region names do not become prices\n  ---\n  duration_ms: 0.229917\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n        grams: 600,\n        merchandiseCents: 700,\n    +   shippingCents: 'function toString() { [native code] }75',\n    +   totalCents: '700function toString() { [native code] }75'\n    -   shippingCents: 325,\n    -   totalCents: 1025\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 325\n    totalCents: 1025\n  actual:\n    merchandiseCents: 700\n    grams: 600\n    shippingCents: 'function toString() { [native code] }75'\n    totalCents: '700function toString() { [native code] }75'\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: missing exact and wildcard prices mean zero base\nok 7 - preview-accuracy: missing exact and wildcard prices mean zero base\n  ---\n  duration_ms: 0.163541\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: empty and populated previews alternate\nok 8 - preview-accuracy: empty and populated previews alternate\n  ---\n  duration_ms: 0.161209\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: cached results never bypass quantity validation\nnot ok 9 - preview-accuracy: cached results never bypass quantity validation\n  ---\n  duration_ms: 0.384292\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception.'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n  operator: 'throws'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: cached results never bypass region validation\nnot ok 10 - preview-accuracy: cached results never bypass region validation\n  ---\n  duration_ms: 0.4035\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception.'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n  operator: 'throws'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: cached results never hide unknown SKU\nnot ok 11 - preview-accuracy: cached results never hide unknown SKU\n  ---\n  duration_ms: 0.268291\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: 'Missing expected exception.'\n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n  operator: 'throws'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: returned quote mutation cannot poison later previews\nok 12 - preview-accuracy: returned quote mutation cannot poison later previews\n  ---\n  duration_ms: 0.066417\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: frozen caller inputs remain intact\nnot ok 13 - preview-accuracy: frozen caller inputs remain intact\n  ---\n  duration_ms: 0.23475\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 1200,\n    -   grams: 1800,\n        merchandiseCents: 2100,\n    +   shippingCents: 400,\n    +   totalCents: 2500\n    -   shippingCents: 150,\n    -   totalCents: 2250\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 2100\n    grams: 1800\n    shippingCents: 150\n    totalCents: 2250\n  actual:\n    merchandiseCents: 2100\n    grams: 1200\n    shippingCents: 400\n    totalCents: 2500\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: constructor snapshots catalog and tariff records\nok 14 - preview-accuracy: constructor snapshots catalog and tariff records\n  ---\n  duration_ms: 0.063167\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: started kilogram boundaries use all units\nnot ok 15 - preview-accuracy: started kilogram boundaries use all units\n  ---\n  duration_ms: 0.107542\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 1000,\n    +   merchandiseCents: 20,\n    +   shippingCents: 475,\n    +   totalCents: 495\n    -   grams: 1500,\n    -   merchandiseCents: 30,\n    -   shippingCents: 550,\n    -   totalCents: 580\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 30\n    grams: 1500\n    shippingCents: 550\n    totalCents: 580\n  actual:\n    merchandiseCents: 20\n    grams: 1000\n    shippingCents: 475\n    totalCents: 495\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n# Subtest: preview-accuracy: legal delimiter characters remain distinct\nnot ok 16 - preview-accuracy: legal delimiter characters remain distinct\n  ---\n  duration_ms: 0.147417\n  type: 'test'\n  location: '$TEMP'\n  failureType: 'testCodeFailure'\n  error: |-\n    Expected values to be strictly deep-equal:\n    + actual - expected\n    \n      {\n    +   grams: 100,\n    +   merchandiseCents: 200,\n    +   shippingCents: 325,\n    +   totalCents: 525\n    -   grams: 50,\n    -   merchandiseCents: 100,\n    -   shippingCents: 475,\n    -   totalCents: 575\n      }\n    \n  code: 'ERR_ASSERTION'\n  name: 'AssertionError'\n  expected:\n    merchandiseCents: 100\n    grams: 50\n    shippingCents: 475\n    totalCents: 575\n  actual:\n    merchandiseCents: 200\n    grams: 100\n    shippingCents: 325\n    totalCents: 525\n  operator: 'deepStrictEqual'\n  stack: |-\n    TestContext.<anonymous> (file://$TEMP\n    Test.runInAsyncScope (node:async_hooks:214:14)\n    Test.run (node:internal/test_runner/test:1047:25)\n    Test.processPendingSubtests (node:internal/test_runner/test:744:18)\n    Test.postRun (node:internal/test_runner/test:1173:19)\n    Test.run (node:internal/test_runner/test:1101:12)\n    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)\n  ...\n1..16\n# tests 16\n# suites 0\n# pass 4\n# fail 12\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 218.536334\n",
+      "stderr": "",
+      "tests": 16,
+      "pass": 4,
+      "fail": 12,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": false
+  },
+  "preparation": null,
+  "grading": {
+    "taskId": "preview-accuracy",
+    "typecheck": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "tsconfig.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1777,
+      "stdout": "",
+      "stderr": ""
+    },
+    "apiContract": {
+      "command": [
+        "$NODE",
+        "$REPOSITORY/scripts/fixtures/paired-agent/parcel-desk/node_modules/typescript/bin/tsc",
+        "-p",
+        "contract.json"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 1570,
+      "stdout": "",
+      "stderr": ""
+    },
+    "publicTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/public.test.mjs",
+        "test/operations.test.mjs",
+        "test/task.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 284,
+      "stdout": "TAP version 13\n# Subtest: catalog import reports row errors while normalizing valid inventory\nok 1 - catalog import reports row errors while normalizing valid inventory\n  ---\n  duration_ms: 8.374\n  type: 'test'\n  ...\n# Subtest: catalog revisions are atomic and feed production checkout snapshots\nok 2 - catalog revisions are atomic and feed production checkout snapshots\n  ---\n  duration_ms: 0.746083\n  type: 'test'\n  ...\n# Subtest: carrier rates explain eligibility, rounded surcharges and deterministic choices\nok 3 - carrier rates explain eligibility, rounded surcharges and deterministic choices\n  ---\n  duration_ms: 0.805041\n  type: 'test'\n  ...\n# Subtest: rate replacement validates every band before changing the active book\nok 4 - rate replacement validates every band before changing the active book\n  ---\n  duration_ms: 0.322708\n  type: 'test'\n  ...\n# Subtest: cart adjustments allocate exact cents and preserve return credit conservation\nok 5 - cart adjustments allocate exact cents and preserve return credit conservation\n  ---\n  duration_ms: 0.518291\n  type: 'test'\n  ...\n# Subtest: promotion eligibility, exclusivity and tax rounding remain deterministic\nok 6 - promotion eligibility, exclusivity and tax rounding remain deterministic\n  ---\n  duration_ms: 0.47675\n  type: 'test'\n  ...\n# Subtest: stock reservations split across locations without overselling or partial holds\nok 7 - stock reservations split across locations without overselling or partial holds\n  ---\n  duration_ms: 0.617833\n  type: 'test'\n  ...\n# Subtest: stock releases, restocks and expiry rules keep operational inventory coherent\nok 8 - stock releases, restocks and expiry rules keep operational inventory coherent\n  ---\n  duration_ms: 0.299125\n  type: 'test'\n  ...\n# Subtest: dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\nok 9 - dispatch integrates production manifest, catalog, stock, carrier rates and delivery records\n  ---\n  duration_ms: 1.365083\n  type: 'test'\n  ...\n# Subtest: dispatch cancellation and failed preparation release held stock with audit evidence\nok 10 - dispatch cancellation and failed preparation release held stock with audit evidence\n  ---\n  duration_ms: 0.862125\n  type: 'test'\n  ...\n# Subtest: dashboard projections expose drift, filter orders and report structural corruption\nok 11 - dashboard projections expose drift, filter orders and report structural corruption\n  ---\n  duration_ms: 0.644125\n  type: 'test'\n  ...\n# Subtest: a single cart preview includes merchandise and shipping\nok 12 - a single cart preview includes merchandise and shipping\n  ---\n  duration_ms: 0.921917\n  type: 'test'\n  ...\n# Subtest: an empty cart is free\nok 13 - an empty cart is free\n  ---\n  duration_ms: 0.082292\n  type: 'test'\n  ...\n# Subtest: a valid partner manifest is accepted\nok 14 - a valid partner manifest is accepted\n  ---\n  duration_ms: 0.134542\n  type: 'test'\n  ...\n# Subtest: an unknown order cannot be rescheduled\nok 15 - an unknown order cannot be rescheduled\n  ---\n  duration_ms: 0.094959\n  type: 'test'\n  ...\n# Subtest: rescheduling updates an open order\nok 16 - rescheduling updates an open order\n  ---\n  duration_ms: 0.2305\n  type: 'test'\n  ...\n# Subtest: changing quantity after a preview updates price and weight\nok 17 - changing quantity after a preview updates price and weight\n  ---\n  duration_ms: 0.774875\n  type: 'test'\n  ...\n1..17\n# tests 17\n# suites 0\n# pass 17\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 247.449792\n",
+      "stderr": "",
+      "tests": 17,
+      "pass": 17,
+      "fail": 0,
+      "skipped": 0
+    },
+    "hiddenTests": {
+      "command": [
+        "$NODE",
+        "--test",
+        "--test-reporter=tap",
+        "test/hidden.test.mjs"
+      ],
+      "exitCode": 0,
+      "signal": null,
+      "error": null,
+      "elapsedMs": 248,
+      "stdout": "TAP version 13\n# Subtest: preview-accuracy: quantity changes within one browser session\nok 1 - preview-accuracy: quantity changes within one browser session\n  ---\n  duration_ms: 0.984166\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: destination changes within one browser session\nok 2 - preview-accuracy: destination changes within one browser session\n  ---\n  duration_ms: 0.075542\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: same count of different products\nok 3 - preview-accuracy: same count of different products\n  ---\n  duration_ms: 0.108625\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: split SKU rows count all units\nok 4 - preview-accuracy: split SKU rows count all units\n  ---\n  duration_ms: 0.071625\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: explicit zero regional tariff is retained\nok 5 - preview-accuracy: explicit zero regional tariff is retained\n  ---\n  duration_ms: 0.136083\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: inherited region names do not become prices\nok 6 - preview-accuracy: inherited region names do not become prices\n  ---\n  duration_ms: 0.054416\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: missing exact and wildcard prices mean zero base\nok 7 - preview-accuracy: missing exact and wildcard prices mean zero base\n  ---\n  duration_ms: 0.100208\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: empty and populated previews alternate\nok 8 - preview-accuracy: empty and populated previews alternate\n  ---\n  duration_ms: 0.146125\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: cached results never bypass quantity validation\nok 9 - preview-accuracy: cached results never bypass quantity validation\n  ---\n  duration_ms: 0.447042\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: cached results never bypass region validation\nok 10 - preview-accuracy: cached results never bypass region validation\n  ---\n  duration_ms: 0.316333\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: cached results never hide unknown SKU\nok 11 - preview-accuracy: cached results never hide unknown SKU\n  ---\n  duration_ms: 0.111417\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: returned quote mutation cannot poison later previews\nok 12 - preview-accuracy: returned quote mutation cannot poison later previews\n  ---\n  duration_ms: 0.053458\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: frozen caller inputs remain intact\nok 13 - preview-accuracy: frozen caller inputs remain intact\n  ---\n  duration_ms: 0.105125\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: constructor snapshots catalog and tariff records\nok 14 - preview-accuracy: constructor snapshots catalog and tariff records\n  ---\n  duration_ms: 0.051917\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: started kilogram boundaries use all units\nok 15 - preview-accuracy: started kilogram boundaries use all units\n  ---\n  duration_ms: 0.051458\n  type: 'test'\n  ...\n# Subtest: preview-accuracy: legal delimiter characters remain distinct\nok 16 - preview-accuracy: legal delimiter characters remain distinct\n  ---\n  duration_ms: 0.041125\n  type: 'test'\n  ...\n1..16\n# tests 16\n# suites 0\n# pass 16\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 216.031333\n",
+      "stderr": "",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0
+    },
+    "integrity": {
+      "passed": true,
+      "changes": [
+        "src/cart/weight.ts",
+        "src/quotes/calculate.ts",
+        "src/quotes/preview.ts",
+        "src/quotes/region.ts",
+        "src/quotes/shipping.ts"
+      ],
+      "protectedChanges": [],
+      "excludedGeneratedRoots": [
+        ".git",
+        ".typelatch",
+        "dist"
+      ],
+      "dependenciesIncluded": true
+    },
+    "passed": true
+  },
+  "changes": [
+    {
+      "path": "src/cart/weight.ts",
+      "before": "import type { Cart } from \"./types.js\";\nimport type { Catalog } from \"../catalog/types.js\";\nimport { requireProduct } from \"../catalog/read.js\";\nexport function packedWeight(cart: Cart, catalog: Catalog): number {\n  const seen = new Set<string>();\n  let grams = 0;\n  for (const line of cart.lines) {\n    if (seen.has(line.sku)) continue;\n    seen.add(line.sku);\n    grams += requireProduct(catalog, line.sku).unitGrams * line.quantity;\n  }\n  return grams;\n}\n",
+      "after": "import type { Cart } from \"./types.js\";\nimport type { Catalog } from \"../catalog/types.js\";\nimport { requireProduct } from \"../catalog/read.js\";\nexport function packedWeight(cart: Cart, catalog: Catalog): number {\n  let grams = 0;\n  for (const line of cart.lines) {\n    grams += requireProduct(catalog, line.sku).unitGrams * line.quantity;\n  }\n  return grams;\n}\n"
+    },
+    {
+      "path": "src/quotes/calculate.ts",
+      "before": "import type { Catalog } from \"../catalog/types.js\";\nimport type { Cart } from \"../cart/types.js\";\nimport { assertCart } from \"../cart/validate.js\";\nimport { merchandiseTotal } from \"../cart/subtotal.js\";\nimport { packedWeight } from \"../cart/weight.js\";\nimport { shippingTotal } from \"./shipping.js\";\nimport type { Quote, ShippingRates } from \"./types.js\";\nexport function calculateQuote(cart: Cart, catalog: Catalog, rates: ShippingRates): Quote {\n  assertCart(cart);\n  const merchandiseCents = merchandiseTotal(cart, catalog);\n  const grams = packedWeight(cart, catalog);\n  const shippingCents = shippingTotal(grams, cart.region, rates);\n  return { merchandiseCents, grams, shippingCents, totalCents: merchandiseCents + shippingCents };\n}\n",
+      "after": "import type { Catalog } from \"../catalog/types.js\";\nimport type { Cart } from \"../cart/types.js\";\nimport { assertCart } from \"../cart/validate.js\";\nimport { merchandiseTotal } from \"../cart/subtotal.js\";\nimport { packedWeight } from \"../cart/weight.js\";\nimport { shippingTotal } from \"./shipping.js\";\nimport type { Quote, ShippingRates } from \"./types.js\";\nexport function calculateQuote(cart: Cart, catalog: Catalog, rates: ShippingRates): Quote {\n  assertCart(cart);\n  const merchandiseCents = merchandiseTotal(cart, catalog);\n  const grams = packedWeight(cart, catalog);\n  const shippingCents = cart.lines.length === 0 ? 0 : shippingTotal(grams, cart.region, rates);\n  return { merchandiseCents, grams, shippingCents, totalCents: merchandiseCents + shippingCents };\n}\n"
+    },
+    {
+      "path": "src/quotes/preview.ts",
+      "before": "import type { Catalog } from \"../catalog/types.js\";\nimport type { Cart } from \"../cart/types.js\";\nimport { cartFingerprint } from \"../cart/fingerprint.js\";\nimport { calculateQuote } from \"./calculate.js\";\nimport { copyCatalog } from \"../catalog/service.js\";\nimport { snapshotShippingRates } from \"./rate-book.js\";\nimport { QuoteCache } from \"./cache.js\";\nimport type { Quote, ShippingRates } from \"./types.js\";\nexport class Checkout {\n  private readonly cache = new QuoteCache();\n  private readonly catalog: Catalog;\n  private readonly rates: ShippingRates;\n  constructor(catalog: Catalog, rates: ShippingRates) {\n    this.catalog = copyCatalog(catalog);\n    this.rates = snapshotShippingRates(rates);\n  }\n  preview(cart: Cart): Quote {\n    const key = cartFingerprint(cart);\n    const existing = this.cache.get(key);\n    if (existing) return existing;\n    const value = calculateQuote(cart, this.catalog, this.rates);\n    this.cache.put(key, value);\n    return { ...value };\n  }\n}\n",
+      "after": "import type { Catalog } from \"../catalog/types.js\";\nimport type { Cart } from \"../cart/types.js\";\nimport { calculateQuote } from \"./calculate.js\";\nimport { copyCatalog } from \"../catalog/service.js\";\nimport { snapshotShippingRates } from \"./rate-book.js\";\nimport type { Quote, ShippingRates } from \"./types.js\";\nexport class Checkout {\n  private readonly catalog: Catalog;\n  private readonly rates: ShippingRates;\n  constructor(catalog: Catalog, rates: ShippingRates) {\n    this.catalog = copyCatalog(catalog);\n    this.rates = snapshotShippingRates(rates);\n  }\n  preview(cart: Cart): Quote {\n    return calculateQuote(cart, this.catalog, this.rates);\n  }\n}\n"
+    },
+    {
+      "path": "src/quotes/region.ts",
+      "before": "import type { ShippingRates } from \"./types.js\";\nexport const regionBase = (region: string, rates: ShippingRates): number => rates.baseByRegion[region] || rates.baseByRegion[\"*\"] || 0;\n",
+      "after": "import type { ShippingRates } from \"./types.js\";\nexport const regionBase = (region: string, rates: ShippingRates): number => Object.hasOwn(rates.baseByRegion, region) ? rates.baseByRegion[region]! : Object.hasOwn(rates.baseByRegion, \"*\") ? rates.baseByRegion[\"*\"]! : 0;\n"
+    },
+    {
+      "path": "src/quotes/shipping.ts",
+      "before": "import type { ShippingRates } from \"./types.js\";\nimport { regionBase } from \"./region.js\";\nexport const shippingTotal = (grams: number, region: string, rates: ShippingRates): number => grams === 0 ? 0 : regionBase(region, rates) + Math.ceil(grams / 1000) * rates.perStartedKilogram;\n",
+      "after": "import type { ShippingRates } from \"./types.js\";\nimport { regionBase } from \"./region.js\";\nexport const shippingTotal = (grams: number, region: string, rates: ShippingRates): number => regionBase(region, rates) + Math.ceil(grams / 1000) * rates.perStartedKilogram;\n"
+    }
+  ],
+  "fixture": {
+    "fileCount": 6428,
+    "manifestSha256": "eff65886578622fb0b9beb1a4cf9483dcaaced3c1582c89819a3e770006d8d40",
+    "dependencies": [
+      {
+        "path": "node_modules/typescript/package.json",
+        "name": "typescript",
+        "version": "6.0.3",
+        "sha256": "9332e97c30d3e53ed54910b89207ed657fb444066484df6e5b6965bf130865e9"
+      },
+      {
+        "path": "node_modules/effect/package.json",
+        "name": "effect",
+        "version": "3.22.1",
+        "sha256": "d5aa70267dcb4947c0aef06182e95251a721fd7ce4b5e8fd183676c92d0efea2"
+      },
+      {
+        "path": "packages/preview/node_modules/effect/package.json",
+        "name": "effect",
+        "version": "4.0.0-rc.112",
+        "sha256": "0ad20c73dfbe482996f046a0c1170b1a08d6fea7effeb6767fd247cdad53a56d"
+      }
+    ]
+  },
+  "recording": "Allowlisted completed public tool actions, final source changes, independent test output, and measured usage only. Model reasoning and message bodies are not exported. Full initial file inventory is retained locally; its digest includes installed dependencies."
+}

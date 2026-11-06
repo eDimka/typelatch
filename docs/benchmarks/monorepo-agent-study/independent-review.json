@@ -1,0 +1,673 @@
+{
+  "schemaVersion": 1,
+  "originalSha256": "30238eee5b30c9c1f3bfc7f02dc7cf089481d2e5736866f4a22915372c1d73e0",
+  "normalization": "Repository and home paths replaced.",
+  "audit": {
+    "schemaVersion": 1,
+    "reviewer": "benchmark_review",
+    "reviewedAt": "2026-11-06T19:17:59.688Z",
+    "reportSha256": "1efcf9d86d23d82875fe799d3e65dceb4dfa927d6438048d6c2ec760702d7508",
+    "protocolSha256": "e66ab2a3beb21a4fe7e57edc6664a47a73336f58e6e6efb6238d0549ee1cdb9f",
+    "scope": "All16 completed availability sessions. Public actions, grading/source changes, invocation/process and cleanup metadata only. No raw reasoning or assistant message bodies inspected.",
+    "passed": true,
+    "rows": [
+      {
+        "id": "pnpm-changed-project-move-r1-native",
+        "publicEvidenceSha256": "b7946cb6678fc04f4b2a18459bb3eaeb8b151ccf49a021517a71097b37275b88",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 1,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 77056,
+          "cachedInputTokens": 68480,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 553,
+          "reasoningOutputTokens": 14,
+          "totalTokens": 77609,
+          "uncachedInputTokens": 8576
+        },
+        "chargedTimeMs": 22547.090833,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-typelatch",
+        "publicEvidenceSha256": "f6727ba8d292b41ed8fbdce8ec0fb8a223d6f7922cd4141e91335c2b8b312f21",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 4,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 73836,
+          "cachedInputTokens": 58880,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 526,
+          "reasoningOutputTokens": 14,
+          "totalTokens": 74362,
+          "uncachedInputTokens": 14956
+        },
+        "chargedTimeMs": 18993.169125,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-competitor",
+        "publicEvidenceSha256": "9985b6904e5619a7342aa7d5879dcbb47abbc14533bcd99268c886b77c92f2a9",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 5,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 3,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 91188,
+          "cachedInputTokens": 78976,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 594,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 91782,
+          "uncachedInputTokens": 12212
+        },
+        "chargedTimeMs": 22505.40741600003,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-packet",
+        "publicEvidenceSha256": "a6caec479658e16d722f7a5219c0ab809106ca8ca7355c9fa26abee916d2aa70",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 4,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 0,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 69692,
+          "cachedInputTokens": 48128,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 543,
+          "reasoningOutputTokens": 35,
+          "totalTokens": 70235,
+          "uncachedInputTokens": 21564
+        },
+        "chargedTimeMs": 20089.12854200002,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-typelatch",
+        "publicEvidenceSha256": "91030d2be426733c732e5149102eb4e5d0f7699223ebd07a9700554e800ef9df",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 8,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 4,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 4,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 125910,
+          "cachedInputTokens": 111872,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 849,
+          "reasoningOutputTokens": 10,
+          "totalTokens": 126759,
+          "uncachedInputTokens": 14038
+        },
+        "chargedTimeMs": 29701.126541999984,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-native",
+        "publicEvidenceSha256": "a47aa65bdfef0687f131e120f9434edee2ee90e0b835e5cf5f4dff4a1d616a64",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 8,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 3,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 103486,
+          "cachedInputTokens": 88192,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 792,
+          "reasoningOutputTokens": 34,
+          "totalTokens": 104278,
+          "uncachedInputTokens": 15294
+        },
+        "chargedTimeMs": 34863.06016599998,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-packet",
+        "publicEvidenceSha256": "71398735b147bb13c49b0542fe5c7c3ccef5c18ea5ae2b19512762667b30e6d7",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 8,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 4,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 4,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 126792,
+          "cachedInputTokens": 99584,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 832,
+          "reasoningOutputTokens": 10,
+          "totalTokens": 127624,
+          "uncachedInputTokens": 27208
+        },
+        "chargedTimeMs": 31281.732374999963,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-competitor",
+        "publicEvidenceSha256": "378095f5ea1f69a15f6ff19cafc46118ba5653c857593509f9fe9f78a51e7ded",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 1,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 81664,
+          "cachedInputTokens": 71040,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 678,
+          "reasoningOutputTokens": 10,
+          "totalTokens": 82342,
+          "uncachedInputTokens": 10624
+        },
+        "chargedTimeMs": 24737.61699999997,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-competitor",
+        "publicEvidenceSha256": "735480b1ff8bec963ffc579e0e9ec7f0b6d458319fd54d2beba8f6da11266597",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 8,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 4,
+          "contentSearchShellCalls": 3,
+          "fileListingShellCalls": 3,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 132053,
+          "cachedInputTokens": 108544,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 856,
+          "reasoningOutputTokens": 38,
+          "totalTokens": 132909,
+          "uncachedInputTokens": 23509
+        },
+        "chargedTimeMs": 32127.785042000003,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-packet",
+        "publicEvidenceSha256": "2504b7a328e258ea047629eeea78edf732c1bb55d3e6a0eae34171e2fc1a987d",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 7,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 103588,
+          "cachedInputTokens": 92800,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 746,
+          "reasoningOutputTokens": 36,
+          "totalTokens": 104334,
+          "uncachedInputTokens": 10788
+        },
+        "chargedTimeMs": 29871.863790999865,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-native",
+        "publicEvidenceSha256": "8cad1ae12959421314508037995480378f102dcccac0236e5df0b2149df4020a",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 7,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 103667,
+          "cachedInputTokens": 90240,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 776,
+          "reasoningOutputTokens": 14,
+          "totalTokens": 104443,
+          "uncachedInputTokens": 13427
+        },
+        "chargedTimeMs": 25728.350416,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-typelatch",
+        "publicEvidenceSha256": "434110cbe59a55cb624068061b7115385817eefc216d397e9a078b379498608b",
+        "passed": true,
+        "gradeCases": 11,
+        "sourceChange": "config/config/src/checkGlobalBinDir.ts",
+        "sourceAfterSha256": "c318578dcd6f0656e06049b34e7bbe0aca42c8b4471372267f817be25f074c43",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 3,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 107202,
+          "cachedInputTokens": 96000,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 723,
+          "reasoningOutputTokens": 11,
+          "totalTokens": 107925,
+          "uncachedInputTokens": 11202
+        },
+        "chargedTimeMs": 25504.571957999957,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-packet",
+        "publicEvidenceSha256": "7595ebe2ec589f68cc32449c35f3dc9e1d9ab56e35922ae4ca7bf220ac5336b4",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 7,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 90887,
+          "cachedInputTokens": 69376,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 649,
+          "reasoningOutputTokens": 13,
+          "totalTokens": 91536,
+          "uncachedInputTokens": 21511
+        },
+        "chargedTimeMs": 23088.18420800008,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-competitor",
+        "publicEvidenceSha256": "8e32aa1a78f8aa966bb37fc925c8deba36b05068c7383a3cfab6b78a046b5a60",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 70959,
+          "cachedInputTokens": 51712,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 647,
+          "reasoningOutputTokens": 22,
+          "totalTokens": 71606,
+          "uncachedInputTokens": 19247
+        },
+        "chargedTimeMs": 23910.75708300015,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-typelatch",
+        "publicEvidenceSha256": "280882c518ff45a3c43d2c7d22a57d44878386abf0fe8bba84ea9b6cec66d8e2",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 3,
+          "contentSearchShellCalls": 2,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 97846,
+          "cachedInputTokens": 87808,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 686,
+          "reasoningOutputTokens": 37,
+          "totalTokens": 98532,
+          "uncachedInputTokens": 10038
+        },
+        "chargedTimeMs": 26047.58491700003,
+        "processGroupStopped": true,
+        "providerStopped": true
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-native",
+        "publicEvidenceSha256": "5ea1b53b4e2e2ad23b24ce8764c97b0c004a30de19a250b99c4942d336983476",
+        "passed": true,
+        "gradeCases": 15,
+        "sourceChange": "workspace/filter-workspace-packages/src/getChangedPackages.ts",
+        "sourceAfterSha256": "a90975bf4c89714acf64e1b0a0b358d7bb00a0df394339f0d9e9debc315f467b",
+        "nativeChecks": [
+          false,
+          true
+        ],
+        "checksSurroundExplicitEdit": true,
+        "counts": {
+          "shellCalls": 6,
+          "mcpCalls": 0,
+          "mcpSucceeded": 0,
+          "mcpFailed": 0,
+          "fileEdits": 1,
+          "grepShellCalls": 2,
+          "contentSearchShellCalls": 1,
+          "fileListingShellCalls": 2,
+          "ambiguousSearchShellCalls": 0
+        },
+        "usage": {
+          "inputTokens": 74216,
+          "cachedInputTokens": 61440,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 628,
+          "reasoningOutputTokens": 25,
+          "totalTokens": 74844,
+          "uncachedInputTokens": 12776
+        },
+        "chargedTimeMs": 23554.11279199994,
+        "processGroupStopped": true,
+        "providerStopped": true
+      }
+    ],
+    "arms": {
+      "native": {
+        "correct": 4,
+        "runs": 4,
+        "totalTokens": 361174,
+        "chargedTimeMs": 106692.61420699992,
+        "shellCalls": 27,
+        "grepShellCalls": 10,
+        "contentSearchShellCalls": 7,
+        "fileListingShellCalls": 7,
+        "mcpCalls": 0
+      },
+      "typelatch": {
+        "correct": 4,
+        "runs": 4,
+        "totalTokens": 407578,
+        "chargedTimeMs": 100246.45254199997,
+        "shellCalls": 24,
+        "grepShellCalls": 12,
+        "contentSearchShellCalls": 7,
+        "fileListingShellCalls": 11,
+        "mcpCalls": 0
+      },
+      "competitor": {
+        "correct": 4,
+        "runs": 4,
+        "totalTokens": 378639,
+        "chargedTimeMs": 103281.56654100015,
+        "shellCalls": 25,
+        "grepShellCalls": 11,
+        "contentSearchShellCalls": 7,
+        "fileListingShellCalls": 9,
+        "mcpCalls": 0
+      },
+      "packet": {
+        "correct": 4,
+        "runs": 4,
+        "totalTokens": 393729,
+        "chargedTimeMs": 104330.90891599993,
+        "shellCalls": 26,
+        "grepShellCalls": 12,
+        "contentSearchShellCalls": 5,
+        "fileListingShellCalls": 10,
+        "mcpCalls": 0
+      }
+    },
+    "comparisons": {
+      "typelatch": {
+        "native": {
+          "tokenChangePercent": 12.84810091534827,
+          "chargedTimeChangePercent": -6.041806841936981
+        },
+        "competitor": {
+          "tokenChangePercent": 7.642899965402394,
+          "chargedTimeChangePercent": -2.9386792829050656
+        }
+      },
+      "packet": {
+        "native": {
+          "tokenChangePercent": 9.01366100549874,
+          "chargedTimeChangePercent": -2.213560243652779
+        },
+        "competitor": {
+          "tokenChangePercent": 3.9853263926853844,
+          "chargedTimeChangePercent": 1.0160016062335853
+        }
+      }
+    },
+    "frozenGateRecomputed": true,
+    "anyQualifiedWin": false,
+    "manualReview": {
+      "uniqueCommands": 62,
+      "uniqueSourceChanges": 2,
+      "findings": "All retained commands inspected. No external file reads, network/install, upstream history access or delegated work observed. All moves add --no-renames; all API repairs import canWriteToDirSync under the existing local alias. Supplied native checks surround each explicit edit. No added provider was called."
+    },
+    "limitations": [
+      "Terminal token values are the retained CLI accounting, checked for internal reconciliation against the public report; not an independent provider invoice.",
+      "All16 runs used zero MCP calls. Cost differences cannot demonstrate retrieval benefit from unused providers.",
+      "Search counts represent shell command groups and can include both file listings and content search; they are not all operating-system grep processes.",
+      "Two localized one-file repairs in a large corpus do not establish scaling or general monorepo/API superiority."
+    ]
+  }
+}

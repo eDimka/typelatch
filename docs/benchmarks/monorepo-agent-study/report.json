@@ -1,0 +1,3113 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "real-maintenance-flexible-tools-v1",
+    "createdAt": "2026-11-06T18:48:40.998Z",
+    "status": "frozen-before-agent-sessions",
+    "runCount": 16,
+    "repeats": 2,
+    "candidates": [
+      "typelatch",
+      "packet"
+    ],
+    "timeoutMs": 600000,
+    "tasks": [
+      {
+        "id": "pnpm-changed-project-move",
+        "title": "pnpm changed-project selection after a file move",
+        "publicCases": 3,
+        "prompt": "Changed-project selection can omit an affected project when tracked source files move from one workspace project into another. Fix the existing selection behavior so both the old and new project are selected, without selecting unrelated projects. Preserve ordinary edits, unchanged projects, ignored-file patterns and test-only change classification.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration",
+        "title": "pnpm global executable-directory API migration",
+        "publicCases": 3,
+        "prompt": "After the prepared dependency upgrade, validating an existing writable global executable directory fails. Adapt the existing validation code to the installed package API. Preserve PATH membership checks, missing PATH errors, optional write checking, and rejection of directories that cannot be written to.\n\nMake a minimal change in existing implementation source. Do not add files or edit tests, dependencies, manifests, configuration or documentation. Inspect relevant source using the available tools as appropriate. Run npm run test:typelatch-benchmark before and after the change; this provided native validation command is the same in every condition. It is authorized to execute its supplied external test runner, but do not otherwise inspect files outside this project. Do not use the network, install packages, inspect repository history or delegate work. Report your changes and remaining failures.",
+        "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b"
+      }
+    ],
+    "schedule": [
+      {
+        "id": "pnpm-changed-project-move-r1-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-typelatch",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-changed-project-move-r1-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-typelatch",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r1-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-competitor",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-packet",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-native",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-global-bin-api-migration-r2-typelatch",
+        "task": "pnpm-global-bin-api-migration",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-packet",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "packet"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-competitor",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-typelatch",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-changed-project-move-r2-native",
+        "task": "pnpm-changed-project-move",
+        "repeat": 2,
+        "arm": "native"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "cliVersion": "codex-cli 0.166.0",
+    "codexBinary": {
+      "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "bytes": 268972064,
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+    },
+    "decisionGate": {
+      "minimumReductionPercent": 20,
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and each candidate must solve each task at least once. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires all four candidate runs correct.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "Tool use is optional. Zero Typelatch calls remains an observed condition; it is not a failed tool policy and is never removed.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "spec": {
+      "schemaVersion": 1,
+      "candidates": [
+        "typelatch",
+        "packet"
+      ],
+      "status": "selected-and-ready",
+      "competitorSelection": {
+        "name": "Serena",
+        "version": "2.1.0",
+        "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+        "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+      },
+      "typelatchArtifact": {
+        "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+      },
+      "fixtures": {
+        "pnpm-changed-project-move": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs"
+        },
+        "pnpm-global-bin-api-migration": {
+          "workspace": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+          "initialManifest": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+          "graderModule": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs"
+        }
+      },
+      "arms": {
+        "native": {
+          "servers": {},
+          "setupCommands": [],
+          "frozenInputs": [],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "typelatch": {
+          "servers": {
+            "typelatch": {
+              "command": "$HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_search",
+                "workspace_context",
+                "workspace_validate",
+                "library_search",
+                "library_symbol",
+                "library_feedback",
+                "library_stats"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+              "kind": "tree"
+            }
+          ],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "competitor": {
+          "servers": {
+            "serena": {
+              "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+              "args": [
+                "start-mcp-server",
+                "--project",
+                "{workspace}",
+                "--agent-interface",
+                "REPL",
+                "--transport",
+                "stdio",
+                "--enable-web-dashboard",
+                "false",
+                "--enable-gui-log-window",
+                "false",
+                "--open-web-dashboard",
+                "false",
+                "--log-level",
+                "INFO"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TMPDIR": "$TEMP/",
+                "LANG": "C.UTF-8",
+                "LC_ALL": "C.UTF-8",
+                "SERENA_HOME": "{state}/serena-home",
+                "XDG_CACHE_HOME": "{state}/xdg-cache",
+                "XDG_CONFIG_HOME": "{state}/xdg-config",
+                "PYTHONNOUSERSITE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "npm_config_cache": "{state}/npm-cache",
+                "npm_config_offline": "true",
+                "PYTHONDONTWRITEBYTECODE": "1"
+              },
+              "startup_timeout_sec": 600,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "activate_project",
+                "initial_instructions",
+                "serena_repl"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "lifecycle",
+          "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+              "kind": "file"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+            },
+            {
+              "kind": "tree",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+            },
+            {
+              "kind": "file",
+              "path": "$HOME/.hermes/node/bin/node"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+              "kind": "file"
+            }
+          ]
+        },
+        "packet": {
+          "servers": {
+            "typelatch_packet": {
+              "command": "$HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_PACKET_WORKSPACE_ROOT": "{workspace}",
+                "TYPELATCH_PACKET_BYTES": "8192",
+                "TYPELATCH_PACKET_RUNTIME_ROOT": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+                "TYPELATCH_PACKET_DIAGNOSTICS": "{state}/packet-diagnostics",
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_evidence"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "process-group",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+              "kind": "file"
+            }
+          ]
+        }
+      },
+      "sharedFrozenInputs": [
+        {
+          "path": "$REPOSITORY/node_modules",
+          "kind": "tree"
+        },
+        {
+          "path": "$REPOSITORY/package.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/package-lock.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+          "kind": "file"
+        }
+      ],
+      "preSessionAmendment": {
+        "previousTaskSet": [
+          "pnpm-changed-project-move",
+          "datefns-chinese-months"
+        ],
+        "taskSet": [
+          "pnpm-changed-project-move",
+          "pnpm-global-bin-api-migration"
+        ],
+        "agentSessionsBeforeChange": 0,
+        "reason": "The user asks about large monorepos and an installed-API edge. Use one genuine monorepo behavior repair and one exact upstream API migration with unchanged other importers. The separately qualified date-fns task is reserved for external replication if an advantage survives."
+      },
+      "infrastructureAmendment": {
+        "priorStudy": "agent-study-001",
+        "priorProtocolSha256": "5889188850bcd8367ae9e6161df366c23f83d18bd51ce07e1b4c4075a8802e01",
+        "reason": "Retain the completed native run and three pre-model MCP configuration failures. Correct only CLI environment-map serialization to individual TOML leaf overrides. Tasks, prompts, candidate source, thresholds and16-session schedule unchanged. Run every arm fresh; no valid result is substituted from the earlier attempt.",
+        "startupQualification": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json"
+      }
+    },
+    "specSha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+    "inputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/run.mjs",
+        "kind": "file",
+        "sha256": "ee87993f111d241f9ddae309ef9d3632339b3636fddfd398f71209b8b7cd06b4",
+        "bytes": 24251,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/decision.mjs",
+        "kind": "file",
+        "sha256": "86f57a7fddd8dd1d636b1f6ff1ecc86ca8ea0aeb46cfab21db89edea7517a35c",
+        "bytes": 9349,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+        "kind": "file",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+        "kind": "file",
+        "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+        "bytes": 30979,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+        "kind": "file",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+        "kind": "file",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+        "kind": "file",
+        "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+        "bytes": 7159,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+        "kind": "file",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/selected-spec-002.json",
+        "kind": "file",
+        "sha256": "b290feac5d1efcd9b560eb75c33065f4af4917c302cd2008d8b0c2597e104582",
+        "bytes": 16066,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "kind": "file",
+        "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+        "bytes": 381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+        "kind": "file",
+        "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+        "bytes": 523240,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+        "kind": "file",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064,
+        "entries": null
+      },
+      {
+        "path": "$HOME/.hermes/node/bin/node",
+        "kind": "file",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848,
+        "entries": null
+      },
+      {
+        "path": "/usr/bin/git",
+        "kind": "file",
+        "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+        "bytes": 200560,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+        "kind": "file",
+        "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+        "bytes": 194704,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline",
+        "kind": "tree",
+        "sha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+        "bytes": null,
+        "entries": 72643
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "9127eab43ae774aa69534fecb037ea563689f65bb91a0050aea21ae3c0c5ff93",
+        "bytes": 18835906,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/qualification.json",
+        "kind": "file",
+        "sha256": "1eb4e359c6009ee4fbedd6c8cb8f3eb3354ccaa6cb9d86259ffbc87dcc917dae",
+        "bytes": 68060,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/qualify.mjs",
+        "kind": "file",
+        "sha256": "8281215f902d57a54b5317fbe5f1be49fd8dcac371d3c7f837b936dda770ada6",
+        "bytes": 11700,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/corpus-inventory.json",
+        "kind": "file",
+        "sha256": "ba8421bf97c9d7318237070e69f99f2d186585f3da566ff6faf487f2bfc20615",
+        "bytes": 865020,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline",
+        "kind": "tree",
+        "sha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+        "bytes": null,
+        "entries": 72747
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/baseline-manifest.json",
+        "kind": "file",
+        "sha256": "e8486d6687edbb5cd17c180bf52f94f01779ff31fce63fc131b12253c8d70d28",
+        "bytes": 18861998,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/qualification-004/qualification.json",
+        "kind": "file",
+        "sha256": "bd8cf8d57b79af75c3d8ceab370095d888bfecc1d9e61d21d15c08dcfb5c4406",
+        "bytes": 48088,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/qualify.mjs",
+        "kind": "file",
+        "sha256": "304cbd25803392ce3f483b449588bc33bdbd0e60886b177dee65a281eee628fd",
+        "bytes": 14832,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+        "kind": "tree",
+        "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+        "bytes": null,
+        "entries": 5497
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+        "kind": "file",
+        "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+        "bytes": 2681,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/node_modules",
+        "kind": "tree",
+        "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+        "bytes": null,
+        "entries": 10457
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+        "kind": "file",
+        "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+        "bytes": 1916578,
+        "entries": null
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+        "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+        "bytes": null,
+        "entries": 4754
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+        "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+        "bytes": null,
+        "entries": 1702
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+        "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+        "bytes": null,
+        "entries": 149
+      },
+      {
+        "kind": "tree",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+        "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+        "bytes": null,
+        "entries": 3050
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+        "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+        "bytes": 34640,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+        "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+        "bytes": 5985120,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+        "kind": "file",
+        "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+        "bytes": 4601,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+        "kind": "file",
+        "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+        "bytes": 2346,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "kind": "file",
+        "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+        "bytes": 3926,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "kind": "file",
+        "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+        "bytes": 311,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules",
+        "kind": "tree",
+        "sha256": "1ea26ca0993d1fc8d00cae0c0b6f3747e8a543b350021a04c6f06a8f10c83b15",
+        "bytes": null,
+        "entries": 5494
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/mcp.mjs",
+        "kind": "file",
+        "sha256": "29be47236d14b32a065c4e4f075880589f9a75858068f70c923afc83ac58a2d8",
+        "bytes": 972,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/projection.mjs",
+        "kind": "file",
+        "sha256": "994c7d0e059f2d791caee2261471d46172d529192c91434f58b69c0c8fcdf19c",
+        "bytes": 9911,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/runtime-boundary.json",
+        "kind": "file",
+        "sha256": "7baeec16ebfc601c176bd5490ab90e2c05d778523990aaa76f171fe306ef8346",
+        "bytes": 3987,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualified.json",
+        "kind": "file",
+        "sha256": "06e6997f15906c0b63a4416824dc67d5136367990d21584c54cbd0c22a63745f",
+        "bytes": 2176,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/qualification/public-discovery/independent-assessment.json",
+        "kind": "file",
+        "sha256": "8aed4edea6b22ebc5674b1a77941a44cd2a87cef7c3fe4e3e967ce842c92e49e",
+        "bytes": 4034,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/task-packet/source-arm-v2/service.mjs",
+        "kind": "file",
+        "sha256": "497f09846aca6c1a22f5de369094e12b082f191faf80a48b724fa1ade52bd352",
+        "bytes": 4040,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package.json",
+        "kind": "file",
+        "sha256": "c3361b9066b8dc14c32c927456ef769edf013efc2b23d813309c6d1244bb754c",
+        "bytes": 3106,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/package-lock.json",
+        "kind": "file",
+        "sha256": "bd5ed3a62b28595e0b5b6707fff488c9da0ad7e1f954f4160cc77dea9df85b13",
+        "bytes": 104242,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/case-engine.mjs",
+        "kind": "file",
+        "sha256": "2a3adba0c1f4a8fe76967a8c5b97e7d5e4f25e58aa669d82b050d241f7cce3a6",
+        "bytes": 3988,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/maintenance/public-check.mjs",
+        "kind": "file",
+        "sha256": "549e9eebf58469aa25fa09e726afbbc6c852ec0c40d6cb89a81a213f404c9e69",
+        "bytes": 742,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "37540eab87dfcc185442b998760dad85d3aae1a1a401011dd41c487808220226",
+        "bytes": 2381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/case-engine.mjs",
+        "kind": "file",
+        "sha256": "8415ec5425b6fedf33bd10363754261e61533c8e0fce6a1da48e49d3609b072a",
+        "bytes": 2628,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/api-migration/public-check.mjs",
+        "kind": "file",
+        "sha256": "51a622465b84547e7080f86886146f8d0cab4af8d035433a11499c7c03da729f",
+        "bytes": 390,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/api-migration-research/final-check.mjs",
+        "kind": "file",
+        "sha256": "5b7c550acd2f57ace12b72584ceae3b2ada4a50197817ee8edff2a7b95a8f459",
+        "bytes": 1276,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial-startup-001/report.json",
+        "kind": "file",
+        "sha256": "d20af8a638855188690593fb934a75af5769004526ed1dd7593db9e53a92a61f",
+        "bytes": 5702,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/argv-audit-002.json",
+        "kind": "file",
+        "sha256": "d31599adfad03fa267cf2b290b7bc6cb8d36358349d167d7e60329672de21e33",
+        "bytes": 31719,
+        "entries": null
+      }
+    ],
+    "typelatchArchiveBinding": {
+      "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+      "packageFileCount": 138,
+      "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+      "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+      "name": "typelatch",
+      "version": "0.4.0"
+    },
+    "treatment": "Same prompt and native tools in all arms; additional provider tools are available but optional. No forced API inspection or workspace_validate calls.",
+    "timing": "Fresh corpus copies and independent grading excluded. Provider-specific setup is charged once, plus agent wall time including MCP startup, query work and native validation. Teardown measured separately. No prepared package index is required for Typelatch; any indexing it performs during use is already inside agent time.",
+    "selection": "Two real upstream pnpm maintenance cases selected before these agent sessions, including one explicitly isolated dependency upgrade. The initial date-fns template is retained as pre-session amendment evidence, and date-fns remains reserved for external replication. Identical prompts across all frozen arms; fixed task order ABBA and reversed provider order per task across repeats. With four arms each occupies every ordinal position once. No tasks, runs or candidates removed after results; each candidate decision is separate.",
+    "failurePolicy": "Persist preparation before work and run before launch. Preserve every attempt. Failed or interrupted preparation cannot be retried; interrupted or incomplete launches remain visible. Resume only a completed prefix. No replacements.",
+    "evidencePolicy": "Private raw JSONL retained. Only completed public actions, source changes, independent test results, usage and timestamp metadata are eligible for export. No reasoning or assistant message bodies.",
+    "limits": [
+      "One task tests a real installed-API migration and one tests source workflow in the same pnpm snapshot. This narrow sample does not establish general API or monorepo superiority.",
+      "A two-task sample with two repeats is not universal superiority or a statistical confidence bound.",
+      "The public upstream repairs may occur in model training data.",
+      "No immutable served model snapshot or sampling seed is available.",
+      "OS file caches and provider prompt caching may be warm; cached tokens remain included.",
+      "Fixture and prompt boundaries are procedural; no OS isolation claim is made."
+    ]
+  },
+  "protocolSha256": "e66ab2a3beb21a4fe7e57edc6664a47a73336f58e6e6efb6238d0549ee1cdb9f",
+  "startedAt": "2026-11-06T18:53:28.770Z",
+  "complete": true,
+  "runs": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T18:53:55.987Z",
+      "finishedAt": "2026-11-06T18:54:18.534Z",
+      "fixtureSetupMs": 14915.931166999999,
+      "providerSetupMs": 0.0016660000001138542,
+      "elapsedMs": 22547.089167,
+      "teardownMs": 0.1586669999960577,
+      "gradingMs": 8494.420708000005,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 77056,
+        "cachedInputTokens": 68480,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 553,
+        "reasoningOutputTokens": 14,
+        "totalTokens": 77609,
+        "uncachedInputTokens": 8576
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "0a9bf078ca80027a3ae11280085f77233878f5a735879c69b0240fe0029fbe87",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "16297ef6756e58b34b74b4adefef49b7678911a1f2e09e2152214f08083e5764"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "43d93574694f9ee9499210bc6cbed63cf4ea513b0bb6425f5b9064d91c8aff90"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "b7946cb6678fc04f4b2a18459bb3eaeb8b151ccf49a021517a71097b37275b88",
+      "evidence": "runs/pnpm-changed-project-move-r1-native.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-typelatch",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T18:55:11.031Z",
+      "finishedAt": "2026-11-06T18:55:30.024Z",
+      "fixtureSetupMs": 15435.892875000005,
+      "providerSetupMs": 0.0015419999981531873,
+      "elapsedMs": 18993.167583000002,
+      "teardownMs": 0.10120900000038091,
+      "gradingMs": 8568.567584000004,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 73836,
+        "cachedInputTokens": 58880,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 526,
+        "reasoningOutputTokens": 14,
+        "totalTokens": 74362,
+        "uncachedInputTokens": 14956
+      },
+      "counts": {
+        "shellCalls": 4,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "b5791230b80b07f603319d2c60977eb369b42e13d4f525a1b03b624cfcfa7196",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "d54bb1ab1b74217a5b62216dccd07bbae0a13a4afe618f1e0c442d2a2312cfff"
+          },
+          {
+            "line": 15,
+            "actionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "c0303214bcdbfaeba4e8ed3f56c7b9bffde78dea2a451205042ebd35385cef65"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "f6727ba8d292b41ed8fbdce8ec0fb8a223d6f7922cd4141e91335c2b8b312f21",
+      "evidence": "runs/pnpm-changed-project-move-r1-typelatch.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T18:56:25.807Z",
+      "finishedAt": "2026-11-06T18:56:48.310Z",
+      "fixtureSetupMs": 15275.274750000011,
+      "providerSetupMs": 3.1124580000177957,
+      "elapsedMs": 22502.294958000013,
+      "teardownMs": 0.6270840000070166,
+      "gradingMs": 8516.227458000008,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 91188,
+        "cachedInputTokens": 78976,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 594,
+        "reasoningOutputTokens": 16,
+        "totalTokens": 91782,
+        "uncachedInputTokens": 12212
+      },
+      "counts": {
+        "shellCalls": 5,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 3,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "412b4d83227fa9434e8fe372943c19568a76ce00da5bb7884912904b5b1b9052",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 10,
+            "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "4a4501ecfd96e2a8e933bcd2c7fb5ec7051b40e5c4cfa6bf837526fbbe96ea4d"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "733e5152793e11c00b2272332b23f741b8f6bf714615a19b2b4721d4aa9e4918"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "9985b6904e5619a7342aa7d5879dcbb47abbc14533bcd99268c886b77c92f2a9",
+      "evidence": "runs/pnpm-changed-project-move-r1-competitor.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T18:57:44.329Z",
+      "finishedAt": "2026-11-06T18:58:04.418Z",
+      "fixtureSetupMs": 15438.170958000002,
+      "providerSetupMs": 0.0016670000040903687,
+      "elapsedMs": 20089.126875000016,
+      "teardownMs": 0.23737499996786937,
+      "gradingMs": 8504.276000000013,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 69692,
+        "cachedInputTokens": 48128,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 543,
+        "reasoningOutputTokens": 35,
+        "totalTokens": 70235,
+        "uncachedInputTokens": 21564
+      },
+      "counts": {
+        "shellCalls": 4,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "16f241e942a1292d2145bfba3d0524746d9d0e9ca353c84b8cff11a1a5cb8bd1",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 10,
+            "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "322be74bb3978629222ecf4e5534f315ae98d2ed565cf000c5f79a89479d2f51"
+          },
+          {
+            "line": 15,
+            "actionIdSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "701a3591b57d0c29c41f0332243a8d0eaa5d1fe3b2016d6f7c2f2dfb530468fa"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "a6caec479658e16d722f7a5219c0ab809106ca8ca7355c9fa26abee916d2aa70",
+      "evidence": "runs/pnpm-changed-project-move-r1-packet.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-typelatch",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T18:59:01.064Z",
+      "finishedAt": "2026-11-06T18:59:30.766Z",
+      "fixtureSetupMs": 15044.355625000026,
+      "providerSetupMs": 0.0021670000278390944,
+      "elapsedMs": 29701.124374999956,
+      "teardownMs": 0.09600000001955777,
+      "gradingMs": 7069.31041700003,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 125910,
+        "cachedInputTokens": 111872,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 849,
+        "reasoningOutputTokens": 10,
+        "totalTokens": 126759,
+        "uncachedInputTokens": 14038
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 4,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "8010ca3ac85c289fd66320434be03711ab12f39b340b0f0ebf1db7483b6bed39",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "5c78b7ef71a524028a80218562e4d8a695d8ac57e066137c88ac1520cb70280e"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "7aa9c7ce8c3fd50ba2f1c3fc2ad5670251f1fe255db292ea259428062b01a06a"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "91030d2be426733c732e5149102eb4e5d0f7699223ebd07a9700554e800ef9df",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-typelatch.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:00:25.183Z",
+      "finishedAt": "2026-11-06T19:01:00.047Z",
+      "fixtureSetupMs": 14850.689500000037,
+      "providerSetupMs": 0.002250000019557774,
+      "elapsedMs": 34863.05791599996,
+      "teardownMs": 0.22833299997728318,
+      "gradingMs": 7136.458082999976,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 103486,
+        "cachedInputTokens": 88192,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 792,
+        "reasoningOutputTokens": 34,
+        "totalTokens": 104278,
+        "uncachedInputTokens": 15294
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "ba254c3389a976874e59f21fcc8ff61ae59eb0de5fae8131378b0befae204047",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "884a5017d3c96655558b37f7c021e546123a59fab276e8ddbb807ce04c66e9d2"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "68162dbe2c2e94d48fa8bd238e6e89aa5cf9ffc16c15c8edba13759ec45d5882"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "a47aa65bdfef0687f131e120f9434edee2ee90e0b835e5cf5f4dff4a1d616a64",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-native.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:01:54.125Z",
+      "finishedAt": "2026-11-06T19:02:25.407Z",
+      "fixtureSetupMs": 14894.69862500002,
+      "providerSetupMs": 0.0021249999990686774,
+      "elapsedMs": 31281.730249999964,
+      "teardownMs": 0.1824999999953434,
+      "gradingMs": 7125.347875000094,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 126792,
+        "cachedInputTokens": 99584,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 832,
+        "reasoningOutputTokens": 10,
+        "totalTokens": 127624,
+        "uncachedInputTokens": 27208
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 4,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "2f69f37c1d686540ba1f69922d443bdc88d02f36887b51ca46c1739f5e54b50b",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "89b0f598483e540f83a328519d1074676d4a5b533e2366fab13b4d037314b1b0"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "0286d4f7f64abc72fb08b7c65d269d7590efcca48fb216f2913ebc84e4855948"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "71398735b147bb13c49b0542fe5c7c3ccef5c18ea5ae2b19512762667b30e6d7",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-packet.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:03:19.418Z",
+      "finishedAt": "2026-11-06T19:03:44.154Z",
+      "fixtureSetupMs": 14878.197874999954,
+      "providerSetupMs": 1.834999999962747,
+      "elapsedMs": 24735.782000000007,
+      "teardownMs": 0.6027089999988675,
+      "gradingMs": 7098.643708999967,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 81664,
+        "cachedInputTokens": 71040,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 678,
+        "reasoningOutputTokens": 10,
+        "totalTokens": 82342,
+        "uncachedInputTokens": 10624
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "d328ce95a51010e97d3bcf8195b04f5db17b41928a5f29ca9120454aa313e7a3",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 10,
+            "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "5fe5ce911b256fb9b30d17e731ae189a088652115f0be447bdbd7bf2e4feb4af"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "2a3aa63e2c162149f1e8e4291338f229cc22677554fafe7fd785b0c7b46b2863"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "378095f5ea1f69a15f6ff19cafc46118ba5653c857593509f9fe9f78a51e7ded",
+      "evidence": "runs/pnpm-global-bin-api-migration-r1-competitor.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:04:38.306Z",
+      "finishedAt": "2026-11-06T19:05:10.432Z",
+      "fixtureSetupMs": 14868.756167000043,
+      "providerSetupMs": 2.1190840000053868,
+      "elapsedMs": 32125.665957999998,
+      "teardownMs": 0.760416999924928,
+      "gradingMs": 7075.784916999983,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 132053,
+        "cachedInputTokens": 108544,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 856,
+        "reasoningOutputTokens": 38,
+        "totalTokens": 132909,
+        "uncachedInputTokens": 23509
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 3,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "778e09314e0b671a319893ca7c595eb3470a4dd06c1c88da69b9ba5c1d2d4e6b",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 10,
+            "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "3de0831cd5e83e42a167bf13475a6630272757cbe64ef6369c08a8044da08c75"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "404f4e7a4bd1f6b4c87cc3f648cacfe14398073fc2549ac8642ed269b1958304"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "735480b1ff8bec963ffc579e0e9ec7f0b6d458319fd54d2beba8f6da11266597",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-competitor.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:06:04.249Z",
+      "finishedAt": "2026-11-06T19:06:34.121Z",
+      "fixtureSetupMs": 14738.950084000011,
+      "providerSetupMs": 0.002207999932579696,
+      "elapsedMs": 29871.861582999933,
+      "teardownMs": 0.19791700004134327,
+      "gradingMs": 7059.487959000049,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 103588,
+        "cachedInputTokens": 92800,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 746,
+        "reasoningOutputTokens": 36,
+        "totalTokens": 104334,
+        "uncachedInputTokens": 10788
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "b6da70221f632390eb615d464fe372ee834daa7deff69b97baf25d678bfd485a",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "5e89111a1ee3c64dc9f33692ee6236c1f43b931ab07bbfd7436e839409f1cc5f"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "4736593b0113ec59308e13f92ac6c111ef6dd11dbf4d198d794d27645c507f27"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "2504b7a328e258ea047629eeea78edf732c1bb55d3e6a0eae34171e2fc1a987d",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-packet.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:07:28.323Z",
+      "finishedAt": "2026-11-06T19:07:54.052Z",
+      "fixtureSetupMs": 15124.203916999977,
+      "providerSetupMs": 0.0021249999990686774,
+      "elapsedMs": 25728.348291000002,
+      "teardownMs": 0.1290830000070855,
+      "gradingMs": 7068.237542000017,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 103667,
+        "cachedInputTokens": 90240,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 776,
+        "reasoningOutputTokens": 14,
+        "totalTokens": 104443,
+        "uncachedInputTokens": 13427
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "88ddc75ff9923b045d2890ae5fbb25b81d02416621b1bb9aa9eebeaa8371c9c1",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "27728d14d66b47eab8a10701dab963c79ad624825f99f4a973052bd074e05f08"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "879f6789ac5e17d509806069eff5d634327181e6d28cf669b0cb3a07ed6bfbff"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "8cad1ae12959421314508037995480378f102dcccac0236e5df0b2149df4020a",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-native.json"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-typelatch",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:08:47.998Z",
+      "finishedAt": "2026-11-06T19:09:13.503Z",
+      "fixtureSetupMs": 14987.712792000035,
+      "providerSetupMs": 0.0027080000145360827,
+      "elapsedMs": 25504.569249999942,
+      "teardownMs": 0.11041699990164489,
+      "gradingMs": 7095.2056250000605,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 107202,
+        "cachedInputTokens": 96000,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 723,
+        "reasoningOutputTokens": 11,
+        "totalTokens": 107925,
+        "uncachedInputTokens": 11202
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 3,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "preparedSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+      "promptSha256": "b9bc75bd344b4756686ca8f44a8ac7f45388ecb90d9d6546752c6960bbb14f1b",
+      "recordingError": null,
+      "rawSha256": "015e545cbd8477892d7b73f23d8ebf7060d6fda48fc9518d84142b2760c407ef",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "e30134e02a28c75978993eac1f986a04b60bc64aa779741a9e8bba97fd156d9f"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "72813fd1eaf1db5b6b6910a2bea7ed954c08a98c51d42e90a6490bf15d2820db"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "434110cbe59a55cb624068061b7115385817eefc216d397e9a078b379498608b",
+      "evidence": "runs/pnpm-global-bin-api-migration-r2-typelatch.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:10:08.541Z",
+      "finishedAt": "2026-11-06T19:10:31.629Z",
+      "fixtureSetupMs": 14800.48450000002,
+      "providerSetupMs": 0.0025000000605359674,
+      "elapsedMs": 23088.18170800002,
+      "teardownMs": 0.20508300000801682,
+      "gradingMs": 8475.970708000008,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 90887,
+        "cachedInputTokens": 69376,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 649,
+        "reasoningOutputTokens": 13,
+        "totalTokens": 91536,
+        "uncachedInputTokens": 21511
+      },
+      "counts": {
+        "shellCalls": 7,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "f6a69df593f2376132a33c79ac48b6e05f97e0e24485a624f78bda8baf3f875b",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "bd4a74b77a0fe402229a736f1234b9225b1101cede5931ec1589099ae4152dbb"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "bbf1b2ae0625a5a7c5eac7837f1777e1c24379e781b35e2f71835dda278afb05"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "7595ebe2ec589f68cc32449c35f3dc9e1d9ab56e35922ae4ca7bf220ac5336b4",
+      "evidence": "runs/pnpm-changed-project-move-r2-packet.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:11:27.052Z",
+      "finishedAt": "2026-11-06T19:11:50.961Z",
+      "fixtureSetupMs": 14853.959625000134,
+      "providerSetupMs": 2.299250000156462,
+      "elapsedMs": 23908.457832999993,
+      "teardownMs": 0.590667000040412,
+      "gradingMs": 8465.8857499999,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 70959,
+        "cachedInputTokens": 51712,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 647,
+        "reasoningOutputTokens": 22,
+        "totalTokens": 71606,
+        "uncachedInputTokens": 19247
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "eb88422a298b4b2897eaca54d3ec024b36fad47f5f8eebeb6160d8fe0fe4cce7",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "ff49ee6a2389529d571b34ea4dc8f6993d9032212b8c5f9ffc90958faec22585"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "640aeb9c12db8b74fbc6cdd0f8a70a065809c187e798b5a6a51ed0a412a1c3f0"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "8e32aa1a78f8aa966bb37fc925c8deba36b05068c7383a3cfab6b78a046b5a60",
+      "evidence": "runs/pnpm-changed-project-move-r2-competitor.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-typelatch",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:12:46.195Z",
+      "finishedAt": "2026-11-06T19:13:12.243Z",
+      "fixtureSetupMs": 14834.225334000075,
+      "providerSetupMs": 0.008042000001296401,
+      "elapsedMs": 26047.576875000028,
+      "teardownMs": 0.19991600001230836,
+      "gradingMs": 8514.787791999988,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 97846,
+        "cachedInputTokens": 87808,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 686,
+        "reasoningOutputTokens": 37,
+        "totalTokens": 98532,
+        "uncachedInputTokens": 10038
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 3,
+        "contentSearchShellCalls": 2,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "eecbc774f06f63b878b0939ab7062a472f6c0289e7e4a353d1a224e1b274be64",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "77e1b10d7178ba2defdf1eb1f2661f0c952df20733fdfbf14d96f15e48d0370c"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "1757606440183c8c554e16662e0abd7c17f060da6e3da66955331a417cd40e39"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "280882c518ff45a3c43d2c7d22a57d44878386abf0fe8bba84ea9b6cec66d8e2",
+      "evidence": "runs/pnpm-changed-project-move-r2-typelatch.json"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:14:07.461Z",
+      "finishedAt": "2026-11-06T19:14:31.015Z",
+      "fixtureSetupMs": 14717.587291999953,
+      "providerSetupMs": 0.0010420000180602074,
+      "elapsedMs": 23554.111749999924,
+      "teardownMs": 0.25062499986961484,
+      "gradingMs": 8448.976166000124,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 74216,
+        "cachedInputTokens": 61440,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 628,
+        "reasoningOutputTokens": 25,
+        "totalTokens": 74844,
+        "uncachedInputTokens": 12776
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "ff8c8a9f67d6646b20ec49be83c3de61628eaa55187b93a329ed5261a1db5d3e",
+      "recordingError": null,
+      "rawSha256": "7f2c37a6366a72038eec34ac60a4dfebb9dce1041db7fcf0007cf818a979ccb8",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 8,
+            "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "b6502829ec5d69ae3fdf1e7a424f8a927c024d70f366e155cb4ae8028a65640e"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "3eb0fa168363dd655c51389db6266b5ffa6589a19593d98664fd8f64d612e276"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidenceSha256": "5ea1b53b4e2e2ad23b24ce8764c97b0c004a30de19a250b99c4942d336983476",
+      "evidence": "runs/pnpm-changed-project-move-r2-native.json"
+    }
+  ],
+  "preparationAttempts": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:53:28.771Z",
+      "providerSetupMs": 0.0016660000001138542,
+      "finishedAt": "2026-11-06T18:53:55.840Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-typelatch",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:54:38.443Z",
+      "providerSetupMs": 0.0015419999981531873,
+      "finishedAt": "2026-11-06T18:55:10.887Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:55:50.504Z",
+      "providerSetupMs": 3.1124580000177957,
+      "finishedAt": "2026-11-06T18:56:25.663Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:57:16.327Z",
+      "providerSetupMs": 0.0016670000040903687,
+      "finishedAt": "2026-11-06T18:57:44.183Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-typelatch",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:58:32.760Z",
+      "providerSetupMs": 0.0021670000278390944,
+      "finishedAt": "2026-11-06T18:59:00.914Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T18:59:56.971Z",
+      "providerSetupMs": 0.002250000019557774,
+      "finishedAt": "2026-11-06T19:00:25.039Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:01:26.014Z",
+      "providerSetupMs": 0.0021249999990686774,
+      "finishedAt": "2026-11-06T19:01:53.977Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r1-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:02:51.367Z",
+      "providerSetupMs": 1.834999999962747,
+      "finishedAt": "2026-11-06T19:03:19.271Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-competitor",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:04:10.169Z",
+      "providerSetupMs": 2.1190840000053868,
+      "finishedAt": "2026-11-06T19:04:38.162Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-packet",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:05:36.278Z",
+      "providerSetupMs": 0.002207999932579696,
+      "finishedAt": "2026-11-06T19:06:04.099Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-native",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:07:00.013Z",
+      "providerSetupMs": 0.0021249999990686774,
+      "finishedAt": "2026-11-06T19:07:28.177Z"
+    },
+    {
+      "id": "pnpm-global-bin-api-migration-r2-typelatch",
+      "task": "pnpm-global-bin-api-migration",
+      "repeat": 2,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:08:19.907Z",
+      "providerSetupMs": 0.0027080000145360827,
+      "finishedAt": "2026-11-06T19:08:47.850Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "packet",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:09:40.531Z",
+      "providerSetupMs": 0.0025000000605359674,
+      "finishedAt": "2026-11-06T19:10:08.393Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:10:58.998Z",
+      "providerSetupMs": 2.299250000156462,
+      "finishedAt": "2026-11-06T19:11:26.900Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-typelatch",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:12:18.199Z",
+      "providerSetupMs": 0.008042000001296401,
+      "finishedAt": "2026-11-06T19:12:46.045Z"
+    },
+    {
+      "id": "pnpm-changed-project-move-r2-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 2,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T19:13:39.548Z",
+      "providerSetupMs": 0.0010420000180602074,
+      "finishedAt": "2026-11-06T19:14:07.317Z"
+    }
+  ],
+  "machine": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "nodeVersion": "v22.23.1",
+    "processor": "Apple M1 Max",
+    "logicalProcessors": 10,
+    "memoryBytes": 34359738368
+  },
+  "updatedAt": "2026-11-06T19:14:58.354Z",
+  "decision": {
+    "anyCandidatePassed": false,
+    "anyQualifiedWin": false,
+    "measurable": true,
+    "gate": {
+      "minimumReductionPercent": 20,
+      "tokenMetric": "Terminal inputTokens + outputTokens, including cached input; cached/reasoning subsets are not added twice.",
+      "timeMetric": "providerSetupMs + elapsedMs; common corpus preparation, independent grading and teardown excluded and separately reported.",
+      "rule": "Assess EACH preregistered candidate independently against EACH control. Both total tokens and charged time must improve by at least20% in aggregate and in the median of four task/repeat paired percentage reductions. Both repeat aggregates must improve on both metrics. Correctness must not decline overall or for any task, and each candidate must solve each task at least once. Every capture, grade and requested native validation observation must complete; no replacements or candidate pooling. A qualified win additionally requires all four candidate runs correct.",
+      "nativeValidation": "Observe a failing supplied native check followed by a later supplied check, whose last returned result passes. Multiple checks in one command count; shell exit is aggregate, not an individual check exit. This observable gate does not prove the timing of every shell-embedded source write.",
+      "adoption": "Tool use is optional. Zero Typelatch calls remains an observed condition; it is not a failed tool policy and is never removed.",
+      "scope": "Two public real maintenance tasks and two repeats per arm. This is a bounded decision, not general superiority or a statistical confidence interval."
+    },
+    "reasons": [],
+    "candidateDecisions": {
+      "typelatch": {
+        "passed": false,
+        "allCorrect": true,
+        "qualifiedWin": false,
+        "reasons": [
+          "native/totalTokens: aggregate or median reduction is below20%.",
+          "native/totalTokens: a repeat fails to improve.",
+          "native/chargedTimeMs: aggregate or median reduction is below20%.",
+          "native/chargedTimeMs: a repeat fails to improve.",
+          "competitor/totalTokens: aggregate or median reduction is below20%.",
+          "competitor/totalTokens: a repeat fails to improve.",
+          "competitor/chargedTimeMs: aggregate or median reduction is below20%.",
+          "competitor/chargedTimeMs: a repeat fails to improve."
+        ],
+        "comparisons": {
+          "native": {
+            "metrics": {
+              "totalTokens": {
+                "control": 361174,
+                "candidate": 407578,
+                "aggregateReductionPercent": -12.848100915348281,
+                "medianPairedReductionPercent": -12.446296968092431,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 181887,
+                    "candidate": 201121,
+                    "reductionPercent": -10.574697477004953
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 179287,
+                    "candidate": 206457,
+                    "reductionPercent": -15.154472995811185
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 77609,
+                    "candidate": 74362,
+                    "reductionPercent": 4.183793116777693
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 74844,
+                    "candidate": 98532,
+                    "reductionPercent": -31.64983164983165
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 104278,
+                    "candidate": 126759,
+                    "reductionPercent": -21.558718042156542
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 104443,
+                    "candidate": 107925,
+                    "reductionPercent": -3.3338758940283215
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 106692.61420699992,
+                "candidate": 100246.45254199997,
+                "aggregateReductionPercent": 6.041806841936982,
+                "medianPairedReductionPercent": 7.8380431473061485,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 57410.150998999976,
+                    "candidate": 48694.295666999984,
+                    "reductionPercent": 15.18173211589674
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 49282.46320799994,
+                    "candidate": 51552.156874999986,
+                    "reductionPercent": -4.605479351591353
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22547.090833,
+                    "candidate": 18993.169125,
+                    "reductionPercent": 15.76221843573037
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 23554.11279199994,
+                    "candidate": 26047.58491700003,
+                    "reductionPercent": -10.586143265166774
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 34863.06016599998,
+                    "candidate": 29701.126541999984,
+                    "reductionPercent": 14.806312467756765
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 25728.350416,
+                    "candidate": 25504.571957999957,
+                    "reductionPercent": 0.8697738268555317
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          },
+          "competitor": {
+            "metrics": {
+              "totalTokens": {
+                "control": 378639,
+                "candidate": 407578,
+                "aggregateReductionPercent": -7.6428999654024015,
+                "medianPairedReductionPercent": -9.402585043690642,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 174124,
+                    "candidate": 201121,
+                    "reductionPercent": -15.504468080218695
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 204515,
+                    "candidate": 206457,
+                    "reductionPercent": -0.9495636016918074
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 91782,
+                    "candidate": 74362,
+                    "reductionPercent": 18.979756379246474
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 71606,
+                    "candidate": 98532,
+                    "reductionPercent": -37.60299416250035
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 82342,
+                    "candidate": 126759,
+                    "reductionPercent": -53.9420951640718
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 132909,
+                    "candidate": 107925,
+                    "reductionPercent": 18.797824075119067
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 103281.56654100015,
+                "candidate": 100246.45254199997,
+                "aggregateReductionPercent": 2.938679282905067,
+                "medianPairedReductionPercent": 3.3347586896907027,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 47243.024416,
+                    "candidate": 48694.295666999984,
+                    "reductionPercent": -3.071927060005234
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 56038.54212500015,
+                    "candidate": 51552.156874999986,
+                    "reductionPercent": 8.00589215899441
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22505.40741600003,
+                    "candidate": 18993.169125,
+                    "reductionPercent": 15.606197328838554
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 23910.75708300015,
+                    "candidate": 26047.58491700003,
+                    "reductionPercent": -8.93667994945715
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 24737.61699999997,
+                    "candidate": 29701.126541999984,
+                    "reductionPercent": -20.064622805018043
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 32127.785042000003,
+                    "candidate": 25504.571957999957,
+                    "reductionPercent": 20.615218494962082
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          }
+        },
+        "adoption": [
+          {
+            "id": "pnpm-changed-project-move-r1-typelatch",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-typelatch",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-typelatch",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-typelatch",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          }
+        ]
+      },
+      "packet": {
+        "passed": false,
+        "allCorrect": true,
+        "qualifiedWin": false,
+        "reasons": [
+          "native/totalTokens: aggregate or median reduction is below20%.",
+          "native/totalTokens: a repeat fails to improve.",
+          "native/chargedTimeMs: aggregate or median reduction is below20%.",
+          "native/chargedTimeMs: a repeat fails to improve.",
+          "competitor/totalTokens: aggregate or median reduction is below20%.",
+          "competitor/totalTokens: a repeat fails to improve.",
+          "competitor/chargedTimeMs: aggregate or median reduction is below20%.",
+          "competitor/chargedTimeMs: a repeat fails to improve."
+        ],
+        "comparisons": {
+          "native": {
+            "metrics": {
+              "totalTokens": {
+                "control": 361174,
+                "candidate": 393729,
+                "aggregateReductionPercent": -9.013661005498735,
+                "medianPairedReductionPercent": -11.09901291180394,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 181887,
+                    "candidate": 197859,
+                    "reductionPercent": -8.781276286925399
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 179287,
+                    "candidate": 195870,
+                    "reductionPercent": -9.249415741241696
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 77609,
+                    "candidate": 70235,
+                    "reductionPercent": 9.501475344354391
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 74844,
+                    "candidate": 91536,
+                    "reductionPercent": -22.302388969055635
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 104278,
+                    "candidate": 127624,
+                    "reductionPercent": -22.388231458217458
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 104443,
+                    "candidate": 104334,
+                    "reductionPercent": 0.1043631454477562
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 106692.61420699992,
+                "candidate": 104330.90891599993,
+                "aggregateReductionPercent": 2.213560243652783,
+                "medianPairedReductionPercent": 6.125338523229022,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 57410.150998999976,
+                    "candidate": 51370.86091699998,
+                    "reductionPercent": 10.519550945102358
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 49282.46320799994,
+                    "candidate": 52960.047998999944,
+                    "reductionPercent": -7.46225848224856
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22547.090833,
+                    "candidate": 20089.12854200002,
+                    "reductionPercent": 10.90146089890451
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 23554.11279199994,
+                    "candidate": 23088.18420800008,
+                    "reductionPercent": 1.9781198643071525
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 34863.06016599998,
+                    "candidate": 31281.732374999963,
+                    "reductionPercent": 10.272557182150893
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 25728.350416,
+                    "candidate": 29871.863790999865,
+                    "reductionPercent": -16.104854403813963
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          },
+          "competitor": {
+            "metrics": {
+              "totalTokens": {
+                "control": 378639,
+                "candidate": 393729,
+                "aggregateReductionPercent": -3.9853263926853812,
+                "medianPairedReductionPercent": -3.1665952297482463,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 174124,
+                    "candidate": 197859,
+                    "reductionPercent": -13.631090487238978
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 204515,
+                    "candidate": 195870,
+                    "reductionPercent": 4.227073808767083
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 91782,
+                    "candidate": 70235,
+                    "reductionPercent": 23.47628075221721
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 71606,
+                    "candidate": 91536,
+                    "reductionPercent": -27.83286316789096
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 82342,
+                    "candidate": 127624,
+                    "reductionPercent": -54.99259187292026
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 132909,
+                    "candidate": 104334,
+                    "reductionPercent": 21.499672708394467
+                  }
+                ]
+              },
+              "chargedTimeMs": {
+                "control": 103281.56654100015,
+                "candidate": 104330.90891599993,
+                "aggregateReductionPercent": -1.016001606233589,
+                "medianPairedReductionPercent": 5.230946675222009,
+                "repeats": [
+                  {
+                    "repeat": 1,
+                    "control": 47243.024416,
+                    "candidate": 51370.86091699998,
+                    "reductionPercent": -8.73745182918897
+                  },
+                  {
+                    "repeat": 2,
+                    "control": 56038.54212500015,
+                    "candidate": 52960.047998999944,
+                    "reductionPercent": 5.493530004997789
+                  }
+                ],
+                "pairs": [
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 1,
+                    "control": 22505.40741600003,
+                    "candidate": 20089.12854200002,
+                    "reductionPercent": 10.736436934183992
+                  },
+                  {
+                    "task": "pnpm-changed-project-move",
+                    "repeat": 2,
+                    "control": 23910.75708300015,
+                    "candidate": 23088.18420800008,
+                    "reductionPercent": 3.4401791300238505
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 1,
+                    "control": 24737.61699999997,
+                    "candidate": 31281.732374999963,
+                    "reductionPercent": -26.45410580574516
+                  },
+                  {
+                    "task": "pnpm-global-bin-api-migration",
+                    "repeat": 2,
+                    "control": 32127.785042000003,
+                    "candidate": 29871.863790999865,
+                    "reductionPercent": 7.021714220420169
+                  }
+                ]
+              }
+            },
+            "correctness": {
+              "control": 4,
+              "candidate": 4,
+              "tasks": [
+                {
+                  "task": "pnpm-changed-project-move",
+                  "control": 2,
+                  "candidate": 2
+                },
+                {
+                  "task": "pnpm-global-bin-api-migration",
+                  "control": 2,
+                  "candidate": 2
+                }
+              ]
+            }
+          }
+        },
+        "adoption": [
+          {
+            "id": "pnpm-changed-project-move-r1-packet",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r1-packet",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-global-bin-api-migration-r2-packet",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          },
+          {
+            "id": "pnpm-changed-project-move-r2-packet",
+            "mcpCalls": 0,
+            "mcpSucceeded": 0
+          }
+        ]
+      }
+    }
+  },
+  "finishedAt": "2026-11-06T19:14:58.354Z",
+  "publication": {
+    "source": "Completed public actions, independent grading and source changes from every scheduled run. Model reasoning and assistant message bodies are excluded.",
+    "protocolHash": "protocolSha256 binds the private frozen bytes. The public protocol retains that hash and documents path normalization.",
+    "replaySelection": {
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arms": [
+        "native",
+        "typelatch"
+      ],
+      "chosenBeforeResults": true
+    }
+  }
+}

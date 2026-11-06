@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "status": "retained-methodological-pilot",
+  "confirmatoryComparisonEligible": false,
+  "reason": "Generic conditional provider instructions led both initial native and packet runs to query MCP resource inventories without invoking a repository retrieval provider. Make each arm capability inventory explicit before a separate fresh comparison. Resource inventory probes are not repository retrieval. Costs remain unchanged and all attempts are retained.",
+  "protocol": "../protocol-001.json",
+  "privateProtocolSha256": "540a7abf0cc328323f39e7f99ff5c4fd032e02faa2d3bcee67ff39c9937a7a3f",
+  "runs": [
+    {
+      "id": "pnpm-changed-project-move-r1-native",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:22:54.781Z",
+      "finishedAt": "2026-11-06T19:23:22.620Z",
+      "fixtureSetupMs": 14962.771499999999,
+      "providerSetupMs": 0.0020000000004074536,
+      "elapsedMs": 27839.526791999997,
+      "teardownMs": 0.23150000000168802,
+      "gradingMs": 8502.454291000002,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 106891,
+        "cachedInputTokens": 89472,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 644,
+        "reasoningOutputTokens": 19,
+        "totalTokens": 107535,
+        "uncachedInputTokens": 17419
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 2,
+        "mcpSucceeded": 2,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "85ac8a95782d688a5c722ff272788a6ad8a643bd336d72ab0445ae31947c83e2",
+      "recordingError": null,
+      "rawSha256": "f93733931c98d19134b22496493291219b361315693cf0252d25151a4c633af8",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "2ad7f6bfb9dc062ff3fd37e1ad09c8ea36be2625285d6a41819fee71f7e6fa8e"
+          },
+          {
+            "line": 21,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "28a3fa0ee05dad03dc69e23f56f3842727b58bf2e8ac64bec2c1bfd5f380d5fb"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidence": "runs/pnpm-changed-project-move-r1-native.json",
+      "evidenceSha256": "2860b9699731be576b1c528daf17dbee1f87d685b4329aad52f5d4e207fdfc67"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-packet",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "packet",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:24:14.804Z",
+      "finishedAt": "2026-11-06T19:24:40.517Z",
+      "fixtureSetupMs": 15184.680540999994,
+      "providerSetupMs": 0.0016670000040903687,
+      "elapsedMs": 25712.243124999994,
+      "teardownMs": 0.23862499999813735,
+      "gradingMs": 8524.566083000012,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 108823,
+        "cachedInputTokens": 99456,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 619,
+        "reasoningOutputTokens": 37,
+        "totalTokens": 109442,
+        "uncachedInputTokens": 9367
+      },
+      "counts": {
+        "shellCalls": 5,
+        "mcpCalls": 2,
+        "mcpSucceeded": 2,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 1,
+        "contentSearchShellCalls": 0,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "85ac8a95782d688a5c722ff272788a6ad8a643bd336d72ab0445ae31947c83e2",
+      "recordingError": null,
+      "rawSha256": "2451babb9cafa1ea6c0ddda5f7bfa2f3a96cb50e0ee9b1692e531dd00f550768",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "ba0a029c826de2ae947233f81645751fbaeafe1a6cc871f96160823a20c8451f"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "39bad9669409a5130d11b32d6ae9c1c2ffcaf5dd7a66bd6a137542286aea4317"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidence": "runs/pnpm-changed-project-move-r1-packet.json",
+      "evidenceSha256": "1e3a964b54972c3ac99d6c728c6a22afaf37c0613da4320ab61e99e3b7ae50d0"
+    },
+    {
+      "id": "pnpm-changed-project-move-r1-competitor",
+      "task": "pnpm-changed-project-move",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T19:25:35.622Z",
+      "finishedAt": "2026-11-06T19:26:09.116Z",
+      "fixtureSetupMs": 14897.892666,
+      "providerSetupMs": 3.2941670000145677,
+      "elapsedMs": 33493.65858299998,
+      "teardownMs": 0.5355409999901894,
+      "gradingMs": 8539.780417000002,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 149017,
+        "cachedInputTokens": 124160,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 713,
+        "reasoningOutputTokens": 13,
+        "totalTokens": 149730,
+        "uncachedInputTokens": 24857
+      },
+      "counts": {
+        "shellCalls": 6,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 2,
+        "contentSearchShellCalls": 1,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "preparedSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+      "promptSha256": "85ac8a95782d688a5c722ff272788a6ad8a643bd336d72ab0445ae31947c83e2",
+      "recordingError": null,
+      "rawSha256": "964e0908a8367616cb52e972cda227578baa0a113c2329774ff398146ba4f300",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 3,
+            "outputSha256": "7bc683f6efcb04f38f94b17f58ac6f25fd9f95440743cf88c77d1315df08f995"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 3,
+            "outputSha256": "2c167ef05d7e837bc5ba8dcb4646d9339bff5f404a70639853dcb74f4c3819e7"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "Checks are identified from completed native command and public runner output, including multiple check outputs in one command. Command exit is aggregate; individual check exit codes are unknown. This confirms an observed failing check followed by a later check; it does not reconstruct every source write hidden inside shell commands."
+      },
+      "evidence": "runs/pnpm-changed-project-move-r1-competitor.json",
+      "evidenceSha256": "521a8b1c907fe41fc0803e19545010dca232aab16a28488b12323e45af7906e7"
+    }
+  ],
+  "retainedCosts": "No token or time costs subtracted. No runs pooled into the later explicit inventory study.",
+  "observation": "Native and packet sessions listed MCP resources without repository retrieval. Serena used its initial instructions and REPL to find source. All three fixes passed independent grading and all owned processes stopped."
+}

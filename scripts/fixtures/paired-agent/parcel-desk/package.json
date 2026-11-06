@@ -1,0 +1,20 @@
+{
+  "name": "parcel-desk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/preview"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test --test-reporter=tap test/*.test.mjs",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "effect": "3.22.1"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}

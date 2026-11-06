@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-06T17:29:59.320Z",
+  "typescriptVersion": "5.5.4",
+  "nodeVersion": "v22.23.1",
+  "sourceFilesUnchanged": true,
+  "rows": [
+    {
+      "file": "env/system-node-version/src/index.ts",
+      "config": "env/system-node-version/tsconfig.json",
+      "specifier": "execa",
+      "packageName": "safe-execa",
+      "version": "0.1.2",
+      "packageRoot": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/safe-execa@0.1.2/node_modules/safe-execa",
+      "packageManifestSha256": "31b9976562b73add865a4edff711ac878417c085afdfd5691a7f235e95fc9fe0",
+      "resolvedDeclaration": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/safe-execa@0.1.2/node_modules/safe-execa/lib/index.d.ts",
+      "declarationSha256": "d0b473a48bbcc2fc0d17bf21e47e024eef6ddad5b5965d850aebcb23540c9102",
+      "declarationBytes": 281,
+      "compilerPackageId": {
+        "name": "safe-execa",
+        "subModuleName": "lib/index.d.ts",
+        "version": "0.1.2"
+      },
+      "exports": [
+        "default",
+        "sync"
+      ],
+      "bindingType": "typeof import(\"$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/safe-execa@0.1.2/node_modules/safe-execa/lib/index\")",
+      "callSignatures": []
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "config": "patching/plugin-commands-patching/tsconfig.json",
+      "specifier": "safe-execa",
+      "packageName": "safe-execa",
+      "version": "0.1.4",
+      "packageRoot": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/safe-execa@0.1.4/node_modules/safe-execa",
+      "packageManifestSha256": "ecdc628861c20223d164d70d6c30cd8159b6f19ddc3e4894af41c67bd0b0c071",
+      "resolvedDeclaration": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/safe-execa@0.1.4/node_modules/safe-execa/lib/index.d.ts",
+      "declarationSha256": "7944e378b1e06814ddcaebdb5370473320603381bd1684a7e8f0255d9f9a0ba3",
+      "declarationBytes": 301,
+      "compilerPackageId": {
+        "name": "safe-execa",
+        "subModuleName": "lib/index.d.ts",
+        "version": "0.1.4"
+      },
+      "exports": [
+        "default",
+        "execa",
+        "sync"
+      ],
+      "bindingType": "(file: string, args?: readonly string[] | undefined, options?: Options<string> | undefined) => ExecaChildProcess<string>",
+      "callSignatures": [
+        "(file: string, args?: readonly string[] | undefined, options?: Options<string> | undefined): ExecaChildProcess<string>"
+      ]
+    },
+    {
+      "file": "resolving/npm-resolver/src/index.ts",
+      "config": "resolving/npm-resolver/tsconfig.json",
+      "specifier": "lru-cache",
+      "packageName": "lru-cache",
+      "version": "10.4.3",
+      "packageRoot": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/lru-cache@10.4.3/node_modules/lru-cache",
+      "packageManifestSha256": "a7e05794a5dc81dfc79a0f186c5219f442f2f735b08a3e9b91aba59833badc2d",
+      "resolvedDeclaration": "$REPOSITORY/artifacts/research/large-monorepo/pnpm-installed/node_modules/.pnpm/lru-cache@10.4.3/node_modules/lru-cache/dist/commonjs/index.d.ts",
+      "declarationSha256": "4129cc8c72b940eaff900a986581b5ab5a13b37d635cbec60f600554268a04ed",
+      "declarationBytes": 54533,
+      "compilerPackageId": {
+        "name": "lru-cache",
+        "subModuleName": "dist/commonjs/index.d.ts",
+        "version": "10.4.3"
+      },
+      "exports": [
+        "BackgroundFetch",
+        "DisposeTask",
+        "Index",
+        "LRUCache",
+        "NumberArray",
+        "PosInt",
+        "Stack",
+        "StackLike",
+        "UintArray",
+        "ZeroArray"
+      ],
+      "bindingType": "any",
+      "callSignatures": []
+    }
+  ],
+  "limits": [
+    "This checks exact installed external package resolution under existing owning project configs.",
+    "Workspace packages have not been built; this is not a whole-monorepo compiler or test success claim.",
+    "Different package versions do not by themselves establish different behavior or signatures."
+  ]
+}

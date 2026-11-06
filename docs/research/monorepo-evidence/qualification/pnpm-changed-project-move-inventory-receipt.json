@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "kind": "compact inventory receipt; full inventory remains private local data",
+  "sourcePath": "$REPOSITORY/artifacts/research/large-monorepo/truth-private/maintenance-research/qualification-002/baseline-manifest.json",
+  "sourceSha256": "9127eab43ae774aa69534fecb037ea563689f65bb91a0050aea21ae3c0c5ff93",
+  "treeSha256": "4456c2defad3db384f3febb45378aca969fd0d3362c29ce5e4d2843e2690fc6a",
+  "entryCount": 72643,
+  "entriesByKind": {
+    "file": 54693,
+    "directory": 12720,
+    "symlink": 5230
+  },
+  "limitation": "Omitted per-file dependency inventory is not independently reconstructable from this receipt alone. Frozen dependency locks and prepare scripts permit a new installation, whose machine-specific tree identity may differ."
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sqlite-rollback",
+    "title": "SQLite batch rollback",
+    "prompt": "Contact imports leave partial data after a duplicate name. Find the implementation and fix whole batch rollback while preserving parameter binding. Valid batches must commit completely, failed batches must leave all earlier database rows intact and no new batch rows, and constraint errors must propagate to the caller. Empty batches must leave the database unchanged. Preserve the existing exported functions and types.",
+    "allowedFiles": [
+      "batch.ts"
+    ]
+  },
+  {
+    "id": "preview-accuracy",
+    "prompt": "Customers report that after previewing a cart, changing its quantities or delivery region sometimes leaves the displayed quote unchanged. Split rows for the same SKU can also undercharge shipping, and a region with a configured zero base charge incorrectly gets the fallback charge. Fix preview correctness for repeated calls on one application instance. Merchandise and grams must count every unit of every row. Shipping is zero for an empty cart; otherwise it is the exact configured region base, or the wildcard base when that region has no own configured value, or zero when neither exists, plus the configured amount per started kilogram. Zero is a real configured price. Existing invalid quantity, missing region, and unknown SKU errors must still occur after earlier successful previews. Do not mutate caller data, and mutation of a returned quote must not corrupt later results.",
+    "title": "Cart preview correctness",
+    "allowedFiles": [
+      "src/**/*.ts"
+    ]
+  },
+  {
+    "id": "partner-boundary",
+    "prompt": "The partner manifest boundary currently trusts arbitrary input. Implement the production Effect runtime schema and importer so both expose the same validation and normalized data. A manifest is an object containing a partner string and at least one parcel. Trim partner and parcel reference strings and reject blank results. Every parcel must contain a trimmed nonblank reference, a finite positive integer grams value supplied as a number, and service equal to standard or express. Parcel references must be unique after trimming. Reject missing fields, wrong types, unknown service values, and invalid manifests with the existing invalid-manifest result, without throwing. Strip unrecognized object fields from accepted output, retain parcel order, and do not mutate input or retain mutable references to it in imported results. The exported schema must itself perform the complete validation and normalization through the production dependency's decoder; a manual-only importer with a permissive schema does not meet the contract. Inputs are ordinary data values, including primitives, arrays, null, and undefined, without accessors, proxies, or cyclic references.",
+    "title": "Partner manifest validation",
+    "allowedFiles": [
+      "src/**/*.ts"
+    ]
+  }
+]

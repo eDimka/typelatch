@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-06T18:34:44.141Z",
+  "baselineTreeSha256": "ee4ac20446106435d226405e542fc416e56a75076a77009593d4f0573db64f15",
+  "links": 5234,
+  "external": [],
+  "dangling": [
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+      "target": ".pnpm/is-negative@2.1.0/node_modules/is-negative",
+      "exists": false,
+      "outside": false
+    },
+    {
+      "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+      "target": ".pnpm/is-positive@3.1.0/node_modules/is-positive",
+      "exists": false,
+      "outside": false
+    },
+    {
+      "path": "fetching/directory-fetcher/test/fixtures/pkg-with-broken-symlink/not-exists",
+      "target": "broken-symlink",
+      "exists": false,
+      "outside": false
+    },
+    {
+      "path": "store/cafs/test/fixtures/broken-symlink/doesnt-exist",
+      "target": "../doesnt-exist",
+      "exists": false,
+      "outside": false
+    }
+  ],
+  "policy": "Resolved existing targets; lexical containment for inherited dangling fixture links. No links changed."
+}

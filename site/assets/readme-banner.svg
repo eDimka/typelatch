@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Typelatch. Give your agent a better first move. Find the source. Inspect the exact API. Verify the change.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Typelatch. Give your agent context it can verify. Find the source. Inspect the exact API. Verify the change.">
   <defs>
     <linearGradient id="latch" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffa085"/><stop offset="1" stop-color="#ff5636"/></linearGradient>
     <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#726078" stroke-opacity=".14"/></pattern>
@@ -12,8 +12,8 @@
     <text x="52" y="133" font-family="Andale Mono, monospace" font-size="10" letter-spacing="1.2" fill="#c7b5ed">LOCAL CONTEXT. REAL EVIDENCE.</text>
     <g font-size="76" font-weight="700" letter-spacing="-4.5" fill="#f4f1e8">
       <text x="48" y="222">Give your agent</text>
-      <text x="48" y="297">a better</text>
-      <text x="48" y="372" fill="#ff7759">first move.</text>
+      <text x="48" y="297">context it</text>
+      <text x="48" y="372" fill="#ff7759">can verify.</text>
     </g>
     <g font-size="17" fill="#bcb6c3"><text x="52" y="428">Find the source. Inspect the exact API.</text><text x="52" y="455">Verify the change.</text></g>
   </g>
