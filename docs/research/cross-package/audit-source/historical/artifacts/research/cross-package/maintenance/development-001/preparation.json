@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "workspace": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/workspace",
+  "sourceFiles": [
+    "deps/status/src/checkDepsStatus.ts",
+    "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+    "lockfile/verification/src/index.ts",
+    "pkg-manager/core/src/install/index.ts"
+  ],
+  "projects": [
+    "deps/status",
+    "lockfile/settings-checker",
+    "lockfile/verification",
+    "pkg-manager/core"
+  ],
+  "baselineCommit": "1e6de2539bf2df6477fcb8d9c016f7842f5c5e77",
+  "referenceCommit": "69ebe387643ae781182d7fa0fd59602484ae268d",
+  "adaptations": [
+    "Reference workspace dependency declarations, lockfile and project references are prewired in both arms. Dependency editing is outside the repair task.",
+    "Exact upstream updated catalog test file is available before the repair.",
+    "All four target project outputs are retained outside the fixture; each validation rebuilds them from submitted source.",
+    "The rest of the installed native compiler and project dependency closure stays identical across arms."
+  ],
+  "restoredSource": [
+    {
+      "path": "deps/status/src/checkDepsStatus.ts",
+      "sha256": "265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1"
+    },
+    {
+      "path": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+      "sha256": "5dcc20d235466e42f84cdc0086817c5b9e739b7682c329a1cd2acd8cd909268a"
+    },
+    {
+      "path": "lockfile/verification/src/index.ts",
+      "sha256": "2545836b0551f2fbeab00460f9898c8a8e1dd605429f734aa2f7a46f61b7dfa9"
+    },
+    {
+      "path": "pkg-manager/core/src/install/index.ts",
+      "sha256": "52cd9818d608889988a1bbbc896e577772c57ac06d7959142a0555b0f8e68bc7"
+    }
+  ],
+  "resumeOnlyMs": 4.086750000000002,
+  "initialBulkCopyMs": null,
+  "timingLimitation": "The initial full clone completed before a small source overwrite failed. Its elapsed time was not recorded by that preparation script. Resume time is not total preparation time. All later qualification copy, compile, semantic and native validation times are recorded."
+}

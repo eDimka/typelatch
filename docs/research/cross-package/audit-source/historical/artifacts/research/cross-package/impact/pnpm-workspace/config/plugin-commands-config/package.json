@@ -1,0 +1,67 @@
+{
+  "name": "@pnpm/plugin-commands-config",
+  "version": "1000.3.21",
+  "description": "Commands for reading and writing settings to/from config files",
+  "keywords": [
+    "pnpm",
+    "pnpm10",
+    "config"
+  ],
+  "license": "MIT",
+  "funding": "https://opencollective.com/pnpm",
+  "repository": "https://github.com/pnpm/pnpm/tree/main/config/plugin-commands-config",
+  "homepage": "https://github.com/pnpm/pnpm/tree/main/config/plugin-commands-config#readme",
+  "bugs": {
+    "url": "https://github.com/pnpm/pnpm/issues"
+  },
+  "type": "commonjs",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "files": [
+    "lib",
+    "!*.map"
+  ],
+  "scripts": {
+    "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
+    "_test": "jest",
+    "test": "pnpm run compile && pnpm run _test",
+    "prepublishOnly": "pnpm run compile",
+    "compile": "tsc --build && pnpm run lint --fix"
+  },
+  "dependencies": {
+    "@pnpm/cli-utils": "workspace:*",
+    "@pnpm/config": "workspace:*",
+    "@pnpm/error": "workspace:*",
+    "@pnpm/object.key-sorting": "workspace:*",
+    "@pnpm/object.property-path": "workspace:*",
+    "@pnpm/run-npm": "workspace:*",
+    "@pnpm/workspace.manifest-writer": "workspace:*",
+    "camelcase": "catalog:",
+    "ini": "catalog:",
+    "lodash.kebabcase": "catalog:",
+    "read-ini-file": "catalog:",
+    "render-help": "catalog:",
+    "write-ini-file": "catalog:"
+  },
+  "peerDependencies": {
+    "@pnpm/logger": "catalog:"
+  },
+  "devDependencies": {
+    "@jest/globals": "catalog:",
+    "@pnpm/logger": "workspace:*",
+    "@pnpm/plugin-commands-config": "workspace:*",
+    "@pnpm/prepare": "workspace:*",
+    "@types/ini": "catalog:",
+    "@types/lodash.kebabcase": "catalog:",
+    "read-yaml-file": "catalog:"
+  },
+  "engines": {
+    "node": ">=18.12"
+  },
+  "jest": {
+    "preset": "@pnpm/jest-config"
+  }
+}

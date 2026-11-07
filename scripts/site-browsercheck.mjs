@@ -142,7 +142,7 @@ try {
   const monorepoPath = resolve(root, 'docs/benchmarks/monorepo-agent-study/report.json')
   const monorepo = existsSync(monorepoPath) ? JSON.parse(readFileSync(monorepoPath, 'utf8')) : null
   if (monorepo) {
-    await page.locator('a[href="#monorepo-benchmark"]').click()
+    await page.locator('a[href="#monorepo-benchmark"]').first().click()
     assert.deepEqual(await page.locator('[data-monorepo-arm]').evaluateAll(nodes => nodes.map(node => node.dataset.monorepoArm)), ['native', 'competitor', 'typelatch', 'packet'])
     assert.equal(await page.locator('[data-monorepo-run]').count(), monorepo.runs.length)
     assert.match(await page.locator('#monorepo-benchmark .benchmark-scope').innerText(), /does not test scaling/)
@@ -155,10 +155,22 @@ try {
     await disclosure.locator('summary').click()
     report.checks.push('Four maintenance conditions, all sixteen sessions, keyboard disclosure and exact evidence links')
   }
+  const confirmation = await page.locator('#confirmation-benchmark').count() > 0
+  const confirmationReplay = await page.locator('[data-confirmation-comparison-image]').count() > 0
+  if (confirmation) {
+    assert.equal(confirmationReplay, true, 'Final confirmation requires its verified preselected replay')
+    assert.deepEqual(await page.locator('[data-confirmation-arm]').evaluateAll(nodes => nodes.map(node => node.dataset.confirmationArm)), ['native', 'impact', 'competitor', 'codegraph'])
+    assert.equal(await page.locator('[data-confirmation-run]').count(), 16)
+    assert.equal(await page.locator('[data-confirmation-gate]').getAttribute('data-confirmation-gate'), 'failed')
+    assert.match(await page.locator('#confirmation-benchmark .benchmark-scope').innerText(), /same Vue snapshot/)
+    report.checks.push('All four confirmation conditions and sixteen sessions retain the failed gate and separate audited grades')
+  }
+  const crossPackage = await page.locator('#cross-package-benchmark').count() > 0
+  const impactReplay = await page.locator('[data-impact-comparison-image]').count() > 0
   const guidedPath = resolve(root, 'docs/benchmarks/monorepo-guided-study/report.json')
   const guided = existsSync(guidedPath) ? JSON.parse(readFileSync(guidedPath, 'utf8')) : null
   if (guided) {
-    await page.locator('.masthead a[href="#guided-benchmark"]').click()
+    await page.locator('a[href="#guided-benchmark"]').first().click()
     assert.deepEqual(await page.locator('[data-guided-arm]').evaluateAll(nodes => nodes.map(node => node.dataset.guidedArm)), ['native', 'competitor', 'packet'])
     assert.equal(await page.locator('[data-guided-run]').count(), 12)
     assert.match(await page.locator('#guided-benchmark .benchmark-scope').innerText(), /unpublished Typelatch prototype/)
@@ -213,6 +225,38 @@ try {
           await section.locator(`[data-guided-arm="${arm}"]`).evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY - 20, behavior: 'instant' }))
           await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
           await page.screenshot({ path: resolve(directory, `${width}-guided-${arm}.png`) })
+        }
+      }
+    }
+    if (confirmation) {
+      const section = page.locator('#confirmation-benchmark')
+      for (const card of await section.locator('[data-confirmation-arm]').all()) {
+        assert.equal(await card.locator('dt').count(), 7)
+        assert.equal(await card.evaluate(node => node.scrollWidth <= node.clientWidth), true, `Confirmation cards fit ${width}px`)
+        for (const value of await card.locator('dd').all()) assert.equal(await value.evaluate(node => { const box = node.getBoundingClientRect(); return box.left >= 0 && box.right <= innerWidth }), true, `Confirmation values need no sideways scroll at ${width}px`)
+      }
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+      if ([390, 1440].includes(width)) for (const [label, target] of [['heading', section], ['metrics', section.locator('.confirmation-cards')], ['pairs', section.locator('.confirmation-pairs')]]) {
+        await target.evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY - 20, behavior: 'instant' }))
+        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+        await page.screenshot({ path: resolve(directory, `${width}-confirmation-${label}.png`) })
+      }
+    }
+    if (crossPackage) {
+      const section = page.locator('#cross-package-benchmark')
+      for (const card of await section.locator('[data-cross-package-arm]:visible').all()) {
+        assert.equal(await card.locator('dt').count(), 7)
+        assert.equal(await card.evaluate(node => node.scrollWidth <= node.clientWidth), true, `Cross package metrics fit at ${width}px`)
+        for (const value of await card.locator('dd').all()) assert.equal(await value.evaluate(node => { const box = node.getBoundingClientRect(); return box.left >= 0 && box.right <= innerWidth }), true, `Cross package metrics need no sideways scroll at ${width}px`)
+      }
+      await section.locator('details').evaluateAll(nodes => nodes.forEach(node => { node.open = true }))
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false)
+      await section.locator('details').evaluateAll(nodes => nodes.forEach(node => { node.open = false }))
+      if ([390, 1440].includes(width)) {
+        for (const [label, target] of [['heading', section], ['metrics', section.locator('.guided-arm-cards').first()]]) {
+          await target.evaluate(node => scrollTo({ top: node.getBoundingClientRect().top + scrollY - 20, behavior: 'instant' }))
+          await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))))
+          await page.screenshot({ path: resolve(directory, `${width}-cross-package-${label}.png`) })
         }
       }
     }
@@ -308,6 +352,20 @@ try {
   )
   assert.match(await page.locator('#action-status').textContent(), /unavailable/)
   report.checks.push('Clipboard success and honest denied-permission selection fallback')
+  if (impactReplay) {
+    await page.locator('[data-impact-comparison-play]').click()
+    assert.equal(await page.locator('[data-impact-comparison-image]').getAttribute('src'), 'assets/codex-impact-development.gif')
+    assert.equal(await page.locator('[data-impact-comparison-play]').getAttribute('aria-pressed'), 'true')
+    await page.locator('[data-impact-comparison-play]').click()
+    assert.equal(await page.locator('[data-impact-comparison-image]').getAttribute('src'), 'assets/codex-impact-development.png')
+  }
+  if (confirmationReplay) {
+    await page.locator('[data-confirmation-comparison-play]').click()
+    assert.equal(await page.locator('[data-confirmation-comparison-image]').getAttribute('src'), 'assets/cross-package-confirmation.gif')
+    assert.equal(await page.locator('[data-confirmation-comparison-play]').getAttribute('aria-pressed'), 'true')
+    await page.locator('[data-confirmation-comparison-play]').click()
+    assert.equal(await page.locator('[data-confirmation-comparison-image]').getAttribute('src'), 'assets/cross-package-confirmation.png')
+  }
   const reduced = await browser.newContext({
     reducedMotion: 'reduce',
     viewport: { width: 390, height: 844 },
@@ -324,6 +382,18 @@ try {
     await reducedPage.locator('[data-guided-comparison-image]').scrollIntoViewIfNeeded()
     await reducedPage.locator('[data-guided-comparison-image]').evaluate(image => image.decode())
     assert.match(await reducedPage.locator('[data-guided-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/codex-guided-comparison\.png$/)
+  }
+  if (impactReplay) {
+    assert.equal(await reducedPage.locator('[data-impact-comparison-play]').isVisible(), false)
+    await reducedPage.locator('[data-impact-comparison-image]').scrollIntoViewIfNeeded()
+    await reducedPage.locator('[data-impact-comparison-image]').evaluate(image => image.decode())
+    assert.match(await reducedPage.locator('[data-impact-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/codex-impact-development\.png$/)
+  }
+  if (confirmationReplay) {
+    assert.equal(await reducedPage.locator('[data-confirmation-comparison-play]').isVisible(), false)
+    await reducedPage.locator('[data-confirmation-comparison-image]').scrollIntoViewIfNeeded()
+    await reducedPage.locator('[data-confirmation-comparison-image]').evaluate(image => image.decode())
+    assert.match(await reducedPage.locator('[data-confirmation-comparison-image]').evaluate(image => image.currentSrc), /\/assets\/cross-package-confirmation\.png$/)
   }
   await reducedPage.locator('[data-demo-step="5"]').click()
   assert.equal(await reducedPage.locator('[data-demo-scene="5"]').isVisible(), true)
@@ -360,6 +430,18 @@ try {
     assert.equal(await staticPage.locator('[data-guided-comparison-play]').isVisible(), false)
     assert.equal(await staticPage.locator('[data-guided-comparison-image]').getAttribute('src'), 'assets/codex-guided-comparison.png')
     assert.equal(await staticPage.locator('[data-guided-arm]').count(), 3)
+  }
+  if (impactReplay) {
+    assert.equal(await staticPage.locator('[data-impact-comparison-play]').isVisible(), false)
+    assert.equal(await staticPage.locator('[data-impact-comparison-image]').getAttribute('src'), 'assets/codex-impact-development.png')
+  }
+  if (confirmation) {
+    assert.equal(await staticPage.locator('[data-confirmation-arm]').count(), 4)
+    assert.equal(await staticPage.locator('[data-confirmation-gate]').getAttribute('data-confirmation-gate'), 'failed')
+  }
+  if (confirmationReplay) {
+    assert.equal(await staticPage.locator('[data-confirmation-comparison-play]').isVisible(), false)
+    assert.equal(await staticPage.locator('[data-confirmation-comparison-image]').getAttribute('src'), 'assets/cross-package-confirmation.png')
   }
   assert.equal(await staticPage.locator('#lookup').isVisible(), true)
   assert.equal(await staticPage.locator('#use').isVisible(), true)

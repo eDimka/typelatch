@@ -1,0 +1,5 @@
+The frozen grader rejected distinct valid literal occurrences because its duplicate key contained only file, symbol and reason. The prompt defined exclusions by occurrence. A separate assessment now requires each colliding citation to identify one unique frozen source occurrence and rejects repeat citations, overlapping occurrences and ambiguous quotes. Every other frozen check remains in force.
+
+Applied uniformly to all 16 submitted answers, this exonerates four occurrence-only failures and leaves one substantive native dependency-chain error. Original results remain 11 strict passes; the separate contract assessment finds 15 valid answers. Native runtime repeat 1 incorrectly follows monaco-editor 0.52.0 development metadata requiring vite ^3.2.8 to the root installed vite 5.4.0. That lookup is not a valid declared installed dependency edge.
+
+The original reports, grades and decisions are unchanged. Candidate token savings versus native are below the frozen 20 percent threshold. This correction does not establish a qualified edge.

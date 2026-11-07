@@ -1,0 +1,152 @@
+TAP version 13
+# Subtest: distinct valid literal occurrences expose original collision and pass only separate assessment
+not ok 1 - distinct valid literal occurrences expose original collision and pass only separate assessment
+  ---
+  duration_ms: 3.909333
+  type: 'test'
+  location: '$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:22:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:22:221)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: same quote repeated for the same occurrence remains rejected
+ok 2 - same quote repeated for the same occurrence remains rejected
+  ---
+  duration_ms: 0.989542
+  type: 'test'
+  ...
+# Subtest: different overlapping ranges cannot turn the same occurrence into two
+ok 3 - different overlapping ranges cannot turn the same occurrence into two
+  ---
+  duration_ms: 1.049583
+  type: 'test'
+  ...
+# Subtest: one broad quote covering both occurrences is ambiguous
+ok 4 - one broad quote covering both occurrences is ambiguous
+  ---
+  duration_ms: 1.087792
+  type: 'test'
+  ...
+# Subtest: a repeated short quote with two possible matches is ambiguous
+ok 5 - a repeated short quote with two possible matches is ambiguous
+  ---
+  duration_ms: 1.067458
+  type: 'test'
+  ...
+# Subtest: a wrong citation cannot disappear when collapsing a coarse key
+ok 6 - a wrong citation cannot disappear when collapsing a coarse key
+  ---
+  duration_ms: 0.754416
+  type: 'test'
+  ...
+# Subtest: unchanged truth and exact source hash are required
+ok 7 - unchanged truth and exact source hash are required
+  ---
+  duration_ms: 0.793291
+  type: 'test'
+  ...
+# Subtest: source-scope rows without occurrence identity are not exonerated
+ok 8 - source-scope rows without occurrence identity are not exonerated
+  ---
+  duration_ms: 1.120292
+  type: 'test'
+  ...
+# Subtest: false dependency chain remains rejected despite valid separate occurrences
+ok 9 - false dependency chain remains rejected despite valid separate occurrences
+  ---
+  duration_ms: 1.080792
+  type: 'test'
+  ...
+# Subtest: source integrity failure cannot be repaired by the occurrence assessment
+ok 10 - source integrity failure cannot be repaired by the occurrence assessment
+  ---
+  duration_ms: 0.736417
+  type: 'test'
+  ...
+# Subtest: negativeClaims use the same occurrence rule and retain repeated-claim rejection
+not ok 11 - negativeClaims use the same occurrence rule and retain repeated-claim rejection
+  ---
+  duration_ms: 0.700917
+  type: 'test'
+  location: '$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:32:207)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: different-symbol exclusion slots need distinct admitted occurrences
+not ok 12 - different-symbol exclusion slots need distinct admitted occurrences
+  ---
+  duration_ms: 0.740584
+  type: 'test'
+  location: '$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:33:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    false !== true
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://$REPOSITORY/artifacts/research/cross-package/audits/occurrence-contract-v1.test.mjs:33:304)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: otherwise passing answer remains passing without rewriting the input
+ok 13 - otherwise passing answer remains passing without rewriting the input
+  ---
+  duration_ms: 0.612333
+  type: 'test'
+  ...
+# Subtest: malformed answer stays rejected
+ok 14 - malformed answer stays rejected
+  ---
+  duration_ms: 0.432875
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 11
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 71.838167

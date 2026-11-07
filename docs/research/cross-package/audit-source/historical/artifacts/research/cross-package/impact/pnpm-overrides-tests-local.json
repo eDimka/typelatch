@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-11-06T21:30:42.215Z",
+  "elapsedMs": 716.537375,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace/config/parse-overrides",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "exec",
+    "jest",
+    "--runInBand"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 1,
+  "signal": null,
+  "error": null,
+  "stdout": "../../pnpm                               |  WARN  The field \"pnpm.overrides\" was found in $REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace/pnpm/package.json. This will not take effect. You should configure \"pnpm.overrides\" at the root of the workspace instead.\n----------|---------|----------|---------|---------|-------------------\nFile      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s \n----------|---------|----------|---------|---------|-------------------\nAll files |       0 |        0 |       0 |       0 |                   \n----------|---------|----------|---------|---------|-------------------\n",
+  "stderr": "FAIL test/index.ts\n  ● Test suite failed to run\n\n    Cannot find module '@pnpm/worker' from '../../__utils__/jest-config/setupFilesAfterEnv.js'\n\n    > 1 | const { finishWorkers } = require('@pnpm/worker')\n        |                                                  ^\n      2 |\n      3 | afterAll(async () => {\n      4 |   await finishWorkers()\n\n      at Resolver._throwModNotFoundError (../../node_modules/.pnpm/jest-resolve@29.7.0/node_modules/jest-resolve/build/resolver.js:427:11)\n      at Object.<anonymous> (../../__utils__/jest-config/setupFilesAfterEnv.js:1:129)\n\nTest Suites: 1 failed, 1 total\nTests:       0 total\nSnapshots:   0 total\nTime:        0.192 s\nRan all test suites.\n"
+}

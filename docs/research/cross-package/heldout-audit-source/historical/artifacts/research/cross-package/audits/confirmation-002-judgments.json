@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "runs": {
+    "vue-type-impact-heldout-grading-v2-r1-native": {
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "providerIndices": [],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "toolOutputsSha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8",
+      "notes": "First task investigation was native file discovery, followed immediately by ShallowRef source search. Native compiler binding/export-star analysis, project configuration and installed package-manager graph inspection stayed within the workspace. The first handwritten installed traversal overincluded development dependencies of installed external packages; later pnpm list graph checks corrected that before the submitted answer. Only impact-answer.json was added, with source and fixture Git unchanged. Native validation was not required for this analysis task. All eight direct rows, ten installed workspace dependent chains and three root scripts match the frozen task requirements; exact semantic and citation checks remain separate from workflow."
+    },
+    "vue-type-impact-heldout-grading-v2-r1-impact": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "toolOutputsSha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75",
+      "notes": "First task-directed investigation called package_evidence for @vue/reactivity ShallowRef. Returned actual source citations for eight direct type/reexport rows, ten conservative workspace dependency chains, four candidate scripts and nineteen explicit uncertainty issues with no omitted rows. This is usable task evidence despite partial status, not a build or complete runtime-impact proof. Subsequent native source, manifest/link and configured-scope checks verified those facts, selected the requested three scripts, and supplied the string-only exclusion. Only the permitted impact-answer.json was added; source and fixture Git remained unchanged. No native validation was required for this analysis task."
+    },
+    "vue-type-impact-heldout-grading-v2-r1-competitor": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        2
+      ],
+      "firstInvestigationIndex": 2,
+      "evidenceSha256": "5dc2150120039e092b2ce70cb440816a00857cb8b3dfc57de2b8bd5951fe2f46",
+      "toolOutputsSha256": "35a77a4518cf7bc16ddff7a14fc7ac146c7d75697a85a38793d99b24a9032c28",
+      "notes": "Serena startup instructions and API help preceded its first task-directed REPL search for ShallowRef. That call returned real target declarations, the runtime-core type consumer/reexport and the custom formatter string. This is useful source discovery, not proof that the provider assembled the full graph. Native compiler reference/export-star traversal, configured-scope and installed dependency checks followed. An initially overinclusive traversal of installed external development dependencies was corrected before answer assembly. Only impact-answer.json was added, with source and fixture Git unchanged. No native validation was required."
+    },
+    "vue-type-impact-heldout-grading-v2-r1-codegraph": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "toolOutputsSha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "notes": "First investigation used codegraph_explore for ShallowRef and returned relevant target declaration and consumer/reexport paths, alongside broader neighboring symbols and tests. This is usable task discovery, not a complete contract-impact answer. Native compiler binding, configuration and package-manager/installed-link checks followed. A failed syntax command was retained and repaired; all follow-up costs remain included. Source and fixture Git remained unchanged; only the answer was added beyond the declared provider-state link. No native validation was required."
+    },
+    "vue-runtime-impact-heldout-grading-v2-r1-impact": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "82d93c090bb4f32f4157f00ecb68bc8c4089702c3e5497035ef0d3b804e2a32b",
+      "toolOutputsSha256": "ff12f53c5b4c1cebef70658eb7d75fe0ac64cba7b853c05ddbe7a89a4ff84b0e",
+      "notes": "The first investigation called package_evidence for @vue/shared normalizeClass. It returned thirteen cited runtime/reexport rows, fifteen conservative dependent chains, candidate validation scripts and explicit partial coverage/issues. Native source searches, configured compiler binding, installed workspace links and script checks followed before assembly of the answer. The final answer distinguished generated helper-name strings and the separate NORMALIZE_CLASS symbol from bound calls, and retained unknown dynamic-loading limits. Only the permitted answer was added; source and fixture Git unchanged. No native validation was required."
+    },
+    "vue-runtime-impact-heldout-grading-v2-r1-competitor": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        2
+      ],
+      "firstInvestigationIndex": 2,
+      "evidenceSha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+      "toolOutputsSha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+      "notes": "Serena startup and search API help preceded a relevant normalizeClass source query; actual returned bound consumer candidates and generated-name string locations are usable discovery. Native compiler identity/reference/export and installed-link checks followed. Source and fixture Git unchanged; only answer added. Original grade fails solely because two valid exclusion occurrences share the same file/symbol/reason key. Both citations and all required impact facts pass the frozen grader; separate correctness audit must disclose that the occurrence-level prompt did not require this deduplication. No native validation was required.",
+      "correctnessFinding": "exclusion-occurrence-key-collision"
+    },
+    "vue-runtime-impact-heldout-grading-v2-r1-codegraph": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "toolOutputsSha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "notes": "First investigation was codegraph_explore normalizeClass, returning the target declaration and relevant production consumer paths among broader symbols and tests. Native compiler binding/export traversal, configured-scope checks and actual installed workspace links followed. The answer retained the generated-name registry as a string exclusion and unknown dynamic-loading boundary. Only the answer was added beyond the declared provider link; source and fixture Git unchanged. Provider discovery was usable but did not itself prove the entire requested impact set. No native validation was required."
+    },
+    "vue-runtime-impact-heldout-grading-v2-r1-native": {
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "providerIndices": [],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+      "toolOutputsSha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+      "notes": "Native source search was the first investigation, followed by compiler export/reference checks, configuration and installed package inspection. Only the answer was added; source and fixture Git unchanged. The answer contains the same duplicate-key exclusion limitation, but also an independently invalid extra dependency chain: monaco-editor declares development vite ^3.2.8 while the traversal selects hoisted vite5.4.0, then follows external development metadata into the Vue workspace. This is not an exact installed dependency edge. The occurrence-only erratum cannot clear this substantive chain failure. No native validation was required.",
+      "correctnessFinding": "invalid-external-development-chain-plus-occurrence-collision"
+    },
+    "vue-runtime-impact-heldout-grading-v2-r2-native": {
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "providerIndices": [],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "f2a2c3161676817f6c40c4ffd5ce76ac08a33adbd661623e2c4e7c9e2c4fbd50",
+      "toolOutputsSha256": "a15e2c849710f2820217bcf97c083967aeaedfea6a660f0b8c639dd45ab1b8b8",
+      "notes": "Native file/source discovery began the investigation. Compiler binding across native configurations, actual installed workspace links and script checks followed; only the permitted answer was added. Source and fixture Git unchanged. The strict original failure is again the two valid normalizeClass string occurrences collapsed to one exclusion key; no failed source/chain/script evidence or missing impact set is reported. The versioned occurrence assessment remains separate and cannot overwrite this original result. No native validation was required.",
+      "correctnessFinding": "exclusion-occurrence-key-collision"
+    },
+    "vue-runtime-impact-heldout-grading-v2-r2-codegraph": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "toolOutputsSha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "notes": "First investigation was codegraph_search normalizeClass and returned the target signature, actual production imports and distinct lookalike/registry symbols before native discovery. Subsequent compiler reference/export, source-scope, installed workspace link and script checks stayed in the project. Only the permitted answer was added beyond the declared provider link; source and fixture Git unchanged. Original grade fails solely because two valid literal occurrences share a coarse exclusion key; all remaining checks pass. The occurrence-contract audit is separate from the original grade. No native validation was required.",
+      "correctnessFinding": "exclusion-occurrence-key-collision"
+    },
+    "vue-runtime-impact-heldout-grading-v2-r2-competitor": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        3
+      ],
+      "firstInvestigationIndex": 3,
+      "evidenceSha256": "bf87b60932e0b6c0c78793ce0345ff567abd409855c8b932fd626df5c862cd01",
+      "toolOutputsSha256": "73e859de08663775b21d3b377b3ba2ea1d540d9f451ed389cc53ce5b2a5915e4",
+      "notes": "Harmless pwd and Serena startup/API help preceded the first relevant provider source search. That search returned actual normalizeClass declarations/consumers and registry strings. Native compiler/configuration and installed graph checks followed; an initially overinclusive external development traversal was corrected through package-manager filtering and exact workspace links before answer assembly. Only the answer was added; source and fixture Git unchanged. Original failure is only the same accepted distinct literal occurrences collapsed to one exclusion key. No native validation was required.",
+      "correctnessFinding": "exclusion-occurrence-key-collision"
+    },
+    "vue-runtime-impact-heldout-grading-v2-r2-impact": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0,
+        3
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "e7ff8f1be85adf238ebc8a29ac39ce03309db60450b726975a8f47f469bcc8f6",
+      "toolOutputsSha256": "b31e3b10b60a65288eac598869e0e92cce184b5250e0b93b183ebbd9124fa805",
+      "notes": "First investigation used package_evidence normalizeClass and returned thirteen cited direct rows, fifteen conservative dependent chains and explicit partial issues. A later repeated identical query is retained and charged. Native configuration, source, installed-link and script checks followed; final exclusions distinguish the NORMALIZE_CLASS symbol from the generated normalizeClass string. Only the answer was added; source and fixture Git unchanged. Both calls are usable discovery evidence, not proof that validation ran or dynamic loading was fully analyzed. No native validation was required."
+    },
+    "vue-type-impact-heldout-grading-v2-r2-codegraph": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "toolOutputsSha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "notes": "First investigation used codegraph_explore ShallowRef and returned the target declaration with relevant production consumer/reexport paths. Native compiler checks corrected an initial relative-path scan, then source configuration and actual installed workspace links supported the final report. An overinclusive external development traversal was not used in the final dependent set. Only the answer was added beyond the declared provider link; source and fixture Git unchanged. Provider output is useful discovery rather than complete semantic proof. No native validation was required."
+    },
+    "vue-type-impact-heldout-grading-v2-r2-competitor": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        2
+      ],
+      "firstInvestigationIndex": 2,
+      "evidenceSha256": "e7513de2c4113ffa33daa794a36da92b7c8554c4b042503fab15de2615a70c89",
+      "toolOutputsSha256": "edbce22e2becff226e287a38ccd86b2a24482a54fe492ec3dc029fe5c5fb0ff1",
+      "notes": "Serena startup/API help preceded the first task source search, which returned actual ShallowRef declarations, type consumer/reexport and formatter string. Native compiler checks used corrected absolute configuration parsing to respect excluded private source, then package-manager filtering and installed workspace links supported the final dependent set. Only the answer was added; source and fixture Git unchanged. The provider established useful source discovery, not complete graph inference. No native validation was required."
+    },
+    "vue-type-impact-heldout-grading-v2-r2-impact": {
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "providerIndices": [
+        0
+      ],
+      "firstInvestigationIndex": 0,
+      "evidenceSha256": "01289c5fb4bc315e96782659848db931378ccbd5ec5173aef1b12b1895dc25ad",
+      "toolOutputsSha256": "fb284c28a8d0bb9acad4d5119fb3ce1f83cc18c8ed9651a4ffe31602ec20a1b3",
+      "notes": "The first task investigation called package_evidence ShallowRef, returning eight cited type/reexport rows, ten conservative dependent chains and explicit partial issues. Native per-configuration compiler binding, manifest/link checks and script evidence verification followed. The answer preserved uncertainty and the formatter string exclusion; only the permitted answer was added, with source and fixture Git unchanged. Provider facts were usable and subsequently checked, not treated as executed validation or full dynamic analysis. No native validation was required."
+    },
+    "vue-type-impact-heldout-grading-v2-r2-native": {
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "providerIndices": [],
+      "firstInvestigationIndex": 0,
+      "notes": "The first command searched the requested ShallowRef declaration and workspace configuration. Subsequent native source search, TypeScript binding in configured projects, exact installed workspace links and script-property citations supported the answer. The model distinguished the formatter string and test-only occurrences from production usage. Only the permitted answer was added; source and fixture Git remained unchanged. No native validation was required for this analysis task."
+    }
+  },
+  "correctnessFindings": [
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+      "code": "distinct-exclusion-occurrences-collapsed",
+      "originalCorrect": false,
+      "substantiveFactsPass": true,
+      "duplicateKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+      "ranges": [
+        [
+          48,
+          50
+        ],
+        [
+          110,
+          110
+        ]
+      ],
+      "prompt": "An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected.",
+      "gradeLimitation": "Exclusion identity key omits evidence occurrence/line range, so two accepted literal citations collide; no explicit prompt uniqueness rule for this key.",
+      "originalGradeUnchanged": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+      "code": "invalid-external-development-chain-plus-occurrence-collision",
+      "originalCorrect": false,
+      "substantiveFactsPass": false,
+      "invalidDependent": "@vue/template-explorer",
+      "invalidDeclaredEdge": {
+        "from": "monaco-editor@0.52.0",
+        "kind": "devDependencies",
+        "name": "vite",
+        "required": "^3.2.8",
+        "resolved": "5.4.0"
+      },
+      "evidenceActionId": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "duplicateKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+      "ranges": [
+        [
+          110,
+          110
+        ],
+        [
+          48,
+          50
+        ]
+      ],
+      "originalGradeUnchanged": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-native",
+      "code": "distinct-exclusion-occurrences-collapsed",
+      "originalCorrect": false,
+      "substantiveFactsPass": true,
+      "duplicateKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+      "ranges": [
+        [
+          48,
+          50
+        ],
+        [
+          110,
+          110
+        ]
+      ],
+      "originalGradeUnchanged": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "code": "distinct-exclusion-occurrences-collapsed",
+      "originalCorrect": false,
+      "substantiveFactsPass": true,
+      "duplicateKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+      "ranges": [
+        [
+          48,
+          50
+        ],
+        [
+          110,
+          110
+        ]
+      ],
+      "originalGradeUnchanged": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-competitor",
+      "code": "distinct-exclusion-occurrences-collapsed",
+      "originalCorrect": false,
+      "substantiveFactsPass": true,
+      "duplicateKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+      "ranges": [
+        [
+          48,
+          50
+        ],
+        [
+          110,
+          110
+        ]
+      ],
+      "originalGradeUnchanged": true
+    }
+  ]
+}

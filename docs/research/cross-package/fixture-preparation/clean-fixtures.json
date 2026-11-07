@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "reason": "The upstream Git history leaves no staged difference for the coordinator baseline commit.",
+  "candidateUnchanged": true,
+  "harnessUnchanged": true,
+  "gitModuleSha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+  "gitVersion": "git version 2.54.0 (Apple Git-157)",
+  "nodeVersion": "v22.23.1",
+  "cases": [
+    {
+      "name": "native-type",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-clean-v4/descriptor.json",
+      "previousDescriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/descriptor.json",
+      "previousDescriptorSha256": "36c2109816e3ae4b3e2a7e8540ba9f422f0b58d9e362550a25f4ff42ea290f9c",
+      "descriptorSha256": "83e9cb95a2b7d98181bd072893386622e19a649166bd3faf755ce6eacbf80967",
+      "originalWorkspace": "$REPOSITORY/artifacts/research/cross-package/impact/vue-source",
+      "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-type/workspace",
+      "snapshotSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "admittedEntries": 24132,
+      "copiedSourceEntries": 700,
+      "excludedGit": [
+        {
+          "path": ".git",
+          "kind": "directory",
+          "admitted": false
+        }
+      ],
+      "copyMs": 3415.756875,
+      "copyMode": "macOS clonefile(2) per file and symlink, CLONE_NOFOLLOW=1, no copy fallback",
+      "qualificationMs": 10331.844125000001,
+      "qualificationWorkspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-type/qualification-workspace",
+      "git": {
+        "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+        "trackedFiles": 700,
+        "root": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-type/qualification-workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "independentCommitCount": 1,
+      "sourceAndDependenciesUnchanged": true,
+      "originalFixtureUnchanged": true,
+      "promptSha256": "5793135c90d77db082980c55fcdf06b143e2667abce2722f244a39182334dd0b",
+      "truthSha256": "b23f0c8735de315f351cb7082eb16be1d8fb56fa9acdac7320bfbc0f32c2729e"
+    },
+    {
+      "name": "native-runtime",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-clean-v4/descriptor.json",
+      "previousDescriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/descriptor.json",
+      "previousDescriptorSha256": "878a1ffc77909a656515487cc30e430f762e67faf20101107305a0d2d0caecd8",
+      "descriptorSha256": "041881bf127547331388ab39d80eefbfd7d8c61f5f1e335763d327651340e2d2",
+      "originalWorkspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace",
+      "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/workspace",
+      "snapshotSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "admittedEntries": 24132,
+      "copiedSourceEntries": 700,
+      "excludedGit": [
+        {
+          "path": ".git",
+          "kind": "directory",
+          "admitted": false
+        }
+      ],
+      "copyMs": 3488.46775,
+      "copyMode": "macOS clonefile(2) per file and symlink, CLONE_NOFOLLOW=1, no copy fallback",
+      "qualificationMs": 10448.636708999999,
+      "qualificationWorkspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/qualification-workspace",
+      "git": {
+        "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+        "trackedFiles": 700,
+        "root": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/qualification-workspace",
+        "gitBinary": "/usr/bin/git",
+        "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+      },
+      "independentCommitCount": 1,
+      "sourceAndDependenciesUnchanged": true,
+      "originalFixtureUnchanged": true,
+      "promptSha256": "c7088eb314aa5eaea55aa0caeb5dccafe66c162aa021ca9da11ec26becc2119e",
+      "truthSha256": "6a68514183726a061ed54ef74250485042d57b164b45572ba9e73d2f3a4806d9"
+    }
+  ]
+}

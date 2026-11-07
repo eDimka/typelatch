@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "stopped-before-first-agent-session",
+  "createdAt": "2026-11-06T23:43:21.693Z",
+  "privateReportSha256": "7e4d33f4509b2f4010fe85312da3ddc4d77b4773b3a6d37ec7e175603c24c2f4",
+  "privateProtocolSha256": "24d3eaed5f4c197c949ea2631c27e86c7b99feb7e6d69d8d8aa9dbdbfef5c1dc",
+  "completedModelSessions": 0,
+  "preparationAttempts": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "native",
+      "status": "failed",
+      "stage": "fixture",
+      "startedAt": "2026-11-06T23:39:23.171Z",
+      "error": {
+        "name": "AssertionError",
+        "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+      },
+      "finishedAt": "2026-11-06T23:39:32.464Z"
+    }
+  ],
+  "diagnosis": {
+    "stage": "initializeFixtureGit commit",
+    "upstreamHead": "6eb29d345aa73746207f80c89ee8b37ff7b949c9",
+    "upstreamGitMetadataCopied": true,
+    "trackedChanges": 0,
+    "stagedChanges": 0,
+    "explanation": "The input fixture retained its existing upstream Git metadata. Initializing an isolated baseline reached commit with no changes, which exited1. No model or provider setup started."
+  },
+  "disposition": "Preserve this failed preparation and protocol. Prepare new independent source-identical fixture copies without upstream Git metadata, qualify exact Git isolation, and freeze a new study. The selected candidate, task facts, grader and comparison rules remain unchanged."
+}

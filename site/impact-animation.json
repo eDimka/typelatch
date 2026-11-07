@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "kind": "cross-package-development-action-replay",
+  "task": "pnpm-parser-impact-development-grading-v2",
+  "repeat": 1,
+  "arms": [
+    "native",
+    "impact"
+  ],
+  "runs": [
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-native",
+      "evidence": "evidence/cross-package/impact-002/results/runs/pnpm-parser-impact-development-grading-v2-r1-native/public-evidence.json",
+      "evidenceSha256": "2596ebf606d4fbcabf451ce631a4053b51c9d528b61d866b5038b6c9d56a00aa",
+      "toolOutputs": "evidence/cross-package/impact-002/results/runs/pnpm-parser-impact-development-grading-v2-r1-native/tool-outputs.json",
+      "toolOutputsSha256": "b234ef2ee5a8509015b010e2c39bf6a6577d513fc49ac4a0912b03117dfddda7"
+    },
+    {
+      "id": "pnpm-parser-impact-development-grading-v2-r1-impact",
+      "evidence": "evidence/cross-package/impact-002/results/runs/pnpm-parser-impact-development-grading-v2-r1-impact/public-evidence.json",
+      "evidenceSha256": "ff27b28742ab96ecce65531c4a1de1427ac9215ee60e5b5f9aaa91d9a2ce401b",
+      "toolOutputs": "evidence/cross-package/impact-002/results/runs/pnpm-parser-impact-development-grading-v2-r1-impact/tool-outputs.json",
+      "toolOutputsSha256": "180de81bdb2dc46209c4da9e48162fc42265cf8c63867b4918f72221c388338b"
+    }
+  ],
+  "protocolSha256": "b3c568605fc7228a72c3982a0a12b300ebcce0e9cc6043f2e66f84ccaf233672",
+  "report": {
+    "path": "evidence/cross-package/impact-002/results/report.json",
+    "sha256": "5ef714f966ddc8806b52b212525fb4b49f9fa09acd6e90f93e6321d6bd836767"
+  },
+  "adjudication": {
+    "path": "evidence/cross-package/impact-002/results/adjudicated-result.json",
+    "sha256": "af36496b618eebc5b7bce85a5b232e91db65bdb63df1e2e079ed0aed0dd22827"
+  },
+  "protocol": {
+    "path": "evidence/cross-package/impact-002/protocol.json",
+    "sha256": "55f4f80df225b22df8dfeb26881aa464405bb3c6c7c2dff16199f705279a9bcb"
+  },
+  "workflowAudit": {
+    "path": "evidence/cross-package/impact-002/results/workflow-audit.json",
+    "sha256": "ffaa0fa7eec3c8a0a4fdcc39d6a75b03c96d384b006bd18df27a2884b21f33a3"
+  },
+  "exportManifest": {
+    "path": "evidence/cross-package/impact-002/results/manifest.json",
+    "sha256": "d7cd9948872f319a489aed702bc1d18781d1b2c77ccdde40d0dcd33580bc64fa"
+  },
+  "renderer": {
+    "path": "scripts/cross-package-gif.py",
+    "sha256": "d13310a8a85fab5924ba3391250ec2a88afaf608855c0890fca443660531fa48"
+  },
+  "assets": {
+    "gif": {
+      "path": "assets/codex-impact-development.gif",
+      "sha256": "c21d6b3643cf0b5d0283e5a4f76e0a91e7d9717b2e96464755652611cd9dc629",
+      "width": 1080,
+      "height": 680,
+      "bytes": 501005
+    },
+    "poster": {
+      "path": "assets/codex-impact-development.png",
+      "sha256": "d7164a4b3f247d886e167f437766a2dfd9a2f4ef4a479af2ab48201b279f0ad2",
+      "width": 1080,
+      "height": 680,
+      "bytes": 69511
+    }
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 680
+  },
+  "playback": {
+    "durationMs": 32000,
+    "durationSeconds": 32.0,
+    "accelerated": true,
+    "separateSessionsAlignedAtStart": true,
+    "eventTimes": [
+      0,
+      5444.505042000004,
+      7083.9675419999985,
+      8207.512958000007,
+      12459.630833000003,
+      18061.133417000005,
+      18526.918958000024,
+      22470.678250000026,
+      25858.296083,
+      26826.883083000022,
+      26867.338500000013,
+      33027.44175000003,
+      38571.846541999985,
+      46322.53400000001,
+      56896.093083000014,
+      59132.385208,
+      78191.97233300001,
+      86134.56912500001,
+      86875.82699999999,
+      96179.07245800001,
+      104110.91454199998,
+      140853.352125,
+      150579.072792,
+      153228.007292
+    ],
+    "readingHolds": true,
+    "renderedActionIds": {
+      "pnpm-parser-impact-development-grading-v2-r1-native": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ],
+      "pnpm-parser-impact-development-grading-v2-r1-impact": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ]
+    },
+    "timing": "Completed actions use measured receipt timestamps. One shared timeline aligns process starts; reading holds change playback spacing. Provider setup is included only in labelled charged-time totals.",
+    "tokens": "Only terminal totals are shown. Cached input is a subset already included in total input; no interpolated token counters.",
+    "selection": "First task and repeat, fixed before outcomes. Retain failure and disclose accelerated replay."
+  },
+  "caption": "Actual public Codex action replay. Shared task and workflow with explicit provider inventories. Native tools and experimental impact query. One development task, not held out evidence. Accelerated playback of separate sessions, including observed failures. Not a screen recording."
+}

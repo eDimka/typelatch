@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "source": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/workspace",
+  "destination": "$STUDY/runs/vue-runtime-impact-heldout-grading-v2-r2-native/workspace",
+  "helper": "$REPOSITORY/artifacts/research/cross-package/trial/clone-tree.py",
+  "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+  "python": {
+    "path": "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/bin/python3.9",
+    "sha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+    "version": "Python 3.9.7"
+  },
+  "elapsedMs": 3485.7329580001533,
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "{\"source\": \"$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/workspace\", \"destination\": \"$STUDY/runs/vue-runtime-impact-heldout-grading-v2-r2-native/workspace\", \"mechanism\": \"macOS clonefile(2) per file and symlink, CLONE_NOFOLLOW=1, no copy fallback\", \"clonedFiles\": 18328, \"clonedSymlinks\": 1576, \"directories\": 4229, \"excludedGit\": [], \"elapsedMs\": 3359.831416}\n",
+  "stderr": "",
+  "parseError": null,
+  "native": {
+    "source": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/workspace",
+    "destination": "$STUDY/runs/vue-runtime-impact-heldout-grading-v2-r2-native/workspace",
+    "mechanism": "macOS clonefile(2) per file and symlink, CLONE_NOFOLLOW=1, no copy fallback",
+    "clonedFiles": 18328,
+    "clonedSymlinks": 1576,
+    "directories": 4229,
+    "excludedGit": [],
+    "elapsedMs": 3359.831416
+  }
+}

@@ -7,6 +7,8 @@ import { renderSiteBenchmark, renderHistoricalBenchmark, renderAutomaticBenchmar
 import { renderMonorepoBenchmark, verifyMonorepoEvidence } from './site-monorepo-benchmark.mjs'
 import { verifyGuidedAnimation, verifyGuidedEvidence } from './site-guided-evidence.mjs'
 import { renderGuidedAnimation, renderGuidedBenchmark } from './site-guided-benchmark.mjs'
+import { crossPackageStudies, verifyCrossPackageEvidence, renderCrossPackageBenchmark, verifyCrossPackageAnimation, renderCrossPackageAnimation } from './site-cross-package.mjs'
+import { verifyConfirmationEvidence, verifyConfirmationPreparationFailure, renderConfirmationBenchmark, verifyConfirmationAnimation, renderConfirmationAnimation } from './site-cross-package-confirmation.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const output = resolve(root, '_site')
@@ -160,8 +162,33 @@ const guidedAnimation = guidedBenchmark ? verifyGuidedAnimation(
   readFileSync(resolve(root, 'scripts/monorepo-guided-gif.py')),
 ) : null
 
+const crossPackageDirectory = 'docs/research/cross-package'
+const confirmationDirectory = resolve(root, crossPackageDirectory, 'confirmation-002')
+const confirmationBenchmark = existsSync(resolve(confirmationDirectory, 'results/report.json'))
+  ? await verifyConfirmationEvidence(path => readFileSync(resolve(confirmationDirectory, path))) : null
+const confirmationFailure = confirmationBenchmark
+  ? verifyConfirmationPreparationFailure(path => readFileSync(resolve(root, crossPackageDirectory, 'confirmation-001', path))) : null
+const confirmationAnimation = confirmationBenchmark ? verifyConfirmationAnimation(
+  confirmationBenchmark, JSON.parse(read('site/cross-package-confirmation-animation.json')),
+  path => readFileSync(resolve(root, 'site', path)), readFileSync(resolve(root, 'scripts/cross-package-confirmation-gif.py')),
+) : null
+const crossPackageBenchmarks = crossPackageStudies.flatMap(study => {
+  const directory = resolve(root, crossPackageDirectory, study.id)
+  return existsSync(resolve(directory, 'results/report.json'))
+    ? [verifyCrossPackageEvidence(study.id, path => readFileSync(resolve(directory, path)))]
+    : []
+})
+
+const impactStudy = crossPackageBenchmarks.find(value => value.study.id === 'impact-002')
+const impactAnimation = existsSync(resolve(root, 'site/impact-animation.json')) ? verifyCrossPackageAnimation(
+  impactStudy, JSON.parse(read('site/impact-animation.json')), path => readFileSync(resolve(root, 'site', path)),
+  readFileSync(resolve(root, 'scripts/cross-package-gif.py')),
+) : null
+
 const replacements = {
-  benchmarkAnchor: guidedBenchmark ? '#guided-benchmark' : monorepoBenchmark ? '#monorepo-benchmark' : '#benchmark',
+  confirmationBenchmark: confirmationBenchmark ? renderConfirmationBenchmark(confirmationBenchmark, renderConfirmationAnimation(confirmationAnimation)) : '',
+  crossPackageBenchmark: renderCrossPackageBenchmark(crossPackageBenchmarks, impactAnimation ? renderCrossPackageAnimation(impactAnimation) : ''),
+  benchmarkAnchor: confirmationBenchmark ? '#confirmation-benchmark' : crossPackageBenchmarks.length ? '#cross-package-benchmark' : guidedBenchmark ? '#guided-benchmark' : monorepoBenchmark ? '#monorepo-benchmark' : '#benchmark',
   guidedBenchmark: guidedBenchmark ? renderGuidedBenchmark(guidedBenchmark, renderGuidedAnimation(guidedAnimation)) : '',
   monorepoBenchmark: monorepoBenchmark ? renderMonorepoBenchmark(monorepoBenchmark) : '',
   pairedBenchmark: renderSiteBenchmark(pairedBenchmark, pairedAnimation, renderHistoricalBenchmark(historicalBenchmark) + renderAutomaticBenchmark(automaticBenchmark)),
@@ -265,6 +292,16 @@ if (guidedBenchmark) for (const [path, bytes] of guidedBenchmark.files) {
   mkdirSync(resolve(output, 'evidence/monorepo-guided-study', path, '..'), { recursive: true })
   writeFileSync(resolve(output, 'evidence/monorepo-guided-study', path), bytes)
 }
+for (const study of crossPackageBenchmarks) for (const [path, bytes] of study.files) {
+  mkdirSync(resolve(output, 'evidence/cross-package', study.study.id, path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence/cross-package', study.study.id, path), bytes)
+}
+for (const [id, evidence] of [['confirmation-002', confirmationBenchmark], ['confirmation-001', confirmationFailure]]) if (evidence) for (const [path, bytes] of evidence.files) {
+  mkdirSync(resolve(output, 'evidence/cross-package', id, path, '..'), { recursive: true })
+  writeFileSync(resolve(output, 'evidence/cross-package', id, path), bytes)
+}
+if (confirmationAnimation) cpSync(resolve(root, 'site/cross-package-confirmation-animation.json'), resolve(output, 'evidence/cross-package-confirmation-animation.json'))
+if (impactAnimation) cpSync(resolve(root, 'site/impact-animation.json'), resolve(output, 'evidence/impact-animation.json'))
 if (guidedAnimation) cpSync(resolve(root, 'site/guided-animation.json'), resolve(output, 'evidence/guided-animation.json'))
 for (const item of recording.mcp)
   writeFileSync(resolve(output, `evidence/${item.id}.json`), JSON.stringify(item, null, 2) + '\n')

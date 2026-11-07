@@ -20,6 +20,9 @@ import { summarizePairedRuns } from './paired-agent-evidence.mjs'
 import { advertisedInstallCommand } from './site-releasecheck.mjs'
 import './site-monorepo-benchmark.test.mjs'
 import './site-guided-benchmark.test.mjs'
+import './site-cross-package.test.mjs'
+import './site-cross-package-confirmation.test.mjs'
+import { crossPackageStudies } from './site-cross-package.mjs'
 
 const root = resolve(import.meta.dirname, '..')
 const read = (path) => readFileSync(resolve(root, path), 'utf8')
@@ -101,7 +104,8 @@ test('builds an inspectable static experience from the recorded run', () => {
   assert.doesNotMatch(html, /\/Users\/|\/private\/var\/|\/var\/folders\//)
   assert.doesNotMatch(html, /[—–]/)
   assert.doesNotMatch(html.replace(/<[^>]*>/gu, ''), /0[123]\s*\//)
-  assert.doesNotMatch(html, /LibBrain|Codegraph/i)
+  assert.doesNotMatch(html, /LibBrain/i)
+  assert.doesNotMatch(html.match(/<h1[^>]*>[\s\S]*?<\/h1>/u)[0], /CodeGraph/i, 'The measured control is not product branding')
   assert.doesNotMatch(html, /class="brand"[^>]*>\s*<img/)
   assert.match(html, /id="hero-install-command"/)
   assert.equal((html.match(/data-demo-scene="/g) || []).length, 6, 'all six scenes exist without JavaScript')
@@ -159,6 +163,35 @@ test('builds an inspectable static experience from the recorded run', () => {
     const replay = JSON.parse(read('site/guided-animation.json'))
     for (const asset of Object.values(replay.assets)) assert.equal(demoHash(readFileSync(resolve(root, '_site', asset.path))), asset.sha256, 'Guided replay bytes match the preselected evidence manifest')
   } else assert.doesNotMatch(html, /id="guided-benchmark"/, 'No guided outcome is invented before export')
+  const confirmationDirectory = 'docs/research/cross-package/confirmation-002'
+  if (existsSync(resolve(root, confirmationDirectory, 'results/report.json'))) {
+    assert.match(html, /id="confirmation-benchmark"/)
+    assert.equal((html.match(/data-confirmation-run="/g) || []).length, 16)
+    assert(html.indexOf('id="confirmation-benchmark"') < html.indexOf('id="cross-package-benchmark"'), 'Final confirmation precedes development gains')
+    const manifest = JSON.parse(read(`${confirmationDirectory}/results/manifest.json`))
+    for (const path of ['protocol.json', 'freeze.json', 'preparation-amendment.json', 'results/manifest.json', ...manifest.files.map(file => `results/${file.path}`)]) {
+      assert.equal(read(`_site/evidence/cross-package/confirmation-002/${path}`), read(`${confirmationDirectory}/${path}`), 'Every final confirmation artifact is packaged unchanged')
+    }
+    assert.equal(read('_site/evidence/cross-package-confirmation-animation.json'), read('site/cross-package-confirmation-animation.json'))
+    const animation = JSON.parse(read('site/cross-package-confirmation-animation.json'))
+    for (const asset of Object.values(animation.assets)) assert.equal(demoHash(readFileSync(resolve(root, '_site', asset.path))), asset.sha256)
+    const failure = JSON.parse(read('docs/research/cross-package/confirmation-001/failure-manifest.json'))
+    for (const path of ['failure-manifest.json', ...failure.files.map(file => file.path)]) assert.equal(read(`_site/evidence/cross-package/confirmation-001/${path}`), read(`docs/research/cross-package/confirmation-001/${path}`))
+  }
+  let crossPackageRuns = 0
+  for (const study of crossPackageStudies) {
+    const directory = `docs/research/cross-package/${study.id}`
+    if (!existsSync(resolve(root, directory, 'results/report.json'))) continue
+    const report = JSON.parse(read(`${directory}/results/report.json`))
+    crossPackageRuns += report.runs.length
+    assert(html.includes(`data-cross-package-study="${study.id}"`))
+    const manifest = JSON.parse(read(`${directory}/results/manifest.json`))
+    for (const path of ['protocol.json', 'freeze.json', 'results/manifest.json', ...manifest.files.map(file => `results/${file.path}`)]) {
+      assert.equal(read(`_site/evidence/cross-package/${study.id}/${path}`), read(`${directory}/${path}`), 'Every public cross package artifact is packaged unchanged')
+    }
+  }
+  assert.equal((html.match(/data-cross-package-run="/g) || []).length, crossPackageRuns)
+  if (!crossPackageRuns) assert.doesNotMatch(html, /id="cross-package-benchmark"/, 'No unfinished development result is invented')
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const link = match[1]
     if (/^(https?:|mailto:|data:)/.test(link)) continue
@@ -232,6 +265,7 @@ test('historical evidence builds independently of the maintained example', () =>
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
+    if (existsSync(resolve(root, 'docs/research/cross-package'))) cpSync(resolve(root, 'docs/research/cross-package'), resolve(directory, 'docs/research/cross-package'), { recursive: true })
     mkdirSync(resolve(directory, 'examples/sqlite'), { recursive: true })
     writeFileSync(resolve(directory, 'examples/sqlite/batch.ts'), 'maintained example changed after historical capture\n')
     execFileSync(process.execPath, ['scripts/site.mjs'], { cwd: directory, stdio: 'pipe' })
@@ -256,6 +290,7 @@ test('a newer source version preserves published onboarding and the captured wal
       mkdirSync(resolve(directory, path, '..'), { recursive: true })
       cpSync(resolve(root, path), resolve(directory, path), { recursive: true, filter: source => !source.includes('node_modules') })
     }
+    if (existsSync(resolve(root, 'docs/research/cross-package'))) cpSync(resolve(root, 'docs/research/cross-package'), resolve(directory, 'docs/research/cross-package'), { recursive: true })
     const manifest = JSON.parse(read('package.json'))
     const capturedVersion = JSON.parse(read('site/demo.json')).source.packageVersion
     const nextVersion = capturedVersion.replace(/\d+$/, value => String(Number(value) + 1))

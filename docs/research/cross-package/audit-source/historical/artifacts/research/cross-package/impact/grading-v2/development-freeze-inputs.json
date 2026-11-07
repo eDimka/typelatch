@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grade-answer.mjs",
+      "kind": "file",
+      "sha256": "ce4bdf24dedc353aa1fc018882c5fde0c272bcecd7d1f80b9103d8f36abc2093"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/answer-schema.mjs",
+      "kind": "file",
+      "sha256": "74b645483936885f796ee1062f6f11508b6af156ece5f9d3b65f6523680b4a01"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.mjs",
+      "kind": "file",
+      "sha256": "65df16940354aae319d572a9a148fdc73849d4358f976c344ed41f0cf06684f4"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/script-evidence.mjs",
+      "kind": "file",
+      "sha256": "593de09e6520c328b2e43a4abe3e91c60ef0c9ac2148f48f4fdfffac296f04f1"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/prepare.mjs",
+      "kind": "file",
+      "sha256": "183dcef28ea68349b73b766cfab6dccef057bf4469a9ddf0e4f25bf61be39b79"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/prepare-development.mjs",
+      "kind": "file",
+      "sha256": "85a90237c5ec467ebf2d44f68abc07c561ccf2de4dbdf75c463a39874b2d9de9"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grader.test.mjs",
+      "kind": "file",
+      "sha256": "5d152fadaa28c8858d07c11895362d1220af882d57e794fe927786399a7d9ca8"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.test.mjs",
+      "kind": "file",
+      "sha256": "09d242a7047ac7c33328bba4e99f8e6042ce708f785bb9b7f1ad32ed7c252028"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/integrity.test.mjs",
+      "kind": "file",
+      "sha256": "b3c143962eda33a4e22467e7b79c2300134bdd665f54f97cf440295eec388ba6"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/descriptor.json",
+      "kind": "file",
+      "sha256": "56cf9948e459f131e92db7e515931e6dcb2782893d6725af786e0cd8989b07a4"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/grader.mjs",
+      "kind": "file",
+      "sha256": "db5fc007db7a93f1335ef56d13bcb454580dd5ccf99ca9a5fe10a5fa65b933ee"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/prompt.txt",
+      "kind": "file",
+      "sha256": "0085c3a0adeae487c7a4f1e2de93de3dfc57831fd6be2c20bd67d0528c79ea83"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/truth.json",
+      "kind": "file",
+      "sha256": "0f1d74a2a2fb69f87bdbf898395f03476c8ab0119775789131e95b9b31ed4710"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/answer-schema.json",
+      "kind": "file",
+      "sha256": "3cf88cad1ff3728b7b8631cf205129d0224ae2e5ea427522293e82a7c221679a"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/development-v2/qualification.json",
+      "kind": "file",
+      "sha256": "30d7a67d3b13ccdd7c202f48fe154351bb4a088d60982c958587c44fd0d86277"
+    }
+  ],
+  "sharedModules": [
+    "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+    "$REPOSITORY/scripts/paired-agent-runner.mjs"
+  ],
+  "runtime": "$HOME/.hermes/node/bin/node",
+  "existingFixtureInputs": [
+    "$REPOSITORY/artifacts/research/cross-package/impact/development/initial-manifest.json",
+    "$REPOSITORY/artifacts/research/cross-package/impact/development/tracking-manifest.json"
+  ],
+  "sourceFixture": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace"
+}

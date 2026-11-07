@@ -1,0 +1,823 @@
+{
+  "schemaVersion": 1,
+  "target": {
+    "package": "@pnpm/parse-wanted-dependency",
+    "version": "1001.0.0",
+    "exports": [
+      "parseWantedDependency",
+      "ParseWantedDependencyResult",
+      "ParsedWantedDependency"
+    ]
+  },
+  "direct": [
+    {
+      "file": "config/deps-installer/src/resolveConfigDeps.ts",
+      "package": "@pnpm/config.deps-installer",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 7,
+        "endLine": 7,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "config/parse-overrides/src/index.ts",
+      "package": "@pnpm/parse-overrides",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "exec/plugin-commands-script-runners/src/dlx.ts",
+      "package": "@pnpm/plugin-commands-script-runners",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 6,
+        "endLine": 6,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "hooks/read-package-hook/src/createPackageExtender.ts",
+      "package": "@pnpm/hooks.read-package-hook",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/getEditDirPath.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "ParseWantedDependencyResult",
+      "role": "type-only",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { parseWantedDependency, type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/getPatchedDependency.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "ParseWantedDependencyResult",
+      "role": "type-only",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { parseWantedDependency, type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 22,
+        "endLine": 22,
+        "quote": "import { type ParseWantedDependencyResult, parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "ParseWantedDependencyResult",
+      "role": "type-only",
+      "evidence": {
+        "startLine": 22,
+        "endLine": 22,
+        "quote": "import { type ParseWantedDependencyResult, parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "patching/plugin-commands-patching/src/writePackage.ts",
+      "package": "@pnpm/plugin-commands-patching",
+      "symbol": "ParseWantedDependencyResult",
+      "role": "type-only",
+      "evidence": {
+        "startLine": 6,
+        "endLine": 6,
+        "quote": "import type { ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+      "package": "@pnpm/core",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts",
+      "package": "@pnpm/plugin-commands-installation",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 2,
+        "endLine": 2,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "store/plugin-commands-store-inspecting/src/catIndex.ts",
+      "package": "@pnpm/plugin-commands-store-inspecting",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 9,
+        "endLine": 9,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    },
+    {
+      "file": "store/plugin-commands-store/src/storeAdd.ts",
+      "package": "@pnpm/plugin-commands-store",
+      "symbol": "parseWantedDependency",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 3,
+        "endLine": 3,
+        "quote": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'"
+      }
+    }
+  ],
+  "packageDependents": [
+    {
+      "package": "@pnpm-private/updater",
+      "chain": [
+        "@pnpm-private/updater",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/cache.commands",
+      "chain": [
+        "@pnpm/cache.commands",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/cli-utils",
+      "chain": [
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/config.deps-installer",
+      "chain": [
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/core",
+      "chain": [
+        "@pnpm/core",
+        "@pnpm/hooks.read-package-hook",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/deps.status",
+      "chain": [
+        "@pnpm/deps.status",
+        "@pnpm/lockfile.settings-checker",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/exec.build-commands",
+      "chain": [
+        "@pnpm/exec.build-commands",
+        "@pnpm/plugin-commands-rebuild",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/filter-workspace-packages",
+      "chain": [
+        "@pnpm/filter-workspace-packages",
+        "@pnpm/workspace.find-packages",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/hooks.read-package-hook",
+      "chain": [
+        "@pnpm/hooks.read-package-hook",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/lockfile.settings-checker",
+      "chain": [
+        "@pnpm/lockfile.settings-checker",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/outdated",
+      "chain": [
+        "@pnpm/outdated",
+        "@pnpm/hooks.read-package-hook",
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/parse-overrides",
+      "chain": [
+        "@pnpm/parse-overrides",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-audit",
+      "chain": [
+        "@pnpm/plugin-commands-audit",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-completion",
+      "chain": [
+        "@pnpm/plugin-commands-completion",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-config",
+      "chain": [
+        "@pnpm/plugin-commands-config",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-deploy",
+      "chain": [
+        "@pnpm/plugin-commands-deploy",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-doctor",
+      "chain": [
+        "@pnpm/plugin-commands-doctor",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-env",
+      "chain": [
+        "@pnpm/plugin-commands-env",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-init",
+      "chain": [
+        "@pnpm/plugin-commands-init",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-installation",
+      "chain": [
+        "@pnpm/plugin-commands-installation",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-licenses",
+      "chain": [
+        "@pnpm/plugin-commands-licenses",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-listing",
+      "chain": [
+        "@pnpm/plugin-commands-listing",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-outdated",
+      "chain": [
+        "@pnpm/plugin-commands-outdated",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-patching",
+      "chain": [
+        "@pnpm/plugin-commands-patching",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-publishing",
+      "chain": [
+        "@pnpm/plugin-commands-publishing",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-rebuild",
+      "chain": [
+        "@pnpm/plugin-commands-rebuild",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-script-runners",
+      "chain": [
+        "@pnpm/plugin-commands-script-runners",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-server",
+      "chain": [
+        "@pnpm/plugin-commands-server",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-setup",
+      "chain": [
+        "@pnpm/plugin-commands-setup",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-store",
+      "chain": [
+        "@pnpm/plugin-commands-store",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/plugin-commands-store-inspecting",
+      "chain": [
+        "@pnpm/plugin-commands-store-inspecting",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/tools.plugin-commands-self-updater",
+      "chain": [
+        "@pnpm/tools.plugin-commands-self-updater",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/workspace.filter-packages-from-dir",
+      "chain": [
+        "@pnpm/workspace.filter-packages-from-dir",
+        "@pnpm/filter-workspace-packages",
+        "@pnpm/workspace.find-packages",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/workspace.find-packages",
+      "chain": [
+        "@pnpm/workspace.find-packages",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "@pnpm/workspace.injected-deps-syncer",
+      "chain": [
+        "@pnpm/workspace.injected-deps-syncer",
+        "@pnpm/workspace.find-packages",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "pd",
+      "chain": [
+        "pd",
+        "@pnpm/workspace.find-packages",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    },
+    {
+      "package": "pnpm",
+      "chain": [
+        "pnpm",
+        "@pnpm/cache.commands",
+        "@pnpm/cli-utils",
+        "@pnpm/config.deps-installer",
+        "@pnpm/parse-wanted-dependency"
+      ]
+    }
+  ],
+  "validationTargets": [
+    {
+      "package": "@pnpm/parse-wanted-dependency",
+      "script": "compile",
+      "evidence": {
+        "file": "packages/parse-wanted-dependency/package.json",
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/parse-wanted-dependency",
+      "script": "test",
+      "evidence": {
+        "file": "packages/parse-wanted-dependency/package.json",
+        "startLine": 27,
+        "endLine": 27,
+        "quote": "    \"test\": \"pnpm run compile\","
+      }
+    },
+    {
+      "package": "@pnpm/config.deps-installer",
+      "script": "compile",
+      "evidence": {
+        "file": "config/deps-installer/package.json",
+        "startLine": 34,
+        "endLine": 34,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/config.deps-installer",
+      "script": "test",
+      "evidence": {
+        "file": "config/deps-installer/package.json",
+        "startLine": 32,
+        "endLine": 32,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/config.deps-installer",
+      "script": "_test",
+      "evidence": {
+        "file": "config/deps-installer/package.json",
+        "startLine": 31,
+        "endLine": 31,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/parse-overrides",
+      "script": "compile",
+      "evidence": {
+        "file": "config/parse-overrides/package.json",
+        "startLine": 31,
+        "endLine": 31,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/parse-overrides",
+      "script": "test",
+      "evidence": {
+        "file": "config/parse-overrides/package.json",
+        "startLine": 28,
+        "endLine": 28,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/parse-overrides",
+      "script": "_test",
+      "evidence": {
+        "file": "config/parse-overrides/package.json",
+        "startLine": 27,
+        "endLine": 27,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-script-runners",
+      "script": "compile",
+      "evidence": {
+        "file": "exec/plugin-commands-script-runners/package.json",
+        "startLine": 33,
+        "endLine": 33,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-script-runners",
+      "script": "test",
+      "evidence": {
+        "file": "exec/plugin-commands-script-runners/package.json",
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-script-runners",
+      "script": "_test",
+      "evidence": {
+        "file": "exec/plugin-commands-script-runners/package.json",
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/hooks.read-package-hook",
+      "script": "compile",
+      "evidence": {
+        "file": "hooks/read-package-hook/package.json",
+        "startLine": 31,
+        "endLine": 31,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/hooks.read-package-hook",
+      "script": "test",
+      "evidence": {
+        "file": "hooks/read-package-hook/package.json",
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/hooks.read-package-hook",
+      "script": "_test",
+      "evidence": {
+        "file": "hooks/read-package-hook/package.json",
+        "startLine": 28,
+        "endLine": 28,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-patching",
+      "script": "compile",
+      "evidence": {
+        "file": "patching/plugin-commands-patching/package.json",
+        "startLine": 33,
+        "endLine": 33,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-patching",
+      "script": "test",
+      "evidence": {
+        "file": "patching/plugin-commands-patching/package.json",
+        "startLine": 31,
+        "endLine": 31,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-patching",
+      "script": "_test",
+      "evidence": {
+        "file": "patching/plugin-commands-patching/package.json",
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/core",
+      "script": "compile",
+      "evidence": {
+        "file": "pkg-manager/core/package.json",
+        "startLine": 56,
+        "endLine": 56,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/core",
+      "script": "test",
+      "evidence": {
+        "file": "pkg-manager/core/package.json",
+        "startLine": 47,
+        "endLine": 47,
+        "quote": "    \"test\": \"test\""
+      }
+    },
+    {
+      "package": "@pnpm/core",
+      "script": "_test",
+      "evidence": {
+        "file": "pkg-manager/core/package.json",
+        "startLine": 53,
+        "endLine": 53,
+        "quote": "    \"_test\": \"cross-env PNPM_REGISTRY_MOCK_PORT=7769 jest\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-installation",
+      "script": "compile",
+      "evidence": {
+        "file": "pkg-manager/plugin-commands-installation/package.json",
+        "startLine": 32,
+        "endLine": 32,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-installation",
+      "script": "test",
+      "evidence": {
+        "file": "pkg-manager/plugin-commands-installation/package.json",
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-installation",
+      "script": "_test",
+      "evidence": {
+        "file": "pkg-manager/plugin-commands-installation/package.json",
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store-inspecting",
+      "script": "compile",
+      "evidence": {
+        "file": "store/plugin-commands-store-inspecting/package.json",
+        "startLine": 31,
+        "endLine": 31,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store-inspecting",
+      "script": "test",
+      "evidence": {
+        "file": "store/plugin-commands-store-inspecting/package.json",
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store-inspecting",
+      "script": "_test",
+      "evidence": {
+        "file": "store/plugin-commands-store-inspecting/package.json",
+        "startLine": 28,
+        "endLine": 28,
+        "quote": "    \"_test\": \"jest\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store",
+      "script": "compile",
+      "evidence": {
+        "file": "store/plugin-commands-store/package.json",
+        "startLine": 32,
+        "endLine": 32,
+        "quote": "    \"compile\": \"tsc --build && pnpm run lint --fix\""
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store",
+      "script": "test",
+      "evidence": {
+        "file": "store/plugin-commands-store/package.json",
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "    \"test\": \"pnpm run compile && pnpm run _test\","
+      }
+    },
+    {
+      "package": "@pnpm/plugin-commands-store",
+      "script": "_test",
+      "evidence": {
+        "file": "store/plugin-commands-store/package.json",
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "    \"_test\": \"jest\","
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "pkg-manager/core/src/parseWantedDependencies.ts",
+      "symbol": "parseWantedDependencies",
+      "reason": "different-symbol",
+      "evidence": {
+        "startLine": 6,
+        "endLine": 6,
+        "quote": "export function parseWantedDependencies ("
+      }
+    }
+  ],
+  "uncertainties": [
+    {
+      "code": "external-consumers",
+      "detail": "Applications outside this pinned workspace are not enumerated."
+    },
+    {
+      "code": "dynamic-loading",
+      "detail": "Computed loading and metaprogrammed names are outside static symbol proof."
+    },
+    {
+      "code": "package-reachability-not-symbol-use",
+      "detail": "Dependency reachability is a conservative review set, not evidence of symbol use."
+    },
+    {
+      "code": "unexecuted-validation",
+      "detail": "Listed scripts are review targets; passing all affected tests has not been established."
+    }
+  ],
+  "negativeClaims": []
+}

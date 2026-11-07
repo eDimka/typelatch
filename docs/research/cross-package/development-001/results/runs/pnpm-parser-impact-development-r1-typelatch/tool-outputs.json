@@ -1,0 +1,1209 @@
+{
+  "schemaVersion": 1,
+  "rawCaptureSha256": "c506db8ef3e2155d6b498dd6e57564a6580db976a2b3434ebe297ed4ae6710e3",
+  "publicRecordSha256": "7106a107169fd058809b1f4673ce9ba61b483374ad0ae2beed7f31cf6ec16607",
+  "runId": "pnpm-parser-impact-development-r1-typelatch",
+  "identicalCompletedDuplicates": 0,
+  "normalization": {
+    "rule": "Longest explicit absolute prefixes first, applied to all JSON keys and string values after original payload binding. Uncovered private machine paths fail closed.",
+    "prefixes": [
+      {
+        "prefixSha256": "707c23dc6974e5f91c7194845df23e03d7a379be8d6d9eb57ff09f1dc193514b",
+        "replacement": "$PROVIDER_STATE"
+      },
+      {
+        "prefixSha256": "eea4fcd5a8a757e09507a9fa61a822678c45fab0e0f7a005590f8281a16c4ece",
+        "replacement": "$WORKSPACE"
+      },
+      {
+        "prefixSha256": "e32efd768a068c190c04544b5efb743704edd8a019b1cfa432d876203b02087f",
+        "replacement": "$STUDY"
+      },
+      {
+        "prefixSha256": "768a63684ee857a90d0c5e1aac2d644942946e9d0e89296a385f90a539686b00",
+        "replacement": "$REPOSITORY"
+      },
+      {
+        "prefixSha256": "76d509b275fdc76041a48f4ed3789b73a1588b1b6c472dff3507750705b8256f",
+        "replacement": "$TEMP"
+      },
+      {
+        "prefixSha256": "e4693ec98d2762b9a5b34fc9dd8c540384a2a5fb719f88d14d760230b3990fc9",
+        "replacement": "$USER_HOME"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "type": "mcp_tool_call",
+      "status": "failed",
+      "originalLine": 6,
+      "server": "typelatch",
+      "tool": "workspace_search",
+      "resultSha256": "f1928241c888889c9010fe8a8a35d330fa1e6681f0ecbf7154a5ec29a341b7d8",
+      "resultBytes": 196,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "MCP error -32602: Input validation error: Invalid arguments for tool workspace_search: Too big: expected number to be <=20 at limit"
+          }
+        ],
+        "structured_content": null
+      },
+      "error": null
+    },
+    {
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 8,
+      "server": "typelatch",
+      "tool": "workspace_search",
+      "resultSha256": "63dc59975250fcbcfece06f7f27fcb5cdc49da55365b5b7058585115ee4b0f3e",
+      "resultBytes": 139990,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"parseWantedDependency ParseWantedDependencyResult ParsedWantedDependency @pnpm/parse-wanted-dependency\",\"scope\":\"workspace\",\"detail\":\"compact\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/CHANGELOG.md\",\"line\":25,\"endLine\":40,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":136,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"- 2ae1c449d: Export `ParseWantedDependencyResult`.\\n\\n## 4.0.1\\n\\n### Patch Changes\\n\\n- a9d59d8bc: Update dependencies.\\n\\n## 4.0.0\\n\\n### Major Changes\\n\\n- f884689e0: Require `@pnpm/logger` v5.\\n\\n## 3.0.2\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/packages/parse-wanted-dependency\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/src/index.ts\",\"line\":8,\"endLine\":19,\"symbol\":\"ParseWantedDependencyResult\",\"position\":161,\"kind\":\"declaration\",\"score\":128,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\"],\"snippet\":\"export type ParseWantedDependencyResult = Partial<ParsedWantedDependency> &\\n(\\n  Omit<ParsedWantedDependency, 'bareSpecifier'>\\n  | Omit<ParsedWantedDependency, 'alias'>\\n  | ParsedWantedDependency\\n)\\n\\nexport function parseWantedDependency (rawWantedDependency: string): ParseWantedDependencyResult {\\n  const versionDelimiter = rawWantedDependency.indexOf('@', 1) \",\"preview\":{\"omittedCharacters\":208},\"projectRoot\":\"$WORKSPACE/packages/parse-wanted-dependency\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/src/getPatchedDependency.ts\",\"line\":16,\"endLine\":27,\"symbol\":\"GetPatchedDependencyResult\",\"position\":648,\"kind\":\"declaration\",\"score\":124,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"export type GetPatchedDependencyResult = ParseWantedDependencyResult & { applyToAll: boolean }\\n\\nexport async function getPatchedDependency (rawDependency: string, opts: GetPatchedDependencyOptions): Promise<GetPatchedDependencyResult> {\\n  const dep = parseWantedDependency(rawDependency)\\n\\n  const { versions, preferredVersions } = await getVersionsFromLockfile\",\"preview\":{\"omittedCharacters\":351},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/CHANGELOG.md\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":116,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"# @pnpm/parse-wanted-dependency\\n\\n## 1001.0.0\\n\\n### Major Changes\\n\\n- 8a9f3a4: `pref` renamed to `bareSpecifier`.\\n\\n## 6.0.0\\n\\n### Major Changes\\n\\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\\n\\n## 5.0.0\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/packages/parse-wanted-dependency\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/package.json\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":116,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"{\\n  \\\"name\\\": \\\"@pnpm/parse-wanted-dependency\\\",\\n  \\\"version\\\": \\\"1001.0.0\\\",\\n  \\\"description\\\": \\\"Parse dependency specifier\\\",\\n  \\\"keywords\\\": [\\n    \\\"pnpm\\\",\\n    \\\"pnpm10\\\"\\n  ],\\n  \\\"license\\\": \\\"MIT\\\",\\n  \\\"funding\\\": \\\"https://opencollective.com/pnpm\\\",\\n  \\\"repository\\\": \\\"https://github.com/pnpm/pnpm/tree/main/packages/parse-wanted-dependency\\\",\\n  \\\"homepage\\\": \\\"https://github.com/pnpm\",\"preview\":{\"omittedCharacters\":145},\"projectRoot\":\"$WORKSPACE/packages/parse-wanted-dependency\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/packages/parse-wanted-dependency/README.md\",\"line\":1,\"endLine\":14,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":116,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"# @pnpm/parse-wanted-dependency\\n\\n> Parse dependency specifier\\n\\n## Installation\\n\\n```\\npnpm i @pnpm/parse-wanted-dependency\\n```\\n\\n## License\\n\\n[MIT](LICENSE)\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/packages/parse-wanted-dependency\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/core/src/parseWantedDependencies.ts\",\"line\":42,\"endLine\":53,\"symbol\":\"result\",\"position\":1512,\"kind\":\"declaration\",\"score\":116,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\"],\"snippet\":\"      const result = {\\n        alias,\\n        dev: Boolean(opts.dev || alias && !!opts.devDependencies[alias]),\\n        optional: Boolean(opts.optional || alias && !!opts.optionalDependencies[alias]),\\n        prevSpecifier: alias && opts.currentBareSpecifiers[alias],\\n        saveCatalogName: opts.saveCatalogName,\\n      } satisfies Partial<WantedDependency>\\n \",\"preview\":{\"omittedCharacters\":98},\"projectRoot\":\"$WORKSPACE/pkg-manager/core\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/config/parse-overrides/src/index.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":112,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"import { PnpmError } from '@pnpm/error'\\nimport { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\\nimport { matchCatalogResolveResult, resolveFromCatalog } from '@pnpm/catalogs.resolver'\\nimport { type Catalogs } from '@pnpm/catalogs.types'\\n\\nconst DELIMITER_REGEX = /[^ |@]>/\\n\\nexport interface VersionOverride {\\n  selector: string\\n  parentPkg?: Packa\",\"preview\":{\"omittedCharacters\":119},\"projectRoot\":\"$WORKSPACE/config/parse-overrides\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/src/getPatchedDependency.ts\",\"line\":92,\"endLine\":103,\"symbol\":\"LockfileVersionsList\",\"position\":3379,\"kind\":\"declaration\",\"score\":112,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"export interface LockfileVersionsList {\\n  versions: LockfileVersion[]\\n  preferredVersions: LockfileVersion[]\\n}\\n\\nexport async function getVersionsFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<LockfileVersionsList> {\\n  const modulesDir = await realpathMissing(path.join(opts.lockfileDir, opts.modulesDir ?? 'node_mod\",\"preview\":{\"omittedCharacters\":149},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/config/parse-overrides/src/index.ts\",\"line\":63,\"endLine\":72,\"symbol\":\"wantedDep\",\"position\":2019,\"kind\":\"declaration\",\"score\":104,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"  const wantedDep = parseWantedDependency(selector)\\n  if (!wantedDep.alias) {\\n    throw new PnpmError('INVALID_SELECTOR', `Cannot parse the \\\"${selector}\\\" selector`)\\n  }\\n  return {\\n    name: wantedDep.alias,\\n    bareSpecifier: wantedDep.bareSpecifier,\\n  }\\n}\\n\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/config/parse-overrides\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/core/src/parseWantedDependencies.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":104,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\\nimport { type Dependencies } from '@pnpm/types'\\nimport { type WantedDependency } from '@pnpm/resolve-dependencies'\\nimport { type Catalog } from '@pnpm/catalogs.types'\\n\\nexport function parseWantedDependencies (\\n  rawWantedDependencies: string[],\\n  opts: {\\n    allowNew: boolean\\n    currentBa\",\"preview\":{\"omittedCharacters\":200},\"projectRoot\":\"$WORKSPACE/pkg-manager/core\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/resolving/local-resolver/test/index.ts\",\"line\":93,\"endLine\":104,\"symbol\":\"wantedDependency\",\"position\":5439,\"kind\":\"declaration\",\"score\":104,\"matchedTerms\":[\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"  const wantedDependency = { bareSpecifier: './pnpm-local-resolver-0.1.1.tgz' }\\n  const resolveResult = await resolveFromLocal({}, wantedDependency, { projectDir: TEST_DIR })\\n\\n  expect(resolveResult).toEqual({\\n    id: 'file:pnpm-local-resolver-0.1.1.tgz',\\n    normalizedBareSpecifier: 'file:pnpm-local-resolver-0.1.1.tgz',\\n    resolution: {\\n      integrity: 's\",\"preview\":{\"omittedCharacters\":198},\"projectRoot\":\"$WORKSPACE/resolving/local-resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/resolving/local-resolver/test/index.ts\",\"line\":108,\"endLine\":119,\"symbol\":\"wantedDependency\",\"position\":6092,\"kind\":\"declaration\",\"score\":104,\"matchedTerms\":[\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"  const wantedDependency = { bareSpecifier: './pnpm-local-resolver-0.1.1.tgz' }\\n  const resolveResult = await resolveFromLocal({}, wantedDependency, {\\n    lockfileDir: path.join(TEST_DIR, '..'),\\n    projectDir: TEST_DIR,\\n  })\\n\\n  expect(resolveResult).toEqual({\\n    id: 'file:tgz/pnpm-local-resolver-0.1.1.tgz',\\n    normalizedBareSpecifier: 'file:pnpm-local-res\",\"preview\":{\"omittedCharacters\":208},\"projectRoot\":\"$WORKSPACE/resolving/local-resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/store/plugin-commands-store-inspecting/src/catIndex.ts\",\"line\":55,\"endLine\":66,\"symbol\":\"wantedDependency\",\"position\":1409,\"kind\":\"declaration\",\"score\":104,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"pnpm\"],\"snippet\":\"  const wantedDependency = params[0]\\n  const { alias, bareSpecifier } = parseWantedDependency(wantedDependency) || {}\\n\\n  if (!alias) {\\n    throw new PnpmError(\\n      'INVALID_SELECTOR',\\n      `Cannot parse the \\\"${wantedDependency}\\\" selector`\\n    )\\n  }\\n\\n  const storeDir = await getStorePath({\\n    pkgRoot: process.cwd(),\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/store/plugin-commands-store-inspecting\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/catalogs/resolver/src/resolveFromCatalog.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"import { PnpmError } from '@pnpm/error'\\nimport { parseCatalogProtocol } from '@pnpm/catalogs.protocol-parser'\\nimport { type Catalogs } from '@pnpm/catalogs.types'\\n\\nexport interface WantedDependency {\\n  readonly bareSpecifier: string\\n  readonly alias: string\\n}\\n\\n/**\\n * Dereferences a wanted dependency using the catalog protocol and returns the\\n * configured ve\",\"preview\":{\"omittedCharacters\":145},\"projectRoot\":\"$WORKSPACE/catalogs/resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/catalogs/resolver/src/resolveFromCatalog.ts\",\"line\":49,\"endLine\":64,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"  readonly error: PnpmError\\n  readonly catalogName: string\\n}\\n\\n/**\\n * The wanted dependency does not use the catalog protocol.\\n */\\nexport interface CatalogResolutionUnused {\\n  readonly type: 'unused'\\n}\\n\\nexport function resolveFromCatalog (catalogs: Catalogs, wantedDependency: WantedDependency): CatalogResolutionResult {\\n  const catalogName = parseCatalogProto\",\"preview\":{\"omittedCharacters\":95},\"projectRoot\":\"$WORKSPACE/catalogs/resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/env/node.resolver/src/index.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"import { getNodeBinLocationForCurrentOS } from '@pnpm/constants'\\nimport { fetchShasumsFile } from '@pnpm/crypto.shasums-file'\\nimport { PnpmError } from '@pnpm/error'\\nimport { type FetchFromRegistry } from '@pnpm/fetching-types'\\nimport {\\n  type BinaryResolution,\\n  type PlatformAssetResolution,\\n  type ResolveResult,\\n  type VariationsResolution,\\n  type WantedDe\",\"preview\":{\"omittedCharacters\":283},\"projectRoot\":\"$WORKSPACE/env/node.resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/env/node.resolver/src/index.ts\",\"line\":25,\"endLine\":40,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"\\nexport async function resolveNodeRuntime (\\n  ctx: {\\n    fetchFromRegistry: FetchFromRegistry\\n    rawConfig: Record<string, string>\\n    offline?: boolean\\n  },\\n  wantedDependency: WantedDependency\\n): Promise<NodeRuntimeResolveResult | null> {\\n  if (wantedDependency.alias !== 'node' || !wantedDependency.bareSpecifier?.startsWith('runtime:')) return null\\n  if (\",\"preview\":{\"omittedCharacters\":465},\"projectRoot\":\"$WORKSPACE/env/node.resolver\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/src/getEditDirPath.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"import path from 'path'\\nimport { type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\\n\\nexport interface GetEditDirOptions {\\n  modulesDir: string\\n}\\n\\nexport function getEditDirPath (param: string, patchedDep: ParseWantedDependencyResult, opts: GetEditDirOptions): string {\\n  const editDirName = getEditDirNameFromParsedDep(patchedDep) ?? param\",\"preview\":{\"omittedCharacters\":356},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/patching/plugin-commands-patching/src/patchCommit.ts\",\"line\":13,\"endLine\":28,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":100,\"matchedTerms\":[\"pars\",\"want\",\"dependency\",\"result\",\"pnpm\"],\"snippet\":\"import { glob } from 'tinyglobby'\\nimport normalizePath from 'normalize-path'\\nimport pick from 'ramda/src/pick'\\nimport equals from 'ramda/src/equals'\\nimport execa from 'safe-execa'\\nimport escapeStringRegexp from 'escape-string-regexp'\\nimport makeEmptyDir from 'make-empty-dir'\\nimport renderHelp from 'render-help'\\nimport { type WritePackageOptions, writePackage\",\"preview\":{\"omittedCharacters\":406},\"projectRoot\":\"$WORKSPACE/patching/plugin-commands-patching\"}],\"latencyMs\":3374,\"index\":{\"path\":\"$PROVIDER_STATE/typelatch/workspaces/eea4fcd5a8a757e09507a9fa61a822678c45fab0e0f7a005590f8281a16c4ece/search.db\",\"updatedFiles\":2715,\"removedFiles\":0,\"files\":2715,\"snapshot\":\"1fdf3637c7e3cf8e858e13c4acddc414641548848c93bfb8b778cc19ea369468\"},\"coverage\":{\"complete\":false,\"selection\":\"Git tracked and unignored files, with generated directories and source symlinks excluded\",\"files\":2715,\"projects\":[\"$WORKSPACE/.meta-updater\",\"$WORKSPACE/__fixtures__/circular\",\"$WORKSPACE/__fixtures__/custom-modules-dir\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo\",\"$WORKSPACE/__fixtures__/empty\",\"$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-version\",\"$WORKSPACE/__fixtures__/fixture\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/general\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only\",\"$WORKSPACE/__fixtures__/general\",\"$WORKSPACE/__fixtures__/has-2-outdated-deps\",\"$WORKSPACE/__fixtures__/has-major-outdated-deps\",\"$WORKSPACE/__fixtures__/has-no-lockfile\",\"$WORKSPACE/__fixtures__/has-not-outdated-deps\",\"$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/has-only-deprecated-deps\",\"$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias\",\"$WORKSPACE/__fixtures__/has-outdated-deps\",\"$WORKSPACE/__fixtures__/has-package-lock-json\",\"$WORKSPACE/__fixtures__/has-package-lock-v3-json\",\"$WORKSPACE/__fixtures__/has-yarn-lock\",\"$WORKSPACE/__fixtures__/has-yarn2-lock\",\"$WORKSPACE/__fixtures__/hello-world-js-bin\",\"$WORKSPACE/__fixtures__/local-pkg\",\"$WORKSPACE/__fixtures__/local-scoped-pkg\",\"$WORKSPACE/__fixtures__/monorepo/package\",\"$WORKSPACE/__fixtures__/multiple-scripts-error-exit\",\"$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg\",\"$WORKSPACE/__fixtures__/with-aliased-dep\",\"$WORKSPACE/__fixtures__/with-file-dep\",\"$WORKSPACE/__fixtures__/with-git-protocol-dep\",\"$WORKSPACE/__fixtures__/with-non-package-dep\",\"$WORKSPACE/__fixtures__/with-peer\",\"$WORKSPACE/__fixtures__/with-pnpm-update-ignore\",\"$WORKSPACE/__fixtures__/with-unsaved-deps\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public\",\"$WORKSPACE/__typecheck__\",\"$WORKSPACE/__typings__\",\"$WORKSPACE/__utils__/assert-project\",\"$WORKSPACE/__utils__/assert-project/test/fixture/project\",\"$WORKSPACE/__utils__/assert-store\",\"$WORKSPACE/__utils__/assert-store/test/fixture/project\",\"$WORKSPACE/__utils__/build-artifacts\",\"$WORKSPACE/__utils__/eslint-config\",\"$WORKSPACE/__utils__/get-release-text\",\"$WORKSPACE/__utils__/jest-config\",\"$WORKSPACE/__utils__/prepare-temp-dir\",\"$WORKSPACE/__utils__/prepare\",\"$WORKSPACE/__utils__/scripts\",\"$WORKSPACE/__utils__/test-fixtures\",\"$WORKSPACE/__utils__/test-ipc-server\",\"$WORKSPACE/__utils__/tsconfig\",\"$WORKSPACE/builder/policy\",\"$WORKSPACE/cache/api\",\"$WORKSPACE/cache/commands\",\"$WORKSPACE/catalogs/config\",\"$WORKSPACE/catalogs/protocol-parser\",\"$WORKSPACE/catalogs/resolver\",\"$WORKSPACE/catalogs/types\",\"$WORKSPACE/cli/cli-meta\",\"$WORKSPACE/cli/cli-utils\",\"$WORKSPACE/cli/command\",\"$WORKSPACE/cli/common-cli-options-help\",\"$WORKSPACE/cli/default-reporter\",\"$WORKSPACE/cli/parse-cli-args\"],\"configs\":[\"$WORKSPACE/.meta-updater/tsconfig.json\",\"$WORKSPACE/.meta-updater/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-project/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-store/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.lint.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.lint.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json\",\"$WORKSPACE/__utils__/tsconfig/tsconfig.json\",\"$WORKSPACE/builder/policy/test/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.lint.json\",\"$WORKSPACE/cache/api/tsconfig.json\",\"$WORKSPACE/cache/api/tsconfig.lint.json\",\"$WORKSPACE/cache/commands/test/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.lint.json\",\"$WORKSPACE/catalogs/config/test/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.lint.json\",\"$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json\",\"$WORKSPACE/catalogs/resolver/test/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.lint.json\",\"$WORKSPACE/catalogs/types/tsconfig.json\",\"$WORKSPACE/catalogs/types/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-meta/test/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-utils/test/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.lint.json\",\"$WORKSPACE/cli/command/tsconfig.json\",\"$WORKSPACE/cli/command/tsconfig.lint.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json\",\"$WORKSPACE/cli/default-reporter/test/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.lint.json\",\"$WORKSPACE/cli/parse-cli-args/test/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json\",\"$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json\",\"$WORKSPACE/config/config-writer/tsconfig.json\",\"$WORKSPACE/config/config-writer/tsconfig.lint.json\",\"$WORKSPACE/config/config/test/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.lint.json\",\"$WORKSPACE/config/deps-installer/test/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.lint.json\",\"$WORKSPACE/config/matcher/test/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.lint.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.lint.json\",\"$WORKSPACE/config/package-is-installable/test/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.lint.json\",\"$WORKSPACE/config/parse-overrides/test/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.lint.json\",\"$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json\",\"$WORKSPACE/config/plugin-commands-config/test/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json\",\"$WORKSPACE/config/version-policy/test/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.lint.json\",\"$WORKSPACE/crypto/hash/test/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.lint.json\",\"$WORKSPACE/crypto/object-hasher/test/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.lint.json\",\"$WORKSPACE/crypto/polyfill/tsconfig.json\",\"$WORKSPACE/crypto/polyfill/tsconfig.lint.json\",\"$WORKSPACE/crypto/shasums-file/test/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.lint.json\",\"$WORKSPACE/dedupe/check/test/tsconfig.json\"],\"projectsOmitted\":294,\"configsOmitted\":403,\"excluded\":[{\"path\":\"CLAUDE.md\",\"reason\":\"symlink\"},{\"path\":\"__fixtures__/circular/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/custom-modules-dir/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/empty/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-2-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-major-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-negative\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-positive\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md\",\"reason\":\"generated or dependency directory\"}],\"excludedCount\":231,\"dependencies\":[],\"dependencyCount\":0,\"searchedDependencies\":0,\"missingIndexes\":0,\"dependencyErrors\":0,\"dependenciesOmitted\":0,\"issues\":[\"File exceeds 1 MB: reviewing/list/test/__fixtures__/many-deps/pnpm-lock.yaml\",\"File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json\",\"File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md\",\"File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md\"],\"issuesOmitted\":0,\"retrieval\":{\"workspaceCandidateLimit\":400,\"workspaceCandidateLimitReached\":true,\"perDependencyLimit\":20,\"exhaustive\":false}},\"checks\":{\"retrieved\":{\"status\":\"pass\",\"reason\":\"Lexical candidates only; coverage and ranking limits remain explicit\"},\"resolved\":{\"status\":\"not-run\",\"reason\":\"Use workspace_context for compiler resolution\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace_validate for compilation\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No assertion command executed\"},\"stable\":{\"status\":\"unknown\",\"reason\":\"Search records files as read; it does not establish an atomic workspace snapshot\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed dependency contents were not compared with registry artifacts\"}},\"next\":\"Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.\",\"searchMs\":3250}"
+          }
+        ],
+        "structured_content": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "parseWantedDependency ParseWantedDependencyResult ParsedWantedDependency @pnpm/parse-wanted-dependency",
+          "scope": "workspace",
+          "detail": "compact",
+          "status": "partial",
+          "results": [
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/packages/parse-wanted-dependency/CHANGELOG.md",
+              "line": 25,
+              "endLine": 40,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 136,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "- 2ae1c449d: Export `ParseWantedDependencyResult`.\n\n## 4.0.1\n\n### Patch Changes\n\n- a9d59d8bc: Update dependencies.\n\n## 4.0.0\n\n### Major Changes\n\n- f884689e0: Require `@pnpm/logger` v5.\n\n## 3.0.2\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/packages/parse-wanted-dependency"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/packages/parse-wanted-dependency/src/index.ts",
+              "line": 8,
+              "endLine": 19,
+              "symbol": "ParseWantedDependencyResult",
+              "position": 161,
+              "kind": "declaration",
+              "score": 128,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result"
+              ],
+              "snippet": "export type ParseWantedDependencyResult = Partial<ParsedWantedDependency> &\n(\n  Omit<ParsedWantedDependency, 'bareSpecifier'>\n  | Omit<ParsedWantedDependency, 'alias'>\n  | ParsedWantedDependency\n)\n\nexport function parseWantedDependency (rawWantedDependency: string): ParseWantedDependencyResult {\n  const versionDelimiter = rawWantedDependency.indexOf('@', 1) ",
+              "preview": {
+                "omittedCharacters": 208
+              },
+              "projectRoot": "$WORKSPACE/packages/parse-wanted-dependency"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/src/getPatchedDependency.ts",
+              "line": 16,
+              "endLine": 27,
+              "symbol": "GetPatchedDependencyResult",
+              "position": 648,
+              "kind": "declaration",
+              "score": 124,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "export type GetPatchedDependencyResult = ParseWantedDependencyResult & { applyToAll: boolean }\n\nexport async function getPatchedDependency (rawDependency: string, opts: GetPatchedDependencyOptions): Promise<GetPatchedDependencyResult> {\n  const dep = parseWantedDependency(rawDependency)\n\n  const { versions, preferredVersions } = await getVersionsFromLockfile",
+              "preview": {
+                "omittedCharacters": 351
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/packages/parse-wanted-dependency/CHANGELOG.md",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 116,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "# @pnpm/parse-wanted-dependency\n\n## 1001.0.0\n\n### Major Changes\n\n- 8a9f3a4: `pref` renamed to `bareSpecifier`.\n\n## 6.0.0\n\n### Major Changes\n\n- 43cdd87: Node.js v16 support dropped. Use at least Node.js v18.12.\n\n## 5.0.0\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/packages/parse-wanted-dependency"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/packages/parse-wanted-dependency/package.json",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 116,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "{\n  \"name\": \"@pnpm/parse-wanted-dependency\",\n  \"version\": \"1001.0.0\",\n  \"description\": \"Parse dependency specifier\",\n  \"keywords\": [\n    \"pnpm\",\n    \"pnpm10\"\n  ],\n  \"license\": \"MIT\",\n  \"funding\": \"https://opencollective.com/pnpm\",\n  \"repository\": \"https://github.com/pnpm/pnpm/tree/main/packages/parse-wanted-dependency\",\n  \"homepage\": \"https://github.com/pnpm",
+              "preview": {
+                "omittedCharacters": 145
+              },
+              "projectRoot": "$WORKSPACE/packages/parse-wanted-dependency"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/packages/parse-wanted-dependency/README.md",
+              "line": 1,
+              "endLine": 14,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 116,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "# @pnpm/parse-wanted-dependency\n\n> Parse dependency specifier\n\n## Installation\n\n```\npnpm i @pnpm/parse-wanted-dependency\n```\n\n## License\n\n[MIT](LICENSE)\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/packages/parse-wanted-dependency"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pkg-manager/core/src/parseWantedDependencies.ts",
+              "line": 42,
+              "endLine": 53,
+              "symbol": "result",
+              "position": 1512,
+              "kind": "declaration",
+              "score": 116,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result"
+              ],
+              "snippet": "      const result = {\n        alias,\n        dev: Boolean(opts.dev || alias && !!opts.devDependencies[alias]),\n        optional: Boolean(opts.optional || alias && !!opts.optionalDependencies[alias]),\n        prevSpecifier: alias && opts.currentBareSpecifiers[alias],\n        saveCatalogName: opts.saveCatalogName,\n      } satisfies Partial<WantedDependency>\n ",
+              "preview": {
+                "omittedCharacters": 98
+              },
+              "projectRoot": "$WORKSPACE/pkg-manager/core"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/config/parse-overrides/src/index.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 112,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "import { PnpmError } from '@pnpm/error'\nimport { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nimport { matchCatalogResolveResult, resolveFromCatalog } from '@pnpm/catalogs.resolver'\nimport { type Catalogs } from '@pnpm/catalogs.types'\n\nconst DELIMITER_REGEX = /[^ |@]>/\n\nexport interface VersionOverride {\n  selector: string\n  parentPkg?: Packa",
+              "preview": {
+                "omittedCharacters": 119
+              },
+              "projectRoot": "$WORKSPACE/config/parse-overrides"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/src/getPatchedDependency.ts",
+              "line": 92,
+              "endLine": 103,
+              "symbol": "LockfileVersionsList",
+              "position": 3379,
+              "kind": "declaration",
+              "score": 112,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "export interface LockfileVersionsList {\n  versions: LockfileVersion[]\n  preferredVersions: LockfileVersion[]\n}\n\nexport async function getVersionsFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<LockfileVersionsList> {\n  const modulesDir = await realpathMissing(path.join(opts.lockfileDir, opts.modulesDir ?? 'node_mod",
+              "preview": {
+                "omittedCharacters": 149
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/config/parse-overrides/src/index.ts",
+              "line": 63,
+              "endLine": 72,
+              "symbol": "wantedDep",
+              "position": 2019,
+              "kind": "declaration",
+              "score": 104,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "  const wantedDep = parseWantedDependency(selector)\n  if (!wantedDep.alias) {\n    throw new PnpmError('INVALID_SELECTOR', `Cannot parse the \"${selector}\" selector`)\n  }\n  return {\n    name: wantedDep.alias,\n    bareSpecifier: wantedDep.bareSpecifier,\n  }\n}\n",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/config/parse-overrides"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/pkg-manager/core/src/parseWantedDependencies.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 104,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nimport { type Dependencies } from '@pnpm/types'\nimport { type WantedDependency } from '@pnpm/resolve-dependencies'\nimport { type Catalog } from '@pnpm/catalogs.types'\n\nexport function parseWantedDependencies (\n  rawWantedDependencies: string[],\n  opts: {\n    allowNew: boolean\n    currentBa",
+              "preview": {
+                "omittedCharacters": 200
+              },
+              "projectRoot": "$WORKSPACE/pkg-manager/core"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/resolving/local-resolver/test/index.ts",
+              "line": 93,
+              "endLine": 104,
+              "symbol": "wantedDependency",
+              "position": 5439,
+              "kind": "declaration",
+              "score": 104,
+              "matchedTerms": [
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "  const wantedDependency = { bareSpecifier: './pnpm-local-resolver-0.1.1.tgz' }\n  const resolveResult = await resolveFromLocal({}, wantedDependency, { projectDir: TEST_DIR })\n\n  expect(resolveResult).toEqual({\n    id: 'file:pnpm-local-resolver-0.1.1.tgz',\n    normalizedBareSpecifier: 'file:pnpm-local-resolver-0.1.1.tgz',\n    resolution: {\n      integrity: 's",
+              "preview": {
+                "omittedCharacters": 198
+              },
+              "projectRoot": "$WORKSPACE/resolving/local-resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/resolving/local-resolver/test/index.ts",
+              "line": 108,
+              "endLine": 119,
+              "symbol": "wantedDependency",
+              "position": 6092,
+              "kind": "declaration",
+              "score": 104,
+              "matchedTerms": [
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "  const wantedDependency = { bareSpecifier: './pnpm-local-resolver-0.1.1.tgz' }\n  const resolveResult = await resolveFromLocal({}, wantedDependency, {\n    lockfileDir: path.join(TEST_DIR, '..'),\n    projectDir: TEST_DIR,\n  })\n\n  expect(resolveResult).toEqual({\n    id: 'file:tgz/pnpm-local-resolver-0.1.1.tgz',\n    normalizedBareSpecifier: 'file:pnpm-local-res",
+              "preview": {
+                "omittedCharacters": 208
+              },
+              "projectRoot": "$WORKSPACE/resolving/local-resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/store/plugin-commands-store-inspecting/src/catIndex.ts",
+              "line": 55,
+              "endLine": 66,
+              "symbol": "wantedDependency",
+              "position": 1409,
+              "kind": "declaration",
+              "score": 104,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "pnpm"
+              ],
+              "snippet": "  const wantedDependency = params[0]\n  const { alias, bareSpecifier } = parseWantedDependency(wantedDependency) || {}\n\n  if (!alias) {\n    throw new PnpmError(\n      'INVALID_SELECTOR',\n      `Cannot parse the \"${wantedDependency}\" selector`\n    )\n  }\n\n  const storeDir = await getStorePath({\n    pkgRoot: process.cwd(),",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/store/plugin-commands-store-inspecting"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/catalogs/resolver/src/resolveFromCatalog.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "import { PnpmError } from '@pnpm/error'\nimport { parseCatalogProtocol } from '@pnpm/catalogs.protocol-parser'\nimport { type Catalogs } from '@pnpm/catalogs.types'\n\nexport interface WantedDependency {\n  readonly bareSpecifier: string\n  readonly alias: string\n}\n\n/**\n * Dereferences a wanted dependency using the catalog protocol and returns the\n * configured ve",
+              "preview": {
+                "omittedCharacters": 145
+              },
+              "projectRoot": "$WORKSPACE/catalogs/resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/catalogs/resolver/src/resolveFromCatalog.ts",
+              "line": 49,
+              "endLine": 64,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "  readonly error: PnpmError\n  readonly catalogName: string\n}\n\n/**\n * The wanted dependency does not use the catalog protocol.\n */\nexport interface CatalogResolutionUnused {\n  readonly type: 'unused'\n}\n\nexport function resolveFromCatalog (catalogs: Catalogs, wantedDependency: WantedDependency): CatalogResolutionResult {\n  const catalogName = parseCatalogProto",
+              "preview": {
+                "omittedCharacters": 95
+              },
+              "projectRoot": "$WORKSPACE/catalogs/resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/env/node.resolver/src/index.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "import { getNodeBinLocationForCurrentOS } from '@pnpm/constants'\nimport { fetchShasumsFile } from '@pnpm/crypto.shasums-file'\nimport { PnpmError } from '@pnpm/error'\nimport { type FetchFromRegistry } from '@pnpm/fetching-types'\nimport {\n  type BinaryResolution,\n  type PlatformAssetResolution,\n  type ResolveResult,\n  type VariationsResolution,\n  type WantedDe",
+              "preview": {
+                "omittedCharacters": 283
+              },
+              "projectRoot": "$WORKSPACE/env/node.resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/env/node.resolver/src/index.ts",
+              "line": 25,
+              "endLine": 40,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "\nexport async function resolveNodeRuntime (\n  ctx: {\n    fetchFromRegistry: FetchFromRegistry\n    rawConfig: Record<string, string>\n    offline?: boolean\n  },\n  wantedDependency: WantedDependency\n): Promise<NodeRuntimeResolveResult | null> {\n  if (wantedDependency.alias !== 'node' || !wantedDependency.bareSpecifier?.startsWith('runtime:')) return null\n  if (",
+              "preview": {
+                "omittedCharacters": 465
+              },
+              "projectRoot": "$WORKSPACE/env/node.resolver"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/src/getEditDirPath.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "import path from 'path'\nimport { type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\n\nexport interface GetEditDirOptions {\n  modulesDir: string\n}\n\nexport function getEditDirPath (param: string, patchedDep: ParseWantedDependencyResult, opts: GetEditDirOptions): string {\n  const editDirName = getEditDirNameFromParsedDep(patchedDep) ?? param",
+              "preview": {
+                "omittedCharacters": 356
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/patching/plugin-commands-patching/src/patchCommit.ts",
+              "line": 13,
+              "endLine": 28,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 100,
+              "matchedTerms": [
+                "pars",
+                "want",
+                "dependency",
+                "result",
+                "pnpm"
+              ],
+              "snippet": "import { glob } from 'tinyglobby'\nimport normalizePath from 'normalize-path'\nimport pick from 'ramda/src/pick'\nimport equals from 'ramda/src/equals'\nimport execa from 'safe-execa'\nimport escapeStringRegexp from 'escape-string-regexp'\nimport makeEmptyDir from 'make-empty-dir'\nimport renderHelp from 'render-help'\nimport { type WritePackageOptions, writePackage",
+              "preview": {
+                "omittedCharacters": 406
+              },
+              "projectRoot": "$WORKSPACE/patching/plugin-commands-patching"
+            }
+          ],
+          "latencyMs": 3374,
+          "index": {
+            "path": "$PROVIDER_STATE/typelatch/workspaces/eea4fcd5a8a757e09507a9fa61a822678c45fab0e0f7a005590f8281a16c4ece/search.db",
+            "updatedFiles": 2715,
+            "removedFiles": 0,
+            "files": 2715,
+            "snapshot": "1fdf3637c7e3cf8e858e13c4acddc414641548848c93bfb8b778cc19ea369468"
+          },
+          "coverage": {
+            "complete": false,
+            "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+            "files": 2715,
+            "projects": [
+              "$WORKSPACE/.meta-updater",
+              "$WORKSPACE/__fixtures__/circular",
+              "$WORKSPACE/__fixtures__/custom-modules-dir",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo",
+              "$WORKSPACE/__fixtures__/empty",
+              "$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-version",
+              "$WORKSPACE/__fixtures__/fixture",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/general",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only",
+              "$WORKSPACE/__fixtures__/general",
+              "$WORKSPACE/__fixtures__/has-2-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-major-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-no-lockfile",
+              "$WORKSPACE/__fixtures__/has-not-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/has-only-deprecated-deps",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias",
+              "$WORKSPACE/__fixtures__/has-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-package-lock-json",
+              "$WORKSPACE/__fixtures__/has-package-lock-v3-json",
+              "$WORKSPACE/__fixtures__/has-yarn-lock",
+              "$WORKSPACE/__fixtures__/has-yarn2-lock",
+              "$WORKSPACE/__fixtures__/hello-world-js-bin",
+              "$WORKSPACE/__fixtures__/local-pkg",
+              "$WORKSPACE/__fixtures__/local-scoped-pkg",
+              "$WORKSPACE/__fixtures__/monorepo/package",
+              "$WORKSPACE/__fixtures__/multiple-scripts-error-exit",
+              "$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg",
+              "$WORKSPACE/__fixtures__/with-aliased-dep",
+              "$WORKSPACE/__fixtures__/with-file-dep",
+              "$WORKSPACE/__fixtures__/with-git-protocol-dep",
+              "$WORKSPACE/__fixtures__/with-non-package-dep",
+              "$WORKSPACE/__fixtures__/with-peer",
+              "$WORKSPACE/__fixtures__/with-pnpm-update-ignore",
+              "$WORKSPACE/__fixtures__/with-unsaved-deps",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public",
+              "$WORKSPACE/__typecheck__",
+              "$WORKSPACE/__typings__",
+              "$WORKSPACE/__utils__/assert-project",
+              "$WORKSPACE/__utils__/assert-project/test/fixture/project",
+              "$WORKSPACE/__utils__/assert-store",
+              "$WORKSPACE/__utils__/assert-store/test/fixture/project",
+              "$WORKSPACE/__utils__/build-artifacts",
+              "$WORKSPACE/__utils__/eslint-config",
+              "$WORKSPACE/__utils__/get-release-text",
+              "$WORKSPACE/__utils__/jest-config",
+              "$WORKSPACE/__utils__/prepare-temp-dir",
+              "$WORKSPACE/__utils__/prepare",
+              "$WORKSPACE/__utils__/scripts",
+              "$WORKSPACE/__utils__/test-fixtures",
+              "$WORKSPACE/__utils__/test-ipc-server",
+              "$WORKSPACE/__utils__/tsconfig",
+              "$WORKSPACE/builder/policy",
+              "$WORKSPACE/cache/api",
+              "$WORKSPACE/cache/commands",
+              "$WORKSPACE/catalogs/config",
+              "$WORKSPACE/catalogs/protocol-parser",
+              "$WORKSPACE/catalogs/resolver",
+              "$WORKSPACE/catalogs/types",
+              "$WORKSPACE/cli/cli-meta",
+              "$WORKSPACE/cli/cli-utils",
+              "$WORKSPACE/cli/command",
+              "$WORKSPACE/cli/common-cli-options-help",
+              "$WORKSPACE/cli/default-reporter",
+              "$WORKSPACE/cli/parse-cli-args"
+            ],
+            "configs": [
+              "$WORKSPACE/.meta-updater/tsconfig.json",
+              "$WORKSPACE/.meta-updater/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-project/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-store/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/tsconfig/tsconfig.json",
+              "$WORKSPACE/builder/policy/test/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.lint.json",
+              "$WORKSPACE/cache/api/tsconfig.json",
+              "$WORKSPACE/cache/api/tsconfig.lint.json",
+              "$WORKSPACE/cache/commands/test/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/config/test/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/resolver/test/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/types/tsconfig.json",
+              "$WORKSPACE/catalogs/types/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-meta/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-utils/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.lint.json",
+              "$WORKSPACE/cli/command/tsconfig.json",
+              "$WORKSPACE/cli/command/tsconfig.lint.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json",
+              "$WORKSPACE/cli/default-reporter/test/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.lint.json",
+              "$WORKSPACE/cli/parse-cli-args/test/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json",
+              "$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json",
+              "$WORKSPACE/config/config-writer/tsconfig.json",
+              "$WORKSPACE/config/config-writer/tsconfig.lint.json",
+              "$WORKSPACE/config/config/test/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.lint.json",
+              "$WORKSPACE/config/deps-installer/test/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.lint.json",
+              "$WORKSPACE/config/matcher/test/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.lint.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.lint.json",
+              "$WORKSPACE/config/package-is-installable/test/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.lint.json",
+              "$WORKSPACE/config/parse-overrides/test/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.lint.json",
+              "$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json",
+              "$WORKSPACE/config/plugin-commands-config/test/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json",
+              "$WORKSPACE/config/version-policy/test/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.lint.json",
+              "$WORKSPACE/crypto/hash/test/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.lint.json",
+              "$WORKSPACE/crypto/object-hasher/test/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.lint.json",
+              "$WORKSPACE/crypto/polyfill/tsconfig.json",
+              "$WORKSPACE/crypto/polyfill/tsconfig.lint.json",
+              "$WORKSPACE/crypto/shasums-file/test/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.lint.json",
+              "$WORKSPACE/dedupe/check/test/tsconfig.json"
+            ],
+            "projectsOmitted": 294,
+            "configsOmitted": 403,
+            "excluded": [
+              {
+                "path": "CLAUDE.md",
+                "reason": "symlink"
+              },
+              {
+                "path": "__fixtures__/circular/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/custom-modules-dir/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/empty/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md",
+                "reason": "generated or dependency directory"
+              }
+            ],
+            "excludedCount": 231,
+            "dependencies": [],
+            "dependencyCount": 0,
+            "searchedDependencies": 0,
+            "missingIndexes": 0,
+            "dependencyErrors": 0,
+            "dependenciesOmitted": 0,
+            "issues": [
+              "File exceeds 1 MB: reviewing/list/test/__fixtures__/many-deps/pnpm-lock.yaml",
+              "File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md"
+            ],
+            "issuesOmitted": 0,
+            "retrieval": {
+              "workspaceCandidateLimit": 400,
+              "workspaceCandidateLimitReached": true,
+              "perDependencyLimit": 20,
+              "exhaustive": false
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+            },
+            "resolved": {
+              "status": "not-run",
+              "reason": "Use workspace_context for compiler resolution"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace_validate for compilation"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No assertion command executed"
+            },
+            "stable": {
+              "status": "unknown",
+              "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed dependency contents were not compared with registry artifacts"
+            }
+          },
+          "next": "Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.",
+          "searchMs": 3250
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 10,
+      "outputSha256": "ae5fa01cba8c22cd318c1beb59dd1913fe0f23e2e71a9801b3eb6de031af5604",
+      "outputBytes": 4643,
+      "exitCode": 0,
+      "stdout": "store/plugin-commands-store/src/storeAdd.ts:3:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nstore/plugin-commands-store/src/storeAdd.ts:23:  const deps = fuzzyDeps.map((dep) => parseWantedDependency(dep))\npatching/plugin-commands-patching/src/getPatchedDependency.ts:2:import { parseWantedDependency, type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/getPatchedDependency.ts:16:export type GetPatchedDependencyResult = ParseWantedDependencyResult & { applyToAll: boolean }\npatching/plugin-commands-patching/src/getPatchedDependency.ts:19:  const dep = parseWantedDependency(rawDependency)\npatching/plugin-commands-patching/src/getPatchedDependency.ts:97:export async function getVersionsFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<LockfileVersionsList> {\npatching/plugin-commands-patching/src/patchCommit.ts:22:import { type ParseWantedDependencyResult, parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/patchCommit.ts:84:  const patchedPkg = parseWantedDependency(gitTarballUrl ? `${patchedPkgManifest.name}@${gitTarballUrl}` : nameAndVersion)\npatching/plugin-commands-patching/src/patchCommit.ts:123:  patchedPkg: ParseWantedDependencyResult\npatching/plugin-commands-patching/src/patchCommit.ts:240:async function getGitTarballUrlFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<string | undefined> {\npkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts:23:    const parsed = parseWantedDependency(spec)\npatching/plugin-commands-patching/src/getEditDirPath.ts:2:import { type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/getEditDirPath.ts:8:export function getEditDirPath (param: string, patchedDep: ParseWantedDependencyResult, opts: GetEditDirOptions): string {\npatching/plugin-commands-patching/src/getEditDirPath.ts:13:function getEditDirNameFromParsedDep (patchedDep: ParseWantedDependencyResult): string | undefined {\npatching/plugin-commands-patching/src/writePackage.ts:6:import type { ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/writePackage.ts:10:export async function writePackage (dep: ParseWantedDependencyResult, dest: string, opts: WritePackageOptions): Promise<void> {\nstore/plugin-commands-store-inspecting/src/catIndex.ts:9:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nstore/plugin-commands-store-inspecting/src/catIndex.ts:56:  const { alias, bareSpecifier } = parseWantedDependency(wantedDependency) || {}\nexec/plugin-commands-script-runners/src/dlx.ts:6:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nexec/plugin-commands-script-runners/src/dlx.ts:123:    const { alias, bareSpecifier } = parseWantedDependency(pkg) || {}\nconfig/parse-overrides/src/index.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nconfig/parse-overrides/src/index.ts:63:  const wantedDep = parseWantedDependency(selector)\nconfig/deps-installer/src/resolveConfigDeps.ts:7:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nconfig/deps-installer/src/resolveConfigDeps.ts:24:    const wantedDep = parseWantedDependency(configDep)\npkg-manager/core/src/parseWantedDependencies.ts:1:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npkg-manager/core/src/parseWantedDependencies.ts:25:      const parsed = parseWantedDependency(rawWantedDependency)\npackages/parse-wanted-dependency/src/index.ts:3:export interface ParsedWantedDependency {\npackages/parse-wanted-dependency/src/index.ts:8:export type ParseWantedDependencyResult = Partial<ParsedWantedDependency> &\npackages/parse-wanted-dependency/src/index.ts:10:  Omit<ParsedWantedDependency, 'bareSpecifier'>\npackages/parse-wanted-dependency/src/index.ts:11:  | Omit<ParsedWantedDependency, 'alias'>\npackages/parse-wanted-dependency/src/index.ts:12:  | ParsedWantedDependency\npackages/parse-wanted-dependency/src/index.ts:15:export function parseWantedDependency (rawWantedDependency: string): ParseWantedDependencyResult {\nhooks/read-package-hook/src/createPackageExtender.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nhooks/read-package-hook/src/createPackageExtender.ts:18:    const { alias, bareSpecifier } = parseWantedDependency(selector)\n"
+    },
+    {
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 12,
+      "outputSha256": "d11481d348066c1746f688f50dab6aeb05f2fdd525d6bfc66e141a7c01e1af61",
+      "outputBytes": 14867,
+      "exitCode": 0,
+      "stdout": "packages:\n  - .meta-updater\n  - __typecheck__\n  - __typings__\n  - __utils__/*\n  - '!__utils__/build-artifacts'\n  - builder/*\n  - cache/*\n  - catalogs/*\n  - cli/*\n  - completion/*\n  - config/*\n  - crypto/*\n  - dedupe/*\n  - deps/*\n  - env/*\n  - exec/*\n  - fetching/*\n  - fs/*\n  - hooks/*\n  - lockfile/*\n  - network/*\n  - modules-mounter/*\n  - object/*\n  - packages/*\n  - pkg-manager/*\n  - pkg-manifest/*\n  - patching/*\n  - pnpm\n  - pnpm/dev\n  - testing/*\n  - tools/*\n  - worker\n  - pnpm/artifacts/*\n  - registry/*\n  - releasing/*\n  - resolving/*\n  - reviewing/*\n  - semver/*\n  - store/*\n  - text/*\n  - workspace/*\n  - yaml/*\n  - '!**/example/**'\n  - '!**/test/**'\n  - '!resolving/local-resolver/example-package/**'\n\nallowBuilds:\n  core-js: false\n  esbuild: true\n  fuse-native: true\n  ghooks: true\n\nauditConfig:\n  ignoreCves:\n    - CVE-2025-56200\n  ignoreGhsas:\n    - GHSA-76c9-3jph-rj3q\n    - GHSA-ffrw-9mx8-89p8\n    - GHSA-mh29-5h37-fv8m\n    - GHSA-6rw7-vpxm-498p\n    - GHSA-xxjr-mmjv-4gpg\n\ncatalog:\n  '@babel/core': ^7.29.0\n  '@babel/preset-typescript': ^7.28.5\n  '@babel/types': ^7.29.0\n  '@changesets/cli': ^2.30.0\n  '@commitlint/cli': ^17.8.1\n  '@commitlint/config-conventional': ^17.8.1\n  '@commitlint/prompt-cli': ^17.8.1\n  '@eslint/eslintrc': 3.1.0\n  '@eslint/js': 9.9.1\n  '@gwhitney/detect-indent': 7.0.1\n  '@jest/globals': 29.7.0\n  '@pnpm/byline': ^1.0.0\n  '@pnpm/colorize-semver-diff': ^1.0.1\n  '@pnpm/config.env-replace': ^3.0.2\n  '@pnpm/config.nerf-dart': ^1.0.1\n  '@pnpm/exec': ^2.0.0\n  '@pnpm/log.group': 3.0.1\n  '@pnpm/logger': ^1001.0.1\n  '@pnpm/meta-updater': 2.0.6\n  '@pnpm/network.agent': ^2.0.3\n  '@pnpm/nopt': ^0.3.1\n  '@pnpm/npm-conf': 3.0.2\n  '@pnpm/npm-lifecycle': ^1001.0.0\n  '@pnpm/npm-package-arg': ^2.0.0\n  '@pnpm/os.env.path-extender': ^2.0.3\n  '@pnpm/patch-package': 0.0.1\n  '@pnpm/registry-mock': 5.2.0\n  '@pnpm/semver-diff': ^1.1.0\n  '@pnpm/tabtab': ^0.5.4\n  '@pnpm/tgz-fixtures': 0.0.0\n  '@pnpm/util.lex-comparator': ^3.0.2\n  '@pnpm/workspace.find-packages': ^1000.0.63\n  '@pnpm/workspace.read-manifest': ^1000.3.0\n  '@reflink/reflink': 0.1.19\n  '@rushstack/worker-pool': 0.4.9\n  '@types/adm-zip': ^0.5.7\n  '@types/archy': 0.0.33\n  '@types/cross-spawn': ^6.0.6\n  '@types/fs-extra': ^9.0.13\n  '@types/graceful-fs': ^4.1.9\n  '@types/hosted-git-info': ^3.0.5\n  '@types/ini': 1.3.31\n  '@types/is-gzip': 2.0.0\n  '@types/is-windows': ^1.0.2\n  '@types/isexe': 2.0.2\n  '@types/jest': ^29.5.14\n  '@types/js-yaml': ^4.0.9\n  '@types/lodash.kebabcase': 4.1.9\n  '@types/lodash.throttle': 4.1.7\n  '@types/micromatch': ^4.0.10\n  '@types/node': ^18.19.130\n  '@types/normalize-package-data': ^2.4.4\n  '@types/normalize-path': ^3.0.2\n  '@types/object-hash': 3.0.6\n  '@types/parse-json': ^4.0.2\n  '@types/pnpm__byline': npm:@types/byline@^4.2.36\n  '@types/proxyquire': ^1.3.31\n  '@types/ramda': 0.29.12\n  '@types/retry': ^0.12.5\n  '@types/rimraf': 3.0.2\n  '@types/semver': 7.5.3\n  '@types/signal-exit': ^3.0.4\n  '@types/sinon': ^10.0.20\n  '@types/ssri': ^7.1.5\n  '@types/tar': ^6.1.13\n  '@types/tar-stream': ^2.2.3\n  '@types/touch': ^3.1.5\n  '@types/uuid': ^8.3.4\n  '@types/validate-npm-package-name': ^4.0.2\n  '@types/which': ^2.0.2\n  '@types/write-file-atomic': ^4.0.3\n  '@types/yarnpkg__lockfile': ^1.1.9\n  '@types/yazl': ^3.3.0\n  '@types/zkochan__table': npm:@types/table@6.0.0\n  '@typescript-eslint/eslint-plugin': 6.18.1\n  '@typescript-eslint/parser': 6.18.1\n  '@yarnpkg/core': 4.2.0\n  '@yarnpkg/extensions': 2.0.3\n  '@yarnpkg/lockfile': ^1.1.0\n  '@yarnpkg/nm': 4.0.5\n  '@yarnpkg/parsers': 3.0.3\n  '@yarnpkg/pnp': 4.0.8\n  '@zkochan/cmd-shim': ^7.0.0\n  '@zkochan/diable': ^1.0.2\n  '@zkochan/retry': ^0.2.0\n  '@zkochan/rimraf': ^3.0.2\n  '@zkochan/table': ^2.0.1\n  adm-zip: ^0.5.16\n  ansi-diff: ^1.2.0\n  archy: ^1.0.0\n  better-path-resolve: 1.0.0\n  bin-links: ^4.0.4\n  bole: ^5.0.28\n  boxen: npm:@zkochan/boxen@5.1.2\n  c8: ^7.14.0\n  camelcase: ^6.3.0\n  camelcase-keys: ^6.2.2\n  can-link: ^2.0.0\n  can-write-to-dir: ^1.1.1\n  chalk: ^4.1.2\n  ci-info: ^3.9.0\n  cli-columns: ^4.0.0\n  cli-truncate: ^2.1.0\n  cmd-extension: ^1.0.2\n  comver-to-semver: ^1.0.0\n  concurrently: 8.2.1\n  cross-env: ^7.0.3\n  cross-spawn: ^7.0.6\n  cspell: 8.17.5\n  deep-require-cwd: 1.0.0\n  delay: ^5.0.0\n  detect-libc: ^2.1.2\n  didyoumean2: ^6.0.1\n  dint: ^5.1.0\n  dir-is-case-sensitive: ^2.0.0\n  encode-registry: ^3.0.1\n  enquirer: ^2.4.1\n  esbuild: ^0.25.12\n  escape-string-regexp: ^4.0.0\n  eslint: ^8.57.1\n  eslint-config-standard-with-typescript: ^39.1.1\n  eslint-plugin-import: ^2.32.0\n  eslint-plugin-n: ^16.6.2\n  eslint-plugin-node: ^11.1.0\n  eslint-plugin-promise: ^6.6.0\n  eslint-plugin-regexp: 2.7.0\n  execa: npm:safe-execa@0.1.2\n  exists-link: 2.0.0\n  fast-deep-equal: ^3.1.3\n  fast-glob: ^3.3.3\n  filenamify: ^4.3.0\n  find-up: ^5.0.0\n  fs-extra: ^11.3.4\n  fuse-native: ^2.2.6\n  get-npm-tarball-url: ^2.1.0\n  get-port: ^5.1.1\n  ghooks: 2.0.4\n  graceful-fs: ^4.2.11\n  graceful-git: ^4.0.0\n  graph-cycles: 1.2.1\n  hosted-git-info: npm:@pnpm/hosted-git-info@1.0.0\n  https-proxy-server-express: 0.1.2\n  husky: ^9.1.7\n  hyperdrive-schemas: ^2.0.0\n  ini: 4.1.1\n  is-gzip: 2.0.0\n  is-inner-link: ^4.0.0\n  is-port-reachable: 3.0.0\n  is-subdir: ^1.2.0\n  is-windows: ^1.0.2\n  isexe: 2.0.0\n  jest: ^29.7.0\n  jest-diff: ^29.7.0\n  js-yaml: npm:@zkochan/js-yaml@0.0.11\n  json5: ^2.2.3\n  keyv: 4.5.4\n  lcov-result-merger: ^3.3.0\n  load-json-file: ^6.2.0\n  lodash.kebabcase: ^4.1.1\n  lodash.throttle: 4.1.1\n  loud-rejection: ^2.2.0\n  lru-cache: ^10.4.3\n  make-empty-dir: ^3.0.2\n  mdast-util-to-string: ^2.0.0\n  mem: ^8.1.1\n  micromatch: ^4.0.8\n  nock: 13.3.4\n  node-fetch: npm:@pnpm/node-fetch@1.0.0\n  normalize-newline: 3.0.0\n  normalize-package-data: ^7.0.1\n  normalize-path: ^3.0.0\n  normalize-registry-url: 2.0.1\n  npm-packlist: 5.1.3\n  object-hash: 3.0.0\n  p-defer: ^3.0.0\n  p-every: ^2.0.0\n  p-filter: ^2.1.0\n  p-limit: ^3.1.0\n  p-map-values: ^1.0.0\n  p-memoize: 4.0.1\n  p-queue: ^6.6.2\n  parse-json: ^5.2.0\n  parse-npm-tarball-url: ^4.0.0\n  path-absolute: ^1.0.1\n  path-exists: ^4.0.0\n  path-name: ^1.0.0\n  path-temp: ^2.1.1\n  pidtree: ^0.6.0\n  pkg: npm:@yao-pkg/pkg@5.12.0\n  preferred-pm: ^3.1.4\n  pretty-bytes: ^5.6.0\n  pretty-ms: ^7.0.1\n  process-exists: ^4.1.0\n  promise-share: ^1.0.0\n  proxyquire: ^2.1.3\n  ps-list: ^7.2.0\n  publish-packed: ^4.1.2\n  ramda: npm:@pnpm/ramda@0.28.1\n  read-ini-file: 4.0.0\n  read-yaml-file: ^2.1.0\n  realpath-missing: ^1.1.0\n  remark-parse: ^9.0.0\n  remark-stringify: ^9.0.1\n  rename-overwrite: ^6.0.6\n  render-help: ^1.0.3\n  resolve-link-target: ^2.0.0\n  rimraf: ^3.0.2\n  root-link-target: ^3.1.0\n  run-groups: ^3.0.1\n  rxjs: ^7.8.2\n  safe-buffer: 5.2.1\n  safe-execa: ^0.1.4\n  safe-promise-defer: ^1.0.1\n  sanitize-filename: ^1.6.3\n  semver: ^7.7.4\n  semver-range-intersect: ^0.3.1\n  semver-utils: ^1.1.4\n  shlex: ^2.1.2\n  shx: ^0.3.4\n  signal-exit: ^3.0.7\n  sinon: ^16.1.3\n  sort-keys: ^4.2.0\n  split-cmd: ^1.1.0\n  split2: ^4.2.0\n  ssri: 10.0.5\n  stacktracey: ^2.1.8\n  string-length: ^4.0.2\n  strip-bom: ^4.0.0\n  strip-comments-strings: 1.2.0\n  symlink-dir: ^6.0.5\n  tar: ^7.5.11\n  tar-stream: ^2.2.0\n  tempy: ^1.0.1\n  terminal-link: ^2.1.1\n  tinyglobby: ^0.2.15\n  touch: 3.1.0\n  tree-kill: ^1.2.2\n  ts-jest: 29.2.3\n  ts-jest-resolver: 2.0.1\n  ts-node: ^10.9.2\n  typescript: 5.5.4\n  unified: ^9.2.2\n  uuid: ^9.0.1\n  validate-npm-package-name: 5.0.0\n  verdaccio: 5.20.1\n  version-selector-type: ^3.0.0\n  which: npm:@pnpm/which@^3.0.1\n  write-file-atomic: ^5.0.1\n  write-ini-file: 4.0.1\n  write-json-file: ^4.3.0\n  write-json5-file: ^3.1.0\n  write-pkg: 4.0.0\n  write-yaml-file: ^5.0.0\n  yaml: ^2.8.2\n  yaml-tag: 1.1.0\n  yazl: ^3.3.1\n\ncatalogMode: strict\n\ncleanupUnusedCatalogs: true\n\nenableGlobalVirtualStore: true\n\nenablePrePostScripts: false\n\nengineStrict: true\n\ngitChecks: false\n\nhoistPattern:\n  - jest-runner\n\nmanagePackageManagerVersions: true\n\nminimumReleaseAge: 1440\n\nminimumReleaseAgeExclude:\n  - '@pnpm/*'\n  - body-parser@2.2.1\n  - express@4.22.1\n  - glob@11.1.0\n  - jws@3.2.3\n  - normalize-registry-url\n  - path-temp@2.1.1\n  - parse-npm-tarball-url@4.0.0\n  - pnpm\n  - publish-packed@5.0.0\n  - run-groups@4.0.0\n  - tar@7.5.11\n  - lodash@4.17.23\n\noptimisticRepeatInstall: true\n\noverrides:\n  '@yarnpkg/fslib@2': '3'\n  body-parser@<1.20.3: ^1.20.3\n  clipanion: 3.2.0-rc.6\n  cookie@<0.7.0: '>=0.7.0'\n  cross-spawn@<7.0.5: '>=7.0.5'\n  debug@<3.1.0: '>=3.1.0'\n  express@<4.22.1: ^4.22.1\n  follow-redirects@<=1.15.5: '>=1.15.6'\n  glob-parent@<5.1.2: '>=5.1.2'\n  hosted-git-info@1: 'catalog:'\n  http-proxy-middleware@<2.0.7: ^2.0.7\n  isexe@3: 3.1.1\n  istanbul-reports: npm:@zkochan/istanbul-reports\n  js-yaml@<3.14.2: ^3.14.2\n  js-yaml@^4.0.0: 'catalog:'\n  json5@<2.2.2: 'catalog:'\n  jsonwebtoken@<=8.5.1: '>=9.0.0'\n  jws@<3.2.3: ^3.2.3\n  nopt@5: npm:@pnpm/nopt@^0.2.1\n  on-headers@<1.1.0: '>=1.1.0'\n  path-to-regexp@<0.1.12: ^0.1.12\n  path-to-regexp@>=4.0.0 <6.3.0: '>=6.3.0'\n  path-to-regexp@>=7.0.0 <8.0.0: '>=8.0.0'\n  request: npm:postman-request@2.88.1-postman.40\n  semver@<7.5.2: 'catalog:'\n  send@<0.19.0: ^0.19.0\n  serve-static@<1.16.0: ^1.16.0\n  socks@2: ^2.8.1\n  tar@<=7.5.10: '>=7.5.11'\n  tmp@<=0.2.3: '>=0.2.4'\n  tough-cookie@<4.1.3: '>=4.1.3'\n  validator@<13.15.22: '>=13.15.22'\n  yaml@<2.2.2: '>=2.2.2'\n\npackageExtensions:\n  '@babel/parser':\n    peerDependencies:\n      '@babel/types': '*'\n  jest-circus:\n    dependencies:\n      slash: '3'\n  remark-parse:\n    peerDependencies:\n      unified: '*'\n  remark-stringify:\n    peerDependencies:\n      unified: '*'\n\npatchedDependencies:\n  '@yao-pkg/pkg': __patches__/pkg.patch\n  graceful-fs@4.2.11: __patches__/graceful-fs@4.2.11.patch\n  mdast-util-to-string@2.0.0: __patches__/mdast-util-to-string@2.0.0.patch\n  normalize-package-data@7.0.1: __patches__/normalize-package-data@7.0.1.patch\n\npatchesDir: __patches__\n\npublishBranch: main\n\nresolutionMode: lowest-direct\n\nsavePrefix: ''\n\nsharedWorkspaceLockfile: true\n\nupdateConfig:\n  ignoreDependencies:\n    - boxen\n    - camelcase\n    - camelcase-keys\n    - chalk\n    - detect-indent\n    - escape-string-regexp\n    - filenamify\n    - find-up\n    - get-port\n    - is-port-reachable\n    - load-json-file\n    - mem\n    - npm-packlist\n    - node-fetch\n    - normalize-newline\n    - p-defer\n    - p-filter\n    - p-limit\n    - p-memoize\n    - p-queue\n    - parse-json\n    - path-exists\n    - pretty-bytes\n    - pretty-ms\n    - process-exists\n    - ps-list\n    - sort-keys\n    - string-length\n    - strip-bom\n    - tempy\n    - unique-string\n    - write-json-file\n    - write-pkg\n\nverifyDepsBeforeRun: install\n{\n  \"name\": \"monorepo-root\",\n  \"private\": true,\n  \"scripts\": {\n    \"bump\": \"changeset version && pnpm update-manifests\",\n    \"changeset\": \"changeset\",\n    \"preinstall\": \"npx only-allow pnpm\",\n    \"prepare\": \"husky\",\n    \"pretest\": \"pnpm run compile-only && pnpm --dir=__fixtures__ run prepareFixtures\",\n    \"lint\": \"pnpm run spellcheck && pnpm lint:meta && pnpm run lint:ts\",\n    \"spellcheck\": \"cspell \\\"**/*.ts\\\" \\\"**/README.md\\\" \\\".changeset/*.md\\\" --no-progress\",\n    \"lint:ts\": \"eslint \\\"**/src/**/*.ts\\\" \\\"**/test/**/*.ts\\\"\",\n    \"test-main\": \"pnpm pretest && pnpm lint && pnpm run test-pkgs-main\",\n    \"remove-temp-dir\": \"shx rm -rf ../pnpm_tmp\",\n    \"test-pkgs-main\": \"pnpm remove-temp-dir && pnpm run --no-sort --workspace-concurrency=1 -r _test\",\n    \"test-branch\": \"pnpm pretest && pnpm lint && git remote set-branches --add origin v10 && git fetch origin v10 && pnpm run test-pkgs-branch\",\n    \"test-pkgs-branch\": \"pnpm remove-temp-dir && pnpm --workspace-concurrency=1 --filter=...[origin/v10] run --no-sort _test\",\n    \"compile-only\": \"ts-node __utils__/scripts/src/typecheck-only.ts && pnpm -F pnpm compile\",\n    \"compile\": \"pnpm compile-only && pnpm run update-manifests\",\n    \"make-lcov\": \"shx mkdir -p coverage && lcov-result-merger './packages/*/coverage/lcov.info' 'coverage/lcov.info'\",\n    \"update-manifests\": \"pnpm run meta-updater && pnpm install\",\n    \"meta-updater\": \"pnpm --filter=@pnpm-private/updater compile && pnpm exec meta-updater\",\n    \"lint:meta\": \"pnpm run meta-updater --test\",\n    \"copy-artifacts\": \"ts-node __utils__/scripts/src/copy-artifacts.ts\",\n    \"make-release-description\": \"pnpm --filter=@pnpm/get-release-text run write-release-text\",\n    \"release\": \"pnpm --filter=@pnpm/exe publish --tag=next-10 --access=public && pnpm publish --filter=!pnpm --filter=!@pnpm/exe --access=public && pnpm publish --filter=pnpm --tag=next-10 --access=public\",\n    \"dev-setup\": \"pnpm -C=./pnpm/dev link -g\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"catalog:\",\n    \"@babel/preset-typescript\": \"catalog:\",\n    \"@babel/types\": \"catalog:\",\n    \"@changesets/cli\": \"catalog:\",\n    \"@commitlint/cli\": \"catalog:\",\n    \"@commitlint/config-conventional\": \"catalog:\",\n    \"@commitlint/prompt-cli\": \"catalog:\",\n    \"@pnpm/eslint-config\": \"workspace:*\",\n    \"@pnpm/jest-config\": \"workspace:*\",\n    \"@pnpm/meta-updater\": \"catalog:\",\n    \"@pnpm/tgz-fixtures\": \"catalog:\",\n    \"@pnpm/tsconfig\": \"workspace:*\",\n    \"@types/jest\": \"catalog:\",\n    \"@types/node\": \"catalog:\",\n    \"c8\": \"catalog:\",\n    \"concurrently\": \"catalog:\",\n    \"cross-env\": \"catalog:\",\n    \"cspell\": \"catalog:\",\n    \"eslint\": \"catalog:\",\n    \"eslint-plugin-regexp\": \"catalog:\",\n    \"husky\": \"catalog:\",\n    \"jest\": \"catalog:\",\n    \"keyv\": \"catalog:\",\n    \"lcov-result-merger\": \"catalog:\",\n    \"publish-packed\": \"catalog:\",\n    \"rimraf\": \"catalog:\",\n    \"shx\": \"catalog:\",\n    \"ts-jest\": \"catalog:\",\n    \"ts-node\": \"catalog:\",\n    \"typescript\": \"catalog:\",\n    \"verdaccio\": \"catalog:\"\n  },\n  \"engines\": {\n    \"pnpm\": \">=9.6.0\"\n  },\n  \"packageManager\": \"pnpm@10.32.0\"\n}\ncat: tsconfig.json: No such file or directory\n{\n  \"name\": \"@pnpm/parse-wanted-dependency\",\n  \"version\": \"1001.0.0\",\n  \"description\": \"Parse dependency specifier\",\n  \"keywords\": [\n    \"pnpm\",\n    \"pnpm10\"\n  ],\n  \"license\": \"MIT\",\n  \"funding\": \"https://opencollective.com/pnpm\",\n  \"repository\": \"https://github.com/pnpm/pnpm/tree/main/packages/parse-wanted-dependency\",\n  \"homepage\": \"https://github.com/pnpm/pnpm/tree/main/packages/parse-wanted-dependency#readme\",\n  \"bugs\": {\n    \"url\": \"https://github.com/pnpm/pnpm/issues\"\n  },\n  \"type\": \"commonjs\",\n  \"main\": \"lib/index.js\",\n  \"types\": \"lib/index.d.ts\",\n  \"exports\": {\n    \".\": \"./lib/index.js\"\n  },\n  \"files\": [\n    \"lib\",\n    \"!*.map\"\n  ],\n  \"scripts\": {\n    \"test\": \"pnpm run compile\",\n    \"lint\": \"eslint \\\"src/**/*.ts\\\"\",\n    \"prepublishOnly\": \"pnpm run compile\",\n    \"compile\": \"tsc --build && pnpm run lint --fix\"\n  },\n  \"dependencies\": {\n    \"validate-npm-package-name\": \"catalog:\"\n  },\n  \"devDependencies\": {\n    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\n    \"@types/validate-npm-package-name\": \"catalog:\"\n  },\n  \"engines\": {\n    \"node\": \">=18.12\"\n  },\n  \"jest\": {\n    \"preset\": \"@pnpm/jest-config\"\n  }\n}\n{\n  \"extends\": \"@pnpm/tsconfig\",\n  \"compilerOptions\": {\n    \"outDir\": \"lib\",\n    \"rootDir\": \"src\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"../../__typings__/**/*.d.ts\"\n  ],\n  \"references\": []\n}\nAGENTS.md\n"
+    },
+    {
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 14,
+      "outputSha256": "328b9ececf8630bcf84480f9020453bd603deb99544a9d40a33ebfa447a15ffd",
+      "outputBytes": 5710,
+      "exitCode": 0,
+      "stdout": "hooks/read-package-hook/src/createPackageExtender.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nhooks/read-package-hook/src/createPackageExtender.ts:18:    const { alias, bareSpecifier } = parseWantedDependency(selector)\nhooks/read-package-hook/package.json:37:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\npatching/plugin-commands-patching/src/getPatchedDependency.ts:2:import { parseWantedDependency, type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/getPatchedDependency.ts:16:export type GetPatchedDependencyResult = ParseWantedDependencyResult & { applyToAll: boolean }\npatching/plugin-commands-patching/src/getPatchedDependency.ts:19:  const dep = parseWantedDependency(rawDependency)\npatching/plugin-commands-patching/src/getPatchedDependency.ts:97:export async function getVersionsFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<LockfileVersionsList> {\npkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts:23:    const parsed = parseWantedDependency(spec)\npatching/plugin-commands-patching/src/patchCommit.ts:22:import { type ParseWantedDependencyResult, parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/patchCommit.ts:84:  const patchedPkg = parseWantedDependency(gitTarballUrl ? `${patchedPkgManifest.name}@${gitTarballUrl}` : nameAndVersion)\npatching/plugin-commands-patching/src/patchCommit.ts:123:  patchedPkg: ParseWantedDependencyResult\npatching/plugin-commands-patching/src/patchCommit.ts:240:async function getGitTarballUrlFromLockfile (dep: ParseWantedDependencyResult, opts: GetPatchedDependencyOptions): Promise<string | undefined> {\npatching/plugin-commands-patching/src/getEditDirPath.ts:2:import { type ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/getEditDirPath.ts:8:export function getEditDirPath (param: string, patchedDep: ParseWantedDependencyResult, opts: GetEditDirOptions): string {\npatching/plugin-commands-patching/src/getEditDirPath.ts:13:function getEditDirNameFromParsedDep (patchedDep: ParseWantedDependencyResult): string | undefined {\npkg-manager/plugin-commands-installation/package.json:57:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\npatching/plugin-commands-patching/src/writePackage.ts:6:import type { ParseWantedDependencyResult } from '@pnpm/parse-wanted-dependency'\npatching/plugin-commands-patching/src/writePackage.ts:10:export async function writePackage (dep: ParseWantedDependencyResult, dest: string, opts: WritePackageOptions): Promise<void> {\npatching/plugin-commands-patching/package.json:46:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\nconfig/parse-overrides/src/index.ts:2:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nconfig/parse-overrides/src/index.ts:63:  const wantedDep = parseWantedDependency(selector)\nconfig/parse-overrides/package.json:37:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\"\nexec/plugin-commands-script-runners/src/dlx.ts:6:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nexec/plugin-commands-script-runners/src/dlx.ts:123:    const { alias, bareSpecifier } = parseWantedDependency(pkg) || {}\nexec/plugin-commands-script-runners/package.json:52:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\nconfig/deps-installer/src/resolveConfigDeps.ts:7:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nconfig/deps-installer/src/resolveConfigDeps.ts:24:    const wantedDep = parseWantedDependency(configDep)\nconfig/deps-installer/package.json:44:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\nstore/plugin-commands-store-inspecting/src/catIndex.ts:9:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nstore/plugin-commands-store-inspecting/src/catIndex.ts:56:  const { alias, bareSpecifier } = parseWantedDependency(wantedDependency) || {}\nstore/plugin-commands-store-inspecting/package.json:40:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\nstore/plugin-commands-store/src/storeAdd.ts:3:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nstore/plugin-commands-store/src/storeAdd.ts:23:  const deps = fuzzyDeps.map((dep) => parseWantedDependency(dep))\nstore/plugin-commands-store/package.json:42:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\npackages/parse-wanted-dependency/src/index.ts:3:export interface ParsedWantedDependency {\npackages/parse-wanted-dependency/src/index.ts:8:export type ParseWantedDependencyResult = Partial<ParsedWantedDependency> &\npackages/parse-wanted-dependency/src/index.ts:10:  Omit<ParsedWantedDependency, 'bareSpecifier'>\npackages/parse-wanted-dependency/src/index.ts:11:  | Omit<ParsedWantedDependency, 'alias'>\npackages/parse-wanted-dependency/src/index.ts:12:  | ParsedWantedDependency\npackages/parse-wanted-dependency/src/index.ts:15:export function parseWantedDependency (rawWantedDependency: string): ParseWantedDependencyResult {\npackages/parse-wanted-dependency/package.json:2:  \"name\": \"@pnpm/parse-wanted-dependency\",\npackages/parse-wanted-dependency/package.json:36:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\npkg-manager/core/src/parseWantedDependencies.ts:1:import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\npkg-manager/core/src/parseWantedDependencies.ts:25:      const parsed = parseWantedDependency(rawWantedDependency)\npkg-manager/core/package.json:97:    \"@pnpm/parse-wanted-dependency\": \"workspace:*\",\n"
+    },
+    {
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 16,
+      "outputSha256": "2f189a1819bea258425616859159fc64d00c5d3381e79824a95077d27802a5aa",
+      "outputBytes": 6651,
+      "exitCode": 0,
+      "stdout": "-rw-r--r--@ 1 dima  staff  2042 Nov  6 23:03 node_modules/.modules.yaml\nlrwxr-xr-x@ 1 dima  staff    46 Nov  6 23:03 node_modules/typescript -> .pnpm/typescript@5.5.4/node_modules/typescript\n# Agent Guide to pnpm Repository\n\nThis document provides context and instructions for AI agents working on the pnpm codebase.\n\n## Repository Structure\n\nThe pnpm codebase is a monorepo managed by pnpm itself. The root contains functional directories organized by domain:\n\n### Core Directories\n\n-   `pnpm/`: The CLI entry point and main package.\n-   `pkg-manager/`: Core package management logic (installation, linking, etc.).\n-   `resolving/`: Dependency resolution logic (resolvers for npm, tarballs, git, etc.).\n-   `fetching/`: Package fetching logic.\n-   `store/`: Store management logic (content-addressable storage).\n-   `lockfile/`: Lockfile handling, parsing, and utilities.\n\n### CLI & Configuration\n\n-   `cli/`: CLI command implementations and infrastructure.\n-   `config/`: Configuration management and parsing.\n-   `hooks/`: pnpm hooks (readPackage, etc.).\n-   `completion/`: Shell completion support.\n\n### Other Functional Directories\n\n-   `network/`: Network-related utilities (proxy, fetch, auth).\n-   `workspace/`: Workspace-related utilities.\n-   `exec/`: Execution-related commands (run, exec, dlx).\n-   `env/`: Node.js environment management.\n-   `cache/`: Cache-related commands and utilities.\n-   `patching/`: Package patching functionality.\n-   `reviewing/`: License and dependency review tools.\n-   `releasing/`: Release and publishing utilities.\n\n### Shared Utilities\n\n-   `packages/`: Shared utility packages (constants, error handling, logger, types, etc.).\n-   `fs/`: Filesystem utilities.\n-   `crypto/`: Cryptographic utilities.\n-   `text/`: Text processing utilities.\n\n## Setup & Build\n\nTo set up the environment and build the project:\n\n```bash\npnpm install\npnpm run compile\n```\n\n## Testing\n\nNever run all tests in the repository as it takes a lot of time.\n\nRun tests for a specific project instead:\n\n```bash\n# From the project directory\npnpm test\n\n# From the root, filtering by package name\npnpm --filter <package_name> test\n```\n\nOr better yet, run tests for a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path>\n```\n\nOr a specific test case in a specific file:\n\n```bash\npnpm --filter <package_name> test <file_path> -t <test_name_pattern>\n```\n\n## Linting\n\nTo run all linting checks:\n\n```bash\npnpm run lint\n```\n\n## Contribution Workflow\n\n### Changesets\n\nIf your changes affect published packages, you MUST create a changeset file in the `.changeset` directory. The changeset file should describe the change and specify the packages that are affected with the pending version bump types: patch, minor, or major.\n\n**IMPORTANT: Always explicitly include `\"pnpm\"` in the changeset** with the appropriate version bump (patch, minor, or major). The pnpm CLI will only receive automatic patch bumps from its dependencies, so if your change warrants a minor or major version bump for the CLI, you must specify it explicitly. The changeset description will appear on the release notes page.\n\nExample:\n\n```\n---\n\"@pnpm/core\": minor\n\"pnpm\": minor\n---\n\nAdded a new setting `blockExoticSubdeps` that prevents the resolution of exotic protocols in transitive dependencies [#10352](https://github.com/pnpm/pnpm/issues/10352).\n```\n\n**Versioning Guidelines for pnpm CLI:**\n- **patch**: Bug fixes, internal refactors, and changes that don't require documentation updates\n- **minor**: New features, settings, or commands that should be documented (anything users should know about)\n- **major**: Breaking changes\n\n### Commit Messages\n\nFollow the [Conventional Commits](https://www.conventionalcommits.org/) specification.\n    -   `feat`: a new feature\n    -   `fix`: a bug fix\n    -   `docs`: documentation only changes\n    -   `style`: formatting, missing semi-colons, etc.\n    -   `refactor`: code change that neither fixes a bug nor adds a feature\n    -   `perf`: a code change that improves performance\n    -   `test`: adding missing tests\n    -   `chore`: changes to build process or auxiliary tools\n\n## Code Style\n\nThis repository uses [Standard Style](https://github.com/standard/standard) with a few modifications:\n-   **Trailing commas** are used.\n-   **Functions are preferred** over classes.\n-   **Functions are declared after they are used** (hoisting is relied upon).\n-   **Import Order**:\n    1.  Standard libraries (e.g., `fs`, `path`).\n    2.  External dependencies (sorted alphabetically).\n    3.  Relative imports.\n\nTo ensure your code adheres to the style guide, run:\n\n```bash\npnpm run lint\n```\n\n## Common Gotchas\n\n### Error Type Checking in Jest\n\nWhen checking if a caught error is an `Error` object, **do not use `instanceof Error`**. Jest runs tests in a VM context where `instanceof` checks can fail across realms.\n\nInstead, use `util.types.isNativeError()`:\n\n```typescript\nimport util from 'util'\n\ntry {\n  // ... some operation\n} catch (err: unknown) {\n  // ❌ Wrong - may fail in Jest\n  if (err instanceof Error && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  \n  // ✅ Correct - works across realms\n  if (util.types.isNativeError(err) && 'code' in err && err.code === 'ENOENT') {\n    return null\n  }\n  throw err\n}\n```\n\n## Key Configuration Files\n\n-   `pnpm-workspace.yaml`: Defines the workspace structure.\n-   `package.json` (root): Root scripts and devDependencies.\n-   `CONTRIBUTING.md`: Detailed contribution guidelines.\n{\n  \"extends\": \"@pnpm/tsconfig\",\n  \"compilerOptions\": {\n    \"outDir\": \"lib\",\n    \"rootDir\": \"src\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"../../__typings__/**/*.d.ts\"\n  ],\n  \"references\": [\n    {\n      \"path\": \"../../catalogs/resolver\"\n    },\n    {\n      \"path\": \"../../catalogs/types\"\n    },\n    {\n      \"path\": \"../../packages/error\"\n    },\n    {\n      \"path\": \"../../packages/parse-wanted-dependency\"\n    }\n  ]\n}\n{\n  \"compilerOptions\": {\n    \"allowSyntheticDefaultImports\": true,\n    \"composite\": true,\n    \"declaration\": true,\n    \"esModuleInterop\": true,\n    \"module\": \"commonjs\",\n    \"moduleResolution\": \"node\",\n    \"noImplicitAny\": true,\n    \"noImplicitReturns\": true,\n    \"preserveConstEnums\": true,\n    \"removeComments\": false,\n    \"skipLibCheck\": true,\n    \"sourceMap\": true,\n    \"strict\": true,\n    \"target\": \"es2022\"\n  },\n  \"atom\": {\n    \"rewriteTsconfig\": true\n  }\n}\nc8\nchangeset\ncommit\ncommitlint\nconc\nconcurrently\ncross-env\ncross-env-shell\ncspell\ncspell-esm\neslint\nhusky\njest\nlcov-result-merger\nmeta-updater\npublish-packed\nrimraf\nshx\nts-jest\nts-node\nts-node-cwd\nts-node-esm\nts-node-script\nts-node-transpile-only\nts-script\ntsc\ntsserver\nverdaccio\n"
+    },
+    {
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 19,
+      "outputSha256": "bfb64dc3a5d23e51a25f19d4430416fb7ec24875454d229c18533402835856ba",
+      "outputBytes": 5708,
+      "exitCode": 0,
+      "stdout": "import { parseWantedDependency } from '@pnpm/parse-wanted-dependency'\nimport { type Dependencies } from '@pnpm/types'\nimport { type WantedDependency } from '@pnpm/resolve-dependencies'\nimport { type Catalog } from '@pnpm/catalogs.types'\n\nexport function parseWantedDependencies (\n  rawWantedDependencies: string[],\n  opts: {\n    allowNew: boolean\n    currentBareSpecifiers: Dependencies\n    defaultTag: string\n    dev: boolean\n    devDependencies: Dependencies\n    optional: boolean\n    optionalDependencies: Dependencies\n    overrides?: Record<string, string>\n    updateWorkspaceDependencies?: boolean\n    preferredSpecs?: Record<string, string>\n    saveCatalogName?: string\n    defaultCatalog?: Catalog\n  }\n): WantedDependency[] {\n  return rawWantedDependencies\n    .map((rawWantedDependency) => {\n      const parsed = parseWantedDependency(rawWantedDependency)\n      const alias = parsed['alias']\n      let bareSpecifier = parsed['bareSpecifier']\n\n      if (!opts.allowNew && (!alias || !opts.currentBareSpecifiers[alias])) {\n        return null\n      }\n      if (alias && opts.defaultCatalog?.[alias] && (\n        (!opts.currentBareSpecifiers[alias] && bareSpecifier === undefined) ||\n          opts.defaultCatalog[alias] === bareSpecifier ||\n          opts.defaultCatalog[alias] === opts.currentBareSpecifiers[alias]\n      )) {\n        bareSpecifier = 'catalog:'\n      }\n      if (alias && opts.currentBareSpecifiers[alias]) {\n        bareSpecifier ??= opts.currentBareSpecifiers[alias]\n      }\n      const result = {\n        alias,\n        dev: Boolean(opts.dev || alias && !!opts.devDependencies[alias]),\n        optional: Boolean(opts.optional || alias && !!opts.optionalDependencies[alias]),\n        prevSpecifier: alias && opts.currentBareSpecifiers[alias],\n        saveCatalogName: opts.saveCatalogName,\n      } satisfies Partial<WantedDependency>\n      if (bareSpecifier) {\n        return {\n          ...result,\n          bareSpecifier,\n        }\n      }\n      if (alias && opts.preferredSpecs?.[alias]) {\n        return {\n          ...result,\n          bareSpecifier: opts.preferredSpecs[alias],\n        }\n      }\n      if (alias && opts.overrides?.[alias]) {\n        return {\n          ...result,\n          bareSpecifier: opts.overrides[alias],\n        }\n      }\n      return {\n        ...result,\n        bareSpecifier: opts.defaultTag,\n      }\n    })\n    .filter((wd) => wd !== null) as WantedDependency[]\n}\n{\n  \"hoistedDependencies\": {\n    \"jest-runner@29.7.0(@babel/types@7.29.0)\": {\n      \"jest-runner\": \"private\"\n    }\n  },\n  \"hoistPattern\": [\n    \"jest-runner\"\n  ],\n  \"included\": {\n    \"dependencies\": true,\n    \"devDependencies\": true,\n    \"optionalDependencies\": true\n  },\n  \"injectedDeps\": {},\n  \"ignoredBuilds\": [],\n  \"layoutVersion\": 5,\n  \"nodeLinker\": \"isolated\",\n  \"packageManager\": \"pnpm@10.32.0\",\n  \"pendingBuilds\": [\n    \".\",\n    \"pnpm/artifacts/exe\",\n    \"core-js@3.27.0\",\n    \"ghooks@2.0.4\",\n    \"fuse-native@2.2.6\",\n    \"esbuild@0.25.12\"\n  ],\n  \"publicHoistPattern\": [],\n  \"prunedAt\": \"Fri, 06 Nov 2026 21:28:47 GMT\",\n  \"registries\": {\n    \"default\": \"https://registry.npmjs.org/\",\n    \"@jsr\": \"https://npm.jsr.io/\",\n    \"@chargeflow-team\": \"https://npm.pkg.github.com/\"\n  },\n  \"skipped\": [\n    \"@esbuild/aix-ppc64@0.25.12\",\n    \"@esbuild/android-arm64@0.25.12\",\n    \"@esbuild/android-arm@0.25.12\",\n    \"@esbuild/android-x64@0.25.12\",\n    \"@esbuild/darwin-x64@0.25.12\",\n    \"@esbuild/freebsd-arm64@0.25.12\",\n    \"@esbuild/freebsd-x64@0.25.12\",\n    \"@esbuild/linux-arm64@0.25.12\",\n    \"@esbuild/linux-arm@0.25.12\",\n    \"@esbuild/linux-ia32@0.25.12\",\n    \"@esbuild/linux-loong64@0.25.12\",\n    \"@esbuild/linux-mips64el@0.25.12\",\n    \"@esbuild/linux-ppc64@0.25.12\",\n    \"@esbuild/linux-riscv64@0.25.12\",\n    \"@esbuild/linux-s390x@0.25.12\",\n    \"@esbuild/linux-x64@0.25.12\",\n    \"@esbuild/netbsd-arm64@0.25.12\",\n    \"@esbuild/netbsd-x64@0.25.12\",\n    \"@esbuild/openbsd-arm64@0.25.12\",\n    \"@esbuild/openbsd-x64@0.25.12\",\n    \"@esbuild/openharmony-arm64@0.25.12\",\n    \"@esbuild/sunos-x64@0.25.12\",\n    \"@esbuild/win32-arm64@0.25.12\",\n    \"@esbuild/win32-ia32@0.25.12\",\n    \"@esbuild/win32-x64@0.25.12\",\n    \"@reflink/reflink-darwin-x64@0.1.19\",\n    \"@reflink/reflink-win32-arm64-msvc@0.1.19\",\n    \"@reflink/reflink-win32-x64-msvc@0.1.19\"\n  ],\n  \"storeDir\": \"$REPOSITORY/artifacts/research/cross-package/impact/pnpm-store/v10\",\n  \"virtualStoreDir\": \".pnpm\",\n  \"virtualStoreDirMaxLength\": 120\n}lrwxr-xr-x@ 1 dima  staff  44 Nov  6 23:03 config/parse-overrides/node_modules/@pnpm/parse-wanted-dependency -> ../../../../packages/parse-wanted-dependency\nimport validateNpmPackageName from 'validate-npm-package-name'\n\nexport interface ParsedWantedDependency {\n  alias: string\n  bareSpecifier: string\n}\n\nexport type ParseWantedDependencyResult = Partial<ParsedWantedDependency> &\n(\n  Omit<ParsedWantedDependency, 'bareSpecifier'>\n  | Omit<ParsedWantedDependency, 'alias'>\n  | ParsedWantedDependency\n)\n\nexport function parseWantedDependency (rawWantedDependency: string): ParseWantedDependencyResult {\n  const versionDelimiter = rawWantedDependency.indexOf('@', 1) // starting from 1 to skip the @ that marks scope\n  if (versionDelimiter !== -1) {\n    const alias = rawWantedDependency.slice(0, versionDelimiter)\n    if (validateNpmPackageName(alias).validForOldPackages) {\n      return {\n        alias,\n        bareSpecifier: rawWantedDependency.slice(versionDelimiter + 1),\n      }\n    }\n    return {\n      bareSpecifier: rawWantedDependency,\n    }\n  }\n  if (validateNpmPackageName(rawWantedDependency).validForOldPackages) {\n    return {\n      alias: rawWantedDependency,\n    }\n  }\n  return {\n    bareSpecifier: rawWantedDependency,\n  }\n}\n"
+    },
+    {
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 21,
+      "outputSha256": "fcbf3945e3ec239e119502ac15a7ff133c9ccbfcd6b4b96634cfe0aa2502150b",
+      "outputBytes": 13631,
+      "exitCode": 0,
+      "stdout": "{\n  \"packages\": 200,\n  \"sourceFiles\": 649,\n  \"hits\": [\n    {\n      \"file\": \"config/deps-installer/src/resolveConfigDeps.ts\",\n      \"package\": \"@pnpm/config.deps-installer\",\n      \"version\": \"1000.1.4\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"config/parse-overrides/src/index.ts\",\n      \"package\": \"@pnpm/parse-overrides\",\n      \"version\": \"1001.0.3\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"exec/plugin-commands-script-runners/src/dlx.ts\",\n      \"package\": \"@pnpm/plugin-commands-script-runners\",\n      \"version\": \"1001.2.8\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"hooks/read-package-hook/src/createPackageExtender.ts\",\n      \"package\": \"@pnpm/hooks.read-package-hook\",\n      \"version\": \"1000.0.20\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"packages/parse-wanted-dependency/src/index.ts\",\n      \"package\": \"@pnpm/parse-wanted-dependency\",\n      \"version\": \"1001.0.0\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"pkg-manager/core/src/parseWantedDependencies.ts\",\n      \"package\": \"@pnpm/core\",\n      \"version\": \"1016.1.12\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts\",\n      \"package\": \"@pnpm/plugin-commands-installation\",\n      \"version\": \"1004.9.12\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"patching/plugin-commands-patching/src/getEditDirPath.ts\",\n      \"package\": \"@pnpm/plugin-commands-patching\",\n      \"version\": \"1000.3.43\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"patching/plugin-commands-patching/src/getPatchedDependency.ts\",\n      \"package\": \"@pnpm/plugin-commands-patching\",\n      \"version\": \"1000.3.43\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"patching/plugin-commands-patching/src/patchCommit.ts\",\n      \"package\": \"@pnpm/plugin-commands-patching\",\n      \"version\": \"1000.3.43\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"patching/plugin-commands-patching/src/writePackage.ts\",\n      \"package\": \"@pnpm/plugin-commands-patching\",\n      \"version\": \"1000.3.43\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"store/plugin-commands-store/src/storeAdd.ts\",\n      \"package\": \"@pnpm/plugin-commands-store\",\n      \"version\": \"1000.0.66\",\n      \"configErrors\": []\n    },\n    {\n      \"file\": \"store/plugin-commands-store-inspecting/src/catIndex.ts\",\n      \"package\": \"@pnpm/plugin-commands-store-inspecting\",\n      \"version\": \"1000.0.60\",\n      \"configErrors\": []\n    }\n  ]\n}\n{\n  \"dependents\": [\n    {\n      \"package\": \"@pnpm-private/updater\",\n      \"version\": \"1000.0.22\",\n      \"chain\": [\n        \"@pnpm-private/updater\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/cache.commands\",\n      \"version\": \"1000.0.64\",\n      \"chain\": [\n        \"@pnpm/cache.commands\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/cli-utils\",\n      \"version\": \"1001.3.9\",\n      \"chain\": [\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/config.deps-installer\",\n      \"version\": \"1000.1.4\",\n      \"chain\": [\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/core\",\n      \"version\": \"1016.1.12\",\n      \"chain\": [\n        \"@pnpm/core\",\n        \"@pnpm/hooks.read-package-hook\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/deps.status\",\n      \"version\": \"1003.0.36\",\n      \"chain\": [\n        \"@pnpm/deps.status\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/exec.build-commands\",\n      \"version\": \"1002.1.1\",\n      \"chain\": [\n        \"@pnpm/exec.build-commands\",\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/filter-workspace-packages\",\n      \"version\": \"1000.1.5\",\n      \"chain\": [\n        \"@pnpm/filter-workspace-packages\",\n        \"@pnpm/workspace.find-packages\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/hooks.read-package-hook\",\n      \"version\": \"1000.0.20\",\n      \"chain\": [\n        \"@pnpm/hooks.read-package-hook\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/lockfile.settings-checker\",\n      \"version\": \"1001.0.30\",\n      \"chain\": [\n        \"@pnpm/lockfile.settings-checker\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/outdated\",\n      \"version\": \"1001.1.20\",\n      \"chain\": [\n        \"@pnpm/outdated\",\n        \"@pnpm/hooks.read-package-hook\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/parse-overrides\",\n      \"version\": \"1001.0.3\",\n      \"chain\": [\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-audit\",\n      \"version\": \"1002.2.8\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-audit\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-completion\",\n      \"version\": \"1000.0.34\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-completion\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-config\",\n      \"version\": \"1000.3.21\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-config\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-deploy\",\n      \"version\": \"1002.0.36\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-deploy\",\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-doctor\",\n      \"version\": \"1000.1.63\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-doctor\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-env\",\n      \"version\": \"1000.0.65\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-env\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-init\",\n      \"version\": \"1000.3.16\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-init\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-installation\",\n      \"version\": \"1004.9.12\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-licenses\",\n      \"version\": \"1000.0.66\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-licenses\",\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-listing\",\n      \"version\": \"1000.3.4\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-listing\",\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-outdated\",\n      \"version\": \"1000.0.67\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-outdated\",\n        \"@pnpm/outdated\",\n        \"@pnpm/hooks.read-package-hook\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-patching\",\n      \"version\": \"1000.3.43\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-patching\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-publishing\",\n      \"version\": \"1000.3.15\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-publishing\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-rebuild\",\n      \"version\": \"1008.0.12\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-rebuild\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-script-runners\",\n      \"version\": \"1001.2.8\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-script-runners\",\n        \"@pnpm/deps.status\",\n        \"@pnpm/parse-overrides\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-server\",\n      \"version\": \"1000.0.65\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-server\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-setup\",\n      \"version\": \"1000.1.41\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-setup\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-store\",\n      \"version\": \"1000.0.66\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-store\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/plugin-commands-store-inspecting\",\n      \"version\": \"1000.0.60\",\n      \"chain\": [\n        \"@pnpm/plugin-commands-store-inspecting\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/tools.plugin-commands-self-updater\",\n      \"version\": \"1000.1.53\",\n      \"chain\": [\n        \"@pnpm/tools.plugin-commands-self-updater\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/workspace.filter-packages-from-dir\",\n      \"version\": \"1000.0.64\",\n      \"chain\": [\n        \"@pnpm/workspace.filter-packages-from-dir\",\n        \"@pnpm/workspace.find-packages\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/workspace.find-packages\",\n      \"version\": \"1000.0.64\",\n      \"chain\": [\n        \"@pnpm/workspace.find-packages\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"@pnpm/workspace.injected-deps-syncer\",\n      \"version\": \"1000.0.38\",\n      \"chain\": [\n        \"@pnpm/workspace.injected-deps-syncer\",\n        \"@pnpm/workspace.find-packages\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"pd\",\n      \"version\": \"1000.0.32\",\n      \"chain\": [\n        \"pd\",\n        \"@pnpm/workspace.find-packages\",\n        \"@pnpm/cli-utils\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    },\n    {\n      \"package\": \"pnpm\",\n      \"version\": \"10.32.1\",\n      \"chain\": [\n        \"pnpm\",\n        \"@pnpm/plugin-commands-installation\",\n        \"@pnpm/config.deps-installer\",\n        \"@pnpm/parse-wanted-dependency\"\n      ]\n    }\n  ],\n  \"external\": [\n    {\n      \"from\": \"@pnpm/scripts\",\n      \"name\": \"@pnpm/workspace.find-packages\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1000.0.63\",\n      \"kind\": \"dependencies\"\n    },\n    {\n      \"from\": \"@pnpm/scripts\",\n      \"name\": \"@pnpm/workspace.read-manifest\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1000.3.0\",\n      \"kind\": \"dependencies\"\n    },\n    {\n      \"from\": \"@pnpm/scripts\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"devDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/config\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/config.deps-installer\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/deps.status\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/exec.build-commands\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/read-project-manifest\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/patching.config\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    },\n    {\n      \"from\": \"@pnpm/tools.plugin-commands-self-updater\",\n      \"name\": \"@pnpm/logger\",\n      \"spec\": \"catalog:\",\n      \"actual\": \"1001.0.1\",\n      \"kind\": \"peerDependencies\"\n    }\n  ]\n}\n"
+    },
+    {
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 23,
+      "server": "typelatch",
+      "tool": "workspace_context",
+      "resultSha256": "2603048580905ac4f7d051b79b7a820e6164c13401a5d4f386152f6761d22775",
+      "resultBytes": 10273,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"api\":{\"name\":\"parseWantedDependency\",\"type\":\"(rawWantedDependency: string) => ParseWantedDependencyResult\",\"documentation\":\"\",\"signatures\":[\"(rawWantedDependency: string): ParseWantedDependencyResult\"],\"declarations\":[{\"file\":\"$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts\",\"start\":280,\"length\":104}],\"evidence\":{\"characterUnit\":\"utf16-code-units\",\"type\":{\"origin\":\"compiler\",\"total\":60,\"returned\":60,\"omitted\":0},\"documentation\":{\"origin\":\"compiler-documentation\",\"total\":0,\"returned\":0,\"omitted\":0},\"signatures\":{\"origin\":\"compiler\",\"view\":\"value\",\"total\":1,\"returned\":1,\"omitted\":0,\"characters\":[{\"total\":58,\"returned\":58,\"omitted\":0}]},\"tags\":{\"origin\":\"compiler-jsdoc-tags\",\"total\":0,\"returned\":0,\"omitted\":0,\"items\":[]},\"declarations\":{\"origin\":\"declared-syntax\",\"total\":1,\"returned\":1,\"omitted\":0,\"headers\":[{\"file\":\"$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts\",\"start\":280,\"length\":104,\"sha256\":\"f9c26af8667323d614fa08147acc54fd54bd88d093dca867d5d11b77553e8d10\",\"sourceKind\":\"declaration\",\"header\":\"export declare function parseWantedDependency(rawWantedDependency: string): ParseWantedDependencyResult;\",\"status\":\"complete\",\"elisions\":[],\"characters\":{\"total\":104,\"returned\":104,\"omitted\":0}}]}},\"status\":\"resolved\",\"reason\":\"This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks\"},\"candidates\":[],\"navigation\":{\"status\":\"not-run\",\"reason\":\"Navigation requires a cursor and resolved import\",\"exportName\":null,\"brain\":null,\"artifactEquivalent\":false},\"syntheticImport\":false,\"originalSourceHash\":\"826a62615ab7017904b8cdcfeedafedbcafd9f0fd8f06db1b60da3411f223325\",\"language\":\"typescript\",\"route\":\"installed-api\",\"file\":\"$WORKSPACE/config/parse-overrides/src/index.ts\",\"hover\":null,\"definitions\":[],\"references\":[],\"declaration\":\"$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts\",\"dependency\":{\"name\":\"@pnpm/parse-wanted-dependency\",\"version\":\"1001.0.0\",\"root\":\"$WORKSPACE/packages/parse-wanted-dependency\",\"manifest\":\"$WORKSPACE/packages/parse-wanted-dependency/package.json\",\"manifestHash\":\"8f4032272f09d1d32ee565822924f585eb8b4ed464d192ef24a8cc8313f4b231\"},\"brain\":null,\"brainProvenance\":null,\"cursorEvidence\":{\"scope\":\"compiler-project\",\"config\":\"$WORKSPACE/config/parse-overrides/tsconfig.json\",\"position\":null,\"definitions\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":20},\"references\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":50}},\"checks\":{\"retrieved\":{\"status\":\"not-run\",\"reason\":\"No discovery question supplied\"},\"resolved\":{\"status\":\"pass\",\"reason\":\"Import resolved by the project compiler\"},\"versionMatch\":{\"status\":\"pass\",\"reason\":\"Resolved @pnpm/parse-wanted-dependency@1001.0.0; expected 1001.0.0\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed package contents have not been compared with the registry artifact\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace validation for project diagnostics\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No test command executed\"}},\"snapshot\":{\"id\":\"10b407c4d81ec79413be148c40d534906e87fb295220bdfa441a67d9d7e724c9\",\"config\":\"$WORKSPACE/config/parse-overrides/tsconfig.json\",\"compiler\":{\"version\":\"5.5.4\",\"path\":\"$WORKSPACE/node_modules/.pnpm/typescript@5.5.4/node_modules/typescript/lib/typescript.js\"},\"scope\":\"Compiler-read inputs and configuration; not a full runtime filesystem snapshot\",\"overlayFiles\":[],\"inputCount\":266},\"latencyMs\":637.652833}"
+          }
+        ],
+        "structured_content": {
+          "api": {
+            "name": "parseWantedDependency",
+            "type": "(rawWantedDependency: string) => ParseWantedDependencyResult",
+            "documentation": "",
+            "signatures": [
+              "(rawWantedDependency: string): ParseWantedDependencyResult"
+            ],
+            "declarations": [
+              {
+                "file": "$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts",
+                "start": 280,
+                "length": 104
+              }
+            ],
+            "evidence": {
+              "characterUnit": "utf16-code-units",
+              "type": {
+                "origin": "compiler",
+                "total": 60,
+                "returned": 60,
+                "omitted": 0
+              },
+              "documentation": {
+                "origin": "compiler-documentation",
+                "total": 0,
+                "returned": 0,
+                "omitted": 0
+              },
+              "signatures": {
+                "origin": "compiler",
+                "view": "value",
+                "total": 1,
+                "returned": 1,
+                "omitted": 0,
+                "characters": [
+                  {
+                    "total": 58,
+                    "returned": 58,
+                    "omitted": 0
+                  }
+                ]
+              },
+              "tags": {
+                "origin": "compiler-jsdoc-tags",
+                "total": 0,
+                "returned": 0,
+                "omitted": 0,
+                "items": []
+              },
+              "declarations": {
+                "origin": "declared-syntax",
+                "total": 1,
+                "returned": 1,
+                "omitted": 0,
+                "headers": [
+                  {
+                    "file": "$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts",
+                    "start": 280,
+                    "length": 104,
+                    "sha256": "f9c26af8667323d614fa08147acc54fd54bd88d093dca867d5d11b77553e8d10",
+                    "sourceKind": "declaration",
+                    "header": "export declare function parseWantedDependency(rawWantedDependency: string): ParseWantedDependencyResult;",
+                    "status": "complete",
+                    "elisions": [],
+                    "characters": {
+                      "total": 104,
+                      "returned": 104,
+                      "omitted": 0
+                    }
+                  }
+                ]
+              }
+            },
+            "status": "resolved",
+            "reason": "This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks"
+          },
+          "candidates": [],
+          "navigation": {
+            "status": "not-run",
+            "reason": "Navigation requires a cursor and resolved import",
+            "exportName": null,
+            "brain": null,
+            "artifactEquivalent": false
+          },
+          "syntheticImport": false,
+          "originalSourceHash": "826a62615ab7017904b8cdcfeedafedbcafd9f0fd8f06db1b60da3411f223325",
+          "language": "typescript",
+          "route": "installed-api",
+          "file": "$WORKSPACE/config/parse-overrides/src/index.ts",
+          "hover": null,
+          "definitions": [],
+          "references": [],
+          "declaration": "$WORKSPACE/packages/parse-wanted-dependency/lib/index.d.ts",
+          "dependency": {
+            "name": "@pnpm/parse-wanted-dependency",
+            "version": "1001.0.0",
+            "root": "$WORKSPACE/packages/parse-wanted-dependency",
+            "manifest": "$WORKSPACE/packages/parse-wanted-dependency/package.json",
+            "manifestHash": "8f4032272f09d1d32ee565822924f585eb8b4ed464d192ef24a8cc8313f4b231"
+          },
+          "brain": null,
+          "brainProvenance": null,
+          "cursorEvidence": {
+            "scope": "compiler-project",
+            "config": "$WORKSPACE/config/parse-overrides/tsconfig.json",
+            "position": null,
+            "definitions": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 20
+            },
+            "references": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 50
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "not-run",
+              "reason": "No discovery question supplied"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "pass",
+              "reason": "Resolved @pnpm/parse-wanted-dependency@1001.0.0; expected 1001.0.0"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "snapshot": {
+            "id": "10b407c4d81ec79413be148c40d534906e87fb295220bdfa441a67d9d7e724c9",
+            "config": "$WORKSPACE/config/parse-overrides/tsconfig.json",
+            "compiler": {
+              "version": "5.5.4",
+              "path": "$WORKSPACE/node_modules/.pnpm/typescript@5.5.4/node_modules/typescript/lib/typescript.js"
+            },
+            "scope": "Compiler-read inputs and configuration; not a full runtime filesystem snapshot",
+            "overlayFiles": [],
+            "inputCount": 266
+          },
+          "latencyMs": 637.652833
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 25,
+      "outputSha256": "58ca415930aa20ebe70cdd570be0eefcf1eed457a4e778dc5db262ad4c426bb1",
+      "outputBytes": 4732,
+      "exitCode": 0,
+      "stdout": "pkg-manager/core/src/parseWantedDependencies.ts:6:export function parseWantedDependencies (\npkg-manager/core/src/install/index.ts:85:import { parseWantedDependencies } from '../parseWantedDependencies.js'\npkg-manager/core/src/install/index.ts:594:      const wantedDeps = parseWantedDependencies(project.dependencySelectors, {\nstore/plugin-commands-store-inspecting/package.json:2:  \"name\": \"@pnpm/plugin-commands-store-inspecting\",\nstore/plugin-commands-store-inspecting/package.json:3:  \"version\": \"1000.0.60\",\nstore/plugin-commands-store-inspecting/package.json:28:    \"_test\": \"jest\",\nstore/plugin-commands-store-inspecting/package.json:29:    \"test\": \"pnpm run compile && pnpm run _test\",\nstore/plugin-commands-store-inspecting/package.json:31:    \"compile\": \"tsc --build && pnpm run lint --fix\"\npkg-manager/plugin-commands-installation/package.json:2:  \"name\": \"@pnpm/plugin-commands-installation\",\npkg-manager/plugin-commands-installation/package.json:3:  \"version\": \"1004.9.12\",\npkg-manager/plugin-commands-installation/package.json:29:    \"_test\": \"jest\",\npkg-manager/plugin-commands-installation/package.json:30:    \"test\": \"pnpm run compile && pnpm run _test\",\npkg-manager/plugin-commands-installation/package.json:32:    \"compile\": \"tsc --build && pnpm run lint --fix\"\npatching/plugin-commands-patching/package.json:2:  \"name\": \"@pnpm/plugin-commands-patching\",\npatching/plugin-commands-patching/package.json:3:  \"version\": \"1000.3.43\",\npatching/plugin-commands-patching/package.json:30:    \"_test\": \"jest\",\npatching/plugin-commands-patching/package.json:31:    \"test\": \"pnpm run compile && pnpm run _test\",\npatching/plugin-commands-patching/package.json:33:    \"compile\": \"tsc --build && pnpm run lint --fix\"\nstore/plugin-commands-store/package.json:2:  \"name\": \"@pnpm/plugin-commands-store\",\nstore/plugin-commands-store/package.json:3:  \"version\": \"1000.0.66\",\nstore/plugin-commands-store/package.json:29:    \"_test\": \"jest\",\nstore/plugin-commands-store/package.json:30:    \"test\": \"pnpm run compile && pnpm run _test\",\nstore/plugin-commands-store/package.json:32:    \"compile\": \"tsc --build && pnpm run lint --fix\"\nhooks/read-package-hook/package.json:2:  \"name\": \"@pnpm/hooks.read-package-hook\",\nhooks/read-package-hook/package.json:3:  \"version\": \"1000.0.20\",\nhooks/read-package-hook/package.json:28:    \"_test\": \"jest\",\nhooks/read-package-hook/package.json:29:    \"test\": \"pnpm run compile && pnpm run _test\",\nhooks/read-package-hook/package.json:31:    \"compile\": \"tsc --build && pnpm run lint --fix\"\npkg-manager/core/package.json:2:  \"name\": \"@pnpm/core\",\npkg-manager/core/package.json:3:  \"version\": \"1016.1.12\",\npkg-manager/core/package.json:47:    \"test\": \"test\"\npkg-manager/core/package.json:53:    \"_test\": \"cross-env PNPM_REGISTRY_MOCK_PORT=7769 jest\",\npkg-manager/core/package.json:54:    \"test\": \"pnpm run compile && pnpm run _test\",\npkg-manager/core/package.json:56:    \"compile\": \"tsc --build && pnpm run lint --fix\"\nconfig/deps-installer/package.json:2:  \"name\": \"@pnpm/config.deps-installer\",\nconfig/deps-installer/package.json:3:  \"version\": \"1000.1.4\",\nconfig/deps-installer/package.json:31:    \"_test\": \"jest\",\nconfig/deps-installer/package.json:32:    \"test\": \"pnpm run compile && pnpm run _test\",\nconfig/deps-installer/package.json:34:    \"compile\": \"tsc --build && pnpm run lint --fix\"\nconfig/parse-overrides/package.json:2:  \"name\": \"@pnpm/parse-overrides\",\nconfig/parse-overrides/package.json:3:  \"version\": \"1001.0.3\",\nconfig/parse-overrides/package.json:27:    \"_test\": \"jest\",\nconfig/parse-overrides/package.json:28:    \"test\": \"pnpm run compile && pnpm run _test\",\nconfig/parse-overrides/package.json:31:    \"compile\": \"tsc --build && pnpm run lint --fix\"\nexec/plugin-commands-script-runners/package.json:2:  \"name\": \"@pnpm/plugin-commands-script-runners\",\nexec/plugin-commands-script-runners/package.json:3:  \"version\": \"1001.2.8\",\nexec/plugin-commands-script-runners/package.json:29:    \"_test\": \"jest\",\nexec/plugin-commands-script-runners/package.json:30:    \"test\": \"pnpm run compile && pnpm run _test\",\nexec/plugin-commands-script-runners/package.json:33:    \"compile\": \"tsc --build && pnpm run lint --fix\"\n{\n  \"name\": \"@pnpm/scripts\",\n  \"version\": \"1000.0.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@pnpm/workspace.find-packages\": \"catalog:\",\n    \"@pnpm/workspace.read-manifest\": \"catalog:\",\n    \"execa\": \"catalog:\",\n    \"fast-glob\": \"catalog:\",\n    \"make-empty-dir\": \"catalog:\",\n    \"normalize-path\": \"catalog:\"\n  },\n  \"devDependencies\": {\n    \"@pnpm/logger\": \"catalog:\",\n    \"@pnpm/scripts\": \"workspace:*\",\n    \"@types/normalize-path\": \"catalog:\"\n  },\n  \"keywords\": [\n    \"pnpm\",\n    \"pnpm10\"\n  ],\n  \"repository\": \"https://github.com/pnpm/pnpm/tree/main/__utils__/scripts\"\n}\n"
+    },
+    {
+      "idSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 27,
+      "outputSha256": "b8ff6fb0e4b3dc31f5fa5a82e016354607e03b5f15ec3414fdc0cb5eea0a27ab",
+      "outputBytes": 7264,
+      "exitCode": 0,
+      "stdout": "    1101\n-rw-r--r--@ 1 dima  staff  3545 Nov  6 23:03 pkg-manager/core/tsconfig.json\n-rw-r--r--@ 1 dima  staff  3570 Nov  6 23:03 pnpm/tsconfig.json\n{\n  \"extends\": \"@pnpm/tsconfig\",\n  \"compilerOptions\": {\n    \"outDir\": \"lib\",\n    \"rootDir\": \"src\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"../../__typings__/**/*.d.ts\"\n  ],\n  \"references\": [\n    {\n      \"path\": \"../../__utils__/assert-project\"\n    },\n    {\n      \"path\": \"../../__utils__/assert-store\"\n    },\n    {\n      \"path\": \"../../__utils__/prepare\"\n    },\n    {\n      \"path\": \"../../__utils__/test-fixtures\"\n    },\n    {\n      \"path\": \"../../__utils__/test-ipc-server\"\n    },\n    {\n      \"path\": \"../../builder/policy\"\n    },\n    {\n      \"path\": \"../../catalogs/protocol-parser\"\n    },\n    {\n      \"path\": \"../../catalogs/resolver\"\n    },\n    {\n      \"path\": \"../../catalogs/types\"\n    },\n    {\n      \"path\": \"../../config/matcher\"\n    },\n    {\n      \"path\": \"../../config/normalize-registries\"\n    },\n    {\n      \"path\": \"../../config/parse-overrides\"\n    },\n    {\n      \"path\": \"../../config/version-policy\"\n    },\n    {\n      \"path\": \"../../crypto/hash\"\n    },\n    {\n      \"path\": \"../../crypto/object-hasher\"\n    },\n    {\n      \"path\": \"../../deps/graph-sequencer\"\n    },\n    {\n      \"path\": \"../../exec/build-modules\"\n    },\n    {\n      \"path\": \"../../exec/lifecycle\"\n    },\n    {\n      \"path\": \"../../exec/plugin-commands-rebuild\"\n    },\n    {\n      \"path\": \"../../fs/read-modules-dir\"\n    },\n    {\n      \"path\": \"../../fs/symlink-dependency\"\n    },\n    {\n      \"path\": \"../../hooks/read-package-hook\"\n    },\n    {\n      \"path\": \"../../hooks/types\"\n    },\n    {\n      \"path\": \"../../lockfile/filtering\"\n    },\n    {\n      \"path\": \"../../lockfile/fs\"\n    },\n    {\n      \"path\": \"../../lockfile/lockfile-to-pnp\"\n    },\n    {\n      \"path\": \"../../lockfile/preferred-versions\"\n    },\n    {\n      \"path\": \"../../lockfile/pruner\"\n    },\n    {\n      \"path\": \"../../lockfile/settings-checker\"\n    },\n    {\n      \"path\": \"../../lockfile/types\"\n    },\n    {\n      \"path\": \"../../lockfile/utils\"\n    },\n    {\n      \"path\": \"../../lockfile/verification\"\n    },\n    {\n      \"path\": \"../../lockfile/walker\"\n    },\n    {\n      \"path\": \"../../packages/calc-dep-state\"\n    },\n    {\n      \"path\": \"../../packages/constants\"\n    },\n    {\n      \"path\": \"../../packages/core-loggers\"\n    },\n    {\n      \"path\": \"../../packages/dependency-path\"\n    },\n    {\n      \"path\": \"../../packages/error\"\n    },\n    {\n      \"path\": \"../../packages/git-utils\"\n    },\n    {\n      \"path\": \"../../packages/logger\"\n    },\n    {\n      \"path\": \"../../packages/parse-wanted-dependency\"\n    },\n    {\n      \"path\": \"../../packages/types\"\n    },\n    {\n      \"path\": \"../../patching/config\"\n    },\n    {\n      \"path\": \"../../pkg-manifest/manifest-utils\"\n    },\n    {\n      \"path\": \"../../pkg-manifest/read-package-json\"\n    },\n    {\n      \"path\": \"../../pkg-manifest/read-project-manifest\"\n    },\n    {\n      \"path\": \"../../resolving/resolver-base\"\n    },\n    {\n      \"path\": \"../../store/cafs\"\n    },\n    {\n      \"path\": \"../../store/store-controller-types\"\n    },\n    {\n      \"path\": \"../../store/store-path\"\n    },\n    {\n      \"path\": \"../../testing/temp-store\"\n    },\n    {\n      \"path\": \"../../worker\"\n    },\n    {\n      \"path\": \"../direct-dep-linker\"\n    },\n    {\n      \"path\": \"../get-context\"\n    },\n    {\n      \"path\": \"../headless\"\n    },\n    {\n      \"path\": \"../hoist\"\n    },\n    {\n      \"path\": \"../link-bins\"\n    },\n    {\n      \"path\": \"../modules-cleaner\"\n    },\n    {\n      \"path\": \"../modules-yaml\"\n    },\n    {\n      \"path\": \"../package-requester\"\n    },\n    {\n      \"path\": \"../remove-bins\"\n    },\n    {\n      \"path\": \"../resolve-dependencies\"\n    }\n  ]\n}\n{\n  \"extends\": \"@pnpm/tsconfig\",\n  \"compilerOptions\": {\n    \"composite\": true,\n    \"outDir\": \"lib\",\n    \"rootDir\": \"src\",\n    \"suppressImplicitAnyIndexErrors\": true,\n    \"ignoreDeprecations\": \"5.0\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"../__typings__/**/*.d.ts\"\n  ],\n  \"references\": [\n    {\n      \"path\": \"../__utils__/assert-project\"\n    },\n    {\n      \"path\": \"../__utils__/prepare\"\n    },\n    {\n      \"path\": \"../__utils__/test-fixtures\"\n    },\n    {\n      \"path\": \"../__utils__/test-ipc-server\"\n    },\n    {\n      \"path\": \"../cache/commands\"\n    },\n    {\n      \"path\": \"../cli/cli-meta\"\n    },\n    {\n      \"path\": \"../cli/cli-utils\"\n    },\n    {\n      \"path\": \"../cli/command\"\n    },\n    {\n      \"path\": \"../cli/common-cli-options-help\"\n    },\n    {\n      \"path\": \"../cli/default-reporter\"\n    },\n    {\n      \"path\": \"../cli/parse-cli-args\"\n    },\n    {\n      \"path\": \"../completion/plugin-commands-completion\"\n    },\n    {\n      \"path\": \"../config/config\"\n    },\n    {\n      \"path\": \"../config/plugin-commands-config\"\n    },\n    {\n      \"path\": \"../config/version-policy\"\n    },\n    {\n      \"path\": \"../crypto/hash\"\n    },\n    {\n      \"path\": \"../env/path\"\n    },\n    {\n      \"path\": \"../env/plugin-commands-env\"\n    },\n    {\n      \"path\": \"../exec/build-commands\"\n    },\n    {\n      \"path\": \"../exec/plugin-commands-rebuild\"\n    },\n    {\n      \"path\": \"../exec/plugin-commands-script-runners\"\n    },\n    {\n      \"path\": \"../exec/run-npm\"\n    },\n    {\n      \"path\": \"../lockfile/plugin-commands-audit\"\n    },\n    {\n      \"path\": \"../lockfile/types\"\n    },\n    {\n      \"path\": \"../packages/constants\"\n    },\n    {\n      \"path\": \"../packages/core-loggers\"\n    },\n    {\n      \"path\": \"../packages/dependency-path\"\n    },\n    {\n      \"path\": \"../packages/error\"\n    },\n    {\n      \"path\": \"../packages/logger\"\n    },\n    {\n      \"path\": \"../packages/plugin-commands-doctor\"\n    },\n    {\n      \"path\": \"../packages/plugin-commands-init\"\n    },\n    {\n      \"path\": \"../packages/plugin-commands-setup\"\n    },\n    {\n      \"path\": \"../packages/types\"\n    },\n    {\n      \"path\": \"../patching/plugin-commands-patching\"\n    },\n    {\n      \"path\": \"../pkg-manager/client\"\n    },\n    {\n      \"path\": \"../pkg-manager/modules-yaml\"\n    },\n    {\n      \"path\": \"../pkg-manager/plugin-commands-installation\"\n    },\n    {\n      \"path\": \"../pkg-manifest/read-package-json\"\n    },\n    {\n      \"path\": \"../pkg-manifest/read-project-manifest\"\n    },\n    {\n      \"path\": \"../pkg-manifest/write-project-manifest\"\n    },\n    {\n      \"path\": \"../releasing/plugin-commands-deploy\"\n    },\n    {\n      \"path\": \"../releasing/plugin-commands-publishing\"\n    },\n    {\n      \"path\": \"../reviewing/plugin-commands-licenses\"\n    },\n    {\n      \"path\": \"../reviewing/plugin-commands-listing\"\n    },\n    {\n      \"path\": \"../reviewing/plugin-commands-outdated\"\n    },\n    {\n      \"path\": \"../store/cafs\"\n    },\n    {\n      \"path\": \"../store/plugin-commands-server\"\n    },\n    {\n      \"path\": \"../store/plugin-commands-store\"\n    },\n    {\n      \"path\": \"../store/plugin-commands-store-inspecting\"\n    },\n    {\n      \"path\": \"../tools/path\"\n    },\n    {\n      \"path\": \"../tools/plugin-commands-self-updater\"\n    },\n    {\n      \"path\": \"../worker\"\n    },\n    {\n      \"path\": \"../workspace/filter-workspace-packages\"\n    },\n    {\n      \"path\": \"../workspace/find-packages\"\n    },\n    {\n      \"path\": \"../workspace/find-workspace-dir\"\n    },\n    {\n      \"path\": \"../workspace/pkgs-graph\"\n    },\n    {\n      \"path\": \"../workspace/read-manifest\"\n    },\n    {\n      \"path\": \"../workspace/state\"\n    }\n  ]\n}\n"
+    },
+    {
+      "idSha256": "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 30,
+      "outputSha256": "fe8a9081579046fae64abbad99b0399353d81612357b91af9d5a8e978adf62d4",
+      "outputBytes": 187,
+      "exitCode": 0,
+      "stdout": "{\n  \"sourceCount\": 649,\n  \"moduleRefs\": 3533,\n  \"configErrors\": [\n    \"@pnpm/tsconfig\"\n  ],\n  \"direct\": 14,\n  \"files\": 12,\n  \"owners\": 10,\n  \"dependents\": 37,\n  \"validationTargets\": 29\n}\n"
+    },
+    {
+      "idSha256": "e241483af4c21cbfcc6e68aebae085c699bf4f57a3af50be0eb0e5bb2d8b0b3e",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 32,
+      "outputSha256": "e335fe01b5fd1bf6dd79d8e6706c36f269ae79e4ddbf38af5699c6603bb4645d",
+      "outputBytes": 2026,
+      "exitCode": 0,
+      "stdout": "All 45 evidence quotes match their source line ranges.\n[\n  {\n    \"file\": \"config/deps-installer/src/resolveConfigDeps.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"config/parse-overrides/src/index.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"exec/plugin-commands-script-runners/src/dlx.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"hooks/read-package-hook/src/createPackageExtender.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/getEditDirPath.ts\",\n    \"symbol\": \"ParseWantedDependencyResult\",\n    \"role\": \"type-only\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/getPatchedDependency.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/getPatchedDependency.ts\",\n    \"symbol\": \"ParseWantedDependencyResult\",\n    \"role\": \"type-only\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/patchCommit.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/patchCommit.ts\",\n    \"symbol\": \"ParseWantedDependencyResult\",\n    \"role\": \"type-only\"\n  },\n  {\n    \"file\": \"patching/plugin-commands-patching/src/writePackage.ts\",\n    \"symbol\": \"ParseWantedDependencyResult\",\n    \"role\": \"type-only\"\n  },\n  {\n    \"file\": \"pkg-manager/core/src/parseWantedDependencies.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"pkg-manager/plugin-commands-installation/src/updateWorkspaceDependencies.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"store/plugin-commands-store-inspecting/src/catIndex.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  },\n  {\n    \"file\": \"store/plugin-commands-store/src/storeAdd.ts\",\n    \"symbol\": \"parseWantedDependency\",\n    \"role\": \"runtime\"\n  }\n]\n"
+    },
+    {
+      "idSha256": "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 34,
+      "outputSha256": "d57fde8bff096b741dd12b3edb649ecdcd465d8ef0f0bf48c8accccd4628eb65",
+      "outputBytes": 22,
+      "exitCode": 0,
+      "stdout": "?? impact-answer.json\n"
+    },
+    {
+      "idSha256": "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 36,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputBytes": 0,
+      "exitCode": 0,
+      "stdout": ""
+    }
+  ],
+  "evidenceBoundary": "Only item.completed command_execution stdout and mcp_tool_call result/error payloads. No agent reasoning, assistant messages, command input, unrelated item fields or file edit bodies. Tool-returned message fields remain tool evidence."
+}

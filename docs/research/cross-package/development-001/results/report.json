@@ -1,0 +1,2416 @@
+{
+  "schemaVersion": 1,
+  "protocol": {
+    "schemaVersion": 1,
+    "study": "cross-package-agent-comparison-v1",
+    "phase": "development",
+    "createdAt": "2026-11-06T21:54:28.615Z",
+    "status": "frozen-before-agent-sessions",
+    "arms": [
+      "native",
+      "typelatch",
+      "competitor"
+    ],
+    "candidates": [
+      "typelatch"
+    ],
+    "repeats": 1,
+    "runCount": 6,
+    "timeoutMs": 900000,
+    "tasks": [
+      {
+        "id": "pnpm-glob-migration",
+        "category": "migration",
+        "split": "development",
+        "mode": "edit",
+        "description": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.",
+        "scope": {
+          "productionPackages": 5
+        },
+        "policy": "Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.",
+        "evaluationNotes": [
+          "Five production packages are natively compiled using original TS project references.",
+          "Runtime coverage executes all five packages. Only remote patch-package acquisition is replaced by an exact local source tree; production glob, packlist, stage and git diff execute.",
+          "Already-upgraded dependency tree is fixed for all arms. Dependency installation and resolution are excluded from the edit task and retained separately as preparation costs.",
+          "Development task only. This qualification does not support a held-out performance claim.",
+          "Separate migration-scope guard checks statically declared tinyglobby adoption and rejects old fast-glob imports in all six changed source modules; arbitrary computed specifiers are outside that static guard.",
+          "Initial fixture contains no generated target JavaScript, declarations, source maps or build-info files. Baseline and reference qualification run only on isolated copies; all removed outputs are retained outside the fixture."
+        ],
+        "validationCommand": "npm run test:typelatch-benchmark",
+        "publicCases": 7,
+        "prompt": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.",
+        "promptSha256": "09dc2ce2da189a1b8f60870acc3f1b9514fa52718c2ac6aaccfc131fec8fae9e"
+      },
+      {
+        "id": "pnpm-parser-impact-development",
+        "category": "impact",
+        "split": "development",
+        "mode": "analysis",
+        "description": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+        "scope": {
+          "productionPackages": 10,
+          "directSourceFiles": 12,
+          "source": "Configured production src files only; native package dependents reported separately"
+        },
+        "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+        "evaluationNotes": [
+          "Analysis only. The sole allowed new file is impact-answer.json.",
+          "Every existing source, dependency, configuration and test file remains unchanged.",
+          "Exact direct symbol uses, conservative installed package dependents and native script targets are independently graded with evidence and precision/recall.",
+          "Source and built target declarations are identical for all arms. Setup costs remain separate.",
+          "Project scoped reference results do not establish repository wide absence; native multi-project activation and package filters remain allowed.",
+          "Development task only. No held-out performance claim follows from this case."
+        ],
+        "answerFile": "impact-answer.json",
+        "prompt": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.",
+        "promptSha256": "c680cad552450872d4dca578da9210a2e4c8baacabd4b890a5551b1dff45c3d9"
+      }
+    ],
+    "prompts": [
+      {
+        "task": "pnpm-glob-migration",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "f68b5192c03d62760ac77f78981364cc1416424accced7d6817a1f97c000b3ed"
+      },
+      {
+        "task": "pnpm-glob-migration",
+        "arm": "typelatch",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "4206527b414c971ac94ae3906ee4309df3fa73d37842c7e7820f58e47cd50296"
+      },
+      {
+        "task": "pnpm-glob-migration",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.\n\nBefore investigating implementation, run the supplied native validation command: npm run test:typelatch-benchmark. After making the requested change, run it again. Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "3ad1f1cb26e8cfd61232fed2bcb39ad5ec3c3bffac5db78d34adbe46d5a7b055"
+      },
+      {
+        "task": "pnpm-parser-impact-development",
+        "arm": "native",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "908ebe75b0d40c50b076990cbfa32b5e1903dd80a2325b4703a6364617bffb8a"
+      },
+      {
+        "task": "pnpm-parser-impact-development",
+        "arm": "typelatch",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: typelatch\nTools: mcp__typelatch__workspace_search, mcp__typelatch__workspace_context, mcp__typelatch__workspace_validate, mcp__typelatch__library_search, mcp__typelatch__library_symbol, mcp__typelatch__library_feedback, mcp__typelatch__library_stats\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "08badc98e5eaecf9e48518dc460036a00f2c847555e3c52f2252c104d812503f"
+      },
+      {
+        "task": "pnpm-parser-impact-development",
+        "arm": "competitor",
+        "inventory": "Repository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "prompt": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: serena\nTools: mcp__serena__activate_project, mcp__serena__initial_instructions, mcp__serena__serena_repl\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+        "promptSha256": "20552d3cb168e4f73c7689a95faa571bb312236d3cb7040a8acc7f5758460ed9"
+      }
+    ],
+    "schedule": [
+      {
+        "id": "pnpm-glob-migration-r1-native",
+        "task": "pnpm-glob-migration",
+        "repeat": 1,
+        "arm": "native"
+      },
+      {
+        "id": "pnpm-glob-migration-r1-typelatch",
+        "task": "pnpm-glob-migration",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-glob-migration-r1-competitor",
+        "task": "pnpm-glob-migration",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-parser-impact-development-r1-typelatch",
+        "task": "pnpm-parser-impact-development",
+        "repeat": 1,
+        "arm": "typelatch"
+      },
+      {
+        "id": "pnpm-parser-impact-development-r1-competitor",
+        "task": "pnpm-parser-impact-development",
+        "repeat": 1,
+        "arm": "competitor"
+      },
+      {
+        "id": "pnpm-parser-impact-development-r1-native",
+        "task": "pnpm-parser-impact-development",
+        "repeat": 1,
+        "arm": "native"
+      }
+    ],
+    "config": {
+      "model": "gpt-6.1-sol",
+      "model_reasoning_effort": "medium",
+      "approval_policy": "never",
+      "project_doc_max_bytes": 0,
+      "allow_login_shell": false,
+      "skills.include_instructions": false,
+      "skills.bundled.enabled": false,
+      "features.skip_host_skill_discovery": true,
+      "features.skill_search": false,
+      "features.apps": false,
+      "features.plugins": false,
+      "features.multi_agent": false,
+      "features.memories": false,
+      "features.hooks": false,
+      "web_search": "disabled",
+      "history.persistence": "none",
+      "shell_environment_policy.inherit": "core"
+    },
+    "cliVersion": "codex-cli 0.166.0",
+    "codexBinary": {
+      "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+      "bytes": 268972064,
+      "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1"
+    },
+    "decisionGate": {
+      "minimumReductionPercent": 20,
+      "controls": [
+        "native",
+        "competitor"
+      ],
+      "categories": [
+        "maintenance",
+        "migration",
+        "impact"
+      ],
+      "minimumHeldoutTasksPerClaimedCategory": 2,
+      "minimumRepeats": 2,
+      "rule": "Compare each frozen candidate with both native tools and Serena. Require at least 20% aggregate and median paired reduction in total tokens and provider setup plus agent time, improvement in both repeat aggregates, all candidate answers correct, complete captures and cleanup, relevant usable candidate evidence and independent workflow review. A category edge requires two distinct held-out tasks and two repetitions. Development measurements and a single held-out task can only justify replication. Keep all categories, failures and costs visible; do not pool old studies or replace attempts.",
+      "scope": "Prespecified category comparisons are exploratory multiple hypotheses, not statistical confidence bounds or universal superiority. A narrow claim names its exact held-out tasks, repository snapshots, model and treatment."
+    },
+    "reviewRules": {
+      "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+      "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+      "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+      "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+    },
+    "toolUseQualification": {
+      "receiptSha256": "ce3d3bd5c3dc87ad2cb0869c2e3e218d73ed46a66e0dbb76f95bbd856bf41189",
+      "captureSha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45"
+    },
+    "supplementalOutputs": {
+      "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+      "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+      "fileName": "tool-outputs.json"
+    },
+    "spec": {
+      "typelatchArtifact": {
+        "manifest": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "runtime": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch"
+      },
+      "competitorSelection": {
+        "name": "Serena",
+        "version": "2.1.0",
+        "reason": "Independent development screen:31/35 required facts and11/12 complete probes, higher than the other qualified graph controls under the retained collection recipes. Batched native REPL and edits enabled. This is selection evidence, not agent performance or universal superiority. Any candidate passing requires a later CodeGraph agent challenge before a broader comparative claim.",
+        "evidencePath": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json"
+      },
+      "schemaVersion": 1,
+      "candidates": [
+        "typelatch"
+      ],
+      "arms": {
+        "native": {
+          "servers": {},
+          "setupCommands": [],
+          "frozenInputs": [],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "typelatch": {
+          "servers": {
+            "typelatch": {
+              "command": "$USER_HOME/.hermes/node/bin/node",
+              "args": [
+                "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch/dist/mcp.js"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "TYPELATCH_HOME": "{state}/typelatch",
+                "TYPELATCH_USAGE": "off"
+              },
+              "startup_timeout_sec": 60,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "workspace_search",
+                "workspace_context",
+                "workspace_validate",
+                "library_search",
+                "library_symbol",
+                "library_feedback",
+                "library_stats"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+              "kind": "tree"
+            }
+          ],
+          "allowedStateLinks": [],
+          "cleanupMode": "process-group"
+        },
+        "competitor": {
+          "servers": {
+            "serena": {
+              "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+              "args": [
+                "start-mcp-server",
+                "--project",
+                "{workspace}",
+                "--agent-interface",
+                "REPL",
+                "--transport",
+                "stdio",
+                "--enable-web-dashboard",
+                "false",
+                "--enable-gui-log-window",
+                "false",
+                "--open-web-dashboard",
+                "false",
+                "--log-level",
+                "INFO"
+              ],
+              "cwd": "{workspace}",
+              "env": {
+                "PATH": "$USER_HOME/.hermes/node/bin:$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+                "TMPDIR": "$TEMP/",
+                "LANG": "C.UTF-8",
+                "LC_ALL": "C.UTF-8",
+                "SERENA_HOME": "{state}/serena-home",
+                "XDG_CACHE_HOME": "{state}/xdg-cache",
+                "XDG_CONFIG_HOME": "{state}/xdg-config",
+                "PYTHONNOUSERSITE": "1",
+                "PYTHONUNBUFFERED": "1",
+                "npm_config_cache": "{state}/npm-cache",
+                "npm_config_offline": "true",
+                "PYTHONDONTWRITEBYTECODE": "1"
+              },
+              "startup_timeout_sec": 600,
+              "tool_timeout_sec": 180,
+              "tools": [
+                "activate_project",
+                "initial_instructions",
+                "serena_repl"
+              ]
+            }
+          },
+          "setupCommands": [],
+          "cleanupMode": "lifecycle",
+          "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+          "allowedStateLinks": [],
+          "frozenInputs": [
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+              "kind": "tree"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+              "kind": "tree"
+            },
+            {
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+              "kind": "file"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/venv"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/source"
+            },
+            {
+              "kind": "tree",
+              "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules"
+            },
+            {
+              "kind": "tree",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12"
+            },
+            {
+              "kind": "file",
+              "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python"
+            },
+            {
+              "kind": "file",
+              "path": "$USER_HOME/.hermes/node/bin/node"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+              "kind": "file"
+            },
+            {
+              "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+              "kind": "file"
+            }
+          ]
+        }
+      },
+      "status": "selected-and-ready",
+      "phase": "development",
+      "repeats": 1,
+      "timeoutMs": 900000,
+      "tasks": [
+        {
+          "id": "pnpm-glob-migration",
+          "category": "migration",
+          "split": "development",
+          "mode": "edit",
+          "description": "The selected package dependencies have moved from fast-glob to tinyglobby. Complete the production migration across this workspace while preserving package discovery, metadata matching, executable discovery, patch contents and published archive behavior. Keep dependencies and configuration fixed. Run the supplied native validation before and after the change.",
+          "scope": {
+            "productionPackages": 5
+          },
+          "policy": "Only existing production TypeScript source may change. Keep tests, dependencies, manifests and configuration fixed. Generated compiler outputs may be rebuilt.",
+          "evaluationNotes": [
+            "Five production packages are natively compiled using original TS project references.",
+            "Runtime coverage executes all five packages. Only remote patch-package acquisition is replaced by an exact local source tree; production glob, packlist, stage and git diff execute.",
+            "Already-upgraded dependency tree is fixed for all arms. Dependency installation and resolution are excluded from the edit task and retained separately as preparation costs.",
+            "Development task only. This qualification does not support a held-out performance claim.",
+            "Separate migration-scope guard checks statically declared tinyglobby adoption and rejects old fast-glob imports in all six changed source modules; arbitrary computed specifiers are outside that static guard.",
+            "Initial fixture contains no generated target JavaScript, declarations, source maps or build-info files. Baseline and reference qualification run only on isolated copies; all removed outputs are retained outside the fixture."
+          ],
+          "validationCommand": "npm run test:typelatch-benchmark",
+          "publicCases": 7
+        },
+        {
+          "id": "pnpm-parser-impact-development",
+          "category": "impact",
+          "split": "development",
+          "mode": "analysis",
+          "description": "Prepare a change impact report for @pnpm/parse-wanted-dependency. We propose making its parser always return both alias and bareSpecifier and requiring both fields in its named result types. Do not implement the change. Determine which existing internal consumers and package validation targets need review.\n\nAffected means a direct static use or reexport of parseWantedDependency, ParseWantedDependencyResult or ParsedWantedDependency outside the defining package. It does not mean that a test is proven to fail. Enumerate configured production source files under workspace package src directories, respecting each native TypeScript configuration. Exclude tests, declarations generated by the compiler, dependencies and source excluded by configuration from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Preserve the original export identity when an import is renamed. Do not equate a similarly named local wrapper with the public export.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the symbol. Keep exact package versions and actual workspace versus external package identity.\n\nList the existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Identify the similarly named local wrapper as an exclusion from target symbol identity, even if its file contains a real call. Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.\n\nWrite impact-answer.json in the repository root using the supplied JSON schema. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 1,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source within these lines\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual package.json script\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact script entry\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"lookalike name or *\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact relevant source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation\",\n      \"detail\": \"specific limit, not a claim of absence\"\n    }\n  ],\n  \"negativeClaims\": []\n}",
+          "scope": {
+            "productionPackages": 10,
+            "directSourceFiles": 12,
+            "source": "Configured production src files only; native package dependents reported separately"
+          },
+          "policy": "The sole allowed new file is impact-answer.json. Preserve all existing files.",
+          "evaluationNotes": [
+            "Analysis only. The sole allowed new file is impact-answer.json.",
+            "Every existing source, dependency, configuration and test file remains unchanged.",
+            "Exact direct symbol uses, conservative installed package dependents and native script targets are independently graded with evidence and precision/recall.",
+            "Source and built target declarations are identical for all arms. Setup costs remain separate.",
+            "Project scoped reference results do not establish repository wide absence; native multi-project activation and package filters remain allowed.",
+            "Development task only. No held-out performance claim follows from this case."
+          ],
+          "answerFile": "impact-answer.json"
+        }
+      ],
+      "fixtures": {
+        "pnpm-glob-migration": {
+          "workspace": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/workspace",
+          "initialManifest": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/initial-clean-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/source-tracking-manifest.json",
+          "graderModule": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.mjs"
+        },
+        "pnpm-parser-impact-development": {
+          "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace",
+          "initialManifest": "$REPOSITORY/artifacts/research/cross-package/impact/development/initial-manifest.json",
+          "qualification": "$REPOSITORY/artifacts/research/cross-package/impact/development/qualification.json",
+          "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/impact/development/tracking-manifest.json",
+          "graderModule": "$REPOSITORY/artifacts/research/cross-package/impact/development/grader.mjs"
+        }
+      },
+      "sharedFrozenInputs": [
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/descriptor.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/prepare-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/qualify-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-runtime.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/grading-common.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/finalize-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/source-tracking-manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/qualification.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/finalization.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-001.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-002.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/clean-development-fixture.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/generated-output-cleanup-001.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/initial-clean-manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/compiled-output-audit-before.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/retained-generated-001/manifest.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/descriptor.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/grader.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/grade-answer.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/answer-schema.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/truth.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/answer-schema.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/grader.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/integrity.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/prompt.txt",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/compiler-oracle.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/freeze-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/run-command.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/source-restoration.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspaces.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-dependent-filter.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-full-install.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-full-install-local-store.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-target-build.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-build.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-worker-build.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests-local.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests-ready.json",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-development.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+          "kind": "file"
+        },
+        {
+          "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+          "kind": "file"
+        }
+      ],
+      "supplementalOutputs": {
+        "extractor": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "extractorSha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "fileName": "tool-outputs.json"
+      },
+      "toolUseQualification": {
+        "receipt": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/report.json",
+        "sourceSpec": "$REPOSITORY/artifacts/research/cross-package/provider-spec.json"
+      }
+    },
+    "specSha256": "2c990e1a642e3c64ba94de93318b79c00a28b2d6e0428c4c4a3a3e5a2a5d25ed",
+    "inputs": [
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.mjs",
+        "kind": "file",
+        "sha256": "e2718aea7ce893d02b7407e7d908519cb152a0d2319fceceb7a1a82a6381bce7",
+        "bytes": 31793,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.mjs",
+        "kind": "file",
+        "sha256": "4a5516b7742afafe5ab14f15607ec2e86710625157f7e0af288824a2824e3142",
+        "bytes": 9842,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.mjs",
+        "kind": "file",
+        "sha256": "c2b48a629796ca45bf0a4a17c5332d8864d55413728c7d78912ecf9e7e30fe0a",
+        "bytes": 6284,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/capture.mjs",
+        "kind": "file",
+        "sha256": "3cc2b810d4ff99703611a55153613fb045ff2fc2e12a81d0d183cf265ebb2b45",
+        "bytes": 6079,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/inventory-agent-trial/fixture-git.mjs",
+        "kind": "file",
+        "sha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+        "bytes": 2867,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+        "kind": "file",
+        "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2",
+        "bytes": 9847,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+        "kind": "file",
+        "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a",
+        "bytes": 6178,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-evidence.mjs",
+        "kind": "file",
+        "sha256": "d4e61059100134035b8fae48bfffc51e5219652da64d211b900616a6d230a954",
+        "bytes": 17713,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-candidate.mjs",
+        "kind": "file",
+        "sha256": "e9af96162be1a786e086fffde40fb907f59371eb71e32a21f1104bf6c449b1f2",
+        "bytes": 30979,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-fixtures.mjs",
+        "kind": "file",
+        "sha256": "1cda4e1bf0cf7bf1a39fb14564666c840c7ed1adec5fc0c9b5b49ffd5dd92923",
+        "bytes": 11019,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-comparison.mjs",
+        "kind": "file",
+        "sha256": "588a6a358e014fe60ae5780955401b76252579bb4ae44493e429a42673f049bf",
+        "bytes": 4693,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/paired-agent-decision.mjs",
+        "kind": "file",
+        "sha256": "abc1162b719f330043e0e8fa0a9545de444780c9fe810764a21f7731a98d725a",
+        "bytes": 7159,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/demo-evidence.mjs",
+        "kind": "file",
+        "sha256": "87d630ad714acce7856d9167edc79affb74e38dfbe3fe1837e972ecfcaaa0d50",
+        "bytes": 9837,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/development-spec-001.json",
+        "kind": "file",
+        "sha256": "2c990e1a642e3c64ba94de93318b79c00a28b2d6e0428c4c4a3a3e5a2a5d25ed",
+        "bytes": 27437,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/artifact.json",
+        "kind": "file",
+        "sha256": "f3183ec7779eeadfe9e8c85f1198110036bd431b1a51bd1c9006d359d665544e",
+        "bytes": 381,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/screen-004/independent-assessment/benchmark-tasks-competitors-round1.json",
+        "kind": "file",
+        "sha256": "cf53bd780bfa2bac42ced78ed67a017156921bc7d33cecc640ab355eda9707ce",
+        "bytes": 523240,
+        "entries": null
+      },
+      {
+        "path": "$USER_HOME/.codex/packages/standalone/releases/0.166.0-aarch64-apple-darwin/bin/codex",
+        "kind": "file",
+        "sha256": "39acf979729dd290f9a24ee38b2914e036c91b65952872e28ae2a6b88a7db7c1",
+        "bytes": 268972064,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "$USER_HOME/.hermes/node/bin/node",
+        "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d",
+        "bytes": 112928848,
+        "entries": null
+      },
+      {
+        "path": "/usr/bin/git",
+        "kind": "file",
+        "sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+        "bytes": 200560,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/typelatch-0.4.0.tgz",
+        "kind": "file",
+        "sha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+        "bytes": 194704,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/workspace",
+        "kind": "tree",
+        "sha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+        "bytes": null,
+        "entries": 74440
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/initial-clean-manifest.json",
+        "kind": "file",
+        "sha256": "0a77dac3b3ca8aa6ee92e62c6c9ae675e54b7b1b0fc2aae0c6298e53e176bd38",
+        "bytes": 19232762,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/qualification.json",
+        "kind": "file",
+        "sha256": "a306da91055ef9560b4ebe2c774694c8aee777fd6793612975ced276b7e5b137",
+        "bytes": 68427,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.mjs",
+        "kind": "file",
+        "sha256": "2b7d1651651d95589999e743653c164a58a68644d7b28b7a8128d3b6d44924ad",
+        "bytes": 633,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/source-tracking-manifest.json",
+        "kind": "file",
+        "sha256": "0f100a13ce52ed177779c5a33ad2cf96eaa433774eec18591911e9311efca666",
+        "bytes": 650991,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspace",
+        "kind": "tree",
+        "sha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+        "bytes": null,
+        "entries": 76821
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/initial-manifest.json",
+        "kind": "file",
+        "sha256": "73bf25c14e5ef362640633a78a4052b138801423b12ed54ebaf4fb99095cbf0c",
+        "bytes": 19987263,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/qualification.json",
+        "kind": "file",
+        "sha256": "491f3ae4f71306dd8414fc1131eeb91126bf97fc1115303d70e84dde78434a9e",
+        "bytes": 1805,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/grader.mjs",
+        "kind": "file",
+        "sha256": "150e7e5be29eeea17406627bfb8c26aa121aec84a773f0ae4f864671d92b060a",
+        "bytes": 288,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/tracking-manifest.json",
+        "kind": "file",
+        "sha256": "7c606e0c13d2a84c9006297beaeffdd8a838712d2e264ba84a7d7d0828b80642",
+        "bytes": 650961,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/paired-agent/candidate/runtime",
+        "kind": "tree",
+        "sha256": "844cd00ce14dc454497f05ed2be49a93c20d8da760aa8406406d7980412968b5",
+        "bytes": null,
+        "entries": 5497
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-utils.mjs",
+        "kind": "file",
+        "sha256": "5b6e30df2ba377b151d7ebc73f20783a371b70245c6203ceb891f4a461cf489a",
+        "bytes": 2681,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/node_modules",
+        "kind": "tree",
+        "sha256": "336473a84dffa5d69d557588a2c1450af6f9121355a4fce2f0aaceb0c921f6c3",
+        "bytes": null,
+        "entries": 10457
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/runtime-full-manifest.json",
+        "kind": "file",
+        "sha256": "a44b4bffcd96e79484810f14bfcbb641db99af16553ce7abd10d3eec61a1befe",
+        "bytes": 1916578,
+        "entries": null
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv",
+        "sha256": "76b5e9999988ef2b2d0b4db25a19d97de03a9e6586a0713b67d91a757bc8d24e",
+        "bytes": null,
+        "entries": 4754
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/source",
+        "sha256": "0718414556a4d7a3f3eebf761b1f228d16c397d08b9fa9d4c7cca06d7d624ea1",
+        "bytes": null,
+        "entries": 1702
+      },
+      {
+        "kind": "tree",
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/ls-runtime/node_modules",
+        "sha256": "e69f3cda7dbee33e603f618e987095cddcca826bbf389ad6dd91f229662facf5",
+        "bytes": null,
+        "entries": 149
+      },
+      {
+        "kind": "tree",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/lib/python3.12",
+        "sha256": "dc302b5d541e90a91374e283a0c226971a73c4c59363dcdab56bae3a2db27704",
+        "bytes": null,
+        "entries": 3050
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/bin/python3.12",
+        "sha256": "ab825fde913c394f6fb8dc57da39108ad98e1827a5404119993de3d3bc6d8fb7",
+        "bytes": 34640,
+        "entries": null
+      },
+      {
+        "kind": "file",
+        "path": "/opt/homebrew/Cellar/python@3.12/3.12.16/Frameworks/Python.framework/Versions/3.12/Python",
+        "sha256": "9928124516991231d825123c822943d9e4f5a72b8920c1da50a14ceb07d90278",
+        "bytes": 5985120,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/large-monorepo/agent-trial/serena-extra-inputs.json",
+        "kind": "file",
+        "sha256": "3da62d09466633c2935bbd76e1d5c9bd812bc3d17ff423a38007b0aaf929a032",
+        "bytes": 4601,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/agent-lifecycle-qualified.json",
+        "kind": "file",
+        "sha256": "690a070f061176320ee4b4bb92765cd945e7b346b05543a6c03cae612b92b4eb",
+        "bytes": 2346,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+        "kind": "file",
+        "sha256": "7199eaf5ae32888f7b01bc82f4f8c0e54c033accd1c542f246ed958cd3101f09",
+        "bytes": 3926,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "kind": "file",
+        "sha256": "e4439787e407546ada39f2e46995ae546fc8bb64533bb449310c9fbd51b81e12",
+        "bytes": 311,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/descriptor.json",
+        "kind": "file",
+        "sha256": "55df867c56005654823cdaf7413b9aa144b093835b78b3216690610d1a55ff9e",
+        "bytes": 8810,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/prepare-development.mjs",
+        "kind": "file",
+        "sha256": "2d678f0609e354b98acb35fe6bafae09986760c6e9eb97ae6f138873f194e287",
+        "bytes": 5009,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/qualify-development.mjs",
+        "kind": "file",
+        "sha256": "f397eb0d5676919f583a019e0ed9a6ae1c8955590584698fe33b667a31669508",
+        "bytes": 7201,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-runtime.mjs",
+        "kind": "file",
+        "sha256": "a550521f469df5dd7ca7966c6adba13850ed5cedc0418be0a8e30cc840880368",
+        "bytes": 6903,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs",
+        "kind": "file",
+        "sha256": "fbbd9acba5030d1956aaf599ceb73efc158128919d453c7e4ac41b26501c1920",
+        "bytes": 1876,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/grading-common.mjs",
+        "kind": "file",
+        "sha256": "78ce917fa76088c93f0e420b69575adef8d30c8d43997fc06afc9de1e2c4c951",
+        "bytes": 3907,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.mjs",
+        "kind": "file",
+        "sha256": "7aee7db9122422a0985d30681102cde6d38d2c46f82e3bfffa4c8fac6345cbf5",
+        "bytes": 1701,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.test.mjs",
+        "kind": "file",
+        "sha256": "6b535c088e7547ffacbc583e8e772819d987802ab1bc73fe03c457fff47a8d50",
+        "bytes": 1747,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.test.mjs",
+        "kind": "file",
+        "sha256": "db682359afa21887509341ab7dc5a041cddca8e05a3544f571d97a483e420a56",
+        "bytes": 810,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/finalize-development.mjs",
+        "kind": "file",
+        "sha256": "5376e54b842bb0f3633d5476bcd6f40f565287c9cf23ebd1486204f9dea60161",
+        "bytes": 2819,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/finalization.json",
+        "kind": "file",
+        "sha256": "16e9a1465647980dc5cfc706d37e91568017dfb1baa91f0bd54ee5e2aa4a1438",
+        "bytes": 2270,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-001.json",
+        "kind": "file",
+        "sha256": "2b0d2c0f30f90c6a2b256c2e8644c2071af832548a8e85c91d1015431252a58f",
+        "bytes": 8264,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.test.mjs",
+        "kind": "file",
+        "sha256": "e635feb4f02837c7b7a67874021bce500caecb436be74b5fbd6071eb5606b10a",
+        "bytes": 1874,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-002.json",
+        "kind": "file",
+        "sha256": "102d9e33efd324bed0b2a0e89e459b5ccabc1bfeb7ab937cc7aa962db123cd3c",
+        "bytes": 2198,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/clean-development-fixture.mjs",
+        "kind": "file",
+        "sha256": "efdefe00e51234a45eef41e1542b9d95844a3388ce3987d98452ef502c969d9e",
+        "bytes": 7906,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/generated-output-cleanup-001.json",
+        "kind": "file",
+        "sha256": "5c927094fb378194928d17298722913edaf877d06e3039f05ab9cb4fee1741b2",
+        "bytes": 38582,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/compiled-output-audit-before.json",
+        "kind": "file",
+        "sha256": "2b833675e957dc7ade6fe66dff1d75bcff79b38376d45b88e4fabf719b7670e6",
+        "bytes": 6420,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/retained-generated-001/manifest.json",
+        "kind": "file",
+        "sha256": "2bc24411d19e0e43a4069b6740eac97269a3ce487a7137af6b424d208436399f",
+        "bytes": 16812,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/descriptor.json",
+        "kind": "file",
+        "sha256": "4bb9912700941fe6e181912e39c39e93debf1a0234000a44a33886e4f91bb7b7",
+        "bytes": 6096,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grade-answer.mjs",
+        "kind": "file",
+        "sha256": "4a70157eca4988f9732bebc17f69fad5be120ded5a5d1e57fde9cc61f8fa06f5",
+        "bytes": 6305,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/answer-schema.mjs",
+        "kind": "file",
+        "sha256": "9cc27c978d75e8cf1a4e75faa3d2a9887a1afdc01ea8863ac623fb926682eb7b",
+        "bytes": 2610,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/truth.json",
+        "kind": "file",
+        "sha256": "eb016b11c93b720d4f567ebaa1506cd4a5dfbd8b782e1d598892df1c2295d27d",
+        "bytes": 718373,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/answer-schema.json",
+        "kind": "file",
+        "sha256": "73523fb2f6e83e73e372f8a353113ba9c93226308a4d049e28017711b65b5728",
+        "bytes": 1573,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/grader.test.mjs",
+        "kind": "file",
+        "sha256": "d4e8ba8b963657856b581dfd7cf66399f85272104fca3c7cbd9732051f9516d5",
+        "bytes": 3212,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/integrity.test.mjs",
+        "kind": "file",
+        "sha256": "c5ad8c72b5bc71e3ef77f9b54840612ef0520dbffc77c7c825d040c46dcc6678",
+        "bytes": 1609,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/development/prompt.txt",
+        "kind": "file",
+        "sha256": "b9f4da3554c4e6bcaf4984827a3fde3a0ef4131a8a839d68f9e210659b85a7f0",
+        "bytes": 3958,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/compiler-oracle.mjs",
+        "kind": "file",
+        "sha256": "e1a87ee2a7c50f18313eb3bfd5fef74279392a4087ce567f934b695c7cee6de2",
+        "bytes": 10248,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/freeze-development.mjs",
+        "kind": "file",
+        "sha256": "28b1497d329f116820946448957285b0ac2af6143572603f09a7cae0c034dc7a",
+        "bytes": 6880,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/run-command.mjs",
+        "kind": "file",
+        "sha256": "c6b6a7599799b32ddd994515ca4244225738c31daa9fb80fffca9c48de30defb",
+        "bytes": 1224,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/source-restoration.json",
+        "kind": "file",
+        "sha256": "a24cdbf5743cdda3f4bc385c5c9314df1868c9bfd566adc0d1d9fd402fd982a5",
+        "bytes": 2930,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-workspaces.json",
+        "kind": "file",
+        "sha256": "af1813ea23094454e135e13c7ef3f23de0a8a8ea301a5c2a0ae7a557fbe2d194",
+        "bytes": 53357,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-dependent-filter.json",
+        "kind": "file",
+        "sha256": "e39156baf939f689c52e2c805aac3e807ea665d46ef8fd7a579131ff70a77b1f",
+        "bytes": 11025,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-full-install.json",
+        "kind": "file",
+        "sha256": "96e9a73d9a955bd6db35af0fd22eec4530533613d6efbf28bcc5532ef32ce95e",
+        "bytes": 978,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-full-install-local-store.json",
+        "kind": "file",
+        "sha256": "a29f20c71b3a6b38b04d72f83e36686e93cdc7fdfbd89c7c6d2c6cf3720ceb08",
+        "bytes": 2752,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-target-build.json",
+        "kind": "file",
+        "sha256": "02a4fceda9c37da2b76505e9fbf7645f5cf8a087226629650964fd21b61cba93",
+        "bytes": 534,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-build.json",
+        "kind": "file",
+        "sha256": "fc371f7749db98e978d7ad67706a28bbf055819b8e6f3d1db3a7a907939e8a74",
+        "bytes": 531,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-worker-build.json",
+        "kind": "file",
+        "sha256": "438011e2a7db02c8a61b44530620263f713efa057cde4353c9357fe898a55103",
+        "bytes": 516,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests.json",
+        "kind": "file",
+        "sha256": "2cd2055314705d8e16df047393969f8742f3e491c8eeea666f82b8267ef9644d",
+        "bytes": 7937,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests-local.json",
+        "kind": "file",
+        "sha256": "eff5eb5c2c9ca9db4d1b10cdcdc4ac8c7f941f8d13391a1e75a544838e2c20e9",
+        "bytes": 1915,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/impact/pnpm-overrides-tests-ready.json",
+        "kind": "file",
+        "sha256": "70f9e21c35bf388bd2b1616651bb20d39d61dad97b30e2d1342dd4f45c11a84b",
+        "bytes": 1647,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/assemble-development.mjs",
+        "kind": "file",
+        "sha256": "77aee733d664b25115b02e0c18bd7eb7ed4a585009c9f8f852f4758707ecba3a",
+        "bytes": 3371,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/publish-freeze.mjs",
+        "kind": "file",
+        "sha256": "a413de45d879de95ca84c7f7526a65cc77c42e3a74a6dd1e67bd6abd5b5c3347",
+        "bytes": 1772,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/run.test.mjs",
+        "kind": "file",
+        "sha256": "3fae1afda04506cc1656cbea525149d6700716e13faaebbd657f56dd64e8a8d4",
+        "bytes": 5014,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/decision.test.mjs",
+        "kind": "file",
+        "sha256": "92cdaeba4da5f52a3491c58d763b276b1c199258027588f9be4e2ee4c36608a4",
+        "bytes": 4646,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/trial/review.test.mjs",
+        "kind": "file",
+        "sha256": "926b67d26bca5d4d30cbd7f3f0cd59b9da936ed3763389c63b9a0e8f08bae4bb",
+        "bytes": 4564,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/scripts/monorepo-tool-outputs.mjs",
+        "kind": "file",
+        "sha256": "a9d392a262a155e4a2272d7b228decc1e1527a22028f87b8c66feee5c14c2575",
+        "bytes": 6699,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-qualification-001/report.json",
+        "kind": "file",
+        "sha256": "ce3d3bd5c3dc87ad2cb0869c2e3e218d73ed46a66e0dbb76f95bbd856bf41189",
+        "bytes": 8318,
+        "entries": null
+      },
+      {
+        "path": "$REPOSITORY/artifacts/research/cross-package/provider-spec.json",
+        "kind": "file",
+        "sha256": "6cf446f6c3742abdb81e87f5ad4d6344ae9c84a06604508f1fea9f2099200a3d",
+        "bytes": 8605,
+        "entries": null
+      }
+    ],
+    "typelatchArchiveBinding": {
+      "archiveSha256": "8dc79e045f0acf67cc25a6090d62e6b2aecc424a1749b1c4843a10868a7b9d3f",
+      "archiveIntegrity": "sha512-i2KEa8RvfUPrsMBgu817HLEJ5iielLHozl1WT3gK7hz6k+7BWrQTR8XSxbGxTQgDh721ELMFPukFBfuAGi+IDg==",
+      "packageFileCount": 138,
+      "packageTreeSha256": "7da569eaf51fbfa2b4880cf316e9160a0b1a1a90b3537336bb41718713e088b1",
+      "sourceCommit": "285aca16a064b9f3903f360d1c4bf31c7fa2a611",
+      "name": "typelatch",
+      "version": "0.4.0"
+    },
+    "replaySelection": {
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arms": [
+        "native",
+        "typelatch"
+      ],
+      "rule": "First task and repeat, fixed before outcomes. Retain failure and disclose accelerated replay."
+    },
+    "treatment": "Same task and workflow policy with equal-format explicit provider inventory. First relevant investigation uses the declared provider where available; native uses ordinary tools. Compiler, language-service and package-manager tools remain available in every arm. Further tool choices are free. Edit tasks validate before and after; analysis tasks write the same structured report and preserve source.",
+    "timing": "Sequential fresh sessions. Charge all provider preparation and agent wall time, including initialization, indexing, tool failures, fallback and validation. Common corpus copy/install/build preparation, independent grading and teardown are reported separately. Fresh provider state per run; OS file caches may be warm.",
+    "fixtureCopy": "APFS copy-on-write clones with distinct inodes and isolated writes, not hardlinks. Exact file bytes, modes and symlink text are verified against the full frozen fixture inventory. Copy time is separately reported common preparation.",
+    "selection": "Task categories were fixed before outcomes. Development cases may inform a later frozen candidate; they cannot establish an edge. Confirmation cases are held from candidate tuning. Any category edge requires a second distinct held-out task and two repetitions, all reported separately from development and earlier studies.",
+    "failurePolicy": "Persist every preparation before work and every run before launch. No replacement or overwrite of failures. Resume only a completely recorded and cleaned prefix. Unknown usage or failed setup cannot pass.",
+    "evidencePolicy": "Export only completed tool actions, returned tool outputs, explicit task artifacts, source changes and independently graded results. Never export model reasoning or assistant message bodies. Supplemental outputs bind raw capture and public evidence hashes. Workflow and usable provider evidence require a separate hash-bound independent review.",
+    "limits": [
+      "Public upstream repairs may occur in model training data.",
+      "No immutable served model snapshot or sampling seed is available.",
+      "Cached input is included once within total input; tokens are not a billing estimate.",
+      "One frozen candidate per confirmation study; category hypotheses are exploratory multiple comparisons, not statistical confidence bounds.",
+      "Filesystem and no-network instructions are procedural; no additional OS isolation is claimed."
+    ]
+  },
+  "protocolSha256": "2ed3eddbae80b1d1dffa86859eaab9dbbd3bbbcb3fc0994fd6d33264e54b4d8a",
+  "startedAt": "2026-11-06T21:55:07.583Z",
+  "complete": true,
+  "runs": [
+    {
+      "id": "pnpm-glob-migration-r1-native",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T21:55:55.910Z",
+      "finishedAt": "2026-11-06T21:56:58.854Z",
+      "fixtureSetupMs": 21556.770916999994,
+      "providerSetupMs": 0.0014159999991534278,
+      "elapsedMs": 62943.002875000006,
+      "teardownMs": 0.2953330000018468,
+      "gradingMs": 22312.917707999994,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 275859,
+        "cachedInputTokens": 242816,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1803,
+        "reasoningOutputTokens": 95,
+        "totalTokens": 277662,
+        "uncachedInputTokens": 33043
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 6,
+        "contentSearchShellCalls": 5,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "preparedSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "promptSha256": "f68b5192c03d62760ac77f78981364cc1416424accced7d6817a1f97c000b3ed",
+      "recordingError": null,
+      "rawSha256": "b8136413a0df89156007a6f6c435625b754fe8d097ef7013d536702b6761c3ee",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 2,
+            "expectedFinalCases": 7,
+            "completePassingCheck": false,
+            "outputSha256": "c3953bcdf7223ffd2f1c8e2358635c0718947c782095fa6ab341cffc46fa1e18"
+          },
+          {
+            "line": 23,
+            "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 7,
+            "expectedFinalCases": 7,
+            "completePassingCheck": true,
+            "outputSha256": "ed6841dbdef334e105814d5ee5e9723653c30e12a51da252af2f5c4901c8f40a"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": false,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "31131e21a8e2dfcb3590b9707fe6977880c2c0b4cfe65b551a212171c9304fde",
+      "toolOutputsSha256": "5d0c1ecfb82567fbc010c7b1c3249ac56f9706af2c966222fefda5d8034ea8ab"
+    },
+    {
+      "id": "pnpm-glob-migration-r1-typelatch",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T21:58:34.584Z",
+      "finishedAt": "2026-11-06T22:00:01.640Z",
+      "fixtureSetupMs": 22513.663500000024,
+      "providerSetupMs": 0.00229199999012053,
+      "elapsedMs": 87054.829708,
+      "teardownMs": 0.13895799999590963,
+      "gradingMs": 19407.907624999993,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 352688,
+        "cachedInputTokens": 320256,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1939,
+        "reasoningOutputTokens": 169,
+        "totalTokens": 354627,
+        "uncachedInputTokens": 32432
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 2,
+        "mcpSucceeded": 2,
+        "mcpFailed": 0,
+        "fileEdits": 1,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 4,
+        "fileListingShellCalls": 1,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "preparedSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "promptSha256": "4206527b414c971ac94ae3906ee4309df3fa73d37842c7e7820f58e47cd50296",
+      "recordingError": null,
+      "rawSha256": "33f8a968c01af8c40b5e28a22017a2092cb1a249f6482af647e216b7e0b3343d",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 2,
+            "expectedFinalCases": 7,
+            "completePassingCheck": false,
+            "outputSha256": "88d61a792e0fa27095dc104fe344d6df9b28657345e15bf36aed2039311d5c66"
+          },
+          {
+            "line": 19,
+            "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 7,
+            "expectedFinalCases": 7,
+            "completePassingCheck": false,
+            "outputSha256": "e0995a80e82e5130a9aa4ea57d0fde72a84adafbdfdaa7e04ead7c3bcdcfb4d1"
+          },
+          {
+            "line": 28,
+            "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 7,
+            "expectedFinalCases": 7,
+            "completePassingCheck": true,
+            "outputSha256": "6739b558b05c7995effb058e0c18359bbd4aad508e64037b512a47f74f5d5360"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "726033996bfa85f576b8ec5d00705285c34cc766ac16baf8a053292ccdfafee4",
+      "toolOutputsSha256": "994cb41ef419ab49377cda9d3bf80d610435b5e1819782727647182816383c55"
+    },
+    {
+      "id": "pnpm-glob-migration-r1-competitor",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T22:01:33.274Z",
+      "finishedAt": "2026-11-06T22:02:43.259Z",
+      "fixtureSetupMs": 22237.773875000014,
+      "providerSetupMs": 3.215582999982871,
+      "elapsedMs": 69984.77370800002,
+      "teardownMs": 0.5359590000007302,
+      "gradingMs": 19333.123459000024,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 263514,
+        "cachedInputTokens": 212736,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 1727,
+        "reasoningOutputTokens": 119,
+        "totalTokens": 265241,
+        "uncachedInputTokens": 50778
+      },
+      "counts": {
+        "shellCalls": 8,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 0,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 4,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "preparedSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "promptSha256": "3ad1f1cb26e8cfd61232fed2bcb39ad5ec3c3bffac5db78d34adbe46d5a7b055",
+      "recordingError": null,
+      "rawSha256": "30fdba6282dfeea48d0bd7b939b79c3bcc4a40fd82a7d6d8e0374377ade8bc58",
+      "nativeValidation": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 2,
+            "expectedFinalCases": 7,
+            "completePassingCheck": false,
+            "outputSha256": "7bf155b98b828d11ba1c7c558c1f747f619c0c1bb780b35171880775d0a5415e"
+          },
+          {
+            "line": 25,
+            "actionIdSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+            "commandExitCode": 0,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": true,
+            "cases": 7,
+            "expectedFinalCases": 7,
+            "completePassingCheck": true,
+            "outputSha256": "87fbe9589b047e2fb80fa628b5a31973b3545166aefaabb1c2de2114cb9fecb3"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "643b649860523c24b95f924d904c494e6291f4d9c7d7b4dda7c48dcf82dbf7bc",
+      "toolOutputsSha256": "83eec6575fc2a8c0a60be7754949db38e377717315a84ce1ab17c918d7b1aedc"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-typelatch",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "completed",
+      "startedAt": "2026-11-06T22:04:07.246Z",
+      "finishedAt": "2026-11-06T22:06:27.552Z",
+      "fixtureSetupMs": 16381.87966700003,
+      "providerSetupMs": 0.0027080000145360827,
+      "elapsedMs": 140305.27566599997,
+      "teardownMs": 0.2900000000372529,
+      "gradingMs": 3883.650957999984,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": false,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 441880,
+        "cachedInputTokens": 399488,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5298,
+        "reasoningOutputTokens": 1092,
+        "totalTokens": 447178,
+        "uncachedInputTokens": 42392
+      },
+      "counts": {
+        "shellCalls": 12,
+        "mcpCalls": 3,
+        "mcpSucceeded": 2,
+        "mcpFailed": 1,
+        "fileEdits": 0,
+        "grepShellCalls": 6,
+        "contentSearchShellCalls": 4,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "preparedSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "promptSha256": "08badc98e5eaecf9e48518dc460036a00f2c847555e3c52f2252c104d812503f",
+      "recordingError": null,
+      "rawSha256": "c506db8ef3e2155d6b498dd6e57564a6580db976a2b3434ebe297ed4ae6710e3",
+      "nativeValidation": null,
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "7106a107169fd058809b1f4673ce9ba61b483374ad0ae2beed7f31cf6ec16607",
+      "toolOutputsSha256": "52f98f993a7f423b68747a21e548952d9db81f2f18d75cc6bcd45e5c3b842334"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-competitor",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "completed",
+      "startedAt": "2026-11-06T22:07:38.313Z",
+      "finishedAt": "2026-11-06T22:10:05.542Z",
+      "fixtureSetupMs": 17876.40962499997,
+      "providerSetupMs": 2.2736250000307336,
+      "elapsedMs": 147228.324625,
+      "teardownMs": 0.47112499992363155,
+      "gradingMs": 3911.1606250000186,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": true,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 429030,
+        "cachedInputTokens": 391424,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5964,
+        "reasoningOutputTokens": 1235,
+        "totalTokens": 434994,
+        "uncachedInputTokens": 37606
+      },
+      "counts": {
+        "shellCalls": 12,
+        "mcpCalls": 3,
+        "mcpSucceeded": 3,
+        "mcpFailed": 0,
+        "fileEdits": 0,
+        "grepShellCalls": 5,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "preparedSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "promptSha256": "20552d3cb168e4f73c7689a95faa571bb312236d3cb7040a8acc7f5758460ed9",
+      "recordingError": null,
+      "rawSha256": "4316340342d74596cfe0b5d2635fc6b06024242f0383fbba8d9a543683ea4fa1",
+      "nativeValidation": null,
+      "providerCallObserved": true,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "8106eab275ddc0f3b7695f9d4320e1efc864bfa43f09ac5f041cb54ff4cb02ae",
+      "toolOutputsSha256": "5981fa4156981422d54931e9d0bc2f123c8bc0f8afb6b0ec8af4d15d38ae144b"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-native",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "native",
+      "status": "completed",
+      "startedAt": "2026-11-06T22:11:16.338Z",
+      "finishedAt": "2026-11-06T22:13:20.253Z",
+      "fixtureSetupMs": 19024.15179100004,
+      "providerSetupMs": 0.002582999994046986,
+      "elapsedMs": 123914.04079099989,
+      "teardownMs": 0.29500000015832484,
+      "gradingMs": 3932.9118339999113,
+      "exitCode": 0,
+      "timedOut": false,
+      "processGroupStopped": true,
+      "providerStopped": true,
+      "correct": false,
+      "capture": {
+        "complete": true,
+        "issues": [],
+        "startupWarnings": [
+          {
+            "line": 2,
+            "kind": "unstable-features",
+            "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+          }
+        ],
+        "turnStarts": 1,
+        "turnCompletions": 1,
+        "duplicateActions": 0,
+        "duplicateCompletions": 0,
+        "failedTurn": false
+      },
+      "usage": {
+        "inputTokens": 329318,
+        "cachedInputTokens": 299008,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 5405,
+        "reasoningOutputTokens": 1375,
+        "totalTokens": 334723,
+        "uncachedInputTokens": 30310
+      },
+      "counts": {
+        "shellCalls": 9,
+        "mcpCalls": 0,
+        "mcpSucceeded": 0,
+        "mcpFailed": 0,
+        "fileEdits": 0,
+        "grepShellCalls": 4,
+        "contentSearchShellCalls": 3,
+        "fileListingShellCalls": 2,
+        "ambiguousSearchShellCalls": 0
+      },
+      "fixtureSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "preparedSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "promptSha256": "908ebe75b0d40c50b076990cbfa32b5e1903dd80a2325b4703a6364617bffb8a",
+      "recordingError": null,
+      "rawSha256": "7a736e998d64e46c4b77feabaf71e55388c002af49ddb62ccb175583590e21b8",
+      "nativeValidation": null,
+      "providerCallObserved": false,
+      "providerUsed": null,
+      "workflowReviewed": null,
+      "evidenceSha256": "8c39cae463edb5d3c598f39b622ffcfc63c11a69191b349dd368f94a785ea344",
+      "toolOutputsSha256": "a89e1ced8950b53b36af28a914e9befeaaf76a6e0477859ff8099593b1c71b2c"
+    }
+  ],
+  "preparationAttempts": [
+    {
+      "id": "pnpm-glob-migration-r1-native",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T21:55:07.585Z",
+      "providerSetupMs": 0.0014159999991534278,
+      "finishedAt": "2026-11-06T21:55:55.751Z"
+    },
+    {
+      "id": "pnpm-glob-migration-r1-typelatch",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T21:57:45.071Z",
+      "providerSetupMs": 0.00229199999012053,
+      "finishedAt": "2026-11-06T21:58:34.434Z"
+    },
+    {
+      "id": "pnpm-glob-migration-r1-competitor",
+      "task": "pnpm-glob-migration",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T22:00:44.328Z",
+      "providerSetupMs": 3.215582999982871,
+      "finishedAt": "2026-11-06T22:01:33.120Z"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-typelatch",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "typelatch",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T22:03:25.822Z",
+      "providerSetupMs": 0.0027080000145360827,
+      "finishedAt": "2026-11-06T22:04:07.076Z"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-competitor",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "competitor",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T22:06:55.334Z",
+      "providerSetupMs": 2.2736250000307336,
+      "finishedAt": "2026-11-06T22:07:38.159Z"
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-native",
+      "task": "pnpm-parser-impact-development",
+      "repeat": 1,
+      "arm": "native",
+      "status": "ready",
+      "stage": "provider-setup",
+      "startedAt": "2026-11-06T22:10:32.219Z",
+      "providerSetupMs": 0.002582999994046986,
+      "finishedAt": "2026-11-06T22:11:16.186Z"
+    }
+  ],
+  "machine": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "nodeVersion": "v22.23.1",
+    "processor": "Apple M1 Max",
+    "logicalProcessors": 10,
+    "memoryBytes": 34359738368
+  },
+  "updatedAt": "2026-11-06T22:13:46.796Z",
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "typelatch": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%.",
+            "native/totalTokens: a repetition did not improve.",
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "native/chargedTimeMs: a repetition did not improve.",
+            "competitor/totalTokens: aggregate or median savings below 20%.",
+            "competitor/totalTokens: a repetition did not improve.",
+            "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+            "competitor/chargedTimeMs: a repetition did not improve.",
+            "Every candidate result must pass the independent grader.",
+            "Independent workflow review is pending or failed.",
+            "A candidate session did not use its task relevant provider.",
+            "Candidate evidence was not independently judged usable in every session.",
+            "A Serena session did not use its task relevant provider.",
+            "Development outcomes cannot establish a held-out edge.",
+            "Each claimed category needs two distinct held-out tasks.",
+            "Two repetitions are required."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 612385,
+                  "candidate": 801805,
+                  "aggregateReductionPercent": -30.931521836753024,
+                  "medianPairedReductionPercent": -30.65769485806593,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 612385,
+                      "candidate": 801805,
+                      "reductionPercent": -30.931521836753024
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 277662,
+                      "candidate": 354627,
+                      "reductionPercent": -27.71895325971865
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 334723,
+                      "candidate": 447178,
+                      "reductionPercent": -33.596436456413215
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 186857.0476649999,
+                  "candidate": 227360.11037399998,
+                  "aggregateReductionPercent": -21.675962033615438,
+                  "medianPairedReductionPercent": -25.7676531656806,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 186857.0476649999,
+                      "candidate": 227360.11037399998,
+                      "reductionPercent": -21.675962033615438
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 62943.004291000005,
+                      "candidate": 87054.832,
+                      "reductionPercent": -38.307398861238745
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 123914.04337399988,
+                      "candidate": 140305.278374,
+                      "reductionPercent": -13.22790747012245
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-glob-migration",
+                    "control": 1,
+                    "candidate": 1
+                  },
+                  {
+                    "task": "pnpm-parser-impact-development",
+                    "control": 0,
+                    "candidate": 0
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 700235,
+                  "candidate": 801805,
+                  "aggregateReductionPercent": -14.505130420501688,
+                  "medianPairedReductionPercent": -18.250438180873125,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 700235,
+                      "candidate": 801805,
+                      "reductionPercent": -14.505130420501688
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 265241,
+                      "candidate": 354627,
+                      "reductionPercent": -33.699918187610514
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 434994,
+                      "candidate": 447178,
+                      "reductionPercent": -2.8009581741357352
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 217218.58754100004,
+                  "candidate": 227360.11037399998,
+                  "aggregateReductionPercent": -4.668809860061226,
+                  "medianPairedReductionPercent": -9.840832353116008,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 217218.58754100004,
+                      "candidate": 227360.11037399998,
+                      "reductionPercent": -4.668809860061226
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 69987.989291,
+                      "candidate": 87054.832,
+                      "reductionPercent": -24.385387952836464
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 147230.59825000004,
+                      "candidate": 140305.278374,
+                      "reductionPercent": 4.703723246604447
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-glob-migration",
+                    "control": 1,
+                    "candidate": 1
+                  },
+                  {
+                    "task": "pnpm-parser-impact-development",
+                    "control": 1,
+                    "candidate": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "migration": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "competitor/chargedTimeMs: a repetition did not improve.",
+              "Independent workflow review is pending or failed.",
+              "A candidate session did not use its task relevant provider.",
+              "Candidate evidence was not independently judged usable in every session.",
+              "A Serena session did not use its task relevant provider.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 277662,
+                    "candidate": 354627,
+                    "aggregateReductionPercent": -27.71895325971865,
+                    "medianPairedReductionPercent": -27.71895325971865,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 277662,
+                        "candidate": 354627,
+                        "reductionPercent": -27.71895325971865
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 277662,
+                        "candidate": 354627,
+                        "reductionPercent": -27.71895325971865
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 62943.004291000005,
+                    "candidate": 87054.832,
+                    "aggregateReductionPercent": -38.307398861238745,
+                    "medianPairedReductionPercent": -38.307398861238745,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 62943.004291000005,
+                        "candidate": 87054.832,
+                        "reductionPercent": -38.307398861238745
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 62943.004291000005,
+                        "candidate": 87054.832,
+                        "reductionPercent": -38.307398861238745
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 265241,
+                    "candidate": 354627,
+                    "aggregateReductionPercent": -33.699918187610514,
+                    "medianPairedReductionPercent": -33.699918187610514,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 265241,
+                        "candidate": 354627,
+                        "reductionPercent": -33.699918187610514
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 265241,
+                        "candidate": 354627,
+                        "reductionPercent": -33.699918187610514
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 69987.989291,
+                    "candidate": 87054.832,
+                    "aggregateReductionPercent": -24.385387952836464,
+                    "medianPairedReductionPercent": -24.385387952836464,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 69987.989291,
+                        "candidate": 87054.832,
+                        "reductionPercent": -24.385387952836464
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 69987.989291,
+                        "candidate": 87054.832,
+                        "reductionPercent": -24.385387952836464
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "impact": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "Every candidate result must pass the independent grader.",
+              "Independent workflow review is pending or failed.",
+              "A candidate session did not use its task relevant provider.",
+              "Candidate evidence was not independently judged usable in every session.",
+              "A Serena session did not use its task relevant provider.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 334723,
+                    "candidate": 447178,
+                    "aggregateReductionPercent": -33.596436456413215,
+                    "medianPairedReductionPercent": -33.596436456413215,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 334723,
+                        "candidate": 447178,
+                        "reductionPercent": -33.596436456413215
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 334723,
+                        "candidate": 447178,
+                        "reductionPercent": -33.596436456413215
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 123914.04337399988,
+                    "candidate": 140305.278374,
+                    "aggregateReductionPercent": -13.22790747012245,
+                    "medianPairedReductionPercent": -13.22790747012245,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 123914.04337399988,
+                        "candidate": 140305.278374,
+                        "reductionPercent": -13.22790747012245
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 123914.04337399988,
+                        "candidate": 140305.278374,
+                        "reductionPercent": -13.22790747012245
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 0,
+                  "candidate": 0,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "control": 0,
+                      "candidate": 0
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 434994,
+                    "candidate": 447178,
+                    "aggregateReductionPercent": -2.8009581741357352,
+                    "medianPairedReductionPercent": -2.8009581741357352,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 434994,
+                        "candidate": 447178,
+                        "reductionPercent": -2.8009581741357352
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 434994,
+                        "candidate": 447178,
+                        "reductionPercent": -2.8009581741357352
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 147230.59825000004,
+                    "candidate": 140305.278374,
+                    "aggregateReductionPercent": 4.703723246604447,
+                    "medianPairedReductionPercent": 4.703723246604447,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 147230.59825000004,
+                        "candidate": 140305.278374,
+                        "reductionPercent": 4.703723246604447
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 147230.59825000004,
+                        "candidate": 140305.278374,
+                        "reductionPercent": 4.703723246604447
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 0,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "control": 1,
+                      "candidate": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "finishedAt": "2026-11-06T22:13:46.796Z"
+}

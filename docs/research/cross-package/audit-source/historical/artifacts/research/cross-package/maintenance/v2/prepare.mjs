@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {cpSync,existsSync,mkdirSync,readFileSync,writeFileSync,constants} from 'node:fs';
+import {join,resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import {inventoryTree} from '../../../../../scripts/paired-agent-integrity.mjs';
+const here=import.meta.dirname,prior=resolve(here,'../development-001'),fixture=join(here,'fixture'),workspace=join(fixture,'workspace'),sha=x=>createHash('sha256').update(x).digest('hex');
+assert.equal(existsSync(workspace),false,'Preserve earlier fixture');mkdirSync(fixture,{recursive:true});mkdirSync(join(here,'private'),{recursive:true});
+const start=performance.now();cpSync(join(prior,'workspace'),workspace,{recursive:true,dereference:false,verbatimSymlinks:true,preserveTimestamps:true,mode:constants.COPYFILE_FICLONE_FORCE});
+const before=JSON.parse(readFileSync(join(prior,'initial-manifest.json')));assert.equal(inventoryTree(workspace).sha256,before.sha256);
+const changedPath='.typelatch-benchmark/check-runtime.mjs';writeFileSync(join(workspace,changedPath),readFileSync(join(here,'public-check.mjs')));
+const after=inventoryTree(workspace),a=new Map(before.entries.filter(x=>x.kind!=='directory').map(x=>[x.path,x])),b=new Map(after.entries.filter(x=>x.kind!=='directory').map(x=>[x.path,x]));
+const changed=[...new Set([...a.keys(),...b.keys()])].filter(path=>JSON.stringify(a.get(path))!==JSON.stringify(b.get(path)));assert.deepEqual(changed,[changedPath]);
+const trackingBefore=JSON.parse(readFileSync(join(prior,'source-tracking-manifest.json'))),paths=new Set(trackingBefore.entries.map(x=>x.path)),entries=after.entries.filter(x=>paths.has(x.path));assert.equal(entries.length,paths.size);
+writeFileSync(join(fixture,'initial-manifest.json'),JSON.stringify(after,null,2)+'\n');writeFileSync(join(fixture,'source-tracking-manifest.json'),JSON.stringify({root:workspace,entries,sha256:sha(JSON.stringify(entries))},null,2)+'\n');
+writeFileSync(join(fixture,'preparation.json'),JSON.stringify({schemaVersion:1,startedFrom:prior,priorFixtureSha256:before.sha256,fixtureSha256:after.sha256,elapsedMs:performance.now()-start,changedPaths:changed,reason:'V1 public Verdaccio listen is prohibited by the actual workspace-write agent sandbox. V2 public validation retains native compilation and the same nine API/filesystem cases; private grading retains all22 API cases and exact upstream registry integration. No permissions are broadened.'},null,2)+'\n');
+console.log(JSON.stringify({workspace,fixtureSha256:after.sha256,changedPaths:changed}));

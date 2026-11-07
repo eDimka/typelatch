@@ -1,0 +1,180 @@
+{
+  "status": "reference-output-leak-confirmed-before-first-clean",
+  "initialManifestSha256": "b53894548ff6dca4435243a5e395f9199442135dbfbe6d4fb4b983173077d20f",
+  "targets": [
+    "cache/api",
+    "fs/find-packages",
+    "patching/plugin-commands-patching",
+    "pkg-manager/package-bins",
+    "releasing/plugin-commands-publishing"
+  ],
+  "rows": [
+    {
+      "source": "cache/api/src/cacheList.ts",
+      "sourceSha256": "1f2565c2b63668369d6520d250ae4d8f95d127ac6cf438abd0086fdafb346f2b",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "cache/api/lib/cacheList.js",
+          "exists": true,
+          "sha256": "a53095e07ed8a74669c2b8f7a2d05087b971fc87c9830bdfbf323ea917d7927b"
+        },
+        {
+          "path": "cache/api/lib/cacheList.js.map",
+          "exists": true,
+          "sha256": "39647faee1776243b0f30e8842753c9eeec6823776033c74df1c183c52fa718f"
+        },
+        {
+          "path": "cache/api/lib/cacheList.d.ts",
+          "exists": true,
+          "sha256": "a288030b8395449600895b0d0edaaafe470a42aee6954e6017060aec61d065f0"
+        }
+      ]
+    },
+    {
+      "source": "cache/api/src/cacheView.ts",
+      "sourceSha256": "2d7baa297e099a2efb9481c8585351c564410e1daa4973e505f027aef9bdabdd",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "cache/api/lib/cacheView.js",
+          "exists": true,
+          "sha256": "b7ffa2197a3221b172099a6e7901099ed75e49f5a0a15e415f7a5f92766398c6"
+        },
+        {
+          "path": "cache/api/lib/cacheView.js.map",
+          "exists": true,
+          "sha256": "52ed94e8901b32437d53a0d62aaa25131b74b9c0c4d919d5f08793ded225e18b"
+        },
+        {
+          "path": "cache/api/lib/cacheView.d.ts",
+          "exists": true,
+          "sha256": "fee85246da6e0efe2da7d8ec7766548a6137a244306624c0ed7fc504c0621ac0"
+        }
+      ]
+    },
+    {
+      "source": "fs/find-packages/src/index.ts",
+      "sourceSha256": "528cd6e7e96ebd130b36c3ff7bdb08b124fda1ee52f69cefd16339f1ae48b8dd",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "fs/find-packages/lib/index.js",
+          "exists": true,
+          "sha256": "4ae3dbf789360a2683e8691ca3eaf1efc4c4970e1a15c9cf6de688db65a59fbc"
+        },
+        {
+          "path": "fs/find-packages/lib/index.js.map",
+          "exists": true,
+          "sha256": "c9534f8e6135c4a242e57b8661e2af76f4cef8c02d8abf7840b01539a977159f"
+        },
+        {
+          "path": "fs/find-packages/lib/index.d.ts",
+          "exists": true,
+          "sha256": "a4918a0b9a80bbe6a38bafe78346133b4df11c57827e9b1980c2397986c6d473"
+        }
+      ]
+    },
+    {
+      "source": "patching/plugin-commands-patching/src/patchCommit.ts",
+      "sourceSha256": "fd29b95aa19ccd774f0253c34f375d43ba93bc12a4de86119975fcc6bd3d31b0",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "patching/plugin-commands-patching/lib/patchCommit.js",
+          "exists": true,
+          "sha256": "3c541e6204c965518040706992b1ba82cb11857e7387a7ea92c993bd2bf0fc56"
+        },
+        {
+          "path": "patching/plugin-commands-patching/lib/patchCommit.js.map",
+          "exists": true,
+          "sha256": "0166a3cce3b14c781dca1f9158674feaad07bdec9c3d11beda20849efe936332"
+        },
+        {
+          "path": "patching/plugin-commands-patching/lib/patchCommit.d.ts",
+          "exists": true,
+          "sha256": "b6f2408e45d9ce92fd3ea9fe6c6799a76be1b718e0989be004203c2f8f12fdc7"
+        }
+      ]
+    },
+    {
+      "source": "pkg-manager/package-bins/src/index.ts",
+      "sourceSha256": "f40113305b60715971b68cdfbaa33c0bc1c5d146809d8e6a5e273ea56238bef4",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "pkg-manager/package-bins/lib/index.js",
+          "exists": true,
+          "sha256": "ca4a83ec19ff11f9981bfe250fb3f652bb667dba0649345b064eac4b247d2581"
+        },
+        {
+          "path": "pkg-manager/package-bins/lib/index.js.map",
+          "exists": true,
+          "sha256": "e0bc470871cce18bea7dd5d045af06474f2ac94ef7a8592a68607ffa568581e9"
+        },
+        {
+          "path": "pkg-manager/package-bins/lib/index.d.ts",
+          "exists": true,
+          "sha256": "0c305cd8a14e4be311c4a0d464b980ebde1c963b1ac44f3f8283d44ebfa0e51e"
+        }
+      ]
+    },
+    {
+      "source": "releasing/plugin-commands-publishing/src/pack.ts",
+      "sourceSha256": "7e179d302ae0feefa08cce4181cc2b52ebbae2a83486e2a75e3b52309b11ed79",
+      "sourceUsesFastGlob": true,
+      "compiledUsesTinyglobby": true,
+      "compiledHasExpansionGuard": true,
+      "artifacts": [
+        {
+          "path": "releasing/plugin-commands-publishing/lib/pack.js",
+          "exists": true,
+          "sha256": "510fae5bf96cceac6a5c93dd5b95b56468547103ec7b97f0d2a4179c79b85e98"
+        },
+        {
+          "path": "releasing/plugin-commands-publishing/lib/pack.js.map",
+          "exists": true,
+          "sha256": "cc8579ce9b2dfcced0b3e2dd0f1c203d24293af7d7e255a9df864ac75fd1d1ae"
+        },
+        {
+          "path": "releasing/plugin-commands-publishing/lib/pack.d.ts",
+          "exists": true,
+          "sha256": "8806b4d85448efc11c3b0ac507a756225a923266db925071c39d57a5eff87aa4"
+        }
+      ]
+    }
+  ],
+  "buildInfo": [
+    {
+      "path": "cache/api/tsconfig.tsbuildinfo",
+      "exists": true
+    },
+    {
+      "path": "fs/find-packages/tsconfig.tsbuildinfo",
+      "exists": true
+    },
+    {
+      "path": "patching/plugin-commands-patching/tsconfig.tsbuildinfo",
+      "exists": true
+    },
+    {
+      "path": "pkg-manager/package-bins/tsconfig.tsbuildinfo",
+      "exists": true
+    },
+    {
+      "path": "releasing/plugin-commands-publishing/tsconfig.tsbuildinfo",
+      "exists": true
+    }
+  ],
+  "recommendation": "Move all five generated lib directories and tsconfig.tsbuildinfo files to retained external evidence before freezing and regenerate the initial inventory. Do not depend on first-validation ordering to hide the reference implementation."
+}

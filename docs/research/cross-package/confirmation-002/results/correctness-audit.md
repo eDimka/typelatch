@@ -1,0 +1,3 @@
+All 16 workflows conform to the frozen analysis-only instructions. Every source quote and actual scripts-property citation was checked against frozen bytes. Eleven answers strictly pass. Four failures are caused only by the documented exclusion occurrence collision. Native runtime repeat 1 additionally invents an invalid chain through an external package development dependency and remains incorrect. Original grades and gates are unchanged.
+
+These are two static impact tasks in the same Vue 3.5.13 corpus. They do not establish successful code migrations, general monorepo superiority or cross-repository replication. A separate versioned occurrence assessment will evaluate the contract defect uniformly without replacing these results.

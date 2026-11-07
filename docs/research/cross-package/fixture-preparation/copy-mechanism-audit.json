@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "nodeVersion": "v22.23.1",
+  "failure": {
+    "code": "ENOSYS",
+    "source": "vue-source/.git-blame-ignore-revs",
+    "filteredDestination": "type/workspace/.git-blame-ignore-revs",
+    "standaloneForceCloneFailures": 3
+  },
+  "finding": "The installed Node directory fast path does not forward mode. The earlier no-filter reproduction requested COPYFILE_FICLONE_FORCE but that option alone is not proof of copy-on-write. Filtered copies reach copyFileSync and fail ENOSYS with that flag.",
+  "installedNodeSourceSha256": "7ed29fe024143277a0458edc0dcecc698ac750bfa4677d059cf3e9b8ad99a0c8",
+  "installedNodeExcerpt": "function copyDir(src, dest, opts, mkDir, srcMode) {\n  if (!opts.filter) {\n    // The caller didn't provide a js filter function, in this case\n    // we can run the whole function faster in C++\n    // TODO(dario-piotrowicz): look into making cpSyncCopyDir also accept the potential filter function\n    return fsBinding.cpSyncCopyDir(src, dest,\n                                   opts.force,\n                                   opts.dereference,\n                                   opts.errorOnExist,\n                                   opts.verbatimSymlinks,\n                                   opts.preserveTimestamps);\n  }\n\n",
+  "replacement": "macOS clonefile(2) per file/link, CLONE_NOFOLLOW=1, no fallback. Scratch source remained unchanged after clone write; symlink text and file modes matched. Qualification fixtures use this explicit native mechanism.",
+  "sourceDocumentation": "Installed macOS clonefile(2) manual."
+}

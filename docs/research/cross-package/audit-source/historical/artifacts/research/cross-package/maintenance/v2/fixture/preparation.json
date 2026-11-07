@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "startedFrom": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001",
+  "priorFixtureSha256": "698c5116685a1b3acfe522906b885749b12a428b66541564a9effadcdf9325df",
+  "fixtureSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+  "elapsedMs": 15033.989542,
+  "changedPaths": [
+    ".typelatch-benchmark/check-runtime.mjs"
+  ],
+  "reason": "V1 public Verdaccio listen is prohibited by the actual workspace-write agent sandbox. V2 public validation retains native compilation and the same nine API/filesystem cases; private grading retains all22 API cases and exact upstream registry integration. No permissions are broadened."
+}

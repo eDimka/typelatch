@@ -1,0 +1,41 @@
+{
+  "status": "qualified",
+  "kind": "analysis-fixture",
+  "sourceUnchanged": true,
+  "pinnedRevision": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+  "oracle": "Native TypeScript alias identity plus independent installed-manifest graph, matched exactly against native pnpm dependent filter",
+  "truthSha256": "eb016b11c93b720d4f567ebaa1506cd4a5dfbd8b782e1d598892df1c2295d27d",
+  "initialManifestSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+  "answerSchemaSha256": "73523fb2f6e83e73e372f8a353113ba9c93226308a4d049e28017711b65b5728",
+  "goldPassed": true,
+  "agentTrials": 0,
+  "knownLimits": [
+    "Static semantic symbol references are not dynamic execution coverage.",
+    "Package dependency reachability is a conservative review set, not proof of symbol use.",
+    "External applications and computed runtime loading are outside the finite source scope."
+  ],
+  "graderChecks": {
+    "answerCasesPassed": 24,
+    "fullCopyIntegrityPassed": true,
+    "peerReview": "Two evidence-boundary issues reproduced and corrected before provider freeze",
+    "toolCapability": "All ten runtime consumer files are returned by native tsserver and Serena after supported multi-project activation; cold single-project results are partial"
+  },
+  "gradingInputs": [
+    {
+      "path": "grader.mjs",
+      "sha256": "150e7e5be29eeea17406627bfb8c26aa121aec84a773f0ae4f864671d92b060a"
+    },
+    {
+      "path": "../grade-answer.mjs",
+      "sha256": "4a70157eca4988f9732bebc17f69fad5be120ded5a5d1e57fde9cc61f8fa06f5"
+    },
+    {
+      "path": "../answer-schema.mjs",
+      "sha256": "9cc27c978d75e8cf1a4e75faa3d2a9887a1afdc01ea8863ac623fb926682eb7b"
+    },
+    {
+      "path": "truth.json",
+      "sha256": "eb016b11c93b720d4f567ebaa1506cd4a5dfbd8b782e1d598892df1c2295d27d"
+    }
+  ]
+}

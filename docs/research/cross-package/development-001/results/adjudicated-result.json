@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "5a28e31d199908eca4bfcbce7f657eb3e922cbe07033414965b5cff715ae77e7",
+  "protocolSha256": "2ed3eddbae80b1d1dffa86859eaab9dbbd3bbbcb3fc0994fd6d33264e54b4d8a",
+  "auditSha256": "231423a5b05edb29022062d92d494af9ca2206efe2eef36a7f3d58ff4a0dc0ee",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "typelatch": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%.",
+            "native/totalTokens: a repetition did not improve.",
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "native/chargedTimeMs: a repetition did not improve.",
+            "competitor/totalTokens: aggregate or median savings below 20%.",
+            "competitor/totalTokens: a repetition did not improve.",
+            "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+            "competitor/chargedTimeMs: a repetition did not improve.",
+            "Every candidate result must pass the independent grader.",
+            "Development outcomes cannot establish a held-out edge.",
+            "Each claimed category needs two distinct held-out tasks.",
+            "Two repetitions are required."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 612385,
+                  "candidate": 801805,
+                  "aggregateReductionPercent": -30.931521836753024,
+                  "medianPairedReductionPercent": -30.65769485806593,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 612385,
+                      "candidate": 801805,
+                      "reductionPercent": -30.931521836753024
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 277662,
+                      "candidate": 354627,
+                      "reductionPercent": -27.71895325971865
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 334723,
+                      "candidate": 447178,
+                      "reductionPercent": -33.596436456413215
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 186857.0476649999,
+                  "candidate": 227360.11037399998,
+                  "aggregateReductionPercent": -21.675962033615438,
+                  "medianPairedReductionPercent": -25.7676531656806,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 186857.0476649999,
+                      "candidate": 227360.11037399998,
+                      "reductionPercent": -21.675962033615438
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 62943.004291000005,
+                      "candidate": 87054.832,
+                      "reductionPercent": -38.307398861238745
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 123914.04337399988,
+                      "candidate": 140305.278374,
+                      "reductionPercent": -13.22790747012245
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-glob-migration",
+                    "control": 1,
+                    "candidate": 1
+                  },
+                  {
+                    "task": "pnpm-parser-impact-development",
+                    "control": 0,
+                    "candidate": 0
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 700235,
+                  "candidate": 801805,
+                  "aggregateReductionPercent": -14.505130420501688,
+                  "medianPairedReductionPercent": -18.250438180873125,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 700235,
+                      "candidate": 801805,
+                      "reductionPercent": -14.505130420501688
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 265241,
+                      "candidate": 354627,
+                      "reductionPercent": -33.699918187610514
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 434994,
+                      "candidate": 447178,
+                      "reductionPercent": -2.8009581741357352
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 217218.58754100004,
+                  "candidate": 227360.11037399998,
+                  "aggregateReductionPercent": -4.668809860061226,
+                  "medianPairedReductionPercent": -9.840832353116008,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 217218.58754100004,
+                      "candidate": 227360.11037399998,
+                      "reductionPercent": -4.668809860061226
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "repeat": 1,
+                      "control": 69987.989291,
+                      "candidate": 87054.832,
+                      "reductionPercent": -24.385387952836464
+                    },
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "repeat": 1,
+                      "control": 147230.59825000004,
+                      "candidate": 140305.278374,
+                      "reductionPercent": 4.703723246604447
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-glob-migration",
+                    "control": 1,
+                    "candidate": 1
+                  },
+                  {
+                    "task": "pnpm-parser-impact-development",
+                    "control": 1,
+                    "candidate": 0
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "migration": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "competitor/chargedTimeMs: a repetition did not improve.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 277662,
+                    "candidate": 354627,
+                    "aggregateReductionPercent": -27.71895325971865,
+                    "medianPairedReductionPercent": -27.71895325971865,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 277662,
+                        "candidate": 354627,
+                        "reductionPercent": -27.71895325971865
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 277662,
+                        "candidate": 354627,
+                        "reductionPercent": -27.71895325971865
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 62943.004291000005,
+                    "candidate": 87054.832,
+                    "aggregateReductionPercent": -38.307398861238745,
+                    "medianPairedReductionPercent": -38.307398861238745,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 62943.004291000005,
+                        "candidate": 87054.832,
+                        "reductionPercent": -38.307398861238745
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 62943.004291000005,
+                        "candidate": 87054.832,
+                        "reductionPercent": -38.307398861238745
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 265241,
+                    "candidate": 354627,
+                    "aggregateReductionPercent": -33.699918187610514,
+                    "medianPairedReductionPercent": -33.699918187610514,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 265241,
+                        "candidate": 354627,
+                        "reductionPercent": -33.699918187610514
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 265241,
+                        "candidate": 354627,
+                        "reductionPercent": -33.699918187610514
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 69987.989291,
+                    "candidate": 87054.832,
+                    "aggregateReductionPercent": -24.385387952836464,
+                    "medianPairedReductionPercent": -24.385387952836464,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 69987.989291,
+                        "candidate": 87054.832,
+                        "reductionPercent": -24.385387952836464
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-glob-migration",
+                        "repeat": 1,
+                        "control": 69987.989291,
+                        "candidate": 87054.832,
+                        "reductionPercent": -24.385387952836464
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-glob-migration",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "impact": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "Every candidate result must pass the independent grader.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 334723,
+                    "candidate": 447178,
+                    "aggregateReductionPercent": -33.596436456413215,
+                    "medianPairedReductionPercent": -33.596436456413215,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 334723,
+                        "candidate": 447178,
+                        "reductionPercent": -33.596436456413215
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 334723,
+                        "candidate": 447178,
+                        "reductionPercent": -33.596436456413215
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 123914.04337399988,
+                    "candidate": 140305.278374,
+                    "aggregateReductionPercent": -13.22790747012245,
+                    "medianPairedReductionPercent": -13.22790747012245,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 123914.04337399988,
+                        "candidate": 140305.278374,
+                        "reductionPercent": -13.22790747012245
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 123914.04337399988,
+                        "candidate": 140305.278374,
+                        "reductionPercent": -13.22790747012245
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 0,
+                  "candidate": 0,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "control": 0,
+                      "candidate": 0
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 434994,
+                    "candidate": 447178,
+                    "aggregateReductionPercent": -2.8009581741357352,
+                    "medianPairedReductionPercent": -2.8009581741357352,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 434994,
+                        "candidate": 447178,
+                        "reductionPercent": -2.8009581741357352
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 434994,
+                        "candidate": 447178,
+                        "reductionPercent": -2.8009581741357352
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 147230.59825000004,
+                    "candidate": 140305.278374,
+                    "aggregateReductionPercent": 4.703723246604447,
+                    "medianPairedReductionPercent": 4.703723246604447,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 147230.59825000004,
+                        "candidate": 140305.278374,
+                        "reductionPercent": 4.703723246604447
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-parser-impact-development",
+                        "repeat": 1,
+                        "control": 147230.59825000004,
+                        "candidate": 140305.278374,
+                        "reductionPercent": 4.703723246604447
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 0,
+                  "perTask": [
+                    {
+                      "task": "pnpm-parser-impact-development",
+                      "control": 1,
+                      "candidate": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "review": [
+    {
+      "id": "pnpm-glob-migration-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "pnpm-glob-migration-r1-typelatch",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-glob-migration-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-typelatch",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-parser-impact-development-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    }
+  ]
+}

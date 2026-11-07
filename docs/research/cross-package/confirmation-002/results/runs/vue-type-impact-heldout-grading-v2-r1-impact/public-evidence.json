@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+    "task": "vue-type-impact-heldout-grading-v2",
+    "repeat": 1,
+    "arm": "impact",
+    "status": "completed",
+    "startedAt": "2026-11-06T23:59:28.342Z",
+    "finishedAt": "2026-11-07T00:00:46.133Z",
+    "fixtureSetupMs": 7212.670167000004,
+    "fixtureCopy": {
+      "receipt": "fixture-copy.json",
+      "sha256": "8cf4b1dad43945de448bcd8ecbe0293044ba07d2d44eab0785144feba6275f3c",
+      "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+      "pythonSha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+      "elapsedMs": 3577.6630000000005,
+      "clonedFiles": 18328,
+      "clonedSymlinks": 1576,
+      "excludedGit": []
+    },
+    "providerSetupMs": 0.002749999985098839,
+    "elapsedMs": 77789.91229100002,
+    "teardownMs": 0.14070799999171868,
+    "gradingMs": 1460.7349169999943,
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": true,
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": 209290,
+      "cachedInputTokens": 194176,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 2949,
+      "reasoningOutputTokens": 498,
+      "totalTokens": 212239,
+      "uncachedInputTokens": 15114
+    },
+    "counts": {
+      "shellCalls": 7,
+      "mcpCalls": 1,
+      "mcpSucceeded": 1,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 4,
+      "contentSearchShellCalls": 3,
+      "fileListingShellCalls": 2,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+    "preparedSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+    "promptSha256": "1f252cae8ffa20868c0f5888739e5b7f82cd20818b78a91a9ac9140b5f8aed05",
+    "recordingError": null,
+    "rawSha256": "e8f0af6e6bc33daaa57623799ec428240716e9ded1fce18948333d7c3eb70198",
+    "nativeValidation": null,
+    "providerCallObserved": true,
+    "providerUsed": null,
+    "workflowReviewed": null
+  },
+  "prompt": "Prepare a change impact report for Vue's public ShallowRef type contract. We propose removing its separate setter type parameter so the writable type must equal the readable type. Do not implement the change. Determine which existing internal consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of ShallowRef outside its defining package, not a proven runtime behavior change. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real native package aliases and public barrels without equating unrelated same-spelling display text with a type reference.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed type. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. Include a source-supported exclusion for same-spelling display text. Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+  "actions": [
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "server": "impact",
+      "tool": "package_evidence",
+      "arguments": {
+        "package": "@vue/reactivity",
+        "exports": [
+          "ShallowRef"
+        ],
+        "maxBytes": 60000
+      },
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 8484,
+      "resultSha256": "b5a1e7abc1a42ef2cccacf02598a76cd216f2994de89765b8786cd2580efc85d",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 7462.750625000015,
+      "completedMs": 10809.341750000021
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg --files -g '*tsconfig*' -g 'package.json' -g '*lock*' -g '*workspace*' -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!pnpm-lock.yaml'\"'\"",
+      "outputBytes": 1234,
+      "outputSha256": "5de7829031262f68ec7a66b2602f096db60b343edb9eec04db253f5c5ee11842",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": false,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 14846.469250000024,
+      "completedMs": 14846.469250000024
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "command": "/bin/zsh -c \"rg -n 'ShallowRef' packages packages-private tsconfig*; cat tsconfig.json; cat package.json; cat pnpm-workspace.yaml\"",
+      "outputBytes": 9259,
+      "outputSha256": "e58c2fc9c4a37865da07ab27a8ebb5776aea2b2f9e4b0f9af0e09457fb747937",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 14917.695958000026,
+      "completedMs": 14917.695958000026
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs'; import path from 'node:path'; import {createRequire} from 'node:module'; const req=createRequire(import.meta.url);\nfor(const base of ['packages','packages-private']) for(const dir of fs.readdirSync(base)){let p=\"'`${base}/${dir}/package.json`; if(!fs.existsSync(p))continue;const j=JSON.parse(fs.readFileSync(p));console.log(JSON.stringify({file:p,name:j.name,version:j.version,scripts:j.scripts,dependencies:j.dependencies,devDependencies:j.devDependencies,optionalDependencies:j.optionalDependencies,peerDependencies:j.peerDependencies}));}\nNODE\ncat packages-private/tsconfig.json packages-private/vite-debug/tsconfig.json packages-private/dts-built-test/tsconfig.json packages-private/dts-test/tsconfig.test.json tsconfig.build.json\nnl -ba packages/runtime-core/src/customFormatter.ts | sed -n '\"'180,202p'\nnl -ba packages/runtime-core/src/index.ts | sed -n '190,218p'\"",
+      "outputBytes": 6656,
+      "outputSha256": "c07d2c9fc4ebee86a6d25a5038d17da56bfcf0fee9812520f173f41dc27b0ec9",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 22069.444875000016,
+      "completedMs": 22069.444875000016
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import path from 'node:path';\nconst root=process.cwd(),pkgs=[];for(const base of ['packages','packages-private'])for(const dir of fs.readdirSync(base)){const p=\"'`${base}/${dir}`;if(fs.existsSync(`${p}/package.json`))pkgs.push({dir:p,...JSON.parse(fs.readFileSync(`${p}/package.json`))});}\nconst byDir=new Map(pkgs.map(p=>[fs.realpathSync(p.dir),p]));const edges=new Map();\nfor(const p of pkgs){const e=[];for(const [n,range]of Object.entries({...p.dependencies,...p.devDependencies,...p.optionalDependencies,...p.peerDependencies})){let d=path.resolve(p.dir),found;while(d.startsWith(root)){const candidate=path.join(d,'\"'node_modules',n,'package.json');if(fs.existsSync(candidate)){found=candidate;break;}if(d===root)break;d=path.dirname(d);}if(\"'!found)continue;const real=fs.realpathSync(path.dirname(found)),ws=byDir.get(real);if(ws)e.push(ws.name);if(n==='\"'vue'||n==='@vue/reactivity')console.log(JSON.stringify({from:p.name,dependency:n,range,installed:JSON.parse(fs.readFileSync(found)).version,workspace:ws?.name??false,path:path.relative(root,real)}));}edges.set(p.name,e);}\nfor(const p of pkgs){if(p.name==='@vue/reactivity')continue;const q=[[p.name]],seen=new Set();while(q.length){const chain=q.shift(),n=chain.at(-1);if(n==='@vue/reactivity'){console.log('CHAIN '+JSON.stringify(chain.map(n=>{const p=pkgs.find(p=>p.name===n);return p.version?\"'`${n}@${p.version}`:n})));break;}if(seen.has(n))continue;seen.add(n);for(const dep of edges.get(n)??[])q.push([...chain,dep]);}}\nNODE\nnl -ba packages-private/dts-built-test/src/index.ts\nnl -ba packages/runtime-core/src/helpers/useTemplateRef.ts | head -20\nnl -ba packages/reactivity/src/ref.ts | sed -n '\"'60,70p'\nrg -n '\"'^export|ShallowRef'\"' packages/vue-compat/src/index.ts packages/vue-compat/src/esm-index.ts packages/vue-compat/src/esm-runtime.ts packages/reactivity/src/index.ts\nrg -n '\\\"(build|check|test-unit|compile|test|_test)\\\"' package.json packages/reactivity/package.json packages/runtime-core/package.json packages/runtime-dom/package.json packages/runtime-test/package.json packages/vue-compat/package.json packages/vue/package.json\"",
+      "outputBytes": 4734,
+      "outputSha256": "11b50da4b441eebceca786887ebfa4704805eff561777279c5193ac45e5bd3a2",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 37727.001625000004,
+      "completedMs": 37727.001625000004
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import path from 'node:path';import ts from 'typescript';\nconst root=process.cwd(),configs=new Map();let count=0;const scopes=new Map();\nfunction walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}\nfor(const base of ['packages','packages-private'])for(const dir of fs.readdirSync(base)){const pr=path.join(base,dir);if(\"'!fs.existsSync(path.join(pr,'\"'package.json'))||\"'!fs.existsSync(path.join(pr,'\"'src')))continue;for(const f of walk(path.join(pr,'src')).filter(f=>/\\\\.[cm]?[jt]sx?\"'$/.test(f)&&!f.endsWith('\"'.d.ts'))){const config=ts.findConfigFile(path.dirname(f),ts.sys.fileExists);if(\"'!config)continue;if(!configs.has(config)){const raw=ts.readConfigFile(config,ts.sys.readFile);configs.set(config,ts.parseJsonConfigFileContent(raw.config,ts.sys,path.dirname(config)));}const c=configs.get(config);if(c.fileNames.map(x=>path.resolve(x)).includes(path.resolve(f))){count++;scopes.set(f,config);}}}\nconsole.log(JSON.stringify({configuredSourceFiles:count,configs:[...configs.keys()].map(x=>path.relative(root,x))}));\nfor(const f of ['\"'packages/runtime-core/src/helpers/useTemplateRef.ts','packages/runtime-core/src/index.ts','packages/runtime-dom/src/index.ts','packages/runtime-test/src/index.ts','packages/vue-compat/src/esm-index.ts','packages/vue-compat/src/esm-runtime.ts','packages/vue/src/index.ts','packages/vue/src/runtime.ts'])console.log(JSON.stringify({file:f,configured:scopes.has(f)}));\nNODE\"",
+      "outputBytes": 657,
+      "outputSha256": "abc0e4251395de5ae6daa47b900b546db0aaf3f2d50d2c654fe3cd3b2105d672",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 52633.78612500001,
+      "completedMs": 52932.421
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"rg --files packages packages-private | rg '/src/.*(test|spec|\\\\.d\\\\.[cm]?ts)'\"",
+      "outputBytes": 37,
+      "outputSha256": "7d1f9420179b770406119c9fbf7d2c3f64eb1cfc007ae206bc9bca36dc1e14d6",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 55508.779541000025,
+      "completedMs": 55508.779541000025
+    },
+    {
+      "type": "file_change",
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/impact-answer.json",
+          "kind": "add"
+        }
+      ],
+      "startedMs": 69582.72650000002,
+      "completedMs": 69607.35241600001
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';\nconst a=JSON.parse(fs.readFileSync('impact-answer.json','utf8'));\nlet count=0;for(const item of [...a.direct,...a.validationTargets,...a.exclusions]){const e=item.evidence,f=e.file??item.file;const quote=fs.readFileSync(f,'utf8').split('\\\\n').slice(e.startLine-1,e.endLine).join('\\\\n');if(quote\"'!==e.quote||e.endLine-e.startLine>20)throw new Error(`Invalid evidence: ${f}`);count++;}\nconsole.log(JSON.stringify({direct:a.direct.length,packageDependents:a.packageDependents.length,validationTargets:a.validationTargets.length,verifiedQuotes:count}));\nNODE\ngit status --short'",
+      "outputBytes": 100,
+      "outputSha256": "a985ebd59ed9a6cd0164348b6c41c75a403ed928d70e6db44f76a396eeddf7ab",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 74849.16191600001,
+      "completedMs": 74849.16191600001
+    }
+  ],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.impact.command": "$USER_HOME/.hermes/node/bin/node",
+    "mcp_servers.impact.args": [
+      "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs"
+    ],
+    "mcp_servers.impact.cwd": "$WORKSPACE",
+    "mcp_servers.impact.startup_timeout_sec": 60,
+    "mcp_servers.impact.tool_timeout_sec": 180,
+    "mcp_servers.impact.env.TYPELATCH_HOME": "$PROVIDER_STATE/typelatch",
+    "mcp_servers.impact.env.TYPELATCH_USAGE": "off",
+    "mcp_servers.impact.env.TYPELATCH_IMPACT_RUNTIME": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+    "mcp_servers.impact.required": true,
+    "mcp_servers.impact.tools.package_evidence.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": true,
+    "precision": 1,
+    "recall": 1,
+    "identity": true,
+    "direct": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+        "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+        "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+        "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+        "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+        "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+        "packages/vue/src/index.ts|ShallowRef|reexport",
+        "packages/vue/src/runtime.ts|ShallowRef|reexport"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "dependents": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "@vue/compat",
+        "@vue/runtime-core",
+        "@vue/runtime-dom",
+        "@vue/runtime-test",
+        "@vue/server-renderer",
+        "@vue/sfc-playground",
+        "dts-built-test",
+        "dts-test",
+        "vite-debug",
+        "vue"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "targets": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "<root>|build",
+        "<root>|check",
+        "<root>|test-unit"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "exclusions": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0,
+      "evidenceChecks": [
+        {
+          "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+          "passed": true
+        }
+      ]
+    },
+    "evidenceChecks": [
+      {
+        "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+        "passed": true
+      },
+      {
+        "package": "@vue/compat",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-core",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-dom",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-test",
+        "passed": true
+      },
+      {
+        "package": "@vue/server-renderer",
+        "passed": true
+      },
+      {
+        "package": "@vue/sfc-playground",
+        "passed": true
+      },
+      {
+        "package": "dts-built-test",
+        "passed": true
+      },
+      {
+        "package": "dts-test",
+        "passed": true
+      },
+      {
+        "package": "vite-debug",
+        "passed": true
+      },
+      {
+        "package": "vue",
+        "passed": true
+      },
+      {
+        "key": "<root>|build",
+        "passed": true
+      },
+      {
+        "key": "<root>|check",
+        "passed": true
+      },
+      {
+        "key": "<root>|test-unit",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+        "passed": true
+      }
+    ],
+    "uncertainties": true,
+    "falseConfidentNegatives": [],
+    "representation": {
+      "packageLabels": "bare name or exact frozen name@version",
+      "uncertainty": "constrained code/state pairs; no unchecked prose"
+    },
+    "integrity": {
+      "changed": []
+    },
+    "answerPresent": true,
+    "fixtureGitUnchanged": true
+  },
+  "changes": [],
+  "taskArtifacts": [
+    {
+      "path": "impact-answer.json",
+      "sha256": "5c132c4cf70968e278f2ae23575c88f8b06ef13edb2b41c38c491a93471e3a6b",
+      "bytes": 5569,
+      "text": "{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"@vue/reactivity\",\n    \"version\": \"3.5.13\",\n    \"exports\": [\n      \"ShallowRef\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"packages/runtime-core/src/helpers/useTemplateRef.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"type-only\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"import { type ShallowRef, readonly, shallowRef } from '@vue/reactivity'\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/index.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 207,\n        \"endLine\": 207,\n        \"quote\": \"  ShallowRef,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-dom/src/index.ts\",\n      \"package\": \"@vue/runtime-dom\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 306,\n        \"endLine\": 306,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-test/src/index.ts\",\n      \"package\": \"@vue/runtime-test\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 29,\n        \"endLine\": 29,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-index.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-runtime.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/index.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 107,\n        \"endLine\": 107,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/runtime.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"ShallowRef\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 10,\n        \"endLine\": 10,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"@vue/compat@3.5.13\",\n      \"chain\": [\n        \"@vue/compat@3.5.13\",\n        \"vue@3.5.13\",\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-core@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-core@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-dom@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-test@0.0.0\",\n      \"chain\": [\n        \"@vue/runtime-test@0.0.0\",\n        \"@vue/runtime-core@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"@vue/server-renderer@3.5.13\",\n      \"chain\": [\n        \"@vue/server-renderer@3.5.13\",\n        \"vue@3.5.13\",\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"@vue/sfc-playground@0.0.0\",\n      \"chain\": [\n        \"@vue/sfc-playground@0.0.0\",\n        \"vue@3.5.13\",\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"dts-built-test@0.0.0\",\n      \"chain\": [\n        \"dts-built-test@0.0.0\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"dts-test@0.0.0\",\n      \"chain\": [\n        \"dts-test@0.0.0\",\n        \"dts-built-test@0.0.0\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"vite-debug\",\n      \"chain\": [\n        \"vite-debug\",\n        \"vue@3.5.13\",\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    },\n    {\n      \"package\": \"vue@3.5.13\",\n      \"chain\": [\n        \"vue@3.5.13\",\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/reactivity\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"<root>\",\n      \"script\": \"build\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 8,\n        \"endLine\": 8,\n        \"quote\": \"    \\\"build\\\": \\\"node scripts/build.js\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"check\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 15,\n        \"endLine\": 15,\n        \"quote\": \"    \\\"check\\\": \\\"tsc --incremental --noEmit\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"test-unit\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 20,\n        \"endLine\": 20,\n        \"quote\": \"    \\\"test-unit\\\": \\\"vitest --project unit\\\",\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"packages/runtime-core/src/customFormatter.ts\",\n      \"symbol\": \"ShallowRef\",\n      \"reason\": \"string-or-comment-only\",\n      \"evidence\": {\n        \"startLine\": 194,\n        \"endLine\": 194,\n        \"quote\": \"      return `ShallowRef`\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n"
+    }
+  ],
+  "recording": "Allowlisted completed public actions, explicit requested task artifacts, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-before-agent-sessions",
+  "createdAt": "2026-11-06T22:41:07.977Z",
+  "privateProtocolSha256": "b3c568605fc7228a72c3982a0a12b300ebcce0e9cc6043f2e66f84ccaf233672",
+  "publicProtocolSha256": "55f4f80df225b22df8dfeb26881aa464405bb3c6c7c2dff16199f705279a9bcb",
+  "normalization": "Absolute repository, home and temporary paths replaced by named placeholders. Private original remains immutable; content hashes bind original bytes. No agent outcomes exist at this publication step.",
+  "taskIds": [
+    "pnpm-parser-impact-development-grading-v2"
+  ],
+  "runCount": 3
+}

@@ -1,0 +1,4906 @@
+{
+  "root": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-type/workspace",
+  "entries": [
+    {
+      "path": ".git-blame-ignore-revs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 83,
+      "sha256": "46ea1f7e02d40873e7d21a410dc758d64f4c5b3da244f4e66a754b8aacded0e4"
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 41,
+      "sha256": "ea028baa565a82d217349bd602c7c33c7f8c486d8376581987c2a71ae5a96264"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3128,
+      "sha256": "3713e01ee6a057182dcdbb5f7f2c9127be7fb3cf6865ac4254cf5105f3aa77c4"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 743,
+      "sha256": "de945bf1b59959c72a434cec7e24ca795583b886bf66637cbd1355a5103c7159"
+    },
+    {
+      "path": ".github/bug-repro-guidelines.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1858,
+      "sha256": "4aa2597efcb55c5c3def7933ec1f00a61201fd14c6e226a8cda8029136065fa3"
+    },
+    {
+      "path": ".github/commit-convention.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2942,
+      "sha256": "fa3becb5b7fdca69421afeb6ccf0e76854a45b52fa1b5b4eecb71073a568f7b8"
+    },
+    {
+      "path": ".github/contributing.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 19542,
+      "sha256": "3daf9deaa856110abb709a8f414217b54635ddb71e55bcc2503336b6b35dd116"
+    },
+    {
+      "path": ".github/git-branch-workflow.excalidraw",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 43203,
+      "sha256": "a3af4892185138579e4a745fd4130e68e8735c6aaa129ece8efaeef4843e6f30"
+    },
+    {
+      "path": ".github/git-branch-workflow.png",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 205109,
+      "sha256": "e5d8bb3779c8310ecc05877c4b2bbc769d745b60bebccff22df8101d7cfb10df"
+    },
+    {
+      "path": ".github/issue-workflow.png",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 267800,
+      "sha256": "ad68410a2f046c476fdb766900a20d6efab4bee71a7ef57d7ad0bacb285596e7"
+    },
+    {
+      "path": ".github/maintenance.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9264,
+      "sha256": "95518627b7747ec9d1f34ee6a79f2de62e643fa492e808539388fa8cbdf6ce4f"
+    },
+    {
+      "path": ".github/renovate.json5",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1716,
+      "sha256": "44a56fe0cc6216ba11e95868c8acec2c1f459f0736a859d4947e6c6c92a4de4c"
+    },
+    {
+      "path": ".github/workflows/autofix.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 692,
+      "sha256": "e629cd8f36b72cff43d03b54c84339449f754fdd912835707a4622ebe0170a07"
+    },
+    {
+      "path": ".github/workflows/canary-minor.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 805,
+      "sha256": "8ef0847b926d72565dd2a1d6cd199ae574d2a1a0ddac6de71c4bc5a2745fbf9d"
+    },
+    {
+      "path": ".github/workflows/canary.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 752,
+      "sha256": "280dd73807959f707050806deb54a4ee88457093382f8b4555906da9516d7cee"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 991,
+      "sha256": "aabe77f75efc65abdf7153b128157e5bb8d716192d8b4269a38e759d789e919c"
+    },
+    {
+      "path": ".github/workflows/close-cant-reproduce-issues.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 456,
+      "sha256": "6d583067bf34915a549c58f1c88d879671d9ae1994c7bd62ba2818a8cb3c9926"
+    },
+    {
+      "path": ".github/workflows/ecosystem-ci-trigger.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3073,
+      "sha256": "a2a05ae5489241d73101e7f0c0ac1a07b181b6767822deb6b5dd57a2cd533ed1"
+    },
+    {
+      "path": ".github/workflows/lock-closed-issues.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 398,
+      "sha256": "89c4eae0baa03edb8fc5cb77b3283e539d8705dbdd25e9b96d34538dca8ff8b5"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1512,
+      "sha256": "61cfd422324a501d49b2e350452ebd3f512ec81b51fb68975b585603f0298864"
+    },
+    {
+      "path": ".github/workflows/size-data.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1014,
+      "sha256": "8a2dcaf072098da972d565545c13b3645a0a73f24fd8503015629fed483d91dd"
+    },
+    {
+      "path": ".github/workflows/size-report.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2150,
+      "sha256": "72fb852f5f92badf93396681476343a286538ce7db6ba39eee7829c74979d7e7"
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2375,
+      "sha256": "617c44ca325076baa1113cc1ca571dc4f882885971510cb811a07373acfc728d"
+    },
+    {
+      "path": ".gitignore",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 128,
+      "sha256": "efbe102ae5c51b055bd7fb96fe6c3a3f8002f6d69868b741e950288a922a9e64"
+    },
+    {
+      "path": ".node-version",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3,
+      "sha256": "5378796307535df3ec8d8b15a2e2dc5641419c3d3060cfe32238c0fa973f7aa3"
+    },
+    {
+      "path": ".prettierignore",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34,
+      "sha256": "0907a0fb25a2ef528723820a6aeed278ff91a8da6a38557e52da530f118a07ef"
+    },
+    {
+      "path": ".prettierrc",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 69,
+      "sha256": "7d6dfbf97110390d5ef7464432021d26fc5af1fb5e2a907fb86493d376b028cd"
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 45,
+      "sha256": "cfa225f958d3e6a3f37cad750812360e4fa7481867f90f9cc4dd31683b20c8ca"
+    },
+    {
+      "path": ".vscode/launch.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 637,
+      "sha256": "bd01fc7b05255580154bc062b0747642701d4b67ebf65654a3f60b8f55712ca9"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 506,
+      "sha256": "04ed565fa58f5981cfb9fa8362bde873a015959e1adc07381fa3c465ef65b3ca"
+    },
+    {
+      "path": ".well-known/funding-manifest-urls",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 31,
+      "sha256": "17e2c90f081569f85f54a89034b86836c96a75908b4a819c9e7c3621521b2a38"
+    },
+    {
+      "path": "BACKERS.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 496,
+      "sha256": "1d9d28e151748d731c457949e06bc09fab1387fa94fec44c67fa88d5bb4fef1d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 61090,
+      "sha256": "a1530cde707473bd2d6aa47fffb051de15994683a4e200d6b7dc7bc0646d650a"
+    },
+    {
+      "path": "FUNDING.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 107,
+      "sha256": "e9e39c0f4acf00cfbcefcf684b3f43e338dc04a418c027b68d9e0083fffa0d41"
+    },
+    {
+      "path": "LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1112,
+      "sha256": "49190d1f742dd61e47fe816df4963e5186a2a62100d9122f9883a60ea32973ac"
+    },
+    {
+      "path": "README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2360,
+      "sha256": "974e89fb11d9aefc74ac379a22d9395442e3e80791be733e3c6ac863e2535535"
+    },
+    {
+      "path": "SECURITY.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1159,
+      "sha256": "4e7616f12e1888fe5b13a074fcc20df1b0a48aedc6640a1902997a107f156a22"
+    },
+    {
+      "path": "changelogs/CHANGELOG-3.0.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 183058,
+      "sha256": "ae81c11475f699bdb1e581102761a159ad279ac63a73b277a8e6ffd72b303b3b"
+    },
+    {
+      "path": "changelogs/CHANGELOG-3.1.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 43060,
+      "sha256": "1ad7124a631da71a0a95d0640b58ffbbed83961b264384cb2b58b27fc1718278"
+    },
+    {
+      "path": "changelogs/CHANGELOG-3.2.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 121593,
+      "sha256": "58b462b5d42783c5e16a5d2ba176bdc4a66e3d7f1eca5535eb888db2022db206"
+    },
+    {
+      "path": "changelogs/CHANGELOG-3.3.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 64444,
+      "sha256": "792c99f83a66f8d47bf7ffc37d1ef341289cb90d34d6a70f3c4c3c367c92197c"
+    },
+    {
+      "path": "changelogs/CHANGELOG-3.4.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 114104,
+      "sha256": "971d90fa19b50953657613fa7e32d499c51b9c15a54bc842a0f45794e44d5a6e"
+    },
+    {
+      "path": "eslint.config.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5036,
+      "sha256": "2e14e2c283e6a72caf8c83b914f51e6a284d1b624c0417fad6fe1621e6dedffa"
+    },
+    {
+      "path": "netlify.toml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 98,
+      "sha256": "f02399742354799c6496f5c99f4ae1b0ef93de116aa713945273a8c287493c18"
+    },
+    {
+      "path": "package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5395,
+      "sha256": "89218954801273b6a06213592bcb5ccd934ee37b7aace94357920283793cfc1b"
+    },
+    {
+      "path": "packages/compiler-core/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/compiler-core/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21,
+      "sha256": "84e2cc86d719fa39b7b3df71d6e7f555a70290f55cb619fe909fbc7c912360c9"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/__snapshots__/codegen.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4270,
+      "sha256": "14c2144cec1d54c53a480be8fed4badea8b9ce5e1bb2ab3555c4c1aaa2e4764c"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/__snapshots__/compile.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3647,
+      "sha256": "a0d52c0e79dbc60a56693281091ad674e397b5c0a8a77d249058e0fb52c8c82d"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/__snapshots__/parse.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 101157,
+      "sha256": "d6ad022cdedd7a1bc6b6f28eaa468c746dab83e941eed1f843d26e74c4777efc"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/__snapshots__/scopeId.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2135,
+      "sha256": "7b3d9dc640dda0a9f359e9fb05fbdf3c632b0dc5a0f3ba07bbf2dafaef449199"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/codegen.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 20910,
+      "sha256": "63ba48da7ac9c56e25e631d69f2690fdb7d16efb11629cd6da8f4822840b17b6"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/compile.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8800,
+      "sha256": "be962453bd415e4c08d0fce707ae6d4247d587aea6edee30745e9c72b8384107"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/parse.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 101145,
+      "sha256": "5f57ee43194008e1a71f1d6a3378b3f8a6f75663bab5b0af55000b954ff8297e"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/scopeId.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1564,
+      "sha256": "5bc4e857bccba541aa81c44fbf48fac0d41e3e02b1c6ca1bf40b4ef465865ef9"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/testUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2285,
+      "sha256": "201483f1165de6d74e1b409c5822e44d36f95f987f181144b9dcd09aa0bc7b7b"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transform.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10559,
+      "sha256": "f47ac739de2506b1e4ec06691beb5f1e28baa2dfa11d783e7f4e7958cfde7a46"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/cacheStatic.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15686,
+      "sha256": "948beebe8d435de549d05451971e563874fc9a8c864b1e787392bbe8831b6666"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/transformElement.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8170,
+      "sha256": "4e60e533c624fa73c317d572d81f72367447fe25aebca61ed01a12ee5aedcf87"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/transformExpressions.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3726,
+      "sha256": "55db6a44631e450a8885314c43a8475578ad273566296d1a6f1b43e550fb8ae7"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/transformText.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3940,
+      "sha256": "4c426df437e28a9900f096c582b672a8b5f1b8786a7d6b866174fe04952a63ae"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vFor.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8170,
+      "sha256": "4e60e533c624fa73c317d572d81f72367447fe25aebca61ed01a12ee5aedcf87"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vIf.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4627,
+      "sha256": "baad83c48dd7edfb75c66182daba08d0d28bc98efdc298a5de9003d01f170d41"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vMemo.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4575,
+      "sha256": "2209d837b14f6464be19da372c0a9967c11f4358212d6f6464f5cf5edf6052e6"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vModel.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3725,
+      "sha256": "d05683d514c3d56d6e25d341e1aecda32b0c2e4391a424578c786b442f27308f"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vOnce.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2917,
+      "sha256": "1240a88c6e7512828583a302a366b3cce7ebadc9e12396a54020de14c2d210b0"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/__snapshots__/vSlot.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9450,
+      "sha256": "71dc116537ff4c957c3b9b5413c2f23215ad3aca8f27d4ed890b04da34a40e5d"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/cacheStatic.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 22606,
+      "sha256": "37e1ac0f288cf00a6e47dd9c07ff9a76727302fcf15dde63a57b947b583b603c"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/noopDirectiveTransform.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 762,
+      "sha256": "0257911e5bfb046b67122b61e8b212293a68f5aeb214daf3b325ece898a89173"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/transformElement.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 38925,
+      "sha256": "27f6b146c840a15daae18b96a0724347ab9855863206f46457e0acd2996e8fc7"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/transformExpressions.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 20096,
+      "sha256": "9d72f9feae45b2416cc349d3e3f354e83a74500935aa141390e2a8566171edff"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/transformSlotOutlet.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10780,
+      "sha256": "e241a17f1a6d1e8197ff1e2903a9dfa043dbf3d1472193fe1e380cf22de919cb"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/transformText.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6988,
+      "sha256": "1c8e47233310d261f82aa152034af699396a343f0625d3d4cac97ed868dfff03"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vBind.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10931,
+      "sha256": "4f45530164529f29ae5f2d7d67d58940bcedf95b27b23de978310518cf94b0ca"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vFor.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 36696,
+      "sha256": "0604c9e3b318dc414536596fdd74900ee5efa0c705d5ff3831b96eb3b23715b8"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vIf.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 24384,
+      "sha256": "e05ef1d0f4ff59297baad47ab6272e81cdc30c07927bfc1a004ab139e9985cbf"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vMemo.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1524,
+      "sha256": "bd7df865843e8accf2b2e29486b9b9b2a31255951f0580f5a448db07123f8774"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15411,
+      "sha256": "007fb773a3a898beea3d00ff165db9efd99a5137bc468e3d63320a47325b0215"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vOn.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21466,
+      "sha256": "fac610f1a7a1b0bf213fdb61fdb5abd9ff1c320d9bdb6d86adf5abb769093f39"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vOnce.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4467,
+      "sha256": "f5254d25d3b6e0861aec2dfc331a575ce8fe2a9308fdc0e2d330720ac3c8df17"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/transforms/vSlot.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 28493,
+      "sha256": "c50452315ec4298fb4c59efac8627ba5f6102d4b24bd8109184eae695627bd33"
+    },
+    {
+      "path": "packages/compiler-core/__tests__/utils.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3806,
+      "sha256": "0a66145a8e2bf682b45a364a31f8174f4e7917a8dd040411c70f8231f1e5bd36"
+    },
+    {
+      "path": "packages/compiler-core/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 191,
+      "sha256": "ccc969ede88026f2168f8a6ca482913664ac12b2e0cfe1e34cd211767e521a60"
+    },
+    {
+      "path": "packages/compiler-core/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1398,
+      "sha256": "c8b072c7d930de910661154a856414d1f0ceeac34e20a381f7d1c246a7d8fb3d"
+    },
+    {
+      "path": "packages/compiler-core/src/ast.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21505,
+      "sha256": "db15aadf5a118d7a5a8b5be75c59076ae2de40d69901a7926aa684c697419e19"
+    },
+    {
+      "path": "packages/compiler-core/src/babelUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13051,
+      "sha256": "46760499484ecb2a1ae2c7cabfee68d799e4a46e5088068bd5407ba4b4e910a3"
+    },
+    {
+      "path": "packages/compiler-core/src/codegen.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 28956,
+      "sha256": "166288d67e2127ccedcadc08a5b9666b01c8cd878b8ef17c59df88be464b7da8"
+    },
+    {
+      "path": "packages/compiler-core/src/compat/compatConfig.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5347,
+      "sha256": "62dab2d0fcecd15d15e87a26b50f9c105401708cbd9a023deb9ba885d6624ce7"
+    },
+    {
+      "path": "packages/compiler-core/src/compat/transformFilter.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4907,
+      "sha256": "462c18360c3c81b191c17cd5c24a1d6e19c61f51d1b21be2e3f8fd1cbad4d2df"
+    },
+    {
+      "path": "packages/compiler-core/src/compile.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3807,
+      "sha256": "cf35dfc745ad4b4eaf3ddffb15e35389b2180966739bbe07d0f5e424e1276bb4"
+    },
+    {
+      "path": "packages/compiler-core/src/errors.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8428,
+      "sha256": "24d05de85f9a4efbf5862f135fa4db8ea7d71f8b0aeb49fe89ef1cd7efd88742"
+    },
+    {
+      "path": "packages/compiler-core/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2019,
+      "sha256": "a97437e541e7062d15a5f4e369b7e6d15483e92d26228fc94564e48aacb1095f"
+    },
+    {
+      "path": "packages/compiler-core/src/options.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10583,
+      "sha256": "a27ca0db60324c85a007a16be6a0b6d90a821a8268cdc14064be2b1ba4caebb9"
+    },
+    {
+      "path": "packages/compiler-core/src/parser.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 30143,
+      "sha256": "e72f5244dcfb9facbba99dd620de161f810f58bb63c6052db094e1805f28a947"
+    },
+    {
+      "path": "packages/compiler-core/src/runtimeHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5210,
+      "sha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2"
+    },
+    {
+      "path": "packages/compiler-core/src/tokenizer.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 36247,
+      "sha256": "5bd360cc722762c6c31b4f4a13419de729f4d422470371c9c9cf3343dffe0693"
+    },
+    {
+      "path": "packages/compiler-core/src/transform.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13993,
+      "sha256": "6521ec698d70ba7a28a4e705ef8931bfc27323380ad4245b15441e61a84b5321"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/cacheStatic.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14488,
+      "sha256": "becdf864e6cb0f594c429455184428de9c8043a83d73288e673702b61e4273de"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/noopDirectiveTransform.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 136,
+      "sha256": "fa76ce4c6a2e9dc9e94575381f196ef82f21361ce902ce98c989385f497148f1"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/transformElement.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 28658,
+      "sha256": "9ad199969e756fbfbe0b0b353679be8e57f737efcc46bf43c910624cda188cfd"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/transformExpression.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13941,
+      "sha256": "1c610272bf7a0cc585d8892b1156343b35764605f6702813c03c45ae70790ef9"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/transformSlotOutlet.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3232,
+      "sha256": "cf02af4c41ddfc393c0796874ad0b1394bd2916843d1a1361da72f6b99a1853a"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/transformText.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4320,
+      "sha256": "47558e63b7d07fad908b6a83fd7c3b27fcec28e284af1409165827f6175c20ff"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vBind.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3474,
+      "sha256": "47a89e74920a167af97e7a840fef1b175ff711e4e82ec59752a5ce8d870b4c27"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vFor.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11931,
+      "sha256": "74ba04b1d22cfee82856c7ad6997867680f240f2c53be8c59cef25a22ea81bb3"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vIf.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10379,
+      "sha256": "13bf00b392ae50e369fe87138139f5dabbb24b7b0f9dfb36d036772d705fbf40"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vMemo.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1263,
+      "sha256": "4f3cf0dd8ff2f833d96bacfafc83bef5fdc165e8389b72393f30cd94e077eba3"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4692,
+      "sha256": "46bbedc99ee09d4a8022f2d17be09050d82ac522fa08bd7497b33dffb4d661f9"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vOn.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6429,
+      "sha256": "d53f831e6a8d8458d05fef58eacf8d64ee28f5f3fd0921c27f8c7b065d18c7e9"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vOnce.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 860,
+      "sha256": "2937921347ee277edac95c2d79cba357e8a532b52155da11112e77659f281ce3"
+    },
+    {
+      "path": "packages/compiler-core/src/transforms/vSlot.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12802,
+      "sha256": "e69a53115f300536a2ea47505e282211903bb8ed177d7ee9705c570910113625"
+    },
+    {
+      "path": "packages/compiler-core/src/utils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 16258,
+      "sha256": "5620ab27c5acb5d08c6e695e9adacade68b966e53cf7f702307aacf6f245a8a2"
+    },
+    {
+      "path": "packages/compiler-core/src/validateExpression.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1834,
+      "sha256": "57fc1d9b873473e71d54dd696a9c4bde9f1216dbefa39958c48a501c845351e5"
+    },
+    {
+      "path": "packages/compiler-dom/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/compiler-dom/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 20,
+      "sha256": "4167142bff1bacca5bc32936925d04236250fd2472c48e92a29637c9e6dc2616"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/__snapshots__/index.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 972,
+      "sha256": "ea91a3a5cf5905f81da021af82ffebedaf13596d5dbcda6be4b57bd6477f3e01"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/decoderHtmlBrowser.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1556,
+      "sha256": "6ba792292385a20268cc23f36bed852b79171cf39a363057416548b53fd9ed75"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/index.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 368,
+      "sha256": "068d3239f3f3ddc4113d81c86322edda3908097c61a2823222837573bca5222d"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/parse.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 17093,
+      "sha256": "efc436036e48a62539dbe3aab79f2b4672ec1a25b5c972b44336d3b2659985df"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/Transition.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3220,
+      "sha256": "a0c7583d905c03dd6e0198567db65ff26bdb2e2abbb14d187916ecbe70a3bdaf"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/__snapshots__/Transition.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1865,
+      "sha256": "215be5fe11d7fef14e034264ecf62d6a649b23c2f86094d42bfb83a42077e528"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/__snapshots__/stringifyStatic.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9718,
+      "sha256": "53e2dc183f179421d169e9ac183daca0cced70bdecf0da6b009af3af887e88be"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/__snapshots__/vModel.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7267,
+      "sha256": "2bb4a7edb7ad723cb04b59e567926c1654fbd228c9483377f7e1cb57427abf0c"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/__snapshots__/vShow.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 476,
+      "sha256": "d34d251cfa320a6c86ecce6ca471b213d2ec38a498fb741c35c66cb066ed930b"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/ignoreSideEffectTags.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 764,
+      "sha256": "1e4ff44bf7c609954f71532e0ccaa4da48c2b2e7108d97a0e60910e142fd516d"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/stringifyStatic.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15530,
+      "sha256": "c71381995b734d8e45b581e132fd25a0535c15e65c0deda20b77a337bc66d75f"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/transformStyle.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2036,
+      "sha256": "9fc4342df1f52988928ea66176a720196288dc43ec40d9b859a1baa183293060"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/vHtml.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2056,
+      "sha256": "9e3e9f1e2ca3f8937db8aae0ce51650f378ab448a7a0ae08c3beeb1fa8e7c76e"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/vModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5464,
+      "sha256": "a0c0471de842e9644754821ca8cde5ce9a2f4fe8d867b4c975b1b0f1faa243fc"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/vOn.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8155,
+      "sha256": "846b2dc82d36391a0a594bcf69965b843800dfececa786a83e247c8f662b6c1b"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/vShow.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1100,
+      "sha256": "c376ad2325b58f2bf9b97728551fa5dca594fc9687ef204604405bd285f1f3c9"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/vText.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2160,
+      "sha256": "8d3f2793c541958d39cf56989b0d6f602feb999de4e9440d2f7332bc109ea5fc"
+    },
+    {
+      "path": "packages/compiler-dom/__tests__/transforms/validateHtmlNesting.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 557,
+      "sha256": "41aac3d2b17b00cc3dc4e5be68fbe7522848da52da54bacf1cffbb12262c69f7"
+    },
+    {
+      "path": "packages/compiler-dom/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 189,
+      "sha256": "21407fc5cebe255208627dd039f2284156be88abbd9123281a79581d349b48c1"
+    },
+    {
+      "path": "packages/compiler-dom/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1391,
+      "sha256": "94eed4b5038a74f85701309f856437281e409a1653a4908d67c2d9d422e7664f"
+    },
+    {
+      "path": "packages/compiler-dom/src/decodeHtmlBrowser.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 426,
+      "sha256": "6d026bdda45ca9abbf5cf8333a51b4f896a28012f76fc5e6e829e50e5fb231e5"
+    },
+    {
+      "path": "packages/compiler-dom/src/errors.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2521,
+      "sha256": "ed4cca8d7b3f4a4262d0b00da9b63c6a0204fd7f0aa95534bc1de8d7edc17c68"
+    },
+    {
+      "path": "packages/compiler-dom/src/htmlNesting.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4330,
+      "sha256": "3161ec5a918da3856921c29aad62ba8e53b3bb5112951aaf50fbd9347fcd1f3a"
+    },
+    {
+      "path": "packages/compiler-dom/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2403,
+      "sha256": "49d603b86943891ccde9bee3eec0c344ede52663a49fdd36d5692a161b0ec144"
+    },
+    {
+      "path": "packages/compiler-dom/src/parserOptions.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2106,
+      "sha256": "76541e662171de055faae2352f2f81328353d6a9aea6d518be0ffacfee04fced"
+    },
+    {
+      "path": "packages/compiler-dom/src/runtimeHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1293,
+      "sha256": "430e2fd87cc8e49601794d2d89782dc1524d2fa60a463d8f6277b795d2eb06e9"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/Transition.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2100,
+      "sha256": "f9270470cf9446a2424fe41a43750b2ebcad067d4cc0e30610d3947f66f4de98"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/ignoreSideEffectTags.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 560,
+      "sha256": "7df5d45f4af98fcebf5618f0058ceb2befeded6eeb724749dded980cb9b1f2ef"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/stringifyStatic.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12759,
+      "sha256": "2e3854e27704f025993c01e897e0229abe35a10e0623bb2bae9a9b3642982d27"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/transformStyle.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1348,
+      "sha256": "8bc01f6fdee0bc1e00aa9e868b19c35a1035f9bede9c7ccca80456fa51fedbbb"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/vHtml.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 744,
+      "sha256": "6f1de64d47ed4188b74c73b1864c536f574a05dd7514bfa2b758264ba9b6d835"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/vModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3439,
+      "sha256": "f26b8355cd50e179a5184819b0e5336a728974dff212f963abe1e117bc641c44"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/vOn.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4481,
+      "sha256": "1a5d5214a0e126fdbddc7797279e6246b6b1cb4a0d37cc263f133fda230febad"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/vShow.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 465,
+      "sha256": "cf9d3e1d4fafc277cd49bcf200e1f9a474448a33b1b5cc81272f75aa4e191b62"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/vText.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1031,
+      "sha256": "f81df86e57e0c90eb5d2b39ae2ffde6b148c14f5551c598247a7e838d119a720"
+    },
+    {
+      "path": "packages/compiler-dom/src/transforms/validateHtmlNesting.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 843,
+      "sha256": "f89f03163b965bd4726d5b4468b92f343b313c04afb5cc992885d94fb1738926"
+    },
+    {
+      "path": "packages/compiler-sfc/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/compiler-sfc/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4444,
+      "sha256": "379380b711d5581b02dc0f90de3683d39f2b822be1c5576f88b3397a7f79c682"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/__snapshots__/compileScript.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 31995,
+      "sha256": "32a227f13ce4e200d2a75199cbbf22f37d7cf2c345ce3fb0d162198be57c13b2"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/__snapshots__/compileTemplate.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2211,
+      "sha256": "9809ecfd369bc48035fc7e8e29b5ef8456b7e153e5295f78099d171b35a686f8"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/__snapshots__/cssVars.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4821,
+      "sha256": "437d948efa25f138cdb2dcc17849ea4f2d2997dbc8dfc2fb0581debb862e5b32"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/__snapshots__/templateTransformAssetUrl.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5224,
+      "sha256": "58be5304a1d78f6fed277a360b2bf3f4b615d56db1da629fc1deecafaa19d327"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/__snapshots__/templateTransformSrcset.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10370,
+      "sha256": "a91a921c19e730b37108768cc2388057d75a4c284c3eb477414900984ec5fd90"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineEmits.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5938,
+      "sha256": "c2e33b49395b55210c8e36a4f489ec7574b97a434151bb5803e7a0ea8847c10e"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineExpose.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 449,
+      "sha256": "547119bb278a3befcba62887f3d4553578efee386775f963d12a5a95407b4f71"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineModel.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6926,
+      "sha256": "a7be6277d8b18171dbe6c63452040352415276d4215dc203f43804e365e58c3e"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineOptions.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 429,
+      "sha256": "6870078c5d7962a6568598ba1b39809f88eec27cf55749e97b64115af09d729d"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineProps.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13683,
+      "sha256": "c3313936ab039d0f3fe02b0f913022b6110335dda595022b8e932ff99cfaea0b"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/definePropsDestructure.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6599,
+      "sha256": "36854e66b20f6e59de2d911bef2db05e3bd1a83eb1364011e3a3c2b49b73cdb8"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/defineSlots.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 847,
+      "sha256": "45fdbb72f2ea2010ecef2e472cb9151dbd31189d0ae21ee5cc3452cc825f4b39"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/hoistStatic.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2354,
+      "sha256": "f325d4b73df914048cfa461790f13baabaad2bd238c3ad65ba8842f06cab32ef"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/__snapshots__/importUsageCheck.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4354,
+      "sha256": "ec819675288d3866027310cadb5cec29a6dcf10f6985688f35cb1bcc7aee123d"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineEmits.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6551,
+      "sha256": "29b1b0528132833250b8332631ec7cff4f95cb38a0e11efe5470ae61acae21f4"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineExpose.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 737,
+      "sha256": "50959d2c80fb99dbf09142c9fdc73b8b6ba1e77a403a5dda7329eebb1c925c3c"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8607,
+      "sha256": "4e4e25e36d8ad84b1289dbe777342ed769c4af01ea77cfb3c57efee1b8b5d586"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineOptions.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3988,
+      "sha256": "f9ad2c51c18c9ad14f7340176949ab0d742a167f105f5dab34f8c278ab1db319"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineProps.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 25237,
+      "sha256": "232877b4e28076780c163eb0cbe2068bb5b42b127a003b6bd3bcde18fcd1cb16"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/definePropsDestructure.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15565,
+      "sha256": "f15c371b8268e559456457e179d1ebe7d34a6ccb4f405f8c345e936c14903cd5"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/defineSlots.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1026,
+      "sha256": "d24de1dbaeb70d6d9acda2c27d30209e140f455c477d53bdf18af4bf2e8a223e"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/hoistStatic.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5557,
+      "sha256": "537de006dd84a3786adc1492ce4cf68c569ae308dd3c3e8f257f97d86aaadffa"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/importUsageCheck.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6852,
+      "sha256": "924671e5d6313dad039761a75141dc281fefa87a96c94afb71ca54de0fd691c6"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript/resolveType.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 35462,
+      "sha256": "41c9610cfc3ce5d9c56204e6af5d6aeb876f9da9de2f4d6d783d488f75e5abeb"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileScript.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 39167,
+      "sha256": "3b736a57dc3ef366facd25bb2b4fa348ff234f0f51b81f2373aa4da16053c2e3"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileStyle.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13236,
+      "sha256": "5d99e5ef951f990791044cee8198624ef24a447fd9ad0288bab7f6681a86f057"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/compileTemplate.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12452,
+      "sha256": "709780612e405f51ef76fb5077f835dad19912fb49733c4e2458e5dc901d9ca0"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/cssVars.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9293,
+      "sha256": "1dfbbe776ba1c3258984b763bc77a93422df2bfb5c34fc6d3c7d1aed2b622fba"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/fixture/import.scss",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 22,
+      "sha256": "7f0b908f1513276b4642200ff73961c269d0eb41a3977f7fe7ea4820ba9cee1c"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/parse.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13954,
+      "sha256": "3dda2249dc3128b68a19600a1c65e7e253f40658e09efb6d8b320ceedebb3ac8"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/rewriteDefault.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7630,
+      "sha256": "b0efbfc5e6025ef4632ab4716e7b4369fd852ac99dbb22390cac988ad1a0fb96"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/templateTransformAssetUrl.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5722,
+      "sha256": "e0e6b77c86b43e4a5018c1cfd6aaf2cdcba0632baa94e26da59e62bca3355e89"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/templateTransformSrcset.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2960,
+      "sha256": "a26cf98e083b78f9836090e36458e594f9b9b08a9e8a4f6338dc48c0416af940"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/templateUtils.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1744,
+      "sha256": "e3385981a242ca8fd5a03e87010bc15b91dad8a32653992dbb073b5f8ae8cdba"
+    },
+    {
+      "path": "packages/compiler-sfc/__tests__/utils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 932,
+      "sha256": "966e05f33a0a1c1c5faef9e6134f88d095ffee6bce0420cff577c785c0e69bd6"
+    },
+    {
+      "path": "packages/compiler-sfc/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1735,
+      "sha256": "a5fd4765a3baa85cd19d04863caf508b7e1a6d9903587c53483fb98f023a3495"
+    },
+    {
+      "path": "packages/compiler-sfc/src/cache.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 269,
+      "sha256": "c2f7299b82ee1ff981cf8fb0792937b8ca9c1f59bf57ea6f2b77b908701e227e"
+    },
+    {
+      "path": "packages/compiler-sfc/src/compileScript.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 40851,
+      "sha256": "22e5816e090106164f5c028751cc5274618e66b2569631a918473099303e3902"
+    },
+    {
+      "path": "packages/compiler-sfc/src/compileStyle.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6345,
+      "sha256": "55e1c154c3336e637e7e184d5f2719d14ed9d4d1386683b3af6ce16bc38e210d"
+    },
+    {
+      "path": "packages/compiler-sfc/src/compileTemplate.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9844,
+      "sha256": "d8af6a216b597c67bf299c76170ccf75ab53014c0e219fa4cda1e48c61e09398"
+    },
+    {
+      "path": "packages/compiler-sfc/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2592,
+      "sha256": "2afdfe08f15cb5dac2938467f733274eb9343a17649e47cea1db1b19eb1bcb7f"
+    },
+    {
+      "path": "packages/compiler-sfc/src/parse.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13215,
+      "sha256": "518e9c38af91154205131965b388c025d4660925f79ddec84e1206bd5fad0413"
+    },
+    {
+      "path": "packages/compiler-sfc/src/rewriteDefault.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3879,
+      "sha256": "6453c2acc7a6912ef250c25249ccdf6fca30baf43bce3c2c4f9257c43d3480c8"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/analyzeScriptBindings.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3710,
+      "sha256": "e81e51fdadd5f3b48bb2af4e8b97bdf2aa3b00fe3180f72342550cf978355d78"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/context.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5990,
+      "sha256": "069f8d14fb891dd3928ccd7a62de27db8e7a4154f82a22ff48a3cf821e10f1ce"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineEmits.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3155,
+      "sha256": "7acb46369c8ceb0dbe71f4420994261549e7f92052fc660b04e5398bd0694044"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineExpose.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 480,
+      "sha256": "717c6b69f0ae7d66e4d1ac624bce71a2e2a00a13afea34dbe19e8eb54b5d2f10"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5450,
+      "sha256": "225e99223df48f86ff08af6ae405f2e549c53f2fab481d472e2cf2a322da311c"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineOptions.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2288,
+      "sha256": "bd10b31a284202bdce54f6b1a11edabbce3076144d2ca934e5ee0c412a814c44"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineProps.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10955,
+      "sha256": "96623adc0fa4fdf46a81c88f81c7f79fd9fe249e05f541e1c6ad2948ced09bda"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/definePropsDestructure.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8441,
+      "sha256": "07b58fa1985409704af2d9b35b82c64fff201e19ce0b2e62ed7eaf8517397e2d"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/defineSlots.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 754,
+      "sha256": "36ff568060077d65c1b155e173bb4a914cc22400ec73cb998cc6bf49f7cf1332"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/importUsageCheck.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2897,
+      "sha256": "c303571521717881c669c6b37bd4f3f27d83457da52e4de553301fdb1882fa4f"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/normalScript.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1686,
+      "sha256": "4d55c74b804950e90bb06a0bf499e72d2d529e85bc39fadb1c46b1930ec53110"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/resolveType.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 54004,
+      "sha256": "4bfdc5adf8681bd1e59daae9190a382842718f82e2c38a9d206118cfe953d7ce"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/topLevelAwait.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1762,
+      "sha256": "f576a87ad2509a7acfe34bfb3f8105ce064b301f781d37714cd6033d8fef8e8c"
+    },
+    {
+      "path": "packages/compiler-sfc/src/script/utils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3313,
+      "sha256": "62503695483fbe543241ddefbc33528073e84db03cb54dc9f59c8e62391c0d1b"
+    },
+    {
+      "path": "packages/compiler-sfc/src/shims.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 110,
+      "sha256": "c7e41e6332d306bd5b6b1c74166f0059482ef2d3d11fd81e5bcda55b05b8dc3d"
+    },
+    {
+      "path": "packages/compiler-sfc/src/style/cssVars.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5590,
+      "sha256": "3a999b7aa9404f433057e02f803706d29adafde7e17876c99702a5bb8619dfe4"
+    },
+    {
+      "path": "packages/compiler-sfc/src/style/pluginScoped.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8639,
+      "sha256": "76c8ac350160f03dcfebffe3f72a41b7dc63117b3b1c20e73d0f945c295ad479"
+    },
+    {
+      "path": "packages/compiler-sfc/src/style/pluginTrim.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 439,
+      "sha256": "9cd50fbcff6421491f5ec335d5f1526fb7bf77917d1892c435547b1c71c6ed93"
+    },
+    {
+      "path": "packages/compiler-sfc/src/style/preprocessors.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4018,
+      "sha256": "44dba2fb459a1be702e9ff3cadf0757492efb61189f38df93ef84bcf9e824307"
+    },
+    {
+      "path": "packages/compiler-sfc/src/template/templateUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1211,
+      "sha256": "ec8972143c9ef73d255c9e72fff1d2763710070a8bbf7d9b503ca7c7ac8adbf1"
+    },
+    {
+      "path": "packages/compiler-sfc/src/template/transformAssetUrl.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5690,
+      "sha256": "ce2779d3ef3f5ccd1f1d8c52074344295d65e1b2d2a89b96daefcec0d73cfe39"
+    },
+    {
+      "path": "packages/compiler-sfc/src/template/transformSrcset.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5649,
+      "sha256": "581fad1f226226510321d9a5444edb9a3998d6a6035092f8a98f1c5d5338c60e"
+    },
+    {
+      "path": "packages/compiler-sfc/src/warn.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 427,
+      "sha256": "4efb801dfbe416e0a0dab77ba10b74daf0f25c8d85f24a7b7ff285b84a41a1a3"
+    },
+    {
+      "path": "packages/compiler-ssr/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/compiler-ssr/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 20,
+      "sha256": "6dab9e1e42c07f2e94539ab689458e064597af72e28c1633555dde47c5c98d3b"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrComponent.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 16010,
+      "sha256": "bf4924a9112f895ab00731797c10e3fa6ce69f1ccee1b749012167795bf9baad"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrElement.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13000,
+      "sha256": "83ffefcbc5c58184c3facecf2de97f164dcd28fa29321edad5e4f1f5b9fbdbcf"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrFallthroughAttrs.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1967,
+      "sha256": "4c9e6b685d83d52f96a142e6ef80da466a4bed2249b3a5677487b695cd026c56"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrInjectCssVars.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4198,
+      "sha256": "600e5f1cfebf91abc8c2cd6289036ff393bde04c6738310b91c51d01a8fac63f"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrPortal.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1390,
+      "sha256": "cc4082b12534e3e2fc9f5854ee331860cd5225d54fa57f48b7ec4908dbce3e0e"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrScopeId.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5490,
+      "sha256": "540fec1957d0b572685246c49e1b0eec182fe5305d4771a5fa63a9f75fa069f2"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrSlotOutlet.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5552,
+      "sha256": "af975c50e906924f13433fbc6b9852477aebf2dafcbc948b6329148c71f3446e"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrSuspense.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1622,
+      "sha256": "5af901a19c00e96eb9d9cd50fc43ed73f7024e5561db30bef5186e2e0e86c708"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrText.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2164,
+      "sha256": "b4a57ab219d916b6cc7b5bfbd1c69f6108f99be1f1349b98e3b5235dbf180048"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrTransition.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 827,
+      "sha256": "d8729b5f46f2a4c6c22cb50b07839a19f45733e16d3d0003b4b80bce52607ec6"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrTransitionGroup.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4370,
+      "sha256": "f6dd434b1234fe1df8c601ef60e0647c9bb478adfd542279ec435b4f61414205"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrVFor.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4262,
+      "sha256": "93288dc5bd7b31e145ec1c48526789c6082669657cfe83862e55555c9421e2bf"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrVIf.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5049,
+      "sha256": "f0808bce366f300229bc4a37b6bd715d7ddcba686c054930fc433256360f566a"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrVModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13525,
+      "sha256": "3e4ffa9db19c514223e583eeb4fd693c111bd151ff831ae53108f1aff6b74a8d"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/ssrVShow.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3745,
+      "sha256": "7319d6c1ef68a72b2f9b9d009c012a4a863e66a5e5700ca18204c5aa91db57aa"
+    },
+    {
+      "path": "packages/compiler-ssr/__tests__/utils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 564,
+      "sha256": "b97216fb4e8335415c943aaac3d617511e25a2bd9569eb1a057c831105201642"
+    },
+    {
+      "path": "packages/compiler-ssr/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 739,
+      "sha256": "4835308cca12df1a3603c8f8d484c4f1fe4f7401aee6e76a9c22c6c6edbe9c9b"
+    },
+    {
+      "path": "packages/compiler-ssr/src/errors.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1311,
+      "sha256": "6ea26cec0689547c84f8f987516c21f14008d92a7adc3861418f2c5401f90912"
+    },
+    {
+      "path": "packages/compiler-ssr/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2752,
+      "sha256": "af01e7d0dd7bc3cf53b2341f72adc683a6c709e5173dfdad86323d28f8c51c96"
+    },
+    {
+      "path": "packages/compiler-ssr/src/runtimeHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2586,
+      "sha256": "fafcd6f4fd71df2935e41562b4ebe6537b91793a06556e6b310cc007f2879556"
+    },
+    {
+      "path": "packages/compiler-ssr/src/ssrCodegenTransform.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7507,
+      "sha256": "4b78a6e9ff25e628167d48f1b0d477a6136c6947da6ea9f259c34d66e18ae184"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrInjectCssVars.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1620,
+      "sha256": "5163f9e319e0ccc0de045457488de69df72ed1302f111b9966b63dadc3197166"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrInjectFallthroughAttrs.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2461,
+      "sha256": "2ca79984ae7599356c10873cbd2aa86402a47a125891a3f5247dc9810dbef212"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformComponent.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12061,
+      "sha256": "9a4b5fd56e60755708a4ae40ba181032b821ac43059bf572e740d382e9b2c2b4"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformElement.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15523,
+      "sha256": "cb3b95433aa798c319ac9e2c85af00fbe7375f559058e791d055c94f4e5bd607"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformSlotOutlet.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2839,
+      "sha256": "0f83ffa083232862f769d7195446d2ab11c2060698dc4149708dec029785cae0"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformSuspense.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1961,
+      "sha256": "a457127fb930f894b3cd6370a62a551695dbc04b1adde17a0da79bc09d390441"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformTeleport.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1785,
+      "sha256": "b88d7846498b64e067ac76942cc86c271c5286194032519baf134a22c3568555"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformTransition.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 947,
+      "sha256": "c93db716a1b2ee8cf577935f57226364e9618e3b2c8f1552e282c1650b7abe3a"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrTransformTransitionGroup.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3311,
+      "sha256": "748af1509a9bed8905004808c2ca909da32ddb95e1455776b8354edc1a1a1fe1"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrVFor.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1453,
+      "sha256": "4297b6f8d3612a8bf3a26ebba165db2b6cdb79cdae46f469edee667da3dc6a22"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrVIf.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2171,
+      "sha256": "c0d8f19f51582c6e7f06c4b5aeeacc3dbbea8d2b4bedb08b973438495093b326"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrVModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6310,
+      "sha256": "06ee464946df3275445dc602676ad462a223f679ceec70bd81b2f305ebbc4e9b"
+    },
+    {
+      "path": "packages/compiler-ssr/src/transforms/ssrVShow.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 826,
+      "sha256": "3a8764938330fe6ca4e080f8971e2be6fcefbd710b7a51287d832027b6a5e6fd"
+    },
+    {
+      "path": "packages/global.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1059,
+      "sha256": "716791f69891832b3018b83223a389b2abd4697ef02ef9d2c27a6625043eb2d6"
+    },
+    {
+      "path": "packages/reactivity/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/reactivity/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 921,
+      "sha256": "365358d3597b718901ad22235686962a721c6381d5450a6119729431030b4251"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/computed.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4482,
+      "sha256": "b812ac3508697d154330e26620ba96e0cb1c17bf6195445f12a34e23df13d267"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/effect.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2482,
+      "sha256": "a6c1536cb726a6a7fc146b36339a11403f33f9a1f4152f10682213bf9125de22"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/reactiveArray.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3279,
+      "sha256": "aaeced294895c4e93dd429529975506407cd17cac78b56d33d1147d95a6e74ed"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/reactiveMap.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2992,
+      "sha256": "fdd93af3e7f4d68df85ea72f23416021a6371bb6f30aa817840b4771219d9307"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/reactiveObject.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 365,
+      "sha256": "96f254d2fe29342ab175770b18e52832d4e7105b2aad87600769e99797e79019"
+    },
+    {
+      "path": "packages/reactivity/__benchmarks__/ref.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 485,
+      "sha256": "001c6d0d79c29f674dc9f2d7fb52e38e299fa7eb879e76e56b26c8776c419896"
+    },
+    {
+      "path": "packages/reactivity/__tests__/collections/Map.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12895,
+      "sha256": "5455b87d8710d32d2f4cfa52855f038c7b63d9ff92cd1e2d189a729af0e6f315"
+    },
+    {
+      "path": "packages/reactivity/__tests__/collections/Set.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11912,
+      "sha256": "261d2b2314462d4edc8a121d724eab46ce25234d9607c47d0fb89df6341db74a"
+    },
+    {
+      "path": "packages/reactivity/__tests__/collections/WeakMap.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4131,
+      "sha256": "39dfdeff30601fe0f0daffeaa3565c9ea67ecec34bdb7bfe919ae8a641cbace5"
+    },
+    {
+      "path": "packages/reactivity/__tests__/collections/WeakSet.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3088,
+      "sha256": "7cb0b334149d97f0a4c8199da83cc869c3bdb7c0437cf9e7570dfbd2d6620514"
+    },
+    {
+      "path": "packages/reactivity/__tests__/collections/shallowReadonly.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5203,
+      "sha256": "93aca5cb0b0a105dfd0c48609ac1511e3c6a4828b6fa90310c4e617cb0f4b3d8"
+    },
+    {
+      "path": "packages/reactivity/__tests__/computed.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 27576,
+      "sha256": "8129de0705afee805235ff6923007b8dae557d1288c4265d7fecd94330aa9414"
+    },
+    {
+      "path": "packages/reactivity/__tests__/effect.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 33639,
+      "sha256": "a0ef3ed4178a1df7cdf82182db9f8b4a2625b2d8f7cb25e8de12f910f144718d"
+    },
+    {
+      "path": "packages/reactivity/__tests__/effectScope.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8371,
+      "sha256": "c22b12a3d69e6317f2d13c7a8019bb884227b8c1cb2d95f30c46474e14cbe1e7"
+    },
+    {
+      "path": "packages/reactivity/__tests__/gc.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1725,
+      "sha256": "3705b4203abcf38b1fc34dfe6857ca08243331ea287d7857cddf8a5331edf948"
+    },
+    {
+      "path": "packages/reactivity/__tests__/reactive.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11465,
+      "sha256": "ea5b9ab7bba98d52b11d39c3f688b1c5aa8a8e8e93f01a09509437304eb322ca"
+    },
+    {
+      "path": "packages/reactivity/__tests__/reactiveArray.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 25421,
+      "sha256": "1c2d8052e9a46e196547ad5e128ee20d2e621f109a408a5954b893845370f74c"
+    },
+    {
+      "path": "packages/reactivity/__tests__/readonly.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15790,
+      "sha256": "5e31d56eb521efdfde5ef1e82f5f9b1a8bda7516be6f0dc12c44b7517510779a"
+    },
+    {
+      "path": "packages/reactivity/__tests__/ref.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12226,
+      "sha256": "cc3e0e56b17e60b4620e20e003eafbe825c6d18b6b795a3470907878800fdb88"
+    },
+    {
+      "path": "packages/reactivity/__tests__/shallowReactive.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5459,
+      "sha256": "5954c1bed3ebdce67c99c48819e389cfc6f59a4c8f382785beb3649b29823d04"
+    },
+    {
+      "path": "packages/reactivity/__tests__/shallowReadonly.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6818,
+      "sha256": "44c52091bd427c257debc18a658877d07fd35c45de01ebc8b283dd0b2236d6e7"
+    },
+    {
+      "path": "packages/reactivity/__tests__/watch.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6114,
+      "sha256": "bbbfd8deaa896037c391a5998988973322aece619495f2a2a46f85b14905f02e"
+    },
+    {
+      "path": "packages/reactivity/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 185,
+      "sha256": "ea58baa61892122ece77249d50c4b4bcdda46dd5233d6908d86d6bb4f874a109"
+    },
+    {
+      "path": "packages/reactivity/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1303,
+      "sha256": "d011a928fe2562c80c1a677176d3abbd733d056f6ac3bbf198743d584bbd61e0"
+    },
+    {
+      "path": "packages/reactivity/src/arrayInstrumentations.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9248,
+      "sha256": "36b975c45772b9013393386f08dde9abbd02231533998986fcadb8cb3359494e"
+    },
+    {
+      "path": "packages/reactivity/src/baseHandlers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7222,
+      "sha256": "222d9b856bbc2c25fe4249173e66117ffee038d1cc473e27e510d1fe1d1c6caa"
+    },
+    {
+      "path": "packages/reactivity/src/collectionHandlers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10203,
+      "sha256": "37087feef02ae5fb45c70df8141d6146f868dde2c8ba43b0095ccd7f0af89672"
+    },
+    {
+      "path": "packages/reactivity/src/computed.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5055,
+      "sha256": "69ee2aefcab84a334882743fe56d5955e17a50832a60330cd22ee5f02c23d767"
+    },
+    {
+      "path": "packages/reactivity/src/constants.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 474,
+      "sha256": "07fe5b83223ef3525bfb2806b186f9b6f4f59cc58af08d4749caf93c49ef527f"
+    },
+    {
+      "path": "packages/reactivity/src/dep.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10201,
+      "sha256": "0cbe532c661ac799a67a3db21ba23aa1d0aefe785f5c781819e88be1160806b0"
+    },
+    {
+      "path": "packages/reactivity/src/effect.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13151,
+      "sha256": "df0e761c36a2d487e190ac858acbaa4fa8cf4851cf8e4378e1d612839da407d3"
+    },
+    {
+      "path": "packages/reactivity/src/effectScope.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4808,
+      "sha256": "2c364b82561560c214008e3608f1d9e3890f6ac61c3f194eeb80f714b3a6fb24"
+    },
+    {
+      "path": "packages/reactivity/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1772,
+      "sha256": "544c9c181c973e0341e08c326dd9aef97e4b26f69ca2872ca7a7bba015897019"
+    },
+    {
+      "path": "packages/reactivity/src/reactive.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12416,
+      "sha256": "35af5ac223ef9e073510fcb41042349860fe54598b7acf1893dd0ceae14993c3"
+    },
+    {
+      "path": "packages/reactivity/src/ref.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13810,
+      "sha256": "d7e9ba56439263c22f945bb9f746ec3c27d9c08c7d247ee72d6d3f34a486164a"
+    },
+    {
+      "path": "packages/reactivity/src/warning.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 105,
+      "sha256": "cbde58f39e9fced570ec0ad1dc7853f43c8a2a16db0ffb05e936478428f3f122"
+    },
+    {
+      "path": "packages/reactivity/src/watch.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9544,
+      "sha256": "12adb5cdfe8037244b6264df4812e7d08da4aae0d1eea9be51cd4f60f5ab4dd5"
+    },
+    {
+      "path": "packages/runtime-core/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/runtime-core/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 657,
+      "sha256": "c20f70d913da280c584f71c66a6c155f4b75c2f100a73328ce0b21983c24a5e0"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiAsyncComponent.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 23223,
+      "sha256": "f2d7bd71f182261595daff45b45f3faa35dbc1ef4797820f8cba21ad24366865"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiCreateApp.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15266,
+      "sha256": "f87e6909ebff213c65f300392d8008c974ec62b497176f3f85286e2ad388bd64"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiExpose.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6209,
+      "sha256": "72689793aae77d74c67f6e3b3547a760ea8c2d6e017ab7a5123804a9b65dfdc7"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiInject.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8079,
+      "sha256": "60782825cb3b7af46ae10a7940207faf7bac3576def3c457b8cf598ef5b9dad0"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiLifecycle.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10903,
+      "sha256": "179e127755c7cdb1cf2f6798e4af53aa63a9dc1dcba3f26838bd9b75cce2129c"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiOptions.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 36739,
+      "sha256": "6887829537c3253b2b8f933ad0360470a579762fa32a30e95fbde4c59cefbd86"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiSetupContext.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5101,
+      "sha256": "c1fc5be11c08040b315386842b9cc8d74daafc5bc3f86830dbd14c60f86fa2f7"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiSetupHelpers.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12556,
+      "sha256": "264ee1ce5a7b3e586207c483d865f6057d91be9eb28cb1fd19c93c8a4b2bf2e5"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiWatch.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 959,
+      "sha256": "161a41fa6dd05da99f54a283e692f762aa884c339cd4e4fa4994f3b3a287e6ca"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/apiWatch.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 45546,
+      "sha256": "028b775660146894667aab00e6a4bb34ed8caee55ee7247766a08bd5ba9b38e9"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/componentEmits.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14998,
+      "sha256": "12d3180a26cfb42173292f1ae78a937831123eb3d6a54bde028896eb680945c6"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/componentProps.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 22687,
+      "sha256": "13455e5ed5fc59ed98c2db7a318072adf71dfd574420ab0d7060756470ab3b89"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/componentPublicInstance.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11937,
+      "sha256": "49bbca7fef993f8701e7ff2b4e2d5d314450874f22c63cc9bdfb6f57c534cd8e"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/componentSlots.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8276,
+      "sha256": "abd2dbe3ee26bfb0232ad63807561dcc4bf24125c81f07f40c7a12b95dc172b5"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/components/BaseTransition.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 41330,
+      "sha256": "e8ba2d1674d2f991eea84fc0285baed02a4804955cfa8272e24c0adffce453a7"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/components/KeepAlive.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 31715,
+      "sha256": "20afdc7317747345eb3671886bf1050619bc05f52789094a01963cae57ee3676"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/components/Suspense.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 55317,
+      "sha256": "aa8bba59eb1543654c5f8932945923088dcf74335f381bef566f20f37598efc6"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/components/Teleport.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21259,
+      "sha256": "4c66c59f73c82e5c0a0d77a371d50951f20291142f1245a34763316ed955257f"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/directives.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11392,
+      "sha256": "93c20940947f0d74d8566319ee2dd5b7ad6adfbbc6219fa08d8968639b98848c"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/errorHandling.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15258,
+      "sha256": "814eda4ee0108f6a98710aae274836caec82e6b4a0dd035afa699628a58a2daa"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/h.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2481,
+      "sha256": "5c8abeea1a05999c56eb34eb3a584b4d33a0004a427bfe27eb28a88aaeaa6462"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/createSlots.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1993,
+      "sha256": "1cd76b11bb871f007488edf7d88243deb43e38db5a6b51b2347acc9275bd2902"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/renderList.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2047,
+      "sha256": "351d061db8761fb46d49a63a7dd7c21fd47266367068388c7fa27d68b2222488"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/renderSlot.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2810,
+      "sha256": "1f661c3b7318a7c25af31ba428d89f3098c3242a53bf7b87cb003a7317c80583"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/resolveAssets.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6808,
+      "sha256": "186cec05bf1aa334d3b4218e4221b6bad9269676230116e283b9170200123358"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/toHandlers.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 529,
+      "sha256": "3711cc6a3a4e5c2e01b4ddc8c32c708866c83e35677f08af2e74b60a3e487392"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/useId.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8722,
+      "sha256": "0243af88400c788c27ca7244586ebcc43ef8a9d86e3515cfa875c371d68b772d"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/useModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 18967,
+      "sha256": "c5b0ce1cb913a137fd11ce2273ccd1a901a9854ef8e60f45ec6272f85b9fcb06"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2880,
+      "sha256": "9d737af69b42cb964125d294a384cc7ee8214a7c14219e1063609169a39de66e"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/helpers/withMemo.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5969,
+      "sha256": "5fff85fa4c80c96cae2f03d66ce2e84541577fbff3ae6bfd4ffe724e238f9197"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/hmr.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 24936,
+      "sha256": "39548890906bf1604315bf4f7605f324e769891533b3fb61b33d83a0f02b83b2"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/hydration.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 70317,
+      "sha256": "163b97e353170fdb12b9c147de46598f457bc12c42927870b4ea296c255d55d2"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/misc.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 482,
+      "sha256": "86501ceb379d3203aa0079acffc2510b1d8971dd807945a310131b93ec370a07"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererAttrsFallthrough.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21427,
+      "sha256": "9ef6c4be0532a175b13330fc719deee77e81320ec3798bdd9f502f7d674aa5f9"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererChildren.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 16974,
+      "sha256": "f8a3acaf503ff8c27f1f832a1f6cd4e716eb02682a592cd6f00b90cb91d07a4c"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererComponent.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10925,
+      "sha256": "996beb736a36780170c93d1340d4d599a4674e4021a45c13800da159d65cf98e"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererElement.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1463,
+      "sha256": "884de5a244651db18e1c0c31bdd747053d3f2b302bca5629f60c6bf67480be92"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererFragment.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11645,
+      "sha256": "714b9b3abeb71a1aaff7dce05edae7fc6ace6141d23207875cd9daf52a32c3b5"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererOptimizedMode.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34840,
+      "sha256": "58b32e59dbdb26254bcefa361ce6308c14670e905b9e62bd70b68b4504b6c730"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/rendererTemplateRef.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14552,
+      "sha256": "fc85f1ce30142174628ae58a1dd379d5525c7d5725a3ebb82fe2181456c68f01"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/scheduler.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 19972,
+      "sha256": "e52aab89a2c8416be147542bb4c79d6bf762d615aaa728bc50b3cab0754a3ff5"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/scopeId.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 10351,
+      "sha256": "66ca3eb5ced8f94bea584106b0c5b6b3d905ea00138800c923d906739d0f8ece"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/vnode.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 21837,
+      "sha256": "a0340ef27a0a399b2f814f9563e0651ad52ecf76366aa517136e73dcc68388b2"
+    },
+    {
+      "path": "packages/runtime-core/__tests__/vnodeHooks.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3028,
+      "sha256": "f4dd5e30e3fb93530ebedf4854f720028c0008b1752586014d4aa6c43b31aba5"
+    },
+    {
+      "path": "packages/runtime-core/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 189,
+      "sha256": "62c7b9f4f1090dd5217eccacffb381d56a5d27f60c0256e7f04915a77489ef82"
+    },
+    {
+      "path": "packages/runtime-core/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1244,
+      "sha256": "9cc9574e530e34567300a7a6c906fd0c32e8b0f73215a90ac647d010e60b4079"
+    },
+    {
+      "path": "packages/runtime-core/src/apiAsyncComponent.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7024,
+      "sha256": "45b130188518cfc9e2f549ed01cf592f3aaa1835adb738deef1f523450b02250"
+    },
+    {
+      "path": "packages/runtime-core/src/apiComputed.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 554,
+      "sha256": "2b44d360fe1cbfa3a29fb901a43a13ad3f11de0b5a749abb7832810b6a65d8e7"
+    },
+    {
+      "path": "packages/runtime-core/src/apiCreateApp.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13688,
+      "sha256": "f61db55952a107d155115e28d45b723bdc2962eabec783f8455fd001aab569da"
+    },
+    {
+      "path": "packages/runtime-core/src/apiDefineComponent.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8154,
+      "sha256": "bdc310c7372d5d1f5e42517c5f3c76c68c4fb202f646717ea16dcee4cc51164a"
+    },
+    {
+      "path": "packages/runtime-core/src/apiInject.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3374,
+      "sha256": "8f76267d9ed69d7f9d53ef228a42a0fd817615e9a8ecc35d8d461e68335ba88f"
+    },
+    {
+      "path": "packages/runtime-core/src/apiLifecycle.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4050,
+      "sha256": "73513351e7e32694d76d357a12afa05283702af04d19abddaff9b519fafd1cba"
+    },
+    {
+      "path": "packages/runtime-core/src/apiSetupHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13924,
+      "sha256": "dcfb2676eed43dbcf87f62c463cfbe0fd1cddbe24145b79abdcfcb9dce72ba3f"
+    },
+    {
+      "path": "packages/runtime-core/src/apiWatch.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7411,
+      "sha256": "7733120b0d77a0698f100a7a29cb64cd2c2efbdd752c3f297496a5838a95761b"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/attrsFallthrough.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 701,
+      "sha256": "d31e1c7849b98503c066897ba0e04d351df5900a5506ad249e1df0de9597fb73"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/compatConfig.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 22521,
+      "sha256": "2a2fc81c6d44e0049c5a1d07a29ab6471a757439a2345b6e31b3b3266b98f325"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/component.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1485,
+      "sha256": "3f4dec90ee3bd24c08181bfe8a82ed04849876a32d66db1e52d3c11082f82ad7"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/componentAsync.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1794,
+      "sha256": "e89d0fe6ba009ae1bbb5329ceed192dafb0db46f48845c0d0af7156f1ecc6c4d"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/componentFunctional.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1793,
+      "sha256": "ffc821f3d90876e2c3da19552eab36a553ad894c1453bd5559f3b70dc7504429"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/componentVModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2599,
+      "sha256": "6b514a1dd28d17cfb68269fe0518cb3eca1ec5ff2118c636dbfb7865a898b180"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/customDirective.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1596,
+      "sha256": "bbf4081d93b88b165e434fd007ece1c330cc9243333caed06dd987dd4b824a66"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/data.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 502,
+      "sha256": "f080f476dee2d3c5826be5caa23aafcf5ed97198205dfbf27977ca3d85b01809"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/global.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 18081,
+      "sha256": "14fcb1fb309386865843ac3ff2ee922179e3d84b342046d4d88767031797537d"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/globalConfig.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2431,
+      "sha256": "b234a0b57984d2488d07bd62772225692412b1458d039727d1e945ec3eebe4cf"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/instance.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5518,
+      "sha256": "1048fa5d214ac91deaa1169d4f957b9e1115265d00bc5ba34b17d19d07d072d5"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/instanceChildren.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 934,
+      "sha256": "2d35547f57643fbd43de3d13b1a82aaf4340646d2fde27e5eb64889ace87411b"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/instanceEventEmitter.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2736,
+      "sha256": "f9e9af34cec181e2d4ff52056fcb82247be189d28cd8fa12a68c77a580ca302f"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/instanceListeners.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 656,
+      "sha256": "6cd9713e226da430bab84e293b97615877d37e0c29805384af3fa4090d016ce8"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/props.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1150,
+      "sha256": "c9e58c7ddde694593de582118d6dd5180b92504d26bd5338ce31f24e092c59ee"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/renderFn.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9356,
+      "sha256": "11e14c1838073336b33935f0979e3f093cbb98f42ca44a2de2bd93a96c89f88a"
+    },
+    {
+      "path": "packages/runtime-core/src/compat/renderHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4628,
+      "sha256": "0b15dff65423fb92d8bf2d51021bc5072985bd6acd2394bf960291bdf6b3216a"
+    },
+    {
+      "path": "packages/runtime-core/src/component.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34235,
+      "sha256": "f292dc0dfe56238f223d0e6995fbf6744ece3984f1ed5d0e2984bbdeefe620b0"
+    },
+    {
+      "path": "packages/runtime-core/src/componentEmits.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8253,
+      "sha256": "ed92f6e722bd49bf7a3760611279d367e1d5824ac4a4d51b774d1c75b9bb9069"
+    },
+    {
+      "path": "packages/runtime-core/src/componentOptions.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 32849,
+      "sha256": "5f953be83ccd01e70b33b72445e0f2eeddbe73921c146cae7ef6783526e8cfb1"
+    },
+    {
+      "path": "packages/runtime-core/src/componentProps.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 23146,
+      "sha256": "34cb04924687cd574cf086bfbe5d5cb11dfa73646f9b6b3d9fcb2f3c2217e4b3"
+    },
+    {
+      "path": "packages/runtime-core/src/componentPublicInstance.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 20549,
+      "sha256": "fe7022d90eb0c7da722393e0d4bd8142f2654f3182edf37fc0fead22f191f5a8"
+    },
+    {
+      "path": "packages/runtime-core/src/componentRenderContext.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3626,
+      "sha256": "60515eb1b7591419f8095b46c185470789dd9918a506dd9835e506c5d93876ac"
+    },
+    {
+      "path": "packages/runtime-core/src/componentRenderUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13561,
+      "sha256": "abc1468b2893ad25b9c87ace15a3c1a9e77abac03ad93ffeeb21720d1893e539"
+    },
+    {
+      "path": "packages/runtime-core/src/componentSlots.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7183,
+      "sha256": "babe222f473b49a78f18dc95cda09bd07cce63256da1055fe6e6eba600b2b5a0"
+    },
+    {
+      "path": "packages/runtime-core/src/components/BaseTransition.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 16728,
+      "sha256": "f8994f161e83d2a4a26e636be086a5fade51e105220d49be163a93d5df528de5"
+    },
+    {
+      "path": "packages/runtime-core/src/components/KeepAlive.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14007,
+      "sha256": "5985158c1553aba351091c2a0804168ff670a5bafd57525bb62c4e26c5549850"
+    },
+    {
+      "path": "packages/runtime-core/src/components/Suspense.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 25596,
+      "sha256": "7d88d4063964aacc15676398767d0cb2d65d4616c2abb2e1bc9d6547d6f12210"
+    },
+    {
+      "path": "packages/runtime-core/src/components/Teleport.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15908,
+      "sha256": "853746f2b2c907a53e7cc5d3897a1216e884ba6459fd34d2e3728dfdef3007d0"
+    },
+    {
+      "path": "packages/runtime-core/src/customFormatter.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5436,
+      "sha256": "a4bd0110e1e6f16c14e2275baefc67bb59719e9bb5335b718da490f531facfef"
+    },
+    {
+      "path": "packages/runtime-core/src/devtools.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4960,
+      "sha256": "011ff7c0645d308d8f93c5a9ed1e0441b2e84338a8a68ef68cf9f1ffb3be09e8"
+    },
+    {
+      "path": "packages/runtime-core/src/directives.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5495,
+      "sha256": "a16b98381bad7f27667fbdf4ec4683eaece41fc6e621a3951d23e2b8e7eec45c"
+    },
+    {
+      "path": "packages/runtime-core/src/enums.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 345,
+      "sha256": "3f017832bd4c635d7765fe808399eb4699b2570f4f294a73eab5f4f17b8c3448"
+    },
+    {
+      "path": "packages/runtime-core/src/errorHandling.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5860,
+      "sha256": "ad8638a17d9ba873557646764633914a9a59b6da5a093a269d40a18090716260"
+    },
+    {
+      "path": "packages/runtime-core/src/featureFlags.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1380,
+      "sha256": "10911a6af026d7ab57cff84f291e330453b4eb33c8c80fc7be782edb139334d7"
+    },
+    {
+      "path": "packages/runtime-core/src/h.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6163,
+      "sha256": "ad69ebd25f2ddaa6e5797396df9f68ff4ccad2e049875992bd68d81340e19508"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/createSlots.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1263,
+      "sha256": "24427e9546c6a5cb03cca3eeb726ecb9e66c05ec2efe6fa9ebbd6a91e68f35c7"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/renderList.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2687,
+      "sha256": "85e7bb7a37e511d7eeb4260881f43abffd9ba4b33ff26b890bdccb49e642c266"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/renderSlot.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3480,
+      "sha256": "0ccf4286f1a916accde0cb597a9329e568adc428d7536e0ad5bdbfe8fc0336c8"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/resolveAssets.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3704,
+      "sha256": "40d4f1aace3ead18869380cc1b5f83e43511938c05351d18a464fd10290a0498"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/toHandlers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 596,
+      "sha256": "09d644f37a8c271f9db616535ffc7b7e9598aff64e9b06556e3e602abc58970c"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/useId.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 735,
+      "sha256": "e60090d2717d654f18ae4525d0ce1ddfd035748fbcec9b6d8ba9bf3606393f88"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/useModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3747,
+      "sha256": "eb24016e548652718dc767b46479aa056321f62e5b5b3bd5c72ba24af88d4985"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/useSsrContext.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 594,
+      "sha256": "a5e9331bf5cbe20b851866322714ce23e3072fc72909199ae1497ac607f02c69"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/useTemplateRef.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1172,
+      "sha256": "428aa7a1f6e08f83ad664aef46f596b82b1f342e56964832479ba0b8dc3270cd"
+    },
+    {
+      "path": "packages/runtime-core/src/helpers/withMemo.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 922,
+      "sha256": "97d47bf351196a69a75d825511b70717458d15336b96f7040f504224eb146886"
+    },
+    {
+      "path": "packages/runtime-core/src/hmr.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6211,
+      "sha256": "484deb6f85359c7f7c0faa9ebd0aac5bc904b7ed7810b44b467c29f163a7c49b"
+    },
+    {
+      "path": "packages/runtime-core/src/hydration.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 30239,
+      "sha256": "979851ce3dd58363d65ce7aa5aa8df2cd6a20dc90173a86257db3bb058a998e6"
+    },
+    {
+      "path": "packages/runtime-core/src/hydrationStrategies.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4059,
+      "sha256": "a6f108593e6d08117c591fc76a0a693374accd4f09a848f8387e31c0cf831b59"
+    },
+    {
+      "path": "packages/runtime-core/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12190,
+      "sha256": "c0c2adaedd2a76e374a24fce6bc5ef624a7b9a15fc0d1085e50f10797a986ed1"
+    },
+    {
+      "path": "packages/runtime-core/src/internalObject.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 523,
+      "sha256": "981f69657322c58571096a3803b7adec03b901c8ad716dc1f19fd3d33552bb13"
+    },
+    {
+      "path": "packages/runtime-core/src/profiling.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1418,
+      "sha256": "60bea747bd6754f0eb17bf3114c7df3e3b434817c6bbac19a1a752f20d59fa6a"
+    },
+    {
+      "path": "packages/runtime-core/src/renderer.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 71715,
+      "sha256": "367b66a78490ca50e2154c0fcc94a148adc2d24f13a9db7997f6e456364fc1a0"
+    },
+    {
+      "path": "packages/runtime-core/src/rendererTemplateRef.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5003,
+      "sha256": "40fe49e8bed2cf6cccd536f2c8a96a31b8e9f7bf5efbb17b39330341450d4ad9"
+    },
+    {
+      "path": "packages/runtime-core/src/scheduler.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8853,
+      "sha256": "994b74baa5b8a982ee8b1ffb1bba581dfe54714b29886391ae90c9a64f69aaeb"
+    },
+    {
+      "path": "packages/runtime-core/src/vnode.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 25397,
+      "sha256": "64b4d1d3e7e86b7fd044a64cca181fc50e3d74f74bd7569387781389a3ca920e"
+    },
+    {
+      "path": "packages/runtime-core/src/warning.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4932,
+      "sha256": "a7408ca137164fb59184b84f33882daeed2395030bbb928fc28ee21c9ef4962d"
+    },
+    {
+      "path": "packages/runtime-core/types/globalComponents.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 364,
+      "sha256": "63b15f5d861a109f03c6b565a5bf84e8bd07d261d241e24833b5269c57ecc3fc"
+    },
+    {
+      "path": "packages/runtime-core/types/scriptSetupHelpers.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 635,
+      "sha256": "57e880515ab224d621c28f15d8c49bc76622b13c07f1a7bddbf2d83016397edd"
+    },
+    {
+      "path": "packages/runtime-dom/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/runtime-dom/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 198,
+      "sha256": "60cbfcd4e1ef3c136c0a77e6725ca4e5328992cf1af1dacad863e521d9121156"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/createApp.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1089,
+      "sha256": "77a4d9ba2b6698c171c3ba8fdf621c4257db90746e1a2a14504eb3c3ae6e0f41"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/customElement.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 43593,
+      "sha256": "fd19a82f09b1fb9359412f86a27a853194f17b9a3ef30e83dc13c0665f0a0da0"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/customizedBuiltIn.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 685,
+      "sha256": "56284fe5127b95458b537b27eb923eb8f4a538a2df2c7eeb0ecc330c474ea836"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/directives/vCloak.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 322,
+      "sha256": "2b7e30e62d4c84691d187d92b29eea5400c9fca7d5cf522ae978f2dbcee9b907"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/directives/vModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 36400,
+      "sha256": "a0228ac41d0e71b5336efc261d7d6d12ea3f624b676e5261f92e4bbd335d2eee"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/directives/vOn.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5624,
+      "sha256": "5a38b98e6834b1386a67028f2703411597b61992d7b1d189bd8b3c090179eff8"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/directives/vShow.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7492,
+      "sha256": "08f1a67d5be2abef0e30eb0d037ddfdf88e541caa0c905382b6e9bdd57520387"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/helpers/useCssModule.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1241,
+      "sha256": "86896a6bec6c51f81e6a503ee3a1c5a44ca7980acd9cb01d569094429abebeb5"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/helpers/useCssVars.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12328,
+      "sha256": "c1eaec0b519c22bc3c9416ed1aa1b43b77bdeaa7e241efab9439d66eb1866dfd"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/nodeOps.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5182,
+      "sha256": "29bff4a1be9da22990e6264e59536be9c2e212727ba8fb8f9fc9cfdf26f93ff7"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/patchAttrs.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3257,
+      "sha256": "cd9f91bf947a22d56a9b6616c4f29d32c72c5b6ef53fe20d0c81d05d8ec19792"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/patchClass.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1042,
+      "sha256": "c5573dae37f53fee2f607ae8e7632671d4d849cfc2ae7ce5b976843b1e82d1f0"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/patchEvents.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6406,
+      "sha256": "9121f25d6248e57f73e6393dc8b6afa00d243086806f622e96cb7b70afec1e83"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/patchProps.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12367,
+      "sha256": "44515034a11ef8f5fe44834ea53b890c2588a7c8cd191c5c3f46c51bb1ce2752"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/patchStyle.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5220,
+      "sha256": "bd3f1298410c5bad9ffb1b1187b8f73e2f4b8bbef8715e671307666376f8d670"
+    },
+    {
+      "path": "packages/runtime-dom/__tests__/rendererStaticNode.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1909,
+      "sha256": "4150bc71134feff7e80f96f33df63b3b0edfde23486072fa52a74a09d0345f27"
+    },
+    {
+      "path": "packages/runtime-dom/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 187,
+      "sha256": "32a727cae7f8ef6ff93696552dd16b5fd355207439f74421dd9f19d7193f866f"
+    },
+    {
+      "path": "packages/runtime-dom/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1440,
+      "sha256": "200445c68145e2d862b5d77639e323208a9491b7b66367558f950262637a0007"
+    },
+    {
+      "path": "packages/runtime-dom/src/apiCustomElement.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 19355,
+      "sha256": "d502c4ba0c28ae82b0d50143c85fec62d81d5231adb4d9837e48c4ea11fabf76"
+    },
+    {
+      "path": "packages/runtime-dom/src/components/Transition.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 13654,
+      "sha256": "5f383d64465cd9df805685fd6dcf7f081e974749f28c393c1f589687a171ca95"
+    },
+    {
+      "path": "packages/runtime-dom/src/components/TransitionGroup.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6368,
+      "sha256": "fe9447bf2d38c50a1925800bacde8d5a183a0031f885f12015598788a6bd03a7"
+    },
+    {
+      "path": "packages/runtime-dom/src/directives/vModel.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11102,
+      "sha256": "e11f6b22953afe06286fc7a0dc254d21cfa6c925a6fdb70020dbc17dc549d767"
+    },
+    {
+      "path": "packages/runtime-dom/src/directives/vOn.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4421,
+      "sha256": "1266c8a1d8240715c0ca42c41af9f6388baf88fcfb8dd7de1cb579f0c4951104"
+    },
+    {
+      "path": "packages/runtime-dom/src/directives/vShow.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1658,
+      "sha256": "33e92d65f730f6f140f7bde0086b1e6a16d4db0a20e3122fa7d3c2da6b3beedb"
+    },
+    {
+      "path": "packages/runtime-dom/src/helpers/useCssModule.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 919,
+      "sha256": "396b18dd39bf068fed28488c532ec4bce5e68b6cbcb7bfdcd639988999f18b89"
+    },
+    {
+      "path": "packages/runtime-dom/src/helpers/useCssVars.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2944,
+      "sha256": "828a75de38069b5cd5d90860ec4ff47e4186571febb1a1f1a0a022f4e2f3b98e"
+    },
+    {
+      "path": "packages/runtime-dom/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8655,
+      "sha256": "d3bcde081b470274cb7c3f8241ff99454841620d0fd7f3e3ee32f59975a0da8f"
+    },
+    {
+      "path": "packages/runtime-dom/src/jsx.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 37384,
+      "sha256": "cdc802d740a8c276f21d0d09bb54aae9f1b428c477c1f8e368e6926b54ba73b4"
+    },
+    {
+      "path": "packages/runtime-dom/src/modules/attrs.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2285,
+      "sha256": "42932acd655799115fbf26019acbeec6b28f5de6c96b5e27e11bcb120812f1e1"
+    },
+    {
+      "path": "packages/runtime-dom/src/modules/class.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 830,
+      "sha256": "d24c104e04a92d4103aa632d45ecc4132120d20617ee15edd80dc282d49a7dd4"
+    },
+    {
+      "path": "packages/runtime-dom/src/modules/events.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4665,
+      "sha256": "d69bde27b4f6dd1b1517bfefcd77f23df0ff4035f2c992a137dd5d60978b6882"
+    },
+    {
+      "path": "packages/runtime-dom/src/modules/props.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3256,
+      "sha256": "60e62417294970f9d970da66c066d44c4157d407ab55f67fd668c2f369bb8689"
+    },
+    {
+      "path": "packages/runtime-dom/src/modules/style.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3376,
+      "sha256": "5381294698220adfbe8fbd7e5914161ea03b4989eb0c06dc29d6fd072c99fc12"
+    },
+    {
+      "path": "packages/runtime-dom/src/nodeOps.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4166,
+      "sha256": "373131af6ce85cc869b04d49d60d2c8475840331a5022a27c28524d2aa9b5415"
+    },
+    {
+      "path": "packages/runtime-dom/src/patchProp.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4219,
+      "sha256": "34888071e0e6ca4c14e4ab012cc9ad27eb7218f81a82e088c444c80e69ddd5cb"
+    },
+    {
+      "path": "packages/runtime-test/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/runtime-test/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 595,
+      "sha256": "daea669ec3538381a154977395d92023b48639e9dc6d404f076155eff3eb183f"
+    },
+    {
+      "path": "packages/runtime-test/__tests__/testRuntime.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4179,
+      "sha256": "0f3f1cb254885191be4621175e73ad012d4f1e27b85b0a035b0080e6c0d9a181"
+    },
+    {
+      "path": "packages/runtime-test/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 189,
+      "sha256": "9b090cb31ecababf0cbf082b41698ce5c18bd57788bf01ed7375acc136c302e1"
+    },
+    {
+      "path": "packages/runtime-test/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 726,
+      "sha256": "b8c0baafb6e4f014676b3f6e6c06a441696b261fdc2df44873ebf416c914e303"
+    },
+    {
+      "path": "packages/runtime-test/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 869,
+      "sha256": "2fe123d56f1cc1ed48dd258b1ec778b3475980fe4d2ef7358ac604aeac1d4200"
+    },
+    {
+      "path": "packages/runtime-test/src/nodeOps.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5497,
+      "sha256": "1882284dec205a92eed47845173fc4b0e3bf7967d0197cc178459c8a5f46235c"
+    },
+    {
+      "path": "packages/runtime-test/src/patchProp.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 560,
+      "sha256": "5ac01019021f905fdb38d8a7147d5aeb594329ae2436607c28677430ff967008"
+    },
+    {
+      "path": "packages/runtime-test/src/serialize.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1579,
+      "sha256": "ce370e5cd133d12713c5aa740ad49714ae1ce7830bb9eddc3b7d48a0e617f4f8"
+    },
+    {
+      "path": "packages/runtime-test/src/triggerEvent.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 493,
+      "sha256": "e46db30c39224a8f6d9220b6c01fa1be08bce95d3aa3c98001734e0f7ea92a6c"
+    },
+    {
+      "path": "packages/server-renderer/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/server-renderer/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3889,
+      "sha256": "37b320bd38dd18c30d472a1fca1fa434beb286f0570879a26d6c3a0812e2db7e"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/createBuffer.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1501,
+      "sha256": "999d69ec77d037aed305f6844d078926c50d1077feebcfe752d248824e6a14bd"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/render.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 33013,
+      "sha256": "01874822bd3468fd95e16afb0a4a7a38f3224d1b580cbac984b1cd731ba021c4"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrAttrFallthrough.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2087,
+      "sha256": "cbb9e0c5a2fddd431a26492d0f44a84b515dd5637bc642f10551f3627d097571"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrCompilerOptions.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4148,
+      "sha256": "af0b2713111ab7db7485ad8737b54898a2c73a6fe0983b9d9d10535ebc1e2312"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrComputed.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2225,
+      "sha256": "0ec2700d7e707cf99618984931466cda9a5f6ddce125017d8e63d0ee1a760eb8"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrDirectives.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15633,
+      "sha256": "e8777257a47f8cba78eeac1f461424204d0b3b04b2da71403ef18790c85f1fad"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrDynamicComponent.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2098,
+      "sha256": "ade0e37f69b4078277bb944e5a12a194d61237f58fcbda84084d4120f054dff6"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrInterpolate.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 643,
+      "sha256": "db2eff7c98e5192c5725d91cb21e78824a6d4dee2da38c0402615ec217ea9ac7"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrRenderAttrs.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4393,
+      "sha256": "e122f20adabf3c89a7ad58bbbdec425816ff51162f8a7f3d6bf51c1ca6b53324"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrRenderList.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1781,
+      "sha256": "0af73b47ed5129247bf2d50ee8a78a180c81c58b82606a0fea1048f1e047bf12"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrScopeId.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7050,
+      "sha256": "23a9bb335ad659be77e51c0f77e776d9d7fa1c3ee65bde4f02285c38599a96b9"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrSlot.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5128,
+      "sha256": "804adf6399d07634968973b13e3fdc7469cbb94ddaca7643a95a221b114f8fb0"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrSuspense.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3378,
+      "sha256": "77a354624126dd8ece260293ba2630b52e23a6d2de6069c68048412eb1dc7fcd"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrTeleport.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4799,
+      "sha256": "e1e9904df86f349930b0295fe607a542344c3a595dc782b04de4302e11bcec0e"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrVModelHelpers.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2708,
+      "sha256": "c7e5fb8e690cb84c7e08cc9ba88272634eeb1e6c906ffa3f16d38a35ed825539"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/ssrWatch.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4895,
+      "sha256": "efbee3080db5534752ccc1e43837722317f3cced74ab1910523fb5b21f2ebef7"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/unrollBuffer.bench.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1916,
+      "sha256": "09bb5d1a278fa2027777c1fe072ac645b45ce4c81cd21e5bab1fedf032aeba3a"
+    },
+    {
+      "path": "packages/server-renderer/__tests__/webStream.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1622,
+      "sha256": "158a403822a0ab62cedfd69e2fecd928a65da67688435d62617785737e1a96b4"
+    },
+    {
+      "path": "packages/server-renderer/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 195,
+      "sha256": "649f9ecc1d681df415cfe6e0a94bcab03c8ac7a98c2f14dee08afeeec43e1880"
+    },
+    {
+      "path": "packages/server-renderer/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1333,
+      "sha256": "b28ec067ccb4c42a3fbf5f9507b788c3d33f3eda3a25064fd5d043264d059c8d"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrCompile.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2669,
+      "sha256": "4f6888ea8bd47dcb5d3ca9a456d9421f25541722086aa2eea6857230d32aeb4c"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrGetDirectiveProps.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 608,
+      "sha256": "af59b494eea2cc61b513697cf46f20cc2e45e17937e01c3d64c59a448cba1a25"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrInterpolate.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 162,
+      "sha256": "ecd1d230ca093fe7b629d01239b887e119e71c5a764015fb19aaa372b0352cda"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2399,
+      "sha256": "73db0f9c7f67117cdf4493064fc01c5b396a5e7838efa9cdcc3044990c7388a6"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderComponent.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 593,
+      "sha256": "c01a0ce55763ca80a3a9931645d84e64e8829ef57de2840279ac31b04e8be4e7"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderList.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1040,
+      "sha256": "a7a0096ee68091637fc209e96e716f426b78f3aa2ded360219fc18052cf532f0"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderSlot.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3371,
+      "sha256": "0ed1448b6c9c4e7d23349b61de8156edd9bc6723d151b6750bf3255df09c85a5"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderSuspense.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 269,
+      "sha256": "81871872a104a9ad4b34ee025206da5c1fa588cbcb4820ad68f452eaa79340fa"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrRenderTeleport.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1306,
+      "sha256": "ed7a983be11ef9d98e043c04e899b6cdd2b83716361f921db910666bb4f979a3"
+    },
+    {
+      "path": "packages/server-renderer/src/helpers/ssrVModelHelpers.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1294,
+      "sha256": "c6f2b6605c46c814013943c9f07bc9353a7a8583c3bf094c327e42028ba0c876"
+    },
+    {
+      "path": "packages/server-renderer/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 428,
+      "sha256": "9955c603944653f41e517b1e78c0f9c599bebbe801eacb2f4484cc3745e0d442"
+    },
+    {
+      "path": "packages/server-renderer/src/internal.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 904,
+      "sha256": "6b2d9e62e605f5936eef73b45a0c488603a647f256041dc58ad342de3d66dbd2"
+    },
+    {
+      "path": "packages/server-renderer/src/render.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11080,
+      "sha256": "65a2cff6899ae8ad2efb47853de3b94a610509590beddde04ddaa96eb669170f"
+    },
+    {
+      "path": "packages/server-renderer/src/renderToStream.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5130,
+      "sha256": "7d6a96703e31c0e74e9b8d91bae7b188f3ee325787a9ad0db4fc7f8bfca9a45a"
+    },
+    {
+      "path": "packages/server-renderer/src/renderToString.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2713,
+      "sha256": "64106488b969defffacf2c8103a9cd89f10d5cb0f2bd950301e629a3e53472b4"
+    },
+    {
+      "path": "packages/shared/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/shared/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 87,
+      "sha256": "a4be695a372c53520ac6e188605dfbf4163b953907ac1bffe25b775eb38c46ed"
+    },
+    {
+      "path": "packages/shared/__tests__/__snapshots__/codeframe.spec.ts.snap",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2372,
+      "sha256": "a3210321f910f3e2bf8a5b14e443758060c4dc54f9a586ddf1e6a4add576c7fc"
+    },
+    {
+      "path": "packages/shared/__tests__/codeframe.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2793,
+      "sha256": "05e81417c5bc91846e49e9340e6cef07c1ede3a79580efe59ac91171b3ca7e0c"
+    },
+    {
+      "path": "packages/shared/__tests__/escapeHtml.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1065,
+      "sha256": "4df251fcc2375d8941bb05a9bb656b17ac0478798a316bcedbb5b772a9f93470"
+    },
+    {
+      "path": "packages/shared/__tests__/looseEqual.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8557,
+      "sha256": "aeb9808d6772f85a18d3812de455cb89ab83cf716e99612c4dbe5a0a50706a8a"
+    },
+    {
+      "path": "packages/shared/__tests__/normalizeProp.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5765,
+      "sha256": "afc9dee53290ea7db44c7762477357ad77008d54e0bbf22e6fc98ed3c9111670"
+    },
+    {
+      "path": "packages/shared/__tests__/toDisplayString.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5598,
+      "sha256": "a0053952226941033d8ba924fb675e0b337f69613e05e27a71f2d5cb18bd2435"
+    },
+    {
+      "path": "packages/shared/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 177,
+      "sha256": "22aeabedc1f2782f67b05c54df4382d4e52a0e0c384ff02349372e2acd9974ed"
+    },
+    {
+      "path": "packages/shared/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1083,
+      "sha256": "2a9ec0c99ee43a42e33fc96e04caa607f5eaa6fd2b5da2a3b7ab163efc7341ab"
+    },
+    {
+      "path": "packages/shared/src/codeframe.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2081,
+      "sha256": "bd00f1cee2dec77d186e4f678635141c03ae924b24d9ed0da03b762887e8be9b"
+    },
+    {
+      "path": "packages/shared/src/domAttrConfig.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7911,
+      "sha256": "9b349287e6440f6f66ad72124f1755e99cf2c3e506adec03de9422b24c336562"
+    },
+    {
+      "path": "packages/shared/src/domTagConfig.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2984,
+      "sha256": "571a383b541c6122764c6f6451fc44e999f836edff787a3b6f8a1366b658784d"
+    },
+    {
+      "path": "packages/shared/src/escapeHtml.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1412,
+      "sha256": "ea082b1f6e5f684ef773aa860221f278713cc5c99a87071a8d1cda0c30c74d33"
+    },
+    {
+      "path": "packages/shared/src/general.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6069,
+      "sha256": "32fcdcb39ea23aacb6a8edbb0ec40005e76b49dc1db1703dc70aacdc7d47d57e"
+    },
+    {
+      "path": "packages/shared/src/globalsAllowList.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 527,
+      "sha256": "a41fc4a16eb3671e9ffdf38185b0786002f06fe47f7fcbab025ed1e2839a47cd"
+    },
+    {
+      "path": "packages/shared/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 426,
+      "sha256": "4885ec074a8774d558bb9bacc2ef3ff3064730d5cf66def52232f8d00e752ed9"
+    },
+    {
+      "path": "packages/shared/src/looseEqual.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1537,
+      "sha256": "3fb680cb88df47777c9d2eaa18a98037a6b805025b8406a68fd85300069cf2e9"
+    },
+    {
+      "path": "packages/shared/src/makeMap.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 431,
+      "sha256": "f93e5846a7d2a2e458042b43bc497cce9218de1f9f529f1795b79a3475eeda48"
+    },
+    {
+      "path": "packages/shared/src/normalizeProp.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2422,
+      "sha256": "6b7d5d6a26d9e1d3775e8b5c5c41d990db16264d42c17f86fe578500fc2f03e8"
+    },
+    {
+      "path": "packages/shared/src/patchFlags.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4715,
+      "sha256": "f70349de049be388ea93335913b6dc277ea3a741568d0681648888fea416d761"
+    },
+    {
+      "path": "packages/shared/src/shapeFlags.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 380,
+      "sha256": "48307dab673ac5abbcb2b0167bca81ce81086702cb35c009455bbc6f192d3816"
+    },
+    {
+      "path": "packages/shared/src/slotFlags.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1003,
+      "sha256": "32adcf4113b794bb52a7f421967cc50687f81958e23de119fc63a4b41c1f4aa1"
+    },
+    {
+      "path": "packages/shared/src/toDisplayString.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1835,
+      "sha256": "87ce938d3928d079257651eb4c9634f812a8bdf70082ff54cf2bf7023db0dd33"
+    },
+    {
+      "path": "packages/shared/src/typeUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1623,
+      "sha256": "0318b4663777c0c49ff6b87c083144fa254cd1dca09d97dde99c6fc43f8f7063"
+    },
+    {
+      "path": "packages/vue/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/vue/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3762,
+      "sha256": "b212cf8005c37a06eedcb474f0ff337a416bc51f1d2c48c9552e5b2117e5c4ea"
+    },
+    {
+      "path": "packages/vue/__tests__/customElementCasing.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1061,
+      "sha256": "351d2d770681820a4b5730a7b135819a8cebf0d7353e1729bcbe51b80c88d97a"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/Transition.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 104474,
+      "sha256": "a5b9c9abe94d4da4ab3e43752286741ac1cba654a960256c409a71fb405731ab"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/TransitionGroup.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 22117,
+      "sha256": "c637d57332100a1d315d7a00a590b5d2de301867158952d202ef8e198a8e3800"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/commits.mock.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 23553,
+      "sha256": "0e984b47c206fec6d81371b342601f1ad4318c0cff596d4a5f4441f5679eac01"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/commits.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1918,
+      "sha256": "af83c0b21c62e42a6a51ebf667bd6353769b58379d71f3e59a37a89be72f93b5"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/e2eUtils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5659,
+      "sha256": "3af038c2d2b5fd70af913eaceccd9bae2d0d5694ec10e24beed77ee40461ef29"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/grid.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3944,
+      "sha256": "50c2f07fe325f9234be050e9aeab6d9277cee277e865eb74d53afd662de9cc62"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydration-strat-custom.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1153,
+      "sha256": "ee7395a6aa542ea04cbae613eb541b2528251f888caac913c2676ea40abdabed"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydration-strat-idle.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 886,
+      "sha256": "7c0dc09abc2e22b5e13ed01b0544619b1d1459b2738151405efe0b9aee84bef5"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydration-strat-interaction.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1318,
+      "sha256": "2d9a8632e3b1ee2eb73f15d532ead008f7f7b8ddef71ffc6cc19751ac6915049"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydration-strat-media.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 889,
+      "sha256": "e265e7138cdb8462cc585614c874ed87c37f16d6447b95ac3a2473d78978d7a3"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydration-strat-visible.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1667,
+      "sha256": "06165dad9ab38cae5ab076d9408f0f6e6879ed637ce1984bdfdcca60038a14bc"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/hydrationStrategies.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4735,
+      "sha256": "fa0db03d8705bfb4a84d62d1a2e2f8da457b28c90591a8c4bcd042bce90ad277"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/markdown.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1265,
+      "sha256": "c2f0cbb3b57f282efe1c00afa8c11010aa0b64868837c482ba4dc56b958ee2cd"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/ssr-custom-element.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4579,
+      "sha256": "8d09f82935b5bc8687cd1a3b606d7b707013ef909233313fc1c655b77dd57ed5"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/svg.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4282,
+      "sha256": "91213910ce9de0c230b588d21806d710a6db04aebc000a7ffc20a1e479ee30a4"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/todomvc.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6425,
+      "sha256": "6b7caa2f11ebcb690033df2da55269dcd18ef7b1f5e92bb84bbedc0867239a81"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/transition.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1527,
+      "sha256": "162e84ec34c28b7ce9a527150456892509b7580207b401bce28c6357fd83f822"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/tree.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3642,
+      "sha256": "01dfe76c9900756d5a300c397d8efc931a14bd8edfb10ca0fe7e5150093ee55b"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/trusted-types.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 382,
+      "sha256": "7039e789321c0417343d3a5df3102c7c1b3ab1d54cd15d485c34eac4215a6c1f"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/trusted-types.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2818,
+      "sha256": "7e31431a52c22805fad91cb71dc4b3903f459466b6f86c11eccce71c89ffe694"
+    },
+    {
+      "path": "packages/vue/__tests__/e2e/vModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1309,
+      "sha256": "c611f9e7f61817391285bc10641f099291efdf8404fa0b1da1f7ed418d208ebb"
+    },
+    {
+      "path": "packages/vue/__tests__/index.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 8830,
+      "sha256": "e8b1b5a6d5e33e11b5a752a2b7b172ea97a804f728c581d0f0770a4407585374"
+    },
+    {
+      "path": "packages/vue/__tests__/mathmlNamespace.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2532,
+      "sha256": "9cbd5644c84736dee3d4fe6e544365ac8d1815421f4907d18c2275cf49f4d867"
+    },
+    {
+      "path": "packages/vue/__tests__/runtimeCompilerOptions.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2939,
+      "sha256": "0feada61d5b92aaf9a0bbe247afde560598ebe3eea6d7752d63192a24b41db3f"
+    },
+    {
+      "path": "packages/vue/__tests__/svgNamespace.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2320,
+      "sha256": "c71fb4eb8c17135d09a16dd7436d98f0b2e91f73aab50461a8164192cbd1c418"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.browser.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 46,
+      "sha256": "bcac58b9da93b9c20bab46751dc36ce1ecf6e209b2661681eb6d4e16750c9c6c"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.browser.mjs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34,
+      "sha256": "3feec212c0aeb91e5a6e62caaf9f128954590210f8c302910ea377c088f6b61a"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.d.mts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34,
+      "sha256": "3feec212c0aeb91e5a6e62caaf9f128954590210f8c302910ea377c088f6b61a"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 34,
+      "sha256": "3feec212c0aeb91e5a6e62caaf9f128954590210f8c302910ea377c088f6b61a"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 75,
+      "sha256": "a2226c3eedb827ce90fabd18413c8b6d4008a99269f403f86f160b733c546970"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/index.mjs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 61,
+      "sha256": "cc4731212a5542b09972f5f5b80072afa0387941242bd25d5d3a46d8bb920e38"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 50,
+      "sha256": "a83b1667cc1faa734ace9d48d68f5ee4666e8a09160dfc26ab4b9edc60a80c0f"
+    },
+    {
+      "path": "packages/vue/compiler-sfc/register-ts.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 111,
+      "sha256": "4244727c942ef8afefa2969ea9e4179d885ffb53d91f962812fcb18a405a6ec9"
+    },
+    {
+      "path": "packages/vue/examples/classic/commits.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1859,
+      "sha256": "bade7e3384113c05b57d911a09b25580907c93c59b738fc57a2bf472fadc31b3"
+    },
+    {
+      "path": "packages/vue/examples/classic/grid.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3632,
+      "sha256": "b03db4d0664d07d5e534e779f5369c3049680b382bba743e150cf71069d1ebd4"
+    },
+    {
+      "path": "packages/vue/examples/classic/markdown.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1320,
+      "sha256": "377898e2d5702f2dca0c5d6094946d599544b64e9bab4276e7ad470800a309ab"
+    },
+    {
+      "path": "packages/vue/examples/classic/svg.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3432,
+      "sha256": "e09c1b78b58361a10f2624bbdb3c0b0d1279a4c818247637116a715ecfbaa47a"
+    },
+    {
+      "path": "packages/vue/examples/classic/todomvc.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5394,
+      "sha256": "1e7790e024416984ad8f78ce94cecf49fb1ebbf22534f4c1c645cb49010555ec"
+    },
+    {
+      "path": "packages/vue/examples/classic/tree.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2360,
+      "sha256": "4563c0aaadc4171170e6b4d23918a9631ea936eb6ae6c31387abbe2835316052"
+    },
+    {
+      "path": "packages/vue/examples/composition/commits.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1910,
+      "sha256": "cb8ffaa36588e7e440669d812490c7d13209f7f361de423870f531ddd42a36e4"
+    },
+    {
+      "path": "packages/vue/examples/composition/grid.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3729,
+      "sha256": "b939781855a38f1b0f132b1e8863638a22b3d0c3ce68d8edcc5d6399d6d07fe3"
+    },
+    {
+      "path": "packages/vue/examples/composition/markdown.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1376,
+      "sha256": "76f0c7158abe7f9e5ed0bdc4e0137522d76531321884098e9d54915044d14b36"
+    },
+    {
+      "path": "packages/vue/examples/composition/svg.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3605,
+      "sha256": "968310f4b9b552a1e40f24d8abcbf31d3501e59cfc4ec70ff87915dbbb82d831"
+    },
+    {
+      "path": "packages/vue/examples/composition/todomvc.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5914,
+      "sha256": "380260280b5123e599e58ee9767a8e9ad576ccad0558fb3bc6cb39e6a633c0dc"
+    },
+    {
+      "path": "packages/vue/examples/composition/tree.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2479,
+      "sha256": "3474b9e142fdb4baa963fec4199b577a0fee153d911cc5d40c9d9c4607d266d9"
+    },
+    {
+      "path": "packages/vue/examples/transition/list.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1996,
+      "sha256": "f0ac71a8a11c6a192985d374969f8386335d63337b39cddf584c109621264fc8"
+    },
+    {
+      "path": "packages/vue/examples/transition/modal.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2727,
+      "sha256": "691ae10623bfd12bc72fd2b8b5b4399fa2769657f6c54b6e8b55fd51c8c99ea7"
+    },
+    {
+      "path": "packages/vue/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 171,
+      "sha256": "a5287f6056bc5c2c569d318063ee043f55a0d323fa7262f64456d58fd574f928"
+    },
+    {
+      "path": "packages/vue/index.mjs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 27,
+      "sha256": "be2f35590bee45e69850d0d8d48f0b8c8f5c0ef0ecf8a7265ab12fb7add6584d"
+    },
+    {
+      "path": "packages/vue/jsx-runtime/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 845,
+      "sha256": "9c077ba346f2891d1725d6cbf1ff8bc7ca075ccff10d1ea38eda571245df0eeb"
+    },
+    {
+      "path": "packages/vue/jsx-runtime/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 303,
+      "sha256": "ecfc9a7d11e53cb941f553cae0db0ffebfd87f978ac6a764a1c3dbb421a8b88f"
+    },
+    {
+      "path": "packages/vue/jsx-runtime/index.mjs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 265,
+      "sha256": "815c8dded0137fc15ba8b58dce6d712d16ed3d73701cd1e2a26b56e4832f19a6"
+    },
+    {
+      "path": "packages/vue/jsx-runtime/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 75,
+      "sha256": "87b52004c4020c95aeafaaa23f6e21765219547828e2c9f3a94cd9530dd4b614"
+    },
+    {
+      "path": "packages/vue/jsx.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 749,
+      "sha256": "860302a48c9f993a2c39a3225128c6007d764e88e8002bf5f9ba9932a704888c"
+    },
+    {
+      "path": "packages/vue/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2836,
+      "sha256": "31dccc19ff4beee6bed5af6fc1c918bf0c8e64789b5818497a1e70ae850c249a"
+    },
+    {
+      "path": "packages/vue/server-renderer/index.d.mts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 37,
+      "sha256": "ddf4fc11a9d155f1d58084838ad0eb640d38b6b7724fac14a1e782efaaa2966c"
+    },
+    {
+      "path": "packages/vue/server-renderer/index.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 37,
+      "sha256": "ddf4fc11a9d155f1d58084838ad0eb640d38b6b7724fac14a1e782efaaa2966c"
+    },
+    {
+      "path": "packages/vue/server-renderer/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 49,
+      "sha256": "0e7735be4e65399d20d9ea65840a0cd0eef7f935fd1b224e6c45b576be12ac13"
+    },
+    {
+      "path": "packages/vue/server-renderer/index.mjs",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 37,
+      "sha256": "ddf4fc11a9d155f1d58084838ad0eb640d38b6b7724fac14a1e782efaaa2966c"
+    },
+    {
+      "path": "packages/vue/server-renderer/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 50,
+      "sha256": "a83b1667cc1faa734ace9d48d68f5ee4666e8a09160dfc26ab4b9edc60a80c0f"
+    },
+    {
+      "path": "packages/vue/src/dev.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 358,
+      "sha256": "e3a328636aacebaf8d5d2279466806a1262056934a497b9a818a63408904617d"
+    },
+    {
+      "path": "packages/vue/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2958,
+      "sha256": "3d7dd92e347d1ce06591a68617aa0fe178a453df0e63feb7ad98414842939320"
+    },
+    {
+      "path": "packages/vue/src/runtime.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 715,
+      "sha256": "06ab259ad064e1c411d53b53eecae01a4467ea7fdcb124e5fe0cb13c117bb9fd"
+    },
+    {
+      "path": "packages/vue-compat/LICENSE",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175"
+    },
+    {
+      "path": "packages/vue-compat/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 26645,
+      "sha256": "c7220f1650cd035f948179e29306bd5b2e4672365ec6caeddd4dfff2a0817f89"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/compiler.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3836,
+      "sha256": "f541019f715b5482903033a29ea831df3021542f91c670d6a3ff7c6e35d419c2"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/componentAsync.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2091,
+      "sha256": "6a916677d4d845e429afe50324a7450adf979eb6540f9e68aca4aa0d38a41625"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/componentFunctional.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2470,
+      "sha256": "05e4e66be55b339e4cddeb07f866d0c7d80024a4e214e0c2392dd1b1c8f5a525"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/componentVModel.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2046,
+      "sha256": "963a2693a35c97964af6ffd3f0637c40fd1a7b9f4a7ba00e907e252362c73252"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/filters.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7025,
+      "sha256": "136b0c201d525a4f27173597f37e839c10bde4ed415cad298c21d0b84aeb68ec"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/global.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12141,
+      "sha256": "10dce6d51c419d51a19609b8f82353ef558a1518176c1674d9e2da750d8b5fca"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/globalConfig.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2085,
+      "sha256": "480c844dd25ff1a59279aeced5a3731829157a89b6463540c6f5f41a81c27a31"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/instance.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9481,
+      "sha256": "18d2bc950ef5e75f571be2de36a6265fea2a39c6d3a1dca11d6d7bbb97d2cddc"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/misc.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6239,
+      "sha256": "b9ac7fc5aa5ecff0754a2d3cbb4297ed52d42517d0194d12e4268d14d768648a"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/options.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3152,
+      "sha256": "1a742da9d228c679162b698b9388f747ea238eca441dcb73a2391cc6a19b266d"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/renderFn.spec.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 5608,
+      "sha256": "e3fc0bab5cee1cd17be22e13fc52c0ef08a1634f59b657e35f3f0f01818c631a"
+    },
+    {
+      "path": "packages/vue-compat/__tests__/utils.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 248,
+      "sha256": "eed8b761d82d0a00f29354d541f4c23f06136f77e0079e7e0a9390aba2dbd689"
+    },
+    {
+      "path": "packages/vue-compat/index.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 171,
+      "sha256": "a5287f6056bc5c2c569d318063ee043f55a0d323fa7262f64456d58fd574f928"
+    },
+    {
+      "path": "packages/vue-compat/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1406,
+      "sha256": "1aa7a4ee721b8869ef19fca73975971b7f3b8e42ff6431b90c0d2bbcc68065f9"
+    },
+    {
+      "path": "packages/vue-compat/src/createCompatVue.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1375,
+      "sha256": "46978a80bee13348e994c67a18e50bf752c67b4dbf0f2991f12c6c2599dbb01d"
+    },
+    {
+      "path": "packages/vue-compat/src/dev.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 358,
+      "sha256": "e3a328636aacebaf8d5d2279466806a1262056934a497b9a818a63408904617d"
+    },
+    {
+      "path": "packages/vue-compat/src/esm-index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 179,
+      "sha256": "2632409fc512ccfca83cb32e0954135e74a5f256f5ceadcd634db0577b24118d"
+    },
+    {
+      "path": "packages/vue-compat/src/esm-runtime.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 181,
+      "sha256": "15382e60b4405ce7a8529ad7504fd786206604361dec03510b912c0fcde839b9"
+    },
+    {
+      "path": "packages/vue-compat/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3121,
+      "sha256": "04da57ff8a810c906cf6cb52e4819d228fe8b907963e5ae465aba9ca2ffed4ee"
+    },
+    {
+      "path": "packages/vue-compat/src/runtime.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 752,
+      "sha256": "7b789085a0bbbc93c39b5188bbc59731f6c77854c83d7bb17e247821a676630d"
+    },
+    {
+      "path": "packages-private/dts-built-test/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 569,
+      "sha256": "2cd149b74d7242c04c91e8638a41ddd2537f98add069fa1b26547aff10b503d4"
+    },
+    {
+      "path": "packages-private/dts-built-test/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 224,
+      "sha256": "a4539f58d0155a8ae4d7b8bacd86e586bc56dde1bbb5941e2185b5451060137b"
+    },
+    {
+      "path": "packages-private/dts-built-test/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 243,
+      "sha256": "5d44f16d79820f66c950808e7e33c1033c786b74e0a8276ba152c9c56c0502ca"
+    },
+    {
+      "path": "packages-private/dts-built-test/tsconfig.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 286,
+      "sha256": "148d746531f85be24e8b0490d22343319532ae1accb858dab1dd3ea4546a7e53"
+    },
+    {
+      "path": "packages-private/dts-test/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 526,
+      "sha256": "6a98fd4494fc32b0fff728aa9779f7a81cad2ae07bba860a94ec8128313c4978"
+    },
+    {
+      "path": "packages-private/dts-test/appDirective.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 497,
+      "sha256": "8b1023316e816c13424dc362919417bc2384e9f7eb3b36301c45b192d8c39e11"
+    },
+    {
+      "path": "packages-private/dts-test/appUse.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2587,
+      "sha256": "386701374f52d369bb20383bca8000b2e5f57e8ca9eb88f89728484dbec7ba4b"
+    },
+    {
+      "path": "packages-private/dts-test/built.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 364,
+      "sha256": "6c4e537b814c10bad0dedb9ed8f21ddffbdfc5732e6603727eaa053114c253a6"
+    },
+    {
+      "path": "packages-private/dts-test/compiler.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 464,
+      "sha256": "768c690c6908a8a81c228b6bca60f71106333149553d37465cbeb1c8608e465a"
+    },
+    {
+      "path": "packages-private/dts-test/component.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15942,
+      "sha256": "920251c0cc6273c3aeea55855b2d911abb56c6a4ca0036ec581ef9a98b01c5a1"
+    },
+    {
+      "path": "packages-private/dts-test/componentInstance.test-d.tsx",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3583,
+      "sha256": "186228c5b17c44ab17ff7b19e90dd8b98104d7c29551ddd9b5ba1a8454ee8bf3"
+    },
+    {
+      "path": "packages-private/dts-test/componentTypeExtensions.test-d.tsx",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1624,
+      "sha256": "b8af167fe8cb3b5e69b0e7194f49491124904ea620833a602dc25549c7e34f2a"
+    },
+    {
+      "path": "packages-private/dts-test/defineComponent.test-d.tsx",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 48307,
+      "sha256": "0b6c628f81fbe51ab677405e43ad8b1a2f194633cefdc26124e04f9d0e2d9df0"
+    },
+    {
+      "path": "packages-private/dts-test/defineCustomElement.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2807,
+      "sha256": "902d1938d7d9d9da4927522701a5a563ef7f779f320dfbe4a665cc925e695e8d"
+    },
+    {
+      "path": "packages-private/dts-test/directives.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1400,
+      "sha256": "42fbe2567244258c5289e3bbfa5f705701efef0ebfce9ba23f4b847852137217"
+    },
+    {
+      "path": "packages-private/dts-test/extractProps.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 791,
+      "sha256": "979299eb1fe9b14afcb659e25d5225c622fd286ea409458c9f80bb02bd3ee859"
+    },
+    {
+      "path": "packages-private/dts-test/functionalComponent.test-d.tsx",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2107,
+      "sha256": "f839b5a63efaa3b7ae3ed9ee382eded8251930fc9cd4931818a1909a47a1d12b"
+    },
+    {
+      "path": "packages-private/dts-test/h.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6194,
+      "sha256": "6f274264f55c54666d2272a38807cda14f1222bd3ae080c94271c51a0c029289"
+    },
+    {
+      "path": "packages-private/dts-test/inject.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1276,
+      "sha256": "c042e7931007030dfc5123b7756d17a104ee811381dbb61cd0a1235ff287d575"
+    },
+    {
+      "path": "packages-private/dts-test/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 153,
+      "sha256": "a9991fbf8e4c4e52b34b42b618846f77ffa1b3cbede0015769a58a18bcb248fb"
+    },
+    {
+      "path": "packages-private/dts-test/reactivity.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3282,
+      "sha256": "d2b4f390a87fb2fc869f67befdd9f0a061c5cfcc8eee38bb98fc3534a2c9b823"
+    },
+    {
+      "path": "packages-private/dts-test/ref.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 12704,
+      "sha256": "7b2d4f9bd7276941a63011026d3f1475f189895a5c762e449230a7de023c0f82"
+    },
+    {
+      "path": "packages-private/dts-test/setupHelpers.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 14053,
+      "sha256": "738b2584102cf50826b3f7045a11fa88f3788857ba7a4066c682aed93e2f0307"
+    },
+    {
+      "path": "packages-private/dts-test/tsconfig.test.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 201,
+      "sha256": "34a992e56fc91413b1b7725691cf3945ff5cdc140e7b7ab61b601f04eb444b8c"
+    },
+    {
+      "path": "packages-private/dts-test/tsx.test-d.tsx",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3236,
+      "sha256": "df539e66b726b6687493127ca8f8aadd33a80faddf3d16571baf1bcf8c5bee67"
+    },
+    {
+      "path": "packages-private/dts-test/utils.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 635,
+      "sha256": "5c438f9c6f2ab4d5a4fabece8f4553612ff273ecc6286ef6635c99ff80c140b5"
+    },
+    {
+      "path": "packages-private/dts-test/watch.test-d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4887,
+      "sha256": "b00a819ea1271cb4e0fc821e3bce4025588269aa06b1d7e008fcede25569d65c"
+    },
+    {
+      "path": "packages-private/global.d.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 189,
+      "sha256": "4cf31d7eb858e4a716850ded0eb1d7a2ff97714d92d5a1a3d9ee339cbb862739"
+    },
+    {
+      "path": "packages-private/sfc-playground/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 233,
+      "sha256": "156a153fee7572c5b6f05d3930b7a4f6b407f4aebc466adf97b3ef4b6315cc23"
+    },
+    {
+      "path": "packages-private/sfc-playground/index.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 770,
+      "sha256": "9fc6994a75f5e140c73ce304e15d674546f4176a98c6c340754510a540362b30"
+    },
+    {
+      "path": "packages-private/sfc-playground/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 409,
+      "sha256": "94d571b2fda7d516b03486be43a47b82a33e8cc2de84560b3f0f8f69f2934f31"
+    },
+    {
+      "path": "packages-private/sfc-playground/public/logo.svg",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 261,
+      "sha256": "2367ae20c4a1fe95fea9b03def3b11097bcebaf60ebb744eb96667990599153a"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/App.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4515,
+      "sha256": "aff144ed6ddecdb14c6e5246b57dd4fbbff4e9428212ae6a49ea542eeca66312"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/Header.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6430,
+      "sha256": "e24cff2d065137175360ebec45a69235f4f76bc7703e8640b7abf651283795a1"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/VersionSelect.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3324,
+      "sha256": "b5e27d7f53a6d69cf8224dcdd7a7893607f3e84cb2c1e30b833be812a473106f"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/download.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1057,
+      "sha256": "6d8773a870f2eae51ed5c5aa5403bfea2154872a045b764299e71975581dccae"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/template/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 266,
+      "sha256": "22218a7a35ad7e183ed3cb47f8212cfac60561a55f1d2118aff7d4db26bc7c3f"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/template/index.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 337,
+      "sha256": "42273d396bb7db7b52b79875c7fdb0f596766105c2225b38652d9d86866e9f26"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/template/main.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 90,
+      "sha256": "50cb9f18b1c7115799ae456f0d0038840278b49ea520b5549d468ec76c248fb9"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/template/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 300,
+      "sha256": "58948cf9e7052f314113155ca57536b6fedcafd98fa6d156a64c011e2fd56fc8"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/download/template/vite.config.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 157,
+      "sha256": "fed67fc2f23af27f719ea8b83e51b5e3c825c5ed73c105fb1f63b59f6afd6100"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Copy.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 382,
+      "sha256": "e56ca98dfa81ec2f216f723313bb09b281d6c06b28a53a2a195d2051623c91b1"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Download.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 733,
+      "sha256": "a6ef3a88e901377e40bee657545fef3547ce8c95b40f112967c9724431392dc1"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/GitHub.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 750,
+      "sha256": "44f9df15d052f5bec25c12731abc56c44b5f46e92dc318b8e312a4a0649c09d4"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Moon.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 558,
+      "sha256": "51d29af79140659ed2e9160918026088454d33b7b901a91d2c26376bb0fcd04c"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Reload.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 440,
+      "sha256": "66dedfc305c444cb4599dc6990e58a52c944759894e6f8214692529b2c9d164e"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Share.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 437,
+      "sha256": "4a7021548e1e2b9a3b6f14461779da072f37479c0ead56b2ec06510164eea07d"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/icons/Sun.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1513,
+      "sha256": "4aaf29ec3934c3db56d56e07769607bbd8ebb52c3240e25caddb856587e25dc0"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/main.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 199,
+      "sha256": "a73a1cd075f7eb8ceee15286a200e2578945965dc589e1cde01cc8ce1894f5b9"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/vue-dev-proxy-prod.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 104,
+      "sha256": "da0c0b3623e2e434ede9490ee6c1f0111c522c7418bb4359c9ebc2dd55c21055"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/vue-dev-proxy.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 67,
+      "sha256": "707e1f675c3d168ecea615e73da35054d65b9a7263bdb12efb4c18fc5d715b23"
+    },
+    {
+      "path": "packages-private/sfc-playground/src/vue-server-renderer-dev-proxy.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 99,
+      "sha256": "b46298d007a7520769ea3f4904519b458b48a53b693b22995267a422f21f3c28"
+    },
+    {
+      "path": "packages-private/sfc-playground/vercel.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 235,
+      "sha256": "aea1ec86a4e22d18250eb9fab4eaadf1839f27f4f3e39e57b9d5e81ea8112be3"
+    },
+    {
+      "path": "packages-private/sfc-playground/vite.config.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1568,
+      "sha256": "813cfe27e4f6a43f12f1cca9a7f5cea038943117a0d27f039e9cacfc66d6d9a6"
+    },
+    {
+      "path": "packages-private/template-explorer/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 388,
+      "sha256": "fc8160ad8a2d9f6e0de206ceb1a71bea23beeb0d8cf228609e8ba4a23f8919bf"
+    },
+    {
+      "path": "packages-private/template-explorer/_redirects",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 185,
+      "sha256": "1e103956926d82bdd0ac896fb4ce87a7c1a41d17f725ae975dd416515c7a850c"
+    },
+    {
+      "path": "packages-private/template-explorer/index.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 675,
+      "sha256": "ee80c91fd68ddc5bf7744966f3157cfd446d7570dc5385f00ea9aa5890fbb8c6"
+    },
+    {
+      "path": "packages-private/template-explorer/local.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 645,
+      "sha256": "b29aa3ae7f8a6a66d2d4fb76cec405ae044bcc9779723e4cd6dd1e6e2878a09c"
+    },
+    {
+      "path": "packages-private/template-explorer/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 314,
+      "sha256": "56a4f1b68986b43ede88d556e4d0e5fa947af334597b1f32506d7f12936e592d"
+    },
+    {
+      "path": "packages-private/template-explorer/src/index.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7533,
+      "sha256": "6b95466a811bd0061b8b60705e60eb07e43c45e10521c86d8e2211cd364fd41f"
+    },
+    {
+      "path": "packages-private/template-explorer/src/options.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 7272,
+      "sha256": "1a61f0e59ba064da522d4b92172e10a5b8d44129322b4335b3fd404ce8aa2f1c"
+    },
+    {
+      "path": "packages-private/template-explorer/src/theme.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4765,
+      "sha256": "f485502d24b489ca9b85e20e87afeb9ba661e0215aee268ea3a7854dfe9a7b8f"
+    },
+    {
+      "path": "packages-private/template-explorer/style.css",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1365,
+      "sha256": "338c8869d39c9bb8d4aff5dcef0c5d7163f34244a7be4ec4dadcc25106b0f43c"
+    },
+    {
+      "path": "packages-private/tsconfig.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 118,
+      "sha256": "114732d64571f839e19bb979c47a72570d4c17b93d09fe908ff6b7e58ee1f795"
+    },
+    {
+      "path": "packages-private/vite-debug/App.vue",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 188,
+      "sha256": "6e70ee5049791e56b4972c07158c7623df07b62405f1954444bf6d601bd454fd"
+    },
+    {
+      "path": "packages-private/vite-debug/README.md",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 248,
+      "sha256": "79f687695433355a16ce41b8a6464d543c4103418ceda59b3f7b2ef4bd83e5f7"
+    },
+    {
+      "path": "packages-private/vite-debug/index.html",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 69,
+      "sha256": "7a32fa5092250cb08e5289807e09679c702de827dfd34945ed7062509e3ba0a8"
+    },
+    {
+      "path": "packages-private/vite-debug/main.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 107,
+      "sha256": "b091050eed53ba0d1639d51bb46971b0465495749ecc1a401ebcf367d2b4cc48"
+    },
+    {
+      "path": "packages-private/vite-debug/package.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 275,
+      "sha256": "3f761b4dc3d51fada86666270908d5b381c24712a2f5dca2da552b42f6819f0e"
+    },
+    {
+      "path": "packages-private/vite-debug/tsconfig.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 111,
+      "sha256": "4077a318d11f9eb3e814b2feed0af4e58701fdc1c1b880de2e8122a6dffaa209"
+    },
+    {
+      "path": "packages-private/vite-debug/vite.config.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 127,
+      "sha256": "de5b56ab35f88af4c532665929cdc85a855a19209fcfa37c391daebb764ff89d"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 210905,
+      "sha256": "5393cf844ef2568b250bab52f06aabf32d3fb108b469a30f59d393d0cfd61dce"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 242,
+      "sha256": "a269f727d90723f0aa3bf8073ef8ff2e55a5c8fd6ce819a51105f4aa7c3628af"
+    },
+    {
+      "path": "rollup.config.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 11945,
+      "sha256": "09dd1ad94cf0ca9409b95d8d157a045b9c258cccd7c493f3c1b1e0cc1b0d513f"
+    },
+    {
+      "path": "rollup.dts.config.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6829,
+      "sha256": "d98d07872ac50cbb93ce945fccd9d24135ee413f90ff86cc28c54bdc3543ea75"
+    },
+    {
+      "path": "scripts/aliases.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1042,
+      "sha256": "28386214b05ddbf585110f6927d0c6d0cd870c594076633105ec50add3ac73bd"
+    },
+    {
+      "path": "scripts/build.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 6491,
+      "sha256": "8e8e14ec1c002cdbdfaf31794da916915d82ec81364e4a7e50c55d30899b9a4c"
+    },
+    {
+      "path": "scripts/dev.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 4398,
+      "sha256": "2f932568689c18e4637daf057f88ec4471bbed212491e54ad48a9ee1d7b3f22e"
+    },
+    {
+      "path": "scripts/inline-enums.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 9308,
+      "sha256": "ea98e3ddb56cce7e44254f386ab15f3bdeb26a9f87ff1c0ff809b1d7df7048d1"
+    },
+    {
+      "path": "scripts/pre-dev-sfc.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 419,
+      "sha256": "c5e77025a857d0faa8f23746570d9e7d9f9bea101c5a611a1970db8e0b68090c"
+    },
+    {
+      "path": "scripts/release.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 15786,
+      "sha256": "d2b0a3814c34dfdb3aae425d47b5a23bcebc0c463ce462758679f9b24521c95e"
+    },
+    {
+      "path": "scripts/setup-vitest.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2771,
+      "sha256": "6bc3196d8b0d21bdb2f159ea9da42d051038802f1726ab17a6a5d2b3520eb59d"
+    },
+    {
+      "path": "scripts/size-report.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3638,
+      "sha256": "8fa6fba1d380dcd5055c680fb35be593bfaef41120b38d0a4231526c5c6dd5c8"
+    },
+    {
+      "path": "scripts/usage-size.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 3715,
+      "sha256": "de81a18d0124b33fe60f4f6f76b13fb145bef840c9cf1c66a093f75dfcff7c2a"
+    },
+    {
+      "path": "scripts/utils.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 2598,
+      "sha256": "3c65bcc9a67edf9282f80f54369109ca21cebfbba682ace741c07aad01cfb431"
+    },
+    {
+      "path": "scripts/verify-commit.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 922,
+      "sha256": "48d6fd14218eb57c09486616de6cd4325e0ade7c5a38e8cda15c1ef44bd95548"
+    },
+    {
+      "path": "scripts/verify-treeshaking.js",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1408,
+      "sha256": "fd95e69204c49c07e8ae7129ded345b342f9757335e094b0e9b3773987d8a2a5"
+    },
+    {
+      "path": "tsconfig.build.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 616,
+      "sha256": "557d4a6cd7d0e1aeb3b7bc04107d4c052aac5377aeee3b109873b65fdf4b538b"
+    },
+    {
+      "path": "tsconfig.json",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1091,
+      "sha256": "ddda20356baa531b5dfdca0bfe60e4e39aa82a93a8a33b4a642ca4b950ca66d1"
+    },
+    {
+      "path": "vitest.config.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 1507,
+      "sha256": "5305e9eaebcc892a782ca0942d85a5ebac659f14a15b71eefb221db967039c35"
+    },
+    {
+      "path": "vitest.e2e.config.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 301,
+      "sha256": "19653af94bea6a381845efa66b684877a0bcdecd2377bf825a2e9a37b4447d48"
+    },
+    {
+      "path": "vitest.unit.config.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 226,
+      "sha256": "a96dc27ba485aba0fb46b8c1d975dc5374aceb25fe86c06bb13a46389d196e47"
+    },
+    {
+      "path": "vitest.workspace.ts",
+      "kind": "file",
+      "mode": 420,
+      "bytes": 142,
+      "sha256": "86feb3bba456c166fde45cb8a8a30e6b04eeb3a48bbe35067d7fee7f66a172f8"
+    }
+  ],
+  "sourceRevision": "6eb29d345aa73746207f80c89ee8b37ff7b949c9"
+}

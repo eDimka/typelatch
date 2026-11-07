@@ -1,0 +1,20 @@
+{
+  "repository": "pnpm/pnpm",
+  "pullRequest": "https://github.com/pnpm/pnpm/pull/10231",
+  "title": "fix: throw a frozen lockfile error when catalogs change",
+  "mergedAt": "2025-11-26T00:09:37Z",
+  "baselineCommit": "1e6de2539bf2df6477fcb8d9c016f7842f5c5e77",
+  "referenceCommit": "69ebe387643ae781182d7fa0fd59602484ae268d",
+  "changedFiles": [
+    ".changeset/salty-beds-sell.md",
+    "__fixtures__/pnpm-workspace.yaml",
+    "deps/status/src/checkDepsStatus.ts",
+    "lockfile/settings-checker/package.json",
+    "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+    "lockfile/settings-checker/tsconfig.json",
+    "lockfile/verification/src/index.ts",
+    "pkg-manager/core/src/install/index.ts",
+    "pkg-manager/core/test/catalogs.ts",
+    "pnpm-lock.yaml"
+  ]
+}

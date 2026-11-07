@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "404fcd8ada685fbbf59ad78a19914c61bcb0d004794e4a2e7abec764487f069c",
+  "protocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "auditSha256": "26bad37c9582cd40b19e16bc4ac2eb98894d92284b0a6e1dc1ad2566cb433156",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "typelatch": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%.",
+            "native/totalTokens: a repetition did not improve.",
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "native/chargedTimeMs: a repetition did not improve.",
+            "competitor/totalTokens: aggregate or median savings below 20%.",
+            "competitor/totalTokens: a repetition did not improve.",
+            "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+            "competitor/chargedTimeMs: a repetition did not improve.",
+            "Independent workflow review is pending or failed.",
+            "Development outcomes cannot establish a held-out edge.",
+            "Each claimed category needs two distinct held-out tasks.",
+            "Two repetitions are required."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 216199,
+                  "candidate": 285160,
+                  "aggregateReductionPercent": -31.897002298808044,
+                  "medianPairedReductionPercent": -31.897002298808044,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 216199,
+                      "candidate": 285160,
+                      "reductionPercent": -31.897002298808044
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 216199,
+                      "candidate": 285160,
+                      "reductionPercent": -31.897002298808044
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 78877.39725,
+                  "candidate": 112782.471375,
+                  "aggregateReductionPercent": -42.984524473517666,
+                  "medianPairedReductionPercent": -42.984524473517666,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 78877.39725,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -42.984524473517666
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 78877.39725,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -42.984524473517666
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-catalog-consistency-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 226626,
+                  "candidate": 285160,
+                  "aggregateReductionPercent": -25.828457458544033,
+                  "medianPairedReductionPercent": -25.828457458544033,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 226626,
+                      "candidate": 285160,
+                      "reductionPercent": -25.828457458544033
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 226626,
+                      "candidate": 285160,
+                      "reductionPercent": -25.828457458544033
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 72651.86812499998,
+                  "candidate": 112782.471375,
+                  "aggregateReductionPercent": -55.236849768204124,
+                  "medianPairedReductionPercent": -55.236849768204124,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 72651.86812499998,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -55.236849768204124
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "repeat": 1,
+                      "control": 72651.86812499998,
+                      "candidate": 112782.471375,
+                      "reductionPercent": -55.236849768204124
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 1,
+                "candidate": 1,
+                "perTask": [
+                  {
+                    "task": "pnpm-catalog-consistency-v2",
+                    "control": 1,
+                    "candidate": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "maintenance": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "competitor/chargedTimeMs: a repetition did not improve.",
+              "Independent workflow review is pending or failed.",
+              "Development outcomes cannot establish a held-out edge.",
+              "Each claimed category needs two distinct held-out tasks.",
+              "Two repetitions are required."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 216199,
+                    "candidate": 285160,
+                    "aggregateReductionPercent": -31.897002298808044,
+                    "medianPairedReductionPercent": -31.897002298808044,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 216199,
+                        "candidate": 285160,
+                        "reductionPercent": -31.897002298808044
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 216199,
+                        "candidate": 285160,
+                        "reductionPercent": -31.897002298808044
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 78877.39725,
+                    "candidate": 112782.471375,
+                    "aggregateReductionPercent": -42.984524473517666,
+                    "medianPairedReductionPercent": -42.984524473517666,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 78877.39725,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -42.984524473517666
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 78877.39725,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -42.984524473517666
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 226626,
+                    "candidate": 285160,
+                    "aggregateReductionPercent": -25.828457458544033,
+                    "medianPairedReductionPercent": -25.828457458544033,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 226626,
+                        "candidate": 285160,
+                        "reductionPercent": -25.828457458544033
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 226626,
+                        "candidate": 285160,
+                        "reductionPercent": -25.828457458544033
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 72651.86812499998,
+                    "candidate": 112782.471375,
+                    "aggregateReductionPercent": -55.236849768204124,
+                    "medianPairedReductionPercent": -55.236849768204124,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 72651.86812499998,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -55.236849768204124
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "pnpm-catalog-consistency-v2",
+                        "repeat": 1,
+                        "control": 72651.86812499998,
+                        "candidate": 112782.471375,
+                        "reductionPercent": -55.236849768204124
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 1,
+                  "candidate": 1,
+                  "perTask": [
+                    {
+                      "task": "pnpm-catalog-consistency-v2",
+                      "control": 1,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "review": [
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+      "workflowReviewed": false,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    }
+  ]
+}

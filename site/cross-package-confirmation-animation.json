@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "kind": "cross-package-confirmation-action-replay",
+  "task": "vue-type-impact-heldout-grading-v2",
+  "repeat": 1,
+  "arms": [
+    "native",
+    "impact"
+  ],
+  "runs": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "evidence": "evidence/cross-package/confirmation-002/results/runs/vue-type-impact-heldout-grading-v2-r1-native/public-evidence.json",
+      "evidenceSha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "toolOutputs": "evidence/cross-package/confirmation-002/results/runs/vue-type-impact-heldout-grading-v2-r1-native/tool-outputs.json",
+      "toolOutputsSha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8"
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+      "evidence": "evidence/cross-package/confirmation-002/results/runs/vue-type-impact-heldout-grading-v2-r1-impact/public-evidence.json",
+      "evidenceSha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "toolOutputs": "evidence/cross-package/confirmation-002/results/runs/vue-type-impact-heldout-grading-v2-r1-impact/tool-outputs.json",
+      "toolOutputsSha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75"
+    }
+  ],
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "report": {
+    "path": "evidence/cross-package/confirmation-002/results/report.json",
+    "sha256": "0559fc46e82f124f4d882cfec3e028d2f2f0687730216a881d3ca06f3748e469"
+  },
+  "adjudication": {
+    "path": "evidence/cross-package/confirmation-002/results/adjudicated-result.json",
+    "sha256": "c149c39fc104a262de553048de90178c86e1cca79f46d2470e626948662f6c0a"
+  },
+  "protocol": {
+    "path": "evidence/cross-package/confirmation-002/protocol.json",
+    "sha256": "2464bdb2404b1247d4aeea9aecec5b24e9b8702fffd709cda00eb3afb8262e8c"
+  },
+  "workflowAudit": {
+    "path": "evidence/cross-package/confirmation-002/results/workflow-audit.json",
+    "sha256": "5dc73d9de6236d1123ed2112db1896258029ded69bdf7f8698ccf33ab973a92a"
+  },
+  "exportManifest": {
+    "path": "evidence/cross-package/confirmation-002/results/manifest.json",
+    "sha256": "cc541404a3005463cfd739ab2cd0f8a179044c9a31584f9ab43224f432832086"
+  },
+  "codegraphChallenge": {
+    "path": "evidence/cross-package/confirmation-002/results/codegraph-challenge.json",
+    "sha256": "113ba8f68cf40d1b418bb33deb0fdb2e61e8a5f39fcd9b6d2e1a3782e14d9d66"
+  },
+  "codegraphChallengePolicy": {
+    "path": "evidence/cross-package/confirmation-002/results/codegraph-challenge-policy.json",
+    "sha256": "7f0c6e2419b494a79f42d9b88835a69173c8b23c31b18d59a86e9a0d84534a67"
+  },
+  "occurrenceAssessment": {
+    "path": "evidence/cross-package/confirmation-002/results/occurrence-assessment-v1.json",
+    "sha256": "11772608865210b5fc2f1651ef9432a365da45abddf4b1c572888cf2b1064611"
+  },
+  "controlAudit": {
+    "path": "evidence/cross-package/confirmation-002/results/control-audit.json",
+    "sha256": "fdd7cd9bfca51ba9a1df2bc78ed1f8ebb3736cc0b6025e63d53661349e70bcef"
+  },
+  "fullStudy": {
+    "sessionCount": 16,
+    "taskCount": 2,
+    "repeats": 2,
+    "qualifiedEdge": false,
+    "minimumReductionPercent": 20,
+    "arms": {
+      "native": {
+        "sessions": 4,
+        "totalTokens": 886587,
+        "chargedTimeMs": 408042.488166,
+        "originalStrictPass": 2
+      },
+      "impact": {
+        "sessions": 4,
+        "totalTokens": 749471,
+        "chargedTimeMs": 317935.1662910002,
+        "originalStrictPass": 4
+      },
+      "competitor": {
+        "sessions": 4,
+        "totalTokens": 1597731,
+        "chargedTimeMs": 487053.06250199955,
+        "originalStrictPass": 2
+      },
+      "codegraph": {
+        "sessions": 4,
+        "totalTokens": 1526064,
+        "chargedTimeMs": 476734.14204199985,
+        "originalStrictPass": 3
+      }
+    },
+    "comparisons": {
+      "native": {
+        "totalTokenReductionPercent": 15.465600104671061,
+        "chargedTimeReductionPercent": 22.08282825643939
+      },
+      "competitor": {
+        "totalTokenReductionPercent": 53.09154044078759,
+        "chargedTimeReductionPercent": 34.72268408338055
+      },
+      "codegraph": {
+        "totalTokenReductionPercent": 50.88862590297655,
+        "chargedTimeReductionPercent": 33.3097552171981
+      }
+    },
+    "nativeTokenGate": {
+      "aggregateReductionPercent": 15.465600104671061,
+      "medianPairedReductionPercent": 15.189077164118027,
+      "passed": false
+    },
+    "originalStrictPass": 11,
+    "occurrenceAssessedPass": 15,
+    "scope": "Original strict grading and a separate occurrence-contract assessment are distinct. The overall failed gate is unchanged."
+  },
+  "renderer": {
+    "path": "scripts/cross-package-confirmation-gif.py",
+    "sha256": "368c8465be6a30944333dee97bd8f54586a9d746c9999ea9d35e628105d5549c"
+  },
+  "assets": {
+    "gif": {
+      "path": "assets/cross-package-confirmation.gif",
+      "sha256": "a2075aab3a59bd6aac1aa2971bd5af85aae9bd541c7926311f308cbb423f0c5b",
+      "width": 1080,
+      "height": 680,
+      "bytes": 427760
+    },
+    "poster": {
+      "path": "assets/cross-package-confirmation.png",
+      "sha256": "bf9af03f473bc05724798db034e131db2f0578a5c6a4671ca526c502d66e6156",
+      "width": 1080,
+      "height": 680,
+      "bytes": 72591
+    }
+  },
+  "dimensions": {
+    "width": 1080,
+    "height": 680
+  },
+  "playback": {
+    "durationMs": 32000,
+    "durationSeconds": 32.0,
+    "accelerated": true,
+    "separateSessionsAlignedAtStart": true,
+    "eventTimes": [
+      0,
+      6153.533083000002,
+      6218.517791000002,
+      9695.388291000003,
+      10809.341750000021,
+      14846.469250000024,
+      14917.695958000026,
+      15705.606,
+      22069.444875000016,
+      29601.836499999998,
+      37727.001625000004,
+      52932.421,
+      54047.8135,
+      55508.779541000025,
+      61968.855791,
+      67952.675625,
+      69607.35241600001,
+      74849.16191600001,
+      76635.562916,
+      116703.32725,
+      119170.45754099998
+    ],
+    "readingHolds": true,
+    "renderedActionIds": {
+      "vue-type-impact-heldout-grading-v2-r1-native": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d"
+      ],
+      "vue-type-impact-heldout-grading-v2-r1-impact": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ]
+    },
+    "timing": "Completed actions use measured receipt timestamps. One shared timeline aligns process starts; reading holds change playback spacing. Provider setup is included only in labelled charged-time totals.",
+    "tokens": "Only terminal totals are shown. Cached input is a subset already included in total input; no interpolated token counters.",
+    "selection": "First task and repeat, fixed before outcomes. Retain failure and disclose accelerated replay."
+  },
+  "caption": "Actual public Codex action replay of the preselected first task and repeat. Native tools and experimental impact query, shared workflow with explicit provider inventories. This pair is not the full study. The overall 16 session confirmation gate failed. Accelerated separate sessions, observed failures retained, final session totals only. Not a screen recording."
+}

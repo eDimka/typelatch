@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "scope": "Only named completed development fixtures. No held-out corpus, answer, oracle or private model capture is included.",
+  "migration": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "sourceCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "originalMigrationCommit": "b8b0c687f2e3403d07381822fe81c08478413916",
+    "adaptation": "Already-upgraded dependency fixture with six explicitly reversed source substitutions; subsequent upstream corrections stay in the reference.",
+    "referenceMapping": [
+      {
+        "path": "cache/api/src/cacheList.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/0.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/cache/api/src/cacheList.ts"
+      },
+      {
+        "path": "cache/api/src/cacheView.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/1.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/cache/api/src/cacheView.ts"
+      },
+      {
+        "path": "fs/find-packages/src/index.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/2.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/fs/find-packages/src/index.ts"
+      },
+      {
+        "path": "patching/plugin-commands-patching/src/patchCommit.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/3.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/patching/plugin-commands-patching/src/patchCommit.ts"
+      },
+      {
+        "path": "pkg-manager/package-bins/src/index.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/4.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/pkg-manager/package-bins/src/index.ts"
+      },
+      {
+        "path": "releasing/plugin-commands-publishing/src/pack.ts",
+        "reference": "artifacts/research/cross-package/migration/development-001/reference-sources/5.ts",
+        "baseline": "artifacts/research/cross-package/migration/development-001/workspace/releasing/plugin-commands-publishing/src/pack.ts"
+      }
+    ]
+  },
+  "impact": {
+    "repository": "https://github.com/pnpm/pnpm",
+    "sourceCommit": "eaae772717d3d36903960af125a2a2ff9d34fe09",
+    "task": "Proposed parser contract impact analysis, not an upstream bug repair",
+    "versions": [
+      "Original grading retains its known script-citation and exclusion issues.",
+      "Corrected grading v2 is separately frozen and audited."
+    ]
+  },
+  "maintenance": {
+    "repository": "pnpm/pnpm",
+    "pullRequest": "https://github.com/pnpm/pnpm/pull/10231",
+    "title": "fix: throw a frozen lockfile error when catalogs change",
+    "mergedAt": "2025-11-26T00:09:37Z",
+    "baselineCommit": "1e6de2539bf2df6477fcb8d9c016f7842f5c5e77",
+    "referenceCommit": "69ebe387643ae781182d7fa0fd59602484ae268d",
+    "changedFiles": [
+      ".changeset/salty-beds-sell.md",
+      "__fixtures__/pnpm-workspace.yaml",
+      "deps/status/src/checkDepsStatus.ts",
+      "lockfile/settings-checker/package.json",
+      "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+      "lockfile/settings-checker/tsconfig.json",
+      "lockfile/verification/src/index.ts",
+      "pkg-manager/core/src/install/index.ts",
+      "pkg-manager/core/test/catalogs.ts",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "controls": {
+    "migration": "Native baseline, exact reference, import-only semantic regression, unfinished fifth package and unchanged path-safety regression.",
+    "maintenance": "Native baseline, exact reference, three package-omission repairs and compiling shared-checker comparison omission.",
+    "impact": "Frozen exact direct sets, installed dependency graph, JSON syntax script spans, source quotes, negative symbols and immutable-source guards."
+  },
+  "omitted": [
+    {
+      "source": "artifacts/research/cross-package/migration/development-001/initial-clean-manifest.json",
+      "originalSha256": "0a77dac3b3ca8aa6ee92e62c6c9ae675e54b7b1b0fc2aae0c6298e53e176bd38",
+      "bytes": 19232762,
+      "treeSha256": "beab5618d275e8bace8e27ff0d5e12305a73bf8946a353a66b21ca5dd103dbbe",
+      "entries": 74440,
+      "reason": "Large duplicate dependency byte inventory omitted. Source tracking and selected source bytes are exported. Full clean-machine dependency-tree reproduction has not been verified."
+    },
+    {
+      "source": "artifacts/research/cross-package/impact/development/initial-manifest.json",
+      "originalSha256": "73bf25c14e5ef362640633a78a4052b138801423b12ed54ebaf4fb99095cbf0c",
+      "bytes": 19987263,
+      "treeSha256": "139c7b4673c99e4d01bf343d4cd5ea6cefa4d7e9f4cb712691da6fbb67d50679",
+      "entries": 76821,
+      "reason": "Large duplicate dependency byte inventory omitted. Source tracking and selected source bytes are exported. Full clean-machine dependency-tree reproduction has not been verified."
+    },
+    {
+      "source": "artifacts/research/cross-package/maintenance/development-001/initial-manifest.json",
+      "originalSha256": "72f9d039fc1b7a83ee030caa50f223683b61083e4b080d4133f856e9336c192a",
+      "bytes": 14821232,
+      "treeSha256": "698c5116685a1b3acfe522906b885749b12a428b66541564a9effadcdf9325df",
+      "entries": 56779,
+      "reason": "Large duplicate dependency byte inventory omitted. Source tracking and selected source bytes are exported. Full clean-machine dependency-tree reproduction has not been verified."
+    },
+    {
+      "source": "artifacts/research/cross-package/maintenance/v2/fixture/initial-manifest.json",
+      "originalSha256": "2e224130ff9ebf862b05f45a3476fb5938399969071ea3cc082aed29907aff8c",
+      "bytes": 14821227,
+      "treeSha256": "de9e1c6992c592a920fa4871e79528cae310ad24fed96840bb5e50b56737e31d",
+      "entries": 56779,
+      "reason": "Large duplicate dependency byte inventory omitted. Source tracking and selected source bytes are exported. Full clean-machine dependency-tree reproduction has not been verified."
+    }
+  ],
+  "setupReproduction": "UNVERIFIED on a clean machine. These are inspectable historical recipes with environment placeholders, not a portable one-command installer."
+}

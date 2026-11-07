@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "previousProtocolSha256": "24d3eaed5f4c197c949ea2631c27e86c7b99feb7e6d69d8d8aa9dbdbfef5c1dc",
+  "newProtocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "priorCompletedModelSessions": 0,
+  "identical": [
+    "exact model prompts",
+    "counterbalanced schedule",
+    "decision gate",
+    "review rules",
+    "model configuration",
+    "replay selection",
+    "all four provider definitions",
+    "candidate archive binding",
+    "admitted source and dependency snapshot hashes",
+    "grader modules"
+  ],
+  "changed": [
+    "clean fixture locations without upstream Git metadata",
+    "native clonefile common preparation with bound helper and Python executable",
+    "copy receipts recorded separately from charged provider and agent time"
+  ],
+  "candidateTuning": false
+}
