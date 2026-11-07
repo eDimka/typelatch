@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "frozen-before-agent-sessions",
+  "createdAt": "2026-11-06T21:54:35.658Z",
+  "privateProtocolSha256": "2ed3eddbae80b1d1dffa86859eaab9dbbd3bbbcb3fc0994fd6d33264e54b4d8a",
+  "publicProtocolSha256": "ecf8115a01f1be08047671d96fa2ba1387390b15c2239358bb9b37858a08808e",
+  "normalization": "Absolute repository, home and temporary paths replaced by named placeholders. Private original remains immutable; content hashes bind original bytes. No agent outcomes exist at this publication step.",
+  "taskIds": [
+    "pnpm-glob-migration",
+    "pnpm-parser-impact-development"
+  ],
+  "runCount": 6
+}

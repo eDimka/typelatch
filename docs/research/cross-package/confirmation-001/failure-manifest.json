@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "retained-failed-preparation",
+  "completedModelSessions": 0,
+  "originalReportSha256": "7e4d33f4509b2f4010fe85312da3ddc4d77b4773b3a6d37ec7e175603c24c2f4",
+  "files": [
+    {
+      "path": "preparation-report.json",
+      "sha256": "c7cdaa397f01fdf95142ee262301a201204b96799ef8d942811d5dc49e779381",
+      "bytes": 190974
+    },
+    {
+      "path": "preparation-failure.json",
+      "sha256": "4cd087681f2338bd7d9203e1a62831ef8ae6bd2f8925d231ef85d0590c44962d",
+      "bytes": 1521
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "549b16b76d396e4a633b3ae5308443d17b6134ba470e89ca7d494e9f574695be",
+      "bytes": 185410
+    },
+    {
+      "path": "freeze.json",
+      "sha256": "edb214d3a9b3b73d0965a03621bd484b409cad22d1c1c780a52a8c04fa133248",
+      "bytes": 647
+    }
+  ]
+}

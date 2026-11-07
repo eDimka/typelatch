@@ -1,0 +1,11 @@
+{
+  "url": "https://registry.npmjs.org/is-positive",
+  "sha256": "26f21a39b0f19b128665e69b44065f92491f41a51662f508983c1d974b40668d",
+  "bytes": 7100,
+  "elapsedMs": 241.881,
+  "versionsUsed": [
+    "1.0.0",
+    "3.1.0"
+  ],
+  "purpose": "Offline upstream lockfileOnly native test metadata. No tarball is downloaded during validation."
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "status": "qualified",
+  "kind": "pre-measurement-grader-early-exit",
+  "previousDescriptorSha256": "9b83abd7171c029d53e49a5b29cda1a82d9c919fdbf244e11cd0e6bbeadc0515",
+  "previousAmendment": {
+    "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-001.json",
+    "sha256": "2b0d2c0f30f90c6a2b256c2e8644c2071af832548a8e85c91d1015431252a58f"
+  },
+  "fixtureBytesUnchanged": true,
+  "change": "Do not inspect migration scope or load fixture TypeScript unless independent source/dependency integrity and native/runtime grading have already passed, including post-check integrity. Scope can only reject otherwise-passing runtime fixes.",
+  "boundaryTests": {
+    "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.test.mjs",
+    "before": {
+      "passed": 1,
+      "failed": 1,
+      "observedFailure": "Scope loader called once after failed grading"
+    },
+    "after": {
+      "passed": 2,
+      "failed": 0
+    },
+    "coveredStates": [
+      "integrity failure",
+      "post-grade source stability failure",
+      "native check failure",
+      "passing grade with failed scope",
+      "passing grade with passing scope"
+    ]
+  },
+  "retainedQualificationSha256": "a306da91055ef9560b4ebe2c774694c8aee777fd6793612975ced276b7e5b137",
+  "positiveEvidenceBinding": {
+    "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/grader-amendment-001.json",
+    "sha256": "2b0d2c0f30f90c6a2b256c2e8644c2071af832548a8e85c91d1015431252a58f"
+  },
+  "inputs": [
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.mjs",
+      "sha256": "2b7d1651651d95589999e743653c164a58a68644d7b28b7a8128d3b6d44924ad"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.test.mjs",
+      "sha256": "e635feb4f02837c7b7a67874021bce500caecb436be74b5fbd6071eb5606b10a"
+    }
+  ]
+}

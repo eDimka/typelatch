@@ -1,0 +1,956 @@
+{
+  "schemaVersion": 1,
+  "rawCaptureSha256": "44431dbfece275935c878e35c47a8e63b35eb26796ec36275d5f0530c24b780e",
+  "publicRecordSha256": "dc3925a8cae5f98be6ad03f2473ef425674a9710c2322af62009aa6383f1205a",
+  "runId": "pnpm-catalog-consistency-r1-typelatch",
+  "identicalCompletedDuplicates": 0,
+  "normalization": {
+    "rule": "Longest explicit absolute prefixes first, applied to all JSON keys and string values after original payload binding. Uncovered private machine paths fail closed.",
+    "prefixes": [
+      {
+        "prefixSha256": "0700b99597fe52a82e250e18e9995a3aad86a7a1c34e0b451b661828b07e4707",
+        "replacement": "$PROVIDER_STATE"
+      },
+      {
+        "prefixSha256": "695eb2490c282c3a81f791b99ca4e1368866a256f183bfb74de8110d05de7e2c",
+        "replacement": "$WORKSPACE"
+      },
+      {
+        "prefixSha256": "cd39a6d76e53518d423dd8754d25583424313b02d7179c1b792ac38f30ece04d",
+        "replacement": "$STUDY"
+      },
+      {
+        "prefixSha256": "768a63684ee857a90d0c5e1aac2d644942946e9d0e89296a385f90a539686b00",
+        "replacement": "$REPOSITORY"
+      },
+      {
+        "prefixSha256": "76d509b275fdc76041a48f4ed3789b73a1588b1b6c472dff3507750705b8256f",
+        "replacement": "$TEMP"
+      },
+      {
+        "prefixSha256": "e4693ec98d2762b9a5b34fc9dd8c540384a2a5fb719f88d14d760230b3990fc9",
+        "replacement": "$USER_HOME"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 6,
+      "outputSha256": "f2544f318eb4b4a12979af13c0c58e71f1183ebf66fb131f9300b2aa321c667a",
+      "outputBytes": 11694,
+      "exitCode": 1,
+      "stdout": "\n> test:typelatch-benchmark\n> node .typelatch-benchmark/check-runtime.mjs\n\n{\"schemaVersion\":1,\"passed\":false,\"cases\":10,\"observedCases\":10,\"results\":[{\"id\":\"checker/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:44\\n    at check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:39)\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:11\"},{\"id\":\"status/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794005748593,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:41:14\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:33:5\"},{\"id\":\"core/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:52:29\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:44:5\"},{\"id\":\"checker/unchanged-default\",\"passed\":true},{\"id\":\"status/unchanged-default\",\"passed\":true},{\"id\":\"core/unchanged-default\",\"passed\":true},{\"id\":\"checker/no-catalogs\",\"passed\":true},{\"id\":\"status/no-catalogs\",\"passed\":true},{\"id\":\"core/no-catalogs\",\"passed\":true},{\"id\":\"native/upstream-frozen-catalog-install\",\"passed\":false,\"error\":\"node:events:497\\n      throw er; // Unhandled 'error' event\\n      ^\\n\\nError: listen EPERM: operation not permitted 127.0.0.1\\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\\n    at listenInCluster (node:net:1998:12)\\n    at node:net:2207:7\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\\nEmitted 'error' event on Server instance at:\\n    at emitErrorNT (node:net:1977:8)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\\n  code: 'EPERM',\\n  errno: -1,\\n  syscall: 'listen',\\n  address: '127.0.0.1'\\n}\\n\\nNode.js v22.23.1\\n\"}],\"compile\":{\"exitCode\":0,\"signal\":null,\"error\":null,\"elapsedMs\":15241.876917,\"stdout\":\"\",\"stderr\":\"\",\"result\":null},\"semantics\":{\"exitCode\":1,\"signal\":null,\"error\":null,\"elapsedMs\":1007.5320830000001,\"stdout\":\"{\\\"schemaVersion\\\":1,\\\"passed\\\":false,\\\"cases\\\":9,\\\"failed\\\":3,\\\"results\\\":[{\\\"id\\\":\\\"checker/changed-default\\\",\\\"passed\\\":false,\\\"error\\\":\\\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\\\n\\\\nnull !== 'catalogs'\\\\n\\\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:44\\\\n    at check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:39)\\\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:11\\\"},{\\\"id\\\":\\\"status/changed-default\\\",\\\"passed\\\":false,\\\"error\\\":\\\"AssertionError [ERR_ASSERTION]: {\\\\\\\"upToDate\\\\\\\":true,\\\\\\\"workspaceState\\\\\\\":{\\\\\\\"lastValidatedTimestamp\\\\\\\":1794005748593,\\\\\\\"pnpmfiles\\\\\\\":[],\\\\\\\"settings\\\\\\\":{},\\\\\\\"projects\\\\\\\":{},\\\\\\\"filteredInstall\\\\\\\":false}}\\\\n\\\\ntrue !== false\\\\n\\\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:41:14\\\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:33:5\\\"},{\\\"id\\\":\\\"core/changed-default\\\",\\\"passed\\\":false,\\\"error\\\":\\\"AssertionError [ERR_ASSERTION]: undefined\\\\n+ actual - expected\\\\n\\\\n+ undefined\\\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\\\n\\\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:52:29\\\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:44:5\\\"},{\\\"id\\\":\\\"checker/unchanged-default\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"status/unchanged-default\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"core/unchanged-default\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"checker/no-catalogs\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"status/no-catalogs\\\",\\\"passed\\\":true},{\\\"id\\\":\\\"core/no-catalogs\\\",\\\"passed\\\":true}],\\\"scratch\\\":\\\"$TEMP/typelatch-catalog-check-KsMh6x\\\",\\\"scope\\\":\\\"Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency.\\\"}\\n\",\"stderr\":\"\",\"result\":{\"schemaVersion\":1,\"passed\":false,\"cases\":9,\"failed\":3,\"results\":[{\"id\":\"checker/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\\n\\nnull !== 'catalogs'\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:44\\n    at check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:39)\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:32:11\"},{\"id\":\"status/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: {\\\"upToDate\\\":true,\\\"workspaceState\\\":{\\\"lastValidatedTimestamp\\\":1794005748593,\\\"pnpmfiles\\\":[],\\\"settings\\\":{},\\\"projects\\\":{},\\\"filteredInstall\\\":false}}\\n\\ntrue !== false\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:41:14\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:33:5\"},{\"id\":\"core/changed-default\",\"passed\":false,\"error\":\"AssertionError [ERR_ASSERTION]: undefined\\n+ actual - expected\\n\\n+ undefined\\n- 'ERR_PNPM_LOCKFILE_CONFIG_MISMATCH'\\n\\n    at file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:52:29\\n    at async check (file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:28:33)\\n    at async file://$WORKSPACE/.typelatch-benchmark/semantic-check.mjs:44:5\"},{\"id\":\"checker/unchanged-default\",\"passed\":true},{\"id\":\"status/unchanged-default\",\"passed\":true},{\"id\":\"core/unchanged-default\",\"passed\":true},{\"id\":\"checker/no-catalogs\",\"passed\":true},{\"id\":\"status/no-catalogs\",\"passed\":true},{\"id\":\"core/no-catalogs\",\"passed\":true}],\"scratch\":\"$TEMP/typelatch-catalog-check-KsMh6x\",\"scope\":\"Compiled production modules with real filesystem state. Core cases use empty projects and retained catalog metadata, avoiding package downloads; upstream native regression separately covers a real catalog dependency.\"}},\"native\":{\"exitCode\":1,\"signal\":null,\"error\":null,\"elapsedMs\":1058.1984159999993,\"stdout\":\"\",\"stderr\":\"node:events:497\\n      throw er; // Unhandled 'error' event\\n      ^\\n\\nError: listen EPERM: operation not permitted 127.0.0.1\\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\\n    at listenInCluster (node:net:1998:12)\\n    at node:net:2207:7\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\\nEmitted 'error' event on Server instance at:\\n    at emitErrorNT (node:net:1977:8)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\\n  code: 'EPERM',\\n  errno: -1,\\n  syscall: 'listen',\\n  address: '127.0.0.1'\\n}\\n\\nNode.js v22.23.1\\n\",\"result\":null},\"nativeCache\":\"$TEMP/typelatch-catalog-jest-hHC04R\",\"elapsedMs\":17308.635041999998}\n"
+    },
+    {
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 8,
+      "server": "typelatch",
+      "tool": "workspace_search",
+      "resultSha256": "83cac97a741958e83d4752a5e09c52c151e88351e2ccee2b13d371fe5206bc1c",
+      "resultBytes": 113028,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"catalog specifiers frozen lockfile up to date dependency status\",\"scope\":\"workspace\",\"detail\":\"compact\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/deps/status/src/checkDepsStatus.ts\",\"line\":439,\"endLine\":450,\"symbol\":\"AssertWantedLockfileUpToDateContext\",\"position\":16540,\"kind\":\"declaration\",\"score\":111,\"matchedTerms\":[\"lockfil\",\"up\",\"date\",\"dependency\",\"statu\"],\"snippet\":\"interface AssertWantedLockfileUpToDateContext {\\n  autoInstallPeers?: boolean\\n  config: CheckDepsStatusOptions\\n  excludeLinksFromLockfile?: boolean\\n  injectWorkspacePackages?: boolean\\n  linkWorkspacePackages: boolean | 'deep'\\n  getManifestsByDir: () => Record<string, DependencyManifest>\\n  getWorkspacePackages: () => WorkspacePackages | undefined\\n  rootDir: st\",\"preview\":{\"omittedCharacters\":66},\"projectRoot\":\"$WORKSPACE/deps/status\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/lockfile/verification/src/allCatalogsAreUpToDate.ts\",\"line\":1,\"endLine\":12,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":111,\"matchedTerms\":[\"catalog\",\"specifier\",\"lockfil\",\"up\",\"date\"],\"snippet\":\"import { type CatalogSnapshots } from '@pnpm/lockfile.types'\\nimport { type Catalogs } from '@pnpm/catalogs.types'\\n\\nexport function allCatalogsAreUpToDate (\\n  catalogsConfig: Catalogs,\\n  snapshot: CatalogSnapshots | undefined\\n): boolean {\\n  return Object.entries(snapshot ?? {})\\n    .every(([catalogName, catalog]) => Object.entries(catalog ?? {})\\n      .every(\",\"preview\":{\"omittedCharacters\":81},\"projectRoot\":\"$WORKSPACE/lockfile/verification\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/deps/status/src/assertLockfilesEqual.ts\",\"line\":1,\"endLine\":16,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":99,\"matchedTerms\":[\"specifier\",\"lockfil\",\"up\",\"date\",\"dependency\",\"statu\"],\"snippet\":\"import { PnpmError } from '@pnpm/error'\\nimport { type LockfileObject } from '@pnpm/lockfile.fs'\\nimport { equals } from 'ramda'\\n\\nexport function assertLockfilesEqual (currentLockfile: LockfileObject | null, wantedLockfile: LockfileObject, wantedLockfileDir: string): void {\\n  if (!currentLockfile) {\\n    // make sure that no importer of wantedLockfile has any d\",\"preview\":{\"omittedCharacters\":573},\"projectRoot\":\"$WORKSPACE/deps/status\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/lockfile/verification/src/allProjectsAreUpToDate.ts\",\"line\":13,\"endLine\":28,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":99,\"matchedTerms\":[\"catalog\",\"specifier\",\"lockfil\",\"up\",\"date\"],\"snippet\":\"import { satisfiesPackageManifest } from './satisfiesPackageManifest.js'\\nimport { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\\n\\nexport async function allProjectsAreUpToDate (\\n  projects: Array<Pick<ProjectOptions, 'manifest' | 'rootDir'> & { id: ProjectId }>,\\n  opts: {\\n    catalogs: Catalogs\\n    autoInstallPeers: boolean\\n    excludeL\",\"preview\":{\"omittedCharacters\":267},\"projectRoot\":\"$WORKSPACE/lockfile/verification\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/lockfile/verification/test/allProjectsAreUpToDate.test.ts\",\"line\":85,\"endLine\":100,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":99,\"matchedTerms\":[\"catalog\",\"specifier\",\"lockfil\",\"up\",\"date\"],\"snippet\":\"    autoInstallPeers: false,\\n    catalogs: {},\\n    excludeLinksFromLockfile: false,\\n    linkWorkspacePackages: true,\\n    wantedLockfile: {\\n      importers: {\\n        ['bar' as ProjectId]: {\\n          dependencies: {\\n            alias: 'link:../foo',\\n          },\\n          specifiers: {\\n            alias: 'npm:foo',\\n          },\\n        },\\n        ['foo' as P\",\"preview\":{\"omittedCharacters\":38},\"projectRoot\":\"$WORKSPACE/lockfile/verification\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/lockfile/verification/test/allProjectsAreUpToDate.test.ts\",\"line\":169,\"endLine\":184,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":99,\"matchedTerms\":[\"catalog\",\"specifier\",\"lockfil\",\"up\",\"date\"],\"snippet\":\"    autoInstallPeers: false,\\n    catalogs: {},\\n    excludeLinksFromLockfile: false,\\n    linkWorkspacePackages: true,\\n    wantedLockfile: {\\n      importers: {\\n        ['bar' as ProjectId]: {\\n          dependencies: {\\n            alias: 'link:../foo',\\n          },\\n          specifiers: {\\n            alias: 'npm:foo@0',\\n          },\\n        },\\n        ['foo' as\",\"preview\":{\"omittedCharacters\":40},\"projectRoot\":\"$WORKSPACE/lockfile/verification\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/deps/status/src/checkDepsStatus.ts\",\"line\":451,\"endLine\":462,\"symbol\":\"AssertWantedLockfileUpToDateOptions\",\"position\":16967,\"kind\":\"declaration\",\"score\":98,\"matchedTerms\":[\"lockfil\",\"up\",\"date\",\"statu\"],\"snippet\":\"interface AssertWantedLockfileUpToDateOptions {\\n  projectDir: string\\n  projectId: ProjectId\\n  projectManifest: ProjectManifest\\n  wantedLockfile: LockfileObject\\n  wantedLockfileDir: string\\n}\\n\\nasync function assertWantedLockfileUpToDate (\\n  ctx: AssertWantedLockfileUpToDateContext,\\n  opts: AssertWantedLockfileUpToDateOptions\\n): Promise<void> {\",\"preview\":{\"omittedCharacters\":0},\"projectRoot\":\"$WORKSPACE/deps/status\"},{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/lockfile/verification/src/linkedPackagesAreUpToDate.ts\",\"line\":61,\"endLine\":76,\"symbol\":null,\"position\":null,\"kind\":\"text\",\"score\":86,\"matchedTerms\":[\"lockfil\",\"up\",\"date\",\"dependency\"],\"snippet\":\"            (\\n              currentSpec.startsWith('link:') ||\\n              currentSpec.startsWith('file:') ||\\n              currentSpec.startsWith('workspace:.')\\n            )\\n          ) {\\n            return true\\n          }\\n          // https://github.com/pnpm/pnpm/issues/6592\\n          // if the dependency is linked and the specified version type is tag\",\"preview\":{\"omittedCharacters\":344},\"projectRoot\":\"$WORKSPACE/lockfile/verification\"}],\"latencyMs\":3439,\"index\":{\"path\":\"$PROVIDER_STATE/typelatch/workspaces/695eb2490c282c3a81f791b99ca4e1368866a256f183bfb74de8110d05de7e2c/search.db\",\"updatedFiles\":2718,\"removedFiles\":0,\"files\":2718,\"snapshot\":\"4c087653693420fc76b7ade33234cdef9e2a3bbf79c5797cc2efffa976218a58\"},\"coverage\":{\"complete\":false,\"selection\":\"Git tracked and unignored files, with generated directories and source symlinks excluded\",\"files\":2718,\"projects\":[\"$WORKSPACE/.meta-updater\",\"$WORKSPACE/__fixtures__/circular\",\"$WORKSPACE/__fixtures__/custom-modules-dir\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar\",\"$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo\",\"$WORKSPACE/__fixtures__/empty\",\"$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version\",\"$WORKSPACE/__fixtures__/fixture-with-no-pkg-version\",\"$WORKSPACE/__fixtures__/fixture\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/general\",\"$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only\",\"$WORKSPACE/__fixtures__/general\",\"$WORKSPACE/__fixtures__/has-2-outdated-deps\",\"$WORKSPACE/__fixtures__/has-major-outdated-deps\",\"$WORKSPACE/__fixtures__/has-no-lockfile\",\"$WORKSPACE/__fixtures__/has-not-outdated-deps\",\"$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/has-only-deprecated-deps\",\"$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol\",\"$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias\",\"$WORKSPACE/__fixtures__/has-outdated-deps\",\"$WORKSPACE/__fixtures__/has-package-lock-json\",\"$WORKSPACE/__fixtures__/has-package-lock-v3-json\",\"$WORKSPACE/__fixtures__/has-yarn-lock\",\"$WORKSPACE/__fixtures__/has-yarn2-lock\",\"$WORKSPACE/__fixtures__/hello-world-js-bin\",\"$WORKSPACE/__fixtures__/local-pkg\",\"$WORKSPACE/__fixtures__/local-scoped-pkg\",\"$WORKSPACE/__fixtures__/monorepo/package\",\"$WORKSPACE/__fixtures__/multiple-scripts-error-exit\",\"$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg\",\"$WORKSPACE/__fixtures__/with-aliased-dep\",\"$WORKSPACE/__fixtures__/with-file-dep\",\"$WORKSPACE/__fixtures__/with-git-protocol-dep\",\"$WORKSPACE/__fixtures__/with-non-package-dep\",\"$WORKSPACE/__fixtures__/with-peer\",\"$WORKSPACE/__fixtures__/with-pnpm-update-ignore\",\"$WORKSPACE/__fixtures__/with-unsaved-deps\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f\",\"$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar\",\"$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b\",\"$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private\",\"$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public\",\"$WORKSPACE/__typecheck__\",\"$WORKSPACE/__typings__\",\"$WORKSPACE/__utils__/assert-project\",\"$WORKSPACE/__utils__/assert-project/test/fixture/project\",\"$WORKSPACE/__utils__/assert-store\",\"$WORKSPACE/__utils__/assert-store/test/fixture/project\",\"$WORKSPACE/__utils__/build-artifacts\",\"$WORKSPACE/__utils__/eslint-config\",\"$WORKSPACE/__utils__/get-release-text\",\"$WORKSPACE/__utils__/jest-config\",\"$WORKSPACE/__utils__/prepare-temp-dir\",\"$WORKSPACE/__utils__/prepare\",\"$WORKSPACE/__utils__/scripts\",\"$WORKSPACE/__utils__/test-fixtures\",\"$WORKSPACE/__utils__/test-ipc-server\",\"$WORKSPACE/__utils__/tsconfig\",\"$WORKSPACE/builder/policy\",\"$WORKSPACE/cache/api\",\"$WORKSPACE/cache/commands\",\"$WORKSPACE/catalogs/config\",\"$WORKSPACE/catalogs/protocol-parser\",\"$WORKSPACE/catalogs/resolver\",\"$WORKSPACE/catalogs/types\",\"$WORKSPACE/cli/cli-meta\",\"$WORKSPACE/cli/cli-utils\",\"$WORKSPACE/cli/command\",\"$WORKSPACE/cli/common-cli-options-help\",\"$WORKSPACE/cli/default-reporter\",\"$WORKSPACE/cli/parse-cli-args\"],\"configs\":[\"$WORKSPACE/.meta-updater/tsconfig.json\",\"$WORKSPACE/.meta-updater/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-project/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.json\",\"$WORKSPACE/__utils__/assert-project/tsconfig.lint.json\",\"$WORKSPACE/__utils__/assert-store/test/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.json\",\"$WORKSPACE/__utils__/assert-store/tsconfig.lint.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.json\",\"$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json\",\"$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.json\",\"$WORKSPACE/__utils__/prepare/tsconfig.lint.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.json\",\"$WORKSPACE/__utils__/scripts/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.json\",\"$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json\",\"$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.json\",\"$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json\",\"$WORKSPACE/__utils__/tsconfig/tsconfig.json\",\"$WORKSPACE/builder/policy/test/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.json\",\"$WORKSPACE/builder/policy/tsconfig.lint.json\",\"$WORKSPACE/cache/api/tsconfig.json\",\"$WORKSPACE/cache/api/tsconfig.lint.json\",\"$WORKSPACE/cache/commands/test/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.json\",\"$WORKSPACE/cache/commands/tsconfig.lint.json\",\"$WORKSPACE/catalogs/config/test/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.json\",\"$WORKSPACE/catalogs/config/tsconfig.lint.json\",\"$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.json\",\"$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json\",\"$WORKSPACE/catalogs/resolver/test/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.json\",\"$WORKSPACE/catalogs/resolver/tsconfig.lint.json\",\"$WORKSPACE/catalogs/types/tsconfig.json\",\"$WORKSPACE/catalogs/types/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-meta/test/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.json\",\"$WORKSPACE/cli/cli-meta/tsconfig.lint.json\",\"$WORKSPACE/cli/cli-utils/test/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.json\",\"$WORKSPACE/cli/cli-utils/tsconfig.lint.json\",\"$WORKSPACE/cli/command/tsconfig.json\",\"$WORKSPACE/cli/command/tsconfig.lint.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.json\",\"$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json\",\"$WORKSPACE/cli/default-reporter/test/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.json\",\"$WORKSPACE/cli/default-reporter/tsconfig.lint.json\",\"$WORKSPACE/cli/parse-cli-args/test/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.json\",\"$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json\",\"$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.json\",\"$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json\",\"$WORKSPACE/config/config-writer/tsconfig.json\",\"$WORKSPACE/config/config-writer/tsconfig.lint.json\",\"$WORKSPACE/config/config/test/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.json\",\"$WORKSPACE/config/config/tsconfig.lint.json\",\"$WORKSPACE/config/deps-installer/test/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.json\",\"$WORKSPACE/config/deps-installer/tsconfig.lint.json\",\"$WORKSPACE/config/matcher/test/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.json\",\"$WORKSPACE/config/matcher/tsconfig.lint.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.json\",\"$WORKSPACE/config/normalize-registries/tsconfig.lint.json\",\"$WORKSPACE/config/package-is-installable/test/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.json\",\"$WORKSPACE/config/package-is-installable/tsconfig.lint.json\",\"$WORKSPACE/config/parse-overrides/test/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.json\",\"$WORKSPACE/config/parse-overrides/tsconfig.lint.json\",\"$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.json\",\"$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json\",\"$WORKSPACE/config/plugin-commands-config/test/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.json\",\"$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json\",\"$WORKSPACE/config/version-policy/test/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.json\",\"$WORKSPACE/config/version-policy/tsconfig.lint.json\",\"$WORKSPACE/crypto/hash/test/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.json\",\"$WORKSPACE/crypto/hash/tsconfig.lint.json\",\"$WORKSPACE/crypto/object-hasher/test/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.json\",\"$WORKSPACE/crypto/object-hasher/tsconfig.lint.json\",\"$WORKSPACE/crypto/shasums-file/test/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.json\",\"$WORKSPACE/crypto/shasums-file/tsconfig.lint.json\",\"$WORKSPACE/dedupe/check/test/tsconfig.json\",\"$WORKSPACE/dedupe/check/tsconfig.json\",\"$WORKSPACE/dedupe/check/tsconfig.lint.json\"],\"projectsOmitted\":292,\"configsOmitted\":398,\"excluded\":[{\"path\":\".typelatch-benchmark/node20\",\"reason\":\"file exceeds 1 MB\"},{\"path\":\"__fixtures__/circular/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/custom-modules-dir/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/empty/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixture/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/general/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-2-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-major-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-negative\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/node_modules/is-positive\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-not-outdated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml\",\"reason\":\"dependency lockfile; identity inventory only\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json\",\"reason\":\"generated or dependency directory\"},{\"path\":\"__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md\",\"reason\":\"generated or dependency directory\"}],\"excludedCount\":225,\"dependencies\":[],\"dependencyCount\":0,\"searchedDependencies\":0,\"missingIndexes\":0,\"dependencyErrors\":0,\"dependenciesOmitted\":0,\"issues\":[\"File exceeds 1 MB: .typelatch-benchmark/node20\",\"File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json\",\"File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md\",\"File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md\"],\"issuesOmitted\":0,\"retrieval\":{\"workspaceCandidateLimit\":400,\"workspaceCandidateLimitReached\":true,\"perDependencyLimit\":20,\"exhaustive\":false}},\"checks\":{\"retrieved\":{\"status\":\"pass\",\"reason\":\"Lexical candidates only; coverage and ranking limits remain explicit\"},\"resolved\":{\"status\":\"not-run\",\"reason\":\"Use workspace_context for compiler resolution\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace_validate for compilation\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No assertion command executed\"},\"stable\":{\"status\":\"unknown\",\"reason\":\"Search records files as read; it does not establish an atomic workspace snapshot\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed dependency contents were not compared with registry artifacts\"}},\"next\":\"Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.\",\"searchMs\":3320}"
+          }
+        ],
+        "structured_content": {
+          "workspaceRoot": "$WORKSPACE",
+          "question": "catalog specifiers frozen lockfile up to date dependency status",
+          "scope": "workspace",
+          "detail": "compact",
+          "status": "partial",
+          "results": [
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/deps/status/src/checkDepsStatus.ts",
+              "line": 439,
+              "endLine": 450,
+              "symbol": "AssertWantedLockfileUpToDateContext",
+              "position": 16540,
+              "kind": "declaration",
+              "score": 111,
+              "matchedTerms": [
+                "lockfil",
+                "up",
+                "date",
+                "dependency",
+                "statu"
+              ],
+              "snippet": "interface AssertWantedLockfileUpToDateContext {\n  autoInstallPeers?: boolean\n  config: CheckDepsStatusOptions\n  excludeLinksFromLockfile?: boolean\n  injectWorkspacePackages?: boolean\n  linkWorkspacePackages: boolean | 'deep'\n  getManifestsByDir: () => Record<string, DependencyManifest>\n  getWorkspacePackages: () => WorkspacePackages | undefined\n  rootDir: st",
+              "preview": {
+                "omittedCharacters": 66
+              },
+              "projectRoot": "$WORKSPACE/deps/status"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/lockfile/verification/src/allCatalogsAreUpToDate.ts",
+              "line": 1,
+              "endLine": 12,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 111,
+              "matchedTerms": [
+                "catalog",
+                "specifier",
+                "lockfil",
+                "up",
+                "date"
+              ],
+              "snippet": "import { type CatalogSnapshots } from '@pnpm/lockfile.types'\nimport { type Catalogs } from '@pnpm/catalogs.types'\n\nexport function allCatalogsAreUpToDate (\n  catalogsConfig: Catalogs,\n  snapshot: CatalogSnapshots | undefined\n): boolean {\n  return Object.entries(snapshot ?? {})\n    .every(([catalogName, catalog]) => Object.entries(catalog ?? {})\n      .every(",
+              "preview": {
+                "omittedCharacters": 81
+              },
+              "projectRoot": "$WORKSPACE/lockfile/verification"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/deps/status/src/assertLockfilesEqual.ts",
+              "line": 1,
+              "endLine": 16,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 99,
+              "matchedTerms": [
+                "specifier",
+                "lockfil",
+                "up",
+                "date",
+                "dependency",
+                "statu"
+              ],
+              "snippet": "import { PnpmError } from '@pnpm/error'\nimport { type LockfileObject } from '@pnpm/lockfile.fs'\nimport { equals } from 'ramda'\n\nexport function assertLockfilesEqual (currentLockfile: LockfileObject | null, wantedLockfile: LockfileObject, wantedLockfileDir: string): void {\n  if (!currentLockfile) {\n    // make sure that no importer of wantedLockfile has any d",
+              "preview": {
+                "omittedCharacters": 573
+              },
+              "projectRoot": "$WORKSPACE/deps/status"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/lockfile/verification/src/allProjectsAreUpToDate.ts",
+              "line": 13,
+              "endLine": 28,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 99,
+              "matchedTerms": [
+                "catalog",
+                "specifier",
+                "lockfil",
+                "up",
+                "date"
+              ],
+              "snippet": "import { satisfiesPackageManifest } from './satisfiesPackageManifest.js'\nimport { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\n\nexport async function allProjectsAreUpToDate (\n  projects: Array<Pick<ProjectOptions, 'manifest' | 'rootDir'> & { id: ProjectId }>,\n  opts: {\n    catalogs: Catalogs\n    autoInstallPeers: boolean\n    excludeL",
+              "preview": {
+                "omittedCharacters": 267
+              },
+              "projectRoot": "$WORKSPACE/lockfile/verification"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/lockfile/verification/test/allProjectsAreUpToDate.test.ts",
+              "line": 85,
+              "endLine": 100,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 99,
+              "matchedTerms": [
+                "catalog",
+                "specifier",
+                "lockfil",
+                "up",
+                "date"
+              ],
+              "snippet": "    autoInstallPeers: false,\n    catalogs: {},\n    excludeLinksFromLockfile: false,\n    linkWorkspacePackages: true,\n    wantedLockfile: {\n      importers: {\n        ['bar' as ProjectId]: {\n          dependencies: {\n            alias: 'link:../foo',\n          },\n          specifiers: {\n            alias: 'npm:foo',\n          },\n        },\n        ['foo' as P",
+              "preview": {
+                "omittedCharacters": 38
+              },
+              "projectRoot": "$WORKSPACE/lockfile/verification"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/lockfile/verification/test/allProjectsAreUpToDate.test.ts",
+              "line": 169,
+              "endLine": 184,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 99,
+              "matchedTerms": [
+                "catalog",
+                "specifier",
+                "lockfil",
+                "up",
+                "date"
+              ],
+              "snippet": "    autoInstallPeers: false,\n    catalogs: {},\n    excludeLinksFromLockfile: false,\n    linkWorkspacePackages: true,\n    wantedLockfile: {\n      importers: {\n        ['bar' as ProjectId]: {\n          dependencies: {\n            alias: 'link:../foo',\n          },\n          specifiers: {\n            alias: 'npm:foo@0',\n          },\n        },\n        ['foo' as",
+              "preview": {
+                "omittedCharacters": 40
+              },
+              "projectRoot": "$WORKSPACE/lockfile/verification"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/deps/status/src/checkDepsStatus.ts",
+              "line": 451,
+              "endLine": 462,
+              "symbol": "AssertWantedLockfileUpToDateOptions",
+              "position": 16967,
+              "kind": "declaration",
+              "score": 98,
+              "matchedTerms": [
+                "lockfil",
+                "up",
+                "date",
+                "statu"
+              ],
+              "snippet": "interface AssertWantedLockfileUpToDateOptions {\n  projectDir: string\n  projectId: ProjectId\n  projectManifest: ProjectManifest\n  wantedLockfile: LockfileObject\n  wantedLockfileDir: string\n}\n\nasync function assertWantedLockfileUpToDate (\n  ctx: AssertWantedLockfileUpToDateContext,\n  opts: AssertWantedLockfileUpToDateOptions\n): Promise<void> {",
+              "preview": {
+                "omittedCharacters": 0
+              },
+              "projectRoot": "$WORKSPACE/deps/status"
+            },
+            {
+              "origin": "workspace",
+              "source": "$WORKSPACE/lockfile/verification/src/linkedPackagesAreUpToDate.ts",
+              "line": 61,
+              "endLine": 76,
+              "symbol": null,
+              "position": null,
+              "kind": "text",
+              "score": 86,
+              "matchedTerms": [
+                "lockfil",
+                "up",
+                "date",
+                "dependency"
+              ],
+              "snippet": "            (\n              currentSpec.startsWith('link:') ||\n              currentSpec.startsWith('file:') ||\n              currentSpec.startsWith('workspace:.')\n            )\n          ) {\n            return true\n          }\n          // https://github.com/pnpm/pnpm/issues/6592\n          // if the dependency is linked and the specified version type is tag",
+              "preview": {
+                "omittedCharacters": 344
+              },
+              "projectRoot": "$WORKSPACE/lockfile/verification"
+            }
+          ],
+          "latencyMs": 3439,
+          "index": {
+            "path": "$PROVIDER_STATE/typelatch/workspaces/695eb2490c282c3a81f791b99ca4e1368866a256f183bfb74de8110d05de7e2c/search.db",
+            "updatedFiles": 2718,
+            "removedFiles": 0,
+            "files": 2718,
+            "snapshot": "4c087653693420fc76b7ade33234cdef9e2a3bbf79c5797cc2efffa976218a58"
+          },
+          "coverage": {
+            "complete": false,
+            "selection": "Git tracked and unignored files, with generated directories and source symlinks excluded",
+            "files": 2718,
+            "projects": [
+              "$WORKSPACE/.meta-updater",
+              "$WORKSPACE/__fixtures__/circular",
+              "$WORKSPACE/__fixtures__/custom-modules-dir",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/bar",
+              "$WORKSPACE/__fixtures__/custom-modules-dir/packages/foo",
+              "$WORKSPACE/__fixtures__/empty",
+              "$WORKSPACE/__fixtures__/fixture-with-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-name-and-no-version",
+              "$WORKSPACE/__fixtures__/fixture-with-no-pkg-version",
+              "$WORKSPACE/__fixtures__/fixture",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/general",
+              "$WORKSPACE/__fixtures__/fixtureWithLinks/with-links-only",
+              "$WORKSPACE/__fixtures__/general",
+              "$WORKSPACE/__fixtures__/has-2-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-major-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-no-lockfile",
+              "$WORKSPACE/__fixtures__/has-not-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/has-only-deprecated-deps",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-and-external-shrinkwrap/pkg",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-catalog-protocol",
+              "$WORKSPACE/__fixtures__/has-outdated-deps-using-npm-alias",
+              "$WORKSPACE/__fixtures__/has-outdated-deps",
+              "$WORKSPACE/__fixtures__/has-package-lock-json",
+              "$WORKSPACE/__fixtures__/has-package-lock-v3-json",
+              "$WORKSPACE/__fixtures__/has-yarn-lock",
+              "$WORKSPACE/__fixtures__/has-yarn2-lock",
+              "$WORKSPACE/__fixtures__/hello-world-js-bin",
+              "$WORKSPACE/__fixtures__/local-pkg",
+              "$WORKSPACE/__fixtures__/local-scoped-pkg",
+              "$WORKSPACE/__fixtures__/monorepo/package",
+              "$WORKSPACE/__fixtures__/multiple-scripts-error-exit",
+              "$WORKSPACE/__fixtures__/pkg-with-external-lockfile/pkg",
+              "$WORKSPACE/__fixtures__/with-aliased-dep",
+              "$WORKSPACE/__fixtures__/with-file-dep",
+              "$WORKSPACE/__fixtures__/with-git-protocol-dep",
+              "$WORKSPACE/__fixtures__/with-non-package-dep",
+              "$WORKSPACE/__fixtures__/with-peer",
+              "$WORKSPACE/__fixtures__/with-pnpm-update-ignore",
+              "$WORKSPACE/__fixtures__/with-unsaved-deps",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/f",
+              "$WORKSPACE/__fixtures__/workspace-external-depends-deep/packages/g",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-npm-shrinkwrap-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-package-lock-json/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-has-shared-yarn-lock/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-2-pkgs/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-different-deps/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/bar",
+              "$WORKSPACE/__fixtures__/workspace-with-lockfile-subdep-dupes/packages/foo",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/a",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/b",
+              "$WORKSPACE/__fixtures__/workspace-with-nested-workspace-deps/packages/c",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/private",
+              "$WORKSPACE/__fixtures__/workspace-with-private-pkgs/packages/public",
+              "$WORKSPACE/__typecheck__",
+              "$WORKSPACE/__typings__",
+              "$WORKSPACE/__utils__/assert-project",
+              "$WORKSPACE/__utils__/assert-project/test/fixture/project",
+              "$WORKSPACE/__utils__/assert-store",
+              "$WORKSPACE/__utils__/assert-store/test/fixture/project",
+              "$WORKSPACE/__utils__/build-artifacts",
+              "$WORKSPACE/__utils__/eslint-config",
+              "$WORKSPACE/__utils__/get-release-text",
+              "$WORKSPACE/__utils__/jest-config",
+              "$WORKSPACE/__utils__/prepare-temp-dir",
+              "$WORKSPACE/__utils__/prepare",
+              "$WORKSPACE/__utils__/scripts",
+              "$WORKSPACE/__utils__/test-fixtures",
+              "$WORKSPACE/__utils__/test-ipc-server",
+              "$WORKSPACE/__utils__/tsconfig",
+              "$WORKSPACE/builder/policy",
+              "$WORKSPACE/cache/api",
+              "$WORKSPACE/cache/commands",
+              "$WORKSPACE/catalogs/config",
+              "$WORKSPACE/catalogs/protocol-parser",
+              "$WORKSPACE/catalogs/resolver",
+              "$WORKSPACE/catalogs/types",
+              "$WORKSPACE/cli/cli-meta",
+              "$WORKSPACE/cli/cli-utils",
+              "$WORKSPACE/cli/command",
+              "$WORKSPACE/cli/common-cli-options-help",
+              "$WORKSPACE/cli/default-reporter",
+              "$WORKSPACE/cli/parse-cli-args"
+            ],
+            "configs": [
+              "$WORKSPACE/.meta-updater/tsconfig.json",
+              "$WORKSPACE/.meta-updater/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-project/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-project/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/assert-store/test/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.json",
+              "$WORKSPACE/__utils__/assert-store/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.json",
+              "$WORKSPACE/__utils__/get-release-text/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare-temp-dir/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.json",
+              "$WORKSPACE/__utils__/prepare/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.json",
+              "$WORKSPACE/__utils__/scripts/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.json",
+              "$WORKSPACE/__utils__/test-fixtures/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/test-ipc-server/test/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.json",
+              "$WORKSPACE/__utils__/test-ipc-server/tsconfig.lint.json",
+              "$WORKSPACE/__utils__/tsconfig/tsconfig.json",
+              "$WORKSPACE/builder/policy/test/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.json",
+              "$WORKSPACE/builder/policy/tsconfig.lint.json",
+              "$WORKSPACE/cache/api/tsconfig.json",
+              "$WORKSPACE/cache/api/tsconfig.lint.json",
+              "$WORKSPACE/cache/commands/test/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.json",
+              "$WORKSPACE/cache/commands/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/config/test/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.json",
+              "$WORKSPACE/catalogs/config/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/protocol-parser/test/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.json",
+              "$WORKSPACE/catalogs/protocol-parser/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/resolver/test/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.json",
+              "$WORKSPACE/catalogs/resolver/tsconfig.lint.json",
+              "$WORKSPACE/catalogs/types/tsconfig.json",
+              "$WORKSPACE/catalogs/types/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-meta/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.json",
+              "$WORKSPACE/cli/cli-meta/tsconfig.lint.json",
+              "$WORKSPACE/cli/cli-utils/test/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.json",
+              "$WORKSPACE/cli/cli-utils/tsconfig.lint.json",
+              "$WORKSPACE/cli/command/tsconfig.json",
+              "$WORKSPACE/cli/command/tsconfig.lint.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.json",
+              "$WORKSPACE/cli/common-cli-options-help/tsconfig.lint.json",
+              "$WORKSPACE/cli/default-reporter/test/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.json",
+              "$WORKSPACE/cli/default-reporter/tsconfig.lint.json",
+              "$WORKSPACE/cli/parse-cli-args/test/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.json",
+              "$WORKSPACE/cli/parse-cli-args/tsconfig.lint.json",
+              "$WORKSPACE/completion/plugin-commands-completion/test/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.json",
+              "$WORKSPACE/completion/plugin-commands-completion/tsconfig.lint.json",
+              "$WORKSPACE/config/config-writer/tsconfig.json",
+              "$WORKSPACE/config/config-writer/tsconfig.lint.json",
+              "$WORKSPACE/config/config/test/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.json",
+              "$WORKSPACE/config/config/tsconfig.lint.json",
+              "$WORKSPACE/config/deps-installer/test/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.json",
+              "$WORKSPACE/config/deps-installer/tsconfig.lint.json",
+              "$WORKSPACE/config/matcher/test/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.json",
+              "$WORKSPACE/config/matcher/tsconfig.lint.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.json",
+              "$WORKSPACE/config/normalize-registries/tsconfig.lint.json",
+              "$WORKSPACE/config/package-is-installable/test/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.json",
+              "$WORKSPACE/config/package-is-installable/tsconfig.lint.json",
+              "$WORKSPACE/config/parse-overrides/test/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.json",
+              "$WORKSPACE/config/parse-overrides/tsconfig.lint.json",
+              "$WORKSPACE/config/pick-registry-for-package/test/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.json",
+              "$WORKSPACE/config/pick-registry-for-package/tsconfig.lint.json",
+              "$WORKSPACE/config/plugin-commands-config/test/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.json",
+              "$WORKSPACE/config/plugin-commands-config/tsconfig.lint.json",
+              "$WORKSPACE/config/version-policy/test/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.json",
+              "$WORKSPACE/config/version-policy/tsconfig.lint.json",
+              "$WORKSPACE/crypto/hash/test/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.json",
+              "$WORKSPACE/crypto/hash/tsconfig.lint.json",
+              "$WORKSPACE/crypto/object-hasher/test/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.json",
+              "$WORKSPACE/crypto/object-hasher/tsconfig.lint.json",
+              "$WORKSPACE/crypto/shasums-file/test/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.json",
+              "$WORKSPACE/crypto/shasums-file/tsconfig.lint.json",
+              "$WORKSPACE/dedupe/check/test/tsconfig.json",
+              "$WORKSPACE/dedupe/check/tsconfig.json",
+              "$WORKSPACE/dedupe/check/tsconfig.lint.json"
+            ],
+            "projectsOmitted": 292,
+            "configsOmitted": 398,
+            "excluded": [
+              {
+                "path": ".typelatch-benchmark/node20",
+                "reason": "file exceeds 1 MB"
+              },
+              {
+                "path": "__fixtures__/circular/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/custom-modules-dir/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/empty/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-name-and-no-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture-with-no-pkg-version/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixture/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/fixtureWithLinks/with-links-only/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/general/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-2-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-major-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-negative",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/node_modules/is-positive",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-not-outdated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-npm-shrinkwrap-json/npm-shrinkwrap.json",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-only-deprecated-deps/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/node_modules/.pnpm/lock.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-and-external-shrinkwrap/pnpm-lock.yaml",
+                "reason": "dependency lockfile; identity inventory only"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.modules.yaml",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/index.js",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/license",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/package.json",
+                "reason": "generated or dependency directory"
+              },
+              {
+                "path": "__fixtures__/has-outdated-deps-using-catalog-protocol/node_modules/.pnpm/is-negative@1.0.0/node_modules/is-negative/readme.md",
+                "reason": "generated or dependency directory"
+              }
+            ],
+            "excludedCount": 225,
+            "dependencies": [],
+            "dependencyCount": 0,
+            "searchedDependencies": 0,
+            "missingIndexes": 0,
+            "dependencyErrors": 0,
+            "dependenciesOmitted": 0,
+            "issues": [
+              "File exceeds 1 MB: .typelatch-benchmark/node20",
+              "File chunk limit reached: $WORKSPACE/cli/default-reporter/test/pnpm-meta.json",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/core/CHANGELOG.md",
+              "File chunk limit reached: $WORKSPACE/pkg-manager/plugin-commands-installation/CHANGELOG.md"
+            ],
+            "issuesOmitted": 0,
+            "retrieval": {
+              "workspaceCandidateLimit": 400,
+              "workspaceCandidateLimitReached": true,
+              "perDependencyLimit": 20,
+              "exhaustive": false
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "pass",
+              "reason": "Lexical candidates only; coverage and ranking limits remain explicit"
+            },
+            "resolved": {
+              "status": "not-run",
+              "reason": "Use workspace_context for compiler resolution"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace_validate for compilation"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No assertion command executed"
+            },
+            "stable": {
+              "status": "unknown",
+              "reason": "Search records files as read; it does not establish an atomic workspace snapshot"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed dependency contents were not compared with registry artifacts"
+            }
+          },
+          "next": "Inspect the returned source and symbol. Use workspace_context with a listed config and workspace file for resolution, then workspace_validate for compilation and explicitly authorized assertions.",
+          "searchMs": 3320
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 10,
+      "outputSha256": "9d0360850f8f14ba92c0eb8967b18532817cb0cbb147e432eeae3ca8792a5d32",
+      "outputBytes": 1051,
+      "exitCode": 0,
+      "stdout": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\ndeps/status/src/checkDepsStatus.ts:19:  getOutdatedLockfileSetting,\ndeps/status/src/checkDepsStatus.ts:490:  const outdatedLockfileSettingName = getOutdatedLockfileSetting(wantedLockfile, {\nlockfile/verification/src/allProjectsAreUpToDate.ts:10:import { allCatalogsAreUpToDate } from './allCatalogsAreUpToDate.js'\nlockfile/verification/src/allProjectsAreUpToDate.ts:31:  if (!allCatalogsAreUpToDate(opts.catalogs, opts.wantedLockfile.catalogs)) {\npkg-manager/core/src/install/index.ts:22:  getOutdatedLockfileSetting,\npkg-manager/core/src/install/index.ts:411:      const outdatedLockfileSettingName = getOutdatedLockfileSetting(ctx.wantedLockfile, {\nlockfile/verification/src/allCatalogsAreUpToDate.ts:4:export function allCatalogsAreUpToDate (\nlockfile/settings-checker/src/index.ts:3:export { type ChangedField, getOutdatedLockfileSetting } from './getOutdatedLockfileSetting.js'\nlockfile/settings-checker/src/getOutdatedLockfileSetting.ts:15:export function getOutdatedLockfileSetting (\n"
+    },
+    {
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 12,
+      "outputSha256": "6ba61412c610fb6fc5498ef8416597015fe7185cdde9405d4dd4f1fd3e40d209",
+      "outputBytes": 15866,
+      "exitCode": 0,
+      "stdout": "import { type LockfileObject, type PatchFile } from '@pnpm/lockfile.types'\nimport { equals } from 'ramda'\n\nexport type ChangedField =\n  | 'patchedDependencies'\n  | 'overrides'\n  | 'packageExtensionsChecksum'\n  | 'ignoredOptionalDependencies'\n  | 'settings.autoInstallPeers'\n  | 'settings.excludeLinksFromLockfile'\n  | 'settings.peersSuffixMaxLength'\n  | 'settings.injectWorkspacePackages'\n  | 'pnpmfileChecksum'\n\nexport function getOutdatedLockfileSetting (\n  lockfile: LockfileObject,\n  {\n    overrides,\n    packageExtensionsChecksum,\n    ignoredOptionalDependencies,\n    patchedDependencies,\n    autoInstallPeers,\n    excludeLinksFromLockfile,\n    peersSuffixMaxLength,\n    pnpmfileChecksum,\n    injectWorkspacePackages,\n  }: {\n    overrides?: Record<string, string>\n    packageExtensionsChecksum?: string\n    patchedDependencies?: Record<string, PatchFile>\n    ignoredOptionalDependencies?: string[]\n    autoInstallPeers?: boolean\n    excludeLinksFromLockfile?: boolean\n    peersSuffixMaxLength?: number\n    pnpmfileChecksum?: string\n    injectWorkspacePackages?: boolean\n  }\n): ChangedField | null {\n  if (!equals(lockfile.overrides ?? {}, overrides ?? {})) {\n    return 'overrides'\n  }\n  if (lockfile.packageExtensionsChecksum !== packageExtensionsChecksum) {\n    return 'packageExtensionsChecksum'\n  }\n  if (!equals(lockfile.ignoredOptionalDependencies?.sort() ?? [], ignoredOptionalDependencies?.sort() ?? [])) {\n    return 'ignoredOptionalDependencies'\n  }\n  if (!equals(lockfile.patchedDependencies ?? {}, patchedDependencies ?? {})) {\n    return 'patchedDependencies'\n  }\n  if ((lockfile.settings?.autoInstallPeers != null && lockfile.settings.autoInstallPeers !== autoInstallPeers)) {\n    return 'settings.autoInstallPeers'\n  }\n  if (lockfile.settings?.excludeLinksFromLockfile != null && lockfile.settings.excludeLinksFromLockfile !== excludeLinksFromLockfile) {\n    return 'settings.excludeLinksFromLockfile'\n  }\n  if (\n    lockfile.settings?.peersSuffixMaxLength != null && lockfile.settings.peersSuffixMaxLength !== peersSuffixMaxLength ||\n    lockfile.settings?.peersSuffixMaxLength == null && peersSuffixMaxLength !== 1000\n  ) {\n    return 'settings.peersSuffixMaxLength'\n  }\n  if (lockfile.pnpmfileChecksum !== pnpmfileChecksum) {\n    return 'pnpmfileChecksum'\n  }\n  if (Boolean(lockfile.settings?.injectWorkspacePackages) !== Boolean(injectWorkspacePackages)) {\n    return 'settings.injectWorkspacePackages'\n  }\n  return null\n}\nexport { calcPatchHashes } from './calcPatchHashes.js'\nexport { createOverridesMapFromParsed } from './createOverridesMapFromParsed.js'\nexport { type ChangedField, getOutdatedLockfileSetting } from './getOutdatedLockfileSetting.js'\nimport { type CatalogSnapshots } from '@pnpm/lockfile.types'\nimport { type Catalogs } from '@pnpm/catalogs.types'\n\nexport function allCatalogsAreUpToDate (\n  catalogsConfig: Catalogs,\n  snapshot: CatalogSnapshots | undefined\n): boolean {\n  return Object.entries(snapshot ?? {})\n    .every(([catalogName, catalog]) => Object.entries(catalog ?? {})\n      .every(([alias, entry]) => entry.specifier === catalogsConfig[catalogName]?.[alias]))\n}\nexport { allProjectsAreUpToDate } from './allProjectsAreUpToDate.js'\nexport { getWorkspacePackagesByDirectory } from './getWorkspacePackagesByDirectory.js'\nexport { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\nexport { linkedPackagesAreUpToDate } from './linkedPackagesAreUpToDate.js'\nexport { satisfiesPackageManifest } from './satisfiesPackageManifest.js'\n        rootProjectManifest,\n        {\n          ...scriptsOpts,\n          depPath: opts.lockfileDir,\n          pkgRoot: opts.lockfileDir,\n          rootModulesDir: ctx.rootModulesDir,\n        }\n      )\n    }\n    const packageExtensionsChecksum = hashObjectNullableWithPrefix(opts.packageExtensions)\n    const pnpmfileChecksum = await opts.hooks.calculatePnpmfileChecksum?.()\n    const patchedDependencies = opts.ignorePackageManifest\n      ? ctx.wantedLockfile.patchedDependencies\n      : (opts.patchedDependencies ? await calcPatchHashes(opts.patchedDependencies, opts.lockfileDir) : {})\n    const patchedDependenciesWithResolvedPath = patchedDependencies\n      ? mapValues((patchFile) => ({\n        hash: patchFile.hash,\n        path: path.join(opts.lockfileDir, patchFile.path),\n      }), patchedDependencies)\n      : undefined\n    const patchGroups = patchedDependenciesWithResolvedPath && groupPatchedDependencies(patchedDependenciesWithResolvedPath)\n    const frozenLockfile = opts.frozenLockfile ||\n      opts.frozenLockfileIfExists && ctx.existsNonEmptyWantedLockfile\n    let outdatedLockfileSettings = false\n    const overridesMap = createOverridesMapFromParsed(opts.parsedOverrides)\n    if (!opts.ignorePackageManifest) {\n      const outdatedLockfileSettingName = getOutdatedLockfileSetting(ctx.wantedLockfile, {\n        autoInstallPeers: opts.autoInstallPeers,\n        injectWorkspacePackages: opts.injectWorkspacePackages,\n        excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n        peersSuffixMaxLength: opts.peersSuffixMaxLength,\n        overrides: overridesMap,\n        ignoredOptionalDependencies: opts.ignoredOptionalDependencies?.sort(),\n        packageExtensionsChecksum,\n        patchedDependencies,\n        pnpmfileChecksum,\n      })\n      outdatedLockfileSettings = outdatedLockfileSettingName != null\n      if (frozenLockfile && outdatedLockfileSettings) {\n        throw new LockfileConfigMismatchError(outdatedLockfileSettingName!)\n      }\n    }\n    const _isWantedDepBareSpecifierSame = isWantedDepBareSpecifierSame.bind(null, ctx.wantedLockfile.catalogs, opts.catalogs)\n    const upToDateLockfileMajorVersion = ctx.wantedLockfile.lockfileVersion.toString().startsWith(`${LOCKFILE_MAJOR_VERSION}.`)\n    let needsFullResolution = outdatedLockfileSettings ||\n      opts.fixLockfile ||\n      !upToDateLockfileMajorVersion ||\n      opts.forceFullResolution\n    if (needsFullResolution) {\n      ctx.wantedLockfile.settings = {\n        autoInstallPeers: opts.autoInstallPeers,\n        excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n        peersSuffixMaxLength: opts.peersSuffixMaxLength,\n        injectWorkspacePackages: opts.injectWorkspacePackages,\n      }\n      ctx.wantedLockfile.overrides = overridesMap\n      ctx.wantedLockfile.packageExtensionsChecksum = packageExtensionsChecksum\n      ctx.wantedLockfile.ignoredOptionalDependencies = opts.ignoredOptionalDependencies\n      ctx.wantedLockfile.pnpmfileChecksum = pnpmfileChecksum\n      ctx.wantedLockfile.patchedDependencies = patchedDependencies\n    } else if (!frozenLockfile) {\n      ctx.wantedLockfile.settings = {\n        autoInstallPeers: opts.autoInstallPeers,\n        excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n        peersSuffixMaxLength: opts.peersSuffixMaxLength,\n        injectWorkspacePackages: opts.injectWorkspacePackages,\n      }\n    }\n\n    const frozenInstallResult = await tryFrozenInstall({\n      frozenLockfile,\n  ctx: AssertWantedLockfileUpToDateContext,\n  opts: AssertWantedLockfileUpToDateOptions\n): Promise<void> {\n  const {\n    autoInstallPeers,\n    config,\n    excludeLinksFromLockfile,\n    linkWorkspacePackages,\n    getManifestsByDir,\n    getWorkspacePackages,\n    rootDir,\n    rootManifestOptions,\n  } = ctx\n\n  const {\n    projectDir,\n    projectId,\n    projectManifest,\n    wantedLockfile,\n    wantedLockfileDir,\n  } = opts\n\n  const [\n    patchedDependencies,\n    pnpmfileChecksum,\n  ] = await Promise.all([\n    calcPatchHashes(rootManifestOptions?.patchedDependencies ?? {}, rootDir),\n    config.hooks?.calculatePnpmfileChecksum?.(),\n  ])\n\n  const outdatedLockfileSettingName = getOutdatedLockfileSetting(wantedLockfile, {\n    autoInstallPeers: config.autoInstallPeers,\n    injectWorkspacePackages: config.injectWorkspacePackages,\n    excludeLinksFromLockfile: config.excludeLinksFromLockfile,\n    peersSuffixMaxLength: config.peersSuffixMaxLength,\n    overrides: createOverridesMapFromParsed(parseOverrides(rootManifestOptions?.overrides ?? {}, config.catalogs)),\n    ignoredOptionalDependencies: rootManifestOptions?.ignoredOptionalDependencies?.sort(),\n    packageExtensionsChecksum: hashObjectNullableWithPrefix(rootManifestOptions?.packageExtensions),\n    patchedDependencies,\n    pnpmfileChecksum,\n  })\n\n  if (outdatedLockfileSettingName) {\n    throw new PnpmError('RUN_CHECK_DEPS_OUTDATED_LOCKFILE', `Setting ${outdatedLockfileSettingName} of lockfile in ${wantedLockfileDir} is outdated`, {\n      hint: 'Run `pnpm install` to update the lockfile',\n    })\n  }\n\n  if (!satisfiesPackageManifest(\n    {\n      autoInstallPeers,\n      excludeLinksFromLockfile,\n    },\n    wantedLockfile.importers[projectId],\n    projectManifest\n  ).satisfies) {\n    throw new PnpmError('RUN_CHECK_DEPS_UNSATISFIED_PKG_MANIFEST', `The lockfile in ${wantedLockfileDir} does not satisfy project of id ${projectId}`, {\n      hint: 'Run `pnpm install` to update the lockfile',\n    })\n  }\n\n  if (!await linkedPackagesAreUpToDate({\n    linkWorkspacePackages: !!linkWorkspacePackages,\n    lockfileDir: wantedLockfileDir,\n    manifestsByDir: getManifestsByDir(),\n    workspacePackages: getWorkspacePackages(),\n    lockfilePackages: wantedLockfile.packages,\n  }, {\n    dir: projectDir,\n    manifest: projectManifest,\n    snapshot: wantedLockfile.importers[projectId],\n{\n  \"name\": \"@pnpm/lockfile.settings-checker\",\n  \"version\": \"1001.0.16\",\n  \"description\": \"Utilities to check if lockfile settings are out-of-date\",\n  \"keywords\": [\n    \"pnpm\",\n    \"pnpm11\",\n    \"base32\",\n    \"crypto\",\n    \"hash\"\n  ],\n  \"license\": \"MIT\",\n  \"funding\": \"https://opencollective.com/pnpm\",\n  \"repository\": \"https://github.com/pnpm/pnpm/tree/main/lockfile/settings-checker\",\n  \"homepage\": \"https://github.com/pnpm/pnpm/tree/main/lockfile/settings-checker#readme\",\n  \"bugs\": {\n    \"url\": \"https://github.com/pnpm/pnpm/issues\"\n  },\n  \"type\": \"module\",\n  \"main\": \"lib/index.js\",\n  \"types\": \"lib/index.d.ts\",\n  \"exports\": {\n    \".\": \"./lib/index.js\"\n  },\n  \"files\": [\n    \"lib\",\n    \"!*.map\"\n  ],\n  \"scripts\": {\n    \"lint\": \"eslint \\\"src/**/*.ts\\\"\",\n    \"test\": \"pnpm run compile\",\n    \"prepublishOnly\": \"pnpm run compile\",\n    \"compile\": \"tsc --build && pnpm run lint --fix\"\n  },\n  \"dependencies\": {\n    \"@pnpm/catalogs.types\": \"workspace:*\",\n    \"@pnpm/crypto.hash\": \"workspace:*\",\n    \"@pnpm/lockfile.types\": \"workspace:*\",\n    \"@pnpm/lockfile.verification\": \"workspace:*\",\n    \"@pnpm/parse-overrides\": \"workspace:*\",\n    \"p-map-values\": \"catalog:\",\n    \"ramda\": \"catalog:\"\n  },\n  \"devDependencies\": {\n    \"@pnpm/lockfile.settings-checker\": \"workspace:*\",\n    \"@pnpm/prepare\": \"workspace:*\",\n    \"@types/ramda\": \"catalog:\"\n  },\n  \"engines\": {\n    \"node\": \">=20.19\"\n  },\n  \"jest\": {\n    \"preset\": \"@pnpm/jest-config\"\n  }\n}\n{\n  \"extends\": \"@pnpm/tsconfig\",\n  \"compilerOptions\": {\n    \"outDir\": \"lib\",\n    \"rootDir\": \"src\"\n  },\n  \"include\": [\n    \"src/**/*.ts\",\n    \"../../__typings__/**/*.d.ts\"\n  ],\n  \"references\": [\n    {\n      \"path\": \"../../__utils__/prepare\"\n    },\n    {\n      \"path\": \"../../catalogs/types\"\n    },\n    {\n      \"path\": \"../../config/parse-overrides\"\n    },\n    {\n      \"path\": \"../../crypto/hash\"\n    },\n    {\n      \"path\": \"../types\"\n    },\n    {\n      \"path\": \"../verification\"\n    }\n  ]\n}\nimport fs from 'fs'\nimport path from 'path'\nimport util from 'util'\nimport { equals, isEmpty, filter, once } from 'ramda'\nimport { type Config, type OptionsFromRootManifest, getOptionsFromRootManifest } from '@pnpm/config'\nimport { MANIFEST_BASE_NAMES, WANTED_LOCKFILE } from '@pnpm/constants'\nimport { hashObjectNullableWithPrefix } from '@pnpm/crypto.object-hasher'\nimport { PnpmError } from '@pnpm/error'\nimport { arrayOfWorkspacePackagesToMap } from '@pnpm/get-context'\nimport {\n  type LockfileObject,\n  getLockfileImporterId,\n  readCurrentLockfile,\n  readWantedLockfile,\n} from '@pnpm/lockfile.fs'\nimport {\n  calcPatchHashes,\n  createOverridesMapFromParsed,\n  getOutdatedLockfileSetting,\n} from '@pnpm/lockfile.settings-checker'\nimport {\n  linkedPackagesAreUpToDate,\n  getWorkspacePackagesByDirectory,\n  satisfiesPackageManifest,\n} from '@pnpm/lockfile.verification'\nimport { globalWarn, logger } from '@pnpm/logger'\nimport { parseOverrides } from '@pnpm/parse-overrides'\nimport { type WorkspacePackages } from '@pnpm/resolver-base'\nimport {\n  type DependencyManifest,\n  type Project,\n  type ProjectId,\n  type ProjectManifest,\n} from '@pnpm/types'\nimport { findWorkspacePackages } from '@pnpm/workspace.find-packages'\nimport { readWorkspaceManifest } from '@pnpm/workspace.read-manifest'\nimport { type WorkspaceState, type WorkspaceStateSettings, loadWorkspaceState, updateWorkspaceState } from '@pnpm/workspace.state'\nimport { assertLockfilesEqual } from './assertLockfilesEqual.js'\nimport { safeStat, safeStatSync } from './safeStat.js'\nimport { statManifestFile } from './statManifestFile.js'\n\nexport type CheckDepsStatusOptions = Pick<Config,\n| 'allProjects'\n| 'autoInstallPeers'\n| 'catalogs'\n| 'excludeLinksFromLockfile'\n| 'injectWorkspacePackages'\n| 'linkWorkspacePackages'\n| 'nodeLinker'\n| 'hooks'\n| 'peersSuffixMaxLength'\n| 'rootProjectManifest'\n| 'rootProjectManifestDir'\n| 'sharedWorkspaceLockfile'\n| 'workspaceDir'\n| 'patchesDir'\n| 'configDependencies'\n> & {\n  ignoreFilteredInstallCache?: boolean\n  ignoredWorkspaceStateSettings?: Array<keyof WorkspaceStateSettings>\n  pnpmfile: string[]\n} & WorkspaceStateSettings\n\nexport interface CheckDepsStatusResult {\n  upToDate: boolean | undefined\nimport path from 'path'\nimport { buildModules, type DepsStateCache, linkBinsOfDependencies } from '@pnpm/build-modules'\nimport { createAllowBuildFunction } from '@pnpm/builder.policy'\nimport { parseCatalogProtocol } from '@pnpm/catalogs.protocol-parser'\nimport { resolveFromCatalog, matchCatalogResolveResult, type CatalogResultMatcher } from '@pnpm/catalogs.resolver'\nimport { type Catalogs } from '@pnpm/catalogs.types'\nimport {\n  LAYOUT_VERSION,\n  LOCKFILE_VERSION,\n  LOCKFILE_MAJOR_VERSION,\n  WANTED_LOCKFILE,\n} from '@pnpm/constants'\nimport {\n  ignoredScriptsLogger,\n  stageLogger,\n  summaryLogger,\n} from '@pnpm/core-loggers'\nimport { hashObjectNullableWithPrefix } from '@pnpm/crypto.object-hasher'\nimport {\n  calcPatchHashes,\n  createOverridesMapFromParsed,\n  getOutdatedLockfileSetting,\n} from '@pnpm/lockfile.settings-checker'\nimport { PnpmError } from '@pnpm/error'\nimport { getContext, type PnpmContext } from '@pnpm/get-context'\nimport { headlessInstall, type InstallationResultStats } from '@pnpm/headless'\nimport {\n  makeNodeRequireOption,\n  runLifecycleHook,\n  runLifecycleHooksConcurrently,\n  type RunLifecycleHooksConcurrentlyOptions,\n} from '@pnpm/lifecycle'\nimport { linkBins, linkBinsOfPackages } from '@pnpm/link-bins'\nimport {\n  type ProjectSnapshot,\n  type LockfileObject,\n  writeCurrentLockfile,\n  writeLockfiles,\n  writeWantedLockfile,\n  cleanGitBranchLockfiles,\n  type CatalogSnapshots,\n} from '@pnpm/lockfile.fs'\nimport { writePnpFile } from '@pnpm/lockfile-to-pnp'\nimport { extendProjectsWithTargetDirs } from '@pnpm/lockfile.utils'\nimport { allProjectsAreUpToDate, satisfiesPackageManifest } from '@pnpm/lockfile.verification'\nimport { getPreferredVersionsFromLockfileAndManifests } from '@pnpm/lockfile.preferred-versions'\nimport { logger, globalInfo, streamParser } from '@pnpm/logger'\nimport { getAllDependenciesFromManifest, getAllUniqueSpecs } from '@pnpm/manifest-utils'\nimport { writeModulesManifest } from '@pnpm/modules-yaml'\nimport { type PatchGroupRecord, groupPatchedDependencies } from '@pnpm/patching.config'\nimport { safeReadProjectManifestOnly } from '@pnpm/read-project-manifest'\nimport {\n  getWantedDependencies,\n  type DependenciesGraph,\n  type DependenciesGraphNode,\n  type PinnedVersion,\n  resolveDependencies,\n  type UpdateMatchingFunction,\n  type WantedDependency,\n} from '@pnpm/resolve-dependencies'\nimport {\n  type PreferredVersions,\n} from '@pnpm/resolver-base'\nimport {\n  type DepPath,\n"
+    },
+    {
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 15,
+      "server": "typelatch",
+      "tool": "workspace_context",
+      "resultSha256": "bb4f722bc390eac29e1c2f459793c92e9fa7a31d9bd296fcb81a8b23450b7039",
+      "resultBytes": 13503,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"api\":{\"name\":\"getOutdatedLockfileSetting\",\"type\":\"(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: { overrides?: Record<string, string>; packageExtensionsChecksum?: string; patchedDependencies?: Record<string, PatchFile>; ignoredOptionalDependencies?: string[]; autoInstallPeers?: boolean; excludeLinksFromLockfile?: boolean; peersSuffixMaxLength?: number; pnpmfileChecksum?: string; injectWorkspacePackages?: boolean; }) => ChangedField | null\",\"documentation\":\"\",\"signatures\":[\"(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: { overrides?: Record<string, string> | undefined; packageExtensionsChecksum?: string | undefined; patchedDependencies?: Record<string, PatchFile> | undefined; ignoredOptionalDependencies?: string[] | undefined; autoInstallPeers?: boolean | undefined; excludeLinksFromLockfile?: boolean | undefined; peersSuffixMaxLength?: number | undefined; pnpmfileChecksum?: string | undefined; injectWorkspacePackages?: boolean | undefined; }): ChangedField | null\"],\"declarations\":[{\"file\":\"$WORKSPACE/lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts\",\"start\":362,\"length\":659}],\"evidence\":{\"characterUnit\":\"utf16-code-units\",\"type\":{\"origin\":\"compiler\",\"total\":574,\"returned\":574,\"omitted\":0},\"documentation\":{\"origin\":\"compiler-documentation\",\"total\":0,\"returned\":0,\"omitted\":0},\"signatures\":{\"origin\":\"compiler\",\"view\":\"value\",\"total\":1,\"returned\":1,\"omitted\":0,\"characters\":[{\"total\":680,\"returned\":680,\"omitted\":0}]},\"tags\":{\"origin\":\"compiler-jsdoc-tags\",\"total\":0,\"returned\":0,\"omitted\":0,\"items\":[]},\"declarations\":{\"origin\":\"declared-syntax\",\"total\":1,\"returned\":1,\"omitted\":0,\"headers\":[{\"file\":\"$WORKSPACE/lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts\",\"start\":362,\"length\":659,\"sha256\":\"96ac8f5c7812e534db321f909fb08dcddfde70319ee27224fa3315252e784792\",\"sourceKind\":\"declaration\",\"header\":\"export declare function getOutdatedLockfileSetting(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: {\\n    overrides?: Record<string, string>;\\n    packageExtensionsChecksum?: string;\\n    patchedDependencies?: Record<string, PatchFile>;\\n    ignoredOptionalDependencies?: string[];\\n    autoInstallPeers?: boolean;\\n    excludeLinksFromLockfile?: boolean;\\n    peersSuffixMaxLength?: number;\\n    pnpmfileChecksum?: string;\\n    injectWorkspacePackages?: boolean;\\n}): ChangedField | null;\",\"status\":\"complete\",\"elisions\":[],\"characters\":{\"total\":659,\"returned\":659,\"omitted\":0}}]}},\"status\":\"resolved\",\"reason\":\"This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks\"},\"candidates\":[],\"navigation\":{\"status\":\"not-run\",\"reason\":\"Navigation requires a cursor and resolved import\",\"exportName\":null,\"brain\":null,\"artifactEquivalent\":false},\"syntheticImport\":false,\"originalSourceHash\":\"265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1\",\"language\":\"typescript\",\"route\":\"installed-api\",\"file\":\"$WORKSPACE/deps/status/src/checkDepsStatus.ts\",\"hover\":null,\"definitions\":[],\"references\":[],\"declaration\":\"$WORKSPACE/lockfile/settings-checker/lib/index.d.ts\",\"dependency\":{\"name\":\"@pnpm/lockfile.settings-checker\",\"version\":\"1001.0.16\",\"root\":\"$WORKSPACE/lockfile/settings-checker\",\"manifest\":\"$WORKSPACE/lockfile/settings-checker/package.json\",\"manifestHash\":\"d2a14d17c03da084fd4704e8fcc78537428075e4e6dceaf2bbd0bfab2974f8a1\"},\"brain\":null,\"brainProvenance\":null,\"cursorEvidence\":{\"scope\":\"compiler-project\",\"config\":\"$WORKSPACE/deps/status/tsconfig.json\",\"position\":null,\"definitions\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":20},\"references\":{\"status\":\"not-run\",\"total\":null,\"returned\":0,\"omitted\":null,\"limit\":50}},\"checks\":{\"retrieved\":{\"status\":\"not-run\",\"reason\":\"No discovery question supplied\"},\"resolved\":{\"status\":\"pass\",\"reason\":\"Import resolved by the project compiler\"},\"versionMatch\":{\"status\":\"not-run\",\"reason\":\"No expected version supplied\"},\"artifactMatch\":{\"status\":\"unknown\",\"reason\":\"Installed package contents have not been compared with the registry artifact\"},\"typechecked\":{\"status\":\"not-run\",\"reason\":\"Use workspace validation for project diagnostics\"},\"tested\":{\"status\":\"not-run\",\"reason\":\"No test command executed\"}},\"snapshot\":{\"id\":\"4ba30e6173245bfbfea43a51ddea6ecebb4b086ef4c13fbad2c37aff8ae5497d\",\"config\":\"$WORKSPACE/deps/status/tsconfig.json\",\"compiler\":{\"version\":\"5.9.2\",\"path\":\"$WORKSPACE/node_modules/.pnpm/typescript@5.9.2/node_modules/typescript/lib/typescript.js\"},\"scope\":\"Compiler-read inputs and configuration; not a full runtime filesystem snapshot\",\"overlayFiles\":[],\"inputCount\":1098},\"latencyMs\":1530.405042}"
+          }
+        ],
+        "structured_content": {
+          "api": {
+            "name": "getOutdatedLockfileSetting",
+            "type": "(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: { overrides?: Record<string, string>; packageExtensionsChecksum?: string; patchedDependencies?: Record<string, PatchFile>; ignoredOptionalDependencies?: string[]; autoInstallPeers?: boolean; excludeLinksFromLockfile?: boolean; peersSuffixMaxLength?: number; pnpmfileChecksum?: string; injectWorkspacePackages?: boolean; }) => ChangedField | null",
+            "documentation": "",
+            "signatures": [
+              "(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: { overrides?: Record<string, string> | undefined; packageExtensionsChecksum?: string | undefined; patchedDependencies?: Record<string, PatchFile> | undefined; ignoredOptionalDependencies?: string[] | undefined; autoInstallPeers?: boolean | undefined; excludeLinksFromLockfile?: boolean | undefined; peersSuffixMaxLength?: number | undefined; pnpmfileChecksum?: string | undefined; injectWorkspacePackages?: boolean | undefined; }): ChangedField | null"
+            ],
+            "declarations": [
+              {
+                "file": "$WORKSPACE/lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts",
+                "start": 362,
+                "length": 659
+              }
+            ],
+            "evidence": {
+              "characterUnit": "utf16-code-units",
+              "type": {
+                "origin": "compiler",
+                "total": 574,
+                "returned": 574,
+                "omitted": 0
+              },
+              "documentation": {
+                "origin": "compiler-documentation",
+                "total": 0,
+                "returned": 0,
+                "omitted": 0
+              },
+              "signatures": {
+                "origin": "compiler",
+                "view": "value",
+                "total": 1,
+                "returned": 1,
+                "omitted": 0,
+                "characters": [
+                  {
+                    "total": 680,
+                    "returned": 680,
+                    "omitted": 0
+                  }
+                ]
+              },
+              "tags": {
+                "origin": "compiler-jsdoc-tags",
+                "total": 0,
+                "returned": 0,
+                "omitted": 0,
+                "items": []
+              },
+              "declarations": {
+                "origin": "declared-syntax",
+                "total": 1,
+                "returned": 1,
+                "omitted": 0,
+                "headers": [
+                  {
+                    "file": "$WORKSPACE/lockfile/settings-checker/lib/getOutdatedLockfileSetting.d.ts",
+                    "start": 362,
+                    "length": 659,
+                    "sha256": "96ac8f5c7812e534db321f909fb08dcddfde70319ee27224fa3315252e784792",
+                    "sourceKind": "declaration",
+                    "header": "export declare function getOutdatedLockfileSetting(lockfile: LockfileObject, { overrides, packageExtensionsChecksum, ignoredOptionalDependencies, patchedDependencies, autoInstallPeers, excludeLinksFromLockfile, peersSuffixMaxLength, pnpmfileChecksum, injectWorkspacePackages, }: {\n    overrides?: Record<string, string>;\n    packageExtensionsChecksum?: string;\n    patchedDependencies?: Record<string, PatchFile>;\n    ignoredOptionalDependencies?: string[];\n    autoInstallPeers?: boolean;\n    excludeLinksFromLockfile?: boolean;\n    peersSuffixMaxLength?: number;\n    pnpmfileChecksum?: string;\n    injectWorkspacePackages?: boolean;\n}): ChangedField | null;",
+                    "status": "complete",
+                    "elisions": [],
+                    "characters": {
+                      "total": 659,
+                      "returned": 659,
+                      "omitted": 0
+                    }
+                  }
+                ]
+              }
+            },
+            "status": "resolved",
+            "reason": "This named export exists in the workspace; usage compatibility and brain artifact equivalence are separate checks"
+          },
+          "candidates": [],
+          "navigation": {
+            "status": "not-run",
+            "reason": "Navigation requires a cursor and resolved import",
+            "exportName": null,
+            "brain": null,
+            "artifactEquivalent": false
+          },
+          "syntheticImport": false,
+          "originalSourceHash": "265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1",
+          "language": "typescript",
+          "route": "installed-api",
+          "file": "$WORKSPACE/deps/status/src/checkDepsStatus.ts",
+          "hover": null,
+          "definitions": [],
+          "references": [],
+          "declaration": "$WORKSPACE/lockfile/settings-checker/lib/index.d.ts",
+          "dependency": {
+            "name": "@pnpm/lockfile.settings-checker",
+            "version": "1001.0.16",
+            "root": "$WORKSPACE/lockfile/settings-checker",
+            "manifest": "$WORKSPACE/lockfile/settings-checker/package.json",
+            "manifestHash": "d2a14d17c03da084fd4704e8fcc78537428075e4e6dceaf2bbd0bfab2974f8a1"
+          },
+          "brain": null,
+          "brainProvenance": null,
+          "cursorEvidence": {
+            "scope": "compiler-project",
+            "config": "$WORKSPACE/deps/status/tsconfig.json",
+            "position": null,
+            "definitions": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 20
+            },
+            "references": {
+              "status": "not-run",
+              "total": null,
+              "returned": 0,
+              "omitted": null,
+              "limit": 50
+            }
+          },
+          "checks": {
+            "retrieved": {
+              "status": "not-run",
+              "reason": "No discovery question supplied"
+            },
+            "resolved": {
+              "status": "pass",
+              "reason": "Import resolved by the project compiler"
+            },
+            "versionMatch": {
+              "status": "not-run",
+              "reason": "No expected version supplied"
+            },
+            "artifactMatch": {
+              "status": "unknown",
+              "reason": "Installed package contents have not been compared with the registry artifact"
+            },
+            "typechecked": {
+              "status": "not-run",
+              "reason": "Use workspace validation for project diagnostics"
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command executed"
+            }
+          },
+          "snapshot": {
+            "id": "4ba30e6173245bfbfea43a51ddea6ecebb4b086ef4c13fbad2c37aff8ae5497d",
+            "config": "$WORKSPACE/deps/status/tsconfig.json",
+            "compiler": {
+              "version": "5.9.2",
+              "path": "$WORKSPACE/node_modules/.pnpm/typescript@5.9.2/node_modules/typescript/lib/typescript.js"
+            },
+            "scope": "Compiler-read inputs and configuration; not a full runtime filesystem snapshot",
+            "overlayFiles": [],
+            "inputCount": 1098
+          },
+          "latencyMs": 1530.405042
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 17,
+      "outputSha256": "467d474b460a2a2d6e1a1f6f317b667d36135824b608bf9eb57e9608f3401b58",
+      "outputBytes": 3303,
+      "exitCode": 0,
+      "stdout": "import { type Catalogs } from '@pnpm/catalogs.types'\nimport { type ProjectOptions } from '@pnpm/get-context'\nimport {\n  type LockfileObject,\n} from '@pnpm/lockfile.types'\nimport { type WorkspacePackages } from '@pnpm/resolver-base'\nimport { DEPENDENCIES_FIELDS, type ProjectId } from '@pnpm/types'\nimport pEvery from 'p-every'\nimport { isEmpty } from 'ramda'\nimport { allCatalogsAreUpToDate } from './allCatalogsAreUpToDate.js'\nimport { getWorkspacePackagesByDirectory } from './getWorkspacePackagesByDirectory.js'\nimport { linkedPackagesAreUpToDate } from './linkedPackagesAreUpToDate.js'\nimport { satisfiesPackageManifest } from './satisfiesPackageManifest.js'\nimport { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\n\nexport async function allProjectsAreUpToDate (\n  projects: Array<Pick<ProjectOptions, 'manifest' | 'rootDir'> & { id: ProjectId }>,\n  opts: {\n    catalogs: Catalogs\n    autoInstallPeers: boolean\n    excludeLinksFromLockfile: boolean\n    linkWorkspacePackages: boolean\n    wantedLockfile: LockfileObject\n    workspacePackages: WorkspacePackages\n    lockfileDir: string\n  }\n): Promise<boolean> {\n  // Projects may declare dependencies using catalog protocol specifiers. If the\n  // catalog config definitions are edited by users, projects using them are out\n  // of date.\n  if (!allCatalogsAreUpToDate(opts.catalogs, opts.wantedLockfile.catalogs)) {\n    return false\n  }\n\n  const manifestsByDir = opts.workspacePackages ? getWorkspacePackagesByDirectory(opts.workspacePackages) : {}\n  const _satisfiesPackageManifest = satisfiesPackageManifest.bind(null, {\n    autoInstallPeers: opts.autoInstallPeers,\n    excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n  })\n  const _linkedPackagesAreUpToDate = linkedPackagesAreUpToDate.bind(null, {\n    linkWorkspacePackages: opts.linkWorkspacePackages,\n    manifestsByDir,\n    workspacePackages: opts.workspacePackages,\n    lockfilePackages: opts.wantedLockfile.packages,\n    lockfileDir: opts.lockfileDir,\n  })\n  const _localTarballDepsAreUpToDate = localTarballDepsAreUpToDate.bind(null, {\n    fileIntegrityCache: new Map(),\n    lockfilePackages: opts.wantedLockfile.packages,\n    lockfileDir: opts.lockfileDir,\n  })\n  return pEvery.default(projects, async (project) => {\n    const importer = opts.wantedLockfile.importers[project.id]\n    if (importer == null) {\n      return DEPENDENCIES_FIELDS.every((depType) => project.manifest[depType] == null || isEmpty(project.manifest[depType]))\n    }\n\n    const projectInfo = {\n      dir: project.rootDir,\n      manifest: project.manifest,\n      snapshot: importer,\n    }\n\n    return importer != null &&\n      _satisfiesPackageManifest(importer, project.manifest).satisfies &&\n      (await _localTarballDepsAreUpToDate(projectInfo)) &&\n      (_linkedPackagesAreUpToDate(projectInfo))\n  })\n}\nrg: lockfile/settings-checker/test: No such file or directory (os error 2)\n38:  writeLockfiles,\n39:  writeWantedLockfile,\n90:class LockfileConfigMismatchError extends PnpmError {\n424:        throw new LockfileConfigMismatchError(outdatedLockfileSettingName!)\n763:      await writeWantedLockfile(ctx.lockfileDir, ctx.wantedLockfile)\n803:        await writeLockfiles({\n1428:        ? writeLockfiles({\n1487:      await writeWantedLockfile(ctx.lockfileDir, newLockfile, lockfileOpts)\n"
+    },
+    {
+      "idSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 22,
+      "outputSha256": "4dbde6cc9cff200e6f7a8fc64e7051c33aab5068c935bdd15e00124e818aac75",
+      "outputBytes": 1919,
+      "exitCode": 0,
+      "stdout": " deps/status/src/checkDepsStatus.ts                          | 1 +\n lockfile/settings-checker/src/getOutdatedLockfileSetting.ts | 8 ++++++++\n lockfile/verification/src/index.ts                          | 1 +\n pkg-manager/core/src/install/index.ts                       | 1 +\n 4 files changed, 11 insertions(+)\nimport { validateModules } from './validateModules.js'\nimport semver from 'semver'\nimport { CatalogVersionMismatchError } from './checkCompatibility/CatalogVersionMismatchError.js'\n\nclass LockfileConfigMismatchError extends PnpmError {\n  constructor (outdatedLockfileSettingName: string) {\n    super('LOCKFILE_CONFIG_MISMATCH',\n      `Cannot proceed with the frozen installation. The current \"${outdatedLockfileSettingName!}\" configuration doesn't match the value found in the lockfile`, {\n        hint: 'Update your lockfile using \"pnpm install --no-frozen-lockfile\"',\n      })\n  }\n}\n\nconst BROKEN_LOCKFILE_INTEGRITY_ERRORS = new Set([\n  'ERR_PNPM_UNEXPECTED_PKG_CONTENT_IN_STORE',\n  'ERR_PNPM_TARBALL_INTEGRITY',\n])\n\n/**\n * Catalogs parsed from the pnpm-workspace.yaml file.\n *\n * https://github.com/pnpm/rfcs/pull/1\n */\nexport interface Catalogs {\n  /**\n   * The default catalog.\n   *\n   * The default catalog can be defined in 2 ways.\n   *\n   *   1. Users can specify a top-level \"catalog\" field or,\n   *   2. An explicitly named \"default\" catalog under the \"catalogs\" map.\n   *\n   * This field contains either definition. Note that it's an error to define\n   * the default catalog using both options. The parser will fail when reading\n   * the workspace manifest.\n   */\n  readonly default?: Catalog\n\n  /**\n   * Named catalogs.\n   */\n  readonly [catalogName: string]: Catalog | undefined\n}\n\nexport interface Catalog {\n  readonly [dependencyName: string]: string | undefined\n}\nlockfile/types/src/index.ts:17:  catalogs?: CatalogSnapshots\nlockfile/types/src/index.ts:156:export interface CatalogSnapshots {\n"
+    },
+    {
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "type": "command_execution",
+      "status": "failed",
+      "originalLine": 23,
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputBytes": 0,
+      "exitCode": 1,
+      "stdout": ""
+    },
+    {
+      "idSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 26,
+      "outputSha256": "272ab6e3a926da9e23a6b4ebe93075598597bc5219337efe175c1630e8465a4d",
+      "outputBytes": 1460,
+      "exitCode": 0,
+      "stdout": "{\n  \"passed\": false,\n  \"results\": [\n    {\n      \"id\": \"checker/changed-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"status/changed-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"core/changed-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"checker/unchanged-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"status/unchanged-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"core/unchanged-default\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"checker/no-catalogs\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"status/no-catalogs\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"core/no-catalogs\",\n      \"passed\": true\n    },\n    {\n      \"id\": \"native/upstream-frozen-catalog-install\",\n      \"passed\": false,\n      \"error\": \"node:events:497\\n      throw er; // Unhandled 'error' event\\n      ^\\n\\nError: listen EPERM: operation not permitted 127.0.0.1\\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\\n    at listenInCluster (node:net:1998:12)\\n    at node:net:2207:7\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\\nEmitted 'error' event on Server instance at:\\n    at emitErrorNT (node:net:1977:8)\\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\\n  code: 'EPERM',\\n  errno: -1,\\n  syscall: 'listen',\\n  address: '127.0.0.1'\\n}\\n\\nNode.js v22.23.1\\n\"\n    }\n  ],\n  \"compile\": {\n    \"exitCode\": 0,\n    \"stderr\": \"\"\n  }\n}\n"
+    },
+    {
+      "idSha256": "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+      "type": "mcp_tool_call",
+      "status": "completed",
+      "originalLine": 28,
+      "server": "typelatch",
+      "tool": "workspace_validate",
+      "resultSha256": "aac17a3aab4fc84911f2b3c7965e4613b78ede3907ac7e96935d6f00a7966fb1",
+      "resultBytes": 1515,
+      "errorSha256": null,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"detail\":\"compact\",\"success\":false,\"checks\":{\"typechecked\":{\"status\":\"unknown\",\"reason\":\"Compiler worker timed out\",\"diagnostics\":[]},\"tested\":{\"status\":\"not-run\",\"reason\":\"No test command supplied\"},\"stable\":{\"status\":\"unknown\",\"reason\":\"Compiler worker timed out\"}},\"execution\":null,\"failure\":\"Compiler worker timed out\",\"schemaVersion\":2,\"id\":\"8f3e27c6-0774-4481-b604-47be06c3d44d\",\"queryId\":null,\"origin\":\"tool-executed\",\"createdAt\":\"2026-11-06T22:57:42.359Z\",\"afterSnapshotId\":null,\"afterRuntimeSnapshotId\":null,\"environmentHash\":\"30f888ca87d1e7ebb9b8b77672ab7aa174e417cf7b9654e36ecdb17139ce3c3e\",\"durationMs\":30033.769042,\"evidencePath\":null,\"snapshot\":null,\"runtimeSnapshot\":null}"
+          }
+        ],
+        "structured_content": {
+          "detail": "compact",
+          "success": false,
+          "checks": {
+            "typechecked": {
+              "status": "unknown",
+              "reason": "Compiler worker timed out",
+              "diagnostics": []
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command supplied"
+            },
+            "stable": {
+              "status": "unknown",
+              "reason": "Compiler worker timed out"
+            }
+          },
+          "execution": null,
+          "failure": "Compiler worker timed out",
+          "schemaVersion": 2,
+          "id": "8f3e27c6-0774-4481-b604-47be06c3d44d",
+          "queryId": null,
+          "origin": "tool-executed",
+          "createdAt": "2026-11-06T22:57:42.359Z",
+          "afterSnapshotId": null,
+          "afterRuntimeSnapshotId": null,
+          "environmentHash": "30f888ca87d1e7ebb9b8b77672ab7aa174e417cf7b9654e36ecdb17139ce3c3e",
+          "durationMs": 30033.769042,
+          "evidencePath": null,
+          "snapshot": null,
+          "runtimeSnapshot": null
+        }
+      },
+      "error": null
+    },
+    {
+      "idSha256": "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 30,
+      "outputSha256": "1b1f512136398d57ada26b26cd61ad878742c746a9f2309aa7bfaa14e248ccfb",
+      "outputBytes": 93,
+      "exitCode": 0,
+      "stdout": "Catalog changes, removals, unused additions, exported helper, and unrelated settings: passed\n"
+    },
+    {
+      "idSha256": "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+      "type": "command_execution",
+      "status": "completed",
+      "originalLine": 33,
+      "outputSha256": "bc26238f9b67a302bc76f9f687da8760b34f3a0fb0e54fe2afda8990e11d7397",
+      "outputBytes": 3274,
+      "exitCode": 0,
+      "stdout": " M deps/status/src/checkDepsStatus.ts\n M lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\n M lockfile/verification/src/index.ts\n M pkg-manager/core/src/install/index.ts\ndiff --git a/deps/status/src/checkDepsStatus.ts b/deps/status/src/checkDepsStatus.ts\nindex 98f6a9c..8894a5f 100644\n--- a/deps/status/src/checkDepsStatus.ts\n+++ b/deps/status/src/checkDepsStatus.ts\n@@ -488,6 +488,7 @@ async function assertWantedLockfileUpToDate (\n   ])\n \n   const outdatedLockfileSettingName = getOutdatedLockfileSetting(wantedLockfile, {\n+    catalogs: config.catalogs,\n     autoInstallPeers: config.autoInstallPeers,\n     injectWorkspacePackages: config.injectWorkspacePackages,\n     excludeLinksFromLockfile: config.excludeLinksFromLockfile,\ndiff --git a/lockfile/settings-checker/src/getOutdatedLockfileSetting.ts b/lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\nindex e5a8cbe..798d647 100644\n--- a/lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\n+++ b/lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\n@@ -1,7 +1,10 @@\n+import { type Catalogs } from '@pnpm/catalogs.types'\n import { type LockfileObject, type PatchFile } from '@pnpm/lockfile.types'\n+import { allCatalogsAreUpToDate } from '@pnpm/lockfile.verification'\n import { equals } from 'ramda'\n \n export type ChangedField =\n+  | 'catalogs'\n   | 'patchedDependencies'\n   | 'overrides'\n   | 'packageExtensionsChecksum'\n@@ -24,7 +27,9 @@ export function getOutdatedLockfileSetting (\n     peersSuffixMaxLength,\n     pnpmfileChecksum,\n     injectWorkspacePackages,\n+    catalogs,\n   }: {\n+    catalogs?: Catalogs\n     overrides?: Record<string, string>\n     packageExtensionsChecksum?: string\n     patchedDependencies?: Record<string, PatchFile>\n@@ -66,5 +71,8 @@ export function getOutdatedLockfileSetting (\n   if (Boolean(lockfile.settings?.injectWorkspacePackages) !== Boolean(injectWorkspacePackages)) {\n     return 'settings.injectWorkspacePackages'\n   }\n+  if (!allCatalogsAreUpToDate(catalogs ?? {}, lockfile.catalogs)) {\n+    return 'catalogs'\n+  }\n   return null\n }\ndiff --git a/lockfile/verification/src/index.ts b/lockfile/verification/src/index.ts\nindex 31817b0..3e94df5 100644\n--- a/lockfile/verification/src/index.ts\n+++ b/lockfile/verification/src/index.ts\n@@ -1,3 +1,4 @@\n+export { allCatalogsAreUpToDate } from './allCatalogsAreUpToDate.js'\n export { allProjectsAreUpToDate } from './allProjectsAreUpToDate.js'\n export { getWorkspacePackagesByDirectory } from './getWorkspacePackagesByDirectory.js'\n export { localTarballDepsAreUpToDate } from './localTarballDepsAreUpToDate.js'\ndiff --git a/pkg-manager/core/src/install/index.ts b/pkg-manager/core/src/install/index.ts\nindex c415fb9..4674c15 100644\n--- a/pkg-manager/core/src/install/index.ts\n+++ b/pkg-manager/core/src/install/index.ts\n@@ -409,6 +409,7 @@ export async function mutateModules (\n     const overridesMap = createOverridesMapFromParsed(opts.parsedOverrides)\n     if (!opts.ignorePackageManifest) {\n       const outdatedLockfileSettingName = getOutdatedLockfileSetting(ctx.wantedLockfile, {\n+        catalogs: opts.catalogs,\n         autoInstallPeers: opts.autoInstallPeers,\n         injectWorkspacePackages: opts.injectWorkspacePackages,\n         excludeLinksFromLockfile: opts.excludeLinksFromLockfile,\n"
+    }
+  ],
+  "evidenceBoundary": "Only item.completed command_execution stdout and mcp_tool_call result/error payloads. No agent reasoning, assistant messages, command input, unrelated item fields or file edit bodies. Tool-returned message fields remain tool evidence."
+}

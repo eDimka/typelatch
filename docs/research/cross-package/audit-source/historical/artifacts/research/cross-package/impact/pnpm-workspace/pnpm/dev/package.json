@@ -1,0 +1,24 @@
+{
+  "name": "pd",
+  "version": "1000.0.32",
+  "bin": "pd.js",
+  "private": true,
+  "scripts": {
+    "test": "pnpm run _test",
+    "_test": "node pd.js --version"
+  },
+  "dependencies": {
+    "@pnpm/find-workspace-dir": "workspace:*",
+    "@pnpm/workspace.find-packages": "workspace:*",
+    "@pnpm/workspace.read-manifest": "workspace:*",
+    "esbuild": "catalog:"
+  },
+  "devDependencies": {
+    "pd": "workspace:*"
+  },
+  "keywords": [
+    "pnpm",
+    "pnpm10"
+  ],
+  "repository": "https://github.com/pnpm/pnpm/tree/main/pnpm/dev"
+}

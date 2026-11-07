@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "target": {
+    "package": "exact package name",
+    "version": "exact workspace version",
+    "exports": [
+      "public export name"
+    ]
+  },
+  "direct": [
+    {
+      "file": "repository relative configured production source",
+      "package": "owning package name",
+      "symbol": "original public export name",
+      "role": "runtime | type-only | reexport",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact source within these lines"
+      }
+    }
+  ],
+  "packageDependents": [
+    {
+      "package": "workspace package name",
+      "chain": [
+        "dependent package",
+        "intermediate dependency if any",
+        "target package"
+      ]
+    }
+  ],
+  "validationTargets": [
+    {
+      "package": "owning package name or <root>",
+      "script": "actual package.json script",
+      "evidence": {
+        "file": "package.json path",
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact script entry"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "repository relative path",
+      "symbol": "lookalike name or *",
+      "reason": "different-symbol | string-or-comment-only | outside-source-scope",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact relevant source"
+      }
+    }
+  ],
+  "uncertainties": [
+    {
+      "code": "external-consumers | dynamic-loading | package-reachability-not-symbol-use | unexecuted-validation",
+      "detail": "specific limit, not a claim of absence"
+    }
+  ],
+  "negativeClaims": []
+}

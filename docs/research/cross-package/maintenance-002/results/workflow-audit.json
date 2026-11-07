@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "404fcd8ada685fbbf59ad78a19914c61bcb0d004794e4a2e7abec764487f069c",
+  "protocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "method": "Review every completed public command and tool argument plus relevant exact returned outputs and explicit answer artifacts. Bind complete record/supplement hashes; inspect monotonic action order and shell-internal execution. No raw captures, reasoning or assistant message bodies were read. Original reports and grades remain unchanged.",
+  "runs": [
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-native",
+      "evidenceSha256": "e718e8f93c6eb85939618114ffe3f0a2cfd4c0260e61562029ed5abd7d36690c",
+      "toolOutputsSha256": "4bc944a38d9ae481e4bf5b8c891ee366fc87773cdca1d454036409736d31e18b",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "The initial native command completed its nine cases with intended failures before task source investigation. Four allowed production files changed. The same native command then compiled and passed all nine public API/filesystem cases. Additional native assertions followed. All inspected reads and edits stayed within the workspace; the independent 23-case grader and source stability also passed. Metadata checks overlapping the final validation do not violate the required baseline-before-investigation rule.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 22676.0645,
+        "completedMs": 22676.0645
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": []
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+      "evidenceSha256": "c10d09b25c9ba2d45a97216e552a2b071094367aa89b5cab1e4a5642bb4b05d0",
+      "toolOutputsSha256": "2aa1803df52668d116a17b511ceb18921c4c95b36bc7e84bae83766b753025a4",
+      "workflow": "fail",
+      "providerEvidence": "usable",
+      "notes": "Relevant workspace_search began at 18409.909666 ms while the baseline native command was still running until 21084.250041 ms. Search completed at 21882.924041 ms, so completion-order arrays alone conceal this overlap. The frozen workflow requires investigation after the check; this run fails that rule. Search returned relevant catalog test/source excerpts, and later context returned native module definitions/references but no package API declaration. Four allowed source files changed; final public compilation and all nine API/filesystem cases passed, as did the independent 23-case repair grader. An optional workspace_validate subsequently timed out after 30033.536875 ms and remains charged; it does not negate or replace the successful required native command.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc"
+      ],
+      "providerActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 18409.909665999992,
+        "completedMs": 21882.92404099999
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+          "tool": "workspace_search",
+          "resultSha256": "9e31fca4c1ad12cce671ab76008fe8f6c32d66739708bbcb22473a7e9de00ad0",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"workspaceRoot\":\"$WORKSPACE\",\"question\":\"catalog lockfile specifiers frozen installation dependency status\",\"scope\":\"workspace\",\"detail\":\"compact\",\"status\":\"partial\",\"results\":[{\"origin\":\"workspace\",\"source\":\"$WORKSPACE/pkg-manager/core/test/catalogs.ts\",\"line\":288,\"endLine\":299,\"symbol\":\"frozenLockfileMutation\",\"position\":7538,\"kind\":\"declaration\",\"score\":93,\"matchedTerms\":[\"catalog\",\"lockfil\",\"frozen\",\"installat\"],\"snippet\":\"  const frozenLockfileMutation = mutateModules(installProjects(projects), {\\n    ...options,\\n    lockfileOnly: true,\\n    frozenLockfile: true,\\n    catalogs: {\\n      default: {\\n        'is-positive': '=3.1.0',\\n      },\\n    },\\n  })\\n\\n  await expect(frozenLockfi"
+        },
+        {
+          "actionIdSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+          "tool": "workspace_context",
+          "resultSha256": "08b729f5168c4568156150485ba51794573611cef619781ab174e8e4fbf227dc",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"api\":null,\"candidates\":[],\"navigation\":{\"status\":\"not-run\",\"reason\":\"Navigation requires a cursor and resolved import\",\"exportName\":null,\"brain\":null,\"artifactEquivalent\":false},\"syntheticImport\":false,\"originalSourceHash\":\"0d348dce6059270ac4eff16fe2ec77ebdd5716eed891912289dc0b06a62b725d\",\"language\":\"typescript\",\"route\":\"language-service-first\",\"file\":\"$WORKSPACE/lockfile/verification/src/allProjectsAreUpToDate.ts\",\"hover\":{\"text\":\"module \\\"$WORKSPACE/lockfile/types/lib/index\\\"\",\"documentation\":\"\"},\"definitions\":[{\"file\":\"$WORKSPACE/lockfile/types/lib/index.d.ts\",\"start\":0,\"length\":4129,\"name\":\"\\\"$WORKSPACE/lockfile/types/lib/index\\\"\"}],\"references\":[{\"file\":\"$WORKSPACE/lockfile/types/lib/"
+        }
+      ]
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-competitor",
+      "evidenceSha256": "e1c6a30c9aef38413cec642ed6fc81601313e40fe326a0eb0921056fb5fd7c8e",
+      "toolOutputsSha256": "bc1bb1987bb21222e78f90ca05150527631a669c5d7d0fe1019d2733c9551d35",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Serena startup and REPL help overlapped the initial native command, which is permitted metadata/startup activity. The actual task search started at 26361.510375 ms after baseline completion at 22298.277625 ms. Its over-budget response supplied relevant file/line/source excerpts rather than a complete search result. Native source inspection followed. Four permitted production files changed, then native compilation and all nine public API/filesystem cases passed. Independent grading also passed 23 cases. No external reads or protected edits were observed.",
+      "basisActionIds": [
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d"
+      ],
+      "providerActionIds": [
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "startedMs": 26361.510375000013,
+        "completedMs": 26694.406791000045
+      },
+      "sourceIntegrity": {
+        "changed": [
+          "deps/status/src/checkDepsStatus.ts",
+          "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "lockfile/verification/src/index.ts",
+          "pkg-manager/core/src/install/index.ts"
+        ],
+        "forbidden": [],
+        "fixtureGitUnchanged": true
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+          "tool": "serena_repl",
+          "resultSha256": "84d2c68ccf509d285f0925793e6f6def2c47b3d03b6a6bae5a7f3ae115d663a2",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "The answer is too long (161789 characters). You can adjust your query or raise the max_answer_chars parameter.\nMatched lines per file; use read_file with the line numbers for surrounding context:\n{\"config/config/src/configFileKey.ts\": [{\"line\": 59, \"text\": \"'catalog-mode',\"}], \"config/config/src/types.ts\": [{\"line\": 8, \"text\": \"'catalog-mode': ['strict', 'prefer', 'manual'],\"}], \"config/config/src/index.ts\": [{\"line\": 5, \"text\": \"import { getCatalogsFromWorkspaceManifest } from '@pnpm/catalogs.config'\"}], \"config/config/src/Config.ts\": [{\"line\": 0, \"text\": \"import type { Catalogs } from '@pnpm/catalogs.types'\"}], \"lockfile/settings-checker/src/getOutdatedLockfileSetting.ts\": [{\"line\": 14, \"t"
+        }
+      ]
+    }
+  ]
+}

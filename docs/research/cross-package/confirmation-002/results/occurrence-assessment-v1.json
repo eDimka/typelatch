@@ -1,0 +1,3808 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "originalGradesUnchanged": true,
+  "originalDecisionsUnchanged": true,
+  "assessmentKind": "Post-study contract correction, not replacement preregistered qualification",
+  "policy": "Apply the same distinct-occurrence rule to exclusions and negativeClaims in every submitted answer. Every colliding row must uniquely identify a separate nonoverlapping frozen source occurrence. All other frozen checks and source integrity must pass. Ambiguous matches, repeated citations and unsupported source-scope duplicates remain rejected.",
+  "summary": {
+    "answers": 16,
+    "originalStrictPass": 11,
+    "assessedPass": 15,
+    "occurrenceOnlyExonerations": 4,
+    "substantiveFailuresRetained": 1
+  },
+  "conclusion": "Four strict failures were solely an exclusion occurrence identity defect. Native runtime repeat 1 remains incorrect because its external development-dependency chain is invalid. The unchanged original economic gate fails the 20 percent token-saving threshold versus native tools, so this assessment does not establish a qualified edge.",
+  "runs": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "evidenceSha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "toolOutputsSha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8",
+      "answerSha256": "0120ed3bc8e4711d5e83a77f658eb84ee6adb62a57252e3097810b45d95108cf",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+      "evidenceSha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "toolOutputsSha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75",
+      "answerSha256": "5c132c4cf70968e278f2ae23575c88f8b06ef13edb2b41c38c491a93471e3a6b",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|build",
+              "<root>|check",
+              "<root>|test-unit"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-competitor",
+      "evidenceSha256": "5dc2150120039e092b2ce70cb440816a00857cb8b3dfc57de2b8bd5951fe2f46",
+      "toolOutputsSha256": "35a77a4518cf7bc16ddff7a14fc7ac146c7d75697a85a38793d99b24a9032c28",
+      "answerSha256": "623b575abf9053e5944a319836b58357b13d94a77304f28351261774811576e9",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "vue",
+              "@vue/compat",
+              "dts-built-test",
+              "dts-test",
+              "@vue/sfc-playground",
+              "vite-debug"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              },
+              {
+                "key": "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            },
+            {
+              "key": "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-codegraph",
+      "evidenceSha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "toolOutputsSha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "answerSha256": "796ac2330146d6caf88da7aa350bf2f556eb94efb602228f8e78c32aedc0963a",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "vue",
+              "@vue/compat",
+              "dts-built-test",
+              "dts-test",
+              "@vue/sfc-playground",
+              "vite-debug"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "packages-private/sfc-playground/src/vue-dev-proxy-prod.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy-prod.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy-prod.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-impact",
+      "evidenceSha256": "82d93c090bb4f32f4157f00ecb68bc8c4089702c3e5497035ef0d3b804e2a32b",
+      "toolOutputsSha256": "ff12f53c5b4c1cebef70658eb7d75fe0ac64cba7b853c05ddbe7a89a4ff84b0e",
+      "answerSha256": "648e765793f370ca018d174ff2aa443356303100e4a3e5de921645ddac5ecd78",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+      "evidenceSha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+      "toolOutputsSha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+      "answerSha256": "e3562789f36b13ee6ed4f56beb4e2b78d4912384e549754358465e0c97254c1c",
+      "originalCorrect": false,
+      "assessedCorrect": true,
+      "changedByErratum": true,
+      "classification": "distinct-occurrence-collision-only",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": false,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 1,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": true,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [
+          {
+            "collection": "exclusions",
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "state": "distinct-occurrences",
+            "proof": [
+              {
+                "index": 0,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 2050,
+                "end": 2066,
+                "quoteStart": 1984,
+                "quoteEnd": 2074
+              },
+              {
+                "index": 1,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 4529,
+                "end": 4545,
+                "quoteStart": 4508,
+                "quoteEnd": 4546
+              }
+            ]
+          }
+        ],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-codegraph",
+      "evidenceSha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "toolOutputsSha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "answerSha256": "4a10c3953708d65c6c34027e507809eb923703a9d1c138efde9a098de738f876",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "vue",
+              "@vue/compat",
+              "dts-built-test",
+              "dts-test",
+              "@vue/sfc-playground",
+              "vite-debug"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+      "evidenceSha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+      "toolOutputsSha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+      "answerSha256": "290e127f853389ea22378d82b7f2611d82289407cbd040933c648718ebfe47ea",
+      "originalCorrect": false,
+      "assessedCorrect": false,
+      "changedByErratum": false,
+      "classification": "substantive-error-retained",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": false,
+          "precision": 0.984375,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 0.9375,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [
+              "@vue/template-explorer"
+            ],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 1,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "@vue/template-explorer",
+              "passed": false
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": false,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": false,
+        "groups": [
+          {
+            "collection": "exclusions",
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "state": "distinct-occurrences",
+            "proof": [
+              {
+                "index": 0,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 4529,
+                "end": 4545,
+                "quoteStart": 4508,
+                "quoteEnd": 4546
+              },
+              {
+                "index": 1,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 2050,
+                "end": 2066,
+                "quoteStart": 1984,
+                "quoteEnd": 2074
+              }
+            ]
+          }
+        ],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-native",
+      "evidenceSha256": "f2a2c3161676817f6c40c4ffd5ce76ac08a33adbd661623e2c4e7c9e2c4fbd50",
+      "toolOutputsSha256": "a15e2c849710f2820217bcf97c083967aeaedfea6a660f0b8c639dd45ab1b8b8",
+      "answerSha256": "7c16cf0c2361af0a8306a8895660a5b242f681632761acefb677de698df3fb9c",
+      "originalCorrect": false,
+      "assessedCorrect": true,
+      "changedByErratum": true,
+      "classification": "distinct-occurrence-collision-only",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": false,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 1,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              },
+              {
+                "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            },
+            {
+              "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": true,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [
+          {
+            "collection": "exclusions",
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "state": "distinct-occurrences",
+            "proof": [
+              {
+                "index": 0,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 2050,
+                "end": 2066,
+                "quoteStart": 1984,
+                "quoteEnd": 2074
+              },
+              {
+                "index": 1,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 4529,
+                "end": 4545,
+                "quoteStart": 4508,
+                "quoteEnd": 4546
+              }
+            ]
+          }
+        ],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "evidenceSha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "toolOutputsSha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "answerSha256": "8d3ebb7713b50f36b1ef6370ce62ce2c5efbd09ab311a4a0d2f5e49a3e40f3c2",
+      "originalCorrect": false,
+      "assessedCorrect": true,
+      "changedByErratum": true,
+      "classification": "distinct-occurrence-collision-only",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": false,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 1,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              },
+              {
+                "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            },
+            {
+              "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": true,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [
+          {
+            "collection": "exclusions",
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "state": "distinct-occurrences",
+            "proof": [
+              {
+                "index": 0,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 2050,
+                "end": 2066,
+                "quoteStart": 1984,
+                "quoteEnd": 2074
+              },
+              {
+                "index": 1,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 4529,
+                "end": 4545,
+                "quoteStart": 4508,
+                "quoteEnd": 4546
+              }
+            ]
+          }
+        ],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-competitor",
+      "evidenceSha256": "bf87b60932e0b6c0c78793ce0345ff567abd409855c8b932fd626df5c862cd01",
+      "toolOutputsSha256": "73e859de08663775b21d3b377b3ba2ea1d540d9f451ed389cc53ce5b2a5915e4",
+      "answerSha256": "a1fdf79ab0700c996f0b113ab7f72523f5ebbad41c54fadc69469f1b1b81d4f1",
+      "originalCorrect": false,
+      "assessedCorrect": true,
+      "changedByErratum": true,
+      "classification": "distinct-occurrence-collision-only",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": false,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+              "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 1,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+                "passed": true
+              },
+              {
+                "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+              "passed": true
+            },
+            {
+              "key": "packages/shared/__tests__/normalizeProp.spec.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": true,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [
+          {
+            "collection": "exclusions",
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "state": "distinct-occurrences",
+            "proof": [
+              {
+                "index": 0,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 2050,
+                "end": 2066,
+                "quoteStart": 1984,
+                "quoteEnd": 2074
+              },
+              {
+                "index": 1,
+                "state": "unique-occurrence",
+                "sourceSha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2",
+                "start": 4529,
+                "end": 4545,
+                "quoteStart": 4508,
+                "quoteEnd": 4546
+              }
+            ]
+          }
+        ],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-impact",
+      "evidenceSha256": "e7ff8f1be85adf238ebc8a29ac39ce03309db60450b726975a8f47f469bcc8f6",
+      "toolOutputsSha256": "b31e3b10b60a65288eac598869e0e92cce184b5250e0b93b183ebbd9124fa805",
+      "answerSha256": "7ae273d4639df67d1c1d37f99fb039ae0f9be7cb2740aada6dcf30945a5e7c19",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "packages/vue/src/index.ts|normalizeClass|reexport",
+              "packages/vue/src/runtime.ts|normalizeClass|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/compiler-core",
+              "@vue/compiler-dom",
+              "@vue/compiler-sfc",
+              "@vue/compiler-ssr",
+              "@vue/reactivity",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|build",
+              "<root>|check",
+              "<root>|test-unit"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+              "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+                "passed": true
+              },
+              {
+                "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-sfc",
+              "passed": true
+            },
+            {
+              "package": "@vue/compiler-ssr",
+              "passed": true
+            },
+            {
+              "package": "@vue/reactivity",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+              "passed": true
+            },
+            {
+              "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-codegraph",
+      "evidenceSha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "toolOutputsSha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "answerSha256": "1a0ad2a8bb4dcb8727b64a4f7613c959127e20ea49bf79e7203d0a44cbc90380",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "vue",
+              "@vue/compat",
+              "dts-built-test",
+              "dts-test",
+              "@vue/sfc-playground",
+              "vite-debug"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-competitor",
+      "evidenceSha256": "e7513de2c4113ffa33daa794a36da92b7c8554c4b042503fab15de2615a70c89",
+      "toolOutputsSha256": "edbce22e2becff226e287a38ccd86b2a24482a54fe492ec3dc029fe5c5fb0ff1",
+      "answerSha256": "939bc7db04a2d46e5637a6e1649982e9e8fbcad900c934ea558123abe69489dd",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-impact",
+      "evidenceSha256": "01289c5fb4bc315e96782659848db931378ccbd5ec5173aef1b12b1895dc25ad",
+      "toolOutputsSha256": "fb284c28a8d0bb9acad4d5119fb3ce1f83cc18c8ed9651a4ffe31602ec20a1b3",
+      "answerSha256": "4bd15a322b019ecfb60dce176d5b418b55eb01c460da18911f48e941fd8770c0",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-native",
+      "evidenceSha256": "72f50c1008b9ec971ca37faec17bc2efe6acdc946a500aa4ba62380511f06f3c",
+      "toolOutputsSha256": "23b33dd4d99e12936d2c6e02dfd2be5ba5b4d4b057ab0f746da1ff2dbf174975",
+      "answerSha256": "d17ebca035c23cfbd8df0d8f4666671ac0fc482dd2d250b12f82ce739f42bf2b",
+      "originalCorrect": true,
+      "assessedCorrect": true,
+      "changedByErratum": false,
+      "classification": "strict-pass-confirmed",
+      "assessment": {
+        "schemaVersion": 1,
+        "originalGrade": {
+          "passed": true,
+          "precision": 1,
+          "recall": 1,
+          "identity": true,
+          "direct": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/index.ts|ShallowRef|reexport",
+              "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "dependents": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "@vue/compat",
+              "@vue/runtime-core",
+              "@vue/runtime-dom",
+              "@vue/runtime-test",
+              "@vue/server-renderer",
+              "@vue/sfc-playground",
+              "dts-built-test",
+              "dts-test",
+              "vite-debug",
+              "vue"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "targets": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "<root>|check",
+              "<root>|test-unit",
+              "<root>|build"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0
+          },
+          "exclusions": {
+            "precision": 1,
+            "recall": 1,
+            "truePositive": [
+              "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts|*|outside-source-scope",
+              "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope"
+            ],
+            "falsePositive": [],
+            "falseNegative": [],
+            "duplicates": 0,
+            "evidenceChecks": [
+              {
+                "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+                "passed": true
+              },
+              {
+                "key": "packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts|*|outside-source-scope",
+                "passed": true
+              },
+              {
+                "key": "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope",
+                "passed": true
+              }
+            ]
+          },
+          "evidenceChecks": [
+            {
+              "key": "packages/runtime-core/src/helpers/useTemplateRef.ts|ShallowRef|type-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-dom/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-test/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue/src/runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-index.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "key": "packages/vue-compat/src/esm-runtime.ts|ShallowRef|reexport",
+              "passed": true
+            },
+            {
+              "package": "@vue/compat",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-core",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-dom",
+              "passed": true
+            },
+            {
+              "package": "@vue/runtime-test",
+              "passed": true
+            },
+            {
+              "package": "@vue/server-renderer",
+              "passed": true
+            },
+            {
+              "package": "@vue/sfc-playground",
+              "passed": true
+            },
+            {
+              "package": "dts-built-test",
+              "passed": true
+            },
+            {
+              "package": "dts-test",
+              "passed": true
+            },
+            {
+              "package": "vite-debug",
+              "passed": true
+            },
+            {
+              "package": "vue",
+              "passed": true
+            },
+            {
+              "key": "<root>|check",
+              "passed": true
+            },
+            {
+              "key": "<root>|test-unit",
+              "passed": true
+            },
+            {
+              "key": "<root>|build",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/src/customFormatter.ts|ShallowRef|string-or-comment-only",
+              "passed": true
+            },
+            {
+              "key": "packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts|*|outside-source-scope",
+              "passed": true
+            },
+            {
+              "key": "packages-private/dts-test/ref.test-d.ts|*|outside-source-scope",
+              "passed": true
+            }
+          ],
+          "uncertainties": true,
+          "falseConfidentNegatives": [],
+          "representation": {
+            "packageLabels": "bare name or exact frozen name@version",
+            "uncertainty": "constrained code/state pairs; no unchecked prose"
+          }
+        },
+        "assessedCorrect": true,
+        "changedByErratum": false,
+        "integrityPassed": true,
+        "otherFrozenChecksPass": true,
+        "groups": [],
+        "policy": "Separate post-study contract assessment. Only coarse exclusion-key collisions among distinct unambiguous frozen source occurrences may be exonerated. Original answers, truth sets, strict grades and decision thresholds remain unchanged."
+      }
+    }
+  ],
+  "implementation": [
+    {
+      "path": "audits/occurrence-contract-v1.mjs",
+      "sha256": "039b823a68ccbf05274fa2b9123960582056e24fb0da1b095a75277c70e47841"
+    },
+    {
+      "path": "audits/occurrence-contract-v1.test.mjs",
+      "sha256": "950acc9ebead5309a15571ec157f39563da108d14afea39d50ce5b807cbfa152"
+    },
+    {
+      "path": "audits/assess-occurrences-002.mjs",
+      "sha256": "8adcc214b688f73a83b9a5063d8567595097cdf7c33abe138d8d4d5782ebad53"
+    },
+    {
+      "path": "audits/occurrence-contract-red-001.tap",
+      "sha256": "f4e4f4b08b507a663257e03f7e23a2e3016e263deefc2b36f6a7770aa55ef169"
+    },
+    {
+      "path": "audits/occurrence-contract-green-001.tap",
+      "sha256": "0336df4c9aaa430afed643119a6400ec12baaf6d30b5e06ac9d8cfe2f6a9b6cb"
+    }
+  ],
+  "frozenBindings": [
+    {
+      "path": "impact/private/heldout-grading-v2/truth.json",
+      "sha256": "b23f0c8735de315f351cb7082eb16be1d8fb56fa9acdac7320bfbc0f32c2729e"
+    },
+    {
+      "path": "impact/private/heldout-clean-v4/initial-manifest.json",
+      "sha256": "019cbfe72e5c23a1ee4d0a61b290022fad96da836bc268d5451387076680efc6"
+    },
+    {
+      "path": "impact/private/heldout-runtime-grading-v2/truth.json",
+      "sha256": "6a68514183726a061ed54ef74250485042d57b164b45572ba9e73d2f3a4806d9"
+    },
+    {
+      "path": "impact/private/heldout-runtime-clean-v4/initial-manifest.json",
+      "sha256": "2b5b872bdf757d5412078bcfb97bf1efa2c4a0b29929e9b1a6be9d8fd4fa3307"
+    }
+  ],
+  "preservedOriginals": [
+    {
+      "path": "report-private.json",
+      "sha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce"
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63"
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "5dc73d9de6236d1123ed2112db1896258029ded69bdf7f8698ccf33ab973a92a"
+    },
+    {
+      "path": "adjudicated-result.json",
+      "sha256": "c149c39fc104a262de553048de90178c86e1cca79f46d2470e626948662f6c0a"
+    },
+    {
+      "path": "correctness-audit.json",
+      "sha256": "03bb38fc14a63f8fe968a21c83a691760a240f9cbc7009496df9007612774401"
+    }
+  ]
+}

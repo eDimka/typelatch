@@ -1,0 +1,14 @@
+{
+  "stopped": true,
+  "scope": "Owned setup groups and workspace CodeGraph daemon. Codex must separately confirm its MCP process group stopped.",
+  "requiresCaptureGroupStopped": true,
+  "setupGroupsStopped": true,
+  "termination": [
+    {
+      "pid": 14836,
+      "signal": "SIGTERM"
+    }
+  ],
+  "remaining": [],
+  "completedAt": "2026-11-07T00:25:18.131Z"
+}

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "auditSha256": "3ca052d01de51c651765b4e921b35a6dfa22b25c7f09556beba26d0858ae3149",
+  "policySha256": "7f0c6e2419b494a79f42d9b88835a69173c8b23c31b18d59a86e9a0d84534a67",
+  "qualifiedAcrossMeasuredControls": false,
+  "reasons": [
+    "The original native and Serena gate did not qualify.",
+    "All four conditions must return independently correct answers."
+  ],
+  "metrics": {
+    "totalTokens": {
+      "control": 1526064,
+      "candidate": 749471,
+      "aggregateReductionPercent": 50.88862590297654,
+      "medianPairedReductionPercent": 49.76795649331876,
+      "repeats": [
+        {
+          "repeat": 1,
+          "control": 812267,
+          "candidate": 405157,
+          "reductionPercent": 50.12021909052073
+        },
+        {
+          "repeat": 2,
+          "control": 713797,
+          "candidate": 344314,
+          "reductionPercent": 51.76303626941554
+        }
+      ],
+      "pairs": [
+        {
+          "task": "vue-type-impact-heldout-grading-v2",
+          "repeat": 1,
+          "control": 451093,
+          "candidate": 212239,
+          "reductionPercent": 52.95005686188879
+        },
+        {
+          "task": "vue-type-impact-heldout-grading-v2",
+          "repeat": 2,
+          "control": 452916,
+          "candidate": 159706,
+          "reductionPercent": 64.73827376378843
+        },
+        {
+          "task": "vue-runtime-impact-heldout-grading-v2",
+          "repeat": 1,
+          "control": 361174,
+          "candidate": 192918,
+          "reductionPercent": 46.58585612474874
+        },
+        {
+          "task": "vue-runtime-impact-heldout-grading-v2",
+          "repeat": 2,
+          "control": 260881,
+          "candidate": 184608,
+          "reductionPercent": 29.23670179123815
+        }
+      ]
+    },
+    "chargedTimeMs": {
+      "control": 476734.14204199985,
+      "candidate": 317935.1662910002,
+      "aggregateReductionPercent": 33.309755217198095,
+      "medianPairedReductionPercent": 34.09115299722086,
+      "repeats": [
+        {
+          "repeat": 1,
+          "control": 237503.6930839999,
+          "candidate": 160186.83175,
+          "reductionPercent": 32.553961721620304
+        },
+        {
+          "repeat": 2,
+          "control": 239230.44895799994,
+          "candidate": 157748.3345410002,
+          "reductionPercent": 34.06009342535866
+        }
+      ],
+      "pairs": [
+        {
+          "task": "vue-type-impact-heldout-grading-v2",
+          "repeat": 1,
+          "control": 130670.56754199998,
+          "candidate": 77789.915041,
+          "reductionPercent": 40.468678980829516
+        },
+        {
+          "task": "vue-type-impact-heldout-grading-v2",
+          "repeat": 2,
+          "control": 120416.30970799993,
+          "candidate": 84949.55558299995,
+          "reductionPercent": 29.453447137687633
+        },
+        {
+          "task": "vue-runtime-impact-heldout-grading-v2",
+          "repeat": 1,
+          "control": 106833.12554199994,
+          "candidate": 82396.91670900001,
+          "reductionPercent": 22.873250884523802
+        },
+        {
+          "task": "vue-runtime-impact-heldout-grading-v2",
+          "repeat": 2,
+          "control": 118814.13925000001,
+          "candidate": 72798.77895800024,
+          "reductionPercent": 38.72885885675409
+        }
+      ]
+    }
+  },
+  "scope": "Apply the original native and Serena gate unchanged. Also require at least 20 percent aggregate and median paired savings against CodeGraph in total tokens and provider setup plus agent time, with savings in both repetition aggregates. Require complete reviewed workflows and correct answers in all four conditions. Use the same frozen tasks, source, permissions, model and counterbalanced four condition schedule. Retain every failure. This establishes only an exploratory result on the named snapshots and tasks, never universal superiority."
+}

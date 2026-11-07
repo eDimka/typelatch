@@ -1,0 +1,9 @@
+{
+  "url": "https://nodejs.org/dist/v20.16.0/node-v20.16.0-darwin-arm64.tar.xz",
+  "sha256": "5043e98cdf859963b1a0aff54c1f1813a2a8059e4179403171860d664ca090f2",
+  "bytes": 21691332,
+  "expected": "5043e98cdf859963b1a0aff54c1f1813a2a8059e4179403171860d664ca090f2",
+  "elapsedMs": 2752.668167,
+  "exitCode": 0,
+  "reason": "Exact Node20.16.0 required by upstream Verdaccio native-test preset"
+}

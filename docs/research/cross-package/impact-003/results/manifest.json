@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "privateReportSha256": "73337c542c127470f42654358cad96e750ba68358c3253982df4447c75bfe88b",
+  "privateProtocolSha256": "614c4d8487647940809840e0cc1c21b7f797a2e18a5bf98ba86797fcb3cd32f8",
+  "originalResultsUnchanged": true,
+  "auditHashEncoding": "adjudicated-result.auditSha256 hashes JSON.stringify of the parsed original audit; manifest hashes bind exact file bytes.",
+  "originalParsedAuditSha256": "0a03f794c211ad878c66c8deb7dbbb057ef7309728088424e315d8d4894a5eb4",
+  "publicParsedAuditSha256": "0a03f794c211ad878c66c8deb7dbbb057ef7309728088424e315d8d4894a5eb4",
+  "createdAt": "2026-11-06T23:26:28.040Z",
+  "normalization": "Private report and review files have local path placeholders. Hashes retain original byte identities; completed public action records and tool outputs are copied exactly. No model reasoning or assistant message bodies are included.",
+  "files": [
+    {
+      "path": "report.json",
+      "sha256": "0923d0751bb76511bb43741b7cbb469a8d7083769706f5e37106028daa8cd38b",
+      "originalSha256": "73337c542c127470f42654358cad96e750ba68358c3253982df4447c75bfe88b",
+      "bytes": 108332
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "9b36f3db2e46155590b0a55b51a1ca8ac7312107ce936298aa0cb044b5f51657",
+      "originalSha256": "9b36f3db2e46155590b0a55b51a1ca8ac7312107ce936298aa0cb044b5f51657",
+      "bytes": 10898
+    },
+    {
+      "path": "adjudicated-result.json",
+      "sha256": "270d9918f96a749a88aeca94191907bc3fb3445d660b9dad3c71efa9545d14c2",
+      "originalSha256": "270d9918f96a749a88aeca94191907bc3fb3445d660b9dad3c71efa9545d14c2",
+      "bytes": 12463
+    },
+    {
+      "path": "correctness-audit.json",
+      "sha256": "20d2dfdd3f32286c6112818b55e3731029ba9e0579b3819b7cbd3d7f8d421ec2",
+      "originalSha256": "20d2dfdd3f32286c6112818b55e3731029ba9e0579b3819b7cbd3d7f8d421ec2",
+      "bytes": 152321
+    },
+    {
+      "path": "correctness-audit.md",
+      "sha256": "762dcfb014d4fefd8ef3b6c49bb3314e52465b1d1b0b8feb4733d6390a3fd312",
+      "originalSha256": "762dcfb014d4fefd8ef3b6c49bb3314e52465b1d1b0b8feb4733d6390a3fd312",
+      "bytes": 826
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-native/public-evidence.json",
+      "sha256": "6b15e91ecc452e0cae4dd3d3d98e729b7935b8d780777c42633cddd165ec5888",
+      "originalSha256": "6b15e91ecc452e0cae4dd3d3d98e729b7935b8d780777c42633cddd165ec5888",
+      "bytes": 70266
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-native/tool-outputs.json",
+      "sha256": "6256f00204b1d292eb0244f550fbbcf6013700fa2d9443cc5b642fb2d6353a78",
+      "originalSha256": "6256f00204b1d292eb0244f550fbbcf6013700fa2d9443cc5b642fb2d6353a78",
+      "bytes": 150796
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-impact/public-evidence.json",
+      "sha256": "e1a28fd45168969d5060343a754fd95b2476a64706ccf3e5ccfb5c7fcf5e1ae0",
+      "originalSha256": "e1a28fd45168969d5060343a754fd95b2476a64706ccf3e5ccfb5c7fcf5e1ae0",
+      "bytes": 68555
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-impact/tool-outputs.json",
+      "sha256": "02d91552fea5f0e35bbae52972a0324ef1e24cf93a0627aa72b133260898f400",
+      "originalSha256": "02d91552fea5f0e35bbae52972a0324ef1e24cf93a0627aa72b133260898f400",
+      "bytes": 244295
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-competitor/public-evidence.json",
+      "sha256": "ed6b4bbd3f42d26311604f8f8ca342543d49fe355dc8e3a32efe11b7b042d0fd",
+      "originalSha256": "ed6b4bbd3f42d26311604f8f8ca342543d49fe355dc8e3a32efe11b7b042d0fd",
+      "bytes": 75514
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-grading-v2-r1-competitor/tool-outputs.json",
+      "sha256": "1a3d12022976a8880628841eaaef0c3afd6936984392ca5bfb755f4f35409a09",
+      "originalSha256": "1a3d12022976a8880628841eaaef0c3afd6936984392ca5bfb755f4f35409a09",
+      "bytes": 163750
+    }
+  ]
+}

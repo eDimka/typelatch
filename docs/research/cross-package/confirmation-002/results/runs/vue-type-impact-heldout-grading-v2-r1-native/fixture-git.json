@@ -1,0 +1,7 @@
+{
+  "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+  "trackedFiles": 700,
+  "root": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r1-native/workspace",
+  "gitBinary": "/usr/bin/git",
+  "policy": "Independent initial commit, exact original source inventory, no upstream history. Installed dependencies stay untracked unless present in the committed source inventory."
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "originalFixtureUnchanged": true,
+  "failureMatched": true,
+  "copyMs": 3501.222708,
+  "copyMode": "APFS COPYFILE_FICLONE_FORCE with verbatim relative symlinks",
+  "source": "$REPOSITORY/artifacts/research/cross-package/impact/vue-source",
+  "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/reproduction/workspace",
+  "failure": {
+    "name": "AssertionError",
+    "message": "Expected values to be strictly equal:\n\n1 !== 0\n"
+  },
+  "commit": {
+    "status": 1,
+    "stdout": "Not currently on any branch.\nnothing to commit, working tree clean\n",
+    "stderr": ""
+  }
+}

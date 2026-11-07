@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "status": "qualified",
+  "kind": "pre-measurement-grader-hardening",
+  "originalQualificationSha256": "a306da91055ef9560b4ebe2c774694c8aee777fd6793612975ced276b7e5b137",
+  "sourceAndDependencyFixtureUnchanged": true,
+  "changes": [
+    "Require runtime child exit0 without signal/error, aggregate passed:true, six cases and strict boolean successful rows. Two boundary reproducers failed before this correction and pass afterward.",
+    "Add separate static migration scope guard for all six source modules so merely reaching an old transitive fast-glob dependency cannot satisfy the migration requirement. Existing behavioral cases remain unchanged."
+  ],
+  "referenceAcceptance": {
+    "runtimeExitCode": 0,
+    "runtimeCases": 6,
+    "runtimePassed": true,
+    "scope": {
+      "passed": true,
+      "files": [
+        {
+          "path": "cache/api/src/cacheList.ts",
+          "imports": [
+            "fs",
+            "encode-registry",
+            "tinyglobby"
+          ],
+          "passed": true,
+          "oldDependency": []
+        },
+        {
+          "path": "cache/api/src/cacheView.ts",
+          "imports": [
+            "fs",
+            "path",
+            "tinyglobby",
+            "@pnpm/store.cafs",
+            "@pnpm/npm-resolver",
+            "encode-registry"
+          ],
+          "passed": true,
+          "oldDependency": []
+        },
+        {
+          "path": "fs/find-packages/src/index.ts",
+          "imports": [
+            "fs",
+            "path",
+            "util",
+            "@pnpm/read-project-manifest",
+            "@pnpm/types",
+            "@pnpm/util.lex-comparator",
+            "tinyglobby",
+            "p-filter"
+          ],
+          "passed": true,
+          "oldDependency": []
+        },
+        {
+          "path": "patching/plugin-commands-patching/src/patchCommit.ts",
+          "imports": [
+            "fs",
+            "path",
+            "@pnpm/cli-utils",
+            "@pnpm/config",
+            "@pnpm/crypto.hash",
+            "@pnpm/error",
+            "@pnpm/fs.packlist",
+            "@pnpm/logger",
+            "@pnpm/plugin-commands-installation",
+            "@pnpm/read-package-json",
+            "@pnpm/store-path",
+            "@pnpm/types",
+            "tinyglobby",
+            "normalize-path",
+            "ramda/src/pick",
+            "ramda/src/equals",
+            "safe-execa",
+            "escape-string-regexp",
+            "make-empty-dir",
+            "render-help",
+            "./writePackage.js",
+            "@pnpm/parse-wanted-dependency",
+            "./getPatchedDependency.js",
+            "./stateFile.js",
+            "./updatePatchedDependencies.js"
+          ],
+          "passed": true,
+          "oldDependency": []
+        },
+        {
+          "path": "pkg-manager/package-bins/src/index.ts",
+          "imports": [
+            "path",
+            "@pnpm/types",
+            "tinyglobby",
+            "is-subdir"
+          ],
+          "passed": true,
+          "oldDependency": []
+        },
+        {
+          "path": "releasing/plugin-commands-publishing/src/pack.ts",
+          "imports": [
+            "fs",
+            "path",
+            "zlib",
+            "@pnpm/catalogs.types",
+            "@pnpm/error",
+            "@pnpm/config",
+            "@pnpm/cli-utils",
+            "@pnpm/exportable-manifest",
+            "@pnpm/fs.packlist",
+            "@pnpm/package-bins",
+            "@pnpm/pnpmfile",
+            "@pnpm/types",
+            "tinyglobby",
+            "ramda/src/pick",
+            "realpath-missing",
+            "render-help",
+            "tar-stream",
+            "./publish.js",
+            "chalk",
+            "validate-npm-package-name",
+            "p-limit",
+            "@pnpm/common-cli-options-help",
+            "@pnpm/sort-packages",
+            "@pnpm/logger"
+          ],
+          "passed": true,
+          "oldDependency": []
+        }
+      ],
+      "boundary": "Scope conformance for six actual migrated source modules: statically declared import/export/require/dynamic-import dependencies. This is separate from runtime behavior, and is not a proof about arbitrary computed module specifiers."
+    }
+  },
+  "retainedOutcomes": {
+    "baseline": false,
+    "reference": true,
+    "import-only-semantic-regression": false,
+    "partial-four-of-five-packages": false,
+    "unchanged-path-safety-regression": false
+  },
+  "proof": "Reference already recorded exit0 and all six successful runtime cases; its exact saved sources pass the new scope guard. Every earlier negative already fails an unchanged or strengthened condition. This receipt rechecks retained evidence and does not claim a new native execution.",
+  "frozenInputs": [
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/prepare-development.mjs",
+      "sha256": "2d678f0609e354b98acb35fe6bafae09986760c6e9eb97ae6f138873f194e287"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/qualify-development.mjs",
+      "sha256": "f397eb0d5676919f583a019e0ed9a6ae1c8955590584698fe33b667a31669508"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-runtime.mjs",
+      "sha256": "a550521f469df5dd7ca7966c6adba13850ed5cedc0418be0a8e30cc840880368"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.mjs",
+      "sha256": "fbbd9acba5030d1956aaf599ceb73efc158128919d453c7e4ac41b26501c1920"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-grade.mjs",
+      "sha256": "8fb2dd08bc9c8237b27c313d23e9ef44f172815dcda8a8c3b6eb0ce495bc6e5a"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/grading-common.mjs",
+      "sha256": "78ce917fa76088c93f0e420b69575adef8d30c8d43997fc06afc9de1e2c4c951"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.mjs",
+      "sha256": "7aee7db9122422a0985d30681102cde6d38d2c46f82e3bfffa4c8fac6345cbf5"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-check.test.mjs",
+      "sha256": "6b535c088e7547ffacbc583e8e772819d987802ab1bc73fe03c457fff47a8d50"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-scope.test.mjs",
+      "sha256": "db682359afa21887509341ab7dc5a041cddca8e05a3544f571d97a483e420a56"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/finalize-development.mjs",
+      "sha256": "5376e54b842bb0f3633d5476bcd6f40f565287c9cf23ebd1486204f9dea60161"
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+      "sha256": "3e1518fd8a2fd9f7027d91fb0545111e0989ecb27b469b017dcfe1600eb6920a"
+    },
+    {
+      "path": "$REPOSITORY/scripts/paired-agent-runner.mjs",
+      "sha256": "214f58610df538b0b7ca1692b26d86e9607f9f24c1261347a44b8d9003bb81e2"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/source-tracking-manifest.json",
+      "sha256": "0f100a13ce52ed177779c5a33ad2cf96eaa433774eec18591911e9311efca666"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/qualification.json",
+      "sha256": "a306da91055ef9560b4ebe2c774694c8aee777fd6793612975ced276b7e5b137"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/migration/development-001/finalization.json",
+      "sha256": "16e9a1465647980dc5cfc706d37e91568017dfb1baa91f0bd54ee5e2aa4a1438"
+    }
+  ]
+}

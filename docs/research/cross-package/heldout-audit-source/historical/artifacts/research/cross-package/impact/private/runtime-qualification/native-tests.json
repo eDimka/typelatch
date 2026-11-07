@@ -1,0 +1,31 @@
+{
+  "startedAt": "2026-11-06T22:16:32.685Z",
+  "elapsedMs": 2542.1657499999997,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "exec",
+    "vitest",
+    "run",
+    "--project",
+    "unit",
+    "packages/shared/__tests__/normalizeProp.spec.ts",
+    "packages/runtime-core/__tests__/vnode.spec.ts",
+    "packages/server-renderer/__tests__/ssrRenderAttrs.spec.ts",
+    "packages/compiler-dom/__tests__/transforms/stringifyStatic.spec.ts",
+    "--maxWorkers",
+    "1",
+    "--minWorkers",
+    "1"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "\n RUN  v2.1.1 $REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace\n\n ✓ |unit| packages/runtime-core/__tests__/vnode.spec.ts  (49 tests) 14ms\n ✓ |unit| packages/compiler-dom/__tests__/transforms/stringifyStatic.spec.ts  (23 tests) 31ms\n ✓ |unit| packages/shared/__tests__/normalizeProp.spec.ts  (22 tests) 9ms\n ✓ |unit| packages/server-renderer/__tests__/ssrRenderAttrs.spec.ts  (21 tests) 4ms\n\n Test Files  4 passed (4)\n      Tests  115 passed (115)\n   Start at  23:16:33\n   Duration  1.27s (transform 628ms, setup 15ms, collect 780ms, tests 57ms, environment 0ms, prepare 144ms)\n\n",
+  "stderr": ""
+}

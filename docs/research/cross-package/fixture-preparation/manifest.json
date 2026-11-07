@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "scope": "Historical copy method correction and new fixture isolation qualification. No model outcomes.",
+  "files": [
+    {
+      "path": "copy-mechanism-audit.json",
+      "originalSha256": "25c934329d1371116e1608e59f50ceb673dbabce725a26de71e847c60f99b461",
+      "sha256": "25c934329d1371116e1608e59f50ceb673dbabce725a26de71e847c60f99b461",
+      "bytes": 1581
+    },
+    {
+      "path": "git-failure-reproducer.json",
+      "originalSha256": "44e3cb3d2e2004dc1ce308d403cbaec1b530a94e47575143eefe159b06d03795",
+      "sha256": "37e1b6323c716de1f9403ad6e4818a621c09feecdb2715c334c2447e527062cc",
+      "bytes": 645
+    },
+    {
+      "path": "clean-fixtures.json",
+      "originalSha256": "60e19853b66a7af324f0fd0f0517e77abe007022d66851e61d6069bd17af58e1",
+      "sha256": "2a74c2b86408c9a1f08a24f74c38ed782d26f15afd1258c831749f04c5a4690d",
+      "bytes": 4601
+    },
+    {
+      "path": "canonical-qualification.json",
+      "originalSha256": "a6ad70043bc65e291c769df6f6dd32f47b41c96c62bd24565e4e7e79ef71dae7",
+      "sha256": "7fac3b0d91d2c2c2697f48d02054bdd3845a2943ea869b26214038c83fefec93",
+      "bytes": 2179
+    },
+    {
+      "path": "python-toolchain.json",
+      "originalSha256": "854ed5113b59dc831f27b658efbdfd6d02e04b24f6b067ef2817787e0969febb",
+      "sha256": "854ed5113b59dc831f27b658efbdfd6d02e04b24f6b067ef2817787e0969febb",
+      "bytes": 365
+    }
+  ]
+}

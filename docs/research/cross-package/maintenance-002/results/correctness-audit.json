@@ -1,0 +1,827 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "benchmark_review",
+  "reportSha256": "404fcd8ada685fbbf59ad78a19914c61bcb0d004794e4a2e7abec764487f069c",
+  "protocolSha256": "0bba4af09ded89b803fa7a8aa4a35d7138ef6896dee2a32cbce1b5451fb228fb",
+  "noPrivateReasoningOrMessages": true,
+  "originalGradesUnchanged": true,
+  "conclusion": "All three repairs passed the exact public nine-case native command and the independent 23-case grader. Source diff review found no substantive correctness or integrity problem. Typelatch separately violates the baseline-before-investigation workflow and incurs a later optional validation timeout. These facts do not change its passing repair grade or remove any cost.",
+  "method": "Inspect public source before/after bytes, completed action arguments and exact output supplements; verify process exit/result counts, source hashes and monotonic ordering. No grader or model reruns. Earlier environment-limited study remains distinct.",
+  "runs": [
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-native",
+      "evidenceSha256": "e718e8f93c6eb85939618114ffe3f0a2cfd4c0260e61562029ed5abd7d36690c",
+      "toolOutputsSha256": "4bc944a38d9ae481e4bf5b8c891ee366fc87773cdca1d454036409736d31e18b",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "privateCases": 23,
+      "privateResults": [
+        {
+          "id": "checker/changed-default",
+          "passed": true
+        },
+        {
+          "id": "status/changed-default",
+          "passed": true
+        },
+        {
+          "id": "core/changed-default",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-named",
+          "passed": true
+        },
+        {
+          "id": "status/changed-named",
+          "passed": true
+        },
+        {
+          "id": "core/changed-named",
+          "passed": true
+        },
+        {
+          "id": "checker/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "status/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "core/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "status/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "core/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "checker/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "status/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "core/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "checker/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "status/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "core/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "checker/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "status/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "core/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "checker/unrelated-override",
+          "passed": true
+        },
+        {
+          "id": "native/upstream-frozen-catalog-install",
+          "passed": true
+        }
+      ],
+      "privateProcesses": [
+        {
+          "name": "compile",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "semantics",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "native",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        }
+      ],
+      "changes": [
+        {
+          "path": "deps/status/src/checkDepsStatus.ts",
+          "beforeSha256": "265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1",
+          "afterSha256": "edb6f5cec19a12944aed1d43c7cb6216faf74ceb84dbe65d757e54e5a48b5064"
+        },
+        {
+          "path": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "beforeSha256": "5dcc20d235466e42f84cdc0086817c5b9e739b7682c329a1cd2acd8cd909268a",
+          "afterSha256": "249d079831d8cb88ddcd7c11980651fba72bd392d31993ecff42c742770b03c1"
+        },
+        {
+          "path": "lockfile/verification/src/index.ts",
+          "beforeSha256": "2545836b0551f2fbeab00460f9898c8a8e1dd605429f734aa2f7a46f61b7dfa9",
+          "afterSha256": "9c75ecad90f23afaaa1301e97aefdae0b829359cc00040ecd107c99698267ffc"
+        },
+        {
+          "path": "pkg-manager/core/src/install/index.ts",
+          "beforeSha256": "52cd9818d608889988a1bbbc896e577772c57ac06d7959142a0555b0f8e68bc7",
+          "afterSha256": "c4b332498285ef40ab170933cde9cdf28938074d1d8b1d8f03828de759eef800"
+        }
+      ],
+      "publicAttempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 4413.302666999996,
+          "completedMs": 20223.896332999997,
+          "exitCode": 1,
+          "passed": false,
+          "cases": 9,
+          "passingCases": 6,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": false
+            },
+            {
+              "id": "status/changed-default",
+              "passed": false
+            },
+            {
+              "id": "core/changed-default",
+              "passed": false
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "6f4f2a9e2fb6389db7f44c7c9ac93cd09f54bd057e5db69590efee236e048780"
+        },
+        {
+          "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+          "startedMs": 48610.019,
+          "completedMs": 58880.162375,
+          "exitCode": 0,
+          "passed": true,
+          "cases": 9,
+          "passingCases": 9,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": true
+            },
+            {
+              "id": "status/changed-default",
+              "passed": true
+            },
+            {
+              "id": "core/changed-default",
+              "passed": true
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "6948e3e17992ba21a15228d4043ace27bb0276182fc3f00185ac4a4a3682fd85"
+        }
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 22676.0645,
+        "baselineCompletedMs": 20223.896332999997,
+        "afterBaseline": true
+      },
+      "optionalValidation": null,
+      "repairReview": "Both callers pass their actual catalogs into the shared settings checker; the checker exposes the catalogs changed-field and uses the existing allCatalogsAreUpToDate comparison with empty fallback; the verification package exports that helper. Existing unrelated checks remain unchanged. Source differences from upstream are optional parameter typing and property/export ordering, not omission of the specified behavior."
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-typelatch",
+      "evidenceSha256": "c10d09b25c9ba2d45a97216e552a2b071094367aa89b5cab1e4a5642bb4b05d0",
+      "toolOutputsSha256": "2aa1803df52668d116a17b511ceb18921c4c95b36bc7e84bae83766b753025a4",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "privateCases": 23,
+      "privateResults": [
+        {
+          "id": "checker/changed-default",
+          "passed": true
+        },
+        {
+          "id": "status/changed-default",
+          "passed": true
+        },
+        {
+          "id": "core/changed-default",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-named",
+          "passed": true
+        },
+        {
+          "id": "status/changed-named",
+          "passed": true
+        },
+        {
+          "id": "core/changed-named",
+          "passed": true
+        },
+        {
+          "id": "checker/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "status/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "core/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "status/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "core/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "checker/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "status/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "core/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "checker/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "status/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "core/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "checker/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "status/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "core/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "checker/unrelated-override",
+          "passed": true
+        },
+        {
+          "id": "native/upstream-frozen-catalog-install",
+          "passed": true
+        }
+      ],
+      "privateProcesses": [
+        {
+          "name": "compile",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "semantics",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "native",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        }
+      ],
+      "changes": [
+        {
+          "path": "deps/status/src/checkDepsStatus.ts",
+          "beforeSha256": "265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1",
+          "afterSha256": "edb6f5cec19a12944aed1d43c7cb6216faf74ceb84dbe65d757e54e5a48b5064"
+        },
+        {
+          "path": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "beforeSha256": "5dcc20d235466e42f84cdc0086817c5b9e739b7682c329a1cd2acd8cd909268a",
+          "afterSha256": "31fc89f16281ed8f5dba5e395fd60d2391ef9b082efcbb5a190d11421b9769f1"
+        },
+        {
+          "path": "lockfile/verification/src/index.ts",
+          "beforeSha256": "2545836b0551f2fbeab00460f9898c8a8e1dd605429f734aa2f7a46f61b7dfa9",
+          "afterSha256": "9c75ecad90f23afaaa1301e97aefdae0b829359cc00040ecd107c99698267ffc"
+        },
+        {
+          "path": "pkg-manager/core/src/install/index.ts",
+          "beforeSha256": "52cd9818d608889988a1bbbc896e577772c57ac06d7959142a0555b0f8e68bc7",
+          "afterSha256": "c4b332498285ef40ab170933cde9cdf28938074d1d8b1d8f03828de759eef800"
+        }
+      ],
+      "publicAttempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 4877.595124999993,
+          "completedMs": 21084.250040999992,
+          "exitCode": 1,
+          "passed": false,
+          "cases": 9,
+          "passingCases": 6,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": false
+            },
+            {
+              "id": "status/changed-default",
+              "passed": false
+            },
+            {
+              "id": "core/changed-default",
+              "passed": false
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "ba5197763202d4d30274e9e06f8d7c6cbb736221d689ad5822db4ad43cc893ca"
+        },
+        {
+          "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "startedMs": 51031.330208,
+          "completedMs": 61258.06266599998,
+          "exitCode": 0,
+          "passed": true,
+          "cases": 9,
+          "passingCases": 9,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": true
+            },
+            {
+              "id": "status/changed-default",
+              "passed": true
+            },
+            {
+              "id": "core/changed-default",
+              "passed": true
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "521982701a700117929132fd3a32fca93dee0970373fd2ac997295dee4a6a14f"
+        }
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "startedMs": 18409.909665999992,
+        "baselineCompletedMs": 21084.250040999992,
+        "afterBaseline": false
+      },
+      "optionalValidation": {
+        "actionIdSha256": "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "result": {
+          "detail": "compact",
+          "success": false,
+          "checks": {
+            "typechecked": {
+              "status": "unknown",
+              "reason": "Compiler worker timed out",
+              "diagnostics": []
+            },
+            "tested": {
+              "status": "not-run",
+              "reason": "No test command supplied"
+            },
+            "stable": {
+              "status": "unknown",
+              "reason": "Compiler worker timed out"
+            }
+          },
+          "execution": null,
+          "failure": "Compiler worker timed out",
+          "schemaVersion": 2,
+          "id": "6cb30b2d-3f94-43f3-9751-85e6ee49197f",
+          "queryId": null,
+          "origin": "tool-executed",
+          "createdAt": "2026-11-06T23:29:04.968Z",
+          "afterSnapshotId": null,
+          "afterRuntimeSnapshotId": null,
+          "environmentHash": "f49260e5299e2c1ba005100b4f754ae6a81473d185bc84d9b09f4f71e0120492",
+          "durationMs": 30033.536875000005,
+          "evidencePath": null,
+          "snapshot": null,
+          "runtimeSnapshot": null
+        }
+      },
+      "repairReview": "Both callers pass their actual catalogs into the shared settings checker; the checker exposes the catalogs changed-field and uses the existing allCatalogsAreUpToDate comparison with empty fallback; the verification package exports that helper. Existing unrelated checks remain unchanged. Source differences from upstream are optional parameter typing and property/export ordering, not omission of the specified behavior."
+    },
+    {
+      "id": "pnpm-catalog-consistency-v2-r1-competitor",
+      "evidenceSha256": "e1c6a30c9aef38413cec642ed6fc81601313e40fe326a0eb0921056fb5fd7c8e",
+      "toolOutputsSha256": "bc1bb1987bb21222e78f90ca05150527631a669c5d7d0fe1019d2733c9551d35",
+      "originalCorrect": true,
+      "reviewedCorrect": true,
+      "privateCases": 23,
+      "privateResults": [
+        {
+          "id": "checker/changed-default",
+          "passed": true
+        },
+        {
+          "id": "status/changed-default",
+          "passed": true
+        },
+        {
+          "id": "core/changed-default",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-named",
+          "passed": true
+        },
+        {
+          "id": "status/changed-named",
+          "passed": true
+        },
+        {
+          "id": "core/changed-named",
+          "passed": true
+        },
+        {
+          "id": "checker/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "status/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "core/removed-entry",
+          "passed": true
+        },
+        {
+          "id": "checker/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "status/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "core/changed-spelling",
+          "passed": true
+        },
+        {
+          "id": "checker/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "status/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "core/unchanged-default",
+          "passed": true
+        },
+        {
+          "id": "checker/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "status/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "core/unreferenced-addition",
+          "passed": true
+        },
+        {
+          "id": "checker/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "status/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "core/no-catalogs",
+          "passed": true
+        },
+        {
+          "id": "checker/unrelated-override",
+          "passed": true
+        },
+        {
+          "id": "native/upstream-frozen-catalog-install",
+          "passed": true
+        }
+      ],
+      "privateProcesses": [
+        {
+          "name": "compile",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "semantics",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        },
+        {
+          "name": "native",
+          "exitCode": 0,
+          "signal": null,
+          "error": null
+        }
+      ],
+      "changes": [
+        {
+          "path": "deps/status/src/checkDepsStatus.ts",
+          "beforeSha256": "265bb7643eb225f6a7db3d5f5879e38a16d9c25a6028ac3a78f14bc4e27ba4f1",
+          "afterSha256": "edb6f5cec19a12944aed1d43c7cb6216faf74ceb84dbe65d757e54e5a48b5064"
+        },
+        {
+          "path": "lockfile/settings-checker/src/getOutdatedLockfileSetting.ts",
+          "beforeSha256": "5dcc20d235466e42f84cdc0086817c5b9e739b7682c329a1cd2acd8cd909268a",
+          "afterSha256": "848e39f6ddc2de17a4ab138ae256febacba0f960ff57910016109cbaf2a50056"
+        },
+        {
+          "path": "lockfile/verification/src/index.ts",
+          "beforeSha256": "2545836b0551f2fbeab00460f9898c8a8e1dd605429f734aa2f7a46f61b7dfa9",
+          "afterSha256": "9c75ecad90f23afaaa1301e97aefdae0b829359cc00040ecd107c99698267ffc"
+        },
+        {
+          "path": "pkg-manager/core/src/install/index.ts",
+          "beforeSha256": "52cd9818d608889988a1bbbc896e577772c57ac06d7959142a0555b0f8e68bc7",
+          "afterSha256": "c4b332498285ef40ab170933cde9cdf28938074d1d8b1d8f03828de759eef800"
+        }
+      ],
+      "publicAttempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 6434.017583000008,
+          "completedMs": 22298.277624999988,
+          "exitCode": 1,
+          "passed": false,
+          "cases": 9,
+          "passingCases": 6,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": false
+            },
+            {
+              "id": "status/changed-default",
+              "passed": false
+            },
+            {
+              "id": "core/changed-default",
+              "passed": false
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "dc04dcae5049854dab29e527c84087f422ad56c2aba891c2c766ed22a219ccef"
+        },
+        {
+          "actionIdSha256": "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+          "startedMs": 47626.33750000002,
+          "completedMs": 57672.64650000003,
+          "exitCode": 0,
+          "passed": true,
+          "cases": 9,
+          "passingCases": 9,
+          "compile": {
+            "exitCode": 0,
+            "signal": null,
+            "error": null
+          },
+          "results": [
+            {
+              "id": "checker/changed-default",
+              "passed": true
+            },
+            {
+              "id": "status/changed-default",
+              "passed": true
+            },
+            {
+              "id": "core/changed-default",
+              "passed": true
+            },
+            {
+              "id": "checker/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "status/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "core/unchanged-default",
+              "passed": true
+            },
+            {
+              "id": "checker/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "status/no-catalogs",
+              "passed": true
+            },
+            {
+              "id": "core/no-catalogs",
+              "passed": true
+            }
+          ],
+          "outputSha256": "f7f4065b9dd12cbe20845fe274e178cd3985c56dd3c344410e86f9e574e8a517"
+        }
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "startedMs": 26361.510375000013,
+        "baselineCompletedMs": 22298.277624999988,
+        "afterBaseline": true
+      },
+      "optionalValidation": null,
+      "repairReview": "Both callers pass their actual catalogs into the shared settings checker; the checker exposes the catalogs changed-field and uses the existing allCatalogsAreUpToDate comparison with empty fallback; the verification package exports that helper. Existing unrelated checks remain unchanged. Source differences from upstream are optional parameter typing and property/export ordering, not omission of the specified behavior."
+    }
+  ]
+}

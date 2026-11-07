@@ -1,0 +1,6 @@
+{
+  "stopped": true,
+  "scope": "setup-owned processes only; setup does not launch a process",
+  "requiresCaptureGroupStopped": true,
+  "completedAt": "2026-11-07T00:09:55.085Z"
+}

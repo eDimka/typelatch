@@ -210,3 +210,67 @@ if (guidedImage && guidedButton) {
     if (document.hidden) stopGuidedComparison()
   })
 }
+
+const impactImage = document.querySelector('[data-impact-comparison-image]')
+const impactButton = document.querySelector('[data-impact-comparison-play]')
+let impactPlaying = false
+function stopImpactComparison() {
+  if (!impactImage || !impactButton) return
+  impactImage.src = impactImage.dataset.poster
+  impactPlaying = false
+  impactButton.textContent = 'Play recorded comparison'
+  impactButton.setAttribute('aria-pressed', 'false')
+  impactButton.hidden = reducedMotion.matches
+}
+if (impactImage && impactButton) {
+  impactButton.hidden = reducedMotion.matches
+  impactButton.addEventListener('click', () => {
+    if (impactPlaying) {
+      stopImpactComparison()
+      status.textContent = 'Recorded comparison stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    impactImage.src = impactImage.dataset.gif
+    impactPlaying = true
+    impactButton.textContent = 'Stop replay'
+    impactButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded public Codex actions with accelerated timing.'
+  })
+  reducedMotion.addEventListener('change', stopImpactComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopImpactComparison()
+  })
+}
+
+const confirmationImage = document.querySelector('[data-confirmation-comparison-image]')
+const confirmationButton = document.querySelector('[data-confirmation-comparison-play]')
+let confirmationPlaying = false
+function stopConfirmationComparison() {
+  if (!confirmationImage || !confirmationButton) return
+  confirmationImage.src = confirmationImage.dataset.poster
+  confirmationPlaying = false
+  confirmationButton.textContent = 'Play recorded comparison'
+  confirmationButton.setAttribute('aria-pressed', 'false')
+  confirmationButton.hidden = reducedMotion.matches
+}
+if (confirmationImage && confirmationButton) {
+  confirmationButton.hidden = reducedMotion.matches
+  confirmationButton.addEventListener('click', () => {
+    if (confirmationPlaying) {
+      stopConfirmationComparison()
+      status.textContent = 'Recorded comparison stopped. The static poster is shown.'
+      return
+    }
+    if (reducedMotion.matches) return
+    confirmationImage.src = confirmationImage.dataset.gif
+    confirmationPlaying = true
+    confirmationButton.textContent = 'Stop replay'
+    confirmationButton.setAttribute('aria-pressed', 'true')
+    status.textContent = 'Replaying recorded public Codex actions with accelerated timing.'
+  })
+  reducedMotion.addEventListener('change', stopConfirmationComparison)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopConfirmationComparison()
+  })
+}

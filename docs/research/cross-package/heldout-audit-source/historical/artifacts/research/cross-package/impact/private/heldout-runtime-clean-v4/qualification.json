@@ -1,0 +1,71 @@
+{
+  "status": "qualified",
+  "version": 2,
+  "previousQualification": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/qualification.json",
+  "sourceFixtureUnchanged": true,
+  "initialManifest": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-clean-v4/initial-manifest.json",
+  "truthSha256": "6a68514183726a061ed54ef74250485042d57b164b45572ba9e73d2f3a4806d9",
+  "goldPassed": true,
+  "independentSourceDerivation": true,
+  "agentTrials": 0,
+  "graderInputs": [
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/grade-answer.mjs",
+      "sha256": "ce4bdf24dedc353aa1fc018882c5fde0c272bcecd7d1f80b9103d8f36abc2093"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/answer-schema.mjs",
+      "sha256": "74b645483936885f796ee1062f6f11508b6af156ece5f9d3b65f6523680b4a01"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/compiler-oracle.mjs",
+      "sha256": "65df16940354aae319d572a9a148fdc73849d4358f976c344ed41f0cf06684f4"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/script-evidence.mjs",
+      "sha256": "593de09e6520c328b2e43a4abe3e91c60ef0c9ac2148f48f4fdfffac296f04f1"
+    },
+    {
+      "path": "$REPOSITORY/artifacts/research/cross-package/impact/grading-v2/prepare.mjs",
+      "sha256": "183dcef28ea68349b73b766cfab6dccef057bf4469a9ddf0e4f25bf61be39b79"
+    }
+  ],
+  "verification": {
+    "focusedChecks": 25,
+    "fullDevelopmentCopyPassed": true,
+    "fullPrivateCopiesPassed": 2,
+    "originalFrozenFilesVerified": 28,
+    "originalFrozenFilesChanged": 0,
+    "sourceFixturesUnchanged": true,
+    "modelReruns": 0
+  },
+  "declarationIdentityPolicy": "defining-package-declaration-impact; foreign facade slots and collapsed requested aliases rejected",
+  "uncertaintyPolicy": "schema2 constrained code/state pairs; undocumented prose fields rejected",
+  "promptOnlyClarification": true,
+  "qualificationInheritedFromUnchangedFixtureAndGrader": true,
+  "amendment": "$REPOSITORY/artifacts/research/cross-package/impact/private/prompt-amendment-v3.json",
+  "newModelSessions": 0,
+  "fixtureHygieneVersion": 4,
+  "admittedSnapshotUnchanged": true,
+  "coordinatorGitQualification": {
+    "passed": true,
+    "exactInitializerSha256": "ace0c88bfa1dc6209177fb9e64c5f736bf2d66bde62462caab6a9a09663b6365",
+    "trackedFiles": 700,
+    "independentCommitCount": 1,
+    "head": "3f21c70629b63f5b655d4a8f24bec4b0dc30414b",
+    "sourceUnchanged": true,
+    "workspace": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/native-runtime/qualification-workspace"
+  },
+  "hygieneReceipt": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/receipt.json",
+  "canonicalCloneHelperQualification": {
+    "passed": true,
+    "helper": "$REPOSITORY/artifacts/research/cross-package/trial/clone-tree.py",
+    "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+    "python": "/usr/local/Cellar/python@3.9/3.9.7_1/Frameworks/Python.framework/Versions/3.9/bin/python3.9",
+    "pythonSha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+    "receipt": "$REPOSITORY/artifacts/research/cross-package/impact/private/fixture-hygiene-v4/canonical-qualification.json",
+    "snapshotSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+    "trackedFiles": 700,
+    "independentCommitCount": 1
+  }
+}

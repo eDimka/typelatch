@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "privateReportSha256": "5a28e31d199908eca4bfcbce7f657eb3e922cbe07033414965b5cff715ae77e7",
+  "privateProtocolSha256": "2ed3eddbae80b1d1dffa86859eaab9dbbd3bbbcb3fc0994fd6d33264e54b4d8a",
+  "originalResultsUnchanged": true,
+  "createdAt": "2026-11-06T22:26:53.855Z",
+  "normalization": "Private report and review files have local path placeholders. Hashes retain original byte identities; completed public action records and tool outputs are copied exactly. No model reasoning or assistant message bodies are included.",
+  "files": [
+    {
+      "path": "report.json",
+      "sha256": "57d60344323ab28ab318d97671cb77396f5431b1aed8da9e5b495b0b8bd5ac37",
+      "originalSha256": "5a28e31d199908eca4bfcbce7f657eb3e922cbe07033414965b5cff715ae77e7",
+      "bytes": 141541
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "d5f5c5cb067b02ce7f2a4e028c11d3f92952f9ac21b3f8187780a269ab904342",
+      "originalSha256": "d5f5c5cb067b02ce7f2a4e028c11d3f92952f9ac21b3f8187780a269ab904342",
+      "bytes": 25690
+    },
+    {
+      "path": "adjudicated-result.json",
+      "sha256": "b955be770f7c297689e56ea3734683a26f9f5bc996e0664a0f22bd1c159bcf03",
+      "originalSha256": "b955be770f7c297689e56ea3734683a26f9f5bc996e0664a0f22bd1c159bcf03",
+      "bytes": 20954
+    },
+    {
+      "path": "correctness-audit.json",
+      "sha256": "1b5cc2f6dfdf142ea3a867e19dc10451a73a6c645098de8a09d3bf6653317efa",
+      "originalSha256": "1b5cc2f6dfdf142ea3a867e19dc10451a73a6c645098de8a09d3bf6653317efa",
+      "bytes": 263076
+    },
+    {
+      "path": "correctness-audit.md",
+      "sha256": "8d2ada3437523510d78be5fca98c7256bbbc37bd9c4cbbb593537563690d4c48",
+      "originalSha256": "8d2ada3437523510d78be5fca98c7256bbbc37bd9c4cbbb593537563690d4c48",
+      "bytes": 1945
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-native/public-evidence.json",
+      "sha256": "31131e21a8e2dfcb3590b9707fe6977880c2c0b4cfe65b551a212171c9304fde",
+      "originalSha256": "31131e21a8e2dfcb3590b9707fe6977880c2c0b4cfe65b551a212171c9304fde",
+      "bytes": 96588
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-native/tool-outputs.json",
+      "sha256": "5d0c1ecfb82567fbc010c7b1c3249ac56f9706af2c966222fefda5d8034ea8ab",
+      "originalSha256": "5d0c1ecfb82567fbc010c7b1c3249ac56f9706af2c966222fefda5d8034ea8ab",
+      "bytes": 195688
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-typelatch/public-evidence.json",
+      "sha256": "726033996bfa85f576b8ec5d00705285c34cc766ac16baf8a053292ccdfafee4",
+      "originalSha256": "726033996bfa85f576b8ec5d00705285c34cc766ac16baf8a053292ccdfafee4",
+      "bytes": 100957
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-typelatch/tool-outputs.json",
+      "sha256": "994cb41ef419ab49377cda9d3bf80d610435b5e1819782727647182816383c55",
+      "originalSha256": "994cb41ef419ab49377cda9d3bf80d610435b5e1819782727647182816383c55",
+      "bytes": 180246
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-competitor/public-evidence.json",
+      "sha256": "643b649860523c24b95f924d904c494e6291f4d9c7d7b4dda7c48dcf82dbf7bc",
+      "originalSha256": "643b649860523c24b95f924d904c494e6291f4d9c7d7b4dda7c48dcf82dbf7bc",
+      "bytes": 102586
+    },
+    {
+      "path": "runs/pnpm-glob-migration-r1-competitor/tool-outputs.json",
+      "sha256": "83eec6575fc2a8c0a60be7754949db38e377717315a84ce1ab17c918d7b1aedc",
+      "originalSha256": "83eec6575fc2a8c0a60be7754949db38e377717315a84ce1ab17c918d7b1aedc",
+      "bytes": 84584
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-typelatch/public-evidence.json",
+      "sha256": "7106a107169fd058809b1f4673ce9ba61b483374ad0ae2beed7f31cf6ec16607",
+      "originalSha256": "7106a107169fd058809b1f4673ce9ba61b483374ad0ae2beed7f31cf6ec16607",
+      "bytes": 74260
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-typelatch/tool-outputs.json",
+      "sha256": "52f98f993a7f423b68747a21e548952d9db81f2f18d75cc6bcd45e5c3b842334",
+      "originalSha256": "52f98f993a7f423b68747a21e548952d9db81f2f18d75cc6bcd45e5c3b842334",
+      "bytes": 161640
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-competitor/public-evidence.json",
+      "sha256": "8106eab275ddc0f3b7695f9d4320e1efc864bfa43f09ac5f041cb54ff4cb02ae",
+      "originalSha256": "8106eab275ddc0f3b7695f9d4320e1efc864bfa43f09ac5f041cb54ff4cb02ae",
+      "bytes": 80327
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-competitor/tool-outputs.json",
+      "sha256": "5981fa4156981422d54931e9d0bc2f123c8bc0f8afb6b0ec8af4d15d38ae144b",
+      "originalSha256": "5981fa4156981422d54931e9d0bc2f123c8bc0f8afb6b0ec8af4d15d38ae144b",
+      "bytes": 109625
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-native/public-evidence.json",
+      "sha256": "8c39cae463edb5d3c598f39b622ffcfc63c11a69191b349dd368f94a785ea344",
+      "originalSha256": "8c39cae463edb5d3c598f39b622ffcfc63c11a69191b349dd368f94a785ea344",
+      "bytes": 70659
+    },
+    {
+      "path": "runs/pnpm-parser-impact-development-r1-native/tool-outputs.json",
+      "sha256": "a89e1ced8950b53b36af28a914e9befeaaf76a6e0477859ff8099593b1c71b2c",
+      "originalSha256": "a89e1ced8950b53b36af28a914e9befeaaf76a6e0477859ff8099593b1c71b2c",
+      "bytes": 114961
+    }
+  ]
+}

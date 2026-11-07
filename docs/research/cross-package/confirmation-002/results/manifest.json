@@ -1,0 +1,685 @@
+{
+  "schemaVersion": 1,
+  "privateReportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "privateProtocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "originalResultsUnchanged": true,
+  "auditHashEncoding": "adjudicated-result.auditSha256 hashes JSON.stringify of the parsed original audit; manifest hashes bind exact file bytes.",
+  "originalParsedAuditSha256": "3ca052d01de51c651765b4e921b35a6dfa22b25c7f09556beba26d0858ae3149",
+  "publicParsedAuditSha256": "3ca052d01de51c651765b4e921b35a6dfa22b25c7f09556beba26d0858ae3149",
+  "createdAt": "2026-11-07T00:40:02.561Z",
+  "normalization": "Private report and review files have local path placeholders. Hashes retain original byte identities; completed public action records and tool outputs are copied exactly. No model reasoning or assistant message bodies are included.",
+  "files": [
+    {
+      "path": "report.json",
+      "sha256": "0559fc46e82f124f4d882cfec3e028d2f2f0687730216a881d3ca06f3748e469",
+      "originalSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+      "bytes": 309605
+    },
+    {
+      "path": "workflow-audit.json",
+      "sha256": "5dc73d9de6236d1123ed2112db1896258029ded69bdf7f8698ccf33ab973a92a",
+      "originalSha256": "5dc73d9de6236d1123ed2112db1896258029ded69bdf7f8698ccf33ab973a92a",
+      "bytes": 52984
+    },
+    {
+      "path": "adjudicated-result.json",
+      "sha256": "c149c39fc104a262de553048de90178c86e1cca79f46d2470e626948662f6c0a",
+      "originalSha256": "c149c39fc104a262de553048de90178c86e1cca79f46d2470e626948662f6c0a",
+      "bytes": 45547
+    },
+    {
+      "path": "codegraph-challenge.json",
+      "sha256": "113ba8f68cf40d1b418bb33deb0fdb2e61e8a5f39fcd9b6d2e1a3782e14d9d66",
+      "originalSha256": "113ba8f68cf40d1b418bb33deb0fdb2e61e8a5f39fcd9b6d2e1a3782e14d9d66",
+      "bytes": 4066
+    },
+    {
+      "path": "codegraph-challenge-policy.json",
+      "sha256": "7f0c6e2419b494a79f42d9b88835a69173c8b23c31b18d59a86e9a0d84534a67",
+      "originalSha256": "7f0c6e2419b494a79f42d9b88835a69173c8b23c31b18d59a86e9a0d84534a67",
+      "bytes": 806
+    },
+    {
+      "path": "evaluator/decision.mjs",
+      "sha256": "4a5516b7742afafe5ab14f15607ec2e86710625157f7e0af288824a2824e3142",
+      "originalSha256": "4a5516b7742afafe5ab14f15607ec2e86710625157f7e0af288824a2824e3142",
+      "bytes": 9842
+    },
+    {
+      "path": "evaluator/review.mjs",
+      "sha256": "c2b48a629796ca45bf0a4a17c5332d8864d55413728c7d78912ecf9e7e30fe0a",
+      "originalSha256": "c2b48a629796ca45bf0a4a17c5332d8864d55413728c7d78912ecf9e7e30fe0a",
+      "bytes": 6284
+    },
+    {
+      "path": "evaluator/codegraph-challenge.mjs",
+      "sha256": "3b0958c7127daa2ed9cc73d5377b866f1a8e20374baf7bb0824945d351f6b501",
+      "originalSha256": "3b0958c7127daa2ed9cc73d5377b866f1a8e20374baf7bb0824945d351f6b501",
+      "bytes": 4604
+    },
+    {
+      "path": "correctness-audit.json",
+      "sha256": "03bb38fc14a63f8fe968a21c83a691760a240f9cbc7009496df9007612774401",
+      "originalSha256": "03bb38fc14a63f8fe968a21c83a691760a240f9cbc7009496df9007612774401",
+      "bytes": 305425
+    },
+    {
+      "path": "correctness-audit.md",
+      "sha256": "2ba4e2425ee410970f18ca9030a72fe5f5e37b037968f25305486630af36c6aa",
+      "originalSha256": "2ba4e2425ee410970f18ca9030a72fe5f5e37b037968f25305486630af36c6aa",
+      "bytes": 742
+    },
+    {
+      "path": "control-audit.json",
+      "sha256": "fdd7cd9bfca51ba9a1df2bc78ed1f8ebb3736cc0b6025e63d53661349e70bcef",
+      "originalSha256": "fdd7cd9bfca51ba9a1df2bc78ed1f8ebb3736cc0b6025e63d53661349e70bcef",
+      "bytes": 52891
+    },
+    {
+      "path": "control-audit.md",
+      "sha256": "09a1972a909f0831935b86ee85591c0741923e6504c3b867723bd3d709830490",
+      "originalSha256": "09a1972a909f0831935b86ee85591c0741923e6504c3b867723bd3d709830490",
+      "bytes": 2048
+    },
+    {
+      "path": "occurrence-assessment-v1.json",
+      "sha256": "11772608865210b5fc2f1651ef9432a365da45abddf4b1c572888cf2b1064611",
+      "originalSha256": "11772608865210b5fc2f1651ef9432a365da45abddf4b1c572888cf2b1064611",
+      "bytes": 133441
+    },
+    {
+      "path": "occurrence-assessment-v1.md",
+      "sha256": "8b9c2116f2d351f604d9cd26716234251cdae8ab918d1078911529ed6a293b10",
+      "originalSha256": "8b9c2116f2d351f604d9cd26716234251cdae8ab918d1078911529ed6a293b10",
+      "bytes": 1048
+    },
+    {
+      "path": "correctness-erratum-001.json",
+      "sha256": "5b3e24745e777a0d8886cae4c587cbaf082949ab97ea7e75cd2c1c5f3fbce477",
+      "originalSha256": "5b3e24745e777a0d8886cae4c587cbaf082949ab97ea7e75cd2c1c5f3fbce477",
+      "bytes": 5898
+    },
+    {
+      "path": "correctness-native-chain-001.json",
+      "sha256": "999a6a2893417ec37326533a5ac951d9ff091e0b2fb2ffd32cd7904659c3d937",
+      "originalSha256": "999a6a2893417ec37326533a5ac951d9ff091e0b2fb2ffd32cd7904659c3d937",
+      "bytes": 4846
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/public-evidence.json",
+      "sha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "originalSha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "bytes": 39683
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/tool-outputs.json",
+      "sha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8",
+      "originalSha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8",
+      "bytes": 110683
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/fixture-copy.json",
+      "sha256": "bba65177426d819094d641bb676a6507ec4524bb666f0945e594fa9fad2bf95e",
+      "originalSha256": "eb4fc46545c28f4e0123726dc5b00b764c861c1143e4a69e190c454333ffc5d1",
+      "bytes": 1660
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/fixture-git.json",
+      "sha256": "c4e182c0252b5b37a1fb92393a22ed3ab6b007a4665a79cd7010fd29e9832d40",
+      "originalSha256": "57c811b27674c8c306e9828c3c91cc1086afb917f24445b861065a54fd4dd955",
+      "bytes": 376
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-native/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/public-evidence.json",
+      "sha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "originalSha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "bytes": 32477
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/tool-outputs.json",
+      "sha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75",
+      "originalSha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75",
+      "bytes": 37769
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/fixture-copy.json",
+      "sha256": "33612a59dec437d30b83aee3ab1708e8ed3fb1b0e33876b9f3f6e54b1baca0a6",
+      "originalSha256": "8cf4b1dad43945de448bcd8ecbe0293044ba07d2d44eab0785144feba6275f3c",
+      "bytes": 1653
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/fixture-git.json",
+      "sha256": "161529ce46735649d90966352b51915c5418e6833a288c13c081af93b79714ee",
+      "originalSha256": "415e9b19847c2f7f14302ae0485c6bd0e5515505af4b53ce6c3313a020ff1469",
+      "bytes": 376
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-impact/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/public-evidence.json",
+      "sha256": "5dc2150120039e092b2ce70cb440816a00857cb8b3dfc57de2b8bd5951fe2f46",
+      "originalSha256": "5dc2150120039e092b2ce70cb440816a00857cb8b3dfc57de2b8bd5951fe2f46",
+      "bytes": 46330
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/tool-outputs.json",
+      "sha256": "35a77a4518cf7bc16ddff7a14fc7ac146c7d75697a85a38793d99b24a9032c28",
+      "originalSha256": "35a77a4518cf7bc16ddff7a14fc7ac146c7d75697a85a38793d99b24a9032c28",
+      "bytes": 73720
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/fixture-copy.json",
+      "sha256": "32cd9826a81c17a1950b42603165d15bc6ea48841f22bfd54d420a6a93ea2285",
+      "originalSha256": "7d34bd57d44e5b0c87bd21751998f104b35cc41cdffa4646722848a428329709",
+      "bytes": 1679
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/fixture-git.json",
+      "sha256": "8f1dbee158386596fda75edadd7bf2df4ddea49d150fb937269d05652a346a55",
+      "originalSha256": "9e4b914377f0f3a7f4a4c5fccd197a2778d1842f1ef27ac159a63878ce37992b",
+      "bytes": 380
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/preparation.json",
+      "sha256": "51c3e00d6e90d65abf06efb1a1cf66f022da051cee6b5c84e56e89f3885f413f",
+      "originalSha256": "1647caad7e36ed9f0f2bb60d79384e64a0cfc211988a0c29a3f1d0930caf4087",
+      "bytes": 4499
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-competitor/cleanup.json",
+      "sha256": "b23c02bce034c88ff3d7972be85c0c9e2e8e3a3fee5d15f1513e32bf169dfbac",
+      "originalSha256": "b23c02bce034c88ff3d7972be85c0c9e2e8e3a3fee5d15f1513e32bf169dfbac",
+      "bytes": 180
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+      "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "originalSha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "bytes": 46010
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+      "sha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "originalSha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "bytes": 70542
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/fixture-copy.json",
+      "sha256": "a0cc94f1f8a821ed2d8a1860a1f880b82e11ff3252c3e6fbffb07ef5c5efad3b",
+      "originalSha256": "6874e28520d749854f89e5f0f1ef18845f0ac2fc63db463a129101dde578997e",
+      "bytes": 1656
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/fixture-git.json",
+      "sha256": "84d6fd0da9af0e1d89c16fb63b7cdcf499cfae7b84a7f9ba6bcdf4c33e4021a0",
+      "originalSha256": "fc5e3ba193753ee31de83f616430dd9bcbf06705446114dcd9869eb7d5f11c11",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+      "sha256": "7d81d625cbff3632f4b01772280c56ef56c07602bc5b8ce8d2469e19e380efce",
+      "originalSha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+      "bytes": 6680
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+      "sha256": "118c784820ee2b32bb2e70f4bcf9ece4090c35d2d1923502b8c0d650f0ed7dd1",
+      "originalSha256": "118c784820ee2b32bb2e70f4bcf9ece4090c35d2d1923502b8c0d650f0ed7dd1",
+      "bytes": 363
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/public-evidence.json",
+      "sha256": "82d93c090bb4f32f4157f00ecb68bc8c4089702c3e5497035ef0d3b804e2a32b",
+      "originalSha256": "82d93c090bb4f32f4157f00ecb68bc8c4089702c3e5497035ef0d3b804e2a32b",
+      "bytes": 40458
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/tool-outputs.json",
+      "sha256": "ff12f53c5b4c1cebef70658eb7d75fe0ac64cba7b853c05ddbe7a89a4ff84b0e",
+      "originalSha256": "ff12f53c5b4c1cebef70658eb7d75fe0ac64cba7b853c05ddbe7a89a4ff84b0e",
+      "bytes": 46649
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/fixture-copy.json",
+      "sha256": "312824974d85e84b6fd9e7c357f9749f1b51cb4fb2d474a63b4a80ebdfc84764",
+      "originalSha256": "b05b08adea80a6226773c0a5d9bd4f556e5b7a3bfc2dae9e9820975c0734c4a6",
+      "bytes": 1665
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/fixture-git.json",
+      "sha256": "a45dfe308b88d06a9eae866b6757d4b5013eb5d2004f9796fc89a668d38b6ab0",
+      "originalSha256": "df76baa57003274ffae50495c1a5bbbfd8f0a25393ac868ae21a32a18d48837b",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-impact/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/public-evidence.json",
+      "sha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+      "originalSha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+      "bytes": 47620
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/tool-outputs.json",
+      "sha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+      "originalSha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+      "bytes": 80806
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/fixture-copy.json",
+      "sha256": "08efcbf84c853516085488c0955d1514f6bc74216f8f15caa0ba32330d6569f2",
+      "originalSha256": "4d77b65595714a8d6542b324374b7f1b8221f67d3109e76c63b1f32c8f90c2b6",
+      "bytes": 1680
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/fixture-git.json",
+      "sha256": "ed8e57b2e48ee087beeb820c3c1e07f4b0f56c64efd827984b9886446b2a2164",
+      "originalSha256": "f3547513b4c0953664ba8fd6897cd45c976e6be23201b6d0599f2f69f2f4b375",
+      "bytes": 383
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/preparation.json",
+      "sha256": "117e8036a895e7e7a1b70d78fc14da57c1e3457a3e267ebd347b3432d910749b",
+      "originalSha256": "8e961560f30a51bc4f5e08f58f77386f1ad5984c002a5e7ffc72d4bf0031138f",
+      "bytes": 4529
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-competitor/cleanup.json",
+      "sha256": "a90abd4d2d7ce9bf436a5c82d7b2bc0240a5745adc071d5c68692988663e1454",
+      "originalSha256": "a90abd4d2d7ce9bf436a5c82d7b2bc0240a5745adc071d5c68692988663e1454",
+      "bytes": 180
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+      "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "originalSha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "bytes": 45670
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+      "sha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "originalSha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "bytes": 75632
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/fixture-copy.json",
+      "sha256": "24d3b868078d33026c23869ffa7e4808fa15be7b44723eed3c82658abd07c117",
+      "originalSha256": "7e59693f4db42c9e37be36ea17bb551d91f977bc48983b365f4cb71cc3e65e1f",
+      "bytes": 1678
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/fixture-git.json",
+      "sha256": "f76edf337c245520cbd2d52d0bb7e7ac826a43d656a852d07acfdb240ce1ab88",
+      "originalSha256": "f1f58ec4b20c02ca430e9b29d88b97be408450b989d6c327b59315fdcad25a97",
+      "bytes": 382
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+      "sha256": "e4b447f52c375dfa2c5070bc40e35314d7db0cc2f3c0074d884989a3afe13ca7",
+      "originalSha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+      "bytes": 6725
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+      "sha256": "4edfd6a402e8c55faa91ea8830958544518843372607287b5276cad18371a1a2",
+      "originalSha256": "4edfd6a402e8c55faa91ea8830958544518843372607287b5276cad18371a1a2",
+      "bytes": 363
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/public-evidence.json",
+      "sha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+      "originalSha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+      "bytes": 43608
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/tool-outputs.json",
+      "sha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+      "originalSha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+      "bytes": 56303
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/fixture-copy.json",
+      "sha256": "203b34fa594f4d9379222df8a9e0a752879fb89420f745817a78331ad5e466f9",
+      "originalSha256": "b7deab3e671aefad224778c8fba2689406d6eab192edfa638af6ccd24a967328",
+      "bytes": 1670
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/fixture-git.json",
+      "sha256": "d17ebcdeaa4754563a74cd9cce74ae6b3e4c0391f97f736719a1bbb2cf63fd35",
+      "originalSha256": "75fc71897be8051609f5e14ce2c0f33719cd1ebe8be540c77a105e99c4e11260",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r1-native/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/public-evidence.json",
+      "sha256": "f2a2c3161676817f6c40c4ffd5ce76ac08a33adbd661623e2c4e7c9e2c4fbd50",
+      "originalSha256": "f2a2c3161676817f6c40c4ffd5ce76ac08a33adbd661623e2c4e7c9e2c4fbd50",
+      "bytes": 42308
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/tool-outputs.json",
+      "sha256": "a15e2c849710f2820217bcf97c083967aeaedfea6a660f0b8c639dd45ab1b8b8",
+      "originalSha256": "a15e2c849710f2820217bcf97c083967aeaedfea6a660f0b8c639dd45ab1b8b8",
+      "bytes": 64942
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/fixture-copy.json",
+      "sha256": "2b26494bea81be488da0f96438cce58c2a640bb7994546abcd41e2aabef2ea0d",
+      "originalSha256": "cf59202bc24417f5882b47c23da6a28bc371ac107b1ced414a93cebaee77e84e",
+      "bytes": 1671
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/fixture-git.json",
+      "sha256": "f7d1ae9c4fc176ade5a7d619412ca0e4558e0b6f35998de7949d3e1292076056",
+      "originalSha256": "12fa8346b75848f790e8120b43a28d66e2eb3aeab6ef2340a737a55e9f256c1d",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-native/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+      "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "originalSha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "bytes": 48167
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+      "sha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "originalSha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "bytes": 63900
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/fixture-copy.json",
+      "sha256": "ee49640541f9b28ec6129dfe5795eac0b4b3c286f6203ce555eb10cd59ce92f6",
+      "originalSha256": "c1b3437c0b65816240b082217a3c427c1f2718cbed6ac3591364fe8e439d4352",
+      "bytes": 1678
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/fixture-git.json",
+      "sha256": "b1c9c6984469ca6e625c7f34f763b415368daca9f2e4a4fd68fb3e68c8bee724",
+      "originalSha256": "d5e0efbc68c164e344798110c81b4d02e9d742a7d4380b67e76df5429129586e",
+      "bytes": 382
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+      "sha256": "aa7e4494daf5331d4d774f2d4adf8dc48a439cc10404bb7f08a3ae53785b2b7b",
+      "originalSha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+      "bytes": 6724
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+      "sha256": "c70b457369fdb4fa1d00aafd7e0172a288b64a6cedf7e0256e248f879f926c9e",
+      "originalSha256": "c70b457369fdb4fa1d00aafd7e0172a288b64a6cedf7e0256e248f879f926c9e",
+      "bytes": 362
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/public-evidence.json",
+      "sha256": "bf87b60932e0b6c0c78793ce0345ff567abd409855c8b932fd626df5c862cd01",
+      "originalSha256": "bf87b60932e0b6c0c78793ce0345ff567abd409855c8b932fd626df5c862cd01",
+      "bytes": 53058
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/tool-outputs.json",
+      "sha256": "73e859de08663775b21d3b377b3ba2ea1d540d9f451ed389cc53ce5b2a5915e4",
+      "originalSha256": "73e859de08663775b21d3b377b3ba2ea1d540d9f451ed389cc53ce5b2a5915e4",
+      "bytes": 95136
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/fixture-copy.json",
+      "sha256": "62b90a8f852b17c4f203f0448c351e19290d4df6303cbc112c6bf396f5a8eaae",
+      "originalSha256": "e178044aa0efbe5b70ae2c863837e5a1f7f8f004b3d4c8dadd45e0d2770d4bbf",
+      "bytes": 1676
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/fixture-git.json",
+      "sha256": "2a677b4950ccaec8bc1d14d03602547655ccc8d881253294b9faef5a00e9d63f",
+      "originalSha256": "398c9cb62bf95353a1244bda8e83aab2724515d9dc6162a552c0ff8fcafdd569",
+      "bytes": 383
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/preparation.json",
+      "sha256": "f5bf56cdb4f22627ed98834e5c09a999a35ca271b1cc07233da005d69da3ce34",
+      "originalSha256": "6a1e62f99d7589861420e1a8399966c18dca1f15b133266dbb77afa0fe118b14",
+      "bytes": 4529
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-competitor/cleanup.json",
+      "sha256": "d49e8a4dfac2f96736f018da137a5d3f685ff8e54682402dd0cd8b8a3b8aac2f",
+      "originalSha256": "d49e8a4dfac2f96736f018da137a5d3f685ff8e54682402dd0cd8b8a3b8aac2f",
+      "bytes": 180
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/public-evidence.json",
+      "sha256": "e7ff8f1be85adf238ebc8a29ac39ce03309db60450b726975a8f47f469bcc8f6",
+      "originalSha256": "e7ff8f1be85adf238ebc8a29ac39ce03309db60450b726975a8f47f469bcc8f6",
+      "bytes": 36404
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/tool-outputs.json",
+      "sha256": "b31e3b10b60a65288eac598869e0e92cce184b5250e0b93b183ebbd9124fa805",
+      "originalSha256": "b31e3b10b60a65288eac598869e0e92cce184b5250e0b93b183ebbd9124fa805",
+      "bytes": 47791
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/fixture-copy.json",
+      "sha256": "1b2326143d9903a8c0f61a68eeb9f5f54a548a2bc11fe037bdf0bb3662105d55",
+      "originalSha256": "ddd181e227242b5dffde812174153bba9f93e3ea49947d91736a1d8636863a62",
+      "bytes": 1670
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/fixture-git.json",
+      "sha256": "bb9756c24d09fa63fe8f9ab652b186096fccd1a6665625ff2b9e3b7b30cb9376",
+      "originalSha256": "642e17d4c3200369d60f125ff9b9090f1f0c99a212f73f280897300274f3d514",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-runtime-impact-heldout-grading-v2-r2-impact/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+      "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "originalSha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "bytes": 42054
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+      "sha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "originalSha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "bytes": 112193
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/fixture-copy.json",
+      "sha256": "4eba9a5bda4b0d1b433fac3438255a4beccfec7a4bb734ce625b26a4a9d33ae4",
+      "originalSha256": "20b8397a9ddb11ed89b498f81dc693bece3a1b5fb449db739d14038a1c8bba21",
+      "bytes": 1659
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/fixture-git.json",
+      "sha256": "9ae8c9a02643206936e068fa6944bddfa258273eaa71a93ddf70d9fb7b9cbbcf",
+      "originalSha256": "c3e67e2e65b2564cdfdeca1cbd104e23278b5773c4bbabc90ddb73fd9f06997e",
+      "bytes": 379
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+      "sha256": "e3eec98daa6ca837e8ce616b7ee02ac64e471b7e5e2cb15729eddad6e456381c",
+      "originalSha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+      "bytes": 6680
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+      "sha256": "077f300632b3c3667940ec7fc048bf937d831e4bf3bc52a80d3d198f57b84bd4",
+      "originalSha256": "077f300632b3c3667940ec7fc048bf937d831e4bf3bc52a80d3d198f57b84bd4",
+      "bytes": 363
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/public-evidence.json",
+      "sha256": "e7513de2c4113ffa33daa794a36da92b7c8554c4b042503fab15de2615a70c89",
+      "originalSha256": "e7513de2c4113ffa33daa794a36da92b7c8554c4b042503fab15de2615a70c89",
+      "bytes": 43828
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/tool-outputs.json",
+      "sha256": "edbce22e2becff226e287a38ccd86b2a24482a54fe492ec3dc029fe5c5fb0ff1",
+      "originalSha256": "edbce22e2becff226e287a38ccd86b2a24482a54fe492ec3dc029fe5c5fb0ff1",
+      "bytes": 76811
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/fixture-copy.json",
+      "sha256": "cdc61e0823ce6d2209a27f1b4fc4b5f28876cea463849bb650015e0024ee35ec",
+      "originalSha256": "0d6dab6541b66aaf8b12bce38560f336359d59f5d7e4dbdfbbb2081bdcd73f84",
+      "bytes": 1664
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/fixture-git.json",
+      "sha256": "439c8b1f294aa9329d22faa5bb99c5ca141676bd85ce44291228f8364aaa7222",
+      "originalSha256": "a58891ec5eb1b754343f4a51a1c6989da40098d4aab8c645580f01654861b65e",
+      "bytes": 380
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/preparation.json",
+      "sha256": "4201dfc87a5fbd4fd77db9fa3cb32466ef757acb2c9b51b02f9c00b2e8677bda",
+      "originalSha256": "ff4a515939e3acd9a1e2ce69ed6dd603e516c07e335ff3a804086d1939772070",
+      "bytes": 4499
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-competitor/cleanup.json",
+      "sha256": "0021caa3084e587f470189ad64151fbea13e4fcf6012c962d81c61dbdd3ba9c0",
+      "originalSha256": "0021caa3084e587f470189ad64151fbea13e4fcf6012c962d81c61dbdd3ba9c0",
+      "bytes": 180
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/public-evidence.json",
+      "sha256": "01289c5fb4bc315e96782659848db931378ccbd5ec5173aef1b12b1895dc25ad",
+      "originalSha256": "01289c5fb4bc315e96782659848db931378ccbd5ec5173aef1b12b1895dc25ad",
+      "bytes": 35335
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/tool-outputs.json",
+      "sha256": "fb284c28a8d0bb9acad4d5119fb3ce1f83cc18c8ed9651a4ffe31602ec20a1b3",
+      "originalSha256": "fb284c28a8d0bb9acad4d5119fb3ce1f83cc18c8ed9651a4ffe31602ec20a1b3",
+      "bytes": 36926
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/fixture-copy.json",
+      "sha256": "f1403ece9aa6935d7713b2fcdaa3833e95b9dbf72d85cc6b45900d5efdb09cfb",
+      "originalSha256": "a89133663959f00d03a91139f3b021b34d265b43c0d78f0e9508a33a53865455",
+      "bytes": 1652
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/fixture-git.json",
+      "sha256": "72f56c425f1e788a8568b164270979be42f87e2d1d2007f6e24ca1f5780a43a4",
+      "originalSha256": "95646e67bb845753af002d0d2437b5c7968dde9c267e3103b1e6987db2d2f895",
+      "bytes": 376
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-impact/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/public-evidence.json",
+      "sha256": "72f50c1008b9ec971ca37faec17bc2efe6acdc946a500aa4ba62380511f06f3c",
+      "originalSha256": "72f50c1008b9ec971ca37faec17bc2efe6acdc946a500aa4ba62380511f06f3c",
+      "bytes": 35929
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/tool-outputs.json",
+      "sha256": "23b33dd4d99e12936d2c6e02dfd2be5ba5b4d4b057ab0f746da1ff2dbf174975",
+      "originalSha256": "23b33dd4d99e12936d2c6e02dfd2be5ba5b4d4b057ab0f746da1ff2dbf174975",
+      "bytes": 40087
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/fixture-copy.json",
+      "sha256": "db4021e0f8f2a16e0693cee21e71780111c674cc5871bc2ef5520bc3496d1b5d",
+      "originalSha256": "ad9e36c48dd66a1c308b2a35e666434be2b5736e330df7a18c56ad0a20328836",
+      "bytes": 1653
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/fixture-git.json",
+      "sha256": "f2f4accc98d8af32959918e01d9fd96182fb499aaf71f9af4010881999c33126",
+      "originalSha256": "b90e2faecba6f67d89b00dec3bc1af2da4b3cf96a2bf715a20a73ffc773ca28a",
+      "bytes": 376
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/preparation.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "originalSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "runs/vue-type-impact-heldout-grading-v2-r2-native/cleanup.json",
+      "sha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "originalSha256": "e82b616c9daaf3080232e38c8e36adc44175d25b70312f42a4628edf66c986c5",
+      "bytes": 22
+    }
+  ]
+}

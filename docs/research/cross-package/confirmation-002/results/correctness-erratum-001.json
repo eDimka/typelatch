@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "status": "source-bound-erratum-assessment-pending",
+  "study": "impact-confirmation-002",
+  "runId": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "publicEvidenceSha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+  "toolOutputsSha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+  "answerSha256": "e3562789f36b13ee6ed4f56beb4e2b78d4912384e549754358465e0c97254c1c",
+  "promptSha256": "4b362f2b227ae0e91dbebd09602e6912709a08eabc52cd6e6736a142eb2850b9",
+  "originalGradeUnchanged": true,
+  "originalCorrect": false,
+  "scope": "This identifies a prompt/grader mismatch. It is not a replacement grade, rerun, threshold amendment or qualified performance claim.",
+  "finding": {
+    "code": "distinct-exclusion-occurrences-collapsed",
+    "gradingKey": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+    "reason": "The grader collapses distinct accepted literal occurrences because its exclusion identity excludes source occurrence or line range. The frozen prompt permits occurrence-level exclusions and does not state one exclusion per file/name/reason.",
+    "promptQuote": "An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected.",
+    "source": {
+      "path": "packages/compiler-core/src/runtimeHelpers.ts",
+      "sha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2"
+    },
+    "acceptedExclusions": [
+      {
+        "file": "packages/compiler-core/src/runtimeHelpers.ts",
+        "symbol": "normalizeClass",
+        "reason": "string-or-comment-only",
+        "evidence": {
+          "startLine": 48,
+          "endLine": 50,
+          "quote": "export const NORMALIZE_CLASS: unique symbol = Symbol(\n  __DEV__ ? `normalizeClass` : ``,\n)"
+        }
+      },
+      {
+        "file": "packages/compiler-core/src/runtimeHelpers.ts",
+        "symbol": "normalizeClass",
+        "reason": "string-or-comment-only",
+        "evidence": {
+          "startLine": 110,
+          "endLine": 110,
+          "quote": "  [NORMALIZE_CLASS]: `normalizeClass`,"
+        }
+      }
+    ],
+    "originalAssessment": {
+      "identity": true,
+      "direct": {
+        "precision": 1,
+        "recall": 1,
+        "truePositive": [
+          "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+          "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+          "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+          "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+          "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+          "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+          "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+          "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+          "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+          "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+          "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+          "packages/vue/src/index.ts|normalizeClass|reexport",
+          "packages/vue/src/runtime.ts|normalizeClass|reexport"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "duplicates": 0
+      },
+      "dependents": {
+        "precision": 1,
+        "recall": 1,
+        "truePositive": [
+          "@vue/compat",
+          "@vue/compiler-core",
+          "@vue/compiler-dom",
+          "@vue/compiler-sfc",
+          "@vue/compiler-ssr",
+          "@vue/reactivity",
+          "@vue/runtime-core",
+          "@vue/runtime-dom",
+          "@vue/runtime-test",
+          "@vue/server-renderer",
+          "@vue/sfc-playground",
+          "dts-built-test",
+          "dts-test",
+          "vite-debug",
+          "vue"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "duplicates": 0
+      },
+      "targets": {
+        "precision": 1,
+        "recall": 1,
+        "truePositive": [
+          "<root>|check",
+          "<root>|test-unit",
+          "<root>|build"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "duplicates": 0
+      },
+      "exclusions": {
+        "precision": 1,
+        "recall": 1,
+        "truePositive": [
+          "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "duplicates": 1,
+        "evidenceChecks": [
+          {
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "passed": true
+          },
+          {
+            "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+            "passed": true
+          }
+        ]
+      },
+      "allEvidenceChecksPassed": true,
+      "uncertainties": true,
+      "sourceUnchanged": true,
+      "fixtureGitUnchanged": true
+    }
+  },
+  "sourceBindings": [
+    {
+      "path": "impact/grading-v2/grade-answer.mjs",
+      "sha256": "ce4bdf24dedc353aa1fc018882c5fde0c272bcecd7d1f80b9103d8f36abc2093"
+    },
+    {
+      "path": "impact/grading-v2/answer-schema.mjs",
+      "sha256": "74b645483936885f796ee1062f6f11508b6af156ece5f9d3b65f6523680b4a01"
+    }
+  ],
+  "next": "After all timed sessions finish, capture a failing reproducer and implement a new versioned occurrence assessment. It must reject repeated citations of the same occurrence and apply uniformly to every retained answer. Preserve and report original grades and frozen qualification separately."
+}

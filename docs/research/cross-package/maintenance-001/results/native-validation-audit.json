@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "benchmark_review",
+  "reportSha256": "cc74e7c6a3e85824ffc60dbcdf84ab3ca9618bbf3a4c50f9922ace8503118c7f",
+  "protocolSha256": "dc47ce701edffc0738d7322291087dafa10d22b01ade0a777802a4bb859d5591",
+  "originalReportAndGradesUnchanged": true,
+  "noPrivateReasoningOrMessages": true,
+  "conclusion": "All three agents repaired the production behavior according to the independent 23-case grader, but none obtained a passing required public 10-case validation. The local registry test was blocked by loopback listen EPERM inside all agent sessions. The frozen validation gate correctly remains false. Only Typelatch has an additional observer omission caused by redirected output.",
+  "runs": [
+    {
+      "id": "pnpm-catalog-consistency-r1-native",
+      "evidenceSha256": "f71c8f9960030c7ea21d9392f36ed1e1be10894af0186048bc07dee42795d6c4",
+      "toolOutputsSha256": "e7b305ffbcd2fdfa2e65577000c15fb8a209e72db8b9ed09496a16f90866f677",
+      "privateCorrectness": true,
+      "originalObserver": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 10,
+            "expectedFinalCases": 10,
+            "completePassingCheck": false,
+            "outputSha256": "5eb4f90e223d533eae1b11cbbc820db6b2911a075bd9ece994347a18545527b4"
+          },
+          {
+            "line": 17,
+            "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 10,
+            "expectedFinalCases": 10,
+            "completePassingCheck": false,
+            "outputSha256": "8a8a44a6e305f70c246ca19ea4689cd33823187daf103f5885d443304f437684"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "attempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 4687.342124999996,
+          "completedMs": 21748.241457999997,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": 10,
+          "observedResultRows": 10,
+          "semanticPasses": 6,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Exact completed command stdout",
+          "summaryActionIdSha256": null,
+          "outputSha256": "5eb4f90e223d533eae1b11cbbc820db6b2911a075bd9ece994347a18545527b4"
+        },
+        {
+          "actionIdSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "startedMs": 46039.253667,
+          "completedMs": 56848.849417000005,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": 10,
+          "observedResultRows": 10,
+          "semanticPasses": 9,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Exact completed command stdout",
+          "summaryActionIdSha256": null,
+          "outputSha256": "8a8a44a6e305f70c246ca19ea4689cd33823187daf103f5885d443304f437684"
+        }
+      ],
+      "diagnosis": "Observer accurately records both false checks. The final native check actually failed; there is no parser/count mismatch converting a passing result to failure.",
+      "passingFinalRequiredCheckObserved": false
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-typelatch",
+      "evidenceSha256": "dc3925a8cae5f98be6ad03f2473ef425674a9710c2322af62009aa6383f1205a",
+      "toolOutputsSha256": "2733727a47526d503be5664fa61f47ca9d188c5b2090a2610aaa5429fca9d704",
+      "privateCorrectness": true,
+      "originalObserver": {
+        "checks": [
+          {
+            "line": 6,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 10,
+            "expectedFinalCases": 10,
+            "completePassingCheck": false,
+            "outputSha256": "f2544f318eb4b4a12979af13c0c58e71f1183ebf66fb131f9300b2aa321c667a"
+          }
+        ],
+        "failingThenLaterCheckObserved": false,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "attempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 5244.359375,
+          "completedMs": 22599.294250000006,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": 10,
+          "observedResultRows": 10,
+          "semanticPasses": 6,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Exact completed command stdout",
+          "summaryActionIdSha256": null,
+          "outputSha256": "f2544f318eb4b4a12979af13c0c58e71f1183ebf66fb131f9300b2aa321c667a"
+        },
+        {
+          "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+          "startedMs": 53623.888959,
+          "completedMs": 64530.950625,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": null,
+          "observedResultRows": 10,
+          "semanticPasses": 9,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Agent read-back summary of its redirected validation output; original complete stdout is not in the command capture",
+          "summaryActionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+          "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "diagnosis": "Observer misses one real attempted check due to redirection and a pretty summary without cases. This does not hide a passing check: the command exited 1 and returned summary explicitly reports false with the registry failure.",
+      "passingFinalRequiredCheckObserved": false
+    },
+    {
+      "id": "pnpm-catalog-consistency-r1-competitor",
+      "evidenceSha256": "89a0a1dd229640071f2a655956a2da47a8da5e15ca998c8d48fd03a381f84b94",
+      "toolOutputsSha256": "ca5fd665a1da03e9b0104c93c25368ffb7f33873c94cbd135407a40a6ef5fbf0",
+      "privateCorrectness": true,
+      "originalObserver": {
+        "checks": [
+          {
+            "line": 12,
+            "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 10,
+            "expectedFinalCases": 10,
+            "completePassingCheck": false,
+            "outputSha256": "2796f34265420442a5d89f8e8c81f43d293ef069e9cee922bbcad8b4d03eb165"
+          },
+          {
+            "line": 26,
+            "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+            "commandExitCode": 1,
+            "individualCheckExitCode": null,
+            "resultIndex": 0,
+            "passed": false,
+            "cases": 10,
+            "expectedFinalCases": 10,
+            "completePassingCheck": false,
+            "outputSha256": "28d8758ff3c55851d83567a72efbe81fb0f25654dcadb1cc5e5f8c9ada8be1aa"
+          }
+        ],
+        "failingThenLaterCheckObserved": true,
+        "limitation": "A compiler failure may prevent runtime checks, so actual case counts are retained. Only a passing final response with the full expected count qualifies. Compound shell exit is aggregate, not a per-check exit. Independent action review must assess actual execution and edit ordering."
+      },
+      "attempts": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "startedMs": 6359.365125000011,
+          "completedMs": 23654.696250000037,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": 10,
+          "observedResultRows": 10,
+          "semanticPasses": 6,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Exact completed command stdout",
+          "summaryActionIdSha256": null,
+          "outputSha256": "2796f34265420442a5d89f8e8c81f43d293ef069e9cee922bbcad8b4d03eb165"
+        },
+        {
+          "actionIdSha256": "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+          "startedMs": 63016.86583299999,
+          "completedMs": 73809.55895800004,
+          "exitCode": 1,
+          "passed": false,
+          "reportedCases": 10,
+          "observedResultRows": 10,
+          "semanticPasses": 9,
+          "semanticCases": 9,
+          "native": {
+            "passed": false,
+            "failure": "listen EPERM: operation not permitted 127.0.0.1",
+            "evidence": "node:events:497\n      throw er; // Unhandled 'error' event\n      ^\n\nError: listen EPERM: operation not permitted 127.0.0.1\n    at Server.setupListenHandle [as _listen2] (node:net:1919:21)\n    at listenInCluster (node:net:1998:12)\n    at node:net:2207:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)\nEmitted 'error' event on Server instance at:\n    at emitErrorNT (node:net:1977:8)\n    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {\n  code: 'EPERM',\n  errno: -1,\n  syscall: 'listen',\n  address: '127.0.0.1'\n}\n\nNode.js v22.23.1\n"
+          },
+          "source": "Exact completed command stdout",
+          "summaryActionIdSha256": null,
+          "outputSha256": "28d8758ff3c55851d83567a72efbe81fb0f25654dcadb1cc5e5f8c9ada8be1aa"
+        }
+      ],
+      "diagnosis": "Observer accurately records both false checks. The final native check actually failed; there is no parser/count mismatch converting a passing result to failure.",
+      "passingFinalRequiredCheckObserved": false
+    }
+  ],
+  "limits": [
+    "EPERM is directly recorded; the precise operating-system policy cause was not diagnosed by this audit.",
+    "Independent grader success outside agent execution does not retroactively make the agent-side native validation pass.",
+    "Extra model-authored assertions do not substitute for the preregistered native command.",
+    "No recorded session was rerun or replaced."
+  ]
+}

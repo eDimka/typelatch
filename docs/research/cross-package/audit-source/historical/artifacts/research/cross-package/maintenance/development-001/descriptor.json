@@ -1,0 +1,101 @@
+{
+  "id": "pnpm-catalog-consistency",
+  "category": "maintenance",
+  "split": "development",
+  "mode": "edit",
+  "description": "A configured catalog can drift from recorded lockfile specifiers while frozen installation and dependency-status checking still accept stale state. Make catalog consistency checks work across the affected production APIs and consumers. Changes or removal of recorded specifiers must be detected. Unchanged catalogs and newly added unused entries must remain accepted, unrelated lockfile checks must keep working, and rejection of a frozen installation must preserve lockfile bytes. Dependencies and project configuration are already prepared. Change only existing production TypeScript source. Run the supplied validation before and after the repair.",
+  "workspace": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/workspace",
+  "initialManifest": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/initial-manifest.json",
+  "sourceTrackingManifest": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/source-tracking-manifest.json",
+  "qualification": {
+    "status": "qualified",
+    "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/qualification.json",
+    "sha256": "d989cd9166d92f8b59435845b3bf0dec691070a3442a012bd13c5df47a0c9c6e"
+  },
+  "graderModule": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.mjs",
+  "publicCases": 10,
+  "validationCommand": "npm run test:typelatch-benchmark",
+  "scope": {
+    "productionPackages": 3,
+    "upstreamChangedProductionPackages": 4,
+    "behavioralPackages": [
+      "@pnpm/lockfile.settings-checker",
+      "@pnpm/core",
+      "@pnpm/deps.status"
+    ],
+    "additionalInterfacePackage": "@pnpm/lockfile.verification",
+    "boundaryGraph": [
+      [
+        "@pnpm/core",
+        "@pnpm/lockfile.settings-checker"
+      ],
+      [
+        "@pnpm/deps.status",
+        "@pnpm/lockfile.settings-checker"
+      ],
+      [
+        "@pnpm/lockfile.settings-checker",
+        "@pnpm/lockfile.verification"
+      ]
+    ]
+  },
+  "policy": [
+    "Only existing tracked production TypeScript source may change. Tests, scripts, dependencies, manifests, project configuration, file additions and deletions are protected.",
+    "The historical upstream change is pinned to pnpm PR10231. Reference dependency declarations, lockfile and project references are preinstalled in the baseline, so dependency installation is outside the edit task.",
+    "Public validation runs nine independent API and filesystem cases plus one exact upstream native catalog installation regression. Private validation runs twenty-two independent cases plus the same native regression. Other upstream native cases are explicitly filtered, not reported as passing.",
+    "The independent core matrix uses empty projects with retained catalog metadata. The upstream regression separately exercises an actual catalog dependency using an isolated Verdaccio registry seeded with recorded npm metadata; validation makes no external registry requests.",
+    "Node22.23.1 runs compilation and APIs. The native registry uses upstream-required Node20.16.0, pinned from the official archive. Authentication and audit plugins are disabled only in the isolated anonymous read-only test registry.",
+    "All four target project lib directories and build-info files are absent from the prepared fixture. Public validation rebuilds them; the private grader separately clones the trusted fixture and copies only allowed submitted source, never agent-generated outputs.",
+    "Three package omission controls are rejected. A fourth control keeps the new shared-checker API types and caller wiring while omitting the comparison logic; it compiles but fails twelve semantic checks and the upstream native regression. Either caller omission fails unchanged-catalog negative controls.",
+    "Every native Jest invocation starts with a distinct empty temporary cache. Test infrastructure and source fixtures are immutable alongside the test files.",
+    "This historical task covers explicitly supplied catalogs. The later upstream report about deployment lockfiles with catalog metadata but no workspace configuration is outside this fixture and is not claimed fixed.",
+    "Development qualification only. No held-out performance conclusion follows from this task."
+  ],
+  "toolchain": {
+    "node": {
+      "path": "$HOME/.hermes/node/bin/node",
+      "version": "v22.23.1",
+      "sha256": "2e3f1286a7eb3736346ed1803e458a0ff909e2b2d5bc746144dcb76970e9b99d"
+    },
+    "compiler": {
+      "version": "5.9.2",
+      "packageJson": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/workspace/node_modules/.pnpm/typescript@5.9.2/node_modules/typescript/package.json",
+      "sha256": "5a0bb7f286c4b3f1413a42c05f902311b161f70e5f52d9da10490443bfd595a3"
+    },
+    "registryNode": {
+      "version": "20.16.0",
+      "path": "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/workspace/.typelatch-benchmark/node20",
+      "sha256": "37516c9229e48c4573994c07f6faaecce6f716ff0f466ab0c43a0b13caf74a63"
+    },
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "frozenInputs": [
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/prepare-development.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/install-public-check.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/finalize-inputs.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-development.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/qualify-checker-behavior.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/write-descriptor.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/check-runtime.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/native-registry-setup.cjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-grade.test.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/semantic-check.mjs",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/pin.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/reference-downloads.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/registry-seed-receipt.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-baseline-002.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/private/pnpm-catalogs/public-reference-002.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/source-tracking-manifest.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/qualification.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/preparation.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/link-audit.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/validator-amendment-002.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-red-001.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/development-001/guard-green-001.json",
+    "$REPOSITORY/artifacts/research/cross-package/maintenance/tools/node20/receipt.json",
+    "$REPOSITORY/scripts/paired-agent-integrity.mjs",
+    "$REPOSITORY/scripts/paired-agent-runner.mjs"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "study": "impact-confirmation-002",
+  "originalReportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "originalProtocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "repository": "https://github.com/vuejs/core",
+  "revision": "6eb29d345aa73746207f80c89ee8b37ff7b949c9",
+  "version": "3.5.13",
+  "cases": [
+    "ShallowRef type declaration impact",
+    "normalizeClass runtime-helper declaration impact"
+  ],
+  "sameRepository": true,
+  "analysisOnly": true,
+  "compilerVersion": "5.6.2",
+  "sourceEvidenceLayout": "corpus/vue contains the selected exact files from the scored source inventory. It is not a complete runnable checkout.",
+  "sourceAndDependencyScope": "Frozen truth records configured production sources, exact workspace packages, admitted installed edges and conservative dependent sets. A generated helper-name literal is an occurrence-specific exclusion, not proof that generated code is unaffected.",
+  "sourcePreparation": "Candidate frozen before held-out descriptors were released. Prompt clarification and common Git/native clone preparation corrections preceded model sessions; original failed preparation remains retained.",
+  "originalGraderKnownDefect": "Coarse exclusion key ignores distinct source occurrences. The separate post-study assessment does not rewrite original answers, truth, grades or economic gates.",
+  "omitted": [
+    {
+      "task": "vue-type-impact-heldout-grading-v2",
+      "source": "artifacts/research/cross-package/impact/private/heldout-clean-v4/initial-manifest.json",
+      "originalSha256": "019cbfe72e5c23a1ee4d0a61b290022fad96da836bc268d5451387076680efc6",
+      "treeSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "entries": 24132,
+      "bytes": 6446792,
+      "reason": "Full installed dependency inventory omitted. Exact source tracking and selected source bytes are included. Protocol retains the complete frozen inventory identity."
+    },
+    {
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "source": "artifacts/research/cross-package/impact/private/heldout-runtime-clean-v4/initial-manifest.json",
+      "originalSha256": "2b5b872bdf757d5412078bcfb97bf1efa2c4a0b29929e9b1a6be9d8fd4fa3307",
+      "treeSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "entries": 24132,
+      "bytes": 6446795,
+      "reason": "Full installed dependency inventory omitted. Exact source tracking and selected source bytes are included. Protocol retains the complete frozen inventory identity."
+    }
+  ],
+  "setupReproduction": "Clean-machine setup remains unverified. Native toolchains and complete installed dependencies are not redistributed. Historical scripts require prepared corpus paths or an explicitly adapted portable wrapper."
+}

@@ -1,0 +1,1139 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "auditSha256": "3ca052d01de51c651765b4e921b35a6dfa22b25c7f09556beba26d0858ae3149",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "decision": {
+    "measurable": true,
+    "anyQualifiedEdge": false,
+    "candidates": {
+      "impact": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 886587,
+                  "candidate": 749471,
+                  "aggregateReductionPercent": 15.46560010467106,
+                  "medianPairedReductionPercent": 15.189077164118022,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 537075,
+                      "candidate": 405157,
+                      "reductionPercent": 24.56230507843411
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 349512,
+                      "candidate": 344314,
+                      "reductionPercent": 1.4872164618096089
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 292229,
+                      "candidate": 212239,
+                      "reductionPercent": 27.372368929846115
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 146267,
+                      "candidate": 159706,
+                      "reductionPercent": -9.187991823172691
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 244846,
+                      "candidate": 192918,
+                      "reductionPercent": 21.208433055880022
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 203245,
+                      "candidate": 184608,
+                      "reductionPercent": 9.169721272356023
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 408042.488166,
+                  "candidate": 317935.1662910002,
+                  "aggregateReductionPercent": 22.082828256439388,
+                  "medianPairedReductionPercent": 24.360151483871455,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 224402.62066500005,
+                      "candidate": 160186.83175,
+                      "reductionPercent": 28.61632752982182
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 183639.86750099994,
+                      "candidate": 157748.3345410002,
+                      "reductionPercent": 14.09908061486636
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 119170.45933199998,
+                      "candidate": 77789.915041,
+                      "reductionPercent": 34.72382713212247
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 83887.59487499995,
+                      "candidate": 84949.55558299995,
+                      "reductionPercent": -1.2659329541899675
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 105232.16133300005,
+                      "candidate": 82396.91670900001,
+                      "reductionPercent": 21.69987229639754
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 99752.27262599999,
+                      "candidate": 72798.77895800024,
+                      "reductionPercent": 27.020430671345366
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 4,
+                "perTask": [
+                  {
+                    "task": "vue-type-impact-heldout-grading-v2",
+                    "control": 2,
+                    "candidate": 2
+                  },
+                  {
+                    "task": "vue-runtime-impact-heldout-grading-v2",
+                    "control": 0,
+                    "candidate": 2
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 1597731,
+                  "candidate": 749471,
+                  "aggregateReductionPercent": 53.09154044078759,
+                  "medianPairedReductionPercent": 53.204664091622206,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 754841,
+                      "candidate": 405157,
+                      "reductionPercent": 46.32551755932706
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 842890,
+                      "candidate": 344314,
+                      "reductionPercent": 59.150778867942435
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 372740,
+                      "candidate": 212239,
+                      "reductionPercent": 43.05977356870741
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 370531,
+                      "candidate": 159706,
+                      "reductionPercent": 56.898073305607355
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 382101,
+                      "candidate": 192918,
+                      "reductionPercent": 49.511254877637064
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 472359,
+                      "candidate": 184608,
+                      "reductionPercent": 60.917861203025666
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 487053.06250199955,
+                  "candidate": 317935.1662910002,
+                  "aggregateReductionPercent": 34.72268408338056,
+                  "medianPairedReductionPercent": 33.49756710840411,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 240825.1716669998,
+                      "candidate": 160186.83175,
+                      "reductionPercent": 33.48418247096786
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 246227.89083499974,
+                      "candidate": 157748.3345410002,
+                      "reductionPercent": 35.93401055987226
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 118965.76433299994,
+                      "candidate": 77789.915041,
+                      "reductionPercent": 34.61151157466078
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 117362.28320899978,
+                      "candidate": 84949.55558299995,
+                      "reductionPercent": 27.617669612203233
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 121859.40733399987,
+                      "candidate": 82396.91670900001,
+                      "reductionPercent": 32.38362264214744
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 128865.60762599995,
+                      "candidate": 72798.77895800024,
+                      "reductionPercent": 43.507984559169266
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 4,
+                "perTask": [
+                  {
+                    "task": "vue-type-impact-heldout-grading-v2",
+                    "control": 2,
+                    "candidate": 2
+                  },
+                  {
+                    "task": "vue-runtime-impact-heldout-grading-v2",
+                    "control": 0,
+                    "candidate": 2
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "impact": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 886587,
+                    "candidate": 749471,
+                    "aggregateReductionPercent": 15.46560010467106,
+                    "medianPairedReductionPercent": 15.189077164118022,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 537075,
+                        "candidate": 405157,
+                        "reductionPercent": 24.56230507843411
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 349512,
+                        "candidate": 344314,
+                        "reductionPercent": 1.4872164618096089
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 292229,
+                        "candidate": 212239,
+                        "reductionPercent": 27.372368929846115
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 146267,
+                        "candidate": 159706,
+                        "reductionPercent": -9.187991823172691
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 244846,
+                        "candidate": 192918,
+                        "reductionPercent": 21.208433055880022
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 203245,
+                        "candidate": 184608,
+                        "reductionPercent": 9.169721272356023
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 408042.488166,
+                    "candidate": 317935.1662910002,
+                    "aggregateReductionPercent": 22.082828256439388,
+                    "medianPairedReductionPercent": 24.360151483871455,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 224402.62066500005,
+                        "candidate": 160186.83175,
+                        "reductionPercent": 28.61632752982182
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 183639.86750099994,
+                        "candidate": 157748.3345410002,
+                        "reductionPercent": 14.09908061486636
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 119170.45933199998,
+                        "candidate": 77789.915041,
+                        "reductionPercent": 34.72382713212247
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 83887.59487499995,
+                        "candidate": 84949.55558299995,
+                        "reductionPercent": -1.2659329541899675
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 105232.16133300005,
+                        "candidate": 82396.91670900001,
+                        "reductionPercent": 21.69987229639754
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 99752.27262599999,
+                        "candidate": 72798.77895800024,
+                        "reductionPercent": 27.020430671345366
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 2,
+                  "candidate": 4,
+                  "perTask": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "control": 2,
+                      "candidate": 2
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "control": 0,
+                      "candidate": 2
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 1597731,
+                    "candidate": 749471,
+                    "aggregateReductionPercent": 53.09154044078759,
+                    "medianPairedReductionPercent": 53.204664091622206,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 754841,
+                        "candidate": 405157,
+                        "reductionPercent": 46.32551755932706
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 842890,
+                        "candidate": 344314,
+                        "reductionPercent": 59.150778867942435
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 372740,
+                        "candidate": 212239,
+                        "reductionPercent": 43.05977356870741
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 370531,
+                        "candidate": 159706,
+                        "reductionPercent": 56.898073305607355
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 382101,
+                        "candidate": 192918,
+                        "reductionPercent": 49.511254877637064
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 472359,
+                        "candidate": 184608,
+                        "reductionPercent": 60.917861203025666
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 487053.06250199955,
+                    "candidate": 317935.1662910002,
+                    "aggregateReductionPercent": 34.72268408338056,
+                    "medianPairedReductionPercent": 33.49756710840411,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 240825.1716669998,
+                        "candidate": 160186.83175,
+                        "reductionPercent": 33.48418247096786
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 246227.89083499974,
+                        "candidate": 157748.3345410002,
+                        "reductionPercent": 35.93401055987226
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 118965.76433299994,
+                        "candidate": 77789.915041,
+                        "reductionPercent": 34.61151157466078
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 117362.28320899978,
+                        "candidate": 84949.55558299995,
+                        "reductionPercent": 27.617669612203233
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 121859.40733399987,
+                        "candidate": 82396.91670900001,
+                        "reductionPercent": 32.38362264214744
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 128865.60762599995,
+                        "candidate": 72798.77895800024,
+                        "reductionPercent": 43.507984559169266
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 2,
+                  "candidate": 4,
+                  "perTask": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "control": 2,
+                      "candidate": 2
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "control": 0,
+                      "candidate": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "codegraph": {
+        "overall": {
+          "qualifiedEdge": false,
+          "savingsObserved": false,
+          "needsIndependentTaskReplication": false,
+          "reasons": [
+            "native/totalTokens: aggregate or median savings below 20%.",
+            "native/totalTokens: a repetition did not improve.",
+            "native/chargedTimeMs: aggregate or median savings below 20%.",
+            "native/chargedTimeMs: a repetition did not improve.",
+            "competitor/totalTokens: aggregate or median savings below 20%.",
+            "competitor/totalTokens: a repetition did not improve.",
+            "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+            "Every candidate result must pass the independent grader."
+          ],
+          "comparisons": {
+            "native": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 886587,
+                  "candidate": 1526064,
+                  "aggregateReductionPercent": -72.12794683432082,
+                  "medianPairedReductionPercent": -50.93676287961545,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 537075,
+                      "candidate": 812267,
+                      "reductionPercent": -51.239026206768145
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 349512,
+                      "candidate": 713797,
+                      "reductionPercent": -104.22675044061434
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 292229,
+                      "candidate": 451093,
+                      "reductionPercent": -54.362845576585485
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 146267,
+                      "candidate": 452916,
+                      "reductionPercent": -209.65016032324448
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 244846,
+                      "candidate": 361174,
+                      "reductionPercent": -47.510680182645416
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 203245,
+                      "candidate": 260881,
+                      "reductionPercent": -28.357893183104135
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 408042.488166,
+                  "candidate": 476734.14204199985,
+                  "aggregateReductionPercent": -16.834436576627944,
+                  "medianPairedReductionPercent": -14.379669340998706,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 224402.62066500005,
+                      "candidate": 237503.6930839999,
+                      "reductionPercent": -5.838199384737945
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 183639.86750099994,
+                      "candidate": 239230.44895799994,
+                      "reductionPercent": -30.271521218940812
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 119170.45933199998,
+                      "candidate": 130670.56754199998,
+                      "reductionPercent": -9.650133325375167
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 83887.59487499995,
+                      "candidate": 120416.30970799993,
+                      "reductionPercent": -43.544835070585876
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 105232.16133300005,
+                      "candidate": 106833.12554199994,
+                      "reductionPercent": -1.5213639905520315
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 99752.27262599999,
+                      "candidate": 118814.13925000001,
+                      "reductionPercent": -19.109205356622248
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 3,
+                "perTask": [
+                  {
+                    "task": "vue-type-impact-heldout-grading-v2",
+                    "control": 2,
+                    "candidate": 2
+                  },
+                  {
+                    "task": "vue-runtime-impact-heldout-grading-v2",
+                    "control": 0,
+                    "candidate": 1
+                  }
+                ]
+              }
+            },
+            "competitor": {
+              "metrics": {
+                "totalTokens": {
+                  "control": 1597731,
+                  "candidate": 1526064,
+                  "aggregateReductionPercent": 4.485548568563795,
+                  "medianPairedReductionPercent": -7.771997305423245,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 754841,
+                      "candidate": 812267,
+                      "reductionPercent": -7.6076948655412195
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 842890,
+                      "candidate": 713797,
+                      "reductionPercent": 15.315521598310575
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 372740,
+                      "candidate": 451093,
+                      "reductionPercent": -21.020818801309222
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 370531,
+                      "candidate": 452916,
+                      "reductionPercent": -22.234306981062314
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 382101,
+                      "candidate": 361174,
+                      "reductionPercent": 5.4768241904627315
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 472359,
+                      "candidate": 260881,
+                      "reductionPercent": 44.7706087954289
+                    }
+                  ]
+                },
+                "chargedTimeMs": {
+                  "control": 487053.06250199955,
+                  "candidate": 476734.14204199985,
+                  "aggregateReductionPercent": 2.1186439947613183,
+                  "medianPairedReductionPercent": 2.5988702594205337,
+                  "repeats": [
+                    {
+                      "repeat": 1,
+                      "control": 240825.1716669998,
+                      "candidate": 237503.6930839999,
+                      "reductionPercent": 1.3792073976356032
+                    },
+                    {
+                      "repeat": 2,
+                      "control": 246227.89083499974,
+                      "candidate": 239230.44895799994,
+                      "reductionPercent": 2.841855913751408
+                    }
+                  ],
+                  "pairs": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 118965.76433299994,
+                      "candidate": 130670.56754199998,
+                      "reductionPercent": -9.838799653517828
+                    },
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 117362.28320899978,
+                      "candidate": 120416.30970799993,
+                      "reductionPercent": -2.6022214424386307
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 1,
+                      "control": 121859.40733399987,
+                      "candidate": 106833.12554199994,
+                      "reductionPercent": 12.330834459759815
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "repeat": 2,
+                      "control": 128865.60762599995,
+                      "candidate": 118814.13925000001,
+                      "reductionPercent": 7.799961961279698
+                    }
+                  ]
+                }
+              },
+              "correctness": {
+                "control": 2,
+                "candidate": 3,
+                "perTask": [
+                  {
+                    "task": "vue-type-impact-heldout-grading-v2",
+                    "control": 2,
+                    "candidate": 2
+                  },
+                  {
+                    "task": "vue-runtime-impact-heldout-grading-v2",
+                    "control": 0,
+                    "candidate": 1
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "categories": {
+          "impact": {
+            "qualifiedEdge": false,
+            "savingsObserved": false,
+            "needsIndependentTaskReplication": false,
+            "reasons": [
+              "native/totalTokens: aggregate or median savings below 20%.",
+              "native/totalTokens: a repetition did not improve.",
+              "native/chargedTimeMs: aggregate or median savings below 20%.",
+              "native/chargedTimeMs: a repetition did not improve.",
+              "competitor/totalTokens: aggregate or median savings below 20%.",
+              "competitor/totalTokens: a repetition did not improve.",
+              "competitor/chargedTimeMs: aggregate or median savings below 20%.",
+              "Every candidate result must pass the independent grader."
+            ],
+            "comparisons": {
+              "native": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 886587,
+                    "candidate": 1526064,
+                    "aggregateReductionPercent": -72.12794683432082,
+                    "medianPairedReductionPercent": -50.93676287961545,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 537075,
+                        "candidate": 812267,
+                        "reductionPercent": -51.239026206768145
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 349512,
+                        "candidate": 713797,
+                        "reductionPercent": -104.22675044061434
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 292229,
+                        "candidate": 451093,
+                        "reductionPercent": -54.362845576585485
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 146267,
+                        "candidate": 452916,
+                        "reductionPercent": -209.65016032324448
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 244846,
+                        "candidate": 361174,
+                        "reductionPercent": -47.510680182645416
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 203245,
+                        "candidate": 260881,
+                        "reductionPercent": -28.357893183104135
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 408042.488166,
+                    "candidate": 476734.14204199985,
+                    "aggregateReductionPercent": -16.834436576627944,
+                    "medianPairedReductionPercent": -14.379669340998706,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 224402.62066500005,
+                        "candidate": 237503.6930839999,
+                        "reductionPercent": -5.838199384737945
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 183639.86750099994,
+                        "candidate": 239230.44895799994,
+                        "reductionPercent": -30.271521218940812
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 119170.45933199998,
+                        "candidate": 130670.56754199998,
+                        "reductionPercent": -9.650133325375167
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 83887.59487499995,
+                        "candidate": 120416.30970799993,
+                        "reductionPercent": -43.544835070585876
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 105232.16133300005,
+                        "candidate": 106833.12554199994,
+                        "reductionPercent": -1.5213639905520315
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 99752.27262599999,
+                        "candidate": 118814.13925000001,
+                        "reductionPercent": -19.109205356622248
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 2,
+                  "candidate": 3,
+                  "perTask": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "control": 2,
+                      "candidate": 2
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "control": 0,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              },
+              "competitor": {
+                "metrics": {
+                  "totalTokens": {
+                    "control": 1597731,
+                    "candidate": 1526064,
+                    "aggregateReductionPercent": 4.485548568563795,
+                    "medianPairedReductionPercent": -7.771997305423245,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 754841,
+                        "candidate": 812267,
+                        "reductionPercent": -7.6076948655412195
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 842890,
+                        "candidate": 713797,
+                        "reductionPercent": 15.315521598310575
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 372740,
+                        "candidate": 451093,
+                        "reductionPercent": -21.020818801309222
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 370531,
+                        "candidate": 452916,
+                        "reductionPercent": -22.234306981062314
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 382101,
+                        "candidate": 361174,
+                        "reductionPercent": 5.4768241904627315
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 472359,
+                        "candidate": 260881,
+                        "reductionPercent": 44.7706087954289
+                      }
+                    ]
+                  },
+                  "chargedTimeMs": {
+                    "control": 487053.06250199955,
+                    "candidate": 476734.14204199985,
+                    "aggregateReductionPercent": 2.1186439947613183,
+                    "medianPairedReductionPercent": 2.5988702594205337,
+                    "repeats": [
+                      {
+                        "repeat": 1,
+                        "control": 240825.1716669998,
+                        "candidate": 237503.6930839999,
+                        "reductionPercent": 1.3792073976356032
+                      },
+                      {
+                        "repeat": 2,
+                        "control": 246227.89083499974,
+                        "candidate": 239230.44895799994,
+                        "reductionPercent": 2.841855913751408
+                      }
+                    ],
+                    "pairs": [
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 118965.76433299994,
+                        "candidate": 130670.56754199998,
+                        "reductionPercent": -9.838799653517828
+                      },
+                      {
+                        "task": "vue-type-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 117362.28320899978,
+                        "candidate": 120416.30970799993,
+                        "reductionPercent": -2.6022214424386307
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 1,
+                        "control": 121859.40733399987,
+                        "candidate": 106833.12554199994,
+                        "reductionPercent": 12.330834459759815
+                      },
+                      {
+                        "task": "vue-runtime-impact-heldout-grading-v2",
+                        "repeat": 2,
+                        "control": 128865.60762599995,
+                        "candidate": 118814.13925000001,
+                        "reductionPercent": 7.799961961279698
+                      }
+                    ]
+                  }
+                },
+                "correctness": {
+                  "control": 2,
+                  "candidate": 3,
+                  "perTask": [
+                    {
+                      "task": "vue-type-impact-heldout-grading-v2",
+                      "control": 2,
+                      "candidate": 2
+                    },
+                    {
+                      "task": "vue-runtime-impact-heldout-grading-v2",
+                      "control": 0,
+                      "candidate": 1
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasons": []
+  },
+  "review": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-codegraph",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-impact",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-codegraph",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-impact",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-codegraph",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-competitor",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-impact",
+      "workflowReviewed": true,
+      "providerUsed": true,
+      "providerEvidenceUsable": true
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-native",
+      "workflowReviewed": true,
+      "providerUsed": null,
+      "providerEvidenceUsable": false
+    }
+  ]
+}

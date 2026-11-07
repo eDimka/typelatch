@@ -1,5 +1,24 @@
 # Benchmarks
 
+## Cross package changes and impact analysis
+
+The expanded study includes a five package dependency migration, a catalog consistency repair across pnpm packages, and static impact reports. Stock Typelatch did not establish a savings advantage on the edit tasks. The focused impact prototype was then frozen before two hidden Vue tasks, repeated twice against native tools, Serena and CodeGraph.
+
+| Four confirmation sessions per condition | Total tokens | Charged seconds | Grep shell calls | Separate audited correctness |
+| :--- | ---: | ---: | ---: | :--- |
+| Native | 886,587 | 408.04 | 16 | 3 of 4 |
+| Impact prototype | 749,471 | 317.94 | 10 | 4 of 4 |
+| Serena | 1,597,731 | 487.05 | 18 | 4 of 4 |
+| CodeGraph | 1,526,064 | 476.73 | 15 | 4 of 4 |
+
+**The prototype failed the frozen savings gate.** It saved 15.5 percent of tokens and 22.1 percent of time against native; at least 20 percent in both aggregate and median paired reductions was required. Token savings fell to 1.5 percent in the second repetition. Native won the final pair. Costs were substantially lower than the tested Serena and CodeGraph configurations, which does not establish an advantage over native tools or every configuration of those products.
+
+Original strict grades are retained: native 2 of 4, prototype 4 of 4, Serena 2 of 4 and CodeGraph 3 of 4. A separate uniform occurrence audit exonerates four citation collisions caused by a grader defect. One native dependency chain remains incorrect. The original gate is unchanged and still fails on tokens. All 16 workflows passed review.
+
+Both final tasks use the same Vue snapshot. They assemble static impact reports; they do not implement the proposed changes or execute the identified validation targets. Tokens include cached input and output once. Charged time includes provider setup and the complete agent session; common fixture preparation and independent grading are separate. This is one model alias and two repetitions, not a scaling proof or universal ranking. The prototype is separate from the npm release.
+
+[Complete results and every earlier attempt](research/cross-package/RESULTS.md) · [Frozen confirmation](research/cross-package/confirmation-002/protocol.json) · [All recorded actions and outputs](research/cross-package/confirmation-002/results/manifest.json) · [Separate correctness assessment](research/cross-package/confirmation-002/results/occurrence-assessment-v1.md) · [Grading and source bundle](research/cross-package/heldout-audit-source/README.md)
+
 ## Instructed tool use
 
 The compact source experiment did not meet the performance gate. Across two real pnpm repairs, repeated twice, it used **11.9% more tokens and 20.6% more charged time than native tools**. All twelve solutions passed independent grading. Compared with Serena, it saved 36.5% of tokens and 10.6% of time, below the required 20% time reduction.

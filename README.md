@@ -73,6 +73,16 @@ npx typelatch@0.3.0 search "Where do we validate incoming requests?" --compact -
 
 ## Codex with and without Typelatch
 
+[![Recorded Codex actions for native tools and the impact prototype, with the failed overall confirmation gate](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/cross-package-confirmation.gif)](https://edimka.github.io/typelatch/#confirmation-benchmark)
+
+The latest study covers a five package dependency migration, a cross package maintenance repair and impact analysis. **No tested category established a substantial, repeatable token and time advantage over native tools.**
+
+The focused impact prototype saved 15.5 percent of tokens and 22.1 percent of time in the final 16 session comparison. It missed the required 20 percent reduction in both. Token savings fell to 1.5 percent in the second repetition. It beat the tested Serena and CodeGraph configurations, but native won the final pair. The prototype is separate from the published package. The accelerated replay shows the first pair selected before results, with the failed overall gate visible throughout.
+
+[Full results, correctness audit and recorded actions](docs/research/cross-package/RESULTS.md) · [Interactive comparison](https://edimka.github.io/typelatch/#confirmation-benchmark)
+
+### Earlier localized repair study
+
 [![Recorded Codex actions using native tools and the Typelatch source experiment](https://raw.githubusercontent.com/eDimka/typelatch/main/site/assets/codex-guided-comparison.gif)](https://edimka.github.io/typelatch/#guided-benchmark)
 
 The source experiment used **11.9% more tokens and 20.6% more time than native tools** on two real pnpm repairs. It did not meet the savings gate. This accelerated action replay uses the first pair, selected before results. The experimental tool is separate from the published package.
