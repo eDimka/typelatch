@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: distinct valid literal occurrences expose original collision and pass only separate assessment
+ok 1 - distinct valid literal occurrences expose original collision and pass only separate assessment
+  ---
+  duration_ms: 4.2485
+  type: 'test'
+  ...
+# Subtest: same quote repeated for the same occurrence remains rejected
+ok 2 - same quote repeated for the same occurrence remains rejected
+  ---
+  duration_ms: 1.545
+  type: 'test'
+  ...
+# Subtest: different overlapping ranges cannot turn the same occurrence into two
+ok 3 - different overlapping ranges cannot turn the same occurrence into two
+  ---
+  duration_ms: 1.301125
+  type: 'test'
+  ...
+# Subtest: one broad quote covering both occurrences is ambiguous
+ok 4 - one broad quote covering both occurrences is ambiguous
+  ---
+  duration_ms: 1.140375
+  type: 'test'
+  ...
+# Subtest: a repeated short quote with two possible matches is ambiguous
+ok 5 - a repeated short quote with two possible matches is ambiguous
+  ---
+  duration_ms: 1.712458
+  type: 'test'
+  ...
+# Subtest: a wrong citation cannot disappear when collapsing a coarse key
+ok 6 - a wrong citation cannot disappear when collapsing a coarse key
+  ---
+  duration_ms: 1.0475
+  type: 'test'
+  ...
+# Subtest: unchanged truth and exact source hash are required
+ok 7 - unchanged truth and exact source hash are required
+  ---
+  duration_ms: 1.055708
+  type: 'test'
+  ...
+# Subtest: source-scope rows without occurrence identity are not exonerated
+ok 8 - source-scope rows without occurrence identity are not exonerated
+  ---
+  duration_ms: 0.958667
+  type: 'test'
+  ...
+# Subtest: false dependency chain remains rejected despite valid separate occurrences
+ok 9 - false dependency chain remains rejected despite valid separate occurrences
+  ---
+  duration_ms: 1.254708
+  type: 'test'
+  ...
+# Subtest: source integrity failure cannot be repaired by the occurrence assessment
+ok 10 - source integrity failure cannot be repaired by the occurrence assessment
+  ---
+  duration_ms: 0.971291
+  type: 'test'
+  ...
+# Subtest: negativeClaims use the same occurrence rule and retain repeated-claim rejection
+ok 11 - negativeClaims use the same occurrence rule and retain repeated-claim rejection
+  ---
+  duration_ms: 1.355417
+  type: 'test'
+  ...
+# Subtest: different-symbol exclusion slots need distinct admitted occurrences
+ok 12 - different-symbol exclusion slots need distinct admitted occurrences
+  ---
+  duration_ms: 0.854417
+  type: 'test'
+  ...
+# Subtest: otherwise passing answer remains passing without rewriting the input
+ok 13 - otherwise passing answer remains passing without rewriting the input
+  ---
+  duration_ms: 0.73375
+  type: 'test'
+  ...
+# Subtest: malformed answer stays rejected
+ok 14 - malformed answer stays rejected
+  ---
+  duration_ms: 0.532667
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 77.18125

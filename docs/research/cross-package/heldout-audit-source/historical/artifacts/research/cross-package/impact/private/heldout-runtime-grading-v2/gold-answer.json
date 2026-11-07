@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 2,
+  "target": {
+    "package": "@vue/shared",
+    "version": "3.5.13",
+    "exports": [
+      "normalizeClass"
+    ]
+  },
+  "direct": [
+    {
+      "file": "packages/compiler-dom/src/transforms/stringifyStatic.ts",
+      "package": "@vue/compiler-dom",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 33,
+        "endLine": 33,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/compat/renderFn.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 9,
+        "endLine": 9,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/compat/renderHelpers.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 8,
+        "endLine": 8,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/hydration.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 30,
+        "endLine": 30,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/index.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 382,
+        "endLine": 382,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/vnode.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 12,
+        "endLine": 12,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/runtime-dom/src/index.ts",
+      "package": "@vue/runtime-dom",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 306,
+        "endLine": 306,
+        "quote": "export * from '@vue/runtime-core'"
+      }
+    },
+    {
+      "file": "packages/runtime-test/src/index.ts",
+      "package": "@vue/runtime-test",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "export * from '@vue/runtime-core'"
+      }
+    },
+    {
+      "file": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+      "package": "@vue/server-renderer",
+      "symbol": "normalizeClass",
+      "role": "runtime",
+      "evidence": {
+        "startLine": 14,
+        "endLine": 14,
+        "quote": "  normalizeClass,"
+      }
+    },
+    {
+      "file": "packages/vue-compat/src/esm-index.ts",
+      "package": "@vue/compat",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 4,
+        "endLine": 4,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue-compat/src/esm-runtime.ts",
+      "package": "@vue/compat",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 4,
+        "endLine": 4,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue/src/index.ts",
+      "package": "vue",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 107,
+        "endLine": 107,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue/src/runtime.ts",
+      "package": "vue",
+      "symbol": "normalizeClass",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 10,
+        "endLine": 10,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    }
+  ],
+  "packageDependents": [
+    {
+      "package": "@vue/compat",
+      "chain": [
+        "@vue/compat",
+        "vue",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/compiler-core",
+      "chain": [
+        "@vue/compiler-core",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/compiler-dom",
+      "chain": [
+        "@vue/compiler-dom",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/compiler-sfc",
+      "chain": [
+        "@vue/compiler-sfc",
+        "@vue/compiler-core",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/compiler-ssr",
+      "chain": [
+        "@vue/compiler-ssr",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/reactivity",
+      "chain": [
+        "@vue/reactivity",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/runtime-core",
+      "chain": [
+        "@vue/runtime-core",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/runtime-dom",
+      "chain": [
+        "@vue/runtime-dom",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/runtime-test",
+      "chain": [
+        "@vue/runtime-test",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/server-renderer",
+      "chain": [
+        "@vue/server-renderer",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "@vue/sfc-playground",
+      "chain": [
+        "@vue/sfc-playground",
+        "vue",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "dts-built-test",
+      "chain": [
+        "dts-built-test",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "dts-test",
+      "chain": [
+        "dts-test",
+        "vue",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "vite-debug",
+      "chain": [
+        "vite-debug",
+        "vue",
+        "@vue/shared"
+      ]
+    },
+    {
+      "package": "vue",
+      "chain": [
+        "vue",
+        "@vue/shared"
+      ]
+    }
+  ],
+  "validationTargets": [
+    {
+      "package": "<root>",
+      "script": "check",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 15,
+        "endLine": 15,
+        "quote": "\"check\": \"tsc --incremental --noEmit\""
+      }
+    },
+    {
+      "package": "<root>",
+      "script": "test-unit",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 20,
+        "endLine": 20,
+        "quote": "\"test-unit\": \"vitest --project unit\""
+      }
+    },
+    {
+      "package": "<root>",
+      "script": "build",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 8,
+        "endLine": 8,
+        "quote": "\"build\": \"node scripts/build.js\""
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "packages/compiler-core/src/runtimeHelpers.ts",
+      "symbol": "normalizeClass",
+      "reason": "string-or-comment-only",
+      "evidence": {
+        "startLine": 110,
+        "endLine": 110,
+        "quote": "  [NORMALIZE_CLASS]: `normalizeClass`,"
+      }
+    }
+  ],
+  "uncertainties": [
+    {
+      "code": "external-consumers",
+      "state": "unknown"
+    },
+    {
+      "code": "dynamic-loading",
+      "state": "unknown"
+    },
+    {
+      "code": "package-reachability-not-symbol-use",
+      "state": "conservative"
+    },
+    {
+      "code": "unexecuted-validation",
+      "state": "not-proven"
+    }
+  ],
+  "negativeClaims": []
+}

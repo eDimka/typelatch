@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "source-bound-substantive-failure",
+  "study": "impact-confirmation-002",
+  "runId": "vue-runtime-impact-heldout-grading-v2-r1-native",
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "publicEvidenceSha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+  "toolOutputsSha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+  "answerSha256": "290e127f853389ea22378d82b7f2611d82289407cbd040933c648718ebfe47ea",
+  "originalGradeUnchanged": true,
+  "originalCorrect": false,
+  "occurrenceErratumCannotClear": true,
+  "finding": {
+    "code": "external-development-metadata-is-not-an-installed-edge",
+    "rejectedChain": {
+      "package": "@vue/template-explorer@0.0.0",
+      "chain": [
+        "@vue/template-explorer@0.0.0",
+        "monaco-editor@0.52.0",
+        "vite@5.4.0",
+        "rollup@4.20.0",
+        "vue@3.5.13",
+        "@vue/shared@3.5.13"
+      ]
+    },
+    "declaringManifest": {
+      "path": "node_modules/.pnpm/monaco-editor@0.52.0/node_modules/monaco-editor/package.json",
+      "sha256": "a232461b15ab57c52974f3d2d5e087303cbfecc3f6e0b0f43533a495ea5695e9",
+      "name": "monaco-editor",
+      "version": "0.52.0",
+      "pointer": "/devDependencies/vite",
+      "range": "^3.2.8"
+    },
+    "observedLookup": {
+      "path": "node_modules/vite",
+      "symlink": ".pnpm/vite@5.4.0_@types+node@22.8.7_sass@1.80.6/node_modules/vite",
+      "resolvedManifest": "node_modules/.pnpm/vite@5.4.0_@types+node@22.8.7_sass@1.80.6/node_modules/vite/package.json",
+      "sha256": "d6706ca93c2b775c92114265e53cdb9b081d09a1957d309b886dd45aca1765be",
+      "name": "vite",
+      "version": "5.4.0"
+    },
+    "reason": "The traversal treats development metadata of an installed external dependency as an installed edge and walks upward to an unrelated available package. Monaco-editor declares vite ^3.2.8; the found vite5.4.0 is outside that declared major-version range. Lookup availability does not establish the declared dependency edge. The answer therefore includes an unsupported workspace dependent even if its two valid literal exclusions are assessed as distinct occurrences.",
+    "originalDependencyAssessment": {
+      "precision": 0.9375,
+      "recall": 1,
+      "truePositive": [
+        "@vue/compat",
+        "@vue/compiler-core",
+        "@vue/compiler-dom",
+        "@vue/compiler-sfc",
+        "@vue/compiler-ssr",
+        "@vue/reactivity",
+        "@vue/runtime-core",
+        "@vue/runtime-dom",
+        "@vue/runtime-test",
+        "@vue/server-renderer",
+        "@vue/sfc-playground",
+        "dts-built-test",
+        "dts-test",
+        "vite-debug",
+        "vue"
+      ],
+      "falsePositive": [
+        "@vue/template-explorer"
+      ],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "failedEvidence": [
+      {
+        "package": "@vue/template-explorer",
+        "passed": false
+      }
+    ],
+    "originalExclusionDuplicates": 1,
+    "returnedEvidence": {
+      "actionIdSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "outputSha256": "98f68498d3a583de20bbdb992af5cdb39dd50741602da7fa12c9fb1e3c10f585",
+      "stdout": "{\"name\":\"monaco-editor\",\"version\":\"0.52.0\",\"file\":\"node_modules/.pnpm/monaco-editor@0.52.0/node_modules/monaco-editor/package.json\",\"nextEdges\":{\"dependencies\":{},\"devDependencies\":{\"vite\":\"^3.2.8\"},\"optionalDependencies\":{},\"peerDependencies\":{}}}\n{\"name\":\"vite\",\"version\":\"5.4.0\",\"file\":\"node_modules/.pnpm/vite@5.4.0_@types+node@22.8.7_sass@1.80.6/node_modules/vite/package.json\",\"nextEdges\":{\"dependencies\":{\"rollup\":\"^4.13.0\"},\"devDependencies\":{},\"optionalDependencies\":{},\"peerDependencies\":{}}}\n{\"name\":\"rollup\",\"version\":\"4.20.0\",\"file\":\"node_modules/.pnpm/rollup@4.20.0/node_modules/rollup/package.json\",\"nextEdges\":{\"dependencies\":{},\"devDependencies\":{\"rollup\":\"^4.19.1\",\"vite\":\"^5.3.5\",\"vue\":\"^3.4.34\"},\"optionalDependencies\":{},\"peerDependencies\":{}}}\n{\"name\":\"vue\",\"version\":\"3.5.13\",\"file\":\"packages/vue/package.json\",\"nextEdges\":{\"dependencies\":{\"@vue/shared\":\"workspace:*\"},\"devDependencies\":{},\"optionalDependencies\":{},\"peerDependencies\":{}}}\n{\"name\":\"@vue/shared\",\"version\":\"3.5.13\",\"file\":\"packages/shared/package.json\",\"nextEdges\":{\"dependencies\":{},\"devDependencies\":{},\"optionalDependencies\":{},\"peerDependencies\":{}}}\n"
+    }
+  },
+  "limits": "This audit establishes the concrete invalid chain in this submitted answer; it does not prove absence of every possible transitive relationship by name. No grades, thresholds, task instructions or candidate code are changed."
+}

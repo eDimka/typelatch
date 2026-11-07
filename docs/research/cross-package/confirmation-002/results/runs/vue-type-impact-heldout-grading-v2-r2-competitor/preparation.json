@@ -1,0 +1,70 @@
+[
+  {
+    "lifecycleModule": "$REPOSITORY/artifacts/research/competitors/serena-agent-lifecycle.mjs",
+    "evidence": {
+      "provider": "serena",
+      "arm": "competitor",
+      "workspace": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/workspace",
+      "state": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state",
+      "startedAt": "2026-11-07T00:25:38.864Z",
+      "readyAt": "2026-11-07T00:25:38.865Z",
+      "setupSpawnedProcesses": 0,
+      "readiness": "Configuration prepared only. Codex starts and initializes the MCP server during measured agent time.",
+      "launchspec": {
+        "command": "$REPOSITORY/artifacts/research/serena-baseline/venv/bin/serena",
+        "args": [
+          "start-mcp-server",
+          "--project",
+          "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/workspace",
+          "--agent-interface",
+          "REPL",
+          "--transport",
+          "stdio",
+          "--enable-web-dashboard",
+          "false",
+          "--enable-gui-log-window",
+          "false",
+          "--open-web-dashboard",
+          "false",
+          "--log-level",
+          "INFO"
+        ],
+        "cwd": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/workspace",
+        "env": {
+          "PATH": "$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+          "TMPDIR": "$TEMP/",
+          "LANG": "C.UTF-8",
+          "LC_ALL": "C.UTF-8",
+          "SERENA_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/serena-home",
+          "XDG_CACHE_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/xdg-cache",
+          "XDG_CONFIG_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/xdg-config",
+          "PYTHONNOUSERSITE": "1",
+          "PYTHONUNBUFFERED": "1",
+          "npm_config_cache": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/npm-cache",
+          "npm_config_offline": "true"
+        },
+        "startup_timeout_sec": 600,
+        "tool_timeout_sec": 180,
+        "tools": [
+          "activate_project",
+          "initial_instructions",
+          "serena_repl"
+        ]
+      },
+      "configs": [
+        {
+          "path": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/serena-home/serena_config.yml",
+          "sha256": "d74e9e8ea1665a9e548bbd41ebf3b709fee9c1bbf11c7d98925bd5b5dce791ee"
+        },
+        {
+          "path": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-competitor/provider-state/project-data/project.yml",
+          "sha256": "039c0f74dc6f0a951d943ab3334017222af5cd599e334d732c865f9a5e4271db"
+        }
+      ],
+      "editingEnabled": true,
+      "isolatedNpmCache": true,
+      "compilerSelection": "Serena uses native workspace compiler discovery. Configured fallback versions do not prove the compiler selected. Retain actual version notifications from MCP stderr.",
+      "cleanupRequirement": "The recorder must independently confirm its Codex process group stopped."
+    }
+  }
+]

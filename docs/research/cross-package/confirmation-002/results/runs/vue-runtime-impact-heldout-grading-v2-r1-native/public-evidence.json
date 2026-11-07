@@ -1,0 +1,506 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+    "task": "vue-runtime-impact-heldout-grading-v2",
+    "repeat": 1,
+    "arm": "native",
+    "status": "completed",
+    "startedAt": "2026-11-07T00:12:32.107Z",
+    "finishedAt": "2026-11-07T00:14:17.340Z",
+    "fixtureSetupMs": 6923.583583,
+    "fixtureCopy": {
+      "receipt": "fixture-copy.json",
+      "sha256": "b7deab3e671aefad224778c8fba2689406d6eab192edfa638af6ccd24a967328",
+      "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+      "pythonSha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+      "elapsedMs": 3465.380957999965,
+      "clonedFiles": 18328,
+      "clonedSymlinks": 1576,
+      "excludedGit": []
+    },
+    "providerSetupMs": 0.0027080000145360827,
+    "elapsedMs": 105232.15862500004,
+    "teardownMs": 0.2867499999701977,
+    "gradingMs": 1517.2232500000391,
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": false,
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": 240411,
+      "cachedInputTokens": 219264,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 4435,
+      "reasoningOutputTokens": 981,
+      "totalTokens": 244846,
+      "uncachedInputTokens": 21147
+    },
+    "counts": {
+      "shellCalls": 9,
+      "mcpCalls": 0,
+      "mcpSucceeded": 0,
+      "mcpFailed": 0,
+      "fileEdits": 0,
+      "grepShellCalls": 3,
+      "contentSearchShellCalls": 3,
+      "fileListingShellCalls": 2,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+    "preparedSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+    "promptSha256": "0e21d818ddae20614a03a9c5f00d7ba406071566ac817e3795ac887e28f51a06",
+    "recordingError": null,
+    "rawSha256": "f3ea1c50524925cca0f376c2e658f36dc9662c2e06577feb5abee444fb1dbf6c",
+    "nativeValidation": null,
+    "providerCallObserved": false,
+    "providerUsed": null,
+    "workflowReviewed": null
+  },
+  "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: none\nTools: none\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+  "actions": [
+    {
+      "type": "command_execution",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg -n 'normalizeClass' packages --glob '*.ts' --glob 'package.json'; rg --files -g '*tsconfig*' -g 'package.json' -g 'pnpm-workspace.yaml' -g 'AGENTS.md' -g '\"'!node_modules'\"'\"",
+      "outputBytes": 4885,
+      "outputSha256": "929964f8b6938adfa78c6b280716df60f87ef9fc61101bcf778286d374657ec4",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 5033.768291999935,
+      "completedMs": 5033.768291999935
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "command": "/bin/zsh -c \"cat tsconfig.json tsconfig.build.json pnpm-workspace.yaml package.json; rg -n 'export|normalize' packages/shared/src/index.ts packages/runtime-dom/src/index.ts packages/vue/src/index.ts packages/vue/src/runtime.ts packages/vue-compat/src/index.ts; rg --files -g '*lock*' -g 'AGENTS.md' -g '\"'!node_modules'\"'; ls node_modules/.bin\"",
+      "outputBytes": 10586,
+      "outputSha256": "4e9e2e8e61ae8001b7c8444ab050d974e092a676fc9cdd7ced2a55f091ae2525",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 8130.555958000012,
+      "completedMs": 8130.769041999942
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';\nfor (const root of ['packages','packages-private']) for(const d of fs.readdirSync(root)){const f=\"'`${root}/${d}/package.json`;if(fs.existsSync(f)){const p=JSON.parse(fs.readFileSync(f));console.log(JSON.stringify({file:f,name:p.name,version:p.version,scripts:p.scripts,dependencies:p.dependencies,devDependencies:p.devDependencies,optionalDependencies:p.optionalDependencies,peerDependencies:p.peerDependencies}));}}\nNODE\n'",
+      "outputBytes": 3906,
+      "outputSha256": "8f093230fcc678cd2ededed859ccaf55b6f0b568f6b3afee4448d805311ec195",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 13652.651416999986,
+      "completedMs": 13652.651416999986
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport ts from 'typescript'; import path from 'node:path';\nconst cfg=ts.readConfigFile('tsconfig.json',ts.sys.readFile);const parsed=ts.parseJsonConfigFileContent(cfg.config,ts.sys,'.');const prog=ts.createProgram(parsed.fileNames,parsed.options);const ck=prog.getTypeChecker();\nconst def=prog.getSourceFiles().find(s=>s.fileName.endsWith('/shared/src/normalizeProp.ts')||s.fileName==='packages/shared/src/normalizeProp.ts');const target=ck.getExportsOfModule(ck.getSymbolAtLocation(def)).find(s=>s.name==='normalizeClass');\nfunction orig(s){let seen=new Set;while(s?.flags&ts.SymbolFlags.Alias){if(seen.has(s))break;seen.add(s);s=ck.getAliasedSymbol(s);}return s;}\nconsole.log('TARGET',target?.declarations.map(d=>d.getSourceFile().fileName));console.log('CONFIG FILES',parsed.fileNames.length);\nfor(const sf of prog.getSourceFiles()){const f=path.relative('.',sf.fileName);if(\"'!/''^(packages|packages-private)'\"\\\\/[\"'^/]+'\"\\\\/src\\\\//.test(f)||sf.isDeclarationFile||f.includes('/__tests__/'))continue;\nlet hits=[];function walk(n){if(ts.isIdentifier(n)&&orig(ck.getSymbolAtLocation(n))===target)hits.push({line:sf.getLineAndCharacterOfPosition(n.getStart()).line+1,kind:ts.SyntaxKind[n.parent.kind],text:n.parent.getText(sf).slice(0,220)});\nif(ts.isExportDeclaration(n)&&n.moduleSpecifier&&\"'!n.exportClause){const sym=ck.getSymbolAtLocation(n.moduleSpecifier);if(sym&&ck.getExportsOfModule(sym).some(s=>orig(s)===target))hits.push({line:sf.getLineAndCharacterOfPosition(n.getStart()).line+1,kind:'\"'StarReexport',text:n.getText(sf)});}\nts.forEachChild(n,walk);}walk(sf);if(hits.length)console.log(JSON.stringify({file:f,root:parsed.fileNames.some(p=>path.resolve(p)===path.resolve(sf.fileName)),hits}));}\nNODE\"",
+      "outputBytes": 3326,
+      "outputSha256": "53a558284f233861e74cb22a28b50a4101c604f1f62efbaf25c9e09e9407e0ae",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 24729.613624999998,
+      "completedMs": 27438.412624999997
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+      "status": "completed",
+      "command": "/bin/zsh -c \"nl -ba packages/vue-compat/src/index.ts; nl -ba packages/compiler-core/src/runtimeHelpers.ts | head -120; nl -ba packages/runtime-core/src/hmr.ts | head -85; nl -ba packages/runtime-core/src/index.ts | tail -55; cat packages-private/tsconfig.json; rg -n 'normalizeClass|runtime-dom' packages-private --glob '\"'!**/node_modules/**'\"'; git status --short\"",
+      "outputBytes": 14911,
+      "outputSha256": "70ddeac3e175a171c5e0f3748f1b2ce5b5a888fd6c475976e0968ec6f6e8311e",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 33056.56999999995,
+      "completedMs": 33056.56999999995
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import path from 'node:path';\nconst cwd=process.cwd(),pkgs=[];for(const root of ['packages','packages-private'])for(const d of fs.readdirSync(root)){const dir=\"'`${root}/${d}`,f=`${dir}/package.json`;if(fs.existsSync(f))pkgs.push({dir,...JSON.parse(fs.readFileSync(f))});}\nfunction resolve(dir,name){for(let p=path.resolve(dir);p.startsWith(cwd);p=path.dirname(p)){const f=path.join(p,'\"'node_modules',name,'package.json');if(fs.existsSync(f)){const real=fs.realpathSync(f),json=JSON.parse(fs.readFileSync(real));return {name:json.name,version:json.version,file:path.relative(cwd,real)};}if(p===cwd)break;}return null;}\nfor(const p of pkgs){console.log(JSON.stringify({name:p.name,version:p.version,edges:Object.entries({...p.dependencies,...p.devDependencies,...p.optionalDependencies,...p.peerDependencies}).filter(([n])=>pkgs.some(x=>x.name===n)||n==='@vue/repl'||n==='@vitejs/plugin-vue').map(([n,s])=>({name:n,spec:s,resolved:resolve(p.dir,n)}))}));}\nNODE\"",
+      "outputBytes": 6250,
+      "outputSha256": "8ec02df3323768a5eec81379fb6659d15f1f3b86d62697a5444001a3dd5e7ff9",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 41010.70470799995,
+      "completedMs": 41010.70470799995
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import path from 'node:path';\nconst cwd=process.cwd();const work=[];\nfor(const root of ['packages','packages-private'])for(const d of fs.readdirSync(root)){const f=path.resolve(root,d,'package.json');if(fs.existsSync(f))work.push({file:f,dir:path.dirname(f),json:JSON.parse(fs.readFileSync(f,'utf8'))});}\nconst cache=new Map(work.map(p=>[p.file,p]));\nfunction load(f){if(\"'!cache.has(f))cache.set(f,{file:f,dir:path.dirname(f),json:JSON.parse(fs.readFileSync(f,'\"'utf8'))});return cache.get(f);}\nfunction resolve(p,name){for(let dir=p.dir;dir.startsWith(cwd);dir=path.dirname(dir)){const f=path.join(dir,'node_modules',name,'package.json');if(fs.existsSync(f)){const real=fs.realpathSync(f);if(real.startsWith(cwd+path.sep))return load(real);return null;}if(dir===cwd)break;}return null;}\nconst target=work.find(p=>p.json.name==='@vue/shared');const label=p=>p.json.version?\"'`${p.json.name}@${p.json.version}`:p.json.name;\nconst dependents=[];\nfor(const p of work){if(p===target)continue;const queue=[[p]],seen=new Set([p.file]);let found;\nwhile(queue.length&&!found){const chain=queue.shift(),cur=chain.at(-1);for(const name of Object.keys({...cur.json.dependencies,...cur.json.devDependencies,...cur.json.optionalDependencies,...cur.json.peerDependencies})){const dep=resolve(cur,name);if(!dep||seen.has(dep.file))continue;seen.add(dep.file);const next=[...chain,dep];if(dep.file===target.file){found=next;break;}queue.push(next);}}\nif(found)dependents.push({package:label(p),chain:found.map(label)});\n}\nfunction evidence(file,startLine,endLine=startLine){return {startLine,endLine,quote:fs.readFileSync(file,'\"'utf8').split('\\\\n').slice(startLine-1,endLine).join('\\\\n')};}\nconst direct=[];\nfunction add(file,pkg,role,start,end=start){direct.push({file,package:pkg,symbol:'normalizeClass',role,evidence:evidence(file,start,end)});}\nadd('packages/compiler-dom/src/transforms/stringifyStatic.ts','@vue/compiler-dom','runtime',354);\nadd('packages/runtime-core/src/hydration.ts','@vue/runtime-core','runtime',803);\nadd('packages/runtime-core/src/compat/renderFn.ts','@vue/runtime-core','runtime',213);\nadd('packages/runtime-core/src/compat/renderHelpers.ts','@vue/runtime-core','runtime',42,44);\nadd('packages/runtime-core/src/vnode.ts','@vue/runtime-core','runtime',596);\nadd('packages/server-renderer/src/helpers/ssrRenderAttrs.ts','@vue/server-renderer','runtime',86);\nadd('packages/runtime-core/src/index.ts','@vue/runtime-core','reexport',382);\nadd('packages/runtime-dom/src/index.ts','@vue/runtime-dom','reexport',306);\nadd('packages/runtime-test/src/index.ts','@vue/runtime-test','reexport',29);\nadd('packages/vue/src/index.ts','vue','reexport',107);\nadd('packages/vue/src/runtime.ts','vue','reexport',10);\nadd('packages/vue-compat/src/esm-index.ts','@vue/compat','reexport',4);\nadd('packages/vue-compat/src/esm-runtime.ts','@vue/compat','reexport',4);\ndirect.sort((a,b)=>a.file.localeCompare(b.file)||a.role.localeCompare(b.role));\nconst owners=new Set(['@vue/shared',...direct.map(d=>d.package)]);\nfor(const p of work.filter(p=>owners.has(p.json.name)))if(['compile','test','_test'].some(s=>p.json.scripts?.[s]))throw new Error('Package script must be included '+p.json.name);\nconst root=JSON.parse(fs.readFileSync('package.json','utf8'));const lines=fs.readFileSync('package.json','utf8').split('\\\\n');\nconst validationTargets=['check','test-unit','build'].map(script=>{const line=lines.findIndex(l=>l.trimStart().startsWith(JSON.stringify(script)+':'))+1;if(\"'!root.scripts[script]||!line)throw new Error(script);return {package:'\"'<root>',script,evidence:{file:'package.json',...evidence('package.json',line)}};});\nconst exclusions=[\n{file:'packages/compiler-core/src/runtimeHelpers.ts',symbol:'normalizeClass',reason:'string-or-comment-only',evidence:evidence('packages/compiler-core/src/runtimeHelpers.ts',110)},\n{file:'packages/compiler-core/src/runtimeHelpers.ts',symbol:'normalizeClass',reason:'string-or-comment-only',evidence:evidence('packages/compiler-core/src/runtimeHelpers.ts',48,50)},\n{file:'packages/runtime-core/src/hmr.ts',symbol:'normalizeClassComponent',reason:'different-symbol',evidence:evidence('packages/runtime-core/src/hmr.ts',77,79)}\n];\nconst report={schemaVersion:2,target:{package:target.json.name,version:target.json.version,exports:['normalizeClass']},direct,packageDependents:dependents.sort((a,b)=>a.package.localeCompare(b.package)),validationTargets,exclusions,uncertainties:[{code:'external-consumers',state:'unknown'},{code:'dynamic-loading',state:'unknown'},{code:'package-reachability-not-symbol-use',state:'conservative'},{code:'unexecuted-validation',state:'not-proven'}],negativeClaims:[]};\nfs.writeFileSync('impact-answer.json',JSON.stringify(report,null,2)+'\\\\n');\nconsole.log(JSON.stringify({direct:direct.length,packageDependents:report.packageDependents,validationTargets:validationTargets.map(t=>t.script),exclusions:exclusions.length},null,2));\nNODE\"",
+      "outputBytes": 2610,
+      "outputSha256": "10f4f3a840edcbe400521bbc72e346b7bf45c26d3026fd33bcde5ed91ce9836e",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 78769.32270799996,
+      "completedMs": 78887.817958
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import path from 'node:path';\nlet dir=path.resolve('packages-private/template-explorer');\nfor(const name of ['monaco-editor','vite','rollup','vue','@vue/shared']){let hit;for(let d=dir;d.startsWith(process.cwd());d=path.dirname(d)){const f=path.join(d,'node_modules',name,'package.json');if(fs.existsSync(f)){hit=fs.realpathSync(f);break;}if(d===process.cwd())break;}if(\"'!hit)throw new Error(name);const p=JSON.parse(fs.readFileSync(hit));console.log(JSON.stringify({name:p.name,version:p.version,file:path.relative('\"'.',hit),nextEdges:Object.fromEntries(['dependencies','devDependencies','optionalDependencies','peerDependencies'].map(k=>[k,Object.fromEntries(Object.entries(p[k]||{}).filter(([n])=>['vite','rollup','vue','@vue/shared'].includes(n)))]))}));dir=path.dirname(hit);}\nNODE\"",
+      "outputBytes": 1144,
+      "outputSha256": "98f68498d3a583de20bbdb992af5cdb39dd50741602da7fa12c9fb1e3c10f585",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 87365.47399999993,
+      "completedMs": 87365.47399999993
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';import ts from 'typescript';import path from 'node:path';\nconst r=JSON.parse(fs.readFileSync('impact-answer.json','utf8'));\nfor(const x of [...r.direct,...r.exclusions,...r.validationTargets]){const e=x.evidence;const file=e.file||x.file;const quote=fs.readFileSync(file,'utf8').split('\\\\n').slice(e.startLine-1,e.endLine).join('\\\\n');if(quote\"'!==e.quote||e.endLine-e.startLine>20)throw new Error('\"'Invalid evidence '+file);}\nconst cfg=ts.readConfigFile('tsconfig.json',ts.sys.readFile);const parsed=ts.parseJsonConfigFileContent(cfg.config,ts.sys,'.');const files=new Set(parsed.fileNames.map(f=>path.resolve(f)));\nfor(const d of r.direct){if(\"'!files.has(path.resolve(d.file))||!/''^packages'\"\\\\/[\"'^/]+'\"\\\\/src\\\\//.test(d.file)||d.file.endsWith('.d.ts')||d.file.includes('/__tests__/'))throw new Error('Invalid source scope '+d.file);}\nif(new Set(r.direct.map(d=>[d.file,d.symbol,d.role].join(':'))).size\"'!==r.direct.length)throw new Error('\"'Duplicate direct pair');\nconsole.log('Verified JSON, exact evidence quotes, line limits, configured source membership and unique roles.');\nNODE\ngit status --short\"",
+      "outputBytes": 120,
+      "outputSha256": "44b57bedc3571d08ce262d8c7bd34b2a1366fbc6d9ca01dc80fb6553d6e66104",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 102548.23779199994,
+      "completedMs": 102705.771083
+    }
+  ],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core"
+  },
+  "grading": {
+    "passed": false,
+    "precision": 0.984375,
+    "recall": 1,
+    "identity": true,
+    "direct": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+        "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+        "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+        "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+        "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+        "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+        "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+        "packages/vue/src/index.ts|normalizeClass|reexport",
+        "packages/vue/src/runtime.ts|normalizeClass|reexport"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "dependents": {
+      "precision": 0.9375,
+      "recall": 1,
+      "truePositive": [
+        "@vue/compat",
+        "@vue/compiler-core",
+        "@vue/compiler-dom",
+        "@vue/compiler-sfc",
+        "@vue/compiler-ssr",
+        "@vue/reactivity",
+        "@vue/runtime-core",
+        "@vue/runtime-dom",
+        "@vue/runtime-test",
+        "@vue/server-renderer",
+        "@vue/sfc-playground",
+        "dts-built-test",
+        "dts-test",
+        "vite-debug",
+        "vue"
+      ],
+      "falsePositive": [
+        "@vue/template-explorer"
+      ],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "targets": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "<root>|check",
+        "<root>|test-unit",
+        "<root>|build"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "exclusions": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+        "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 1,
+      "evidenceChecks": [
+        {
+          "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+          "passed": true
+        },
+        {
+          "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+          "passed": true
+        },
+        {
+          "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+          "passed": true
+        }
+      ]
+    },
+    "evidenceChecks": [
+      {
+        "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "package": "@vue/compat",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-core",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-dom",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-sfc",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-ssr",
+        "passed": true
+      },
+      {
+        "package": "@vue/reactivity",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-core",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-dom",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-test",
+        "passed": true
+      },
+      {
+        "package": "@vue/server-renderer",
+        "passed": true
+      },
+      {
+        "package": "@vue/sfc-playground",
+        "passed": true
+      },
+      {
+        "package": "@vue/template-explorer",
+        "passed": false
+      },
+      {
+        "package": "dts-built-test",
+        "passed": true
+      },
+      {
+        "package": "dts-test",
+        "passed": true
+      },
+      {
+        "package": "vite-debug",
+        "passed": true
+      },
+      {
+        "package": "vue",
+        "passed": true
+      },
+      {
+        "key": "<root>|check",
+        "passed": true
+      },
+      {
+        "key": "<root>|test-unit",
+        "passed": true
+      },
+      {
+        "key": "<root>|build",
+        "passed": true
+      },
+      {
+        "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+        "passed": true
+      },
+      {
+        "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/hmr.ts|normalizeClassComponent|different-symbol",
+        "passed": true
+      }
+    ],
+    "uncertainties": true,
+    "falseConfidentNegatives": [],
+    "representation": {
+      "packageLabels": "bare name or exact frozen name@version",
+      "uncertainty": "constrained code/state pairs; no unchecked prose"
+    },
+    "integrity": {
+      "changed": []
+    },
+    "answerPresent": true,
+    "fixtureGitUnchanged": true
+  },
+  "changes": [],
+  "taskArtifacts": [
+    {
+      "path": "impact-answer.json",
+      "sha256": "290e127f853389ea22378d82b7f2611d82289407cbd040933c648718ebfe47ea",
+      "bytes": 8831,
+      "text": "{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"@vue/shared\",\n    \"version\": \"3.5.13\",\n    \"exports\": [\n      \"normalizeClass\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"packages/compiler-dom/src/transforms/stringifyStatic.ts\",\n      \"package\": \"@vue/compiler-dom\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 354,\n        \"endLine\": 354,\n        \"quote\": \"            evaluated = normalizeClass(evaluated)\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/compat/renderFn.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 213,\n        \"endLine\": 213,\n        \"quote\": \"    converted.class = normalizeClass([legacyProps.staticClass, converted.class])\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/compat/renderHelpers.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 42,\n        \"endLine\": 44,\n        \"quote\": \"        data.class = normalizeClass([data.class, value.class])\\n      } else if (key === 'style') {\\n        data.style = normalizeClass([data.style, value.style])\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/hydration.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 803,\n        \"endLine\": 803,\n        \"quote\": \"    expected = normalizeClass(clientValue)\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/index.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 382,\n        \"endLine\": 382,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/vnode.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 596,\n        \"endLine\": 596,\n        \"quote\": \"      props.class = normalizeClass(klass)\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-dom/src/index.ts\",\n      \"package\": \"@vue/runtime-dom\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 306,\n        \"endLine\": 306,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-test/src/index.ts\",\n      \"package\": \"@vue/runtime-test\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 29,\n        \"endLine\": 29,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/server-renderer/src/helpers/ssrRenderAttrs.ts\",\n      \"package\": \"@vue/server-renderer\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 86,\n        \"endLine\": 86,\n        \"quote\": \"  return escapeHtml(normalizeClass(raw))\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-index.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-runtime.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/index.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 107,\n        \"endLine\": 107,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/runtime.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 10,\n        \"endLine\": 10,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"@vue/compat@3.5.13\",\n      \"chain\": [\n        \"@vue/compat@3.5.13\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-core@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-core@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-dom@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-dom@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-sfc@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-sfc@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-ssr@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-ssr@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/reactivity@3.5.13\",\n      \"chain\": [\n        \"@vue/reactivity@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-core@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-core@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-dom@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-test@0.0.0\",\n      \"chain\": [\n        \"@vue/runtime-test@0.0.0\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/server-renderer@3.5.13\",\n      \"chain\": [\n        \"@vue/server-renderer@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/sfc-playground@0.0.0\",\n      \"chain\": [\n        \"@vue/sfc-playground@0.0.0\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/template-explorer@0.0.0\",\n      \"chain\": [\n        \"@vue/template-explorer@0.0.0\",\n        \"monaco-editor@0.52.0\",\n        \"vite@5.4.0\",\n        \"rollup@4.20.0\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"dts-built-test@0.0.0\",\n      \"chain\": [\n        \"dts-built-test@0.0.0\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"dts-test@0.0.0\",\n      \"chain\": [\n        \"dts-test@0.0.0\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"vite-debug\",\n      \"chain\": [\n        \"vite-debug\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"vue@3.5.13\",\n      \"chain\": [\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"<root>\",\n      \"script\": \"check\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 15,\n        \"endLine\": 15,\n        \"quote\": \"    \\\"check\\\": \\\"tsc --incremental --noEmit\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"test-unit\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 20,\n        \"endLine\": 20,\n        \"quote\": \"    \\\"test-unit\\\": \\\"vitest --project unit\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"build\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 8,\n        \"endLine\": 8,\n        \"quote\": \"    \\\"build\\\": \\\"node scripts/build.js\\\",\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"packages/compiler-core/src/runtimeHelpers.ts\",\n      \"symbol\": \"normalizeClass\",\n      \"reason\": \"string-or-comment-only\",\n      \"evidence\": {\n        \"startLine\": 110,\n        \"endLine\": 110,\n        \"quote\": \"  [NORMALIZE_CLASS]: `normalizeClass`,\"\n      }\n    },\n    {\n      \"file\": \"packages/compiler-core/src/runtimeHelpers.ts\",\n      \"symbol\": \"normalizeClass\",\n      \"reason\": \"string-or-comment-only\",\n      \"evidence\": {\n        \"startLine\": 48,\n        \"endLine\": 50,\n        \"quote\": \"export const NORMALIZE_CLASS: unique symbol = Symbol(\\n  __DEV__ ? `normalizeClass` : ``,\\n)\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/hmr.ts\",\n      \"symbol\": \"normalizeClassComponent\",\n      \"reason\": \"different-symbol\",\n      \"evidence\": {\n        \"startLine\": 77,\n        \"endLine\": 79,\n        \"quote\": \"function normalizeClassComponent(component: HMRComponent): ComponentOptions {\\n  return isClassComponent(component) ? component.__vccOpts : component\\n}\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n"
+    }
+  ],
+  "recording": "Allowlisted completed public actions, explicit requested task artifacts, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "candidate": "impact",
+  "challenger": "codegraph",
+  "category": "impact",
+  "minimumReductionPercent": 20,
+  "minimumHeldoutTasks": 2,
+  "repeats": 2,
+  "controls": [
+    "native",
+    "competitor",
+    "codegraph"
+  ],
+  "rule": "Apply the original native and Serena gate unchanged. Also require at least 20 percent aggregate and median paired savings against CodeGraph in total tokens and provider setup plus agent time, with savings in both repetition aggregates. Require complete reviewed workflows and correct answers in all four conditions. Use the same frozen tasks, source, permissions, model and counterbalanced four condition schedule. Retain every failure. This establishes only an exploratory result on the named snapshots and tasks, never universal superiority."
+}

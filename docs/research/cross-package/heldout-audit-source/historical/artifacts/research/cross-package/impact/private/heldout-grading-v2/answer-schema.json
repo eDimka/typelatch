@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 2,
+  "target": {
+    "package": "exact package name",
+    "version": "exact workspace version",
+    "exports": [
+      "public export name"
+    ]
+  },
+  "direct": [
+    {
+      "file": "repository relative configured production source",
+      "package": "owning package name",
+      "symbol": "original public export name",
+      "role": "runtime | type-only | reexport",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact source covering the reference token"
+      }
+    }
+  ],
+  "packageDependents": [
+    {
+      "package": "workspace package name, optionally followed by @exact-version",
+      "chain": [
+        "dependent package",
+        "intermediate dependency if any",
+        "target package"
+      ]
+    }
+  ],
+  "validationTargets": [
+    {
+      "package": "owning package name or <root>",
+      "script": "actual scripts object key",
+      "evidence": {
+        "file": "package.json path",
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact scripts property name and command value"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "repository relative path",
+      "symbol": "declared/imported local name, literal target name, or * for configuration exclusions",
+      "reason": "different-symbol | string-or-comment-only | outside-source-scope",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "exact declaration/import binding, literal/comment or excluded source"
+      }
+    }
+  ],
+  "uncertainties": [
+    {
+      "code": "external-consumers",
+      "state": "unknown"
+    },
+    {
+      "code": "dynamic-loading",
+      "state": "unknown"
+    },
+    {
+      "code": "package-reachability-not-symbol-use",
+      "state": "conservative"
+    },
+    {
+      "code": "unexecuted-validation",
+      "state": "not-proven"
+    }
+  ],
+  "negativeClaims": []
+}

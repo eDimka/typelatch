@@ -1,0 +1,293 @@
+{
+  "compilerVersion": "5.6.2",
+  "config": "tsconfig.json",
+  "definition": "packages/shared/src/normalizeProp.ts",
+  "position": 1653,
+  "elapsedMs": 942.277583,
+  "references": [
+    {
+      "textSpan": {
+        "start": 1653,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/src/normalizeProp.ts",
+      "contextSpan": {
+        "start": 1637,
+        "length": 463
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 1851,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/src/normalizeProp.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 2320,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/src/normalizeProp.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 567,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/compiler-dom/src/transforms/stringifyStatic.ts",
+      "contextSpan": {
+        "start": 408,
+        "length": 250
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 10840,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/compiler-dom/src/transforms/stringifyStatic.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 602,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/hydration.ts",
+      "contextSpan": {
+        "start": 393,
+        "length": 281
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 24865,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/hydration.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 94,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/compat/renderFn.ts",
+      "contextSpan": {
+        "start": 0,
+        "length": 164
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 5610,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/compat/renderFn.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 87,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/compat/renderHelpers.ts",
+      "contextSpan": {
+        "start": 0,
+        "length": 123
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 996,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/compat/renderHelpers.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 1095,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/compat/renderHelpers.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 9157,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/index.ts",
+      "contextSpan": {
+        "start": 9067,
+        "length": 144
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 132,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/vnode.ts",
+      "contextSpan": {
+        "start": 0,
+        "length": 186
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 15560,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/vnode.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 24520,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/runtime-core/src/vnode.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 201,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+      "contextSpan": {
+        "start": 99,
+        "length": 174
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 2151,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 11,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "contextSpan": {
+        "start": 0,
+        "length": 116
+      },
+      "isWriteAccess": true
+    },
+    {
+      "textSpan": {
+        "start": 210,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 309,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 406,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 572,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 624,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 743,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 841,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 969,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 1121,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 1232,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 1416,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    },
+    {
+      "textSpan": {
+        "start": 1712,
+        "length": 14
+      },
+      "fileName": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace/packages/shared/__tests__/normalizeProp.spec.ts",
+      "isWriteAccess": false
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "id": "vue-runtime-impact-heldout-grading-v2-r2-impact",
+    "task": "vue-runtime-impact-heldout-grading-v2",
+    "repeat": 2,
+    "arm": "impact",
+    "status": "completed",
+    "startedAt": "2026-11-07T00:21:43.367Z",
+    "finishedAt": "2026-11-07T00:22:56.167Z",
+    "fixtureSetupMs": 6870.347416999983,
+    "fixtureCopy": {
+      "receipt": "fixture-copy.json",
+      "sha256": "ddd181e227242b5dffde812174153bba9f93e3ea49947d91736a1d8636863a62",
+      "helperSha256": "bee29ed626ad71ab4e5985b8faef8fe6a08a47cb38982e4f806809a50f1a571b",
+      "pythonSha256": "4f37cb0cfa3d35408312e2d76c821b6c86b3331ea9fb795d82508bfbff2ece8d",
+      "elapsedMs": 3458.113999999827,
+      "clonedFiles": 18328,
+      "clonedSymlinks": 1576,
+      "excludedGit": []
+    },
+    "providerSetupMs": 0.002958000171929598,
+    "elapsedMs": 72798.77600000007,
+    "teardownMs": 0.3289580000564456,
+    "gradingMs": 1498.8083750000224,
+    "exitCode": 0,
+    "timedOut": false,
+    "processGroupStopped": true,
+    "providerStopped": true,
+    "correct": true,
+    "capture": {
+      "complete": true,
+      "issues": [],
+      "startupWarnings": [
+        {
+          "line": 2,
+          "kind": "unstable-features",
+          "messageSha256": "b7f966b81ed3d1a5878ecb513d7504e7f08289ae2bc88b0233f0794bf8f57666"
+        }
+      ],
+      "turnStarts": 1,
+      "turnCompletions": 1,
+      "duplicateActions": 0,
+      "duplicateCompletions": 0,
+      "failedTurn": false
+    },
+    "usage": {
+      "inputTokens": 181950,
+      "cachedInputTokens": 167296,
+      "cacheWriteInputTokens": 0,
+      "outputTokens": 2658,
+      "reasoningOutputTokens": 339,
+      "totalTokens": 184608,
+      "uncachedInputTokens": 14654
+    },
+    "counts": {
+      "shellCalls": 5,
+      "mcpCalls": 2,
+      "mcpSucceeded": 2,
+      "mcpFailed": 0,
+      "fileEdits": 1,
+      "grepShellCalls": 2,
+      "contentSearchShellCalls": 2,
+      "fileListingShellCalls": 1,
+      "ambiguousSearchShellCalls": 0
+    },
+    "fixtureSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+    "preparedSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+    "promptSha256": "74e5193d4e024bd26b041875ad9eea38b6e5609ed69ed9c02831f83f758a286e",
+    "recordingError": null,
+    "rawSha256": "262523e949d112f30ffd0d33682022c0e846ad475b88aaa45054a022b9c83a77",
+    "nativeValidation": null,
+    "providerCallObserved": true,
+    "providerUsed": null,
+    "workflowReviewed": null
+  },
+  "prompt": "Prepare a change impact report for Vue's public normalizeClass helper. We propose removing object-map input support while retaining strings and arrays of strings. Do not implement the change. Determine which internal source consumers, public exports and native validation targets need review.\n\nAffected means a direct static use or reexport of normalizeClass outside its defining package, not proof that a test will fail. Enumerate configured production source files under workspace package src directories, respecting native TypeScript configuration. Exclude tests, generated declarations, dependencies and configuration-excluded files from that direct set. Classify each file/export pair as runtime, type-only or reexport. A file may have multiple roles. Follow real source aliases and public barrels while preserving the exact original export identity.\n\nSeparately enumerate all installed workspace package dependents reachable through declared dependency, dev dependency, optional dependency or peer dependency edges. Include a concrete dependency chain for each. This is a conservative review set, not proof that every dependent uses the changed helper. Keep exact package versions and actual workspace versus external package identity.\n\nList existing compile, test and _test package.json scripts for the target package and packages owning direct source consumers. If all such packages use centralized scripts instead, list the root check, test-unit and build scripts that actually exist. These are candidate validation targets, not claims that they were executed. The compiler also records helper names as text for generated calls. Include a source-supported exclusion for that generated-name registry from the direct static reference set, but do not claim that generated callers are unaffected. Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields. Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields.\n\nWrite impact-answer.json in the repository root using the JSON schema below. Quotes must be exact source evidence with one-based line ranges of at most 21 lines. Use only negativeClaims that are independently supported exclusions. Leave every existing source, dependency, test and configuration file unchanged. Source discovery and analysis method are up to you.\n\n\nIdentity scope: analyze changes to the underlying declarations defined by the target package, following aliases and public reexports of those declarations. The qualified targets are independently checked to have distinct declarations in that defining package.\n\nV2 evidence rules: a quote must cover the exact reference token or the actual JSON scripts property name and command. Additional exclusions are allowed when they cite a distinct compiler-resolved declaration/import binding, a literal/comment occurrence, or source outside the frozen configured production scope. Use symbol * for source-scope exclusions. An exclusion is about that symbol occurrence or source scope, never a blanket claim that its file or package is unaffected. Package-chain labels may be bare names or exact frozen name@version labels. Uncertainty is represented only by the four code/state pairs shown below. Do not add freeform uncertainty prose or undocumented answer fields.\n\nAnswer schema (illustrative values, not expected facts):\n{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"exact package name\",\n    \"version\": \"exact workspace version\",\n    \"exports\": [\n      \"public export name\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"repository relative configured production source\",\n      \"package\": \"owning package name\",\n      \"symbol\": \"original public export name\",\n      \"role\": \"runtime | type-only | reexport\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact source covering the reference token\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"workspace package name, optionally followed by @exact-version\",\n      \"chain\": [\n        \"dependent package\",\n        \"intermediate dependency if any\",\n        \"target package\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"owning package name or <root>\",\n      \"script\": \"actual scripts object key\",\n      \"evidence\": {\n        \"file\": \"package.json path\",\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact scripts property name and command value\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"repository relative path\",\n      \"symbol\": \"declared/imported local name, literal target name, or * for configuration exclusions\",\n      \"reason\": \"different-symbol | string-or-comment-only | outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 1,\n        \"endLine\": 1,\n        \"quote\": \"exact declaration/import binding, literal/comment or excluded source\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n\nDo not change implementation, tests, dependencies or configuration. Write the requested analysis to impact-answer.json. The sole allowed new file is impact-answer.json. Preserve all existing files.\n\nFor your first task-directed investigation, obtain relevant evidence through the advertised repository provider when present, otherwise through native tools. Provider startup instructions and harmless top-level metadata checks are separate. Then choose freely among all available tools. Native compiler, language service, package-manager filters and source reads are available in every condition. Prefer concise evidence and avoid redundant reads. Do not mistake package reachability for proven symbol impact or an incomplete result for absence.\n\nStay inside this project. Do not use the network, install packages, inspect repository history, read external files or delegate work. Supplied native validation commands may execute their configured external runner, but do not inspect that runner or other external files. Native source, installed declarations and project configuration inside the workspace remain available.\n\nRepository retrieval capability inventory for this session:\nProvider: impact\nTools: mcp__impact__package_evidence\nAdditional repository providers: none\nNative tools: available\nThis inventory is complete for the session. Built-in MCP resource and resource-template catalogs are not repository retrieval providers; do not call them to discover providers. Use tool search only if needed to load deferred definitions of the declared tools.",
+  "actions": [
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+      "status": "completed",
+      "server": "impact",
+      "tool": "package_evidence",
+      "arguments": {
+        "package": "@vue/shared",
+        "exports": [
+          "normalizeClass"
+        ]
+      },
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 10296,
+      "resultSha256": "7f451e0635a7f4755a4cbd1a24b59b9922239f2f6ad6755554a2f6652cebceff",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 6439.59924999997,
+      "completedMs": 9893.69787500007
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+      "status": "completed",
+      "command": "/bin/zsh -c \"pwd; rg --files -g '*tsconfig*' -g 'package.json' -g 'pnpm-workspace.yaml' -g 'AGENTS.md' -g '\"'!node_modules'\"' -g '\"'!pnpm-lock.yaml'\"'; rg -n 'normalizeClass|NORMALIZE_CLASS' packages packages-private --glob '\"'!**/__tests__/**'\"' --glob '\"'!**/dist/**'\"'; cat tsconfig.json; cat pnpm-workspace.yaml; cat package.json\"",
+      "outputBytes": 10641,
+      "outputSha256": "1ec6296d214235a9077d7c612857df759c13b6ff0f3c11efb0a6678bb79a22fb",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": true,
+        "ambiguous": false
+      },
+      "startedMs": 13522.145000000019,
+      "completedMs": 13522.308292000089
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs';\nfor(const root of ['packages','packages-private']) for(const d of fs.readdirSync(root)){ const p=\"'`${root}/${d}/package.json`; if(!fs.existsSync(p)) continue; const j=JSON.parse(fs.readFileSync(p)); console.log(JSON.stringify({dir:`${root}/${d}`,name:j.name,version:j.version,scripts:j.scripts,deps:Object.fromEntries(['\"'dependencies','devDependencies','optionalDependencies','peerDependencies'].map(k=>[k,j[k]]))})); }\nfor(const p of ['packages-private/tsconfig.json','packages-private/vite-debug/tsconfig.json','packages-private/dts-built-test/tsconfig.json','packages-private/dts-test/tsconfig.test.json','tsconfig.build.json']) console.log(p+'\\\\n'+fs.readFileSync(p,'utf8'));\nNODE\"",
+      "outputBytes": 5343,
+      "outputSha256": "e081d2845897580399bdca517726753e76fa12be4c1c9b6da9a6871cb465e8fc",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 19764.494833000004,
+      "completedMs": 19764.649791999953
+    },
+    {
+      "type": "mcp_tool_call",
+      "idSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+      "status": "completed",
+      "server": "impact",
+      "tool": "package_evidence",
+      "arguments": {
+        "package": "@vue/shared",
+        "exports": [
+          "normalizeClass"
+        ]
+      },
+      "hasError": false,
+      "hasResult": true,
+      "resultBytes": 10289,
+      "resultSha256": "7ffe4f20f59410ad377d7de7158b5c0f5f05fc5f76a3e2ce240fa05c81a5ec92",
+      "result": {
+        "isError": false
+      },
+      "startedMs": 26689.714042000007,
+      "completedMs": 29639.81841700012
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+      "status": "completed",
+      "command": "/bin/zsh -c \"nl -ba packages/compiler-core/src/runtimeHelpers.ts | sed -n '42,55p;100,116p'; nl -ba packages/runtime-core/src/index.ts | sed -n '372,390p'; nl -ba packages/shared/src/index.ts | head -35; nl -ba packages/shared/src/normalizeProp.ts | sed -n '60,84p'; rg -n 'normalizeClass|@vue/(shared|runtime-core|runtime-dom)|export \\\\*' packages-private --glob '*.{ts,tsx}' --glob '\"'!**/node_modules/**'\"'; git status --short\"",
+      "outputBytes": 3582,
+      "outputSha256": "d2a4117858debcad53d0a8cfbcff833bbb046eb4f7542c126688ef47e46639b0",
+      "exitCode": 0,
+      "search": {
+        "search": true,
+        "contentSearch": true,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 29720.71083300002,
+      "completedMs": 29720.71083300002
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs'; import path from 'node:path'; import ts from 'typescript';\nconst root=process.cwd(); const pkgs=[];\nfor(const base of ['packages','packages-private']) for(const d of fs.readdirSync(base)){const dir=path.resolve(base,d), f=path.join(dir,'package.json'); if(fs.existsSync(f)) pkgs.push({dir,...JSON.parse(fs.readFileSync(f,'utf8'))});}\nfunction installed(dir,name){for(let p=dir;;p=path.dirname(p)){const q=path.join(p,'node_modules',name);if(fs.existsSync(path.join(q,'package.json')))return fs.realpathSync(q);if(p===root || p===path.dirname(p))return null;}}\nconst target=pkgs.find(p=>p.name==='@vue/shared'); const edges=new Map();\nfor(const p of pkgs){const e=[];for(const k of ['dependencies','devDependencies','optionalDependencies','peerDependencies'])for(const n of Object.keys(p[k]||{})){const resolved=installed(p.dir,n);const w=pkgs.find(x=>x.dir===resolved);if(w)e.push(w);else if(pkgs.some(x=>x.name===n))console.log('NONWORKSPACE',p.name,n,resolved);}edges.set(p,e);}\nfor(const p of pkgs){if(p===target)continue;let queue=[[p]],seen=new Set([p]);while(queue.length){const chain=queue.shift();const tail=chain.at(-1);if(tail===target){console.log('CHAIN',chain.map(x=>x.name+(x.version?'@'+x.version:'')).join(' -> '));break;}for(const x of edges.get(tail)||[])if(\"'!seen.has(x)){seen.add(x);queue.push([...chain,x]);}}}\nfor(const config of ['\"'tsconfig.json','packages-private/tsconfig.json','packages-private/vite-debug/tsconfig.json','packages-private/dts-built-test/tsconfig.json']){const read=ts.readConfigFile(config,ts.sys.readFile);const parsed=ts.parseJsonConfigFileContent(read.config,ts.sys,path.dirname(path.resolve(config)));console.log('SCOPE',config,parsed.fileNames.filter(f=>f.includes('/src/')&&\"'!f.endsWith('\"'.d.ts')&&\"'!f.includes('\"'/node_modules/')).length,'proxy included',parsed.fileNames.some(f=>f.endsWith('/vue-dev-proxy.ts')));}\nNODE\nnl -ba packages-private/sfc-playground/src/vue-dev-proxy.ts\nnl -ba packages/runtime-core/src/hmr.ts | sed -n '75,81p'\"",
+      "outputBytes": 1400,
+      "outputSha256": "72afde53ece1badba55a673b3caeb4a7e429f7b71d80053928a5f3661ed7d6f8",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 46270.52945800009,
+      "completedMs": 46435.718583000125
+    },
+    {
+      "type": "file_change",
+      "idSha256": "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+      "status": "completed",
+      "changes": [
+        {
+          "path": "$WORKSPACE/impact-answer.json",
+          "kind": "add"
+        }
+      ],
+      "startedMs": 62077.416083000135,
+      "completedMs": 62105.390292000026
+    },
+    {
+      "type": "command_execution",
+      "idSha256": "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+      "status": "completed",
+      "command": "/bin/zsh -c \"node --input-type=module <<'NODE'\nimport fs from 'node:fs'; import assert from 'node:assert/strict';\nconst a=JSON.parse(fs.readFileSync('impact-answer.json','utf8'));\nfor(const x of [...a.direct,...a.exclusions,...a.validationTargets]) {const e=x.evidence;const file=e.file||x.file;const lines=fs.readFileSync(file,'utf8').split('\\\\n');assert(e.startLine>=1&&e.endLine-e.startLine<21);assert.equal(lines.slice(e.startLine-1,e.endLine).join('\\\\n'),e.quote,file);}\nfor(const p of new Set([a.target.package,...a.direct.map(x=>x.package)])){let found;for(const d of fs.readdirSync('packages')){const f=\"'`packages/${d}/package.json`;if(fs.existsSync(f)){const j=JSON.parse(fs.readFileSync(f,'\"'utf8'));if(j.name===p)found=j;}}assert(found,p);assert(\"'!Object.keys(found.scripts||{}).some(k=>['\"'compile','test','_test'].includes(k)),p);}\nassert.equal(a.direct.length,13);assert.equal(a.packageDependents.length,15);console.log('Report JSON and all evidence quotes verified. Target and consumer packages have no local compile, test or _test scripts.');\nNODE\n git status --short\"",
+      "outputBytes": 143,
+      "outputSha256": "e216f7d89959b36f619840b855414f164e8e26fac051ab063d1bf4fb0608865b",
+      "exitCode": 0,
+      "search": {
+        "search": false,
+        "contentSearch": false,
+        "fileListing": false,
+        "ambiguous": false
+      },
+      "startedMs": 70073.13199999998,
+      "completedMs": 70073.13199999998
+    }
+  ],
+  "requestedConfig": {
+    "model": "gpt-6.1-sol",
+    "model_reasoning_effort": "medium",
+    "approval_policy": "never",
+    "project_doc_max_bytes": 0,
+    "allow_login_shell": false,
+    "skills.include_instructions": false,
+    "skills.bundled.enabled": false,
+    "features.skip_host_skill_discovery": true,
+    "features.skill_search": false,
+    "features.apps": false,
+    "features.plugins": false,
+    "features.multi_agent": false,
+    "features.memories": false,
+    "features.hooks": false,
+    "web_search": "disabled",
+    "history.persistence": "none",
+    "shell_environment_policy.inherit": "core",
+    "mcp_servers.impact.command": "$USER_HOME/.hermes/node/bin/node",
+    "mcp_servers.impact.args": [
+      "$REPOSITORY/artifacts/research/cross-package/impact-prototype/mcp.mjs"
+    ],
+    "mcp_servers.impact.cwd": "$WORKSPACE",
+    "mcp_servers.impact.startup_timeout_sec": 60,
+    "mcp_servers.impact.tool_timeout_sec": 180,
+    "mcp_servers.impact.env.TYPELATCH_HOME": "$PROVIDER_STATE/typelatch",
+    "mcp_servers.impact.env.TYPELATCH_USAGE": "off",
+    "mcp_servers.impact.env.TYPELATCH_IMPACT_RUNTIME": "$REPOSITORY/artifacts/paired-agent/candidate/runtime/node_modules/typelatch",
+    "mcp_servers.impact.required": true,
+    "mcp_servers.impact.tools.package_evidence.approval_mode": "approve"
+  },
+  "grading": {
+    "passed": true,
+    "precision": 1,
+    "recall": 1,
+    "identity": true,
+    "direct": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+        "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+        "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+        "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+        "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+        "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+        "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+        "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+        "packages/vue/src/index.ts|normalizeClass|reexport",
+        "packages/vue/src/runtime.ts|normalizeClass|reexport"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "dependents": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "@vue/compat",
+        "@vue/compiler-core",
+        "@vue/compiler-dom",
+        "@vue/compiler-sfc",
+        "@vue/compiler-ssr",
+        "@vue/reactivity",
+        "@vue/runtime-core",
+        "@vue/runtime-dom",
+        "@vue/runtime-test",
+        "@vue/server-renderer",
+        "@vue/sfc-playground",
+        "dts-built-test",
+        "dts-test",
+        "vite-debug",
+        "vue"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "targets": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "<root>|build",
+        "<root>|check",
+        "<root>|test-unit"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0
+    },
+    "exclusions": {
+      "precision": 1,
+      "recall": 1,
+      "truePositive": [
+        "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+        "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+        "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope"
+      ],
+      "falsePositive": [],
+      "falseNegative": [],
+      "duplicates": 0,
+      "evidenceChecks": [
+        {
+          "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+          "passed": true
+        },
+        {
+          "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+          "passed": true
+        },
+        {
+          "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+          "passed": true
+        }
+      ]
+    },
+    "evidenceChecks": [
+      {
+        "key": "packages/compiler-dom/src/transforms/stringifyStatic.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/compat/renderFn.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/compat/renderHelpers.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/hydration.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-core/src/vnode.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-dom/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/runtime-test/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts|normalizeClass|runtime",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue-compat/src/esm-runtime.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/index.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "key": "packages/vue/src/runtime.ts|normalizeClass|reexport",
+        "passed": true
+      },
+      {
+        "package": "@vue/compat",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-core",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-dom",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-sfc",
+        "passed": true
+      },
+      {
+        "package": "@vue/compiler-ssr",
+        "passed": true
+      },
+      {
+        "package": "@vue/reactivity",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-core",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-dom",
+        "passed": true
+      },
+      {
+        "package": "@vue/runtime-test",
+        "passed": true
+      },
+      {
+        "package": "@vue/server-renderer",
+        "passed": true
+      },
+      {
+        "package": "@vue/sfc-playground",
+        "passed": true
+      },
+      {
+        "package": "dts-built-test",
+        "passed": true
+      },
+      {
+        "package": "dts-test",
+        "passed": true
+      },
+      {
+        "package": "vite-debug",
+        "passed": true
+      },
+      {
+        "package": "vue",
+        "passed": true
+      },
+      {
+        "key": "<root>|build",
+        "passed": true
+      },
+      {
+        "key": "<root>|check",
+        "passed": true
+      },
+      {
+        "key": "<root>|test-unit",
+        "passed": true
+      },
+      {
+        "key": "packages/compiler-core/src/runtimeHelpers.ts|NORMALIZE_CLASS|different-symbol",
+        "passed": true
+      },
+      {
+        "key": "packages/compiler-core/src/runtimeHelpers.ts|normalizeClass|string-or-comment-only",
+        "passed": true
+      },
+      {
+        "key": "packages-private/sfc-playground/src/vue-dev-proxy.ts|*|outside-source-scope",
+        "passed": true
+      }
+    ],
+    "uncertainties": true,
+    "falseConfidentNegatives": [],
+    "representation": {
+      "packageLabels": "bare name or exact frozen name@version",
+      "uncertainty": "constrained code/state pairs; no unchecked prose"
+    },
+    "integrity": {
+      "changed": []
+    },
+    "answerPresent": true,
+    "fixtureGitUnchanged": true
+  },
+  "changes": [],
+  "taskArtifacts": [
+    {
+      "path": "impact-answer.json",
+      "sha256": "7ae273d4639df67d1c1d37f99fb039ae0f9be7cb2740aada6dcf30945a5e7c19",
+      "bytes": 8121,
+      "text": "{\n  \"schemaVersion\": 2,\n  \"target\": {\n    \"package\": \"@vue/shared\",\n    \"version\": \"3.5.13\",\n    \"exports\": [\n      \"normalizeClass\"\n    ]\n  },\n  \"direct\": [\n    {\n      \"file\": \"packages/compiler-dom/src/transforms/stringifyStatic.ts\",\n      \"package\": \"@vue/compiler-dom\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 33,\n        \"endLine\": 33,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/compat/renderFn.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 9,\n        \"endLine\": 9,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/compat/renderHelpers.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 8,\n        \"endLine\": 8,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/hydration.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 30,\n        \"endLine\": 30,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/index.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 382,\n        \"endLine\": 382,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-core/src/vnode.ts\",\n      \"package\": \"@vue/runtime-core\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 12,\n        \"endLine\": 12,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-dom/src/index.ts\",\n      \"package\": \"@vue/runtime-dom\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 306,\n        \"endLine\": 306,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/runtime-test/src/index.ts\",\n      \"package\": \"@vue/runtime-test\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 29,\n        \"endLine\": 29,\n        \"quote\": \"export * from '@vue/runtime-core'\"\n      }\n    },\n    {\n      \"file\": \"packages/server-renderer/src/helpers/ssrRenderAttrs.ts\",\n      \"package\": \"@vue/server-renderer\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"runtime\",\n      \"evidence\": {\n        \"startLine\": 14,\n        \"endLine\": 14,\n        \"quote\": \"  normalizeClass,\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-index.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue-compat/src/esm-runtime.ts\",\n      \"package\": \"@vue/compat\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 4,\n        \"endLine\": 4,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/index.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 107,\n        \"endLine\": 107,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    },\n    {\n      \"file\": \"packages/vue/src/runtime.ts\",\n      \"package\": \"vue\",\n      \"symbol\": \"normalizeClass\",\n      \"role\": \"reexport\",\n      \"evidence\": {\n        \"startLine\": 10,\n        \"endLine\": 10,\n        \"quote\": \"export * from '@vue/runtime-dom'\"\n      }\n    }\n  ],\n  \"packageDependents\": [\n    {\n      \"package\": \"@vue/compat@3.5.13\",\n      \"chain\": [\n        \"@vue/compat@3.5.13\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-core@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-core@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-dom@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-dom@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-sfc@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-sfc@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/compiler-ssr@3.5.13\",\n      \"chain\": [\n        \"@vue/compiler-ssr@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/reactivity@3.5.13\",\n      \"chain\": [\n        \"@vue/reactivity@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-core@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-core@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-dom@3.5.13\",\n      \"chain\": [\n        \"@vue/runtime-dom@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/runtime-test@0.0.0\",\n      \"chain\": [\n        \"@vue/runtime-test@0.0.0\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/server-renderer@3.5.13\",\n      \"chain\": [\n        \"@vue/server-renderer@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"@vue/sfc-playground@0.0.0\",\n      \"chain\": [\n        \"@vue/sfc-playground@0.0.0\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"dts-built-test@0.0.0\",\n      \"chain\": [\n        \"dts-built-test@0.0.0\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"dts-test@0.0.0\",\n      \"chain\": [\n        \"dts-test@0.0.0\",\n        \"dts-built-test@0.0.0\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"vite-debug\",\n      \"chain\": [\n        \"vite-debug\",\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    },\n    {\n      \"package\": \"vue@3.5.13\",\n      \"chain\": [\n        \"vue@3.5.13\",\n        \"@vue/shared@3.5.13\"\n      ]\n    }\n  ],\n  \"validationTargets\": [\n    {\n      \"package\": \"<root>\",\n      \"script\": \"build\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 8,\n        \"endLine\": 8,\n        \"quote\": \"    \\\"build\\\": \\\"node scripts/build.js\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"check\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 15,\n        \"endLine\": 15,\n        \"quote\": \"    \\\"check\\\": \\\"tsc --incremental --noEmit\\\",\"\n      }\n    },\n    {\n      \"package\": \"<root>\",\n      \"script\": \"test-unit\",\n      \"evidence\": {\n        \"file\": \"package.json\",\n        \"startLine\": 20,\n        \"endLine\": 20,\n        \"quote\": \"    \\\"test-unit\\\": \\\"vitest --project unit\\\",\"\n      }\n    }\n  ],\n  \"exclusions\": [\n    {\n      \"file\": \"packages/compiler-core/src/runtimeHelpers.ts\",\n      \"symbol\": \"NORMALIZE_CLASS\",\n      \"reason\": \"different-symbol\",\n      \"evidence\": {\n        \"startLine\": 48,\n        \"endLine\": 50,\n        \"quote\": \"export const NORMALIZE_CLASS: unique symbol = Symbol(\\n  __DEV__ ? `normalizeClass` : ``,\\n)\"\n      }\n    },\n    {\n      \"file\": \"packages/compiler-core/src/runtimeHelpers.ts\",\n      \"symbol\": \"normalizeClass\",\n      \"reason\": \"string-or-comment-only\",\n      \"evidence\": {\n        \"startLine\": 110,\n        \"endLine\": 110,\n        \"quote\": \"  [NORMALIZE_CLASS]: `normalizeClass`,\"\n      }\n    },\n    {\n      \"file\": \"packages-private/sfc-playground/src/vue-dev-proxy.ts\",\n      \"symbol\": \"*\",\n      \"reason\": \"outside-source-scope\",\n      \"evidence\": {\n        \"startLine\": 2,\n        \"endLine\": 2,\n        \"quote\": \"export * from 'vue'\"\n      }\n    }\n  ],\n  \"uncertainties\": [\n    {\n      \"code\": \"external-consumers\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"dynamic-loading\",\n      \"state\": \"unknown\"\n    },\n    {\n      \"code\": \"package-reachability-not-symbol-use\",\n      \"state\": \"conservative\"\n    },\n    {\n      \"code\": \"unexecuted-validation\",\n      \"state\": \"not-proven\"\n    }\n  ],\n  \"negativeClaims\": []\n}\n"
+    }
+  ],
+  "recording": "Allowlisted completed public actions, explicit requested task artifacts, independent grading, final changes and measured usage. No reasoning or assistant message bodies."
+}

@@ -1,6 +1,44 @@
-# Cross package development results
+# Cross package research results
 
-Stock Typelatch did not meet the savings gate. Across the two tasks, it used 31 percent more total tokens and 22 percent more charged time than native tools. These six sessions are development evidence with one repetition, not a general ranking or a reason to archive the project.
+**No tested category established a substantial, repeatable token and time advantage over native tools.** The final impact prototype used 15.5 percent fewer tokens and 22.1 percent less charged time than native. The frozen gate required at least 20 percent in both. Token savings fell from 24.6 percent in repetition one to 1.5 percent in repetition two. Native won the final task pair on both measures.
+
+The strongest lead is compiler grounded impact report assembly. It reduced costs substantially against the tested Serena and CodeGraph configurations, but did not qualify against native tools. Dependency migration and cross package maintenance did not establish an advantage for the stock package. This evidence does not justify a general savings claim or a claim that nothing else does the job better.
+
+## Final confirmation
+
+Two previously hidden Vue contracts, two repetitions and four conditions produced 16 completed sessions. The prototype was fixed before target disclosure. All conditions received the same source snapshots, task requirements, model, native tools and permissions. Provider conditions required a relevant first retrieval; later tool choice was free. All 16 workflows passed review.
+
+| Four sessions per condition | Total tokens | Charged seconds | Grep shell calls | Original strict grade | Separate audited correctness |
+| :--- | ---: | ---: | ---: | :--- | :--- |
+| Native | 886,587 | 408.04 | 16 | 2 of 4 | 3 of 4 |
+| Impact prototype | 749,471 | 317.94 | 10 | 4 of 4 | 4 of 4 |
+| Serena | 1,597,731 | 487.05 | 18 | 2 of 4 | 4 of 4 |
+| CodeGraph | 1,526,064 | 476.73 | 15 | 3 of 4 | 4 of 4 |
+
+The prototype saved 53.1 percent of tokens and 34.7 percent of time against Serena, and 50.9 percent of tokens and 33.3 percent of time against CodeGraph. These are measured configurations, not a ranking of every workflow those tools support. CodeGraph used its full official eight tool surface with a fresh index and working source access. Its audit found no setup, transport, freshness or cleanup fault and no mismatch in 2,014 returned source lines and ten snippets. Semantic completeness and optimal configuration remain unproven.
+
+| Task and repetition | Native tokens | Prototype tokens | Token reduction | Time reduction |
+| :--- | ---: | ---: | ---: | ---: |
+| Type contract, first | 292,229 | 212,239 | 27.4 percent | 34.7 percent |
+| Runtime contract, first | 244,846 | 192,918 | 21.2 percent | 21.7 percent |
+| Runtime contract, second | 203,245 | 184,608 | 9.2 percent | 27.0 percent |
+| Type contract, second | 146,267 | 159,706 | Negative 9.2 percent | Negative 1.3 percent |
+
+The type task changes the proposed ShallowRef read and write contract and requires eight direct source facts, ten conservative dependent packages and three existing validation targets. The runtime task proposes removal of object map support from normalizeClass and requires 13 direct facts, 15 dependent packages and three targets. Both use Vue 3.5.13 at commit 6eb29d345aa73746207f80c89ee8b37ff7b949c9. These are static impact reports, not implemented changes or proof of dynamic runtime effects. Validation targets are identified, not executed by these analysis tasks.
+
+A frozen grader defect collapsed distinct valid literal occurrences into one duplicate key. A separate uniform assessment of all 16 answers exonerates four failures caused only by that defect. It accepts only distinct unambiguous source occurrences and retains all other checks. Native runtime repetition one still contains a real invalid dependency chain: it follows a declared vite ^3.2.8 dependency to an unrelated installed vite 5.4.0. Original grades and decisions remain unchanged. The separate correctness assessment does not remove the failed economic gate.
+
+Charged time includes provider setup and the complete agent session, including startup, retrieval, failed calls and fallback. Common fixture copying, independent grading and teardown are separate. Total tokens include cached input and output once; they are not billed cost. Grep counts are completed shell groups invoking rg, grep, egrep or fgrep; they do not measure searches hidden inside scripts or other tools. A reduction in grep calls alone is not a benefit claim.
+
+The required gate is at least 20 percent aggregate and median paired savings in both tokens and charged time against native and Serena, improvement in both repetition aggregates, and complete capture, correctness and reviewed workflows. The additional frozen CodeGraph challenge requires the same savings against CodeGraph and correct answers in all four conditions. Neither gate qualifies. Even the separate corrected assessment leaves the native token threshold unmet. One model alias, one Vue snapshot, two repetitions, warm host caches and no immutable served model snapshot limit generalization.
+
+[All runs and exact usage](confirmation-002/results/report.json) · [Frozen protocol](confirmation-002/protocol.json) · [Original reviewed decision](confirmation-002/results/adjudicated-result.json) · [CodeGraph challenge](confirmation-002/results/codegraph-challenge.json) · [Separate correctness assessment](confirmation-002/results/occurrence-assessment-v1.md) · [Control quality audit](confirmation-002/results/control-audit.md) · [Evidence manifest](confirmation-002/results/manifest.json) · [Grading and source bundle](heldout-audit-source/README.md)
+
+The records include completed public actions, exact returned tool outputs and requested answer artifacts. Model reasoning and assistant message bodies are excluded. The source bundle is inspectable historical evidence; clean machine reproduction has not been verified. The prototype is separate from the published npm package.
+
+## Stock package development
+
+Stock Typelatch did not meet the savings gate. Across the two tasks, it used 31 percent more total tokens and 22 percent more charged time than native tools. These six sessions are development evidence with one repetition, not a general ranking.
 
 | Task | Condition | Total tokens | Charged seconds | Grep calls | Correctness evidence |
 | :--- | :--- | ---: | ---: | ---: | :--- |
@@ -47,7 +85,7 @@ A separate experiment required the same evidence engine to write a file and retu
 
 The writer made 12 shell calls. It printed almost the entire saved report, including 815 issues, then rebuilt dependency chains, checked source ownership and regenerated validation citations. The bounded tool response did not eliminate verification or answer assembly. Exact token and time contributions of individual steps are unavailable. See the [protocol](impact-003/protocol.json), [results](impact-003/results/report.json), [correctness audit](impact-003/results/correctness-audit.md) and [manifest](impact-003/results/manifest.json).
 
-The earlier interface is [fixed for confirmation](confirmation-candidate.json). Its implementation, description and settings cannot be tuned using the two previously hidden tasks. This selection is a development decision; the variation between native runs is another reason confirmation is required.
+The earlier interface was [fixed for confirmation](confirmation-candidate.json) before the two hidden targets were disclosed. The completed confirmation above retains its unchanged implementation, description and settings.
 
 ## Cross package maintenance
 
@@ -73,10 +111,10 @@ The revised public runner was first qualified inside the actual agent environmen
 
 Typelatch started its first source search before the baseline command completed. That violates the frozen workflow rule and prevents qualification. It also made an optional workspace validation call that timed out after 30 seconds, after its native command had already passed. All costs are retained. The repair is correct; this run does not establish a compliant workflow advantage. See the [protocol](maintenance-002/protocol.json), [results](maintenance-002/results/report.json), [correctness audit](maintenance-002/results/correctness-audit.md) and [manifest](maintenance-002/results/manifest.json).
 
-Any qualifying category claim requires both cost savings and correctness against native tools and Serena on two distinct held out tasks with two repetitions. A broader comparative claim also requires a CodeGraph challenge.
+The final confirmation above applies the frozen category gate and additional CodeGraph challenge. The development results are not pooled into it.
 
 ## Confirmation preparation
 
-The first frozen confirmation attempt stopped before any model or provider session. Its Vue fixture retained upstream Git metadata, so creation of an independent baseline commit failed with a clean index. The [failed preparation](confirmation-001/preparation-failure.json), [complete preparation record](confirmation-001/preparation-report.json) and [manifest](confirmation-001/failure-manifest.json) remain available. New source-identical copies must pass isolated Git qualification before a separately frozen study. The selected prototype, task facts, graders and comparison rules stay fixed.
+The first frozen confirmation attempt stopped before any model or provider session. Its Vue fixture retained upstream Git metadata, so creation of an independent baseline commit failed with a clean index. The [failed preparation](confirmation-001/preparation-failure.json), [complete preparation record](confirmation-001/preparation-report.json) and [manifest](confirmation-001/failure-manifest.json) remain available. New source identical copies passed isolated Git qualification before the separately frozen completed study. The selected prototype, task facts, graders and comparison rules remained fixed.
 
 The [new frozen confirmation](confirmation-002/protocol.json) uses verified native clonefile preparation. Its [amendment receipt](confirmation-002/preparation-amendment.json) confirms identical model prompts, provider definitions, schedule, source snapshots, graders and comparison rules. A separate [copy method correction](fixture-preparation/README.md) explains why older physical cloning claims were unverified while their byte isolation checks and measured outcomes remain valid.

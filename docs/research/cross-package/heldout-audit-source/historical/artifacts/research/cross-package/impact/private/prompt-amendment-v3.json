@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "reason": "Pretrial independent review found prose instructions incompatible with the frozen schema2 uncertainty states.",
+  "candidateFrozenBeforeReview": "aabf5c3",
+  "originalFilesUnchanged": true,
+  "newModelSessions": 0,
+  "cases": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2",
+      "previousDescriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/descriptor.json",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-prompt-v3/descriptor.json",
+      "previousDescriptorSha256": "86a0ccd319ef0ff0f1b82b7a8a8f2be00092659a0a8b19a2ae2add3d99c00fad",
+      "descriptorSha256": "36c2109816e3ae4b3e2a7e8540ba9f422f0b58d9e362550a25f4ff42ea290f9c",
+      "previousPromptSha256": "6fd4889b8b98adfc90cb275f92308bb236e5602b9dbbb64f35b15574f788a622",
+      "promptSha256": "5793135c90d77db082980c55fcdf06b143e2667abce2722f244a39182334dd0b",
+      "replacements": [
+        [
+          "Explicitly state limits for external consumers, computed loading, package reachability and unexecuted validation.",
+          "Represent the limits for external consumers, computed loading, package reachability and unexecuted validation using the four uncertainty code/state pairs specified below. Do not add prose fields."
+        ]
+      ],
+      "graderModule": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-grading-v2/grader.mjs",
+      "graderSha256": "56b7a7e23f0bc3fa2dfaac598af1a33d6b4aca61bf6dc462fc17f7d0fa4b9108",
+      "truthSha256": "b23f0c8735de315f351cb7082eb16be1d8fb56fa9acdac7320bfbc0f32c2729e",
+      "schemaSha256": "3cf88cad1ff3728b7b8631cf205129d0224ae2e5ea427522293e82a7c221679a",
+      "sourceFixtureUnchanged": true,
+      "expectedSetsUnchanged": true
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2",
+      "previousDescriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/descriptor.json",
+      "descriptor": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-prompt-v3/descriptor.json",
+      "previousDescriptorSha256": "f0e93ca6c4784ea863527b81ca728e7a02ba7401e883ac6370b9be71d09b7256",
+      "descriptorSha256": "878a1ffc77909a656515487cc30e430f762e67faf20101107305a0d2d0caecd8",
+      "previousPromptSha256": "3976ca20315a70990ade368987dad3df8355a5072035b8cb860b4dc99a420c16",
+      "promptSha256": "c7088eb314aa5eaea55aa0caeb5dccafe66c162aa021ca9da11ec26becc2119e",
+      "replacements": [
+        [
+          "Explain this boundary under dynamic-loading.",
+          "Represent this boundary using the dynamic-loading unknown state specified below; do not add prose fields."
+        ],
+        [
+          "Also state limits for external consumers, package reachability and unexecuted validation.",
+          "Represent the limits for external consumers, package reachability and unexecuted validation using the uncertainty code/state pairs specified below. Do not add prose fields."
+        ]
+      ],
+      "graderModule": "$REPOSITORY/artifacts/research/cross-package/impact/private/heldout-runtime-grading-v2/grader.mjs",
+      "graderSha256": "56b7a7e23f0bc3fa2dfaac598af1a33d6b4aca61bf6dc462fc17f7d0fa4b9108",
+      "truthSha256": "6a68514183726a061ed54ef74250485042d57b164b45572ba9e73d2f3a4806d9",
+      "schemaSha256": "3cf88cad1ff3728b7b8631cf205129d0224ae2e5ea427522293e82a7c221679a",
+      "sourceFixtureUnchanged": true,
+      "expectedSetsUnchanged": true
+    }
+  ]
+}

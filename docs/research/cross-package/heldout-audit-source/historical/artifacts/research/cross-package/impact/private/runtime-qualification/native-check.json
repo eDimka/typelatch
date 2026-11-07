@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-11-06T22:17:20.076Z",
+  "elapsedMs": 7876.026875,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "check"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "\n> @3.5.13 check $REPOSITORY/artifacts/research/cross-package/impact/private/runtime-qualification/workspace\n> tsc --incremental --noEmit\n\n",
+  "stderr": ""
+}

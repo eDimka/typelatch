@@ -1,0 +1,703 @@
+{
+  "schemaVersion": 1,
+  "reportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "rules": {
+    "evidence": "Review completed public actions, exact returned tool outputs and explicit requested task artifacts only. Never inspect model reasoning or assistant message bodies.",
+    "workflow": "Check workspace boundaries, provider first investigation after any required failing check, permitted edits, final native validation for edit tasks, and unchanged source for analysis tasks. Harmless metadata and provider startup instructions are separate. A source or dependency failure is retained, not silently replaced.",
+    "relevance": "Cite action IDs that support the actual task. Counts or a successful MCP envelope alone do not establish relevance. Candidate usable evidence requires returned source, resolved API or reference information that bears on the task; empty, irrelevant and unsupported responses do not qualify. Competitor failures remain charged and can satisfy a relevant attempted retrieval.",
+    "ambiguity": "Unknown workflow compliance or unknown evidence usefulness blocks a qualifying claim. Automated hashes verify identities, not the reviewer’s semantic judgment."
+  },
+  "reviewer": "benchmark_review",
+  "noPrivateReasoningOrMessages": true,
+  "method": "Review every completed public command, relevant exact tool outputs and explicit answer artifacts. Inspect action start/completion times and shell ordering. Source, quote, script-property and installed-edge checks are recorded separately. No raw captures, reasoning or assistant message bodies were inspected. Original correctness and gates remain unchanged.",
+  "runs": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-native",
+      "evidenceSha256": "eae4c54c0533e76212110455d2169f27dd9203222e50d350992e3f46bf01592a",
+      "toolOutputsSha256": "cc04ac72ffd29ce24972da6863301a0153e69de0ed40aac2bbb9463766e807c8",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "First task investigation was native file discovery, followed immediately by ShallowRef source search. Native compiler binding/export-star analysis, project configuration and installed package-manager graph inspection stayed within the workspace. The first handwritten installed traversal overincluded development dependencies of installed external packages; later pnpm list graph checks corrected that before the submitted answer. Only impact-answer.json was added, with source and fixture Git unchanged. Native validation was not required for this analysis task. All eight direct rows, ten installed workspace dependent chains and three root scripts match the frozen task requirements; exact semantic and citation checks remain separate from workflow.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6153.533083000002,
+        "completedMs": 6153.533083000002
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "eb4fc46545c28f4e0123726dc5b00b764c861c1143e4a69e190c454333ffc5d1",
+        "mechanism": null
+      },
+      "providerProof": []
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-impact",
+      "evidenceSha256": "44b4935a65f48702f18cbb04ad8b714567d0e0b0a298a12f139c4898df5ed8ec",
+      "toolOutputsSha256": "e0bd2a6fb3873547bb8fc20a80f50f891a21a8a8673df9e28666b00c35c67d75",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First task-directed investigation called package_evidence for @vue/reactivity ShallowRef. Returned actual source citations for eight direct type/reexport rows, ten conservative workspace dependency chains, four candidate scripts and nineteen explicit uncertainty issues with no omitted rows. This is usable task evidence despite partial status, not a build or complete runtime-impact proof. Subsequent native source, manifest/link and configured-scope checks verified those facts, selected the requested three scripts, and supplied the string-only exclusion. Only the permitted impact-answer.json was added; source and fixture Git remained unchanged. No native validation was required for this analysis task.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 7462.750625000015,
+        "completedMs": 10809.341750000021
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "8cf4b1dad43945de448bcd8ecbe0293044ba07d2d44eab0785144feba6275f3c",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "package_evidence",
+          "resultSha256": "b5a1e7abc1a42ef2cccacf02598a76cd216f2994de89765b8786cd2580efc85d",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@vue/reactivity\",\"version\":\"3.5.13\",\"root\":\"packages/reactivity\",\"exports\":[\"ShallowRef\"],\"entries\":[\"packages/reactivity/src/index.ts\"]},\"direct\":[{\"file\":\"packages/runtime-core/src/helpers/useTemplateRef.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"ShallowRef\",\"role\":\"type-only\",\"evidence\":{\"startLine\":1,\"endLine\":1,\"quote\":\"import { type ShallowRef, readonly, shallowRef } from '@vue/reactivity'\"},\"occurrenceCount\":3},{\"file\":\"packages/runtime-core/src/index.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"ShallowRef\",\"role\":\"reexport\",\"evidence\":{\"startLine\":207,\"endLine\":207,\"quote\":\"  ShallowRef,\""
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-competitor",
+      "evidenceSha256": "5dc2150120039e092b2ce70cb440816a00857cb8b3dfc57de2b8bd5951fe2f46",
+      "toolOutputsSha256": "35a77a4518cf7bc16ddff7a14fc7ac146c7d75697a85a38793d99b24a9032c28",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Serena startup instructions and API help preceded its first task-directed REPL search for ShallowRef. That call returned real target declarations, the runtime-core type consumer/reexport and the custom formatter string. This is useful source discovery, not proof that the provider assembled the full graph. Native compiler reference/export-star traversal, configured-scope and installed dependency checks followed. An initially overinclusive traversal of installed external development dependencies was corrected before answer assembly. Only impact-answer.json was added, with source and fixture Git unchanged. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e241483af4c21cbfcc6e68aebae085c699bf4f57a3af50be0eb0e5bb2d8b0b3e",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7",
+        "be69c5a839df95e18f4fbffcdc98f41117e8be6e993382144ea1d4447f798cfd"
+      ],
+      "providerActionIds": [
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "startedMs": 15272.133708000008,
+        "completedMs": 15523.877916999976
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "7d34bd57d44e5b0c87bd21751998f104b35cc41cdffa4646722848a428329709",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+          "tool": "serena_repl",
+          "resultSha256": "756c8943c1612efb5a6b7875dbded071c52d56dd2c1e0b7af1a89530223cfea2",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"packages/reactivity/src/ref.ts\": [\"  >  64:export type ShallowRef<T = any, S = T> = Ref<T, S> & {\", \"  >  89:    ? IfAny<T, ShallowRef<T>, T>\", \"  >  90:    : ShallowRef<T>\", \"  >  91:  : ShallowRef<T>\", \"  >  92:export function shallowRef<T = any>(): ShallowRef<T | undefined>\", \"  > 204:  | ShallowRef<T>\", \"  > 494:  T extends ShallowRef<infer V, unknown>\"], \"packages/reactivity/src/index.ts\": [\"  >  17:  type ShallowRef,\"], \"packages/runtime-core/src/customFormatter.ts\": [\"  > 193:      return `ShallowRef`\"], \"packages/runtime-core/src/index.ts\": [\"  > 206:  ShallowRef,\"], \"packages/runtime-core/src/helpers/useTemplateRef.ts\": [\"  >   0:import { type ShallowRef, readonly, shallowRef } fr"
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-codegraph",
+      "evidenceSha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "toolOutputsSha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation used codegraph_explore for ShallowRef and returned relevant target declaration and consumer/reexport paths, alongside broader neighboring symbols and tests. This is usable task discovery, not a complete contract-impact answer. Native compiler binding, configuration and package-manager/installed-link checks followed. A failed syntax command was retained and repaired; all follow-up costs remain included. Source and fixture Git remained unchanged; only the answer was added beyond the declared provider-state link. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6381.341291999968,
+        "completedMs": 6513.5443339999765
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "6874e28520d749854f89e5f0f1ef18845f0ac2fc63db463a129101dde578997e",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "resultSha256": "09b14dfd9f8a206379df2015bd7cbc720fc91d0fbebeaf4d83a4ad496518c559",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "**Exploration: ShallowRef**\n\nFound 43 symbols across 2 files.\n\n**Blast radius — what depends on these (update/verify before editing)**\n\n- `shallowRef` (packages/reactivity/src/ref.ts:94) — 21 callers in `packages/runtime-core/src/helpers/useTemplateRef.ts`, `packages/reactivity/src/index.ts`, `packages/runtime-core/src/index.ts`; tests: `packages-private/dts-test/ref.test-d.ts`, `packages-private/dts-test/watch.test-d.ts`, `packages/reactivity/__tests__/computed.spec.ts`, `packages/reactivity/__tests__/gc.spec.ts` +5\n- `ShallowRef` (packages/reactivity/src/ref.ts:65) — 12 callers in `packages/reactivity/src/index.ts`, `packages/runtime-core/src/helpers/useTemplateRef.ts`, `packages/runtime-c"
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-impact",
+      "evidenceSha256": "82d93c090bb4f32f4157f00ecb68bc8c4089702c3e5497035ef0d3b804e2a32b",
+      "toolOutputsSha256": "ff12f53c5b4c1cebef70658eb7d75fe0ac64cba7b853c05ddbe7a89a4ff84b0e",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "The first investigation called package_evidence for @vue/shared normalizeClass. It returned thirteen cited runtime/reexport rows, fifteen conservative dependent chains, candidate validation scripts and explicit partial coverage/issues. Native source searches, configured compiler binding, installed workspace links and script checks followed before assembly of the answer. The final answer distinguished generated helper-name strings and the separate NORMALIZE_CLASS symbol from bound calls, and retained unknown dynamic-loading limits. Only the permitted answer was added; source and fixture Git unchanged. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6888.288750000065,
+        "completedMs": 10300.62083400006
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "b05b08adea80a6226773c0a5d9bd4f556e5b7a3bfc2dae9e9820975c0734c4a6",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "package_evidence",
+          "resultSha256": "447772f9c40b0e1b0f07126770351a1299d1da06d9ddfd480e8a021ebf342b65",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@vue/shared\",\"version\":\"3.5.13\",\"root\":\"packages/shared\",\"exports\":[\"normalizeClass\"],\"entries\":[\"packages/shared/src/index.ts\"]},\"direct\":[{\"file\":\"packages/compiler-dom/src/transforms/stringifyStatic.ts\",\"package\":\"@vue/compiler-dom\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":33,\"endLine\":33,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/runtime-core/src/compat/renderFn.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":9,\"endLine\":9,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/"
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-competitor",
+      "evidenceSha256": "b50c19f8bd6ce7aa047afda93531bad4de48a7f29378340dfb4a3b1f29d8d1b0",
+      "toolOutputsSha256": "aa784e02edcdf0556f3346d1c033db2ce5507e8b79e333aaaa1375f05bdf6df2",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Serena startup and search API help preceded a relevant normalizeClass source query; actual returned bound consumer candidates and generated-name string locations are usable discovery. Native compiler identity/reference/export and installed-link checks followed. Source and fixture Git unchanged; only answer added. Original grade fails solely because two valid exclusion occurrences share the same file/symbol/reason key. Both citations and all required impact facts pass the frozen grader; separate correctness audit must disclose that the occurrence-level prompt did not require this deduplication. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc"
+      ],
+      "providerActionIds": [
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "startedMs": 11528.248208999983,
+        "completedMs": 11719.638334000017
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "4d77b65595714a8d6542b324374b7f1b8221f67d3109e76c63b1f32c8f90c2b6",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+          "tool": "serena_repl",
+          "resultSha256": "4345bbe6cc63d929d563172f81c590edf2e4c8d19c76b3a63f53ab5aa1f83dff",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"packages/compiler-core/src/runtimeHelpers.ts\": [\"  >  48:  __DEV__ ? `normalizeClass` : ``,\", \"  > 109:  [NORMALIZE_CLASS]: `normalizeClass`,\"], \"packages/shared/src/normalizeProp.ts\": [\"  >  62:export function normalizeClass(value: unknown): string {\", \"  >  68:      const normalized = normalizeClass(value[i])\", \"  >  89:    props.class = normalizeClass(klass)\"], \"packages/server-renderer/src/helpers/ssrRenderAttrs.ts\": [\"  >  13:  normalizeClass,\", \"  >  85:  return escapeHtml(normalizeClass(raw))\"], \"packages/runtime-core/src/hydration.ts\": [\"  >  29:  normalizeClass,\", \"  > 802:    expected = normalizeClass(clientValue)\"], \"packages/runtime-core/src/vnode.ts\": [\"  >  11:  normalizeClas"
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-codegraph",
+      "evidenceSha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "toolOutputsSha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation was codegraph_explore normalizeClass, returning the target declaration and relevant production consumer paths among broader symbols and tests. Native compiler binding/export traversal, configured-scope checks and actual installed workspace links followed. The answer retained the generated-name registry as a string exclusion and unknown dynamic-loading boundary. Only the answer was added beyond the declared provider link; source and fixture Git unchanged. Provider discovery was usable but did not itself prove the entire requested impact set. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6716.780832999968,
+        "completedMs": 6854.386249999981
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "7e59693f4db42c9e37be36ea17bb551d91f977bc48983b365f4cb71cc3e65e1f",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "resultSha256": "3e8eae3fce24bd4d8337c310e9ad0c1049f36f6333a8f31db9511d6cada6a0ab",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "**Exploration: normalizeClass**\n\nFound 41 symbols across 4 files.\n\n**Blast radius — what depends on these (update/verify before editing)**\n\n- `normalizeClass` (packages/shared/src/normalizeProp.ts:63) — 16 callers in `packages/runtime-core/src/vnode.ts`, `packages/runtime-core/src/compat/renderHelpers.ts`, `packages/shared/src/normalizeProp.ts`, `packages/runtime-core/src/compat/renderFn.ts` +4 more; tests: `packages/shared/__tests__/normalizeProp.spec.ts`\n- `normalize` (packages/compiler-sfc/src/script/utils.ts:105) — 1 caller in `packages/compiler-sfc/src/script/utils.ts`; tested via callers: `packages/compiler-sfc/__tests__/compileScript/resolveType.spec.ts`\n- `normalizeStyle` (packages/s"
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-native",
+      "evidenceSha256": "5b9ca88d5be2e4f52c3e1b8b5dc7526fb2214f4062d44d31d6776806312b2d96",
+      "toolOutputsSha256": "a2a23f389ab421dd274525b9b69616af8242fd072725fdbb6641a67aa7c0ae73",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "Native source search was the first investigation, followed by compiler export/reference checks, configuration and installed package inspection. Only the answer was added; source and fixture Git unchanged. The answer contains the same duplicate-key exclusion limitation, but also an independently invalid extra dependency chain: monaco-editor declares development vite ^3.2.8 while the traversal selects hoisted vite5.4.0, then follows external development metadata into the Vue workspace. This is not an exact installed dependency edge. The occurrence-only erratum cannot clear this substantive chain failure. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 5033.768291999935,
+        "completedMs": 5033.768291999935
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "b7deab3e671aefad224778c8fba2689406d6eab192edfa638af6ccd24a967328",
+        "mechanism": null
+      },
+      "providerProof": []
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-native",
+      "evidenceSha256": "f2a2c3161676817f6c40c4ffd5ce76ac08a33adbd661623e2c4e7c9e2c4fbd50",
+      "toolOutputsSha256": "a15e2c849710f2820217bcf97c083967aeaedfea6a660f0b8c639dd45ab1b8b8",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "Native file/source discovery began the investigation. Compiler binding across native configurations, actual installed workspace links and script checks followed; only the permitted answer was added. Source and fixture Git unchanged. The strict original failure is again the two valid normalizeClass string occurrences collapsed to one exclusion key; no failed source/chain/script evidence or missing impact set is reported. The versioned occurrence assessment remains separate and cannot overwrite this original result. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6198.330459000077,
+        "completedMs": 6198.330459000077
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "cf59202bc24417f5882b47c23da6a28bc371ac107b1ced414a93cebaee77e84e",
+        "mechanism": null
+      },
+      "providerProof": []
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "evidenceSha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "toolOutputsSha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation was codegraph_search normalizeClass and returned the target signature, actual production imports and distinct lookalike/registry symbols before native discovery. Subsequent compiler reference/export, source-scope, installed workspace link and script checks stayed in the project. Only the permitted answer was added beyond the declared provider link; source and fixture Git unchanged. Original grade fails solely because two valid literal occurrences share a coarse exclusion key; all remaining checks pass. The occurrence-contract audit is separate from the original grade. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 9772.335959000047,
+        "completedMs": 9794.44441700005
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "c1b3437c0b65816240b082217a3c427c1f2718cbed6ac3591364fe8e439d4352",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_search",
+          "resultSha256": "0d1658c88a9374d0c62b54c92916b683e93ead934bf6dc251591d7d7aa5d6c25",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "**Search Results (10 found)**\n\n**normalizeClass** (function)\npackages/shared/src/normalizeProp.ts:63\n`(value: unknown): string`\n\n**normalizeClassComponent** (function)\npackages/runtime-core/src/hmr.ts:77\n`(component: HMRComponent): ComponentOptions`\n\n**NORMALIZE_CLASS** (constant)\npackages/compiler-core/src/runtimeHelpers.ts:48\n`= Symbol(\n  __DEV__ ? `normalizeClass` : ``,\n)`\n\n**@vue/shared** (import)\npackages/runtime-core/src/compat/renderHelpers.ts:1\n`import {\n  camelize,\n  extend,\n  hyphenate,\n  isArray,\n  isObject,\n  isReservedProp,\n  normalizeClass,\n} from '@vue/shared'`\n\n**@vue/shared** (import)\npackages/server-renderer/src/helpers/ssrRenderAttrs.ts:7\n`import {\n  includeBooleanAttr,\n  "
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-competitor",
+      "evidenceSha256": "bf87b60932e0b6c0c78793ce0345ff567abd409855c8b932fd626df5c862cd01",
+      "toolOutputsSha256": "73e859de08663775b21d3b377b3ba2ea1d540d9f451ed389cc53ce5b2a5915e4",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Harmless pwd and Serena startup/API help preceded the first relevant provider source search. That search returned actual normalizeClass declarations/consumers and registry strings. Native compiler/configuration and installed graph checks followed; an initially overinclusive external development traversal was corrected through package-manager filtering and exact workspace links before answer assembly. Only the answer was added; source and fixture Git unchanged. Original failure is only the same accepted distinct literal occurrences collapsed to one exclusion key. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "9d348a4243d4ca091c5a70d9e547c9f8a44b7c9f9d9326ec2086feeee1e440b9",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc",
+        "e1902b31f7e09e008d96a92f35b37800ec73b0dd33202bf7ba2434aa85dc1c0d",
+        "111a11f0a4b2ceb2499abe39ce878416fd2f36e4cc6f1eabbf9a2b206cb766f7",
+        "be69c5a839df95e18f4fbffcdc98f41117e8be6e993382144ea1d4447f798cfd",
+        "921057339c51aef35e50f5a32a577a1b477ac102257fda1fa0297aee12224e84"
+      ],
+      "providerActionIds": [
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "startedMs": 12807.05391700007,
+        "completedMs": 13015.985334000085
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "e178044aa0efbe5b70ae2c863837e5a1f7f8f004b3d4c8dadd45e0d2770d4bbf",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+          "tool": "serena_repl",
+          "resultSha256": "4345bbe6cc63d929d563172f81c590edf2e4c8d19c76b3a63f53ab5aa1f83dff",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"packages/compiler-core/src/runtimeHelpers.ts\": [\"  >  48:  __DEV__ ? `normalizeClass` : ``,\", \"  > 109:  [NORMALIZE_CLASS]: `normalizeClass`,\"], \"packages/shared/src/normalizeProp.ts\": [\"  >  62:export function normalizeClass(value: unknown): string {\", \"  >  68:      const normalized = normalizeClass(value[i])\", \"  >  89:    props.class = normalizeClass(klass)\"], \"packages/server-renderer/src/helpers/ssrRenderAttrs.ts\": [\"  >  13:  normalizeClass,\", \"  >  85:  return escapeHtml(normalizeClass(raw))\"], \"packages/runtime-core/src/hydration.ts\": [\"  >  29:  normalizeClass,\", \"  > 802:    expected = normalizeClass(clientValue)\"], \"packages/runtime-core/src/vnode.ts\": [\"  >  11:  normalizeClas"
+        }
+      ]
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-impact",
+      "evidenceSha256": "e7ff8f1be85adf238ebc8a29ac39ce03309db60450b726975a8f47f469bcc8f6",
+      "toolOutputsSha256": "b31e3b10b60a65288eac598869e0e92cce184b5250e0b93b183ebbd9124fa805",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation used package_evidence normalizeClass and returned thirteen cited direct rows, fifteen conservative dependent chains and explicit partial issues. A later repeated identical query is retained and charged. Native configuration, source, installed-link and script checks followed; final exclusions distinguish the NORMALIZE_CLASS symbol from the generated normalizeClass string. Only the answer was added; source and fixture Git unchanged. Both calls are usable discovery evidence, not proof that validation ran or dynamic loading was fully analyzed. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6439.59924999997,
+        "completedMs": 9893.69787500007
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "ddd181e227242b5dffde812174153bba9f93e3ea49947d91736a1d8636863a62",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "package_evidence",
+          "resultSha256": "7f451e0635a7f4755a4cbd1a24b59b9922239f2f6ad6755554a2f6652cebceff",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@vue/shared\",\"version\":\"3.5.13\",\"root\":\"packages/shared\",\"exports\":[\"normalizeClass\"],\"entries\":[\"packages/shared/src/index.ts\"]},\"direct\":[{\"file\":\"packages/compiler-dom/src/transforms/stringifyStatic.ts\",\"package\":\"@vue/compiler-dom\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":33,\"endLine\":33,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/runtime-core/src/compat/renderFn.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":9,\"endLine\":9,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/"
+        },
+        {
+          "actionIdSha256": "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+          "tool": "package_evidence",
+          "resultSha256": "7ffe4f20f59410ad377d7de7158b5c0f5f05fc5f76a3e2ce240fa05c81a5ec92",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@vue/shared\",\"version\":\"3.5.13\",\"root\":\"packages/shared\",\"exports\":[\"normalizeClass\"],\"entries\":[\"packages/shared/src/index.ts\"]},\"direct\":[{\"file\":\"packages/compiler-dom/src/transforms/stringifyStatic.ts\",\"package\":\"@vue/compiler-dom\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":33,\"endLine\":33,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/runtime-core/src/compat/renderFn.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"normalizeClass\",\"role\":\"runtime\",\"evidence\":{\"startLine\":9,\"endLine\":9,\"quote\":\"  normalizeClass,\"},\"occurrenceCount\":2},{\"file\":\"packages/"
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-codegraph",
+      "evidenceSha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "toolOutputsSha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "First investigation used codegraph_explore ShallowRef and returned the target declaration with relevant production consumer/reexport paths. Native compiler checks corrected an initial relative-path scan, then source configuration and actual installed workspace links supported the final report. An overinclusive external development traversal was not used in the final dependent set. Only the answer was added beyond the declared provider link; source and fixture Git unchanged. Provider output is useful discovery rather than complete semantic proof. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 7434.72658300004,
+        "completedMs": 7574.2085000001825
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "20b8397a9ddb11ed89b498f81dc693bece3a1b5fb449db739d14038a1c8bba21",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "resultSha256": "09b14dfd9f8a206379df2015bd7cbc720fc91d0fbebeaf4d83a4ad496518c559",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "**Exploration: ShallowRef**\n\nFound 43 symbols across 2 files.\n\n**Blast radius — what depends on these (update/verify before editing)**\n\n- `shallowRef` (packages/reactivity/src/ref.ts:94) — 21 callers in `packages/runtime-core/src/helpers/useTemplateRef.ts`, `packages/reactivity/src/index.ts`, `packages/runtime-core/src/index.ts`; tests: `packages-private/dts-test/ref.test-d.ts`, `packages-private/dts-test/watch.test-d.ts`, `packages/reactivity/__tests__/computed.spec.ts`, `packages/reactivity/__tests__/gc.spec.ts` +5\n- `ShallowRef` (packages/reactivity/src/ref.ts:65) — 12 callers in `packages/reactivity/src/index.ts`, `packages/runtime-core/src/helpers/useTemplateRef.ts`, `packages/runtime-c"
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-competitor",
+      "evidenceSha256": "e7513de2c4113ffa33daa794a36da92b7c8554c4b042503fab15de2615a70c89",
+      "toolOutputsSha256": "edbce22e2becff226e287a38ccd86b2a24482a54fe492ec3dc029fe5c5fb0ff1",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "Serena startup/API help preceded the first task source search, which returned actual ShallowRef declarations, type consumer/reexport and formatter string. Native compiler checks used corrected absolute configuration parsing to respect excluded private source, then package-manager filtering and installed workspace links supported the final dependent set. Only the answer was added; source and fixture Git unchanged. The provider established useful source discovery, not complete graph inference. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "919299b8b8860441036a08b8ce4a6486ee1712366afaec2286c8579387359f27",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c",
+        "00bf463c9d57c76acacd039e798555d6101dbddf9708e68d232d71a4c30e0633",
+        "fcf995ce3ce15e435101e7a49adbafdc79fcf9203eefbab40b5d124cae39b03f",
+        "b40ee9c64c8028e7786be4b1266661a398dfa60613358262a0ce9e36bddd365d",
+        "8fdb99dc4306238c16aab4f1834bc653b29af2e24fa23ffba130daeb8403a4fc"
+      ],
+      "providerActionIds": [
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "startedMs": 12547.52587500005,
+        "completedMs": 12683.250082999934
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "0d6dab6541b66aaf8b12bce38560f336359d59f5d7e4dbdfbbb2081bdcd73f84",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+          "tool": "serena_repl",
+          "resultSha256": "756c8943c1612efb5a6b7875dbded071c52d56dd2c1e0b7af1a89530223cfea2",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"packages/reactivity/src/ref.ts\": [\"  >  64:export type ShallowRef<T = any, S = T> = Ref<T, S> & {\", \"  >  89:    ? IfAny<T, ShallowRef<T>, T>\", \"  >  90:    : ShallowRef<T>\", \"  >  91:  : ShallowRef<T>\", \"  >  92:export function shallowRef<T = any>(): ShallowRef<T | undefined>\", \"  > 204:  | ShallowRef<T>\", \"  > 494:  T extends ShallowRef<infer V, unknown>\"], \"packages/reactivity/src/index.ts\": [\"  >  17:  type ShallowRef,\"], \"packages/runtime-core/src/customFormatter.ts\": [\"  > 193:      return `ShallowRef`\"], \"packages/runtime-core/src/index.ts\": [\"  > 206:  ShallowRef,\"], \"packages/runtime-core/src/helpers/useTemplateRef.ts\": [\"  >   0:import { type ShallowRef, readonly, shallowRef } fr"
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-impact",
+      "evidenceSha256": "01289c5fb4bc315e96782659848db931378ccbd5ec5173aef1b12b1895dc25ad",
+      "toolOutputsSha256": "fb284c28a8d0bb9acad4d5119fb3ce1f83cc18c8ed9651a4ffe31602ec20a1b3",
+      "workflow": "pass",
+      "providerEvidence": "usable",
+      "notes": "The first task investigation called package_evidence ShallowRef, returning eight cited type/reexport rows, ten conservative dependent chains and explicit partial issues. Native per-configuration compiler binding, manifest/link checks and script evidence verification followed. The answer preserved uncertainty and the formatter string exclusion; only the permitted answer was added, with source and fixture Git unchanged. Provider facts were usable and subsequently checked, not treated as executed validation or full dynamic analysis. No native validation was required.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+        "cfc5c391b5ba915c081c7d09c3edfc599f5369196d03ab00aa96b73369f89b5f",
+        "a26c6de8780e4e792e8ad6df3fb6ac31fe229b7b2f8bc2aa29c602e8d647918c"
+      ],
+      "providerActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da"
+      ],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6815.07979099988,
+        "completedMs": 10310.92812499986
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "a89133663959f00d03a91139f3b021b34d265b43c0d78f0e9508a33a53865455",
+        "mechanism": null
+      },
+      "providerProof": [
+        {
+          "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "package_evidence",
+          "resultSha256": "ac9b44a4e608569b42c6037b6eccec8b31e6a2df06e14824f3a76828aa306bd0",
+          "resultPointer": "/result/content/0/text",
+          "excerpt": "{\"schemaVersion\":1,\"status\":\"partial\",\"target\":{\"package\":\"@vue/reactivity\",\"version\":\"3.5.13\",\"root\":\"packages/reactivity\",\"exports\":[\"ShallowRef\"],\"entries\":[\"packages/reactivity/src/index.ts\"]},\"direct\":[{\"file\":\"packages/runtime-core/src/helpers/useTemplateRef.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"ShallowRef\",\"role\":\"type-only\",\"evidence\":{\"startLine\":1,\"endLine\":1,\"quote\":\"import { type ShallowRef, readonly, shallowRef } from '@vue/reactivity'\"},\"occurrenceCount\":3},{\"file\":\"packages/runtime-core/src/index.ts\",\"package\":\"@vue/runtime-core\",\"version\":\"3.5.13\",\"symbol\":\"ShallowRef\",\"role\":\"reexport\",\"evidence\":{\"startLine\":207,\"endLine\":207,\"quote\":\"  ShallowRef,\""
+        }
+      ]
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-native",
+      "evidenceSha256": "72f50c1008b9ec971ca37faec17bc2efe6acdc946a500aa4ba62380511f06f3c",
+      "toolOutputsSha256": "23b33dd4d99e12936d2c6e02dfd2be5ba5b4d4b057ab0f746da1ff2dbf174975",
+      "workflow": "pass",
+      "providerEvidence": "not-applicable",
+      "notes": "The first command searched the requested ShallowRef declaration and workspace configuration. Subsequent native source search, TypeScript binding in configured projects, exact installed workspace links and script-property citations supported the answer. The model distinguished the formatter string and test-only occurrences from production usage. Only the permitted answer was added; source and fixture Git remained unchanged. No native validation was required for this analysis task.",
+      "basisActionIds": [
+        "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "4a317b6972e2f1834050485420bd71fe6fc2d87cd25d572cb4b8b327b37bc030",
+        "57dbfc296665f072254d15345fb3a2bbf457ae03cbb6ee8f6020e8f11d4b056b",
+        "9462965f2002ffb6e5ebf84d633936910b584441932a9dee26f8497eb9d82c75",
+        "3f21b4ea2fbe67cd553dbcfae108e6632bdb6c655218a1e4ad5a543cc24800f4",
+        "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e"
+      ],
+      "providerActionIds": [],
+      "firstInvestigation": {
+        "actionIdSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+        "startedMs": 6062.829875000054,
+        "completedMs": 6062.829875000054
+      },
+      "sourceIntegrity": {
+        "changed": [],
+        "fixtureGitUnchanged": true
+      },
+      "fixtureCopy": {
+        "sha256": "ad9e36c48dd66a1c308b2a35e666434be2b5736e330df7a18c56ad0a20328836",
+        "mechanism": null
+      },
+      "providerProof": []
+    }
+  ]
+}

@@ -1,0 +1,1016 @@
+{
+  "schemaVersion": 1,
+  "study": "impact-confirmation-002",
+  "reviewedAt": "2026-11-07T00:33:01.561Z",
+  "auditor": "benchmark_tasks",
+  "scope": "Read-only control-quality audit of all four completed CodeGraph sessions. No model messages, reasoning, private task oracle, grader expectations, extra model queries or provider executions were inspected or invoked.",
+  "protocolSha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+  "reportSha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+  "qualificationSha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+  "writerSha256": "c30f005829e0723ed7b290f27c428d42f0cdf2c838f4a4ca8c27794d2b96c9d6",
+  "bindings": [
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/report-private.json",
+      "sha256": "9fd41ac1513350eed0977df17cec9f40066d4ba01f15785b36925a7b7628b7ce",
+      "bytes": 327959
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/protocol.json",
+      "sha256": "cb597d1d19d5f813ce8327f74b34bdfa74cbea42e6cfa24e363b355e31b1ea63",
+      "bytes": 220971
+    },
+    {
+      "path": "artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+      "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+      "bytes": 51952
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+      "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+      "bytes": 46010
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+      "sha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+      "bytes": 70542
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+      "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+      "bytes": 8803
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+      "sha256": "118c784820ee2b32bb2e70f4bcf9ece4090c35d2d1923502b8c0d650f0ed7dd1",
+      "bytes": 363
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+      "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+      "bytes": 45670
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+      "sha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+      "bytes": 75632
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+      "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+      "bytes": 8848
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+      "sha256": "4edfd6a402e8c55faa91ea8830958544518843372607287b5276cad18371a1a2",
+      "bytes": 363
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+      "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+      "bytes": 48167
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+      "sha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+      "bytes": 63900
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+      "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+      "bytes": 8847
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+      "sha256": "c70b457369fdb4fa1d00aafd7e0172a288b64a6cedf7e0256e248f879f926c9e",
+      "bytes": 362
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+      "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+      "bytes": 42054
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+      "sha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+      "bytes": 112193
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+      "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+      "bytes": 8803
+    },
+    {
+      "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+      "sha256": "077f300632b3c3667940ec7fc048bf937d831e4bf3bc52a80d3d198f57b84bd4",
+      "bytes": 363
+    }
+  ],
+  "runs": [
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r1-codegraph",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "codegraph",
+      "fixtureSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "rawCaptureSha256": "f8c73e4a9f74ef00a10dc77ee5712e7d09b08d5b70f42c805d9273d6ff5818d9",
+      "bindings": {
+        "record": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+          "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+          "bytes": 46010
+        },
+        "outputs": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+          "sha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+          "bytes": 70542
+        },
+        "preparation": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+          "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+          "bytes": 8803
+        },
+        "cleanup": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+          "sha256": "118c784820ee2b32bb2e70f4bcf9ece4090c35d2d1923502b8c0d650f0ed7dd1",
+          "bytes": 363
+        }
+      },
+      "facts": [
+        {
+          "id": "full-capability",
+          "state": "supported",
+          "statement": "All eight official retrieval tools were configured and approved, matching the independent full-catalog qualification and frozen launch. This does not assert all eight were exercised in each run.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+              "pointer": "/requestedConfig"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+              "pointer": "/0/evidence/launchspec"
+            },
+            {
+              "path": "artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+              "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+              "pointer": "/sdk/catalog"
+            }
+          ]
+        },
+        {
+          "id": "fresh-index",
+          "state": "supported",
+          "statement": "An isolated initial index was built for this exact workspace, with no prior state reuse, pending changes, pending references or worktree mismatch reported.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+              "pointer": "/0/evidence/commands"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+              "pointer": "/0/evidence/readiness"
+            }
+          ]
+        },
+        {
+          "id": "charged-setup",
+          "state": "supported",
+          "statement": "Recorded provider setup includes the initial indexing and readiness commands. No model query or extra MCP client ran during setup.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+              "pointer": "/run/providerSetupMs"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "ef935263c7d06f0dca518141e33d5becd5d2d46747498dec0ab4d60b34bc4097",
+              "pointer": "/0/evidence"
+            }
+          ]
+        },
+        {
+          "id": "source-freshness",
+          "state": "supported",
+          "statement": "Returned excerpts match the completed workspace and independent integrity records show no protected source changes. Post-edit refresh was not exercised by these analysis sessions.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+              "pointer": "/grading/integrity"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+              "sha256": "f782eed54133b69d46deae1d914c29d6fab6e5bfd67a634bd57464ab05630453",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "native-fallback",
+          "state": "supported",
+          "statement": "Native shell, source, compiler and package inspection remained available. Public commands show the agent used native follow-up rather than being restricted to graph evidence.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "cleanup",
+          "state": "supported",
+          "statement": "Capture and lifecycle receipts confirm the owned process groups and daemon stopped, with no remaining owned provider process.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "f52ee88b1bfb2932ee8a58cb41ee17cedb334bd28134f2a09ad3c270a98d2cea",
+              "pointer": "/run/processGroupStopped"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+              "sha256": "118c784820ee2b32bb2e70f4bcf9ece4090c35d2d1923502b8c0d650f0ed7dd1",
+              "pointer": ""
+            }
+          ]
+        }
+      ],
+      "setup": {
+        "providerSetupMs": 5725.637708000024,
+        "fileCount": 548,
+        "nodeCount": 8555,
+        "edgeCount": 39472,
+        "extractionVersion": 27,
+        "allEightToolsEnabled": true,
+        "watcherEnabled": true,
+        "additionalSetupMcpClient": false
+      },
+      "mcp": [
+        {
+          "publicActionIndex": 0,
+          "outputActionIndex": 0,
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "arguments": {
+            "query": "ShallowRef",
+            "maxFiles": 30
+          },
+          "resultSha256": "09b14dfd9f8a206379df2015bd7cbc720fc91d0fbebeaf4d83a4ad496518c559",
+          "resultBytes": 26589,
+          "sourceVerification": {
+            "numberedLines": 707,
+            "snippets": [],
+            "mismatches": [],
+            "sourceFiles": [
+              {
+                "file": "packages/reactivity/src/ref.ts",
+                "sha256": "d7e9ba56439263c22f945bb9f746ec3c27d9c08c7d247ee72d6d3f34a486164a"
+              },
+              {
+                "file": "packages-private/dts-test/ref.test-d.ts",
+                "sha256": "7b2d4f9bd7276941a63011026d3f1475f189895a5c762e449230a7de023c0f82"
+              }
+            ],
+            "policy": "Numbered source lines and import blocks are compared exactly at their returned locations. Signature fragments must match within their declaration first line; every subsequent fragment line matches exactly. This does not validate graph completeness or every relationship."
+          },
+          "explicitOmissions": [
+            "- ... and 78 more",
+            "- ... and 34 more",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap: unref (packages/reactivity/src/ref.ts:226), toValue (packages/reactivity/src/ref.ts:246)) ...",
+            "... (gap: proxyRefs (packages/reactivity/src/ref.ts:274), CustomRefFactory (packages/reactivity/src/ref.ts:282), CustomRefImpl (packages/reactivity/src/ref.ts:290), dep (packages/reactivity/src/ref.ts:291), _get (packages/reactivity/src/ref.ts:293), _set (packages/reactivity/src/ref.ts:294), +4 more) ...",
+            "... (gap: toRefs (packages/reactivity/src/ref.ts:339), ObjectRefImpl (packages/reactivity/src/ref.ts:350), [ReactiveFlags.IS_REF] (packages/reactivity/src/ref.ts:351), _value (packages/reactivity/src/ref.ts:352), constructor (packages/reactivity/src/ref.ts:354), value (packages/reactivity/src/ref.ts:360), +3 more) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "- ... and 22 more files"
+          ],
+          "assessment": "Successful bounded source and graph response. Explicit omissions are a provider response limit, not a harness truncation or setup error."
+        }
+      ],
+      "nativeFailures": [
+        {
+          "idSha256": "f4fdd034b54297294baf2c6977028dba2f4e8949c52e921b04118670cad8192e",
+          "exitCode": 1,
+          "outputSha256": "8bcc3159df6a17ffd665a4f6594287a5f2e4b8e5bd91d9b695e9d37a12b7c3dc",
+          "classification": "Agent-authored native script syntax error; not a CodeGraph transport error"
+        }
+      ],
+      "sourceEditsObserved": false,
+      "observedSetupFaults": [],
+      "conclusion": "No observed configuration, readiness, transport, source freshness or cleanup fault. Bounded retrieval and the agent choice of follow-up tools are distinct from setup defects."
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r1-codegraph",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 1,
+      "arm": "codegraph",
+      "fixtureSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "rawCaptureSha256": "10ad34a1c893a9f344a92d32a3188102ba6a13d6353b68c709f977a68bf6d122",
+      "bindings": {
+        "record": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+          "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+          "bytes": 45670
+        },
+        "outputs": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+          "sha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+          "bytes": 75632
+        },
+        "preparation": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+          "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+          "bytes": 8848
+        },
+        "cleanup": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+          "sha256": "4edfd6a402e8c55faa91ea8830958544518843372607287b5276cad18371a1a2",
+          "bytes": 363
+        }
+      },
+      "facts": [
+        {
+          "id": "full-capability",
+          "state": "supported",
+          "statement": "All eight official retrieval tools were configured and approved, matching the independent full-catalog qualification and frozen launch. This does not assert all eight were exercised in each run.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+              "pointer": "/requestedConfig"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+              "pointer": "/0/evidence/launchspec"
+            },
+            {
+              "path": "artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+              "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+              "pointer": "/sdk/catalog"
+            }
+          ]
+        },
+        {
+          "id": "fresh-index",
+          "state": "supported",
+          "statement": "An isolated initial index was built for this exact workspace, with no prior state reuse, pending changes, pending references or worktree mismatch reported.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+              "pointer": "/0/evidence/commands"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+              "pointer": "/0/evidence/readiness"
+            }
+          ]
+        },
+        {
+          "id": "charged-setup",
+          "state": "supported",
+          "statement": "Recorded provider setup includes the initial indexing and readiness commands. No model query or extra MCP client ran during setup.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+              "pointer": "/run/providerSetupMs"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/preparation.json",
+              "sha256": "8d94a19f7f73eb8d4b246e35712dba9b852e8d973f83c7355515da2f21156d32",
+              "pointer": "/0/evidence"
+            }
+          ]
+        },
+        {
+          "id": "source-freshness",
+          "state": "supported",
+          "statement": "Returned excerpts match the completed workspace and independent integrity records show no protected source changes. Post-edit refresh was not exercised by these analysis sessions.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+              "pointer": "/grading/integrity"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/tool-outputs.json",
+              "sha256": "de5f6f4d688480e50a042ace646cb659bdb8879367d1ab104915015b23bf92c4",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "native-fallback",
+          "state": "supported",
+          "statement": "Native shell, source, compiler and package inspection remained available. Public commands show the agent used native follow-up rather than being restricted to graph evidence.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "cleanup",
+          "state": "supported",
+          "statement": "Capture and lifecycle receipts confirm the owned process groups and daemon stopped, with no remaining owned provider process.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/public-evidence.json",
+              "sha256": "04f83c3ec1865e37487aa2debf1058ceca95a2816a56cb32187d8c0b31b8e5ce",
+              "pointer": "/run/processGroupStopped"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r1-codegraph/cleanup.json",
+              "sha256": "4edfd6a402e8c55faa91ea8830958544518843372607287b5276cad18371a1a2",
+              "pointer": ""
+            }
+          ]
+        }
+      ],
+      "setup": {
+        "providerSetupMs": 5680.253249999951,
+        "fileCount": 548,
+        "nodeCount": 8555,
+        "edgeCount": 39472,
+        "extractionVersion": 27,
+        "allEightToolsEnabled": true,
+        "watcherEnabled": true,
+        "additionalSetupMcpClient": false
+      },
+      "mcp": [
+        {
+          "publicActionIndex": 0,
+          "outputActionIndex": 0,
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "arguments": {
+            "query": "normalizeClass",
+            "maxFiles": 30
+          },
+          "resultSha256": "3e8eae3fce24bd4d8337c310e9ad0c1049f36f6333a8f31db9511d6cada6a0ab",
+          "resultBytes": 26351,
+          "sourceVerification": {
+            "numberedLines": 600,
+            "snippets": [],
+            "mismatches": [],
+            "sourceFiles": [
+              {
+                "file": "packages/shared/src/normalizeProp.ts",
+                "sha256": "6b7d5d6a26d9e1d3775e8b5c5c41d990db16264d42c17f86fe578500fc2f03e8"
+              },
+              {
+                "file": "packages/runtime-core/src/vnode.ts",
+                "sha256": "64b4d1d3e7e86b7fd044a64cca181fc50e3d74f74bd7569387781389a3ca920e"
+              },
+              {
+                "file": "packages/shared/src/general.ts",
+                "sha256": "32fcdcb39ea23aacb6a8edbb0ec40005e76b49dc1db1703dc70aacdc7d47d57e"
+              },
+              {
+                "file": "packages/runtime-core/src/hmr.ts",
+                "sha256": "484deb6f85359c7f7c0faa9ebd0aac5bc904b7ed7810b44b467c29f163a7c49b"
+              }
+            ],
+            "policy": "Numbered source lines and import blocks are compared exactly at their returned locations. Signature fragments must match within their declaration first line; every subsequent fragment line matches exactly. This does not validate graph completeness or every relationship."
+          },
+          "explicitOmissions": [
+            "- ... and 197 more",
+            "- ... and 95 more",
+            "... (gap: Fragment (packages/runtime-core/src/vnode.ts:63), Text (packages/runtime-core/src/vnode.ts:69), Comment (packages/runtime-core/src/vnode.ts:70), Static (packages/runtime-core/src/vnode.ts:71)) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap: objectToString (packages/shared/src/general.ts:64), toTypeString (packages/shared/src/general.ts:66), toRawType (packages/shared/src/general.ts:69), isPlainObject (packages/shared/src/general.ts:74), isIntegerKey (packages/shared/src/general.ts:77), isReservedProp (packages/shared/src/general.ts:83), +5 more) ...",
+            "... (gap: rerender (packages/runtime-core/src/hmr.ts:24), reload (packages/runtime-core/src/hmr.ts:25), map (packages/runtime-core/src/hmr.ts:41)) ...",
+            "- ... and 32 more files",
+            "> **Verbatim source for 4 files is included above — treat it as already Read.** Trimmed for size: `vnode.ts`, `hmr.ts`; gap markers and file headers name what was elided. For those, or anything under \"Not shown above\", make ANOTHER codegraph_explore with those exact names instead of reading the files — it returns their source with line numbers."
+          ],
+          "assessment": "Successful bounded source and graph response. Explicit omissions are a provider response limit, not a harness truncation or setup error."
+        }
+      ],
+      "nativeFailures": [],
+      "sourceEditsObserved": false,
+      "observedSetupFaults": [],
+      "conclusion": "No observed configuration, readiness, transport, source freshness or cleanup fault. Bounded retrieval and the agent choice of follow-up tools are distinct from setup defects."
+    },
+    {
+      "id": "vue-runtime-impact-heldout-grading-v2-r2-codegraph",
+      "task": "vue-runtime-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "codegraph",
+      "fixtureSha256": "0e82ca71345db7e1e72c45fa6a18c476bced50f768dbd0816ce92d46ef41c2c9",
+      "rawCaptureSha256": "02f69ae1a3c2242a6dcaad90b09aff897edab98684b67743260056522be95a64",
+      "bindings": {
+        "record": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+          "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+          "bytes": 48167
+        },
+        "outputs": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+          "sha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+          "bytes": 63900
+        },
+        "preparation": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+          "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+          "bytes": 8847
+        },
+        "cleanup": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+          "sha256": "c70b457369fdb4fa1d00aafd7e0172a288b64a6cedf7e0256e248f879f926c9e",
+          "bytes": 362
+        }
+      },
+      "facts": [
+        {
+          "id": "full-capability",
+          "state": "supported",
+          "statement": "All eight official retrieval tools were configured and approved, matching the independent full-catalog qualification and frozen launch. This does not assert all eight were exercised in each run.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+              "pointer": "/requestedConfig"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+              "pointer": "/0/evidence/launchspec"
+            },
+            {
+              "path": "artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+              "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+              "pointer": "/sdk/catalog"
+            }
+          ]
+        },
+        {
+          "id": "fresh-index",
+          "state": "supported",
+          "statement": "An isolated initial index was built for this exact workspace, with no prior state reuse, pending changes, pending references or worktree mismatch reported.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+              "pointer": "/0/evidence/commands"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+              "pointer": "/0/evidence/readiness"
+            }
+          ]
+        },
+        {
+          "id": "charged-setup",
+          "state": "supported",
+          "statement": "Recorded provider setup includes the initial indexing and readiness commands. No model query or extra MCP client ran during setup.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+              "pointer": "/run/providerSetupMs"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "52fbdc5cb547bbf8c5acbeedd622545f239eb11b913d3cddde38313e694db80f",
+              "pointer": "/0/evidence"
+            }
+          ]
+        },
+        {
+          "id": "source-freshness",
+          "state": "supported",
+          "statement": "Returned excerpts match the completed workspace and independent integrity records show no protected source changes. Post-edit refresh was not exercised by these analysis sessions.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+              "pointer": "/grading/integrity"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+              "sha256": "9cb824f0ebb61bb78e965d7596d2e08de78d9d78ce0b025fb862bafafea4dcbe",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "native-fallback",
+          "state": "supported",
+          "statement": "Native shell, source, compiler and package inspection remained available. Public commands show the agent used native follow-up rather than being restricted to graph evidence.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "cleanup",
+          "state": "supported",
+          "statement": "Capture and lifecycle receipts confirm the owned process groups and daemon stopped, with no remaining owned provider process.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "2792ce2ae1e28ac71953871976d416e50efbc11b65dae74fd46886bc7f93ce45",
+              "pointer": "/run/processGroupStopped"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-runtime-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+              "sha256": "c70b457369fdb4fa1d00aafd7e0172a288b64a6cedf7e0256e248f879f926c9e",
+              "pointer": ""
+            }
+          ]
+        }
+      ],
+      "setup": {
+        "providerSetupMs": 5719.307999999961,
+        "fileCount": 548,
+        "nodeCount": 8555,
+        "edgeCount": 39472,
+        "extractionVersion": 27,
+        "allEightToolsEnabled": true,
+        "watcherEnabled": true,
+        "additionalSetupMcpClient": false
+      },
+      "mcp": [
+        {
+          "publicActionIndex": 0,
+          "outputActionIndex": 0,
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_search",
+          "arguments": {
+            "query": "normalizeClass",
+            "limit": 100
+          },
+          "resultSha256": "0d1658c88a9374d0c62b54c92916b683e93ead934bf6dc251591d7d7aa5d6c25",
+          "resultBytes": 2402,
+          "sourceVerification": {
+            "numberedLines": 0,
+            "snippets": [
+              {
+                "name": "normalizeClass",
+                "kind": "function",
+                "file": "packages/shared/src/normalizeProp.ts",
+                "line": 63,
+                "lines": 1,
+                "matched": true
+              },
+              {
+                "name": "normalizeClassComponent",
+                "kind": "function",
+                "file": "packages/runtime-core/src/hmr.ts",
+                "line": 77,
+                "lines": 1,
+                "matched": true
+              },
+              {
+                "name": "NORMALIZE_CLASS",
+                "kind": "constant",
+                "file": "packages/compiler-core/src/runtimeHelpers.ts",
+                "line": 48,
+                "lines": 3,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/runtime-core/src/compat/renderHelpers.ts",
+                "line": 1,
+                "lines": 9,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+                "line": 7,
+                "lines": 11,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/runtime-core/src/compat/renderFn.ts",
+                "line": 1,
+                "lines": 12,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/runtime-core/src/vnode.ts",
+                "line": 1,
+                "lines": 14,
+                "matched": true
+              },
+              {
+                "name": "../src",
+                "kind": "import",
+                "file": "packages/shared/__tests__/normalizeProp.spec.ts",
+                "line": 1,
+                "lines": 7,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/compiler-dom/src/transforms/stringifyStatic.ts",
+                "line": 22,
+                "lines": 16,
+                "matched": true
+              },
+              {
+                "name": "@vue/shared",
+                "kind": "import",
+                "file": "packages/runtime-core/src/hydration.ts",
+                "line": 17,
+                "lines": 17,
+                "matched": true
+              }
+            ],
+            "mismatches": [],
+            "sourceFiles": [
+              {
+                "file": "packages/shared/src/normalizeProp.ts",
+                "sha256": "6b7d5d6a26d9e1d3775e8b5c5c41d990db16264d42c17f86fe578500fc2f03e8"
+              },
+              {
+                "file": "packages/runtime-core/src/hmr.ts",
+                "sha256": "484deb6f85359c7f7c0faa9ebd0aac5bc904b7ed7810b44b467c29f163a7c49b"
+              },
+              {
+                "file": "packages/compiler-core/src/runtimeHelpers.ts",
+                "sha256": "0655002b76c97277db2fd236ebdcda772c61375d7cad4405142682b8de4759b2"
+              },
+              {
+                "file": "packages/runtime-core/src/compat/renderHelpers.ts",
+                "sha256": "0b15dff65423fb92d8bf2d51021bc5072985bd6acd2394bf960291bdf6b3216a"
+              },
+              {
+                "file": "packages/server-renderer/src/helpers/ssrRenderAttrs.ts",
+                "sha256": "73db0f9c7f67117cdf4493064fc01c5b396a5e7838efa9cdcc3044990c7388a6"
+              },
+              {
+                "file": "packages/runtime-core/src/compat/renderFn.ts",
+                "sha256": "11e14c1838073336b33935f0979e3f093cbb98f42ca44a2de2bd93a96c89f88a"
+              },
+              {
+                "file": "packages/runtime-core/src/vnode.ts",
+                "sha256": "64b4d1d3e7e86b7fd044a64cca181fc50e3d74f74bd7569387781389a3ca920e"
+              },
+              {
+                "file": "packages/shared/__tests__/normalizeProp.spec.ts",
+                "sha256": "afc9dee53290ea7db44c7762477357ad77008d54e0bbf22e6fc98ed3c9111670"
+              },
+              {
+                "file": "packages/compiler-dom/src/transforms/stringifyStatic.ts",
+                "sha256": "2e3854e27704f025993c01e897e0229abe35a10e0623bb2bae9a9b3642982d27"
+              },
+              {
+                "file": "packages/runtime-core/src/hydration.ts",
+                "sha256": "979851ce3dd58363d65ce7aa5aa8df2cd6a20dc90173a86257db3bb058a998e6"
+              }
+            ],
+            "policy": "Numbered source lines and import blocks are compared exactly at their returned locations. Signature fragments must match within their declaration first line; every subsequent fragment line matches exactly. This does not validate graph completeness or every relationship."
+          },
+          "explicitOmissions": [],
+          "assessment": "Successful name discovery. Not a complete impact result."
+        }
+      ],
+      "nativeFailures": [],
+      "sourceEditsObserved": false,
+      "observedSetupFaults": [],
+      "conclusion": "No observed configuration, readiness, transport, source freshness or cleanup fault. Bounded retrieval and the agent choice of follow-up tools are distinct from setup defects."
+    },
+    {
+      "id": "vue-type-impact-heldout-grading-v2-r2-codegraph",
+      "task": "vue-type-impact-heldout-grading-v2",
+      "repeat": 2,
+      "arm": "codegraph",
+      "fixtureSha256": "6cfa8b120448ff1298ea18693f13ebe56dac2e3a085f8bde0cd8dbabd7a3bea8",
+      "rawCaptureSha256": "5d1833ee901f3c20798a7d2d5ce2c7352ca460b5591394cc391895f5995d65a2",
+      "bindings": {
+        "record": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+          "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+          "bytes": 42054
+        },
+        "outputs": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+          "sha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+          "bytes": 112193
+        },
+        "preparation": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+          "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+          "bytes": 8803
+        },
+        "cleanup": {
+          "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+          "sha256": "077f300632b3c3667940ec7fc048bf937d831e4bf3bc52a80d3d198f57b84bd4",
+          "bytes": 363
+        }
+      },
+      "facts": [
+        {
+          "id": "full-capability",
+          "state": "supported",
+          "statement": "All eight official retrieval tools were configured and approved, matching the independent full-catalog qualification and frozen launch. This does not assert all eight were exercised in each run.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+              "pointer": "/requestedConfig"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+              "pointer": "/0/evidence/launchspec"
+            },
+            {
+              "path": "artifacts/research/cross-package/codegraph-control/qualification-001/report.json",
+              "sha256": "41f12b9a3e7fd14d46120a3848a3fdfdc49ea086ee2c441570231c0938a68e1f",
+              "pointer": "/sdk/catalog"
+            }
+          ]
+        },
+        {
+          "id": "fresh-index",
+          "state": "supported",
+          "statement": "An isolated initial index was built for this exact workspace, with no prior state reuse, pending changes, pending references or worktree mismatch reported.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+              "pointer": "/0/evidence/commands"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+              "pointer": "/0/evidence/readiness"
+            }
+          ]
+        },
+        {
+          "id": "charged-setup",
+          "state": "supported",
+          "statement": "Recorded provider setup includes the initial indexing and readiness commands. No model query or extra MCP client ran during setup.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+              "pointer": "/run/providerSetupMs"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/preparation.json",
+              "sha256": "237a2d8138766b2adbe43ff44d899a35bf01c8380da6e31c56a48b700c401aef",
+              "pointer": "/0/evidence"
+            }
+          ]
+        },
+        {
+          "id": "source-freshness",
+          "state": "supported",
+          "statement": "Returned excerpts match the completed workspace and independent integrity records show no protected source changes. Post-edit refresh was not exercised by these analysis sessions.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+              "pointer": "/grading/integrity"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/tool-outputs.json",
+              "sha256": "9d7af1c9f71cb6bbea9001ccdde66b506ec35cd506bab163361429128ab30df2",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "native-fallback",
+          "state": "supported",
+          "statement": "Native shell, source, compiler and package inspection remained available. Public commands show the agent used native follow-up rather than being restricted to graph evidence.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+              "pointer": "/actions"
+            }
+          ]
+        },
+        {
+          "id": "cleanup",
+          "state": "supported",
+          "statement": "Capture and lifecycle receipts confirm the owned process groups and daemon stopped, with no remaining owned provider process.",
+          "citations": [
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/public-evidence.json",
+              "sha256": "f4b33052511a38006ae386fc2ebb5685094ed9901c4e4b20371c23c796346448",
+              "pointer": "/run/processGroupStopped"
+            },
+            {
+              "path": "artifacts/research/cross-package/impact-confirmation-002/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/cleanup.json",
+              "sha256": "077f300632b3c3667940ec7fc048bf937d831e4bf3bc52a80d3d198f57b84bd4",
+              "pointer": ""
+            }
+          ]
+        }
+      ],
+      "setup": {
+        "providerSetupMs": 5767.164457999868,
+        "fileCount": 548,
+        "nodeCount": 8555,
+        "edgeCount": 39472,
+        "extractionVersion": 27,
+        "allEightToolsEnabled": true,
+        "watcherEnabled": true,
+        "additionalSetupMcpClient": false
+      },
+      "mcp": [
+        {
+          "publicActionIndex": 0,
+          "outputActionIndex": 0,
+          "idSha256": "6a9722cdf589a2a068832c955a8253b9df87983501c03dd92e95debae1f409da",
+          "tool": "codegraph_explore",
+          "arguments": {
+            "query": "ShallowRef",
+            "maxFiles": 30
+          },
+          "resultSha256": "09b14dfd9f8a206379df2015bd7cbc720fc91d0fbebeaf4d83a4ad496518c559",
+          "resultBytes": 26589,
+          "sourceVerification": {
+            "numberedLines": 707,
+            "snippets": [],
+            "mismatches": [],
+            "sourceFiles": [
+              {
+                "file": "packages/reactivity/src/ref.ts",
+                "sha256": "d7e9ba56439263c22f945bb9f746ec3c27d9c08c7d247ee72d6d3f34a486164a"
+              },
+              {
+                "file": "packages-private/dts-test/ref.test-d.ts",
+                "sha256": "7b2d4f9bd7276941a63011026d3f1475f189895a5c762e449230a7de023c0f82"
+              }
+            ],
+            "policy": "Numbered source lines and import blocks are compared exactly at their returned locations. Signature fragments must match within their declaration first line; every subsequent fragment line matches exactly. This does not validate graph completeness or every relationship."
+          },
+          "explicitOmissions": [
+            "- ... and 78 more",
+            "- ... and 34 more",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap: unref (packages/reactivity/src/ref.ts:226), toValue (packages/reactivity/src/ref.ts:246)) ...",
+            "... (gap: proxyRefs (packages/reactivity/src/ref.ts:274), CustomRefFactory (packages/reactivity/src/ref.ts:282), CustomRefImpl (packages/reactivity/src/ref.ts:290), dep (packages/reactivity/src/ref.ts:291), _get (packages/reactivity/src/ref.ts:293), _set (packages/reactivity/src/ref.ts:294), +4 more) ...",
+            "... (gap: toRefs (packages/reactivity/src/ref.ts:339), ObjectRefImpl (packages/reactivity/src/ref.ts:350), [ReactiveFlags.IS_REF] (packages/reactivity/src/ref.ts:351), _value (packages/reactivity/src/ref.ts:352), constructor (packages/reactivity/src/ref.ts:354), value (packages/reactivity/src/ref.ts:360), +3 more) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "... (gap) ...",
+            "- ... and 22 more files"
+          ],
+          "assessment": "Successful bounded source and graph response. Explicit omissions are a provider response limit, not a harness truncation or setup error."
+        }
+      ],
+      "nativeFailures": [],
+      "sourceEditsObserved": false,
+      "observedSetupFaults": [],
+      "conclusion": "No observed configuration, readiness, transport, source freshness or cleanup fault. Bounded retrieval and the agent choice of follow-up tools are distinct from setup defects."
+    }
+  ],
+  "conclusion": {
+    "allFourControlsOperational": true,
+    "observedSetupFaults": [],
+    "numberedSourceLinesChecked": 2014,
+    "searchSnippetsChecked": 10,
+    "sourceMismatches": 0
+  },
+  "limitations": [
+    "This audit does not establish complete or semantically correct graph relationships, full task correctness, workflow adherence or comparative superiority. Separate frozen graders and action reviews address those questions.",
+    "The server reported a complete index; this is not independent proof that every language construct or repository file was indexed correctly.",
+    "Three explore calls disclose omitted relationships and source. The search call is discovery evidence. All eight tools were enabled, but only explore and search were exercised here.",
+    "These tasks did not modify production source. The earlier independent scratch qualification, bound separately, establishes an observed post-edit refresh only on that scratch project.",
+    "A generic unstable-features Codex warning remains in the public captures. No provider transport failure was observed.",
+    "The original confirmation001 stopped during common preparation before any provider or model session. It contributes no CodeGraph control result.",
+    "The study advertises the full eight-tool MCP configuration. A separate CLI-only configuration or affected-test workflow was not explicitly tested. This audit does not identify an optimal CodeGraph configuration."
+  ]
+}

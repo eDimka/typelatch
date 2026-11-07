@@ -1,0 +1,29 @@
+{
+  "startedAt": "2026-11-06T21:28:34.143Z",
+  "elapsedMs": 2788.018167,
+  "cwd": "$REPOSITORY/artifacts/research/cross-package/impact/vue-source",
+  "command": "/opt/homebrew/bin/pnpm",
+  "args": [
+    "exec",
+    "vitest",
+    "run",
+    "--project",
+    "unit",
+    "packages/reactivity/__tests__/ref.spec.ts",
+    "packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts",
+    "--maxWorkers",
+    "1",
+    "--minWorkers",
+    "1"
+  ],
+  "environmentOverrides": {
+    "CI": "true",
+    "PUPPETEER_SKIP_DOWNLOAD": "true",
+    "HUSKY": "0"
+  },
+  "exitCode": 0,
+  "signal": null,
+  "error": null,
+  "stdout": "\n RUN  v2.1.1 $REPOSITORY/artifacts/research/cross-package/impact/vue-source\n\n ✓ |unit| packages/reactivity/__tests__/ref.spec.ts  (31 tests) 9ms\n ✓ |unit| packages/runtime-core/__tests__/helpers/useTemplateRef.spec.ts  (6 tests) 8ms\n\n Test Files  2 passed (2)\n      Tests  37 passed (37)\n   Start at  22:28:35\n   Duration  955ms (transform 489ms, setup 15ms, collect 634ms, tests 18ms, environment 0ms, prepare 101ms)\n\n",
+  "stderr": ""
+}

@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 2,
+  "target": {
+    "package": "@vue/reactivity",
+    "version": "3.5.13",
+    "exports": [
+      "ShallowRef"
+    ]
+  },
+  "direct": [
+    {
+      "file": "packages/runtime-core/src/helpers/useTemplateRef.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "ShallowRef",
+      "role": "type-only",
+      "evidence": {
+        "startLine": 1,
+        "endLine": 1,
+        "quote": "import { type ShallowRef, readonly, shallowRef } from '@vue/reactivity'"
+      }
+    },
+    {
+      "file": "packages/runtime-core/src/index.ts",
+      "package": "@vue/runtime-core",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 207,
+        "endLine": 207,
+        "quote": "  ShallowRef,"
+      }
+    },
+    {
+      "file": "packages/runtime-dom/src/index.ts",
+      "package": "@vue/runtime-dom",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 306,
+        "endLine": 306,
+        "quote": "export * from '@vue/runtime-core'"
+      }
+    },
+    {
+      "file": "packages/runtime-test/src/index.ts",
+      "package": "@vue/runtime-test",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 29,
+        "endLine": 29,
+        "quote": "export * from '@vue/runtime-core'"
+      }
+    },
+    {
+      "file": "packages/vue-compat/src/esm-index.ts",
+      "package": "@vue/compat",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 4,
+        "endLine": 4,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue-compat/src/esm-runtime.ts",
+      "package": "@vue/compat",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 4,
+        "endLine": 4,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue/src/index.ts",
+      "package": "vue",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 107,
+        "endLine": 107,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    },
+    {
+      "file": "packages/vue/src/runtime.ts",
+      "package": "vue",
+      "symbol": "ShallowRef",
+      "role": "reexport",
+      "evidence": {
+        "startLine": 10,
+        "endLine": 10,
+        "quote": "export * from '@vue/runtime-dom'"
+      }
+    }
+  ],
+  "packageDependents": [
+    {
+      "package": "@vue/compat",
+      "chain": [
+        "@vue/compat",
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "@vue/runtime-core",
+      "chain": [
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "@vue/runtime-dom",
+      "chain": [
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "@vue/runtime-test",
+      "chain": [
+        "@vue/runtime-test",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "@vue/server-renderer",
+      "chain": [
+        "@vue/server-renderer",
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "@vue/sfc-playground",
+      "chain": [
+        "@vue/sfc-playground",
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "dts-built-test",
+      "chain": [
+        "dts-built-test",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "dts-test",
+      "chain": [
+        "dts-test",
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "vite-debug",
+      "chain": [
+        "vite-debug",
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    },
+    {
+      "package": "vue",
+      "chain": [
+        "vue",
+        "@vue/runtime-dom",
+        "@vue/runtime-core",
+        "@vue/reactivity"
+      ]
+    }
+  ],
+  "validationTargets": [
+    {
+      "package": "<root>",
+      "script": "check",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 15,
+        "endLine": 15,
+        "quote": "\"check\": \"tsc --incremental --noEmit\""
+      }
+    },
+    {
+      "package": "<root>",
+      "script": "test-unit",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 20,
+        "endLine": 20,
+        "quote": "\"test-unit\": \"vitest --project unit\""
+      }
+    },
+    {
+      "package": "<root>",
+      "script": "build",
+      "evidence": {
+        "file": "package.json",
+        "startLine": 8,
+        "endLine": 8,
+        "quote": "\"build\": \"node scripts/build.js\""
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "file": "packages/runtime-core/src/customFormatter.ts",
+      "symbol": "ShallowRef",
+      "reason": "string-or-comment-only",
+      "evidence": {
+        "startLine": 194,
+        "endLine": 194,
+        "quote": "      return `ShallowRef`"
+      }
+    }
+  ],
+  "uncertainties": [
+    {
+      "code": "external-consumers",
+      "state": "unknown"
+    },
+    {
+      "code": "dynamic-loading",
+      "state": "unknown"
+    },
+    {
+      "code": "package-reachability-not-symbol-use",
+      "state": "conservative"
+    },
+    {
+      "code": "unexecuted-validation",
+      "state": "not-proven"
+    }
+  ],
+  "negativeClaims": []
+}

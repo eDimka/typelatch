@@ -1,0 +1,99 @@
+[
+  {
+    "lifecycleModule": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/lifecycle.mjs",
+    "evidence": {
+      "schemaVersion": 1,
+      "provider": "codegraph",
+      "version": "1.6.2",
+      "arm": "codegraph",
+      "ownerNonce": "31590f50-2954-4a54-9877-704264becf66",
+      "workspace": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace",
+      "state": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state",
+      "startedAt": "2026-11-07T00:23:15.894Z",
+      "status": "ready",
+      "commands": [
+        {
+          "command": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph",
+          "args": [
+            "init",
+            "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace",
+            "--yes"
+          ],
+          "pid": 14595,
+          "exitCode": 0,
+          "signal": null,
+          "timedOut": false,
+          "stdout": "┌  Initializing CodeGraph\n│\n◆  Initialized in $STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace\n│\nScanning files...\nParsing code...\nResolving refs...\nLinking dynamic dispatch...\n│\n◆  Indexed 548 files\n│\n●  8,555 nodes, 39,472 edges in 582ms\n│\n└  Done\n\n",
+          "stderr": "",
+          "processGroupStopped": true,
+          "termination": [],
+          "elapsedMs": 5501.569125000155
+        },
+        {
+          "command": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph",
+          "args": [
+            "status",
+            "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace",
+            "--json"
+          ],
+          "pid": 14686,
+          "exitCode": 0,
+          "signal": null,
+          "timedOut": false,
+          "stdout": "{\"initialized\":true,\"version\":\"1.6.2\",\"projectPath\":\"$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace\",\"indexPath\":\"$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace/.codegraph\",\"lastIndexed\":\"2026-11-07T00:23:16.716Z\",\"fileCount\":548,\"nodeCount\":8555,\"edgeCount\":39472,\"dbSizeBytes\":45428736,\"walSizeBytes\":0,\"backend\":\"node-sqlite\",\"journalMode\":\"wal\",\"nodesByKind\":{\"class\":40,\"component\":11,\"constant\":645,\"enum\":41,\"enum_member\":387,\"file\":532,\"function\":1821,\"import\":1883,\"interface\":289,\"method\":298,\"property\":2145,\"type_alias\":326,\"variable\":137},\"languages\":[\"javascript\",\"tsx\",\"typescript\",\"vue\",\"yaml\"],\"pendingChanges\":{\"added\":0,\"modified\":0,\"removed\":0},\"worktreeMismatch\":null,\"index\":{\"builtWithVersion\":\"1.6.2\",\"builtWithExtractionVersion\":27,\"currentExtractionVersion\":27,\"reindexRecommended\":false,\"state\":\"complete\",\"pendingRefs\":0}}\n",
+          "stderr": "",
+          "processGroupStopped": true,
+          "termination": [],
+          "elapsedMs": 262.58204200002365
+        }
+      ],
+      "additionalSetupMcpClient": false,
+      "modelQueriesDuringSetup": 0,
+      "launchspec": {
+        "command": "$REPOSITORY/artifacts/research/cross-package/codegraph-control/runtime/node_modules/@colbymchenry/codegraph-darwin-arm64/bin/codegraph",
+        "args": [
+          "serve",
+          "--mcp",
+          "--path",
+          "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace"
+        ],
+        "cwd": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/workspace",
+        "env": {
+          "PATH": "$USER_HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/usr/local/go/bin:/Applications/quarto/bin:$USER_HOME/.local/bin:/Applications/ChatGPT.app/Contents/Resources/codex-cli/codex-path:$USER_HOME/.codex$TEMP Support/fnm:/opt/homebrew/bin:$USER_HOME/.npm-global/bin:$USER_HOME/.deno/bin:$USER_HOME/micromamba/condabin:$USER_HOME/.pyenv/shims:$USER_HOME/.pyenv/bin:/opt/homebrew/opt/mysql-client/bin:/usr/local/opt/mysql-client/bin:$USER_HOME/.bun/bin:$USER_HOME/.docker/bin:$USER_HOME/Library/pnpm:$USER_HOME/opt/anaconda3/bin:/opt/homebrew/sbin:$USER_HOME/.cargo/bin:$USER_HOME/.rover/bin:$USER_HOME/.foundry/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/bin:$USER_HOME/.lmstudio/bin:$USER_HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/Applications/ChatGPT.app/Contents/Resources:/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS:$USER_HOME/.docker/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$USER_HOME/.orbstack/bin:$USER_HOME/.local/bin",
+          "TMPDIR": "$TEMP/",
+          "LANG": "C.UTF-8",
+          "LC_ALL": "C.UTF-8",
+          "HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/home",
+          "XDG_CONFIG_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/config",
+          "XDG_CACHE_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/cache",
+          "XDG_DATA_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/data",
+          "CODEX_HOME": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/codex",
+          "CLAUDE_CONFIG_DIR": "$STUDY/runs/vue-type-impact-heldout-grading-v2-r2-codegraph/provider-state/codegraph/claude",
+          "CODEGRAPH_TELEMETRY": "0",
+          "DO_NOT_TRACK": "1",
+          "CODEGRAPH_NO_UPDATE_CHECK": "1",
+          "CODEGRAPH_NO_INSTALL_REFRESH": "1",
+          "CODEGRAPH_NO_DOWNLOAD": "1",
+          "CODEGRAPH_MCP_TOOLS": "explore,node,search,callers,callees,impact,files,status"
+        },
+        "startup_timeout_sec": 600,
+        "tool_timeout_sec": 180,
+        "tools": [
+          "codegraph_explore",
+          "codegraph_node",
+          "codegraph_search",
+          "codegraph_callers",
+          "codegraph_callees",
+          "codegraph_impact",
+          "codegraph_files",
+          "codegraph_status"
+        ]
+      },
+      "readiness": {
+        "ready": true,
+        "reasons": []
+      },
+      "readyAt": "2026-11-07T00:23:21.660Z"
+    }
+  }
+]
